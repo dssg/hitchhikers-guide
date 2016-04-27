@@ -73,6 +73,14 @@ Anaconda includes Python, `conda` (a package and environment manager) and a bunc
 *   [Installation guide](https://www.continuum.io/downloads#_macosx) (Use Anaconda with Python 2.7)
 *   [Documentation](http://conda.pydata.org/docs/)
 
+
+Once Anaconda is installed, run the following to install DSSG required Python packages:
+
+```bash
+curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/prerequisites/requirements.txt -o dssg-requirements.txt
+conda install --file dssg-requirements.txt
+```
+
 Note for advanced users: You can install anaconda using `brew`. Run `brew cask info anaconda` for details.
 
 #### Option B - Install Miniconda
@@ -81,6 +89,13 @@ Miniconda is a light-weight version of Anaconda, it only includes Python and  `c
 
 *   [Installation guide](http://conda.pydata.org/docs/install/quick.html#os-x-miniconda-install) (Use Miniconda with Python 2.7)
 *   [Documentation](http://conda.pydata.org/docs/)
+
+Once Miniconda is installed, run the following to install DSSG required Python packages:
+
+```bash
+curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/prerequisites/requirements.txt -o dssg-requirements.txt
+conda install --file dssg-requirements.txt
+```
 
 Note for advanced users: You can install miniconda using `brew`. Run `brew cask info miniconda` for details.
 
@@ -93,6 +108,9 @@ If you don't want to install Anaconda/Miniconda, you can install Python directly
 brew install python
 #To install virtual env
 pip install virtualenv
+#To install dssg required python packages
+curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/prerequisites/requirements.txt -o dssg-requirements.txt
+pip install -r dssg-requirements.txt
 ```
 
 Nice guide to use [virtualenv](http://docs.python-guide.org/en/latest/starting/install/osx/).
