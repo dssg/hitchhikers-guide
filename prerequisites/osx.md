@@ -1,4 +1,8 @@
-# Installing DSSG pre-requirements on OS X
+# Installing DSSG pre-requisites on OS X
+
+This guide will help you install all pre-requisites to be ready for the summer.
+
+
 
 ## Step 1. Install Homebrew
 
@@ -17,6 +21,24 @@ brew install anything
 ```
 
 Awesome!
+
+
+
+If that doesn't work, you need to add the following to your PATH:
+
+```bash
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+```
+
+If you don't know how to do that, run this:
+
+```bash
+echo 'export PATH=/usr/local/bin:/usr/local/sbin:$PATH' >> ~/.profile
+```
+
+If still not working. [Ask for help](https://github.com/dssg/hitchhikers-guide/blob/master/prerequisites/osx.md#asking-for-help).
+
+
 
 ## Step 2. Install tools
 
@@ -38,21 +60,51 @@ Text editors:
 
 **Note:** applications installed via `brew cask install` will be available in `~/Applications`
 
+
+
 ## Step 3. Install Python tools
 
 For managing your python environments and packages, we recommend to use `conda`, but you can also use `virtualenv`and `pip`.
 
 #### Option A - Install Anaconda (recommended for beginners)
 
-#### Option B - Install miniconda
+Anaconda includes Python, `conda` (a package and environment manager) and a bunch of [Python packages](https://docs.continuum.io/anaconda/pkg-docs). After installing Anaconda you'll have everything to get started, but it requires ~3GB of disk space.
 
-#### Option C - Install `pip` and `virtualenv`
+*   [Installation guide](https://www.continuum.io/downloads#_macosx) (Use Anaconda with Python 2.7)
+*   [Documentation](http://conda.pydata.org/docs/)
 
-# How to ask for help?
+Note for advanced users: You can install anaconda using `brew`. Run `brew cask info anaconda` for details.
 
-#### Check closed issues
+#### Option B - Install Miniconda
 
-#### Open an issue
+Miniconda is a light-weight version of Anaconda, it only includes Python and  `conda`, you can later install only the Python packages that you'll need.
 
-#### Contact
+*   [Installation guide](http://conda.pydata.org/docs/install/quick.html#os-x-miniconda-install) (Use Miniconda with Python 2.7)
+*   [Documentation](http://conda.pydata.org/docs/)
 
+Note for advanced users: You can install miniconda using `brew`. Run `brew cask info miniconda` for details.
+
+#### Option C - Python manual installation + `pip ` + `virtualenv`
+
+If you don't want to install Anaconda/Miniconda, you can install Python directly from homebrew and manage your packages with `pip` and virtual environments with `virtualenv`.
+
+```bash
+#To install Python 2 and pip
+brew install python
+#To install virtual env
+pip install virtualenv
+```
+
+Nice guide to use [virtualenv](http://docs.python-guide.org/en/latest/starting/install/osx/).
+
+*Note: The caveat of using `pip` directly instead of `conda`, is that `conda` will take care of external dependencies for you (some Python packages depend on non-Python packages to work). But you can install those with `brew`.*
+
+
+
+# Asking for help
+
+We just started this repo but we want the [issues section](https://github.com/dssg/hitchhikers-guide/issues) to be a knowledge base for common problems.
+
+If you have any trouble installing anything check closed issues. If you don't find the answer, feel free to [open an issue](https://github.com/dssg/hitchhikers-guide/issues/new) and someone will help you.
+
+*To open issues, you need to create a Github account (you'll need it for the summer anyway).*
