@@ -36,7 +36,7 @@ If you don't know how to do that, run this:
 echo 'export PATH=/usr/local/bin:/usr/local/sbin:$PATH' >> ~/.profile
 ```
 
-If still not working. [Ask for help](https://github.com/dssg/hitchhikers-guide/blob/master/prerequisites/osx.md#asking-for-help).
+If still not working. [Ask for help](https://github.com/dssg/hitchhikers-guide/blob/master/prerequisites/README.md#asking-for-help).
 
 
 
@@ -116,13 +116,3 @@ pip install -r dssg-requirements.txt
 Nice guide to use [virtualenv](http://docs.python-guide.org/en/latest/starting/install/osx/).
 
 *Note: The caveat of using `pip` directly instead of `conda`, is that `conda` will take care of external dependencies for you (some Python packages depend on non-Python packages to work). But you can install those with `brew`.*
-
-
-
-# Asking for help
-
-We just started this repo but we want the [issues section](https://github.com/dssg/hitchhikers-guide/issues) to be a knowledge base for common problems.
-
-If you have any trouble installing anything check closed issues. If you don't find the answer, feel free to [open an issue](https://github.com/dssg/hitchhikers-guide/issues/new) and someone will help you.
-
-*To open issues, you need to create a Github account (you'll need it for the summer anyway).*
