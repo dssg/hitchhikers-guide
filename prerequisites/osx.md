@@ -83,7 +83,7 @@ conda install --file dssg-requirements.txt
 
 Note for advanced users: You can install anaconda using `brew`. Run `brew cask info anaconda` for details.
 
-#### Option B - Install Miniconda
+#### Option B - Install Miniconda (recommended for beginnners without much space disk left)
 
 Miniconda is a light-weight version of Anaconda, it only includes Python and  `conda`, you can later install only the Python packages that you'll need.
 
@@ -99,7 +99,7 @@ conda install --file dssg-requirements.txt
 
 Note for advanced users: You can install miniconda using `brew`. Run `brew cask info miniconda` for details.
 
-#### Option C - Python manual installation + `pip ` + `virtualenv`
+#### Option C - Python manual installation + `pip ` + `virtualenv` (only if you like to live dangerously)
 
 If you don't want to install Anaconda/Miniconda, you can install Python directly from homebrew and manage your packages with `pip` and virtual environments with `virtualenv`.
 
