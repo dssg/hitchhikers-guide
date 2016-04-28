@@ -17,15 +17,14 @@ In order to be ready for the summer, you need to install some packages on your c
         *   psycopg2
         *   ipython
         *   jupyter
+* R
 
 ### Optional
 
-*   R
 *   RStudio
 *   DBeaver
-*   Tableo (students can request a free license)
+*   Tableau (students can request a free license)
 *   Sublime Text/Atom
-
 
 
 ## How to install pre-requisites?

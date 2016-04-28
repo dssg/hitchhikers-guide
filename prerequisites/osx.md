@@ -47,14 +47,12 @@ If still not working. [Ask for help](https://github.com/dssg/hitchhikers-guide/b
 1.  SSH - this comes already installed with OS X
 2.  Git - this comes already installed with OS X
 3.  psql (PostgreSQL CLI) - `brew install postgresql`
+4.  R - `brew install r `
 
 ### Other useful tools
 
-Text editors:
-
 *   Sublime Text - `brew cask install sublime-text`
 *   Atom - `brew cask install atom`
-*   R - `brew install r `
 *   Rstudio - `brew cask install rstudio`
 *   DBeaver - `brew tap caskroom/versions; brew cask install dbeaver-community`
 
