@@ -49,6 +49,7 @@ You will be running code and storing project data on Amazon Web Services (AWS) m
 [7]: http://www-users.york.ac.uk/~mijp1/teaching/2nd_year_Comp_Lab/guides/grep_awk_sed.pdf
 
 **Python**
+
 Python is the language of choice here at the Fellowship. If you’re only going to learn one programming language, learn Python! It’s powerful, expressive, and easy to read (even by non-programmers).
 - **Python Package & Environment Management:** To properly create a Python environment, we recommend you use [Anaconda][8] or [Miniconda][9]. If you feel adventurous, feel free to use pip + virtualenv.
 - **Python Programming Resources: **
@@ -70,7 +71,8 @@ Python is the language of choice here at the Fellowship. If you’re only going 
 [15]: https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks
 
 
-** R ** 
+**R** 
+
 R is an open-source programming language for statistical analysis, with lots of great packages for modeling and visualization. 
 - [RStudio (IDE made for R)][16]
 - [Shiny][17] - Shiny is a web framework for R, so that you can build interactive visualizations and web widgets. You can use this to prototype tools for project partners to visualize and understand your analyses.
@@ -79,6 +81,7 @@ R is an open-source programming language for statistical analysis, with lots of 
 [17]: http://www.shinyapps.io/
 
 **Databases**
+
 - We typically use postgres for our projects (and Redshift or mongodb when necessary). That will be installed on the server but you need a client to connect to it:
    - [Dbeaver][18] is a free database access tool that allows you to easily query different types of databases.
    - [psql][19] is a powerful command line tool to interact with Postgres databases
@@ -90,6 +93,7 @@ R is an open-source programming language for statistical analysis, with lots of 
 [21]: https://gist.github.com/hofmannsven/9164408
 
 **Git and Github**
+
 Working on code together is almost impossible without using a version control system. This summer, we’ll be using Git. Our code will be stored on Github. These are fantastic tools for any software project.
 - [Installing Git][22]
 - [Complete Beginner’s Guide to Git and Github][23]
@@ -101,7 +105,8 @@ Working on code together is almost impossible without using a version control sy
 [24]: https://guides.github.com/activities/hello-world/
 [25]: https://try.github.io/levels/1/challenges/1
 
-**Other Useful Tools **
+**Other Useful Tools**
+
 - Text Editors and/or IDEs: Unless you prefer to program using vim/emacs, we suggest you install a general purpose text editor, such as [Sublime Text][26].
 - [Tableau][27] is a good tool to explore and visualize data without using any programming. If you’re a student, you can request a free license. 
 
