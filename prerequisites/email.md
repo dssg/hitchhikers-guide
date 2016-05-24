@@ -52,7 +52,7 @@ You will be running code and storing project data on Amazon Web Services (AWS) m
 
 Python is the language of choice here at the Fellowship. If you’re only going to learn one programming language, learn Python! It’s powerful, expressive, and easy to read (even by non-programmers).
 - **Python Package & Environment Management:** To properly create a Python environment, we recommend you use [Anaconda][8] or [Miniconda][9]. If you feel adventurous, feel free to use pip + virtualenv.
-- **Python Programming Resources: **
+- **Python Programming Resources:**
   - [Writing efficient Python][10]
   - [Tips for Idiomatic Python][11]
   - [Introduction to Python debugging tools][12]
