@@ -12,7 +12,7 @@ In order to be ready for the summer, you need to install some packages on your c
     *   Anaconda/Miniconda or pip + virtualenv
     *   Packages
         *   pandas
-        *   matpotlib
+        *   matplotlib
         *   scikit-learn
         *   psycopg2
         *   ipython
@@ -32,6 +32,17 @@ In order to be ready for the summer, you need to install some packages on your c
 *   **OS X** users - Follow this [instructions](osx.md)
 *   **Linux** users - You probably know how to do it, but still [check this](https://github.com/dssg/hitchhikers-guide/blob/master/prerequisites/osx.md#step-3-install-python-tools) for information on Python tools
 *   **Windows** users - We don't have a guide yet (any volunteers?)
+
+## Try it out!
+
+You should give all installed software a quick spin to check that it did install. For your python packages, try to import them. Type `python` in your shell, and then once you are in your python session, try for example `import pandas`, `import matplotlib`, and so on. (You can quit with `exit()`.) Also try `ipython` and `jupyter notebook` in your terminal, and see if you get any errors.
+
+Similarly, try `psql` in your terminal; it should reply 
+```
+psql: could not connect to server: No such file or directory
+```
+
+`ssh` should print a 'helpful' message, and `R` should drop you into an R session that you can quit with `q()`.
 
 ## SSH Key Setup
 
