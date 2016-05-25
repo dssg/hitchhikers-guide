@@ -2,8 +2,8 @@
 We've distilled 4 years of [DSSG](http://dssg.uchicago.edu/) and [DSaPP](http://dsapp.uchicago.edu/) projects and many (sort of) early mornings spent waxing poetic over Dunkin Donuts into our idea of "what makes a data scientist for social good." This departs from the (already nebulous) definition of a data scientist, placing more weight on the ability to understand social context and to work with partners from nonprofits and government agencies. Here is our blood, sweat, and tears distilled into one Github repo/manifesto: *The Hitchhiker's Guide to DSSG*.
 
 There's a whole lot to know, so we split it up into 8 categories: 
-- **Programming,** because you'll need to be able to use a computer 
-- **Computer science,** because you'll have to 
+- **Programming,** because you'll need to tell your computer what to do, usually by writing code 
+- **Computer science,** because you'll need to manage your data and programs efficiently  
 - **Math and stats,** because [everything else in life is just applied math](https://xkcd.com/435/)
 - **Machine learning,** because you'll want to do predictive modeling or look for structure in your data 
 - **Social science,** because you need to understand how your work *can* and *can't* generalize
@@ -11,6 +11,7 @@ There's a whole lot to know, so we split it up into 8 categories:
 - **Privacy, ethics, and security,** because data is people
 - **Communications,** because you want your work to be implemented and understood
 - **Social issues,** because you care about people and need to think through the context you're working in
+
 
 As the saying goes, when at DSSG do as the cool kids and data witches do. But cool kids and data witches aren't built in a day. We get a lot of questions about what fellows need to be competitive applicants for the program, or to know before they arrive, and what they can expect to learn over the summer. The following five skill levels can help you gauge where you stand and what things would be useful to brush up on or seek out:   
 *   [Level 0 - Fellow](#fellow): what you should know before you arrive.
@@ -38,6 +39,7 @@ As the saying goes, when at DSSG do as the cool kids and data witches do. But co
 ###Computer Science
 
 ###Math and Stats
+
 
 
 ##Cool Kid 
@@ -68,8 +70,6 @@ econ macro/micro
 experiments
 A/B
 MAB
-
-
 
 
 ##Data Scientist for Social Good
@@ -129,7 +129,7 @@ record linkage (rule based and ml based)
 
 
 ###Scoping and Management
-[Usability and User Interface](tech-tutorials/usabilityandinterfaces/) 
+
 Project scoping
 Agile 
 Managing expectations with partners - how to ensure organizational support and how not to overpromise and underdeliver 
@@ -219,4 +219,26 @@ sound
 video
 network/graphs
 
+#DSSG Orientation
+Orientation (the first two weeks of the fellowship) will cover the following topics:
 
+The first two weeks of DSSG will include the following topics: 
+- [DSSG Culture and What to Expect](dssg-knowledge/logistics)
+- [Software Setup](tech-tutorials/softwaresetup)
+- [DSSG Logistics and Summer Overview](dssg-knowledge/logistics)
+- [Pipelines and Project Workflow](dssg-knowledge/pipelines)
+- [Git and Github](tech-tutorials/gitandgithub)
+- [DSSG: Making the Fellowship](dssg-knowledge/makingthefellowship)
+- [DSSG: Skills You Need to do Data Science for Social Good](dssg-knowledge/skillsyouneed)
+- [DSSG: The Work We Do](dssg-knowledge/workwedo)
+- [Command Line Tools](tech-tutorials/commandlinetools)
+- [Data Security Primer](tech-tutorials/datasecurityprimer)
+- [DSSG 2016 Project Overview](dssg-knowledge/projectoverview)
+- [Project Management: Partners and Communications](dssg-knowledge/projectmanagement)
+- [Data Exploration in Python](tech-tutorials/dataexplorationpython)
+- [Project Scoping](dssg-knowledge/projectscoping)
+- [CSV to DB](tech-tutorials/csvtodb)
+- [Usability and User Interface](tech-tutorials/usabilityandinterfaces/)
+- [Intro to Quantitative Social Science](dssg-knowledge/quantsocialscience/)
+- [Best Practices for Writing Legible, Good Code](dssg-knowledge/bestpractices/)
+- [Remotes, AWS & Pimp My Dotfiles](tech-tutorials/pimpmydotfiles/)
