@@ -31,7 +31,7 @@ Most data-science pipelines are powerful computer functions:
 * Pipelines make your analysis reproducible.
 
 
-![alt text](https://www.lucidchart.com/documents/view/82b6a627-ece5-4935-b5a3-657619f17853 "Pipeline Diagram")
+![alt text](https://www.lucidchart.com/publicSegments/view/6d86145d-48b4-44f7-bea1-e7dfbccd364f/image.png "Pipeline Diagram")
 
 
 ### Testing
