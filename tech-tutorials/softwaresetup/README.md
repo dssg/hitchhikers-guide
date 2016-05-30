@@ -9,17 +9,32 @@ Every team will settle on a specific setup with their tech mentors. This setup w
 - continuous testing tools
 - your version control workflow.
 
-Today, we're _not_ doing that. We're making sure that everybody has some basic tools they will need for the tutorials and the beginning of the fellowship, and that you can log into the server and database.
+Today, we're **not** doing that. We're making sure that everybody has some basic tools they will need for the tutorials and the beginning of the fellowship, and that you can log into the server and database.
 
 ### Format
 
-We'll do this workshop-style: Work through the prerequisites below, making sure that your software works. If you're done with one step, help the people around you. The tech mentors will hover around and help, too. Let's get this over with!
+Work through the prerequisites below, making sure that all the software you installed works.
+
+Affix three kinds of post-it notes to your laptop:
+- one with your operating system, e.g. 'Ubuntu 14.04'
+- if you get an app working (e.g. ssh), write its name on a **green** post-it and stick it to your screen
+- if you tried - but the app failed - write its name on a **red** post-it
+
+If you're stuck with a step, ask a person with a corresponding green post-it (and preferrably your operating system) for help.
+
+The tech mentors will hover around and help with red stickers.
+
+You will need a few credentials for training accounts. We'll post them up front.
+
+**Important**: The notes below aren't self-explanatory and will not cover all (or even the majority) of errors you might encounter. Make good use of the people in the room!
+
+Let's get this over with!
 
 ## Package Manager
 
 A package manager will make your life easier.
 - on Mac, install [Brew](http://brew.sh/)
-- on Linux, you're probably good
+- on Linux, you probably already have yum or apt
 - on Windows, you could install [Cygwin](https://www.cygwin.com/) to provide a lot of Linux-style functionality; ask Windows users around you for their preferred way to manage packages
 
 ## Git and GitHub Account
@@ -49,7 +64,7 @@ You can un-git the directory by deleting the `.git` folder: `rm -r .git` (or sim
 
 ## SSH / Putty
 
-1. You should have already generated a key pair, and sent the public key to Joe, who will have generated a user account on the server. (If not, follow the instructions on [GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), namely 'Generating a new SSH key' and 'Adding your SSH key to ssh-agent'. Windows users probably want to use [git bash](https://git-for-windows.github.io/) or [PuTTYgen](https://winscp.net/eng/docs/ui_puttygen)).
+1. You should have already generated a key pair, and sent the public key to Joe, who will have generated a user account on the server for you. (If not, follow the instructions on [GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), namely 'Generating a new SSH key' and 'Adding your SSH key to ssh-agent'. Name your key by your first initial + last name, like _jsmith_. Then send your _public_key to the box address we emailed you previously. Windows users probably want to use [git bash](https://git-for-windows.github.io/) or [PuTTYgen](https://winscp.net/eng/docs/ui_puttygen)).
 
 2. Use your private key file, your username on the server, and the server's URL to ssh into the server:
 ```
@@ -62,24 +77,23 @@ This should drop you into a shell on the server:
 
 If you run into an error, maybe the permissions on your private key are wrong? Do `chmod 600 pathtoyourkey` (with the correct path to your private key, of course).
 
-
 ## PSQL
 
-The server runs Postgres 9.4.7.
+The database server runs Postgres 9.4.7.
 
 1. Make sure you have the `psql` client installed; on Mac, this would be
 ```
 brew install postgresql
 ```
-On Ubuntu: ```sudo apt-get install postgresql-client-9.4```. This won't work for Ubuntu <= 14.4, which by default only packages 9.3; follow [these instructions](https://www.postgresql.org/download/linux/ubuntu/) in that case. (Though the older client seems to be happy to connect to the server, too.)
+On Ubuntu: ```apt-get install postgresql-client-9.4```. This won't work for Ubuntu <= 14.4, which by default only packages 9.3; in that case follow [these instructions](https://www.postgresql.org/download/linux/ubuntu/). (Though the older client seems to be happy to connect to the server, too.)
 
-For Windows, you might want to use DBeaver.
+For Windows - or if you want a graphical interface to databases - you might want to use [DBeaver](http://dbeaver.jkiss.org/).
 
 2. Once you have the postgres client installed, you can access the training database with it. However, the database server only allows access from the training server. Thus, you need to set up an SSH tunnel through the training server to the Postgres server:
 ```
 ssh -fNT -L 8888:POSTGRESURL:5432 -i pathtokey yourusername@SERVERURL
 ```
-where you need to substitute the URLs, the path to your private key, and your username on the training server. This command forwards the Postgres server's port 5432 to your laptop's port 8888, but through your account on the training server. So if you access your local port 8888 in the next step, you get forwarded to the Postgres server's port 5432 - but from the Postgres server's view, the traffic is now coming from the training server (instead of your laptop), and the training server is the only IP address that is allowed to access the postgres server.
+where you need to substitute the `POSTGRESURL`, `pathtokey`, `yourusername` and `SERVERURL` with the postgres server's URL, the local path to your private SSH (for the training server), your user name on the training server, and the training server's URL, respectively. This command forwards the Postgres server's port 5432 (which serves Postgres) to your laptop's port 8888, but through your account on the training server. So if you access your local port 8888 in the next step, you get forwarded to the Postgres server's port 5432 - but from the Postgres server's view, the traffic is now coming from the training server (instead of your laptop), and the training server is the only IP address that is allowed to access the postgres server.
 
 3. Connect to the Postgres database on the forwarded port
 ```
@@ -87,30 +101,42 @@ psql -h localhost -p 8888 -U USERNAME -d USERNAME
 ```
 where you need to replace `USERNAME` with the postgres [!] username. You then get prompted for a password. This is now the postgres server asking, so you need to reply with the corresponding password!
 
+This should drop you into a SQL shell on the database server.
 
+For fun, make a schema with your name, and then drop it again:
+```
+create schema jsmith;
+drop schema jsmith;
+```
 
+Note: After installing Postgres, you might have to add Postgres to your `PATH` (at least on OS X). You'd do this by adding a line to your `.bashrc`, similar to `export PATH=$PATH:/path/to/your/postgres/binaries`, and then re-loading your `.bashrc` file: `source ~/.bashrc`
 
+## Python
 
-## Python 2.7
-    *   Python
-    *   Anaconda/Miniconda or pip + virtualenv
-    *   Packages
-        *   pandas
-        *   matplotlib
-        *   scikit-learn
-        *   psycopg2
-        *   ipython
-        *   jupyter
+As said, your team will decide on which Python version (and versioning) to install. Thus, if you have any working setup already, don't break it (for now)! Just make sure you have the packages listed below installed.
 
+1. If you have no Python installed at all, [Anaconda](https://www.continuum.io/downloads) makes installing a lot of packages easy, and it comes with `jupyter notebook`. Go for Python 3.5.
+
+2. If you have a working Python installation, but you don't have `jupyter notebook`, [install jupyter](https://jupyter.readthedocs.io/en/latest/install.html).
+
+3. Make sure you have the following packages installed. If you use Anaconda, most of them will already be included. Simply call `conda install <packagename>`. Outside of conda, you might want to use `pip` to install packages instead. You'll need:
+ *   pandas
+ *   matplotlib
+ *   scikit-learn
+ *   psycopg2
+
+4. Try importing the packages in a Python shell and see if it works:
+```
+~$ python
+>>> import pandas
+>>> pandas.__version__
+'0.15.1'
+>>> 
+```
+(Note: The module name for scikit-learn is `sklearn`.)
+   
 ## R
 
-## Optionals
-DBeaver
-RStudio
+If you're on Mac or Windows, [download R](https://www.r-project.org/) and install it. (It seems that using `brew` with R is a [bit tricky](http://www.r-bloggers.com/installing-r-on-os-x-100-homebrew-edition/).) On Linux, R can probably be installed via your package manager.
 
-
-
-
-Notes:
-- changing $PATH and $PYTHONPATH via bash_rc or bash_profile might be necessary
-- permissions on SSH keys can cause trouble
+[RStudio](https://www.rstudio.com/) is a popular R IDE that you might want to install, too.
