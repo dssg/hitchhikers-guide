@@ -64,7 +64,7 @@ You can un-git the directory by deleting the `.git` folder: `rm -r .git` (or sim
 
 ## SSH / Putty
 
-1. You should have already generated a key pair, and sent the public key to Joe, who will have generated a user account on the server for you. (If not, follow the instructions on [GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), namely 'Generating a new SSH key' and 'Adding your SSH key to ssh-agent'. Name your key by your first initial + last name, like _jsmith_. Then send your _public_key to the box address we emailed you previously. Windows users probably want to use [git bash](https://git-for-windows.github.io/) or [PuTTYgen](https://winscp.net/eng/docs/ui_puttygen)).
+1. You should have already generated a key pair, and sent the public key to Joe, who will have generated a user account on the server for you. (If not, follow the instructions on [GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), namely 'Generating a new SSH key' and 'Adding your SSH key to ssh-agent'. Name your key by your first initial + last name, like _jsmith_. Then send your _public_ key to the box address we emailed you previously. Windows users probably want to use [git bash](https://git-for-windows.github.io/) or [PuTTYgen](https://winscp.net/eng/docs/ui_puttygen)).
 
 2. Use your private key file, your username on the server, and the server's URL to ssh into the server:
 ```
