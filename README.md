@@ -1,12 +1,12 @@
 #Curriculum Outline
-We've distilled 4 years of [DSSG](http://dssg.uchicago.edu/) and [DSaPP](http://dsapp.uchicago.edu/) projects and many (sort of) early mornings spent waxing poetic over Dunkin Donuts into our idea of "what makes a data scientist for social good." This departs from the (already nebulous) definition of a data scientist, placing more weight on the ability to understand social context and to work with partners from nonprofits and government agencies. Here is our blood, sweat, and tears distilled into one Github repo/manifesto: *The Hitchhiker's Guide to DSSG*.
+We've distilled 4 years of [DSSG](http://dssg.uchicago.edu/) and [DSaPP](http://dsapp.uchicago.edu/) experience and projects and many (sort of) early mornings spent waxing poetic over Dunkin Donuts into our idea of "what makes a data scientist for social good." This departs from the (already nebulous) definition of a data scientist, placing more weight on the ability to understand social context and to work with partners from nonprofits and government agencies. Here is our blood, sweat, and tears distilled into one Github repo/manifesto: *The Hitchhiker's Guide to DSSG*.
 
 There's a whole lot to know, so we split it up into 8 categories: 
 - **Programming,** because you'll need to tell your computer what to do, usually by writing code. 
-- **Computer science,** because you'll need to manage your data and programs efficiently.  
+- **Computer science,** because you'll need to do understand data structures and algorithms.  
 - **Math and stats,** because [everything else in life is just applied math](https://xkcd.com/435/).
-- **Machine learning,** because you'll want to do predictive modeling or look for structure in your data.
-- **Social science,** because you need to understand how your work *can* and *can't* generalize.
+- **Machine learning,** because you'll want to build predictive or descriptive models and will want them to learn and improve over time or.
+- **Social science,** because you need to understand causal inference and experiments.
 - **Scoping and project management,** because you'll need to turn a real world problem into something you can model.   
 - **Privacy, ethics, and security,** because data is people.
 - **Communications,** because you want your work to be implemented and understood.
@@ -22,7 +22,7 @@ If you are coming to DSSG, check out the [2016 orientation schedule](https://doc
 - **Teaching philosophy**:
    - *You get out what you put in.* Fellows are encouraged to take an active role in shaping and teaching the curriculum as well as learning from it. We will try to communicate the motivation behind everything we teach, so if you have an opinion of a better tool to use or way to teach the concept, we'd love to hear it.
    - *You learn best by doing.* Clearly motivate lessons and talks (*For tech sessions:* What task will require this skill or tool? What other tools exist to do similar things? Why use this tool instead of others? *For conceptual talks:* Why do we feel the need to present this topic? What are some concrete examples of it going well and going wrong in the past?)
-- Teaching sessions should last 45 minutes at the maximum and should be practical, how-to accompanied by a worksheet/exercises with solutions and a cheat sheet with relevant commands (where applicable). Include a slide that suggests more advanced or theoretical aspects of the topic for future fellow teachouts. Provide a summary, a list of commands, and links to further resources in a markdown file. See [very serious template](tech-tutorials/tutorialtemplate/).
+- Teaching sessions should last 45 minutes at the maximum and should be practical, accompanied by a worksheet/exercises with solutions and a cheat sheet with relevant commands (where applicable). Include a slide that suggests more advanced or theoretical aspects of the topic for future fellow teachouts. Provide a summary, a list of commands, and links to further resources in a markdown file. See [very serious template](tech-tutorials/tutorialtemplate/).
 
 Orientation (the first two weeks of the fellowship) will include the following:
 - DSSG Knowledge
