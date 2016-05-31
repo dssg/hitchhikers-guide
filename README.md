@@ -5,7 +5,7 @@ There's a whole lot to know, so we split it up into 8 categories:
 - **Programming,** because you'll need to tell your computer what to do, usually by writing code. 
 - **Computer science,** because you'll need to do understand data structures and algorithms.  
 - **Math and stats,** because [everything else in life is just applied math](https://xkcd.com/435/).
-- **Machine learning,** because you'll want to build predictive or descriptive models and will want them to learn and improve over time or.
+- **Machine learning,** because you'll want to build predictive or descriptive models and will want them to learn and improve over time.
 - **Social science,** because you need to understand causal inference and experiments.
 - **Scoping and project management,** because you'll need to turn a real world problem into something you can model.   
 - **Privacy, ethics, and security,** because data is people.
