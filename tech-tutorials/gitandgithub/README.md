@@ -6,9 +6,9 @@
 
 [Image source](https://xkcd.com/1597/)
 
-Git is a *free* version control system which helps you keep track of file changes in your computer. Think of it as a time machine that lets you go back to any point in your projects development.
+Git is a *free* version control system which helps you keep track of file changes in your computer. Think of it as a time machine that lets you go back to any point in your project development.
 
-While git is most used in software development, you can use it for anything you like ([writing books](https://www.gitbook.com/), for example), as long as your files are plain text (e.g. source code, latex files), you won't have any issue with git.
+While git is most used in software development, you can use it for anything you like ([writing books](https://www.gitbook.com/), for example), as long as your files are plain text (e.g. source code, latex files), you won't have any issue with git (this guide is actually hosted using git, git-ception!).
 
 Simply speaking, git saves snapshots of your work called `commits`, after a `commit` is done, you can go back and forth to check the state of your project, maybe you were experimenting with some new function and realized the old one was better, no problem, you can bring back anything!
 
@@ -16,7 +16,7 @@ Simply speaking, git saves snapshots of your work called `commits`, after a `com
 
 [Image source](https://xkcd.com/1296/)
 
-Every version of your project is stored in your computer, but we know that's dangerous, so you can also host a remote copy (think of this as a backup, just like Dropbox)
+The entire development of your project is stored in your computer, but we know that's dangerous, so you can also host a remote copy (just like you do with Dropbox or Google Drive).
 
 ## What is github?
 
@@ -32,14 +32,14 @@ OS X users: use homebrew, if you don't know what homebrew is, you probably didn'
 
 ## Can I get buttons and stuff?
 
-git is a command line tool, which means it doesn't have a graphical user interface. Using the git cli is the most flexible way of doing it and if you are working on a remote serve (like in dssg) is best way of using it. However, if you still want a GUI (for using git in your computer), here are some options available:
+git is a command line tool, which means it doesn't have a graphical user interface. Using the git cli is the most flexible way of working with git, and if you are working on a remote serve (like in dssg) is best way of doing it.
 
-*   [Some options for Mac](https://git-scm.com/download/gui/mac)
+However, if you still want a GUI (e.g. for using git in your computer), here are some options available:
+
+*   [Options for Mac](https://git-scm.com/download/gui/mac)
 *   [GitKraken](https://www.gitkraken.com/) (Windows and Mac)
 
 ## Ok, now how do I do the magic?
-
-Here you'll find some great resources to get started.
 
 ### Resources for beginners
 
@@ -50,3 +50,11 @@ Here you'll find some great resources to get started.
 
 * [A successful git branching model](http://nvie.com/posts/a-successful-git-branching-model/) - A model to work with git using branches. This model is widely used in the open source community.
 
+
+## READ THIS BEFORE YOU LEAVE  (please)
+
+By default, git saves *everything* inside the folder where you initiated the repo. When working on software projects there are files you DON'T want to save on git (e.g. database passwords, especially if you have a remote copy.
+
+To prevent git from saving files, create a file and name it `.gitignore` in the folder where you ran `git init`. In such file, you can add rules to let git know what you want it to ignore. For more information, [read this](https://git-scm.com/docs/gitignore).
+
+Besides sensitive data, you want to also ignore intermediate files generated automatically by some programming languages or libraries. There are [templates](https://github.com/github/gitignore) available depending on the tools you use. There's also a nice [command line tool](https://github.com/karan/joe) to fetch such templates.
