@@ -1,7 +1,7 @@
 # Summer Overview and What to Expect
 
 ## Motivation
-* Introduce key people, typical week, and summer overview.
+* Introduce key people, [typical week](https://github.com/dssg/dssg-manual/edit/master/manual.md#a-typical-week), and summer overview.
  
 ## Scheduling and Typical Week at DSSG 
 There will be (on average) one daily all-DSSG event. It will be clearly stated what is and isn’t mandatory.
