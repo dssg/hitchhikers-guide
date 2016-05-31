@@ -20,7 +20,7 @@ In this session, we will introduce the data pipeline, an approach that helps you
 ## Concepts
 
 A *data pipeline* is a set of code that handles all the computational tasks your project needs from beginning to end. Here's what a typical data pipeline looks like:
-![alt text](https://www.lucidchart.com/publicSegments/view/c3e9a1ba-2d26-4407-8b8e-d3cbf88ad68f/image.png "Pipeline Diagram")
+![alt text](https://www.lucidchart.com/publicSegments/view/7df62d31-e788-44ce-96be-eb184a25bb2e/image.png "Pipeline Diagram")
 
 Many data pipelines are powerful computer functions: you give them inputs (data and a list of model criteria) and it gives you outputs (predictions and performance metrics). For example, we can build a very, very simple pipeline for the scikit-learn Boston dataset:
  ![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/pipelines/very_very_simple_pipeline.png "Very Simple Pipeline")
