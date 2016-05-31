@@ -31,7 +31,7 @@ Most data-science pipelines are powerful computer functions:
 * Pipelines make your analysis reproducible.
 
 
-![alt text](https://www.lucidchart.com/publicSegments/view/6d86145d-48b4-44f7-bea1-e7dfbccd364f/image.png "Pipeline Diagram")
+![alt text](https://www.lucidchart.com/publicSegments/view/c3e9a1ba-2d26-4407-8b8e-d3cbf88ad68f/image.png "Pipeline Diagram")
 
 
 ### Testing
@@ -55,7 +55,7 @@ Most data-science pipelines are powerful computer functions:
 
 
 ## Resources
-* [Example pipeline](https//github.com/edublancas/ds-template)
+* [Police Pipeline](https://github.com/dssg/police-eis)
 * [Data Science Toolbox](http://datasciencetoolbox.org/)
 
 
