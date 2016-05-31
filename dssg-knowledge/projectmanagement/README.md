@@ -9,5 +9,6 @@ This is many fellows' first time working in projects on teams and with partners 
 - How does PM work at DSSG and within their team? Which media to use when? How often should you check them? Trello, email, Slack, etc. 
 - Calendars and scheduling - do they have access to the correct calendars, what are norms if something is moved 
 - Refining project scope over the summer - how to talk to (and handle disagreements with) partners and deal with pushback, dealing with change and ambiguity, what if you have ethical concerns about your project
+- Each project will have a different goal - some of them will produce analysis reports, some produce insights based on models, some generate ranked/scored lists, and some will be software prototypes. All will evolve over the summer, and not all will be implemented. Some will be implemented, some will lead to pilots and field trials, and some die on the vine due to unforeseen circumstances with data or personnel at partner organizations. A handful will continue at DSaPP. Projects won’t be production code, but must be reproducible (run on different machine without prior knowledge). Many teams use out-of-the-box ML because ETL takes time, and results are more important than methods.
 
 ## Resources
