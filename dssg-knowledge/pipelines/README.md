@@ -3,6 +3,7 @@
 ## Motivation
 
 Most data-science projects have the same set of tasks:
+
 1. ETL: extracting data from its source, transforming it, then loading it into a database.
 2. Preprocess data: This might include imputing missing values and choosing the training and testing sets.
 3. Train the model(s): You can try different algorithms, features, and so on. 
@@ -36,6 +37,8 @@ Just like other computer functions, this approach gives you two important benefi
 It also allows us to store the inputs and outputs so we have a complete, easy-to-use history of what we did.
 
 Isn't that nice?
+
+We will go over data pipeline we developed for our police project that started at DSSG 2015.
 
 
 
