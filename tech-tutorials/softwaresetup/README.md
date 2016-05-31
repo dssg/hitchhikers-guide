@@ -43,23 +43,23 @@ A package manager will make your life easier.
 2. Add your username to the spreadsheet on Slack. We'll add your username to the DSSG organization on GitHub.
 
 3. Install Git:
-```
-brew update
-brew install git
-```
-(and similar for `yum` or `apt`). On Windows, Cygwin can provide git.
+ ```
+ brew update
+ brew install git
+ ```
+ (and similar for `yum` or `apt`). On Windows, Cygwin can provide git.
 
 4. Configure Git and GitHub. GitHub has, as always, [great instructions for that](https://help.github.com/articles/set-up-git/).
 
 5. Test your installation. For example, create a directory, and make it a git repo:
-```
-mkdir mytestdir
-cd mytestdir/
-git init
-```
-```
-> Initialized empty Git repository in [...]/mytestdir/.git/
-```
+ ```
+ mkdir mytestdir
+ cd mytestdir/
+ git init
+ ```
+ ```
+ > Initialized empty Git repository in [...]/mytestdir/.git/
+ ```
 You can un-git the directory by deleting the `.git` folder: `rm -r .git` (or simply delete `mytestdir` entirely).
 
 ## SSH / Putty
@@ -67,13 +67,13 @@ You can un-git the directory by deleting the `.git` folder: `rm -r .git` (or sim
 1. You should have already generated a key pair, and sent the public key to Joe, who will have generated a user account on the server for you. (If not, follow the instructions on [GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), namely 'Generating a new SSH key' and 'Adding your SSH key to ssh-agent'. Name your key by your first initial + last name, like _jsmith_. Then send your _public_ key to the box address we emailed you previously. Windows users probably want to use [git bash](https://git-for-windows.github.io/) or [PuTTYgen](https://winscp.net/eng/docs/ui_puttygen)).
 
 2. Use your private key file, your username on the server, and the server's URL to ssh into the server:
-```
-ssh -i pathtoyourkey yourusername@serverurl
-```
-This should drop you into a shell on the server:
-```
-> jsmith@servername: ~$
-```
+ ```
+ ssh -i pathtoyourkey yourusername@serverurl
+ ```
+ This should drop you into a shell on the server:
+ ```
+ > jsmith@servername: ~$
+ ```
 
 If you run into an error, maybe the permissions on your private key are wrong? Do `chmod 600 pathtoyourkey` (with the correct path to your private key, of course).
 
@@ -82,32 +82,32 @@ If you run into an error, maybe the permissions on your private key are wrong? D
 The database server runs Postgres 9.4.7.
 
 1. Make sure you have the `psql` client installed; on Mac, this would be
-```
-brew install postgresql
-```
-On Ubuntu: ```apt-get install postgresql-client-9.4```. This won't work for Ubuntu <= 14.4, which by default only packages 9.3; in that case follow [these instructions](https://www.postgresql.org/download/linux/ubuntu/). (Though the older client seems to be happy to connect to the server, too.)
+ ```
+ brew install postgresql
+ ```
+ On Ubuntu: ```apt-get install postgresql-client-9.4```. This won't work for  Ubuntu <= 14.4, which by default only packages 9.3; in that case follow [the se  instructions](https://www.postgresql.org/download/linux/ubuntu/). (Though th e  older client seems to be happy to connect to the server, too.) 
+ 
+ For Windows - or if you want a graphical interface to databases - you might  want to use [DBeaver](http://dbeaver.jkiss.org/).
 
-For Windows - or if you want a graphical interface to databases - you might want to use [DBeaver](http://dbeaver.jkiss.org/).
-
-2. Once you have the postgres client installed, you can access the training database with it. However, the database server only allows access from the training server. Thus, you need to set up an SSH tunnel through the training server to the Postgres server:
-```
-ssh -fNT -L 8888:POSTGRESURL:5432 -i pathtokey yourusername@SERVERURL
-```
-where you need to substitute the `POSTGRESURL`, `pathtokey`, `yourusername` and `SERVERURL` with the postgres server's URL, the local path to your private SSH (for the training server), your user name on the training server, and the training server's URL, respectively. This command forwards the Postgres server's port 5432 (which serves Postgres) to your laptop's port 8888, but through your account on the training server. So if you access your local port 8888 in the next step, you get forwarded to the Postgres server's port 5432 - but from the Postgres server's view, the traffic is now coming from the training server (instead of your laptop), and the training server is the only IP address that is allowed to access the postgres server.
+2. Once you have the postgres client installed, you can access the training database with it. However, the database server only allows access from the training server. Thus, you need to set up an SSH tunnel through the training  server to the Postgres server:
+ ```
+ ssh -fNT -L 8888:POSTGRESURL:5432 -i pathtokey yourusername@SERVERURL
+ ```
+ where you need to substitute the `POSTGRESURL`, `pathtokey`, `yourusername` and `SERVERURL` with the postgres server's URL, the local path to your private SSH (for the training server), your user name on the training server, and the training server's URL, respectively. This command forwards the Postgres server's port 5432 (which serves Postgres) to your laptop's port 8888, but through your account on the training server. So if you access your local port 8888 in the next step, you get forwarded to the Postgres server's port 5432 - but from the Postgres server's view, the traffic is now coming from the training server (instead of your laptop), and the training server is the only IP address that is allowed to access the postgres server.
 
 3. Connect to the Postgres database on the forwarded port
-```
-psql -h localhost -p 8888 -U USERNAME -d USERNAME
-```
-where you need to replace `USERNAME` with the postgres [!] username. You then get prompted for a password. This is now the postgres server asking, so you need to reply with the corresponding password!
+ ```
+ psql -h localhost -p 8888 -U USERNAME -d USERNAME
+ ```
+ where you need to replace `USERNAME` with the postgres [!] username. You then get prompted for a password. This is now the postgres server asking, so you need to reply with the corresponding password!
 
-This should drop you into a SQL shell on the database server.
-
-For fun, make a schema with your name, and then drop it again:
-```
-create schema jsmith;
-drop schema jsmith;
-```
+ This should drop you into a SQL shell on the database server.
+ 
+ For fun, make a schema with your name, and then drop it again:
+ ```
+ create schema jsmith;
+ drop schema jsmith;
+ ```
 
 Note: After installing Postgres, you might have to add Postgres to your `PATH` (at least on OS X). You'd do this by adding a line to your `.bashrc`, similar to `export PATH=$PATH:/path/to/your/postgres/binaries`, and then re-loading your `.bashrc` file: `source ~/.bashrc`
 
@@ -120,20 +120,20 @@ As said, your team will decide on which Python version (and versioning) to insta
 2. If you have a working Python installation, but you don't have `jupyter notebook`, [install jupyter](https://jupyter.readthedocs.io/en/latest/install.html).
 
 3. Make sure you have the following packages installed. If you use Anaconda, most of them will already be included. Simply call `conda install <packagename>`. Outside of conda, you might want to use `pip` to install packages instead. You'll need:
- *   pandas
- *   matplotlib
- *   scikit-learn
- *   psycopg2
+  *   pandas
+  *   matplotlib
+  *   scikit-learn
+  *   psycopg2
 
 4. Try importing the packages in a Python shell and see if it works:
-```
-~$ python
->>> import pandas
->>> pandas.__version__
-'0.15.1'
->>> 
-```
-(Note: The module name for scikit-learn is `sklearn`.)
+ ```
+ ~$ python
+ >>> import pandas
+ >>> pandas.__version__
+ '0.15.1'
+ >>> 
+ ```
+ (Note: The module name for scikit-learn is `sklearn`.)
    
 ## R
 
