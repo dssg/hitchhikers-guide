@@ -1,14 +1,58 @@
 # Pipelines and Project Workflow
 
 ## Motivation
-Every DSSG project uses a *data pipeline*: a set of code that makes repeating and extending your data processing and analysis steps relatively simple.
 
-Every team will develop some sort of pipeline for their project. Less experienced teams haven’t had experience structuring their workflows, and we want them to have a decent example so they don’t waste time slowly developing a problematic pipeline. Although teams aren’t necessarily writing production code, they will need to hand over an end-to-end working product at the end of the summer. They need to document all ETL and modeling, so that someone unfamiliar with the project can *understand what they did* as well as *run their code and reproduce their results*. 
+We've all done data analysis where we write a line of code to fit a model, look at the results, write another line of code to fit a model, look at the results, and so on. For ex    ample, we might fit three regression models to the sklearn Boston data:
+![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/pipelines/no_pipeline_analysis.png "Pipeline-less Analysis")
 
+What if we were to try more ridge hyperparameters? lasso regression? subsets of features? or even incorporating external data sources? We end up writing a fair amount of code -- three or more lines for each combination. We also struggle to keep track of the consequential choices we made along the way. The result: frustration, wasted time, and sub-optimal model performance.
 
+In this session, we introduce the data pipeline.
 
 
 ## Concepts
+
+A *data pipeline* is a set of code that handles all the computational tasks your project needs from beginning to end. Here's what a typical data pipeline looks like:
+![alt text](https://www.lucidchart.com/publicSegments/view/c3e9a1ba-2d26-4407-8b8e-d3cbf88ad68f/image.png "Pipeline Diagram")
+
+For the Boston example, 
+
+
+You can think about a data pipeline as a powerful computer function: you give it inputs (data and modeling choices) and it gives you outputs (predictions and performance metrics). 
+
+
+* Abstraction: Once the pipeline -- or even parts of the pipeline -- perform well, you can focus on the inputs and outputs rather than what's happening underneath. Isn't that nice?
+* Reusability: Not only can you reuse code; you can also vary the pipeline inputs and see how the outputs change. 
+
+In the Boston example, we could write a simple function that takes the classifier, its hyperparameters, and the data as inputs and produces the score as an output. Then we'd only need to write one short line of code for each combination rather than three:
+![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/pipelines/fit_and_score_function.png "Pipeline Analysis")
+
+Reusability can be within a project (e.g. last year's project tried lots of models to identify Charlotte-Mecklenburg police officers at risk of adverse incidents) or even between projects (e.g. this year's project will learn how well our CMPD pipeline and results hold for the Metropolitan Nashville Police Department). 
+
+
+* You can try lots of inputs and track the outputs (e.g. how much do the results change with changes in the inputs?) (It standardizes outputs, makes them comparable. e.g. makes it easier to track whether observations get dropped and whether the comparisons are fair, e.g. without pipeline, we might run a random forest with different options than logistic regression.)
+* You can modify the pipeline to try new things. For example, you can try random forest, logistic regression, SVMs, naive Bayes, and many other algorithms. You can also try many hyperparameters for each.
+* Pipelines make your analysis reproducible.
+ 
+
+
+
+
+
+ 
+
+Every DSSG project will use a data pipeline. The specifics may vary, but  
+
+ 
+
+ makes repeating and extending your data processing and analysis steps relatively simple.
+
+In this session, we introduce the concept of a data pipeline. Data pipelines are 
+
+ 
+Every team will develop some sort of pipeline for their project. Less experienced teams haven’t had experience structuring their workflows, and we want them to have a decent example so they don’t waste time slowly developing a problematic pipeline. Although teams aren’t necessarily writing production code, they will need to hand over an end-to-end working product at the end of the summer. They need to document all ETL and modeling, so that someone unfamiliar with the project can *understand what they did* as well as *run their code and reproduce their results*. 
+
+
 
 Connect this to the [summer schedule](https://drive.google.com/file/d/0B785LvQJaoZMNktzekNrT1VhY2s/view) (approximately where will you be at each week) and an example pipeline.
 
@@ -32,6 +76,10 @@ Most data-science pipelines are powerful computer functions:
 
 
 ![alt text](https://www.lucidchart.com/publicSegments/view/c3e9a1ba-2d26-4407-8b8e-d3cbf88ad68f/image.png "Pipeline Diagram")
+
+
+Abstraction 
+
 
 
 ### Testing
