@@ -5,14 +5,14 @@
 Most data-science projects have the same set of tasks:
 
 1. ETL: extracting data from its source, transforming it, then loading it into a database.
-2. Preprocess data: This might include imputing missing values and choosing the training and testing sets.
+2. Pre-process data: This might include imputing missing values and choosing the training and testing sets.
 3. Train the model(s): You can try different algorithms, features, and so on. 
 4. Assess performance on the test set: Using an appropriate accuracy metric (e.g. AUC), examine the performance of your model "out of sample." 
 5. Think of new things to try. Repeat steps 1 through 4 as appropriate. 
 
 Often, by the time you build a couple dozen models, you're struggling to remember the details of each. What features did you use for each? What training and testing split?  What hyperparameters?
 
-Your code might be getting messy too. Did you overwrite the code for the previous model? Maybe you copied, pasted, and edited code from an earlier model. It can quickly become a hodgepodge that requires heroics to decipher.
+Your code might be getting messy too. Did you overwrite the code for the previous model? Maybe you copied, pasted, and edited code from an earlier model. Can you still read what's there? It can quickly become a hodgepodge that requires heroics to decipher.
 
 In this session, we will introduce the data pipeline, an approach that helps you simplify the modeling process.
 
@@ -36,15 +36,16 @@ Just like other computer functions, this approach gives you two important benefi
 
 It also allows us to store the inputs and outputs so we have a complete, easy-to-use history of what we did.
 
-Isn't that nice?
+Isn't that super duper?
 
-We will go over data pipeline we developed for our police project that started at DSSG 2015.
-
+Your projects are far more complex than this Boston example, and your pipelines will reflect that. For the rest of this session, we'll go over the [police pipeline](https://github.com/dssg/police-eis) that we started developing at DSSG 2015.
 
 
 
 ## Resources
-* [Police Pipeline](https://github.com/dssg/police-eis)
+* [Our lead pipeline](https://github.com/dssg/lead-public), started at DSSG 2014
+* [Our Cincinnati pipeline](https://github.com/dssg/cincinnati), started at DSSG 2015
+* [Diogenes](https://github.com/dssg/diogenes) (a generalized DSSG pipeline)
 * [Data Science Toolbox](http://datasciencetoolbox.org/)
 
 
