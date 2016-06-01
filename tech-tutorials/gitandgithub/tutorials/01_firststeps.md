@@ -4,6 +4,16 @@ Don't worry if the commands seem like arcane incantations for now; we will cover
 
 Your group is composed of fellows with different levels of experience with git. Help each other loads, and ask each other all the questions!
 
+# Commands you'll learn
+
+In this tutorial you'll be using the following commands:
+* `ls -a`: List files in a directory (`ls`) even ones that begin with `.` (`-a`)
+* `cd`: Change directories
+* `git clone`: Clone a repository from GitHub (or another "remote")
+* `git add`: Tell `git` you'd like to save changes to this file in your history
+* `git commit`: Tell `git` you'd like to save the changes you've `git add`ed
+* `git status`: Your favorite command: "What's going on?!"
+
 # First Things First
 
 First things first: You need to create a repository (which is the place that stores your work and changes). There are several ways to do this, but one of the most convenient ones is to start on GitHub - that way, your repo will be super easy to share with your... fellow fellows.
