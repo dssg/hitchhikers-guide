@@ -20,29 +20,41 @@ In this session, we will introduce the data pipeline, an approach that helps you
 
 ## Concepts
 
-A *data pipeline* is a set of code that handles all the computational tasks your project needs from beginning to end. Here's what a typical data pipeline looks like:
-![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/pipelines/pipeline_diagram.png "Pipeline Diagram")
+A *data pipeline* is a set of code that handles all the computational tasks your project needs from beginning to end. The typical data pipeline is a set of functions strung together. Here's a simple example using scikit-learn's boston dataset:
 
-Many data pipelines are powerful computer functions: you give them inputs (data and a list of model criteria) and it gives you outputs (predictions and performance metrics). For example, we can build a very, very simple pipeline for the scikit-learn Boston dataset:
- ![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/pipelines/very_very_simple_pipeline.png "Very Simple Pipeline")
+![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/pipelines/boston_pipeline.png "Simple Pipeline")
 
-Just like other computer functions, this approach gives you two important benefits:
-* Reusability: 
-  * We didn't need to create an object (e.g. "ridge"), fit a model (e.g. "ridge.fit"), and generate an accuracy metric (e.g. "ridge.score") for every model we tried. Instead, we re-used fit_and_score_model() again and again. 
-  * We can give someone else this code and data and they can get the same results (replication).
-  * We might even be able to give someone else this code and they can use it for a different problem (reproducability. e.g. scikit-learn's diabetes dataset.)
-  * If there's a problem with our code, we only need to fix it in one place. 
-* Abstraction: Once we're comfortable with fit_and_score_model(), we can focus on the inputs (e.g. the data and the model choices) and the outputs (the model score), rather than what's inside the function. 
+This pipeline has two steps. The first, which I call "preprocessing," prepares the data for modeling by creating training and testing splits. The second, which I call "models, predictions, and metrics," uses the preprocessed data to train models, make predictions, and print r^2 on the test set. The pipeline takes inputs (e.g. data, training/testing proportions, and model types) at one end and produces outputs (accuracy) at the other end. 
 
-It also allows us to store the inputs and outputs so we have a complete, easy-to-use history of what we did.
+Obviously, this analysis is incomplete, but the pipeline is a good start. Because we use the same code and data, we can run the pipeline from beginning to end and get the same results. And because we split the pipeline into functions, we can improve the model by improving one function at a time. The function just needs to use the same inputs and outputs as before. 
+
+Also note the function and loops in the second part of the pipeline. We're somewhat agnostic about the methods we use. If it works, great! This structure lets us loop through many types of models using the same preprocessed data and the same predictions and metrics. It makes adding new methods and comparing the results easier, and it helps us focus on other parts of the pipeline, such as feature generation. 
 
 Isn't that super duper?
 
-Your projects are far more complex than this Boston example, and your pipelines will reflect that. For the rest of this session, we'll go over the [police pipeline](https://github.com/dssg/police-eis) that we started developing at DSSG 2015.
+Our projects are far more complex than this Boston example, and our pipelines reflect that. Here's what a typical DSSG pipeline looks like:
+ 
+![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/pipelines/pipeline_diagram.png "Pipeline Diagram")
+
+
+
+## Workflow
+
+You can improve each piece of the pipeline.
+
+[Schedule](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/logistics/high-level-summer-plan.pdf)
+
+Week 4: plan the pipeline, e.g. inputs and outputs for each part
+Week 5: very simple functioning pipeline
+Week 6: slightly better pipeline with results
+Week 7: feature list: ETL and preprocessing
+Weeks 8 and 9: predictions and metrics
 
 
 
 ## Resources
+
+* [Police pipeline](https://github.com/dssg/police-eis), started at DSSG 2015
 * [Our lead pipeline](https://github.com/dssg/lead-public), started at DSSG 2014
 * [Our Cincinnati pipeline](https://github.com/dssg/cincinnati), started at DSSG 2015
 * [Diogenes](https://github.com/dssg/diogenes) (a generalized DSSG pipeline)
