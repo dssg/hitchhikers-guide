@@ -52,3 +52,40 @@ Your projects are far more complex than this Boston example, and your pipelines 
 
 ## Discussion Notes
 
+
+## Learning goals
+1hr
+
+1. Know how to interact with partners?
+	- Who? (initially PMs but gradually fellows)
+	- How? (Visits, etc.)
+		- How does a weekly meeting/call with the partner look?
+		- Agenda / action items / someone taking notes / follow up
+	- When? Weekly
+
+	Do and don'ts 
+	License to 'act stupid'
+	Ask clarifyig questions (Why why why?)
+
+
+2. Know what to expect during the visits next week?
+	- Who's coming
+	- What preparations required?
+		- Read project charters
+		- Glance at the data
+	- (Role plays?)
+
+3. Know which tools we intend over the summre
+	- Trello (will require training, tbc)
+	- Calendars
+	- Email
+	- Slack
+	- Video/Teleconferencing
+4. Awareness of the main deliverables over summer?
+	- Technical report
+
+
+
+
+
+
