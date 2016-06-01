@@ -43,11 +43,11 @@ The [police pipeline](https://github.com/dssg/police-eis), started at DSSG 2015,
 
 Much of your work will revolve around and within your pipeline, but we have identified specific aspects for you to focus on [each week](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/logistics/high-level-summer-plan.pdf):
 
-Week 4. Plan the pipeline, e.g. inputs and outputs for each part
-Week 5. Very simple functioning pipeline
-Week 6. Slightly better pipeline with results
-Week 7. Feature list: ETL and preprocessing
-Week 8. Predictions and metrics
+Week 4. Plan the pipeline, e.g. inputs and outputs for each part  
+Week 5. Very simple functioning pipeline  
+Week 6. Slightly better pipeline with results  
+Week 7. Feature list: ETL and preprocessing  
+Week 8. Predictions and metrics  
 Week 9. Predictions and metrics
 
 
