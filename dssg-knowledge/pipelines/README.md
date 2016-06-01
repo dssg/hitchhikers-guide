@@ -26,7 +26,7 @@ A *data pipeline* is a set of code that handles all the computational tasks your
 
 This pipeline has two steps. The first, which I call "preprocessing," prepares the data for modeling by creating training and testing splits. The second, which I call "models, predictions, and metrics," uses the preprocessed data to train models, make predictions, and print r^2 on the test set. The pipeline takes inputs (e.g. data, training/testing proportions, and model types) at one end and produces outputs (accuracy) at the other end. 
 
-Obviously, this analysis is incomplete, but the pipeline is a good start. Because we use the same code and data, we can run the pipeline from beginning to end and get the same results. And because we split the pipeline into functions, we can improve the model by improving one function at a time. The function just needs to use the same inputs and outputs as before. 
+Obviously, this analysis is incomplete, but the pipeline is a good start. Because we use the same code and data, we can run the pipeline from beginning to end and get the same results. And because we split the pipeline into functions, we can identify where the pipeline goes wrong and improve the pipeline one function at a time. (Each function just needs to use the same inputs and outputs as before.) 
 
 Also note the function and loops in the second part of the pipeline. We're somewhat agnostic about the methods we use. If it works, great! This structure lets us loop through many types of models using the same preprocessed data and the same predictions and metrics. It makes adding new methods and comparing the results easier, and it helps us focus on other parts of the pipeline, such as feature generation. 
 
@@ -36,7 +36,7 @@ Our projects are far more complex than this Boston example, and our pipelines re
  
 ![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/pipelines/pipeline_diagram.png "Pipeline Diagram")
 
-The [police pipeline](https://github.com/dssg/police-eis), started at DSSG 2015, is an example of a relatively well developed pipeline.
+The [police pipeline](https://github.com/dssg/police-eis), started at DSSG 2015, is an example of a relatively well developed pipeline. It lets us specify the pipeline options we want in a yaml file, from preprocessing on. (The code in this repository does not include ETL.) It gives us many modeling options, and it makes comparisons easy.
 
 
 ## Your Pipeline and the DSSG Schedule
