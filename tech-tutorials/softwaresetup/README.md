@@ -141,6 +141,7 @@ As said, your team will decide on which Python version (and versioning) to insta
   *   scikit-learn
   *   psycopg2
   *   statsmodels
+  *   patsy
   *   csvkit
   *   nltk
 
