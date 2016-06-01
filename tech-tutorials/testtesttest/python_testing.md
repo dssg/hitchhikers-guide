@@ -1,10 +1,6 @@
 # Testing your Python projects
 
-## Using `pytest`
-
-```bash
-pip install pytest
-```
+## Your first test
 
 ```python
 # function to test
@@ -17,6 +13,17 @@ def test_answer_to_file_is_42():
     assert get_answer() == 42
 
 ```
+
+
+## Installing `pytest`
+
+The best tool to test with python is pytest, it's higly recommended. Install it with `pip`.
+
+```bash
+pip install pytest
+```
+
+## Running tests with `py.test`
 
 ```
 py.test
@@ -62,10 +69,10 @@ test_life.py .
     └── code_to_train_models_here.txt
 ```
 
+**Tip:** To access the code in `lib` you can either create a `setup.py` file to install or add the folder to your `PYTHONPATH`.
+
 ## Tools
 
 *   unittest (part of the Python standard library)
-
 *   [py.test](http://pytest.org/latest/) (if you don't know which to use, use this)
-
 *   [nose](https://github.com/nose-devs/nose)
