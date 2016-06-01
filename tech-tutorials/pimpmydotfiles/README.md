@@ -83,6 +83,35 @@ Ok, that was a pretty simple example, not let's see how to use git.
 
 ## Using git to manage your dotfiles
 
+As I mentioned before, your dotfiles live in your home folder (type `cd ~; pwd` to see which is yours). Your home folder contains a lot of stuff and you probably don't want to create a git repo there (please don't). To solve this issue we can to the following: create a folder anywhere in our computer, create our dotfiles there and then link them to our home folder, where our applications expect our dotfiles to be.
+
+Let's imagine you want to save your dotfiles in `~/dotfiles`. Run the following to create the folder, add some files and start a git repository:
+
+```bash
+# create and move to the folder
+mkdir ~/dotfiles; cd ~/dotfiles
+# get the content from your original .bashrc and copy it in your
+# .bashrc stored in ~/dotfiles, to the same with .bash_profile
+cat ~/.bashrc > ~/dotfiles/.bashrc
+cat ~/.bash_profile > ~/dotfiles/.bash_profile
+# init repo and commit
+git init
+git add --all
+git commit -m 'dotfiles are awesome'
+```
+
+Now you have a copy of your `.bashrc` and `.bash_profile` outside your home folder and you created a repo to store them. But there's one step missing, if you modify your dotfiles in `~/dotfiles`, your computer won't do anything because it will look in your home folder. To life it we need to link our files in `~/dotfiles` to our home folder.
+
+To do that we'll create *symlinks*, which are basically pointers to files, that way you can store your dotfiles anywhere and your computer is still going to find them.
+
+```bash
+# link files in ~/dotfiles to your home folder
+ln -s ~/dotfiles/.bashrc ~/.bashrc
+ln -s ~/dotfiles/.bash_profile ~/.bash_profile
+```
+
+Now, you can modify, commit, push, pull from `~/dotfiles`!
+
 ## It's all about automation
 
 ## Examples
