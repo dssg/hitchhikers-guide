@@ -24,7 +24,7 @@ In this tutorial you'll be using the following commands:
 
 8. **Learner A**: Do `git add spices.md` to tell git that it should prepare for a snapshot of your changes to that file. (Just like in the first tutorial.) Check `git status`.
 
-9. **Learner A**: Do `git commit -m 'blablabla'` to create a new snapshot (commit) of the repo as you have it now, which includes your new file now! You should probably make the commit message more meaningful than 'blablabla'.
+9. **Learner A**: Do `git commit -m 'blablabla'` to create a new snapshot (commit) of the repo as you have it now, which includes your new file now! You should probably make the commit message more meaningful than 'blablabla'. Then, push your changes: `git push origin master`, to synchronize your local commits with your repo on GitHub (your 'remote').
 
 10. **Learner B and C**: Pull the changes that Learner A made, and show Learner A that you now have the spice list. Also show Learner A your `git log`. Learner A's commit is there! _(Great success._)
 
