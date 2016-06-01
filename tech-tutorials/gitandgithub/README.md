@@ -49,6 +49,9 @@ However, if you still want a GUI (e.g. for using git in your computer), here are
 ### Resouces for becoming a git ninja
 
 * [A successful git branching model](http://nvie.com/posts/a-successful-git-branching-model/) - A model to work with git using branches. This model is widely used in the open source community.
+* [Learn Git Branching](http://learngitbranching.js.org/) - Understanding what branches and rebases are, in an amazing interactive tutorial.
+* [Reset Demystified](https://git-scm.com/blog/2011/07/11/reset.html) - A blog post on `git reset` which develops some useful concepts along the way.
+* [Understanding git for real by exploring the .git directory](https://medium.freecodecamp.com/understanding-git-for-real-by-exploring-the-git-directory-1e079c15b807#.5pe75gc07) - A blog post on what's inside a commit.
 
 
 ## READ THIS BEFORE YOU LEAVE  (please)
