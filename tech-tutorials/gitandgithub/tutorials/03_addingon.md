@@ -30,7 +30,7 @@ While having a repo for yourself is nice for version control, how do you add to 
 
 14. **Learner A and C**: Get the changes that Learner B just made: `git pull`. List all files (includen hidden ones) with `ls -a`. Did you receive the `.gitignore`? What about the `sauce.secret`? Which of those two files appear in the repo on GitHub? Also have a look at your `git log`.
 
-Here is the [next tutorial](03_backtothepast).
+Here is the [next tutorial](04_backtothepast).
 
 -----------------
 

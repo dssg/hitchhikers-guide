@@ -12,7 +12,7 @@ Sometimes, you check out a repo, happily working along, and then just screw your
 
 5. **Learner A, B, and C**: What do you do if you have _committed_ changes that you would like to undo? That is, if you want to go back to a commit far back in time? There are really neat ways of doing this in git, even if you have already pushed (shared) your newer commits to GitHub. Cliffhanger: You will learn about this in the git branching tutorial. (`git revert` and `git reset` is where it's at.)
 
-Done already? [Here](04_solveyeconflicts.md) is an optional next tutorial.
+Done already? [Here](05_solveyeconflicts.md) is an optional next tutorial.
 
 -----------
 

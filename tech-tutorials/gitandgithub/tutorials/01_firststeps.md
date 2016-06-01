@@ -36,13 +36,7 @@ First things first: You need to create a repository (which is the place that sto
 
 8. **Learner A**: Over time, you will do many commits. To see a list of them, do `git log`. There's only one so far!
 
-9. **Learner A**: Now, it's time to sync your commit back to GitHub. Say `git push origin master`. Go to your repo's webpage on GitHub and refresh it. See your rhymes?
-
-10. **Learner B and C**: Clone Learner A's repo. Show Learner A the local files that you got from cloning. Show Learner A a `git log` on your clone. The commit message is there, too!
-
-11. **Learner B and C**: High five Learner A. (And Matt and Joe. They love that.)
-
-Then go to the [next tutorial](02_addingon.md).
+Go to the [next tutorial](02_showtheothers.md).
 
 -------------
 
