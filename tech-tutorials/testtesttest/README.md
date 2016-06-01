@@ -6,15 +6,7 @@
 
 ## Software testing in Python
 
-### Tools
-
-*   unittest (part of the Python standard library)
-
-*   [py.test](http://pytest.org/latest/) (if you don't know which to use, use this)
-
-*   [nose](https://github.com/nose-devs/nose)
-
-    ​
+To see how to test your Python projects [see this](python_testing.md).
 
 ## Testing Data Science pipelines
 
