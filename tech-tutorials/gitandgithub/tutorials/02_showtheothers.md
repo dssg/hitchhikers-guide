@@ -17,3 +17,4 @@ In this tutorial you'll be using the following commands:
 
 4. **Learner B and C**: High five Learner A. (And Matt and Joe. They love that.)
 
+Go to the [next tutorial](03_addingon.md).
