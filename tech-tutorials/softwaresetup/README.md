@@ -133,10 +133,16 @@ As said, your team will decide on which Python version (and versioning) to insta
 2. If you have a working Python installation, but you don't have `jupyter notebook`, [install jupyter](https://jupyter.readthedocs.io/en/latest/install.html).
 
 3. Make sure you have the following packages installed. If you use Anaconda, most of them will already be included. Simply call `conda install <packagename>`. Outside of conda, you might want to use `pip` to install packages instead. (Linux users might need to install the packages `libfreetype6-dev` and `libpng-dev` before installing the packages below.) You'll need:
+  *   numpy
+  *   scipy
   *   pandas
   *   matplotlib
+  *   seaborn
   *   scikit-learn
   *   psycopg2
+  *   statsmodels
+  *   csvkit
+  *   nltk
 
 4. Try importing the packages in a Python shell and see if it works:
  ```
@@ -146,6 +152,7 @@ As said, your team will decide on which Python version (and versioning) to insta
  '0.15.1'
  >>> 
  ```
+ 
  (Note: The module name for scikit-learn is `sklearn`.)
    
 ## R
