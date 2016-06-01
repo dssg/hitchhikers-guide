@@ -30,31 +30,30 @@ Obviously, this analysis is incomplete, but the pipeline is a good start. Becaus
 
 Also note the function and loops in the second part of the pipeline. We're somewhat agnostic about the methods we use. If it works, great! This structure lets us loop through many types of models using the same preprocessed data and the same predictions and metrics. It makes adding new methods and comparing the results easier, and it helps us focus on other parts of the pipeline, such as feature generation. 
 
-Isn't that super duper?
+Aren't pipelines super duper?
 
 Our projects are far more complex than this Boston example, and our pipelines reflect that. Here's what a typical DSSG pipeline looks like:
  
 ![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/pipelines/pipeline_diagram.png "Pipeline Diagram")
 
+The [police pipeline](https://github.com/dssg/police-eis), started at DSSG 2015, is an example of a relatively well developed pipeline.
 
 
-## Workflow
+## Your Pipeline and the DSSG Schedule
 
-You can improve each piece of the pipeline.
+Much of your work will revolve around and within your pipeline, but we have identified specific aspects for you to focus on [each week](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/logistics/high-level-summer-plan.pdf):
 
-[Schedule](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/logistics/high-level-summer-plan.pdf)
-
-Week 4: plan the pipeline, e.g. inputs and outputs for each part
-Week 5: very simple functioning pipeline
-Week 6: slightly better pipeline with results
-Week 7: feature list: ETL and preprocessing
-Weeks 8 and 9: predictions and metrics
+4. Plan the pipeline, e.g. inputs and outputs for each part
+5. Very simple functioning pipeline
+6. Slightly better pipeline with results
+7. Feature list: ETL and preprocessing
+8. Predictions and metrics
+9. Predictions and metrics
 
 
 
 ## Resources
 
-* [Police pipeline](https://github.com/dssg/police-eis), started at DSSG 2015
 * [Our lead pipeline](https://github.com/dssg/lead-public), started at DSSG 2014
 * [Our Cincinnati pipeline](https://github.com/dssg/cincinnati), started at DSSG 2015
 * [Diogenes](https://github.com/dssg/diogenes) (a generalized DSSG pipeline)
