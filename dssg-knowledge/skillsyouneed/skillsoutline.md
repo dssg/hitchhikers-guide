@@ -35,6 +35,8 @@ The following five skill levels can help you gauge where you stand and what thin
 
 *   Use `logging`, `print` is evil, here are some [good practices for logging in Python](http://victorlin.me/posts/2012/08/26/good-logging-practice-in-python)
 *   Docstrings
+    *   [From the Python docs](https://www.python.org/dev/peps/pep-0257/)
+    *   [Numpy style doctrings](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt) - widely used in the scientific Python community
 *   Writing documentation
 
 **Data visualization**
@@ -46,7 +48,9 @@ The following five skill levels can help you gauge where you stand and what thin
 
 **Databases**
 
-*   SQL vs NoSQL
+*   SQL vs NoSQL - tl; dr; use SQL for analytics
+*   Connecting to a database from Python
+    *   PostgreSQL - psycopg2
 
 **Command line**
 
@@ -64,7 +68,20 @@ The following five skill levels can help you gauge where you stand and what thin
 *   StackOverflow
 *   Github issues
 
+**Git and github**
 
+*   Markdown for documenting your repos
+*   `.gitignore`
+*   Github: Issues and pull requests
+
+**Hadoop and Spark**
+
+*   What they are and when to use them (and when not to)
+
+**Making your models train faster**
+
+*   Concurrent Python - The basics
+*   ​
 
 using D3
 
@@ -73,12 +90,8 @@ Scraping
 R
 Parallelization
 parallel for loops
-mapreduce
-spark
 SQL DBs: types of DBs - postgres, mysql, sqllite, ms sql server, oracle
-NoSQ	 DBs	
 Types - pros and cons
-Using one of them from python
 
 ###Computer Science
 Algorithmic complexity
@@ -88,14 +101,22 @@ Algorithmic complexity
 ###Machine Learning
 
 *   Supervised vs Unsupervised learning
+*   Cross-validation
+    *   [Cross-validation in scikit-learn](http://scikit-learn.org/stable/modules/cross_validation.html)
 *   Bias-variance tradeoff
+*   Feature preprocessing
+    *   [Feature preprocessing in scikit-learn](http://scikit-learn.org/stable/modules/preprocessing.html)
 *   Feature generation
 *   Feature selection
     *   [Feature selection in scikit-learn](http://scikit-learn.org/stable/modules/feature_selection.html)
 *   Ranking
 *   Model evaluation
-    *   Selecting proper metrics
+    *   Grid search
+        *   Grid search in [scikit-learn](http://scikit-learn.org/stable/modules/grid_search.html)
+    *   Metrics
+        *   [Metrics in scikit-learn](http://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics)
     *   Plots
+        *   Classification: Confusion Matrix, Precision-Recall, ROC
 
 ###Social Science
 data bias
@@ -117,6 +138,7 @@ MAB
     *   [PEP8 for humans](http://pep8.org/)
 *   Python packaging
     *   [How To Package Your Python Code](https://python-packaging.readthedocs.io/en/latest/) - Extensive guide on Python packaging
+*   [Structuring your project](http://docs.python-guide.org/en/latest/writing/structure/)
 
 **Git**
 
@@ -124,11 +146,22 @@ MAB
 
 **Software testing**
 
+*   py.test - The best tool for testing in Python
+*   Continous integration with Travis
+
 **Documenting your projects**
 
 *   Sphinx
+*   Read the docs
 
-**Job schedulers**
+**Workflow management**
+
+*   Open source tools for workflow management
+    *   [drake](https://github.com/Factual/drake) - "make for data" - Simplest of all the tools shown
+    *   [Airflow](https://github.com/apache/incubator-airflow)
+    *   [Luigi](https://github.com/spotify/luigi)
+    *   [Pinball](https://github.com/pinterest/pinball)
+    *   [Azkaban](https://github.com/azkaban/azkaban)
 
 ###Computer Science
 
@@ -157,6 +190,8 @@ Algorithms
     *   [Using scikit-learn pickle](http://scikit-learn.org/stable/modules/model_persistence.html) (not recommended in production)
     *   PMML
         *   [sklearn2pmml](https://github.com/jpmml/sklearn2pmml)
+*   Deep Learning
+    *   What is and when to use use it
 
 ###Social Science
 
@@ -183,6 +218,7 @@ Algorithms
 **Data Products**
 
 *   Web development
+    *   Flask
 
 front-end frameworks
 JS frameworks
@@ -214,9 +250,7 @@ instrumental variables
 The following skills haven't been assigned to a level or don't fit in to one. 
 
 ###Programming
-
 Complexity and Time/Space Constraints: BigO, relational vs non-relational DBs
-
 parallelization: mapreduce, spark, parallel for-loops
 Cleaning
 Integration
@@ -285,22 +319,18 @@ Nonparametric statistics, density estimation
 
 probability estimates
 Semi-supervised
-For loops
-Evaluation
 methodology
 out of sample
-Cross validation
 temporal cross validation
-metrics
-accuracy, precision, recall, auc
+
 precision @ k
+
 Field Trial design
+
 Model updates and maintenance
 Different types of data
 text analysis
 search/indexing
-classification
-clustering
 information extraction
 images
 sound

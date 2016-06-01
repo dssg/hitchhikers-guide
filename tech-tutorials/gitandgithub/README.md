@@ -39,7 +39,7 @@ However, if you still want a GUI (e.g. for using git in your computer), here are
 *   [Options for Mac](https://git-scm.com/download/gui/mac)
 *   [GitKraken](https://www.gitkraken.com/) (Windows and Mac)
 
-## Ok, now how do I do the magic?
+## Ok, how do I do the magic?
 
 ### Resources for beginners
 
