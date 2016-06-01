@@ -1,8 +1,3 @@
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.ipynb_checkpoints
 #### joe made this: https://goel.io/joe
 
 #####=== Python ===#####
@@ -22,7 +17,6 @@ develop-eggs/
 dist/
 downloads/
 eggs/
-lib/
 lib64/
 parts/
 sdist/
@@ -61,4 +55,3 @@ docs/_build/
 
 # PyBuilder
 target/
-
