@@ -34,6 +34,7 @@ The following five skill levels can help you gauge where you stand and what thin
 **Best practices**
 
 *   Use `logging`, `print` is evil, here are some [good practices for logging in Python](http://victorlin.me/posts/2012/08/26/good-logging-practice-in-python)
+*   Docstrings
 *   Writing documentation
 
 **Data visualization**
@@ -47,7 +48,26 @@ The following five skill levels can help you gauge where you stand and what thin
 
 *   SQL vs NoSQL
 
+**Command line**
+
+*   [The Linux Command Line](http://www.amazon.com/Linux-Command-Line-Complete-Introduction/dp/1593273894?ie=UTF8&keywords=The%20Linux%20Command%20Line&qid=1464744173&ref_=sr_1_1&sr=8-1) - An excellent introductory text to get to use the linux command line
+*   Package management
+
+**Environment management**
+
+*   miniconda (recommended)
+*   anaconda
+*   virtualenv
+
+**Asking for help**
+
+*   StackOverflow
+*   Github issues
+
+
+
 using D3
+
 using APIs to get data
 Scraping
 R
@@ -71,6 +91,7 @@ Algorithmic complexity
 *   Bias-variance tradeoff
 *   Feature generation
 *   Feature selection
+    *   [Feature selection in scikit-learn](http://scikit-learn.org/stable/modules/feature_selection.html)
 *   Ranking
 *   Model evaluation
     *   Selecting proper metrics
@@ -89,20 +110,53 @@ MAB
 
 ###Programming and tools
 
+**Python**
+
+*   PEP8 - Style guide for Python
+    *   [From the official Python documentation](https://www.python.org/dev/peps/pep-0008/)
+    *   [PEP8 for humans](http://pep8.org/)
+*   Python packaging
+    *   [How To Package Your Python Code](https://python-packaging.readthedocs.io/en/latest/) - Extensive guide on Python packaging
+
 **Git**
 
 *   [Branching](https://git-scm.com/book/en/v2/Git-Branching-Branching-Workflows)
 
 **Software testing**
 
+**Documenting your projects**
+
+*   Sphinx
+
+**Job schedulers**
+
 ###Computer Science
+
+*   Distributed systems
 
 Algorithmic complexity
 Data structures: lists/hashes
+
 Algorithms
 
 ###Math and Stats
 ###Machine Learning
+
+*   Out of core learning - When your data does not fit into memory and [Hadoop is still an overkill](http://research.microsoft.com/apps/pubs/default.aspx?id=163083)
+    *   [Out of core learning in scikit-learn](http://scikit-learn.org/stable/modules/scaling_strategies.html)
+*   Hyper-parameter optimization
+    *   [Practical Bayesian Optimization of Machine Learning Algorithms](https://arxiv.org/pdf/1206.2944.pdf)
+    *   Python libraries (highly experimental and unstable)
+        *   [Hyperopt](http://hyperopt.github.io/hyperopt/) - Implements TPE
+        *   [Optunity](http://pythonhosted.org/Optunity/)
+        *   [Spearmint](https://github.com/HIPS/Spearmint)
+        *   [auto-sklearn](http://automl.github.io/auto-sklearn/stable/)
+        *   [SMAC](http://www.cs.ubc.ca/labs/beta/Projects/SMAC/)
+        *   [HPOlib](https://github.com/automl/hpolib)
+*   Serving Machine Learning models
+    *   [Using scikit-learn pickle](http://scikit-learn.org/stable/modules/model_persistence.html) (not recommended in production)
+    *   PMML
+        *   [sklearn2pmml](https://github.com/jpmml/sklearn2pmml)
 
 ###Social Science
 
@@ -161,7 +215,6 @@ The following skills haven't been assigned to a level or don't fit in to one.
 
 ###Programming
 
-places to look up errors/debug (stackoverflow)
 Complexity and Time/Space Constraints: BigO, relational vs non-relational DBs
 
 parallelization: mapreduce, spark, parallel for-loops
