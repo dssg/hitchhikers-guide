@@ -1,5 +1,7 @@
 # Software testing
 
+
+
 ## What? I don't need to test it. My code is bug free
 
 ## Software testing in Python
@@ -16,6 +18,8 @@
 
 ## Testing Data Science pipelines
 
+This is a good overview of testing for Data Science: [Testing for Data Scientists by Trey Causey](https://www.youtube.com/watch?v=GEqM9uJi64Q)
+
 ### Tools
 
 *   [hypotehsis](https://github.com/HypothesisWorks/hypothesis-python)- Python library to look for edge cases without explicitly coding them
@@ -26,3 +30,8 @@
 
 ### Continous integration
 
+
+
+## Resources
+
+*   [Software Testing - Udacity course](https://www.udacity.com/course/software-testing--cs258)
