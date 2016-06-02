@@ -15,7 +15,7 @@ There's a whole lot to know, so we split it up into 8 categories:
 
 As the saying goes, when at DSSG do as the cool kids and data witches do. But cool kids and data witches aren't built in a day. We get a lot of questions about what fellows need to apply for the program or before they arrive, and what they can expect to learn over the summer. 
 
-If you are coming to DSSG, check out the [2016 orientation schedule](https://docs.google.com/document/d/1Ubbc2sctElikVjUADeeo-MdYPmyi29xX1IqWKBTYR5M/edit?usp=sharing) and the overview below. If you won't be joining us this year, we're working on assembling the resources in our outline of [skills you need to do Data Science for Social Good](skills-you-need.md).
+If you are coming to DSSG, check out the [2016 orientation schedule](https://docs.google.com/document/d/1Ubbc2sctElikVjUADeeo-MdYPmyi29xX1IqWKBTYR5M/edit?usp=sharing) and the overview below. If you won't be joining us this year, we're working on assembling the resources in our outline of [skills you need to do Data Science for Social Good](dssg-knowledge/skillsyouneed/skillsoutline.md).
 
 #DSSG Orientation
 
