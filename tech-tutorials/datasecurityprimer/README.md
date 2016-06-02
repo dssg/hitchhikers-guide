@@ -87,8 +87,7 @@ Don't commit the following:
 .. code:: python
 
     from sqlalchemy import create_engine
-    engine = create_engine('postgresql://dbpro:ayylmao \
-    @dssg.example.com:5432/mydatabase')
+    engine = create_engine('postgresql://dbpro:ayylmao@dssg.example.com:5432/mydatabase')
 
 ----
 
