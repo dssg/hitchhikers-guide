@@ -214,7 +214,7 @@ We're going to cover a variety of command line tools that help us obtain, parse,
 
 ## Further Resources
 
-Joeren Jannsens wrote the book [literally](http://datascienceatthecommandline.com/) on data science in the command line. Also, check out his [post](http://jeroenjanssens.com/2013/09/19/seven-command-line-tools-for-data-science.html) on 7 essential command line tools for data scientists.
+Jeroen Janssens wrote the book [literally](http://datascienceatthecommandline.com/) on data science in the command line. Also, check out his [post](http://jeroenjanssens.com/2013/09/19/seven-command-line-tools-for-data-science.html) on 7 essential command line tools for data scientists.
 
 For command line basics, [Learning CLI the Hard Way](http://cli.learncodethehardway.org/book/) is, as always, a great resource.
 
