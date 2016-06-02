@@ -153,6 +153,8 @@ We can also use awk for subsitution, but this time, let's replace "WSFM" with "W
 
 ## Group Challenges
 
+For group challenges, log onto the `training` ec2 instance and change directories to /mnt/data/training/yourusername. This should be your working directory for all the excercises. 
+
 1) Create a final weather file that just has weather data from OHARE airport for days when it rained, and change PRCP to RAIN. Save the sequence of commands to a shell script so it's replicable by your teammate and push to a training repository you've created on github. 
 
 2) Create a separate file with just the weather from OHARE for days when the tempurature was above 70 degrees F. (hint: try using csvgrep to filter a specific column on a range of values)
