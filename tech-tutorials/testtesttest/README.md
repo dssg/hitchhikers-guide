@@ -25,3 +25,4 @@ The last section covers *Continuous Integration* (or CI). This technique is lang
 ## External resources
 
 *   [Software Testing - Udacity course](https://www.udacity.com/course/software-testing--cs258)
+
