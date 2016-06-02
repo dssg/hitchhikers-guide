@@ -136,10 +136,12 @@ The problem with testing pipeline is that many steps won't be deterministic, but
 
 ## Where to go from here
 
-*   Read the pytest documentation
+*   [Read the pytest documentation](http://pytest.org/latest/)
 
-## Tools
+## Other Python testing tools
 
-*   unittest (part of the Python standard library)
-*   [py.test](http://pytest.org/latest/) (if you don't know which to use, use this)
-*   [nose](https://github.com/nose-devs/nose)
+*   unittest or unitest2 if you use Python 3 (part of the Python standard library)
+*   [nose](https://github.com/nose-devs/nose) - another good option to run your tests
+
+    ​
+
