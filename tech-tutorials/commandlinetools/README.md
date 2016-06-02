@@ -85,15 +85,25 @@ We obviously didn't use curl right. Let's look up the manual for the command usi
 
 `man curl`
 
-Looks like if we want to write this to a file, we've got to pass the `-O` parameter. 
+Looks like if we want to write this to a file, we've got to pass the `-O` argument. 
 
 `curl -O ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/2016.csv.gz`
 
+Let's check to see if it worked.
+
 `ls -la`
+
+Great. Now we need to know the file format so we know what tool to use to unpack it.
 
 `file 2016.csv.gz`
 
+Looks like it's a gzip so we'll have to use `gunzip`.
+
 `gunzip 2016.csv.gz`
+
+`ls -la`
+
+Now we've got a .csv file we can start playing with.
 
 ### Viewing Data from the Command Line
 
@@ -181,9 +191,9 @@ Noting has changed. That's because we didn't write it to a file. In fact, none o
 
 We can also use awk for subsitution, but this time, let's replace "WSFM" with "WINDSPEED" in all the weather files in the directory. Once again, stackoverflow is your friend here. 
 
-ls -la > files.txt
+`ls -la > files.txt`
 
-awk '$9 ~/2016*/ {gsub(/WSFM/, "WINDSPEED"); print;}' files.txt
+`awk '$9 ~/2016*/ {gsub(/WSFM/, "WINDSPEED"); print;}' files.txt`
 
 ## Group Challenges
 
@@ -193,7 +203,7 @@ awk '$9 ~/2016*/ {gsub(/WSFM/, "WINDSPEED"); print;}' files.txt
 
 3) Get ready to explore the relationship between weather and crime in Chicago. Using crime data from 2016 (below), parse the json and convert it to a csv. Explore the fields and cut the dataset down to just day, location, and crime type. Then subset the dataset to just homicides and save as a new file. 
 
-https://data.cityofchicago.org/resource/6zsd-86xi.json
+`https://data.cityofchicago.org/resource/6zsd-86xi.json`
 
 4) Using just command line tools, can you use the lat and long coordinates of the weather stations to rapidly identify which weather station is closest to the DSSG building?
 
