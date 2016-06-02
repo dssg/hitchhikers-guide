@@ -1,12 +1,12 @@
 # Testing Python Data Science pipelines
 
-Testing Data Pipelines is **hard**. By definition you do not expect them to produce the same output over and over again. Currently there isn't a standard way of doing it (or at least I don't know it), but here you'll find some tips to test your pipeline to some extent.
+Testing Data Pipelines is **hard**. By definition you do not expect them to produce the same output over and over again. There isn't a standard way of doing it (or at least I don't know it), but here you'll find some tips to test your pipeline steps.
 
-## Tips and tricks to test your pipeline
+## Tips to test your pipeline
 
 ### Separate the source code and your pipeline steps in different modules
 
-As it was mentioned in [Part1](python_testing.md). It's important to separate the source code from your pipeline. Think of source code as the building blocks for processing data, uploading to the database, training modelas and so on. For example, the training step in your pipeline may look like this:
+As it was mentioned in [Part1](python_testing.md). It's important to separate the source code from your pipeline. Think of source code as the building blocks for processing data, uploading to the database, training models and so on. For example, the training step in your pipeline may look like this:
 
 ```python
 # training step in your pipeline
@@ -27,13 +27,13 @@ for model in to_train:
     evaluate_model(model, test)
 ```
 
-In the training step above `load_features`, `load_models` and `evaluate_model` depend on your project, maybe you are loading data from PostgresSQL, maybe from HDF5. The models you train also depend on your project and the evaluation depends on which metrics are best suited for your project's objective.
+In the training step above `load_features`, `load_models` and `evaluate_model` depend on your project, maybe you are loading data from PostgresSQL, maybe from HDF5. The models you train also depend on your project and the evaluation depends on which metrics are best suited for your project's goal.
 
-Those functions are building blocks and the *source code* for those should be outside your training script. Probably the `load_features` function is does a lot of data transformations, try to divide it in various *small* functions and run *unit tests* on them.
+Those functions are building blocks and the *source code* for those should be outside your training script. Probably the `load_features` function does a lot of data transformations, try to divide it in various *small* functions and run *unit tests* on them.
 
 ### Make the data assumptions in your code explicit
 
-When working on your pipeline your code may work fine, but what if you are feeding the wrong data? Imagine what would happen if you train a classifier and you forgot to delete the outcome variable in your feature set, that sounds like a dumb mistake, but as your pipeline gets more and more complex, *it can happen*.
+When working on your pipeline the math/logic may work fine, but what if you are feeding the wrong data? Imagine what would happen if you train a classifier and you forgot to delete the outcome variable in your feature set, that sounds like a dumb mistake, but as your pipeline gets more and more complex, *it can happen*.
 
 To prevent those things from happening you should *test your pipeline at runtime*, meaning that you should check for red flags while training models. Let's see an example.
 
@@ -56,11 +56,13 @@ In the snippet above we are making two assumptions explicit, the first one is th
 
 ### Test your code with a fake database
 
-Imagine that you implemented a function to perform some complex feature engineering in your database, then you modify some parts to make it better and you have a test to check that the results hold the same. If your database has millions on rows and a couple hundred features, how long is the test going to take?
+Imagine that you implemented a function to perform some complex feature engineering in your database, then you modify some parts to make it faster and you have a test to check that the results hold the same. If your database has millions of rows and a couple hundred features, how long is the test going to take?
 
-When testing code that interacts with a lot of data is often a good idea to sample it and put it in a test database, that way you can test faster. But always remember *fast test is better than slow test, but slow test is better than not testing at all*.
+When testing code that interacts with a lot of data is often a good idea to sample it and put it in a test database, that way you can test faster, but don't force yourself to make your tests run fast. Always remember *a fast test is better than slow test, but a slow test is better than not testing at all*.
 
-How do you change which database your pipeline uses automatically? There are a couple of ways, you can for example define an environment variable to change the behavior of your `open_db_connection` function.
+How do you change which database your code uses? There are a couple of ways, you can for example define an [environment variable](https://en.wikipedia.org/wiki/Environment_variable) to change the behavior of your `open_db_connection` function.
+
+<u>Note: use environmental variables judiciously and don't store any sensitive data.</u>
 
 ```python
 # db.py
@@ -84,12 +86,12 @@ export testing_mode=NO
 
 ### Dealing with randomness
 
-The hardest part of testing pipelines is dealing with randomness, how do you test a random generator function? or probabilistic function? One of the simplest ways to do it is to take out the randomness by setting the [random seed](https://en.wikipedia.org/wiki/Random_seed) in your tests. Let's see an example.
+The hardest part of testing pipelines is dealing with randomness, how do you test a random generator function? or a probabilistic function? One of the simplest ways to do it is to take out the randomness by setting the [random seed](https://en.wikipedia.org/wiki/Random_seed) in your tests. Let's see an example.
 
 ```python
 # random.py
 def generate_random_number_between(a, b):
-    # generate random number using seed value
+    # generate random number using seed value,
     # a and b
     return number
 ```
@@ -110,7 +112,7 @@ def test_generate_random_number_between_8_12():
 
 The example above is a bit naive, but it hopefully gives you an idea on how to take out the randomness by setting the seed, let's see a more robust example.
 
-Another approach is to test your function enough number and test that the results falls into an interval. Let's see how to test a function that draws one sample from the normal distribution:
+Another approach is to test your function enough number and check the result against an interval and not an specific value. Let's see how to test a function that draws one sample from the normal distribution:
 
 ```python
 # normal_sample.py
@@ -145,3 +147,9 @@ As you can see, testing probabilistic code is not trivial, so do it only when yo
 ## External resources
 
 *    [Testing for Data Scientists by Trey Causey](https://www.youtube.com/watch?v=GEqM9uJi64Q)
+
+
+
+### Where to go from here
+
+*   **Part 3:** [Continuous Integration](ci.md)

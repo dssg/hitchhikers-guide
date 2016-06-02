@@ -1,6 +1,6 @@
 # Continuous integration
 
-Tests are (ideally) cheap to run, so there's no need not to run them every time your repo changes. In [Part 1]((python_testing.md)), we ran a test suite using `py.test`. Running our test suite locally every time your project changes is a good practice, but it's important to also test it on a completely different machine (maybe some of your tests are passing because of local configuration and you don't even know). Furthermore, when working in teams someone may forget to run the tests locally breaking the project, continuous integration helps you identify those cases (and with proper configuration even reject commits that break the build) just after a push is made.
+Tests are (ideally) cheap to run, so it makes sense to run them every time your code changes. In [Part 1]((python_testing.md)), we ran a test suite using `py.test`. Running our test suite locally every time your project changes is a good practice, but it's important to also test it on a completely different machine (maybe some of your tests are passing because of local configuration and you don't even know). Furthermore, when working in teams someone may forget to run the tests locally breaking the project. Continuous integration helps you identify those cases (and with proper configuration even reject commits that break the build) just after a push is made.
 
 If you are working on an open source project, you can get Continuous Integration for free using [Travis CI](https://travis-ci.org/). In the following sections we'll see how to setup Travis to run your tests every time you push to Github.
 
@@ -10,7 +10,7 @@ The first step is to [create an account](https://travis-ci.com/) and link it to 
 
 ## Travis configuration file for testing scientific Python projects
 
-The content of your configuration file completely depends on your project, but given that most DSSG (if not all) teams use Python + Numpy + Scipy, the following file will work for you with minimum changes. The contents of the file are straightforward and tell Travis how to build your project and run the test suite.
+The content of your configuration file completely depends on your project, but given that most DSSG (if not all) teams use Python + Numpy + Scipy, the following file will work for you with minimal changes. The contents of the file are straightforward and tell Travis how to build your project and run the test suite.
 
 ```yaml
 language: python
@@ -30,6 +30,7 @@ install:
   - "pip install --upgrade pip"
   # install specific requirements your test suite uses
   # e.g. pytest, nose, mock
+  # make sure you have the requirements.txt in your repo's root folder
   - "pip install -r requirements.txt"
 script:
   # steps needed to run your scripts, for simple projects
@@ -38,7 +39,7 @@ script:
   - py.test
 ```
 
-Once Travis is configured it will run your tests every time you push (this is the default configuration but you can change it if you want) and if your tests don't pass it will send you and e-mail (awesome!), also you can see the log to check which tests didn't pass in the Travis website.
+Once Travis is configured it will run your tests every time you push (this is the default configuration but you can change it if you want) and if your tests don't pass it will send you and e-mail (awesome!), you can also see the log to check which tests didn't pass in the Travis website.
 
 When configuring Travis you may encounter some issues, feel free to open an issue on this repo if that happens so we can help you out.
 
