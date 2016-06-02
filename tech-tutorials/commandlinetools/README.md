@@ -18,51 +18,7 @@ drake: Data DAGs and pipeline management in the command line
 
 ## Content
 
-We're going to cover a variety of command line tools that help us obtain, parse, scrub, and explore your data. (The first few steps toward being an [OSEMN](http://www.dataists.com/2010/09/a-taxonomy-of-data-science/) data scientist). Here's a list of commands and concepts we'll cover:
-
-- Getting to know you: navigating files and directories in the command line
-	- cd
-	- mkdir
-	- ls
-	- file
-	- mv
-	- cp
-	- rm
-	- findit (bonus)
-
-- Getting, unpacking, and parsing Data
-	- curl
-	- wget (bonus)
-	- gunzip
-	- tar (bonus)
-	- in2csv
-	- json2csv (bonus)
-
-- Exploring Data
-	- cat
-	- less
-	- head
-	- tail
-	- csvlook
-
-- Filtering, Slicing, and Transforming
-	- grep
-	- cut
-	- sed
-	- awk
-	- csvgrep
-	- csvcut
-	- csvjoin (bonus)
-	- jq (bonus; sed for JSON)
-
-- Exploring & Summarizing
-	- csvstat
-
-- Writing shell scripts
-
-And here's the [presentation](https://docs.google.com/presentation/d/1twh7vH3EnB5fypn0tl1Fi0PhjlrMKExZoPhpu7-lWtk/edit?usp=sharing) from the start of the workshop.
-
-## Cheat Sheet
+Here's the [presentation](https://docs.google.com/presentation/d/1twh7vH3EnB5fypn0tl1Fi0PhjlrMKExZoPhpu7-lWtk/edit?usp=sharing) from the start of the workshop.
 
 ### Let's talk about the weather
 Since there's been so much controversy over weather predictions from paid vs free apps this year, we're going to just do it ourselves and create out own predictions using weather data from NOAA. 
@@ -103,7 +59,7 @@ Looks like it's a gzip so we'll have to use `gunzip`.
 
 `ls -la`
 
-Now we've got a .csv file we can start playing with.
+Now we've got a .csv file we can start playing with. Let's see how big it is using `wc`
 
 ### Viewing Data from the Command Line
 
@@ -206,6 +162,52 @@ We can also use awk for subsitution, but this time, let's replace "WSFM" with "W
 `https://data.cityofchicago.org/resource/6zsd-86xi.json`
 
 4) Using just command line tools, can you use the lat and long coordinates of the weather stations to rapidly identify which weather station is closest to the DSSG building?
+
+## Cheat Sheet
+
+We're going to cover a variety of command line tools that help us obtain, parse, scrub, and explore your data. (The first few steps toward being an [OSEMN](http://www.dataists.com/2010/09/a-taxonomy-of-data-science/) data scientist). Here's a list of commands and concepts we'll cover:
+
+- Getting to know you: navigating files and directories in the command line
+	- cd
+	- mkdir
+	- ls
+	- file
+	- mv
+	- cp
+	- rm
+	- findit (bonus)
+
+- Getting, unpacking, and parsing Data
+	- curl
+	- wget (bonus)
+	- gunzip
+	- tar (bonus)
+	- in2csv
+	- json2csv (bonus)
+
+- Exploring Data
+	- wc
+	- cat
+	- less
+	- head
+	- tail
+	- csvlook
+
+- Filtering, Slicing, and Transforming
+	- grep
+	- cut
+	- sed
+	- awk
+	- csvgrep
+	- csvcut
+	- csvjoin (bonus)
+	- jq (bonus; sed for JSON)
+
+- Exploring & Summarizing
+	- csvstat
+
+- Writing shell scripts
+
 
 
 ## Further Resources
