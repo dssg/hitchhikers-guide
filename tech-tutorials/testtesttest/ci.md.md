@@ -1,0 +1,42 @@
+# Continuous integration
+
+
+
+## Using Travis CI
+
+## Travis configuration file for testing scientific Python projects
+
+```yaml
+language: python
+python:
+  # list the python version you want to check your tests on
+  - "2.7"
+  - "3.5"
+sudo: required
+install:
+  # this are requirements to install many scentific python packages
+  # such as numpy/scipy, you cannot install them with pip
+  # so we need to use the system package manager
+  - "sudo apt-get install gfortran python-liblas libblas-dev liblapack-dev libatlas-dev"
+  # as of June 2, 2016, travis has an outdated version of pip,
+  # this may cause trouble when installing some packages such as sci-kit learn
+  # updating pip before using 'pip install' solves those issues
+  - "pip install --upgrade pip"
+  # install specific requirements your test suite uses
+  # e.g. pytest, nose, mock
+  - "pip install -r requirements.txt"
+script:
+  # steps needed to run your scripts, for simple projects
+  # this may be just 'py.test' or 'nosetests', depending on
+  # which library you use
+  - py.test
+```
+
+
+
+## Examples
+
+*   [Police project](https://github.com/dssg/police-eis)
+
+## External Resources
+

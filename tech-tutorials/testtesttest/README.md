@@ -14,26 +14,14 @@ For that reason, it's important to write automated tests, to check your code and
 
 
 
-## Software testing in Python
+This tutorial is divided in three parts, the first one is what software engineers call *unit testing*, which is the simplest form of testing. The second part is devoted speficically to test Data Science pipelines.
 
-To see how to test your Python projects [see this](python_testing.md).
+The last section covers *Continuous Integration* (or CI). This technique is language agnostic but we'll cover some specific things for Python, although the general concepts are applicable to any language. CI is a technique to automatically run all your tests every time you push to Github.
 
-## Testing Data Science pipelines
+*   **Part 1:** [Unit testing with Python](python_testing.md)
+*   **Part 2:** [Testing Python Data Science pipelines](ds_testing.md)
+*   **Part 3:** [Continuous Integration](ci.md)
 
-This is a good overview of testing for Data Science: [Testing for Data Scientists by Trey Causey](https://www.youtube.com/watch?v=GEqM9uJi64Q)
-
-### Tools
-
-*   [hypotehsis](https://github.com/HypothesisWorks/hypothesis-python)- Python library to look for edge cases without explicitly coding them
-*   [engarde](https://github.com/TomAugspurger/engarde) - Use Python decorators to test a function outcome (this project had good potential but it's dead now)
-*   [feature forge](https://github.com/machinalis/featureforge) - Testing features for ML models (also seems dead)
-
-## Automatically testing your projects
-
-### Continous integration
-
-
-
-## Resources
+## External resources
 
 *   [Software Testing - Udacity course](https://www.udacity.com/course/software-testing--cs258)
