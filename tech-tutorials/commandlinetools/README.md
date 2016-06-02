@@ -136,13 +136,21 @@ It looks like in order for us to make sense of the weather dataset, we're going 
 
 `head ghcnd-stations.txt`
 
-Looks like the sation description might come in handy. We want to look at just the stations in Chicago
+Looks like the sation description might come in handy. We want to look at just the stations in Chicago.
 
 `grep CHICAGO ghcnd-stations.txt | csvlook -H`
 
+Let's pick OHARE as the station we'll use for now. It's ID is 'USW00094846'
+
+Let's take a look at just the ID column from the weather file. We can do this using `cut`.
+
 `cut -f 1 2016.csv`
 
+Looks like `cut` isn't smart enough to know that we're using a csv. We can either using csvcut, or pass a delimiter argument that specifies comma.
+
 `cut -d , -f 1 2016.csv | head`
+
+Now let's filter out just the oberservations from OHARE.
 
 `cut -d , -f 1 2016.csv | grep USW00094846 | head`
 
@@ -179,7 +187,7 @@ awk '$9 ~/2016*/ {gsub(/WSFM/, "WINDSPEED"); print;}' files.txt
 
 ## Group Challenges
 
-1) Create a final weather file that just has weather data from OHARE airport for days when it rained, and change PRCP to RAIN.
+1) Create a final weather file that just has weather data from OHARE airport for days when it rained, and change PRCP to RAIN. Save the sequence of commands to a shell script so it's replicable by your teammate and push to a training repository you've created on github. 
 
 2) Create a separate file with just the weather from OHARE for days when the tempurature was above 70 degrees F. (hint: try using csvgrep to filter a specific column on a range of values)
 
@@ -188,6 +196,7 @@ awk '$9 ~/2016*/ {gsub(/WSFM/, "WINDSPEED"); print;}' files.txt
 https://data.cityofchicago.org/resource/6zsd-86xi.json
 
 4) Using just command line tools, can you use the lat and long coordinates of the weather stations to rapidly identify which weather station is closest to the DSSG building?
+
 
 ## Further Resources
 
