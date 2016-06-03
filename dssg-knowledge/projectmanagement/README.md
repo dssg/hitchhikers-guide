@@ -43,3 +43,4 @@ This is many fellows' first time working in projects on teams and with partners 
 - Each project will have a different goal - some of them will produce analysis reports, some produce insights based on models, some generate ranked/scored lists, and some will be software prototypes. All will evolve over the summer, and not all will be implemented. Some will be implemented, some will lead to pilots and field trials, and some die on the vine due to unforeseen circumstances with data or personnel at partner organizations. A handful will continue at DSaPP. Projects won’t be production code, but must be reproducible (run on different machine without prior knowledge). Many teams use out-of-the-box ML because ETL takes time, and results are more important than methods.
 
 ## Resources
+https://docs.google.com/presentation/d/1gMwyMnQzrVPKs2jNag-Mu_EwN7KMSxIWybaB3wD7Wfs/edit#slide=id.g67c2eb104_0_594
