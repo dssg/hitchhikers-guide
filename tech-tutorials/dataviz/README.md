@@ -15,7 +15,20 @@ matplotlib is the core library for creating static plots in Python. You can crea
 
 *   [matplotlib on Github](https://github.com/matplotlib/matplotlib)
 *   [Gallery](http://matplotlib.org/gallery.html)
-*   Examples
+*   [Examples](matplotlib.ipynb)
+
+## Pandas
+
+What? Pandas? I thought it was a library for Data Analysis. Well, yes but it also has a nice API to make plots (using matplotlib under the hood) from your DataFrames. If you are already using pandas, consider using its plotting API instead of using matplotlib directly.
+
+**Use pandas for visualization if...**
+
+*   You are already using pandas for analysis (duh!)
+
+**Resources** 
+
+*   [Pandas Visualization documentation](http://pandas.pydata.org/pandas-docs/stable/visualization.html)
+*   [Examples](pandas.ipynb)
 
 ## Seaborn
 
@@ -30,7 +43,7 @@ Seaborn provides a much simpler API than matplotlib to make statistical plots, i
 
 -   [Seaborn on Github](https://github.com/mwaskom/seaborn)
 -   [Gallery](http://stanford.edu/~mwaskom/software/seaborn/examples/index.html)
--   Examples
+-   [Examples](seaborn.ipynb)
 
 ## Folium
 
@@ -44,7 +57,7 @@ There are many options to plot maps in Python but we've found that the best opti
 
 -   [Folium on Github](https://github.com/python-visualization/folium)
 -   [Gallery](http://nbviewer.jupyter.org/github/python-visualization/folium/tree/master/examples/)
--   Examples
+-   [Examples](folium.ipynb)
 
 ## Bokeh 
 
@@ -58,7 +71,7 @@ If you are building a dashboard which requires interaction with the user, consid
 
 -   [Bokeh on Github](https://github.com/bokeh/bokeh)
 -   [Gallery](http://bokeh.pydata.org/en/latest/docs/gallery.html)
--   Examples
+-   [Examples](bokeh.ipynb)
 
 
 
@@ -73,6 +86,5 @@ If you want an easy way to create standard plots to evaluate Machine Learning mo
 **Resources**
 
 -   [sklearn-evaluation on Github](https://github.com/edublancas/sklearn-evaluation)
--   Gallery
--   Examples
+-   [Examples](sklearn-evaluation.ipynb)
 
