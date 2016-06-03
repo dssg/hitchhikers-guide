@@ -57,7 +57,7 @@ There are many options to plot maps in Python but we've found that the best opti
 
 -   [Folium on Github](https://github.com/python-visualization/folium)
 -   [Gallery](http://nbviewer.jupyter.org/github/python-visualization/folium/tree/master/examples/)
--   [Examples](folium.ipynb)
+-   [Examples](http://htmlpreview.github.io/?https://github.com/dssg/hitchhikers-guide/blob/master/tech-tutorials/dataviz/folium.html)
 
 ## Bokeh 
 
