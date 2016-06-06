@@ -14,8 +14,7 @@ This session builds on what you learned last week in the [pipeline](https://gith
 
 
 ## Potential Teachouts
-* Keys and indices
-* Constraints
+* Other types of databases (e.g. NoSQL, graph)
 
 
 ## Tools
@@ -195,7 +194,7 @@ select * from jwalsh_schema.jwalsh_table where station = 'USW00094846' and value
 
 
 ## Further Resources
-* [MIT 6.830 Introduction to Database Systems Lecture 1 Notes](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-830-database-systems-fall-2010/lecture-notes/MIT6_830F10_lec01.pdf)
+* Software Carpentry: [Databases and SQL](http://swcarpentry.github.io/sql-novice-survey/)
 * [Computation for Public Policy, Harris School of Public Policy](https://computationforpolicy.github.io/slides/08.pdf)
 
 
