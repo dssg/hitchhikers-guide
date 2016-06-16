@@ -35,6 +35,8 @@ PROFILE:=default_profile
 
 ;;; LOAD THE DATA  ;;;
 
+;  Because our Postgres database doesn't have a timestamp we can check,
+;  we create a fake file called `psql_weather` that tracks the timestamp.
 /mnt/data/training/jwalsh/psql_weather <- jwalsh_table.sql, /mnt/data/training/jwalsh/2016.csv
 	psql -f $INPUT0
 	touch $OUTPUT
