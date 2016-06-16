@@ -60,6 +60,8 @@ Well-developed ETL in `input/`.
 ### Sanergy Project
 `input/Drakefile` calls an R script. The repository is [here](https://github.com/dssg/sanergy).
 
+### What If You Have to Use Points and Clicks?
+See last year's police team [Oracle directions](https://github.com/dssg/police/tree/master/input/cmpd/oracle_export_code).
 
 ## Discussion
 
