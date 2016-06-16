@@ -47,6 +47,12 @@ Remember the weather example from last week? Let's make sure it's reproducible. 
 
 To run it, make sure you specify the Postgres environment variables in `default_profile`, then type `drake` while in this directory.
 
+I've run this code many times without error, and I feel pretty confident that it will continue to run without error for a while.
+
+Because we've written some decent ETL code, we can borrow it for this project. Some of this code originated with the lead project.
+
+Let's say NOAA changes the format of the weather file. This code will throw an error when we try to run it. We can simply modify `jwalsh_table.sql` to match the new format, re-run the code without error, and enjoy the up-to-date data. 
+
 
 ### Lead Project
 Well-developed ETL in `input/`. 
