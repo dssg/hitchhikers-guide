@@ -1,5 +1,11 @@
 #### joe made this: https://goel.io/joe
 
+
+default_profile
+drake.log
+.drake
+.drake/
+
 #####=== Python ===#####
 
 # Byte-compiled / optimized / DLL files

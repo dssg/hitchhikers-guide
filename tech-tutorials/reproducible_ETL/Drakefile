@@ -1,0 +1,43 @@
+
+;  This is a Drakefile. It's a list of instructions for Drake.
+;  Each section starts with inputs (on the right side of the arrow)
+;  and outputs (on the left side of the arrow). 
+;
+;  Drake checks the timestamps on the inputs and outputs and
+;  runs every step where the input is newer than the output,
+;  as well as all the steps that depend on the output.
+
+
+
+
+;;;  LOAD POSTGRES ENVIRONMENT VARIABLES  ;;;
+
+PROFILE:=default_profile
+%include $[PROFILE]
+
+
+
+
+;;;  DOWNLOAD AND UNZIP THE WEATHER DATA  ;;;
+
+;  Drake can check timestamps on files and in S3 buckets
+;  but not on websites. [-timecheck] disables timestamp
+;  checking, so it only runs when the output is missing
+;  or when the user forces the step to run.
+/mnt/data/training/jwalsh/2016.csv.gz <- [-timecheck]
+	URL="ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/2016.csv.gz"
+	wget --output-document="$OUTPUT0" "$URL"
+/mnt/data/training/jwalsh/2016.csv <- /mnt/data/training/jwalsh/2016.csv.gz
+	gunzip -c $INPUT > $OUTPUT
+
+
+
+
+;;; LOAD THE DATA  ;;;
+
+;  Because our Postgres database doesn't have a timestamp we can check,
+;  we create a fake file called `psql_weather` that tracks the timestamp.
+/mnt/data/training/jwalsh/psql_weather <- jwalsh_table.sql, /mnt/data/training/jwalsh/2016.csv
+	psql -f $INPUT0
+	touch $OUTPUT
+	
