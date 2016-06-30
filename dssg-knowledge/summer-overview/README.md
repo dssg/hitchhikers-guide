@@ -1,7 +1,7 @@
 # Summer Overview and What to Expect
 
 ## Motivation
-* Introduce key people, [typical week](https://github.com/dssg/dssg-manual/edit/master/manual.md#a-typical-week), and summer overview.
+* Introduce key people, [typical week](https://github.com/dssg/dssg-manual/blob/master/manual.md#a-typical-week), and summer overview.
  
 ## Scheduling and Typical Week at DSSG 
 There will be (on average) one daily all-DSSG event. It will be clearly stated what is and isn’t mandatory.
@@ -12,8 +12,7 @@ There will be (on average) one daily all-DSSG event. It will be clearly stated w
 - **Friday speakers** - External speakers from industry, government, academia, and nonprofits. Some will be talks, some will be panels. We bring in lunch and invite speakers to stay and chat informally over lunch. 
 - **Discussion groups** - 4 groups meeting Friday afternoons (one person from each team in each discussion group), around ethics in tech & data. Topics can be outside readings from industry or academia or issues fellows have encountered in their work. 
 - **Happy hours** - Every other Thursday afternoon. Feel free to invite friends and connections from tech, any visitors you have, all are welcome. 
-- **Summer Kick-off Party**  
-- **Data Fest and Conference** 
+- **Summer Kick-off Party, Data Fest and Conference** 
 
 ## Resources
 * [High level summer overview](high-level-summer-plan.pdf) 
@@ -26,4 +25,10 @@ There will be (on average) one daily all-DSSG event. It will be clearly stated w
 ## Resources
 [DSSG Manual and Code of Conduct] (https://github.com/dssg/dssg-manual)
 
+# Legal Agreements
 
+## Motivation
+
+## Materials
+
+## Resources
