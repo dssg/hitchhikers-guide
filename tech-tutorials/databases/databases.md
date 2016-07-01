@@ -1,1 +1,1 @@
-This session covered basic of relational databases and NoSQL databases. 
+This session covered basics of relational databases and NoSQL databases. 
