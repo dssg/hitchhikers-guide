@@ -1,4 +1,4 @@
-#DSGG Pre-requisites
+#Before the Summer: Pre-requisites
 
 In order to be ready for the summer, you need to install some packages on your computer:
 
