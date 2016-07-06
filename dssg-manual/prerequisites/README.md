@@ -1,5 +1,7 @@
 #Before the Summer: Pre-requisites
 
+All of our fellows come in with at least an intermediate scripting ability (usually in Python), some statistics knowledge, and some social science knowledge. We bring together people of all backgrounds, so we know that some will be stronger in some areas, and some might never have seen some of this material. To get everyone on the same page at the beginning, we send out a [welcome email](email.md) about a month before the fellowship begins with recommended background reading and what they'll need to install. We also spend the first two weeks of the summer getting everyone up to speed with the tools they'll be using on their projects.  
+
 In order to be ready for the summer, you need to install some packages on your computer:
 
 ## Required
@@ -30,8 +32,9 @@ In order to be ready for the summer, you need to install some packages on your c
 ## How to install pre-requisites?
 
 *   **OS X** users - Follow this [instructions](osx.md)
-*   **Linux** users - You probably know how to do it, but still [check this](https://github.com/dssg/hitchhikers-guide/blob/master/prerequisites/osx.md#step-3-install-python-tools) for information on Python tools
+*   **Linux** users - You probably know how to do it, but still [check this](osx.md#step-3-install-python-tools) for information on Python tools
 *   **Windows** users - We don't have a guide yet (any volunteers?)
+* We will also hold a [software setup session](../tech-tutorials/software-setup/) during the first week with technical mentors there to help anyone still having difficulty.
 
 ## Try it out!
 

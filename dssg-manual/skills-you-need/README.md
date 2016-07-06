@@ -1,30 +1,9 @@
 # __Skills You Need to do Data Science for Social Good__
-
-#Skills You Need
-The following five skill levels can help you gauge where you stand and what things would be useful to brush up on or seek out:   
-*   [Level 0 - Fellow](#fellow): what you should know before coming to the fellowship.
-*   [Level 1 - Rookie](#rookie): what you should know after orientation.
-*   [Level 2 - Cool Kid](#cool-kid): what you should know at the end of the fellowship. 
-*   [Level 3 - Data Scientist for Social Good](#data-scientist-for-social-good): what you should know to practice in this field.
-*   [Level 4 - Data Witch](#data-witch): skills that are nice to have if you get the chance to pick them up.
-
-##*Fellow*   
- 
-
-##*Rookie*
-###Programming and tools
--   Python: [An Informal Introduction to Python](https://docs.python.org/2/tutorial/introduction.html)
-    - Ipython notebooks, pandas, numpy, scipy, sklearn, matplotlib
--   Git
-    -   [Try Git](http://try.github.com/)
-    -   [Github basics](https://guides.github.com/activities/hello-world/)
--   UNIX Command Line: [A Command Line Primer for Beginners](http://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything)
--   Introduction to databases
-    - creating schemas/dbs, getting data in (copy command), getting data out (command line, python, R), SQL GUIs (dbeaver, dbvisualizer) 
--   AWS/Cloud
-    - ec2, rds, s3, Redshift
-
-
+The following skill levels can help you gauge where you stand and what things would be useful to brush up on or seek out:   
+*   [What you should know before coming to the fellowship](../prerequisites/) and [what you should know after orientation.](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/)
+*   [Cool Kid](#cool-kid): what you should know at the end of the fellowship. 
+*   [Data Scientist for Social Good](#data-scientist-for-social-good): what you should know to practice in this field.
+*   [Data Witch](#data-witch): skills that are nice to have if you get the chance to pick them up.
 
 
 ##*Cool Kid* 
