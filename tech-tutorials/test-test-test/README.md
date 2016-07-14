@@ -1,5 +1,7 @@
 # Software testing
 
+[Slides from 2016 DSSG](https://github.com/redshiftzero/testing-tutorial)
+
 ![tests meme](http://s2.quickmeme.com/img/bf/bf321947675de864ac980948a6c835a82768a0eb48091d32e432fabcf4165666.jpg)
 
 You've finished your wonderful web protytpe for the Data Fest, your model is awesome and that visualizaiton is going to blow everyone's minds... You get on stage for a live demo and open the webapp just to see that nothing works. Spooky.
