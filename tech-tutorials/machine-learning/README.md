@@ -1,18 +1,18 @@
 # Machine Learning and Practical Validity
 
 ## Motivation
-By definition this work involves abstracting or disguising the human element by turning a social problem into an optimization problem. It is important to think carefully about how we do that, implicit and explicit assumptions, and common pitfalls.
+By definition this work involves turning a social problem into a problem we can solve using data science methods. It is important to think carefully about how we do that, implicit and explicit assumptions, and common pitfalls.
 
 ## Concepts 
-Mapping a social science problem to ML problem - defining an objective function, ethical questions, potential for misuse, evaluation and validation (just because you’re modeling something well doesn’t mean it’s what you think you’re modeling, or that the application will be effective). Social implications (and potential biases) should be worked out; contextualizing project from a data-driven, practical perspective. 
+Mapping a social problem to ML problem - defining an objective function, ethical questions, potential for misuse, evaluation and validation. Social implications (and potential biases) should be worked out; contextualizing project from a data-driven, practical perspective. 
 
 # Predictive Modeling
 
 ## Motivation
-People coming from social science or stats background are usually familiar with modeling for interpretation so it is a leap for them to go to throwing as many models and features as possible at a problem.
+People coming from social science or stats background are usually familiar with modeling for coming up with a theory so it is a leap for them to go to throwing as many models and features as possible at a problem.
 
 ## Concepts 
-Prediction vs. interpretation: what this means for feature generation and model evaluation - you include all information even if it might not be useful, collinearity is not as concerning, feature selection/regularization 
+Prediction vs. coming up with a theory: what this means for feature generation and model evaluation - you include all information even if it might not be useful, collinearity is not as concerning, feature selection/regularization 
 
 # Model Evaluation 
 
