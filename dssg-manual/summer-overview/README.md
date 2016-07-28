@@ -1,83 +1,63 @@
 # Summer Overview and What to Expect
 
-We get a lot of questions about what to expect from the summer. While specific timing will vary from project to project, the summer will follow roughly the structure below. See also [high level summer plan](high-level-summer-plan.pdf). 
+While specific schedules will vary from project to project, the summer will follow roughly the structure below. See also [high level summer plan](high-level-summer-plan.pdf) for an outline of the flow of the summer, and general concepts that will inform the topics addressed by tutorials and speakers as well as what we'll ask fellows to present about in weekly updates and deep dives.
+
+
+- Before the Summer
+- Learning About Projects
+- Working on Your Project
+- Presentations
+- Wrap-up and Handovers
+- A Typical Week at DSSG 
+
 
 ## Before the Summer
 
-Prior to your arrival, we will send you a variety of pre-training resources so you can start working with and learning how to use the tools you’ll use all summer. These resources will include a list of software to install prior to your arrival and tools/programming languages you should brush up on. We will also send you a list of projects and ask for your preferences on which projects you'd like to work on in the summer. Based on your preferences, the needs of the project, and the balance of disciplines for each team, we will create a team of 3-4 fellows for each project.
+Prior to your arrival, we provide you with [the prerequisites](./prerequisites) so you can familiarize yourself with the tools you’ll use all summer and equip yourself with the knowledge to be able to follow along with the curriculum. You'll receive a list of software to install before the first day of orientation, programming languages you should brush up on, and tools we suggest you use to manage your data workflow. We will also send you a tentative list of projects and ask for you to respond with your preferences. Based on your preferences, the requirements of each project, and the balance of disciplines within each team, we will assign teams of 3-4 fellows per project. You will learn which project you've been assigned during the second week of the fellowship.
 
 ## Learning about Projects and Partners
 
-Year-round staff at the Center for Data Science and Public Policy (DSaPP) work hard to recruit and scope projects throughout the year. Because of various logistical hurdles (think legal data sharing agreements and data transfer challenges), project partners will be finalized on an on-going basis all the way up to the start of the fellowship. As such, you will not receive your project assignment until the second week of DSSG.
+Staff at the [Center for Data Science and Public Policy](http://dsapp.uchicago.edu/) (DSaPP) work hard year-round to recruit partners and scope projects. This is a lengthy, complicated process with plenty of logistical hurdles (think legal data sharing agreements and data transfer challenges), which means the list of project partners is usually not finalized until the fellowship begins. You will find out your project and team assignments in the second week of the fellowship.
 
-After orientation, you will spend the first part of the summer getting to know your project partner and their challenges. While the project will have been initially scoped, you will have the opportunity to refine that scope by working with your project partner throughout the summer. For example, we may have initially worked with a project partner to determine a goal of finding violations of a particular law or code. Your team would then work with the partner to narrow that to: (1) locations at risk of violations in general; (2) locations at risk of multiple violations; or (3) locations with the most impactful violations.
+We ask all our project partners to come to Chicago in the first two weeks of the summer. During partner visits, you’ll spend a lot of time talking through the problem and the data with them, and they give a presentation to the fellowship. We want you to meet the people you’re working with face to face. This also gives all of the fellows a chance to hear about all of the projects and for the partners to meet other project partners and the other fellows.
 
-While we know you are eager to dig into data immediately, data science for social good is not just about data and cannot happen in a vacuum. We believe that it is important for you to thoroughly understand the problem you are trying to solve and underlying issues in order to approach your solution more intentionally. Not only do evaluation metrics depend on your specific goals, but understanding and knowledge of the problem is crucial in understanding what your variables even mean. To help with that initial context, most project partners will come on site during the first two weeks and spend a couple of days with their team.
+After orientation, you will spend the first part of the summer getting to know your project partner and their unique challenges. While the projects have already been scoped, you will almost certainly need to refine that scope throughout the summer. For example, we may know your partner’s goal is to find violations of a particular law. Your team would then work with the partner to narrow that to: (1) locations at risk of violations in general; (2) locations at risk of multiple violations; or (3) locations with the most impactful violations.
+
+We believe it is important for you to thoroughly understand the problem and the process that gives rise to the data before getting too entrenched in the data itself. A deep understanding of your partner and the problems they face is crucial to knowing what your variables really mean, and defining your outcome and evaluation metrics will depend heavily upon this understanding as well. While we know you are eager to dig into the data, you will find that at least as much of your time is devoted to talking about the data as manipulating it. This is a good thing.  
+
+You will also be working with real data, which is messy! You will encounter missing values and things that don’t seem to make sense. Talking to your partners and telling them what you see from looking at the data they’ve given you will help you evaluate your own understanding, reconcile inconsistencies (or carry on being aware of them), and identify whether the errors lie in the data itself or in whatever preconceived notions you had.
 
 ## Working on Your Project
 
-We aim to have all data from project partners well in advance of the fellowship, but that's never really possible. We sometimes have delays in getting data or get partial data that needs to be augmented during the fellowship. As you explore the data, you'll find holes in the data that was provided and will need to work with the project partner to fix that. That’s the reality of working with partners that collect sensitive data.
+Although we aim to have all the data from project partners ready well in advance of the fellowship, there are inevitably data transfer delays and partial data that will continue to be augmented throughout - and sometimes after - the fellowship. As you explore, you'll find holes in the provided information, or identify potential new useful sources of data, and will need to work with your partner to decide whether it’s possible to acquire the data you need in the time that you have; that’s the reality of working with real world partners and sensitive data.
 
-Fellows drive the work of every project, learning their subject matter in depth, writing code, and collaborating with their project partner on their final deliverables. Over the course of the summer, your team will:
+Fellows drive the work of every project, learning their subject matter in depth, writing code, and collaborating with their project partners to develop something useful and usable. Over the course of the summer, your team will:
 
-* Explore your data
-* Design your project workflow
-* Identify user stories
-* Develop a machine learning pipeline
-* Build relevant models
-* Improve feature and pipeline engineering
-* Evaluate using the metrics that make sense for your project
-* Develop additional final deliverables (API, dashboard applications, etc) 
+* Explore the (real) data your partners collect
+* Design your project workflow based on what tools you'll use and how your team works together
+* Identify user stories to make sure what you're creating has a real purpose
+* Develop a machine learning pipeline to turn raw data into analysis that can inform decisions
+* Build relevant models that reflect the subject you're analyzing as closely as possible
+* Add features to your model based on subject matter expertise, available data, and exploratory analysis
+* Evaluate model performance using the metrics that make sense for your project
+* Create an interface for your partner to use your results (API, dashboard applications, etc) 
 
 ## Presentations
 
-We believe that our work is only useful if we are able to communicate about it with our partners, peers, as well as the general public. As such, an important piece of this training program is learning to present about the work you do. 
+We believe that our work is only useful if we are able to communicate what we do and why it’s important to our partners, peers, and the general public. As such, an important piece of this training program is learning to present the work you do.
 
-Each week, a member of your team will give a 2-3 minute update to the entire fellowship, outlining your progress to date and the work you aim to complete the following week. Twice during the summer, your team will present a 20-minute deep dive, outlining the more technical components of your project and seeking feedback from other fellows and mentors.
+Each week, a member of your team will give a 2-3 minute update to the entire fellowship, outlining your recent progress and findings, giving shoutouts to other fellows or staff members who have helped you along the way, and things you're stuck on and are seeking help with. Two teams per week (so each team presents twice throughout the summer) will give a longer 20-minute "deep dive" presentation, outlining more technical components of your project and seeking feedback from other fellows and mentors.
 
-At the end of the summer, your team will develop two polished presentations: one 5-minute presentation for the final DSSG Data Fest event, and one 20-minute technical presentation for use at conferences, local Meetup events, and presenting at your home institution. Each group will be assigned a local meetup to give their presentation. In preparation for the DSSG Data Fest, our communications staff will work with you on both of these presentations, brainstorming ways to present your work and providing feedback on your delivery. 
+At the end of the summer, your team will develop **two polished presentations**: one 5-minute presentation for the DataFest final event, and one 20-minute technical presentation for use at a local tech meetup at the end of the summer and for future presentations at conferences or your home institution. 
+
+In the last few weeks of the fellowship, each team will present at a local meetup. Each team will elect one team member to deliver the short final presentation at DataFest; however, all team members should feel comfortable delivering all presentations. Our communications staff will work with you on both of these presentations, brainstorming ways to present your work and providing feedback on your delivery.
 
 ## Wrap-Up and Handovers 
 
-We want to make sure the work you do over the summer has real impact. For that impact to happen, a lot more needs to be done after you finish the summer. Some of that work is done by the project partner, some of it is done by the Center for Data Science and Public Policy at the University of Chicago, and some of it may even be one by the fellows who continue to stay involved. What is critical for that follow-up work to take place is that you wrap up and document your work well so that others can continue and sustain your efforts. We also need to make sure that we transition the work over to the project partners so they can continue to extend, validate, implement, and deploy your work.
+To make sure the work you do this summer has real impact, a lot more work needs to be done after the official end of the fellowship; some of this will be done by your project partner, and some will be done by the Center for Data Science and Public Policy at the University of Chicago. You will need to transition the work over to your project partners so they can validate, implement, and extend your work. To do this, you will have to document your work throughout the summer and wrap it up neatly at the end of the summer. 
+
+We ask that you prepare a poster to be displayed at DSSG events and for potential conference poster sessions, a technical report, and an outline of a paper. This makes it easier to collaborate once you and your team mates are no longer working at the same desk every day. We also ask that all your code can be run on a new machine, and that there is sufficient documentation for someone else to replicate and understand your work.
+
 
 ## A Typical Week at DSSG 
 
-Monday
-* 9:30am: DSSG-wide Stand-Up - important announcements and agenda for the week
-* 9:45 - Noon: work
-* Noon - 1pm: DSSG-wide - Brownbag Lunch Tutorial
-* 1pm onwards: work
-
-Tuesday
-* 9:30 am: 15-minute Team Stand-Up - what you did yesterday, what you’re stuck on
-* 9:45 - noon: work
-* Noon - 1pm: lunch
-* 1 - 2pm: prep for afternoon meeting
-* 2 - 3pm: Project Partner Meeting to discuss data, scope, deliverables, new findings, etc
-* 3pm: DSSG-wide All Hands Meeting - 3 minute updates from each team
-* 4pm-onwards: work
-* 6-11pm: ping pong tournament (optional)
-
-Wednesday
-* 9:30am: 15-minute Team Stand-Up 
-* 9:45 - noon: work
-* Noon - 1pm: lunch
-* 1 - 3pm: work
-* 3pm: DSSG-wide All Hands Meeting - two teams give 20-minute deep dives of their work, 10-minute Q&A
-* 4 - 5pm: work
-* 5 - 6pm: DSSG-wide (optional) - fellow-led workshop or tutorial
-
-Thursday
-* 9:30am: 15-minute Team Stand-Up 
-* 9:45 - noon: work
-* Noon - 1pm: DSSG-wide - Brownbag Lunch Tutorial
-* 1-5pm: work
-* 5pm: DSSG Happy Hour (open to the public - we typically invite local tech, data science, non-profit, government, and startup communities)
-
-Friday
-* 9:30am: 15-minute Team Stand-Up 
-* 9:45 - noon: work
-* Noon: Invited speaker presentation 
-* 1pm: DSSG-wide lunch 
-* Afternoon: work
