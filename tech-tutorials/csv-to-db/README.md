@@ -62,10 +62,10 @@ If you haven't already, download Matt's weather data to your training folder dir
 This gives you a file called `2016.csv`. You can explore the data using `head`, `tail`, `csvlook`, and other tools that Matt taught you.
 
 Here's the output from `csvlook`:
-![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/tech-tutorials/csvtodb/weather_data_csvlook_output.png "weather data")
+![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/tech-tutorials/csv-to-db/weather_data_csvlook_output.png "weather data")
 
 The first weird thing I see when I look at the data: no headers. `csvlook -H` makes it easier to read:
-![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/tech-tutorials/csvtodb/weather_data_csvlook_noheader_output.png "weather data") 
+![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/tech-tutorials/csv-to-db/weather_data_csvlook_noheader_output.png "weather data") 
 
 The README tells us that 
 * Column 1 is the station identifier
@@ -85,7 +85,7 @@ Station,Date,Value Type,Value,Measurement Flag,Quality Flag,Source Flag,Time
 
 
 Here's the new `csvlook`:
-![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/tech-tutorials/csvtodb/weather_data_csvlook_header_output.png "weather data") 
+![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/tech-tutorials/csv-to-db/weather_data_csvlook_header_output.png "weather data") 
 
 `csvsql` generates `create table` statements for you. Because it uses Python, it will load all the data and then do its thing. For limit the resources it needs, I'll only use the first 1000 rows. We're using a PostgreSQL ("Postgres") database:
 
