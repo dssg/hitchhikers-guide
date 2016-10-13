@@ -1,9 +1,10 @@
 # Best Practices: Writing Legible, Good Code
 
 ## Motivation
-All fellows will have to write code that is usable and understandable by their peers and partners, and potentially other 3rd parties. What does that entail in practice? Many 
-fellows are coming from academic backgrounds, have programming skills that are self-taught, and have never worked collaboratively on a software project before. We want to help 
-them establish good habits and avoid common mistakes.
+All fellows will have to write code that is usable and understandable by their peers and partners, and potentially 
+other 3rd parties. What does that entail in practice? Many fellows are coming from academic backgrounds, 
+have programming skills that are self-taught, and have never worked collaboratively on a software project before. 
+We want to help them establish good habits and avoid common mistakes.
 
 ---
 
@@ -61,7 +62,8 @@ def fib(n):
 
 * ...one month from now when you've completely forgotten what the heck `alpha` was...
 * ...or tomorrow when your teammate wonders why all those `3`s are in the database....
-* ...or when your system is on fire at 2am (the witching hour of production systems), you're tired, and your customers are calling wondering what the heck is going on over there...
+* ...or when your system is on fire at 2am (the witching hour of production systems), you're tired, and your customers 
+are calling wondering what the heck is going on over there...
 * ...or when I'm doing code review for you...
 
 ---
@@ -92,7 +94,7 @@ def doit(x):
     return output  
 ```
 
-```ruby
+```python
 def magic(input):
     filter = set()
     return sorted(x for x in y 
@@ -104,7 +106,7 @@ def magic(input):
 
 
 
-```ruby
+```python
 def pretty_pictures():
     df = pd.read_csv('2016.csv.gz', names=['STATION', 'DATE', 'TYPE', 'VALUE', 
                                            'MEASUREMENT_FLAG', 'QUALITY_FLAG', 
@@ -388,7 +390,8 @@ def precipitation_in_chicago():
 # DRY
 
 * Use functions to not repeat yourself
-* Good rule of thumb: If you've gone .red[20 lines without making a comment] (e.g., the .green[docstring] of a function), you likely should add one.
+* Good rule of thumb: If you've gone .red[20 lines without making a comment] (e.g., the .green[docstring] of a 
+function), you likely should add one.
 
 ---
 
