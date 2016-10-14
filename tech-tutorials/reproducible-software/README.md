@@ -387,7 +387,8 @@ nfp2/
 
 
 # Additional Resources/Inspiration for this Tutorial 
-    - [10 Rules for Robust Software](http://oicr-gsi.github.io/robust-paper/#fn:2)
-    - [Good Enough Practices in Scientific Computing](https://arxiv.org/pdf/1609.00037.pdf)
-    - [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371%2Fjournal.pbio.1001745 )
-    - [Reproducible Research SSI](https://www.software.ac.uk/attach/ChangingResearchSoftwareAttitudes.pdf)
+
+- [10 Rules for Robust Software](http://oicr-gsi.github.io/robust-paper/#fn:2)
+- [Good Enough Practices in Scientific Computing](https://arxiv.org/pdf/1609.00037.pdf)
+- [Best Practices for Scientific Computing](http://journals.plos.org/plosbiology/article?id=10.1371%2Fjournal.pbio.1001745 )
+- [Reproducible Research SSI](https://www.software.ac.uk/attach/ChangingResearchSoftwareAttitudes.pdf)
