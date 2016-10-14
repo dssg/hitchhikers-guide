@@ -3,11 +3,13 @@
 Scientific software is often developed and used by a single person. It is all too common in academia
 to be handed a postdoc or graduate students's old code and be unable to to replicate the original study, run 
 the software outside of the original development machine, or even get the software to work at all. The 
-goal of this tutorial is to provide some guidelines to make your summer projects reproducible--this means your
+goal of this tutorial is to provide some guidelines to make your summer projects reproducible -- this means your
 project can be installed on another computer and give the same results you got over the summer. At the end of 
-the summer your project should be understandable and transferable to your future self and anyone else who 
+the summer, your project should be understandable and transferable to your future self and anyone else who 
 may want to pick up where you left off without having to constantly email you about how to get your project 
-running. *(Note: Your future-self doesn't have the luxury of being able to email your past-self).* 
+running. 
+
+*(Note: Your future-self doesn't have the luxury of being able to email your past-self).* 
 
 ---
 
@@ -15,10 +17,10 @@ running. *(Note: Your future-self doesn't have the luxury of being able to email
 
 One that...
 
-- works for someone other than the original team.
-- can be **easily** installed on another computer.
-- has Documentation that describes what the dependencies are and how to install them.
-- comes with enough tests to indicate the software is running properly. 
+- works for someone other than the original team
+- can be **easily** installed on another computer
+- has Documentation that describes what the dependencies are and how to install them
+- comes with enough tests to indicate the software is running properly.
 
 ---
 
@@ -27,12 +29,12 @@ One that...
 All projects should have a README that communicates the following: 
 
 1. What the project is about
-   - A short description of the project (i.e, the problem you are trying to solve)
+   - A short description of the project (i.e, the problem you are trying to solve).
 
 2. The required dependenices to run the software. 
-   - The can be in the form of a *requirements.txt* file for Python dependencies that lists 
+   - The can be in the form of a *requirements.txt* file for Python that lists 
    the dependencies and version numbers.
-   - The system-level dependencies. 
+   - The system-level dependencies.
 
 3. Installation Instructions
    - How to install your software and associated binaries. This can be in the form of
@@ -43,7 +45,7 @@ All projects should have a README that communicates the following:
    - The inputs and outputs of your software (i.e, how to use it) with code examples. 
    
 5. Attribution/Licensing
-   - Who did what and how can others use your software
+   - Who did what and how can others use your software.
 
 Examples: 
     - [Chicago Food Inspections](https://github.com/Chicago/food-inspections-evaluation)
@@ -54,29 +56,29 @@ Examples:
 
 # Things to do
 
-- Use virtual environments (more on that later)
+- Use virtual environments (more on that later).
 - Use automation tools like Make or Drake (also more on that later)
-  [Reproducible ETL](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/reproducible_ETL)
+  [Reproducible ETL](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/reproducible_ETL).
 - Keep an easy to understand and interpret directory structure. 
 - Keep a clean database that does not have any junk tables. 
 - Merge all branches into master. 
 - Write commit messages in such a way that your log is helpful
-  [Git and Github](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/git-and-github)
+  [Git and Github](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/git-and-github).
 - Write unit tests/continuous integrations
-  [Testing](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/test-test-test)
-- Use spaces instead of tabs in your python code (4 spaces for indentation)
+  [Testing](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/test-test-test).
+- Use spaces instead of tabs in your python code (4 spaces for indentation).
 
 ---
 
 # Things not to do 
 
 - Hard-coded paths 
-- Require Sudo/root privliges to install your project
-- Use non-standard formats for inputs (stick to YAML, XML, JSON, CLA etc)
-- Have random files everywhere--messy repo.
-- Commit Data to the Repo. 
-- Commit Sensitive Information like database passcodes to the GitHub Repo.
-- Have code that needs to be operationalized in Jupyter Notebooks
+- Require Sudo/root privliges to install your project.
+- Use non-standard formats for inputs (stick to *YAML*, *XML*, *JSON*, *CLA* etc).
+- Have random files everywhere -- messy repo.
+- Commit Data to the repo.
+- Commit Sensitive Information like database passcodes to the GitHub repo.
+- Have code that needs to be operationalized in Jupyter Notebooks.
 
 ---
 
@@ -118,7 +120,6 @@ dpkg --get-selections > list.txt
 dpkg --clear-selections
 sudo dpkg --set-selections < list.txt
 ```
-
 
 
 
