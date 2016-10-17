@@ -72,13 +72,28 @@ Examples:
 
 # Things not to do 
 
-- Hard-coded paths 
+- Hard-coded paths  
 - Require Sudo/root privliges to install your project.
+  - You can't anticipate whether or not someone will have root access to the machine 
+    they are installing your project on so don't count on it. Additionaly, you shouldn't 
+    require users to create separate usernames for your project. 
 - Use non-standard formats for inputs (stick to *YAML*, *XML*, *JSON*, *CLA* etc).
+  - My one exception to this rule is log files--which you should provide an example of in a README.
+    Otherwise it is easier to just stick with what is already in use. 
 - Have random files everywhere -- messy repo.
+  - This is confusing, irritating and cancerous to productive enterprise. 
+  - See [example](# Bad Directory Organization)
 - Commit Data to the repo.
+  - Your repository is for your codebase not the data. Furthermore, your data may be sensitive 
+    and need to be protected. 
 - Commit Sensitive Information like database passcodes to the GitHub repo.
+  - Always assume that your repo will be public someday on GitHub--for your DSSG project it will be. 
+    Sensitive information also include architecture decisions about your database. After sensitive 
+    information is pushed to GitHub you cannot remove it completely from the repository. 
 - Have code that needs to be operationalized in Jupyter Notebooks.
+  - Jupyter notebooks are wonderful for cotaining your analysis, code and figures in a single document,
+    particulary for doing exploratory analysis. They are not good for keeping the code you will need for
+    your pipeline or code that you will eventually want to turn into a library. 
 
 ---
 
@@ -111,7 +126,7 @@ pip freeze > requirements.txt #outputs a list of dependencies and version number
 
 # Systems Level Dependenices
 
-Systems level dependencies are the libraries installed on your OS. For Ubuntu Linux
+Systems level dependencies are the libraries installed on your OS. For Ubuntu/Debian Linux
 you can get a list of them and then install them using the following: 
 ```
 #grab systems level dependencies
@@ -120,9 +135,120 @@ dpkg --get-selections > list.txt
 dpkg --clear-selections
 sudo dpkg --set-selections < list.txt
 ```
+---
+
+# Hard-coded paths Shapefile Example
+
+## Example of Adding Shapefile with hard-coded paths
+
+Hard-coded paths are absolute paths that are native to the machine you are using for 
+devlopment. It is unlikely someone else will keep their data in the exact same directory 
+as you when trying to use your project in a separate environment. Users should be able to set
+location of files as command line parameters. Below are examples: 
+
+### load_shapefile_hardpath_v1.sh
+```
+# Data downloaded from this website: http://mrdata.usgs.gov/geology/state/state.php?state=NY
+shp2pgsql -d -s 4267:2261 -d /mnt/data/syracuse/NY_geol_dd soil.geology | psql
+
+```
+Though this script documents the command that runs. It has a hard path and the purpose of the options are not clear.
+This script has the shelf-life of a banana. 
+
+### load_shapefile_hardpath_v2.sh
+```
+#!/bin/bash
+# Data downloaded from this website: http://mrdata.usgs.gov/geology/state/state.php?state=NY
+original_projection=4267
+new_projection=2261 #projection of Upstate NY
+schema='soil'
+table='geology'
+shapefile='/mnt/data/syracuse/NY_geol_dd/nygeol_poly_dd.shp'
+
+#create table and schema
+psql -c "drop table if exists ${schema}.${table}"
+psql -c "create schema if not exists ${schema}"
+#import the data
+shp2pgsql -d -s ${original_projection}:${new_projection} -d ${shapefile} ${schema}.${table} | psql
+
+```
+With this version someone can better surmise what is being done. Though everytime you want to load
+your data you have to change the filename in the script. 
+
+### load_shapfile_hardpath_v3.sh
+```
+#!/bin/bash
+#ETL script for importing shape files. 
+
+PROGRAM=$(basename $0)
+usage="${PROGRAM} -s schema -t table -p original_projection [-n new_projection] [-v] shapefilename"
+
+function die() {
+local errmsg="$1" errcode="${2:-1}"
+echo "ERROR: ${errmsg}"
+exit ${errcode}
+}
+
+#if called with no command line arguments then output usage 
+if [ ${#} -eq 0 ] 
+then
+    echo ${usage}
+    exit 1; 
+fi
+
+#--------------------------------------------------
+# process input arguments
+#--------------------------------------------------
+verbose="false"
+new_projection=""
+while getopts hp:n:s:t:v OPT; do
+case "${OPT}" in
+h)  echo "${usage}";
+exit 0
+;;
+p)  original_projection="${OPTARG}"
+;;
+n)  new_projection="${OPTARG}"
+;;
+s)  schema="${OPTARG}"
+;;
+t)  table="${OPTARG}"
+;;
+v)  verbose="true"
+;;
+?)  die "unknown option or missing arument; see -h for usage" 2
+;;
+esac
+done
+shift $((OPTIND - 1))
+shapefile="$*"
+
+if [ ${verbose} == "true" ]
+then
+    echo 'original_projection:' $original_projection
+    echo 'new_projection:' $new_projection
+    echo 'schema:' $schema 
+    echo 'table:'$table
+    echo 'shapefile:'$shapefile
+fi
 
 
+#create table and schema
+psql -c "drop table if exists ${schema}.${table}"
+psql -c "create schema if not exists ${schema}"
 
+#import the data
+if [ -z "${new_projection}" ]
+then
+    shp2pgsql -s ${original_projection} -d ${shapefile} ${schema}.${table} | psql
+else
+    shp2pgsql -s ${original_projection}:${new_projection} -d ${shapefile} ${schema}.${table} | psql
+fi
+
+```
+In this version you can call it from the commandline and use it for any time of shapefile. When 
+called with no arugments it prints out a usage so the user does not have to look into the actual 
+script. It also has a verbose mode for debugging. Here, there are not hard paths. 
 
 # Bad Directory Organization 
 ```
