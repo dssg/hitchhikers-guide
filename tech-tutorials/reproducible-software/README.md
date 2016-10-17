@@ -60,12 +60,18 @@ Examples:
 - Use automation tools like Make or Drake (also more on that later)
   [Reproducible ETL](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/reproducible_ETL).
 - Keep an easy to understand and interpret directory structure. 
-- Keep a clean database that does not have any junk tables. 
+- Keep a clean database that does not have any junk tables.
+  - Junk table are just going to confuse your future-self or others that come fresh to the project. 
 - Merge all branches into master. 
+  - The purposes of branches are for adding features or patches. When you have added said feature or patch
+    and you know you won't break the master branch, merge into master and delete the branch. 
 - Write commit messages in such a way that your log is helpful
   [Git and Github](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/git-and-github).
-- Write unit tests/continuous integrations
+- Write unit tests/continuous integrations so you can catch bugs quickly, particularly when you are merging
+  new features into master. 
   [Testing](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/test-test-test).
+- Add docstrings to document all of your functions [legible-good-code](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code)
+- Write your python code following the PEP8 standard. [legible-good-code](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code)
 - Use spaces instead of tabs in your python code (4 spaces for indentation).
 
 ---
@@ -152,8 +158,8 @@ location of files as command line parameters. Below are examples:
 shp2pgsql -d -s 4267:2261 -d /mnt/data/syracuse/NY_geol_dd soil.geology | psql
 
 ```
-Though this script documents the command that runs. It has a hard path and the purpose of the options are not clear.
-This script has the shelf-life of a banana. 
+Though this script documents the command that runs. It has a hard path and the purpose of the arguments
+are not clear. This script has the shelf-life of a banana. 
 
 ### load_shapefile_hardpath_v2.sh
 ```
@@ -172,8 +178,9 @@ psql -c "create schema if not exists ${schema}"
 shp2pgsql -d -s ${original_projection}:${new_projection} -d ${shapefile} ${schema}.${table} | psql
 
 ```
-With this version someone can better surmise what is being done. Though everytime you want to load
-your data you have to change the filename in the script. 
+With this version someone can better surmise what is being done. Though, everytime you want to load
+your data you have to change the filename in the script. It also checks if the table already exists 
+in the database so the command can be used to reload data. 
 
 ### load_shapfile_hardpath_v3.sh
 ```
@@ -246,9 +253,9 @@ else
 fi
 
 ```
-In this version you can call it from the commandline and use it for any time of shapefile. When 
-called with no arugments it prints out a usage so the user does not have to look into the actual 
-script. It also has a verbose mode for debugging. Here, there are not hard paths. 
+In this version, you can call the script from the commandline and use it for any shapefile. When 
+called with no arguments it prints out a usage so the user does not have to look into the actual 
+script. It also has a verbose mode for debugging. Here, there are no hard paths. 
 
 # Bad Directory Organization 
 ```
