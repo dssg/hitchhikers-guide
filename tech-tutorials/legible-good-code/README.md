@@ -248,7 +248,7 @@ def max_intersection(left, right):
                         for key, val in right_counts.items()})
     return left_counts
 ```
-In this case the value counting is redunting and can be abstracted
+In this case, the value counting logic is redundant and can be abstracted
 away into a function. 
 
 
@@ -438,6 +438,13 @@ def gcd(a, b):
 * One statement per line
 * Use spaces not tabs!
 
+
+### Can you a pep8 checker to PEP8 your code
+```
+pip install autopep8
+autopep8 --in-place 
+
+```
 ---
 
 # Summary
