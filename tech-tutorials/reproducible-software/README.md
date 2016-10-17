@@ -1,9 +1,9 @@
 # Making Projects Reproducible
 
 Scientific software is often developed and used by a single person. It is all too common in academia
-to be handed a postdoc or graduate students's old code and be unable to to replicate the original study, run 
+to be handed a postdoc or graduate students's old code and be unable to replicate the original study, run 
 the software outside of the original development machine, or even get the software to work at all. The 
-goal of this tutorial is to provide some guidelines to make your summer projects reproducible -- this means your
+goal of this tutorial is to provide some guidelines to make your summer projects reproducible - this means your
 project can be installed on another computer and give the same results you got over the summer. At the end of 
 the summer, your project should be understandable and transferable to your future self and anyone else who 
 may want to pick up where you left off without having to constantly email you about how to get your project 
@@ -19,8 +19,8 @@ One that...
 
 - works for someone other than the original team
 - can be **easily** installed on another computer
-- has Documentation that describes what the dependencies are and how to install them
-- comes with enough tests to indicate the software is running properly.
+- has documentation that describes what the dependencies are and how to install them
+- comes with enough tests to indicate the software is running properly
 
 ---
 
@@ -31,25 +31,25 @@ All projects should have a README that communicates the following:
 1. What the project is about
    - A short description of the project (i.e, the problem you are trying to solve).
 
-2. The required dependenices to run the software. 
+2. The required dependenices to run the software
    - The can be in the form of a *requirements.txt* file for Python that lists 
    the dependencies and version numbers.
    - The system-level dependencies.
 
-3. Installation Instructions
+3. Installation instructions
    - How to install your software and associated binaries. This can be in the form of
      instructions on how to use *pip*, *apt*, *yum*, or some other binary package 
      manager. 
      
-4. Example Usage
+4. Example usage
    - The inputs and outputs of your software (i.e, how to use it) with code examples. 
    
 5. Attribution/Licensing
    - Who did what and how can others use your software.
-
+   
 Examples: 
-    - [Chicago Food Inspections](https://github.com/Chicago/food-inspections-evaluation)
-    - [DSSG Police EIS](https://github.com/dssg/police-eis)
+   - [Chicago Food Inspections](https://github.com/Chicago/food-inspections-evaluation)
+   - [DSSG Police EIS](https://github.com/dssg/police-eis)
 
 ---
 
@@ -63,7 +63,7 @@ Examples:
 - Keep a clean database that does not have any junk tables.
   - Junk table are just going to confuse your future-self or others that come fresh to the project. 
 - Merge all branches into master. 
-  - The purposes of branches are for adding features or patches. When you have added said feature or patch
+  - Branches are for adding features or patches. When you have added said feature or patch
     and you know you won't break the master branch, merge into master and delete the branch. 
 - Write commit messages in such a way that your log is helpful
   [Git and Github](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/git-and-github).
@@ -72,30 +72,30 @@ Examples:
   [Testing](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/test-test-test).
 - Add docstrings to document all of your functions [legible-good-code](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code)
 - Write your python code following the PEP8 standard. [legible-good-code](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code)
-- Use spaces instead of tabs in your python code (4 spaces for indentation).
+- Use spaces instead of tabs in your Python code (4 spaces for indentation).
 
 ---
 
 # Things not to do 
 
-- Hard-coded paths  
+- Hard-coded paths.
 - Require Sudo/root privliges to install your project.
   - You can't anticipate whether or not someone will have root access to the machine 
     they are installing your project on so don't count on it. Additionaly, you shouldn't 
     require users to create separate usernames for your project. 
 - Use non-standard formats for inputs (stick to *YAML*, *XML*, *JSON*, *CLA* etc).
-  - My one exception to this rule is log files--which you should provide an example of in a README.
+  - My one exception to this rule is log files - which you should provide an example of in a README.
     Otherwise it is easier to just stick with what is already in use. 
 - Have random files everywhere -- messy repo.
   - This is confusing, irritating and cancerous to productive enterprise. 
   - See [example](# Bad Directory Organization)
 - Commit Data to the repo.
-  - Your repository is for your codebase not the data. Furthermore, your data may be sensitive 
+  - Your repository is for your codebase, not the data. Furthermore, your data may be sensitive 
     and need to be protected. 
 - Commit Sensitive Information like database passcodes to the GitHub repo.
-  - Always assume that your repo will be public someday on GitHub--for your DSSG project it will be. 
-    Sensitive information also include architecture decisions about your database. After sensitive 
-    information is pushed to GitHub you cannot remove it completely from the repository. 
+  - Always assume that your repo will be public someday on GitHub - for your DSSG project it will be. 
+    Sensitive information also includes architecture decisions about your database. After sensitive 
+    information is pushed to GitHub, you cannot remove it completely from the repository. 
 - Have code that needs to be operationalized in Jupyter Notebooks.
   - Jupyter notebooks are wonderful for cotaining your analysis, code and figures in a single document,
     particulary for doing exploratory analysis. They are not good for keeping the code you will need for
@@ -158,7 +158,7 @@ location of files as command line parameters. Below are examples:
 shp2pgsql -d -s 4267:2261 -d /mnt/data/syracuse/NY_geol_dd soil.geology | psql
 
 ```
-Though this script documents the command that runs. It has a hard path and the purpose of the arguments
+Although this script documents the command that runs, it has a hard path and the purpose of the arguments
 are not clear. This script has the shelf-life of a banana. 
 
 ### load_shapefile_hardpath_v2.sh
@@ -178,7 +178,7 @@ psql -c "create schema if not exists ${schema}"
 shp2pgsql -d -s ${original_projection}:${new_projection} -d ${shapefile} ${schema}.${table} | psql
 
 ```
-With this version someone can better surmise what is being done. Though, everytime you want to load
+With this version someone can better surmise what is being done. Everytime you want to load
 your data you have to change the filename in the script. It also checks if the table already exists 
 in the database so the command can be used to reload data. 
 
