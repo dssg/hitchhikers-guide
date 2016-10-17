@@ -1,4 +1,5 @@
 # Best Practices: Writing Legible, Good Code
+    
 
 ## Motivation
 All fellows will have to write code that is usable and understandable by their peers and partners, and potentially 
@@ -6,13 +7,17 @@ other 3rd parties. What does that entail in practice? Many fellows are coming fr
 have programming skills that are self-taught, and have never worked collaboratively on a software project before. 
 We want to help them establish good habits and avoid common mistakes.
 
----
-
-# There is only one law of good coding:  **Code is for humans, not for computers**
+(Adapted from Kevin Wilson's, 2016 Technical Mentor, Tutorial)
 
 ---
 
-# What you write
+# There is only one law of good coding:  
+
+
+**Code is for humans, not for computers**
+
+
+## What you write (for people)
 
 ```python
 def fib(n):
@@ -27,9 +32,8 @@ def fib(n):
         return fib(n - 1) + fib(n - 2)
 ```
 
----
 
-# What the computer sees
+## What the computer sees (assembly language for the processor)
 
 ```
   2           0 LOAD_FAST                0 (n)
@@ -56,9 +60,8 @@ def fib(n):
              47 RETURN_VALUE
 ```
 
----
 
-# Seriously, the code is for *you*...
+### Seriously, the code is for *you*...
 
 * ...one month from now when you've completely forgotten what the heck `alpha` was...
 * ...or tomorrow when your teammate wonders why all those `3`s are in the database....
@@ -68,15 +71,10 @@ are calling wondering what the heck is going on over there...
 
 ---
 
-# The Only Law of Good Coding
-
-## **Code is for humans, not for computers**
-
----
 
 # The First Consequence of the Only Law
 
-# Give things informative names
+## Give things informative names
 
 ```python
 import math  
@@ -128,22 +126,22 @@ def pretty_pictures():
     return first[first.TYPE == 'PRCP'].mean(), second[second.TYPE == 'PRCP'].mean()
 ```
 
-# Give things informative names
 
 * Names should have meaning to the intended readers, e.g.,
   * You a week from now
   * Your teammates tomorrow
   * Your future teammates who have to deal with your code
-* .green[`i`, `j`, `k`] for iterators are OK, .red[`alpha`] with a reference to a specific paper is not
+* [`i`, `j`, `k`] for iterators are OK, `alpha` with a reference to a specific paper is not
 * kwargs are a great place to name things
 * CONSTANT_VALUES are too
-* Do not fear long names; you have autocomplete
+* Do not fear long names; you have autocomplete. The TAB key is your friend. 
 
 ---
 
 # The Second Consequence of the Only Law
-# Document inputs and outputs
-```ruby
+
+## Document inputs and outputs
+```python
 import math  
   
 def factor(x):  
@@ -161,7 +159,7 @@ def factor(x):
 
 
 
-```ruby
+```python
 def unique_flatten(the_input, max_length=20):
     flattened_set = {val for val in row for row in the_input}
     filtered_list = [val for val in flattened_set if len(val) < max_length]
@@ -173,7 +171,7 @@ def unique_flatten(the_input, max_length=20):
 
 
 
-```ruby
+```python
 WEATHER_HEADERS = ['STATION', 'DATE', 'TYPE', 'VALUE', 
                    'MEASUREMENT_FLAG', 'QUALITY_FLAG', 
                    'SOURCE_FLAG', 'OBS_TIME']
@@ -201,16 +199,16 @@ def precipitation_in_chicago():
             second[second.TYPE == PRECIPITATION_TYPE].mean()) 
 ```
 
----
-
-# Document inputs and output
 
 * Every function should have a docstring
 * The docstring should
   1. Describe the function briefly
-  2. Explicitly document the inputs with .green[`:param type name: description`]
-  3. Explicitly document the return value with .green[`:returns: description`]
-  4. Explicitly document the return type with .green[`:rtype:`]
+  2. Explicitly document the inputs with `:param type name: description`
+  3. Explicitly document the return value with `:returns: description`
+  4. Explicitly document the return type with `:rtype:`
+* Note this follows the Sphinx/RST syntax [guide](http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html)
+* You can also follow the [Numpy Format](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt#docstring-standard)
+  just be consistent. 
 
 ---
 
@@ -218,8 +216,7 @@ def precipitation_in_chicago():
 
 ## Don't repeat yourself (DRY)
 
-
-# DRY
+### WET (write everything twice) Example
 
 ```python
 def max_intersection(left, right):
@@ -251,12 +248,13 @@ def max_intersection(left, right):
                         for key, val in right_counts.items()})
     return left_counts
 ```
+In this case the value counting is redunting and can be abstracted
+away into a function. 
 
----
 
-# DRY (or others!)
+### DRY Example (Use a function to avoid redundancy)
 
-```ruby
+```python
 def value_counts(the_list):
     """
     :param list[object] the_list: The list whose values we'll count
@@ -289,9 +287,12 @@ def max_intersection(left, right):
     return left_counts
 ```
 
+Better...But there is no need to reinvent the wheel with the `value_count`
+function if it has already been implemented for you. 
+
 ---
 
-# DRY (or others!) (example solution)
+### DRY (or others!) (example solution)
 
 ```ruby
 from collections import Counter
@@ -315,9 +316,10 @@ def max_intersection(left, right):
     return left_counts
 ```
 
----
+The Python Standard Library has a collections library that has
+a Counter object already build. [Collections](https://docs.python.org/2/library/collections.html#module-collections)
 
-# DRY
+### WET Plotting Example
 
 ```ruby
 def precipitation_in_chicago():
@@ -346,10 +348,11 @@ def precipitation_in_chicago():
     return (first[first.TYPE == PRECIPITATION_TYPE].mean(), 
             second[second.TYPE == PRECIPITATION_TYPE].mean())
 ```
+This example does two different things in a function as has 
+a hard path!
 
----
 
-# DRY (example solution)
+### DRY (example solution)
 
 ```ruby
 def plot_precipitation(df, station_id, output_file='out.png'):
@@ -385,12 +388,9 @@ def precipitation_in_chicago():
             plot_precipitation(df, CHICAGO_STATION_NAMES[1], output_file='second_fig.png'))    
 ```
 
----
-
-# DRY
 
 * Use functions to not repeat yourself
-* Good rule of thumb: If you've gone .red[20 lines without making a comment] (e.g., the .green[docstring] of a 
+* Good rule of thumb: If you've gone *20 lines without making a comment* (e.g., the docstring of a 
 function), you likely should add one.
 
 ---
@@ -398,9 +398,6 @@ function), you likely should add one.
 # The Fourth Consequence of the Only Law
 
 ## Reduce Cognitive Load: Follow PEP-8
-
----
-
 
 
 ```python
@@ -410,29 +407,7 @@ def GCD(a,b):
    return b if a%b==0 else GCD(b,a%b)
 ```
 
-```python
-def gcd(a, b):
-    """Return the GCD of a and b
-    
-    :param int a: The first number (positive)
-    :param int b: The second number (positive)
-    :return: The GCD of a and b
-    :rtype: int
-    """
-    if a < b:
-        b, a = a, b
-
-    if a % b:
-        return gcd(b, a%b)
-
-    return b
-```
-
----
-
-# PEP-8 is your friend
-
-## What makes this one better?
+### What makes this one better?
 
 ```python
 def gcd(a, b):
@@ -452,11 +427,11 @@ def gcd(a, b):
     return b
 ```
 
----
 
-# PEP-8 is your friend
+### PEP-8 is your friend
 
-* 79 character lines
+* 79 character lines (comes from the days of punchcards)
+* Use parenthesis for lines that span multiple lines
 * function_names are snake_case
 * ClassNames are CamelCase
 * CONSTANT_NAMES are BIG_CASE
@@ -465,7 +440,7 @@ def gcd(a, b):
 
 ---
 
-# The Only Law of Good Coding
+# Summary
 
 ## Code is for humans, not computers
 
@@ -476,7 +451,8 @@ def gcd(a, b):
 
 ---
 
-# Fix this class!
+# Exercises
+## Fix this class!
 
 ```ruby
 class myclass(object):
@@ -490,16 +466,14 @@ class myclass(object):
 ```
 ---
 
-# Fix this function!
+## Fix this function!
 
 ```ruby
 def bang(n):
     return n == 1 or (n * bang(n))
 ```
 
----
-
-# Fix this function!
+## Fix this function!
 
 ```ruby
 def read_data(filename):
