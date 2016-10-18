@@ -11,10 +11,10 @@ We want to help them establish good habits and avoid common mistakes.
 
 ---
 
-# There is only one law of good coding:  
-
+# There is only one law of good coding:
 
 **Code is for humans, not for computers**
+---
 
 
 ## What you write (for people)
@@ -139,7 +139,7 @@ def pretty_pictures():
 ---
 
 # The Second Consequence of the Only Law
-
+    
 ## Document inputs and outputs
 ```python
 import math  
@@ -348,8 +348,8 @@ def precipitation_in_chicago():
     return (first[first.TYPE == PRECIPITATION_TYPE].mean(), 
             second[second.TYPE == PRECIPITATION_TYPE].mean())
 ```
-This example does two different things in a function as has 
-a hard path!
+This example does two different things in a function and has 
+a hard path.
 
 
 ### DRY (example solution)
@@ -439,10 +439,10 @@ def gcd(a, b):
 * Use spaces not tabs!
 
 
-### Can you a pep8 checker to PEP8 your code
+### You can use a pep8 checker to PEP8 your code
 ```
 pip install autopep8
-autopep8 --in-place 
+autopep8 --in-place mypythonfile.py 
 
 ```
 ---
