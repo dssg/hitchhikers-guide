@@ -51,6 +51,7 @@ Examples:
    - [Chicago Food Inspections](https://github.com/Chicago/food-inspections-evaluation)
    - [DSSG Police EIS](https://github.com/dssg/police-eis)
    - [Linux Kernal](https://github.com/torvalds/linux)
+
 ---
 
 
@@ -153,6 +154,7 @@ sudo dpkg --set-selections < list.txt
 
 > There are also lightweight virtualization containers like Docker containers, Hyper-V images (Windows), 
 > or Ansible playbooks that can be used to "freeze" the systems level configuration of an OS. 
+
 ---
 
 # Backup Your Database Periodically
@@ -165,7 +167,7 @@ To dump your database in PostGreSQL:
 ```
 pg_dump -Fc --schema='raw|clean|models' -N '*public*' --no-acl -v -h <hostname> -U <dbuser> <dbname> > dssg-$(date +%F).dump
 ```
->Note: You can automate this with a crontab script. 
+*Note: This can be automated with a crontab script.* 
 
 To restore your database from a dump:
 ```
