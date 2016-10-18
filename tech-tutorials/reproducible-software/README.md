@@ -3,7 +3,7 @@
 Scientific software is often developed and used by a single person. It is all too common in academia
 to be handed a postdoc or graduate students's old code and be unable to replicate the original study, run 
 the software outside of the original development machine, or even get the software to work at all. The 
-goal of this tutorial is to provide some guidelines to make your summer projects reproducible - this means your
+goal of this tutorial is to provide some guidelines to make your summer projects reproducible -- this means your
 project can be installed on another computer and give the same results you got over the summer. At the end of 
 the summer, your project should be understandable and transferable to your future self and anyone else who 
 may want to pick up where you left off without having to constantly email you about how to get your project 
@@ -69,7 +69,7 @@ Examples:
 - Write commit messages in such a way that your log is helpful
   [Git and Github](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/git-and-github).
 - Periodically make a backup of your database. 
-- Write unit tests/continuous integrations so you can catch bugs quickly, particularly when you are merging
+- Write unit tests and use continuous integration so you can catch bugs quickly, particularly when you are merging
   new features into master. 
   [Testing](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/test-test-test).
 - Add docstrings to document all of your functions [legible-good-code](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code)
@@ -81,6 +81,7 @@ Examples:
 # Things not to do 
 
 - Hard-coded paths.
+
 - Require Sudo/root privliges to install your project.
   - You can't anticipate whether or not someone will have root access to the machine 
     they are installing your project on so don't count on it. Additionaly, you shouldn't 
@@ -95,7 +96,7 @@ Examples:
   - Your repository is for your codebase, not the data. Furthermore, your data may be sensitive 
     and need to be protected. 
 - Commit Sensitive Information like database passcodes to the GitHub repo.
-  - Always assume that your repo will be public someday on GitHub - for your DSSG project it will be. 
+  - Always assume that your repo will be public someday if you are hosting on GitHub -- for your DSSG project it will be. 
     Sensitive information also includes architecture decisions about your database. After sensitive 
     information is pushed to GitHub, you cannot remove it completely from the repository. 
 - Have code that needs to be operationalized in Jupyter Notebooks.
@@ -131,14 +132,16 @@ pip install -r requirements.txt
 ```
 pip freeze > requirements.txt #outputs a list of dependencies and version numbers
 ```
-> Note: There is also the conda environment created by the Continuum Analytics. The 
-> conda environment handles creating a environment and package environment -- what the virtual
+> Note: There is also the conda environment created by Continuum Analytics. The 
+> conda environment handles creating a environment and package dependencies -- what the virtual
 > environment + pip combination does. Conda, unlike pip, includes many non-python depedencies 
 > (e.g, MKL) as precompiled binaries that would be necessary for scientific python packages.
-> The author is of the opinion that if you are a beginner or using a dated OS then using a
+> The author is currently of the opinion that if you are a beginner or using a dated OS then using a
 > conda environment is not the worst of ideas. If you are a developer working on a development
 > machine then compile things yourself -- an imporant and useful skill. Whatever path you choose 
 > be consistent about how you set up your environment. 
+
+---
 
 # Systems Level Dependenices
 
