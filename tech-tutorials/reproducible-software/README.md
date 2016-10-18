@@ -50,7 +50,7 @@ All projects should have a README that communicates the following:
 Examples: 
    - [Chicago Food Inspections](https://github.com/Chicago/food-inspections-evaluation)
    - [DSSG Police EIS](https://github.com/dssg/police-eis)
-
+   - [Linux Kernal](https://github.com/torvalds/linux)
 ---
 
 
@@ -67,6 +67,7 @@ Examples:
     and you know you won't break the master branch, merge into master and delete the branch. 
 - Write commit messages in such a way that your log is helpful
   [Git and Github](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/git-and-github).
+- Periodically make a backup of your database. 
 - Write unit tests/continuous integrations so you can catch bugs quickly, particularly when you are merging
   new features into master. 
   [Testing](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/test-test-test).
@@ -103,7 +104,7 @@ Examples:
 
 ---
 
-# Virtual Environment (Move to python basics?)
+# Virtual Environment
 
 A virtual environment solves the problem that projectX uses version 1.x of a package
 while projectY uses version 2.x of a packsage by keeping dependencies in different 
@@ -129,6 +130,14 @@ pip install -r requirements.txt
 ```
 pip freeze > requirements.txt #outputs a list of dependencies and version numbers
 ```
+> Note: There is also the conda environment created by the Continuum Analytics. The 
+> conda environment handles creating a environment and package environment -- what the virtual
+> environment + pip combination does. Conda, unlike pip, includes many non-python depedencies 
+> (e.g, MKL) as precompiled binaries that would be necessary for scientific python packages.
+> The author is of the opinion that if you are a beginner or using a dated OS then using a
+> conda environment is not the worst of ideas. If you are a developer working on a development
+> machine then compile things yourself -- an imporant and useful skill. Whatever path you choose 
+> be consistent about how you set up your environment. 
 
 # Systems Level Dependenices
 
@@ -140,6 +149,27 @@ dpkg --get-selections > list.txt
 #reinstall on a new machine
 dpkg --clear-selections
 sudo dpkg --set-selections < list.txt
+```
+
+> There are also lightweight virtualization containers like Docker containers, Hyper-V images (Windows), 
+> or Ansible playbooks that can be used to "freeze" the systems level configuration of an OS. 
+---
+
+# Backup Your Database Periodically
+
+In PostGreSQL when a table is dropped, it is gone forever. You don't want to drop your results
+table on the last day of the fellowship so it is a good idea to backup periodically. 
+
+To dump your database in PostGreSQL:
+
+```
+pg_dump -Fc --schema='raw|clean|models' -N '*public*' --no-acl -v -h <hostname> -U <dbuser> <dbname> > dssg-$(date +%F).dump
+```
+>Note: You can automate this with a crontab script. 
+
+To restore your database from a dump:
+```
+< dump_file psql -U dbuser -h dbhost dbname
 ```
 ---
 
