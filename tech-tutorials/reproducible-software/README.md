@@ -5,7 +5,7 @@ to be handed a postdoc or graduate students's old code and be unable to replicat
 the software outside of the original development machine, or even get the software to work at all. The 
 goal of this tutorial is to provide some guidelines to make your summer projects reproducible -- this means your
 project can be installed on another computer and give the same results you got over the summer. At the end of 
-the summer, your project should be understandable and transferable to your future self and anyone else who 
+the summer, your project should be understandable and transferable to your future-self and anyone else who 
 may want to pick up where you left off without having to constantly email you about how to get your project 
 running. 
 
@@ -110,7 +110,8 @@ Examples:
 
 A virtual environment solves the problem that projectX uses version 1.x of a package
 while projectY uses version 2.x of a packsage by keeping dependencies in different 
-places.
+environments.
+
 
 ### Install a virtualenv
 ```
@@ -131,15 +132,22 @@ pip install -r requirements.txt
 ### Freeze Dependencies
 ```
 pip freeze > requirements.txt #outputs a list of dependencies and version numbers
+
 ```
+> **Warning**: `pip freeze` will output every package that was installed using pip or setup.py (setuptools). 
+> External dependencies that are from github or some other source not found on PyPi will appear but will 
+> not be found when trying to reinstall the dependencies. You can include github repositories from github 
+> in your requirements.txt file, you just have to do manual housekeeping. Other external dependenices and how
+> to install them should be recorded in your README.md file. 
+
 > Note: There is also the conda environment created by Continuum Analytics. The 
 > conda environment handles creating a environment and package dependencies -- what the virtual
 > environment + pip combination does. Conda, unlike pip, includes many non-python depedencies 
-> (e.g, MKL) as precompiled binaries that would be necessary for scientific python packages.
+> (e.g, MKL) as precompiled binaries that are necessary for scientific python packages.
 > The author is currently of the opinion that if you are a beginner or using a dated OS then using a
 > conda environment is not the worst of ideas. If you are a developer working on a development
 > machine then compile things yourself -- an imporant and useful skill. Whatever path you choose 
-> be consistent about how you set up your environment. 
+> be consistent about how you set up your environment and document it throughly. 
 
 ---
 
@@ -149,11 +157,21 @@ Systems level dependencies are the libraries installed on your OS. For Ubuntu/De
 you can get a list of them and then install them using the following: 
 ```
 #grab systems level dependencies
-dpkg --get-selections > list.txt
+dpkg --get-selections > dependencies.txt
 #reinstall on a new machine
 dpkg --clear-selections
-sudo dpkg --set-selections < list.txt
+sudo dpkg --set-selections < dependencies.txt
 ```
+
+Also courtesy of Tristan Crockett: installing a list of dependencies using apt
+```
+xargs -a <(awk '/^\s*[^#]/' dependencies.txt) -r -- sudo apt-get install
+
+```
+
+
+This will give every package installed on your OS. An easier alternative is to just keep track when you
+install a new library and manually keep the list in a `dependencies.txt` file. 
 
 > There are also lightweight virtualization containers like Docker containers, Hyper-V images (Windows), 
 > or Ansible playbooks that can be used to "freeze" the systems level configuration of an OS. 
