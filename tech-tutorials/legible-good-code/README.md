@@ -7,7 +7,7 @@ other 3rd parties. What does that entail in practice? Many fellows are coming fr
 have programming skills that are self-taught, and have never worked collaboratively on a software project before. 
 We want to help them establish good habits and avoid common mistakes.
 
-(Adapted from Kevin Wilson's, 2016 Technical Mentor, Tutorial)
+(Adapted from Tutorial by Kevin Wilson, 2016 DSSG Technical Mentor)
 
 ---
 
@@ -17,7 +17,7 @@ We want to help them establish good habits and avoid common mistakes.
 ---
 
 
-## What you write (for people)
+## What you write (for people).    
 
 ```python
 def fib(n):
@@ -31,10 +31,10 @@ def fib(n):
     else:
         return fib(n - 1) + fib(n - 2)
 ```
+Here is an example of a function. Why write this function? Well, literally, you give the function an integer *n*, and the function gives you back the *n*th Fibonnaci number. Writing code allows you to have the computer calculate the *n*th Fibonnaci number, which it can probably do much faster than you can, especially as *n* gets larger and larger. It also allows your human comrades to see for themselves how you rattle off arbitrary Fibonacci numbers so fast. But you don't really write code for the computer... 
 
-
-## What the computer sees (assembly language for the processor)
-
+## What the computer sees (assembly language for the processor).
+... because if you did, it would look like this.
 ```
   2           0 LOAD_FAST                0 (n)
               3 LOAD_CONST               1 (2)
@@ -60,13 +60,12 @@ def fib(n):
              47 RETURN_VALUE
 ```
 
-
 ### Seriously, the code is for *you*...
 
 * ...one month from now when you've completely forgotten what the heck `alpha` was...
 * ...or tomorrow when your teammate wonders why all those `3`s are in the database....
-* ...or when your system is on fire at 2am (the witching hour of production systems), you're tired, and your customers 
-are calling wondering what the heck is going on over there...
+* ...or when your system is on fire at 2 AM (the witching hour of production systems), you're tired, and your customers 
+are calling wondering what the heck is going on over there (why are they awake, anyway?)...
 * ...or when I'm doing code review for you...
 
 ---
@@ -75,7 +74,7 @@ are calling wondering what the heck is going on over there...
 # The First Consequence of the Only Law
 
 ## Give things informative names
-
+What does the function below do?
 ```python
 import math  
   
@@ -99,10 +98,6 @@ def magic(input):
                     for y in input 
                     if (len(x) < 20 and x not in filter) or filter.add(x))
 ```
-
-
-
-
 
 ```python
 def pretty_pictures():
@@ -131,7 +126,7 @@ def pretty_pictures():
   * You a week from now
   * Your teammates tomorrow
   * Your future teammates who have to deal with your code
-* [`i`, `j`, `k`] for iterators are OK, `alpha` with a reference to a specific paper is not
+* [`i`, `j`, `k`] for iterators are OK, `alpha` with a reference to a specific paper is *not*
 * kwargs are a great place to name things
 * CONSTANT_VALUES are too
 * Do not fear long names; you have autocomplete. The TAB key is your friend. 
@@ -203,20 +198,18 @@ def precipitation_in_chicago():
 * Every function should have a docstring
 * The docstring should
   1. Describe the function briefly
-  2. Explicitly document the inputs with `:param type name: description`
-  3. Explicitly document the return value with `:returns: description`
-  4. Explicitly document the return type with `:rtype:`
-* Note this follows the Sphinx/RST syntax [guide](http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html)
-* You can also follow the [Numpy Format](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt#docstring-standard)
-  just be consistent. 
+  2. Explicitly document the *inputs* with `:param type name: description`
+  3. Explicitly document the *return value* with `:returns: description`
+  4. Explicitly document the *return type* with `:rtype:`
+* Note this follows the [Sphinx/RST syntax guide](http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html). You can also follow the [Numpy Format](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt#docstring-standard). **Just be consistent. **
 
 ---
 
 # The Third Consequence of the Only Law
 
-## Don't repeat yourself (DRY)
+## DRY: Don't Repeat Yourself 
 
-### WET (write everything twice) Example
+### The WET (Write Everything Twice) Way
 
 ```python
 def max_intersection(left, right):
@@ -252,7 +245,7 @@ In this case, the value counting logic is redundant and can be abstracted
 away into a function. 
 
 
-### DRY Example (Use a function to avoid redundancy)
+### The DRY Way: Use a function to avoid redundancy
 
 ```python
 def value_counts(the_list):
@@ -287,12 +280,12 @@ def max_intersection(left, right):
     return left_counts
 ```
 
-Better...But there is no need to reinvent the wheel with the `value_count`
+Better... But, there is no need to reinvent the wheel with the `value_count`
 function if it has already been implemented for you. 
 
 ---
 
-### DRY (or others!) (example solution)
+### The DRY-er Way
 
 ```ruby
 from collections import Counter
@@ -316,11 +309,10 @@ def max_intersection(left, right):
     return left_counts
 ```
 
-The Python Standard Library has a collections library that has
-a Counter object already build. [Collections](https://docs.python.org/2/library/collections.html#module-collections)
+The Python Standard Library has a [collections library](https://docs.python.org/2/library/collections.html#module-collections) that has a Counter object already built. 
 
-### WET Plotting Example
-
+### The WET Way: Plotting 
+Here is a soggy example of a function that makes plots. Good: Docstring, somewhat informative name. Bad: This function does multiple things, and uses a hard path ('2016.csv.gz').
 ```ruby
 def precipitation_in_chicago():
     """ Saves plots of the precipitation from two Chicago weather stations
@@ -348,15 +340,13 @@ def precipitation_in_chicago():
     return (first[first.TYPE == PRECIPITATION_TYPE].mean(), 
             second[second.TYPE == PRECIPITATION_TYPE].mean())
 ```
-This example does two different things in a function and has 
-a hard path.
 
-
-### DRY (example solution)
+### The DRY Way: Plotting 
+In this example, we've made a helper function. In this example, the function has a better name, doesn't load the dataframe within the function, and has a docstring specifying what the inputs and outputs are as well as their types. 
 
 ```ruby
 def plot_precipitation(df, station_id, output_file='out.png'):
-    """ Plot the preciptation at the passed weather station and return
+    """ Plot the precipitation at the passed weather station and return
     the mean precipitation among all values.
 
     :param pd.DataFrame df: NOAA data (see parsers.py for more info)
@@ -398,7 +388,7 @@ function), you likely should add one.
 # The Fourth Consequence of the Only Law
 
 ## Reduce Cognitive Load: Follow PEP-8
-
+How long does it take you to understand what this function is doing?
 
 ```python
 def GCD(a,b):
@@ -428,7 +418,7 @@ def gcd(a, b):
 ```
 
 
-### PEP-8 is your friend
+### PEP-8 is your friend!
 
 * 79 character lines (comes from the days of punchcards)
 * Use parenthesis for lines that span multiple lines
@@ -439,7 +429,7 @@ def gcd(a, b):
 * Use spaces not tabs!
 
 
-### You can use a pep8 checker to PEP8 your code
+### You can use a checker to PEP-8 your code.
 ```
 pip install autopep8
 autopep8 --in-place mypythonfile.py 
