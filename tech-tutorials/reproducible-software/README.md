@@ -1,7 +1,7 @@
 # Making Projects Reproducible
 
 Scientific software is often developed and used by a single person. It is all too common in academia
-to be handed a postdoc or graduate students's old code and be unable to replicate the original study, run 
+to be handed a postdoc or graduate student's old code and be unable to replicate the original study, run 
 the software outside of the original development machine, or even get the software to work at all. The 
 <<<<<<< HEAD
 goal of this tutorial is to provide some guidelines to make your summer projects reproducible -- this means your
@@ -83,7 +83,7 @@ Examples:
 - Require Sudo/root privileges to install your project.
   - You can't anticipate whether or not someone will have root access to the machine 
     they are installing your project on, so don't count on it. Additionally, you shouldn't 
-    require users to create separate usernames for your project. 
+    require users to create separate user names for your project. 
 - Use non-standard formats for inputs (stick to *YAML*, *XML*, *JSON*, *CLA*, etc).
   - My one exception to this rule is log files - which you should provide an example of in a README.
     Otherwise it is easier to just stick with what is already in use. 
@@ -97,7 +97,7 @@ Examples:
     information is pushed to GitHub, you cannot remove it completely from the repository.
 - Have code that needs to be operationalized in Jupyter Notebooks.
   - Jupyter notebooks are wonderful for containing your analysis, code and figures in a single document,
-    particulary for doing exploratory analysis. They are not good for keeping the code you will need for
+    particularly for doing exploratory analysis. They are not good for keeping the code you will need for
     your pipeline or code that you will eventually want to turn into a library. 
 
 ---
@@ -105,7 +105,7 @@ Examples:
 # Virtual Environments
 
 A virtual environment solves the problem that projectX uses version 1.x of a package
-while projectY uses version 2.x of a packsage by keeping dependencies in different 
+while projectY uses version 2.x of a package by keeping dependencies in different 
 environments.
 
 ### Install a virtualenv
@@ -132,21 +132,21 @@ pip freeze > requirements.txt #outputs a list of dependencies and version number
 > **Warning**: `pip freeze` will output every package that was installed using pip or setup.py (setuptools). 
 > External dependencies that are from github or some other source not found on PyPi will appear but will 
 > not be found when trying to reinstall the dependencies. You can include github repositories from github 
-> in your requirements.txt file, you just have to do manual housekeeping. Other external dependenices and how
+> in your requirements.txt file, you just have to do manual housekeeping. Other external dependencies and how
 > to install them should be recorded in your README.md file. 
 
 > Note: There is also the conda environment created by Continuum Analytics. The 
 > conda environment handles creating a environment and package dependencies -- what the virtual
-> environment + pip combination does. Conda, unlike pip, includes many non-python depedencies 
+> environment + pip combination does. Conda, unlike pip, includes many non-python dependencies 
 > (e.g, MKL) as precompiled binaries that are necessary for scientific python packages.
 > The author is currently of the opinion that if you are a beginner or using a dated OS then using a
 > conda environment is not the worst of ideas. If you are a developer working on a development
-> machine then compile things yourself -- an imporant and useful skill. Whatever path you choose 
-> be consistent about how you set up your environment and document it throughly. 
+> machine then compile things yourself -- an important and useful skill. Whatever path you choose 
+> be consistent about how you set up your environment and document it thoroughly. 
 
 ---
 
-# Systems Level Dependenices
+# Systems Level Dependencies
 
 Systems level dependencies are the libraries installed on your OS. For Ubuntu/Debian Linux
 you can get a list of them and then install them using the following: 
@@ -168,7 +168,7 @@ xargs -a <(awk '/^\s*[^#]/' dependencies.txt) -r -- sudo apt-get install
 This will give every package installed on your OS. An easier alternative is to just keep track when you
 install a new library and manually keep the list in a `dependencies.txt` file. 
 
-> There are also lightweight virtualization containers like Docker containers, Hyper-V images (Windows), 
+> There are also lightweight vitalization containers like Docker containers, Hyper-V images (Windows), 
 > or Ansible playbooks that can be used to "freeze" the systems level configuration of an OS. 
 
 ---
@@ -230,7 +230,7 @@ With this version someone can better surmise what is being done. Every time you 
 your data you have to change the filename in the script. It also checks if the table already exists 
 in the database so the command can be used to reload data. 
 
-### load_shapfile_hardpath_v3.sh
+### load_shapefile_hardpath_v3.sh
 ```
 #!/bin/bash
 #ETL script for importing shape files. 
@@ -271,7 +271,7 @@ t)  table="${OPTARG}"
 ;;
 v)  verbose="true"
 ;;
-?)  die "unknown option or missing arument; see -h for usage" 2
+?)  die "unknown option or missing argument; see -h for usage" 2
 ;;
 esac
 done
