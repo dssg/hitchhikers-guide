@@ -3,6 +3,7 @@
 Scientific software is often developed and used by a single person. It is all too common in academia
 to be handed a postdoc or graduate students's old code and be unable to replicate the original study, run 
 the software outside of the original development machine, or even get the software to work at all. The 
+<<<<<<< HEAD
 goal of this tutorial is to provide some guidelines to make your summer projects reproducible -- this means your
 project can be installed on another computer and give the same results you got over the summer. At the end of 
 the summer, your project should be understandable and transferable to your future-self and anyone else who 
@@ -19,7 +20,7 @@ One that...
 
 - works for someone other than the original team
 - can be **easily** installed on another computer
-- has documentation that describes what the dependencies are and how to install them
+- has documentation that describes any dependencies and how to install them
 - comes with enough tests to indicate the software is running properly
 
 ---
@@ -29,9 +30,9 @@ One that...
 All projects should have a README that communicates the following: 
 
 1. What the project is about
-   - A short description of the project (i.e, the problem you are trying to solve).
+   - A short description of the project (i.e. the problem you are trying to solve).
 
-2. The required dependenices to run the software
+2. The required dependencies to run the software
    - The can be in the form of a *requirements.txt* file for Python that lists 
    the dependencies and version numbers.
    - The system-level dependencies.
@@ -42,76 +43,70 @@ All projects should have a README that communicates the following:
      manager. 
      
 4. Example usage
-   - The inputs and outputs of your software (i.e, how to use it) with code examples. 
+   - The inputs and outputs of your software (i.e. how to use it) with code examples. 
    
 5. Attribution/Licensing
-   - Who did what and how can others use your software.
+   - Who did what and how others can use your software.
    
 Examples: 
    - [Chicago Food Inspections](https://github.com/Chicago/food-inspections-evaluation)
    - [DSSG Police EIS](https://github.com/dssg/police-eis)
-   - [Linux Kernal](https://github.com/torvalds/linux)
+   - [Linux Kernel](https://github.com/torvalds/linux)
 
 ---
 
 
-# Things to do
+# What to Do
 
-- Use virtual environments (more on that later).
-- Use automation tools like Make or Drake (also more on that later)
-  [Reproducible ETL](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/reproducible_ETL).
-- Keep an easy to understand and interpret directory structure. 
-- Keep a clean database that does not have any junk tables.
-  - Junk table are just going to confuse your future-self or others that come fresh to the project. 
+- Use [virtual environments](#virtual-environments).
+- [Use automation tools like Make or Drake](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/reproducible_ETL)
+- Keep your directory structure [intuitive, interpretable and easy to understand](#good-directory-organization). 
+- Keep your database free of "junk tables." Keep only what you need and what's current.   
+  - Junk tables will only confuse your future-self or others that come fresh to the project. 
 - Merge all branches into master. 
   - Branches are for adding features or patches. When you have added said feature or patch
     and you know you won't break the master branch, merge into master and delete the branch. 
-- Write commit messages in such a way that your log is helpful
-  [Git and Github](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/git-and-github).
-- Periodically make a backup of your database. 
+- Write commit messages in such a way that your log is helpful (see [Git and Github tutorial](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/git-and-github).)
+- [Periodically make database backups](#backup-your-database). 
 - Write unit tests and use continuous integration so you can catch bugs quickly, particularly when you are merging
-  new features into master. 
-  [Testing](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/test-test-test).
-- Add docstrings to document all of your functions [legible-good-code](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code)
-- Write your python code following the PEP8 standard. [legible-good-code](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code)
-- Use spaces instead of tabs in your Python code (4 spaces for indentation).
+  new features into master. (See [testing tutorial](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/test-test-test).)
+- Document all of your functions with docstrings. (See [legible, good code tutorial](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code).)
+- Write your python code following the PEP8 standard. (See [legible, good code tutorial](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code).)
+- Use (4) spaces instead of tabs in your Python code for indentation.
 
 ---
 
-# Things not to do 
+# What NOT to Do 
 
-- Hard-coded paths.
+- Use [hard-coded paths](#hard-coded-paths).
 
-- Require Sudo/root privliges to install your project.
+- Require Sudo/root privileges to install your project.
   - You can't anticipate whether or not someone will have root access to the machine 
-    they are installing your project on so don't count on it. Additionaly, you shouldn't 
+    they are installing your project on, so don't count on it. Additionally, you shouldn't 
     require users to create separate usernames for your project. 
-- Use non-standard formats for inputs (stick to *YAML*, *XML*, *JSON*, *CLA* etc).
+- Use non-standard formats for inputs (stick to *YAML*, *XML*, *JSON*, *CLA*, etc).
   - My one exception to this rule is log files - which you should provide an example of in a README.
     Otherwise it is easier to just stick with what is already in use. 
-- Have random files everywhere -- messy repo.
+- Have a [messy repo with random files everywhere](#bad-directory-organization).
   - This is confusing, irritating and cancerous to productive enterprise. 
-  - See [example](# Bad Directory Organization)
-- Commit Data to the repo.
+- Commit data or sensitive information like database passcodes to the GitHub repo.
   - Your repository is for your codebase, not the data. Furthermore, your data may be sensitive 
     and need to be protected. 
-- Commit Sensitive Information like database passcodes to the GitHub repo.
-  - Always assume that your repo will be public someday if you are hosting on GitHub -- for your DSSG project it will be. 
+  - Always assume that your repo will be public someday if you are hosting on GitHub (for your DSSG project it will be). 
     Sensitive information also includes architecture decisions about your database. After sensitive 
-    information is pushed to GitHub, you cannot remove it completely from the repository. 
+    information is pushed to GitHub, you cannot remove it completely from the repository.
 - Have code that needs to be operationalized in Jupyter Notebooks.
-  - Jupyter notebooks are wonderful for cotaining your analysis, code and figures in a single document,
+  - Jupyter notebooks are wonderful for containing your analysis, code and figures in a single document,
     particulary for doing exploratory analysis. They are not good for keeping the code you will need for
     your pipeline or code that you will eventually want to turn into a library. 
 
 ---
 
-# Virtual Environment
+# Virtual Environments
 
 A virtual environment solves the problem that projectX uses version 1.x of a package
 while projectY uses version 2.x of a packsage by keeping dependencies in different 
 environments.
-
 
 ### Install a virtualenv
 ```
@@ -178,10 +173,10 @@ install a new library and manually keep the list in a `dependencies.txt` file.
 
 ---
 
-# Backup Your Database Periodically
+# Backup Your Database 
 
 In PostGreSQL when a table is dropped, it is gone forever. You don't want to drop your results
-table on the last day of the fellowship so it is a good idea to backup periodically. 
+table on the last day of the fellowship, so it is a good idea to backup periodically. 
 
 To dump your database in PostGreSQL:
 
@@ -196,14 +191,14 @@ To restore your database from a dump:
 ```
 ---
 
-# Hard-coded paths Shapefile Example
+# Hard-coded Paths 
 
 ## Example of Adding Shapefile with hard-coded paths
 
 Hard-coded paths are absolute paths that are native to the machine you are using for 
-devlopment. It is unlikely someone else will keep their data in the exact same directory 
+development. It is unlikely someone else will keep their data in the exact same directory 
 as you when trying to use your project in a separate environment. Users should be able to set
-location of files as command line parameters. Below are examples: 
+location of files as command line parameters. Below are examples. 
 
 ### load_shapefile_hardpath_v1.sh
 ```
@@ -231,7 +226,7 @@ psql -c "create schema if not exists ${schema}"
 shp2pgsql -d -s ${original_projection}:${new_projection} -d ${shapefile} ${schema}.${table} | psql
 
 ```
-With this version someone can better surmise what is being done. Everytime you want to load
+With this version someone can better surmise what is being done. Every time you want to load
 your data you have to change the filename in the script. It also checks if the table already exists 
 in the database so the command can be used to reload data. 
 
@@ -306,7 +301,7 @@ else
 fi
 
 ```
-In this version, you can call the script from the commandline and use it for any shapefile. When 
+In this version, you can call the script from the command line and use it for any shapefile. When 
 called with no arguments it prints out a usage so the user does not have to look into the actual 
 script. It also has a verbose mode for debugging. Here, there are no hard paths. 
 
