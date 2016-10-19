@@ -1,21 +1,15 @@
 # Best Practices: Writing Legible, Good Code
-    
 
 ## Motivation
 All fellows will have to write code that is usable and understandable by their peers and partners, and potentially 
 other 3rd parties. What does that entail in practice? Many fellows are coming from academic backgrounds, 
-have programming skills that are self-taught, and have never worked collaboratively on a software project before. 
+have self-taught programming skills, and have never worked collaboratively on a software project. 
 We want to help them establish good habits and avoid common mistakes.
 
 (Adapted from Tutorial by Kevin Wilson, 2016 DSSG Technical Mentor)
 
 ---
-
-# There is only one law of good coding:
-
-**Code is for humans, not for computers**
----
-
+# For whom do we write code? 
 
 ## What you write (for people).    
 
@@ -61,19 +55,23 @@ Here is an example of a function. Why write this function? Well, literally, you 
 ```
 
 ### Seriously, the code is for *you*...
-
 * ...one month from now when you've completely forgotten what the heck `alpha` was...
 * ...or tomorrow when your teammate wonders why all those `3`s are in the database....
 * ...or when your system is on fire at 2 AM (the witching hour of production systems), you're tired, and your customers 
 are calling wondering what the heck is going on over there (why are they awake, anyway?)...
 * ...or when I'm doing code review for you...
 
+
+# There is only one law of good coding: **Code is for humans, not for computers**.
+This law has 4 consequences: 
+1. [Give things informative names.](#give-things-informative-names)
+2. [Document inputs and outputs.](#document-inputs-and-outputs)
+3. [Don't repeat yourself.](#dont-repeat-yourself)
+4. [Reduce cognitive load: Use PEP-8.](#reduce-cognitive-load)
+
 ---
 
-
-# The First Consequence of the Only Law
-
-## Give things informative names
+# Give Things Informative Names
 What does the function below do?
 ```python
 import math  
@@ -133,9 +131,7 @@ def pretty_pictures():
 
 ---
 
-# The Second Consequence of the Only Law
-    
-## Document inputs and outputs
+# Document Inputs and Outputs
 ```python
 import math  
   
@@ -161,10 +157,6 @@ def unique_flatten(the_input, max_length=20):
     filtered_list.sort()
     return filtered_list
 ```
-
-
-
-
 
 ```python
 WEATHER_HEADERS = ['STATION', 'DATE', 'TYPE', 'VALUE', 
@@ -196,18 +188,16 @@ def precipitation_in_chicago():
 
 
 * Every function should have a docstring
-* The docstring should
+* The docstring should:
   1. Describe the function briefly
   2. Explicitly document the *inputs* with `:param type name: description`
   3. Explicitly document the *return value* with `:returns: description`
   4. Explicitly document the *return type* with `:rtype:`
-* Note this follows the [Sphinx/RST syntax guide](http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html). You can also follow the [Numpy Format](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt#docstring-standard). **Just be consistent. **
+* Note this follows the [Sphinx/RST syntax guide](http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html). You can also follow the [Numpy Format](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt#docstring-standard). **Just be consistent.**
 
 ---
 
-# The Third Consequence of the Only Law
-
-## DRY: Don't Repeat Yourself 
+# Don't Repeat Yourself
 
 ### The WET (Write Everything Twice) Way
 
@@ -244,7 +234,6 @@ def max_intersection(left, right):
 In this case, the value counting logic is redundant and can be abstracted
 away into a function. 
 
-
 ### The DRY Way: Use a function to avoid redundancy
 
 ```python
@@ -280,8 +269,7 @@ def max_intersection(left, right):
     return left_counts
 ```
 
-Better... But, there is no need to reinvent the wheel with the `value_count`
-function if it has already been implemented for you. 
+Better... But, there is no need to reinvent the wheel with the `value_count` function if it has already been implemented for you. 
 
 ---
 
@@ -385,9 +373,9 @@ function), you likely should add one.
 
 ---
 
-# The Fourth Consequence of the Only Law
+# Reduce Cognitive Load.
 
-## Reduce Cognitive Load: Follow PEP-8
+## Follow PEP-8
 How long does it take you to understand what this function is doing?
 
 ```python
@@ -437,9 +425,7 @@ autopep8 --in-place mypythonfile.py
 ```
 ---
 
-# Summary
-
-## Code is for humans, not computers
+# Summary: Code is for humans, not computers.
 
 * Give things informative names
 * Document inputs and outputs
