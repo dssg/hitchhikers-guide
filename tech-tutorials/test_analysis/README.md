@@ -3,7 +3,7 @@
 ## Dependencies 
 To run this script you will need the packages listed in `requirements.txt`. To install run 
 
-```pip install -r requirments.txt``` 
+```pip install -r requirements.txt``` 
 
 in the command line. 
 
