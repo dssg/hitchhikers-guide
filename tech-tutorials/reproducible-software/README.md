@@ -3,7 +3,6 @@
 Scientific software is often developed and used by a single person. It is all too common in academia
 to be handed a postdoc or graduate student's old code and be unable to replicate the original study, run 
 the software outside of the original development machine, or even get the software to work at all. The 
-<<<<<<< HEAD
 goal of this tutorial is to provide some guidelines to make your summer projects reproducible -- this means your
 project can be installed on another computer and give the same results you got over the summer. At the end of 
 the summer, your project should be understandable and transferable to your future-self and anyone else who 
