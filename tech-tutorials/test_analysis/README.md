@@ -20,7 +20,7 @@ from and also do topic modeling to categorize posts.
 ## Dependencies 
 To run this notebook you will need the packages listed in `requirements.txt`. To install run 
 
-```pip install -r requirments.txt``` 
+```pip install -r requirements.txt``` 
 
 in the command line. 
 
