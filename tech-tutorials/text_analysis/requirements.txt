@@ -1,0 +1,8 @@
+numpy
+matplotlib
+nltk
+sklearn
+ujson
+scipy
+jupyter
+
