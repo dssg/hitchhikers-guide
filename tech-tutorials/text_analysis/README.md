@@ -31,7 +31,7 @@ The data was filtered from this [dataset](https://www.reddit.com/r/datasets/comm
 
 To unzip the data, run ```gunzip ./data/RC_2015-05.json.gz```
 
-## Furthur Resources
+## Further Resources
 
 1. [Natural Language Processing with Python](http://victoria.lviv.ua/html/fl5/NaturalLanguageProcessingWithPython.pdf)
 2. [Getting Started with NLP](http://desilinguist.org/pdf/crossroads.pdf)
