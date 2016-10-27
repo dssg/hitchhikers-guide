@@ -1,7 +1,8 @@
-jupyter
+numpy
 matplotlib
 nltk
-numpy
 sklearn
 ujson
 scipy
+jupyter
+
