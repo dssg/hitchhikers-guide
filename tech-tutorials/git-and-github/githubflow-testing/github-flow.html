@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Github Flow</title>
+<meta name="author" content="(Adolfo De Unánue)"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/white.css" id="theme"/>
+
+<link rel="stylesheet" href="css/githubflow.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Github Flow"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Github Flow</h1><h2 class="author">Adolfo De Unánue</h2><h2 class="date">Data Science for Social Good 2016</h2><p class="date">Created: 2016-06-15 mié 07:58</p>
+</section>
+
+
+<section>
+<section id="slide-orgheadline1">
+<h2 id="orgheadline1">Agenda</h2>
+<ul>
+<li>Some thoughts about  life</li>
+
+<li>First things first</li>
+
+<li>Different ways of do stuff</li>
+
+<li>"The Flow"</li>
+
+<li>"Issue oriented coding"</li>
+
+<li>Practice makes the master</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline5">
+<h2 id="orgheadline5">Some thoughts about  life</h2>
+<div class="outline-text-2" id="text-orgheadline5">
+</div></section>
+</section>
+<section>
+<section id="slide-orgheadline2">
+<h3 id="orgheadline2">Git is a collaboration tool</h3>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline3">
+<h3 id="orgheadline3">Git is a communication tool</h3>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline4">
+<h3 id="orgheadline4">The first golden Rule</h3>
+<ul>
+<li>You are a team, work as a team</li>
+
+<li>You are physically located in the same table, so talk with your teammate</li>
+
+<li>Know what he/she doing, Collaborate, Code review (and learn), Pair programming (and learn)</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline9">
+<h2 id="orgheadline9">First things first</h2>
+<ul>
+<li>Open a terminal &#x2026;</li>
+
+<li>Command line magic</li>
+
+<li>Who am I? Where am I?</li>
+
+<li><code>git</code> <code>&lt;&gt;</code> <code>github</code></li>
+
+<li>Try <code>zsh</code> or <code>oh-my-zsh</code></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline6">
+<h3 id="orgheadline6">My workspace</h3>
+<div class="org-src-container">
+
+<pre><code class="sh"># How my git configuration looks like?
+git config --list
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline7">
+<h3 id="orgheadline7">My workspace</h3>
+<div class="org-src-container">
+
+<pre><code class="sh"># Adding some, if you don't have a user.name or user.email set
+git config --global user.name myusername
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline8">
+<h3 id="orgheadline8">My workspace</h3>
+<div class="org-src-container">
+
+<pre><code class="sh">## This is very important!!
+## YOU NEED TO DO THIS
+git config --global push.default current
+</code></pre>
+</div>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline18">
+<h2 id="orgheadline18">Different ways of do things</h2>
+<div class="outline-text-2" id="text-orgheadline18">
+</div></section>
+</section>
+<section>
+<section id="slide-orgheadline10">
+<h3 id="orgheadline10">Different ways of do things</h3>
+<ul>
+<li>"Solo" workflow</li>
+<li>Open source workflow</li>
+<li>Git flow</li>
+<li>Github flow</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline11">
+<h3 id="orgheadline11">"Solo" workflow</h3>
+<div class="org-src-container">
+
+<pre><code class="sh">mkdir my_working_directory
+cd my_working_directory
+git init
+touch some_file.py
+# hack
+# hack
+git add some_file.py
+git commit -m "Working with some awesome idea"
+# hack
+# more hack
+...
+</code></pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline12">
+<h3 id="orgheadline12">"Solo" workflow</h3>
+<ul>
+<li>This works if you are working by yourself
+<ul>
+<li>This is not our case</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline13">
+<h3 id="orgheadline13">Opensource workflow</h3>
+<p>
+Some differences:
+</p>
+
+<ul>
+<li>You need a <code>github</code>  account</li>
+<li>Choose a repository in <code>github.com</code> in which you want to participate
+<ul>
+<li>Lets pretend: <code>http://github.com/the-repo-you-want-to-participate</code></li>
+
+</ul></li>
+<li>Push the <code>Fork</code>  button</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline14">
+<h3 id="orgheadline14">Opensource workflow</h3>
+<ul>
+<li>Open your terminal &#x2026;</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre><code class="sh">git clone http://github.com/my-copy-of-the-repo-you-want-to-participate
+cd the-repo-you-want-to-participate
+# hack
+# hack
+git add some_file.py
+git commit -m "Working with some awesome idea"
+# hack
+# hack
+git push
+</code></pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline15">
+<h3 id="orgheadline15">Opensource workflow</h3>
+<ul>
+<li>Create a <code>pull-request</code> and describe your work</li>
+
+<li>Wait</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline16">
+<h3 id="orgheadline16">Opensource workflow</h3>
+<ul>
+<li>This works very well if you want to collaborate, but you don't know the other people involved
+<ul>
+<li>This is not our case</li>
+
+</ul></li>
+<li>And this has several more steps:
+<ul>
+<li>What if I want to <code>pull</code> the most recent changes in the original repo?</li>
+
+</ul></li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre><code class="sh">## See the "remotes"
+git remote -v
+## Add the original repo
+git remote add original-repo http://github.com/the-repo-you-want-to-participate
+## Pull the changes of the original repo to your local copy
+git pull original-repo master
+## Push the added changes to your repo
+git push origin master
+## etc
+</code></pre>
+</div>
+
+<ul>
+<li>More prone to errors, merges, conflicts, etc.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline17">
+<h3 id="orgheadline17">Git flow</h3>
+<ul>
+<li>This is more oriented to software development with a lot of <code>git</code>-gurus involved</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline20">
+<h2 id="orgheadline20">"The Flow"</h2>
+<div class="outline-text-2" id="text-orgheadline20">
+</div></section>
+</section>
+<section>
+<section id="slide-orgheadline19">
+<h3 id="orgheadline19">Github flow</h3>
+<ul>
+<li>Also know as the <a href="http://endoflineblog.com/gitflow-considered-harmful"><i>Anti-gitflow</i></a></li>
+
+<li><a href="https://guides.github.com/introduction/flow/">Github Flow</a> (explained with images and animation!)</li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline23">
+<h2 id="orgheadline23">"Issue oriented coding"</h2>
+<div class="outline-text-2" id="text-orgheadline23">
+</div></section>
+</section>
+<section>
+<section id="slide-orgheadline21">
+<h3 id="orgheadline21">The second golden rule</h3>
+<p>
+Don't code anything if there is not a need of doing it
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline22">
+<h3 id="orgheadline22">A good issue</h3>
+<ul>
+<li>Clear</li>
+<li>Defined output</li>
+<li>Actionable</li>
+<li>Could be completed at most in few days</li>
+<li>Examples
+<ul>
+<li><b>Good</b>: <i>Fix the bug in &#x2026;</i></li>
+<li><b>Good</b>: <i>Add a method that does &#x2026;</i></li>
+<li><b>Bad</b>:  <i>Solve the dssg project</i></li>
+<li><b>Bad</b>:  <i>Some error happen</i></li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline25">
+<h2 id="orgheadline25">About code reviewing</h2>
+<div class="outline-text-2" id="text-orgheadline25">
+</div></section>
+</section>
+<section>
+<section id="slide-orgheadline24">
+<h3 id="orgheadline24">DEMO</h3>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline27">
+<h2 id="orgheadline27">Into "the flow"</h2>
+<div class="outline-text-2" id="text-orgheadline27">
+</div></section>
+</section>
+<section>
+<section id="slide-orgheadline26">
+<h3 id="orgheadline26">Github flow</h3>
+<ul>
+<li>Short-lived branches</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre><code class="sh">## Pull from the repo
+git pull
+## Decide what do you want to do and create an issue
+git checkout -b a-meaningful-name
+## hack, hack, hack, add/rm, commit
+## Push to the repo and create a remote branch
+git push
+## Create a pull-request and describe your work (Suggest/add a reviewer)
+## Code review
+## The pull-request is closed and the remote branch is destroyed
+## Switch to master locally
+git checkout master
+## Destroy your local branch
+git branch -D a-meaningful-name
+## Pull the most recent changes (including yours)
+git pull
+</code></pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline28">
+<h2 id="orgheadline28">Practice makes the master</h2>
+<ul>
+<li>Goal: Simulate the creation of a pipeline</li>
+<li><b>You will work in your team repo</b></li>
+<li>Create a directory called: <code>test</code></li>
+<li>The pipeline is composed for 3 steps:
+<ul>
+<li>They have a function called <code>do_stuff()</code> (no args)</li>
+<li>This function prints on the screen <code>I'm step X</code>, where <code>X</code> is the number of the step</li>
+
+</ul></li>
+<li>There's a <code>master.py</code> that uses that 3 steps in order.</li>
+<li>Create an issue for deleting the <code>test</code> directory</li>
+<li>Delete it</li>
+<li>Easy right?</li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline29">
+<h2 id="orgheadline29">Q &amp; A</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline30">
+<h2 id="orgheadline30">Thank you!</h2>
+</section>
+</section>
+</div>
+</div>
+<p> Creada por Adolfo De Unánue. </p>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.10,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } }]
+});
+</script>
+</body>
+</html>
