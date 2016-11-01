@@ -1,0 +1,294 @@
+City,OtherName,Country,Latitude,Longitude,Certainty,AD_2000
+Abidjan,Abijan,Cote d'Ivoire,5.30966,-4.01266,1,1929000
+Adana,,Turkey,37.00167,35.32889,1,1041000
+Addis Ababa,,Ethiopia,9.02497,38.74689,1,2424000
+Adelaide,,Australia,-34.92866,138.59863,1,1092000
+Ahmadabad,Ahmedabad,India,23.039568,72.566004,1,2954000
+Aleppo,,Syria,36.2167,37.1667,1,1582000
+Alexandria,,Egypt,31.200092,29.918739,1,3339000
+Algiers,Alger,Algeria,36.7525,3.04197,1,2562000
+Almaty,,Kazakhstan,43.255058,76.912628,1,1135000
+Amman,,Jordan,31.95522,35.94503,1,1147000
+Ankara,Angora,Turkey,39.91987,32.85427,1,2984000
+Anshan,,China,41.1167,122.9833,1,1442000
+Baghdad,,Iraq,33.34058,44.40088,1,3841000
+Baku,,Azerbaijan,40.37767,49.89201,1,1792000
+Bandung,,Indonesia,-6.914744,107.609814,1,5919000
+Bangalore,,India,12.97194,77.59369,1,3302000
+Bangkok,,Thailand,13.75398,100.50144,1,7506000
+Baotou,Paotow,China,40.65744,109.84054,1,1248000
+Barcelona,,Spain,41.38879,2.15899,1,1454000
+Barranquilla,,Columbia,10.96854,-74.78132,1,1549000
+Bauru,,Brazil,-22.3147,-49.0606,3,3014000
+Beijing,Peking,China,39.9075,116.39723,1,7362000
+Belem,"Belém, Para",Brazil,-1.4558,-48.5039,1,1200000
+Belgrade,Beograd,Serbia,44.80401,20.46513,1,1594000
+Belo Horizonte,,Brazil,-19.92083,-43.93778,1,2154000
+Berlin,,Germany,52.52437,13.41053,1,3387000
+Bhopal,,India,23.25,77.4167,1,1062000
+Birmingham,,United Kindgom,52.48142,-1.89983,1,1020000
+Bogor,,Indonesia,-6.6,106.8,1,5000000
+Bogota,"Bacata, Funza, Bogotá",Columbia,4.598056,-74.075833,1,6288000
+Brasilia,Brasília,Brazil,-15.77972,-47.92972,1,2017000
+Brisbane,,Australia,-27.46794,153.02809,1,1598000
+Brussel,Brussels,Belgium,50.85045,4.34878,1,1122000
+Bucharest,,Romania,44.43225,26.10626,1,2016000
+Budapest,,Hungary,47.49801,19.03991,1,1825000
+Buenos Aires,,Argentina,-34.61315,-58.37723,1,2965000
+Bursa,Brusa,Turkey,40.19266,29.08403,1,1066000
+Busan,Pusan,Republic of Korea,35.17955,129.0756,1,3814000
+Cairo,"Fostat, Fustat",Egypt,30.06263,31.24967,1,6801000
+Calcutta,Kolkata,India,22.56263,88.36304,1,4400000
+Cali,Santiago de Cali,Columbia,3.43722,-76.5225,2,2128000
+Caloocan City,Calvooan,Philippines,14.65,120.97,3,1023000
+Caracas,,Venezuela,10.48801,-66.87919,1,1975000
+Casablanca,,Morocco,33.58831,-7.61138,1,2943000
+Changchun,"Hsinking, Kwangchingtsu",China,43.9,125.2,1,2192000
+Changde,,China,29.0333,111.6833,1,1232000
+Changsha,,China,28.196111,112.972222,1,1376000
+Changshu,,China,31.665,120.822,1,1036000
+Changzhou,"Changchow, Jiangsu province",China,31.77358,119.95401,1,1293000
+Chelyabinsk,,Russian Federation,55.15402,61.42915,1,1064000
+Chengdu,,China,30.66667,104.06667,1,2954000
+Chicago,Illinois,United States of America,41.85003,-87.6501,1,2896000
+Chittagong,,Bangladesh,22.3384,91.83168,1,1364000
+Chongqing,"Chonquing, Chungking",China,29.56301,106.551557,1,3127000
+Cirebon,,Indonesia,-6.7167,108.5667,1,2080000
+Cordoba,Cordova,Argentina,-31.4135,-64.18105,1,1115000
+Curitiba,,Brazil,-25.4278,-49.2731,1,1612000
+Daegu,Taegu,Republic of Korea,35.87144,128.6014,1,2449000
+Daejeon,Taejon,Republic of Korea,36.35041,127.3845,1,1272000
+Dakar,Pikine ,Senegal,14.6937,-17.44406,2,1097000
+Dalian,,China,38.9208,121.6392,1,2484000
+Dallas,Texas,United States of America,32.78014,-96.8005,1,1189000
+Damascus,,Syria,33.5102,36.29128,1,1394000
+Danzhou,Dangzhou,China,19.5,109.5833,3,1391000
+Daqing,,China,46.5833,125,1,1026000
+Dar-es-Salaam,Dar es Salaam,Tanzania,-6.822921,39.269661,1,1361000
+Datong,,China,40.083333,113.3,1,1277000
+Davao,Mindanao,Philippines,7.0667,125.6,1,1006000
+Delhi,,India,28.65381,77.22897,1,7207000
+Dhaka,Dacca,Bangladesh,23.709921,90.407143,1,3397000
+Dingzhou,Dingxian,China,38.5167,114.9833,3,1025000
+Dnipropetrovsk,"Dnepropetrovsk, Ekaterinoslav",Ukraine,48.464717,35.046183,1,1109000
+Donetsk,"Donestsk, Stalino",Ukraine,48.015883,37.80285,1,1050000
+Dongguan,,China,23.0333,113.7167,1,1742000
+Dongtai,,China,32.795,120.519,1,1163000
+Ecatepec,,Mexico,19.609722,-99.06,1,2218000
+Esfahan,Isfahan,Iran,32.651389,51.679192,1,1266000
+Faisalabad,,Pakistan,31.41667,73.08333,1,2009000
+Fangchenggang,Fangcheng,China,21.6,108.3,2,1090000
+Fortaleza,,Brazil,-3.71722,-38.54306,1,2139000
+Fukuoka,,Japan,33.591389,130.414722,1,1341000
+Fushun,Liaoning province,China,41.85583,123.92333,1,1388000
+Fuzhou,"Fuchow, Hokchiu, Fujian province",China,26.076111,119.306389,1,1403000
+Giza,,Egypt,30.0167,31.2167,1,2222000
+Goiania,Goiânia,Brazil,-16.67861,-49.25389,1,1073000
+Guangzhou,,China,23.11667,113.25,1,3935000
+Guarulhos,Guarlhos,Brazil,-23.4667,-46.5333,1,1135000
+Guatemala City,Iximche,Guatemala,14.64072,-90.51327,1,1007000
+Guayaquil,,Ecuador,-2.18194,-79.89167,1,2118000
+Guiyang,,China,26.65,106.6333,1,1665000
+Gujranwala,,Pakistan,32.15,74.1833,1,1133000
+Gwangju,Kwangchu,Republic of Korea,35.166667,126.916667,1,1258000
+Haicheng,,China,40.8833,122.6833,1,1036000
+Hamburg,,Germany,53.57532,10.01534,1,1704000
+Handan,,China,36.6,114.4833,2,1152000
+Hangzhou,Hangchow,China,30.25,120.1667,1,1276000
+Hanoi,Hà Noi,Vietnam,21.033333,105.85,1,1073000
+Harare,Salisbury,Zimbabwe,-17.8639,31.0297,1,1189000
+Harbin,Haerbin,China,45.75,126.65,1,2991000
+Havana,La Habana,Cuba,23.13302,-82.38304,1,2192000
+Hefei,"Hofei, Luchow",China,31.866667,117.283333,1,1111000
+Heze,,China,35.2333,115.4333,2,1154000
+Hiroshima,,Japan,34.396775,132.460017,1,1126000
+Hong Kong,,China,22.28552,114.15769,1,6843000
+Houston,Texas,United States of America,29.76019,-95.3694,1,1954000
+Huadian,Jilin province,China,42.95,126.7333,3,1133000
+Huainan,,China,32.62639,116.99694,1,1240000
+Huzhou,,China,30.8667,120.1,2,1028000
+Hyderabad,,India,17.38405,78.45636,2,3146000
+Hyderabad,,Pakistan,25.379167,68.368333,2,1167000
+Incheon,Inchon,Republic of Korea,37.456256,126.705206,1,2308000
+Indore,,India,22.71792,75.8333,1,1092000
+Istanbul,Constantinople,Turkey,41.005275,28.976944,1,8260000
+Jaipur,Jeypore,India,26.91962,75.78781,1,1458000
+Jakarta,Batavia,Indonesia,-6.21462,106.84513,1,9373000
+Jeddah,Jiddah,Saudi Arabia,21.543333,39.172778,1,1450000
+Jiangyin,,China,31.839,120.295,1,1108000
+Jilin,Kirin,China,43.896536,125.32599,1,1320000
+Jimo,,China,36.3833,120.4667,1,1019000
+Jinan,Tsinan,China,36.650997,117.120497,1,2404000
+Jingmen,Shasi/Jingzhou,China,31.0436,112.2008,1,1043000
+Kabul,,Afghanistan,34.5333,69.1667,1,1424000
+Kanpur,Cawnpore,India,26.4478,80.34627,1,1879000
+Kaohsiung,,Taiwan,22.61626,120.31333,1,1969000
+Karachi,,Pakistan,24.9056,67.0822,1,9339000
+Kawasaki,,Japan,35.5167,139.7,1,1250000
+Kazan,,Russian Federation,55.790278,49.134722,1,1091000
+Kediri,,Indonesia,-7.8166,112.0119,3,1663000
+Kharkov,Kharkiv,Ukraine,49.9935,36.230384,1,1494000
+Kiev,,Ukraine,50.45466,30.5238,1,2589000
+Kinshasa,,Congo,-4.325,15.3222,1,2664000
+Kitakyushu,,Japan,33.83333,130.83333,1,1011000
+Kobe,Hyogo,Japan,34.691269,135.183072,1,1494000
+Kuala Lumpur,,Malaysia,3.1412,101.68653,1,1145000
+Kunming,Yunnanfu,China,25.03889,102.71833,1,1612000
+Kyoto,,Japan,35.02107,135.75385,1,1468000
+La Matanza Partido,,Argentina,-34.7167,-58.6333,3,1120000
+Lagos,,Nigeria,6.524379,3.379206,1,1061000
+Lahore,,Pakistan,31.54972,74.34361,1,5143000
+Laiwu,,China,36.1833,117.6667,1,1105000
+Lanzhou,Lanchow,China,36.061089,103.834304,1,1618000
+Leiyang,,China,26.4,112.929,1,1112000
+Leshan,Kiating,China,29.552106,103.765568,1,1070000
+Lianyuan,,China,27.692,111.664,1,1007000
+Lima,Rimac,Peru,-12.04318,-77.02824,1,7201000
+Linyi,"Linyi, Shandong",China,35.05,118.35,1,1590000
+London,,United Kingdom,51.51121,-0.11983,1,7074000
+Los Angeles,,United States of America,34.05223,-118.244,1,3695000
+Lucknow,,India,26.83928,80.92313,1,1619000
+Ludhiana,,India,30.90015,75.85229,1,1043000
+Luoyang,,China,34.6697,112.4422,1,1202000
+Lusaka,,Zambia,-15.40669,28.28713,1,1270000
+Macheng,,China,31.3167,115.1,1,1063000
+Madras,,India,13.08784,80.27847,1,3841000
+Madrid,,Spain,40.41678,-3.70379,1,2823000
+Magelang,,Indonesia,-7.4667,110.2167,2,1174000
+Manado,,Indonesia,1.4931,124.8413,1,3173000
+Manaus,,Brazil,-3.10194,-60.025,1,1286000
+Manila,,Philippines,14.58,121,1,1654000
+Maputo,,Mozambique,-25.9667,32.5833,1,1015000
+Maracaibo,,Venezuela,10.63167,-71.64056,1,1706000
+Mashhad,Meshhed,Iran,36.3,59.6,1,1887000
+Medan,,Indonesia,3.5833,98.6667,1,1988000
+Medellin,Medellín,Columbia,6.25184,-75.56359,1,1885000
+Melbourne,,Australia,-37.814,144.96332,1,3414000
+Mexico City,Tenochtitlan,Mexico,19.42847,-99.1277,1,8235000
+Milan,,Italy,45.46545,9.198786,1,1306000
+Minsk,,Belarus,53.9,27.56667,1,1677000
+Monterrey,Monterey,Mexico,25.6667,-100.3,1,1069000
+Montevideo,,Uruguay,-34.817311,-56.158866,1,13303000
+Montreal,Montréal,Canada,45.50884,-73.5878,1,1016000
+Moscow,,Russian Federation,55.75222,37.61556,1,8297000
+Multan,,Pakistan,30.19556,71.47528,1,1197000
+Mumbai,Bombay,India,19.07283,72.88261,1,9926000
+Munich,,Germany,48.13674,11.57676,1,1195000
+Nagoya,,Japan,35.181447,136.906397,1,2171000
+Nagpur,,India,21.15,79.1,2,1625000
+Nairobi,,Kenya,-1.28333,36.81667,1,1346000
+Nanchang,,China,28.68333,115.88333,1,1369000
+Nanjing,,China,32.05,118.7667,1,1200000
+Nanning,,China,22.81667,108.31667,1,1164000
+Naples,,Italy,40.85178,14.26812,1,1046000
+Neijiang,,China,29.5833,105.0667,1,1289000
+New York,New York,United States of America,40.71435,-74.006,1,8008000
+Nezahualcoyotl,"Netzahualcoytl, Nezahualcóyotl ",Mexico,19.4,-98.988889,2,1255000
+Ningbo,"Yinhsien, Ningpo",China,29.8667,121.55,1,1142000
+Nizhniy Novgorod,"Nishny Novgorod, Gorkiy",Russian Federation,56.3269,44.0075,1,1357000
+Novosibirsk,,Russian Federation,55.0415,82.9346,1,1400000
+Odessa,Odesa,Ukraine,46.47747,30.73262,1,1002000
+Omdurman,,Sudan,15.64453,32.47773,1,1271000
+Omsk,,Russian Federation,54.99244,73.36859,1,1253000
+Oran,,Algeria,35.69111,-0.64167,1,1214000
+Osaka,,Japan,34.693216,135.502082,1,2599000
+Padang,Pandang,Indonesia,-0.94924,100.35427,2,1153000
+Palembang,,Indonesia,-2.91673,104.7458,1,1415000
+Paris,,France,48.85661,2.352222,1,2152000
+Pekalongan,,Indonesia,-6.8886,109.6753,1,1093000
+Perm,,Russian Federation,58.013889,56.248889,1,1014000
+Perth,,Australia,-31.95224,115.8614,1,1362000
+Philadelphia,Pennsylvania,United States of America,39.95,-75.1667,1,1518000
+Phoenix,Arizona,United States of America,33.44838,-112.074143,1,1321000
+Pingdu,,China,36.7833,119.9556,1,1296000
+Pingxiang,Jiangxi province,China,27.6333,113.85,2,1388000
+Porto Alegre,Pôrto Alegre,Brazil,-30.0331,-51.23,1,1322000
+Prague,,Czech Republic,50.08804,14.42076,1,1193000
+Probolinggo,Proboliggo,Indonesia,-7.75,113.2167,1,1174000
+Puebla, Puebla de Zaragoza,Mexico,19.033333,-98.183333,1,1007000
+Pune,Poona,India,18.52043,73.856744,1,1567000
+Pyongyang,P'yongyang,Dem. People's Republic of Korea,39.03385,125.7543,1,2741000
+Qidong,Qidong,China,31.87,121.703,1,1136000
+Qingdao,Tsingtao,China,36.067082,120.38264,1,2102000
+Qinzhou,Quinzhou,China,21.95,108.6167,2,1006000
+Qiqihar,Qiquiaer,China,47.35,123.9167,2,1425000
+Queimados,,Brazil,-22.7158,-43.555,3,1388000
+Quezon City,,Philippines,14.6333,121.0333,1,1989000
+Quito,,Ecuador,-0.22985,-78.52495,1,1615000
+Rabat,,Morocco,34.01325,-6.83255,1,1220000
+Rawalpindi,,Pakistan,33.6007,73.0679,1,1409000
+Recife,Pernambuco,Brazil,-8.05389,-34.8811,1,1400000
+Rio de Janeiro,,Brazil,-22.90278,-43.2075,1,5613000
+Riyadh,,Saudi Arabia,24.6333,46.7167,1,1800000
+Rizhao,,China,35.4158,119.5271,1,1028000
+Rome,,Italy,41.89474,12.4839,1,2648000
+Rostov-on-Don,Rostov,Russian Federation,47.2333,39.41394,1,1003000
+Ruian,Meitou,China,27.7833,120.625,1,1046000
+Saint Petersburg,Leningrad,Russian Federation,59.89444,30.26417,1,4678000
+Salvador,"Sao Salvador, Bahia",Brazil,-12.97111,-38.51083,1,2332000
+Samara,Kuibyshev,Russian Federation,53.2028,50.1408,1,1165000
+San Antonio,Texas,United States of America,29.42412,-98.4936,1,1145000
+San Diego,California,United States of America,32.71533,-117.157,3,1223000
+Santiago,,Chile,-33.45,-70.666667,1,4788000
+Santo Domingo,,Dominican Republic,18.4667,-69.95,1,2677000
+Sao Paolo,São Paulo,Brazil,-23.5475,-46.63611,1,10009000
+Sapporo,,Japan,43.06417,141.34694,1,1822000
+Semarang,,Indonesia,-6.9932,110.4203,1,2221000
+Sendai,,Japan,38.266667,140.866667,1,1009000
+Seoul,Hanyang,Republic of Korea,37.56826,126.97783,1,10231000
+Setif,Sétif ,Algeria,36.1833,5.4,1,1311000
+Shanghai,,China,31.22222,121.45806,1,8214000
+Shenyang,"Fengtien, Mukden",China,41.79222,123.43278,1,4670000
+Shijiazhuang,,China,38.042308,114.514861,1,1390000
+Shiraz,,Iran,29.61031,52.53114,1,1053000
+Singapore,,Singapore,1.28967,103.85007,1,3894000
+Suining,Sichuan province,China,30.532847,105.5928979,2,1260000
+Suizhou,,China,31.6833,113.3833,1,1440000
+Sukabumi,,Indonesia,-6.9196,106.9272,1,2138000
+Suqian,,China,33.9333,118.2833,1,1077000
+Surabaya,Soerabaja,Indonesia,-7.24917,112.75083,1,2801000
+Surat,,India,21.19594,72.83023,1,1506000
+Sydney,,Australia,-33.86785,151.20732,1,4032000
+Tabriz,,Iran,38.08,46.2919,1,1191000
+Taian,Shandong province,China,36.2,117.0833,1,1413000
+Taipei,,Taiwan,25.04776,121.53185,1,2640000
+Taiyuan,,China,37.87059,112.548879,1,2052000
+Tangshan,Hebei province,China,39.63333,118.18333,2,1518000
+Tashkent,,Uzbekistan,41.26465,69.21627,1,2142000
+Tbilisi,Tiflis,Georgia,41.709975,44.792989,1,1268000
+Tegal,,Indonesia,-6.8667,109.1333,1,1633000
+Tehran,Teheran,Iran,35.69439,51.42151,1,6758000
+Tianjin,Tientsin,China,39.14222,117.17667,1,5855000
+Tianmen,,China,30.663337,113.166078,2,1507000
+Tianshui,"Tsinchow, Tienshui",China,34.57952,105.74238,1,1040000
+Tokyo,"Yedo, Edo",Japan,35.6895,139.69171,1,8130000
+Tripoli,,Libya,32.876175,13.187508,1,1500000
+Ufa,,Russian Federation,54.78517,56.04562,1,1087000
+Urumqi,"Ürümqi, Tihwa, Bishbaliq, Urumchi",China,43.825,87.6,2,1131000
+Vadodara,Baroda,India,22.30731,73.181098,1,1062000
+Valencia,,Spain,39.469908,-0.376289,1,1363000
+Vienna,Wien,Austria,48.20849,16.37208,1,1560000
+Visakhapatnam,Vizagapatam,India,17.6883,83.2186,1,1504000
+Wafangdian,Wafangjan,China,39.631,121.974,2,1001000
+Warsaw,,Poland,52.22977,21.01178,1,1615000
+Weifang,,China,36.7167,119.1,1,1151000
+Wuhan,Wuchang,China,30.58333,114.26667,1,4040000
+Wuxi,"Jiangsu province, Wuchang, Wuhsi",China,31.49117,120.31191,1,1013000
+Xian,"Sian, Changan, Xi'an",China,34.341485,108.940404,1,2873000
+Xiantao,,China,30.3667,113.45,3,1371000
+Xiaogan,,China,30.9167,113.9,1,1302000
+Xinghua,,China,32.93,119.83,1,1497000
+Xingtai,,China,37.0631,114.494,1,1306000
+Yangcheng,Jiangsu province,China,34.455278,113.025278,3,1367000
+Yangon,,Myanmar,16.80528,96.15611,1,2513000
+Yekaterinburg,Ekaterinburg,Russian Federation,56.833333,60.6,1,1267000
+Yerevan,Erivan,Aremenia,40.1833,44.5167,1,1249000
+Yixing,,China,31.03,119.3,1,1075000
+Yokohama,,Japan,35.443708,139.638026,1,3427000
+Yulin,Guangxi province,China,22.6333,110.15,2,1323000
+Yuzhou,Henan province,China,34.1634,113.4608,2,1073000
+Zaozhuang,,China,34.8667,117.55,2,1793000
+Zhanjiang,,China,21.2,110.4,1,1399000
+Zhongshan,,China,22.517646,113.392782,1,1237000
+Zhucheng,,China,36.01,119.4167,1,1039000
+Zibo,,China,36.79056,118.06333,1,2484000

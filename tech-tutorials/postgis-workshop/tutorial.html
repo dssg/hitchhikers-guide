@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>PostGis Workshop</title>
+<meta name="author" content="(Adolfo De Unánue)"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/white.css" id="theme"/>
+
+<link rel="stylesheet" href="css/workflow.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<meta name="description" content="Github Flow"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">PostGis Workshop</h1><h2 class="author">Adolfo De Unánue</h2><h2 class="date">Data Science for Social Good 2016</h2><p class="date">Created: 2016-06-20 lun 13:01</p>
+</section>
+
+
+<section>
+<section id="slide-orgheadline14">
+<h2 id="orgheadline14">A little of theory</h2>
+<div class="outline-text-2" id="text-orgheadline14">
+</div></section>
+</section>
+<section>
+<section id="slide-orgheadline1">
+<h3 id="orgheadline1">Spatial database</h3>
+<ul>
+<li>Storage of spatial data</li>
+<li>Analysis of geographic data</li>
+<li>Manipulation of spatial objects just like the other database objects
+<ul>
+<li>Creation of subsets of data</li>
+<li>Fixing geographic data</li>
+<li>\(\ldots\)</li>
+
+</ul></li>
+<li>Database backend for apps</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline2">
+<h3 id="orgheadline2">Spatial data</h3>
+<ul>
+<li>Data which describes or represents either a location or a shape</li>
+
+<li>Points, lines, polygons</li>
+
+<li>Besides the geometrical properties, the spatial data has attributes.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline3">
+<h3 id="orgheadline3">Spatial data</h3>
+<ul>
+<li>Examples:
+<ul>
+<li>Geocodable address</li>
+<li>Crime patterns</li>
+<li>EMS / patient location</li>
+<li>Weather information</li>
+<li>City planning</li>
+<li>Hazard detection</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline4">
+<h3 id="orgheadline4">Relationships</h3>
+<ul>
+<li>Proximity</li>
+<li>Adjacency (touching, connectivity)</li>
+<li>Containment</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline5">
+<h3 id="orgheadline5">Operations</h3>
+<ul>
+<li>Area</li>
+<li>Length</li>
+<li>Intersection</li>
+<li>Union</li>
+<li>Buffer</li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline6">
+<h3 id="orgheadline6">Why a db instead of a file?</h3>
+<p>
+Spatial data is usually related to other types of data.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline7">
+<h3 id="orgheadline7">How load data to the db?</h3>
+<ul>
+<li><code>shp2pgsql</code>
+<ul>
+<li>imports standard <b>esri</b> shapefiles and <code>dbf</code></li>
+
+</ul></li>
+
+<li><code>ogr2ogr</code>
+<ul>
+<li>imports 20 different vector and flat files</li>
+
+</ul></li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline8">
+<h3 id="orgheadline8">The spatial data that is not spatial data</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">longitude</th>
+<th scope="col" class="org-right">latitude</th>
+<th scope="col" class="org-left">disease</th>
+<th scope="col" class="org-left">date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">26.870436</td>
+<td class="org-right">-31.909519</td>
+<td class="org-left">mumps</td>
+<td class="org-left">13/12/2008</td>
+</tr>
+
+<tr>
+<td class="org-right">26.868682</td>
+<td class="org-right">-31.909259</td>
+<td class="org-left">mumps</td>
+<td class="org-left">24/12/2008</td>
+</tr>
+
+<tr>
+<td class="org-right">26.867707</td>
+<td class="org-right">-31.910494</td>
+<td class="org-left">mumps</td>
+<td class="org-left">22/01/2009</td>
+</tr>
+
+<tr>
+<td class="org-right">26.854908</td>
+<td class="org-right">-31.920759</td>
+<td class="org-left">measles</td>
+<td class="org-left">11/01/2009</td>
+</tr>
+
+<tr>
+<td class="org-right">26.855817</td>
+<td class="org-right">-31.921929</td>
+<td class="org-left">measles</td>
+<td class="org-left">26/01/2009</td>
+</tr>
+
+<tr>
+<td class="org-right">26.852764</td>
+<td class="org-right">-31.921929</td>
+<td class="org-left">measles</td>
+<td class="org-left">10/02/2009</td>
+</tr>
+
+<tr>
+<td class="org-right">26.854778</td>
+<td class="org-right">-31.925112</td>
+<td class="org-left">measles</td>
+<td class="org-left">22/02/2009</td>
+</tr>
+
+<tr>
+<td class="org-right">26.869072</td>
+<td class="org-right">-31.911988</td>
+<td class="org-left">mumps</td>
+<td class="org-left">02/02/2009</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+(the <code>disease</code>  and <code>date</code> columns are the <b>attributes</b> of this data)
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline9">
+<h3 id="orgheadline9"><i>shape files</i></h3>
+<ul>
+<li>Stored in files on the computer</li>
+<li>The most common one is probably the 'shape file'
+<ul>
+<li>It consists of at least three different files that work together to store vector data</li>
+
+</ul></li>
+
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">extension</th>
+<th scope="col" class="org-left">description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>.shp</code></td>
+<td class="org-left">the geometry file</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.dbf</code></td>
+<td class="org-left">the attributes file</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>.shx</code></td>
+<td class="org-left">index file</td>
+</tr>
+</tbody>
+</table>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline10">
+<h3 id="orgheadline10">Vector data</h3>
+<ul>
+<li>Is stored as a series of x,y coordinate pairs inside the computer's memory.</li>
+<li>Vector data is used to represent <b>points</b> (1 vertex) , <b>lines</b> (polyline) (2 or more vertices, but the first and the last one are different) and <b>areas</b> (polygons).</li>
+<li>A vector feature has its shape represented using <i>geometry</i>.</li>
+<li>The geometry is made up of one or more interconnected vertices.</li>
+<li>A vertex describes a position in space using an x, y and optionally z axis.</li>
+<li>The x and y values will depend on the <i>coordinate reference system</i> (<code>CRS</code>) being used.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline11">
+<h3 id="orgheadline11">Problems with vector data</h3>
+
+<div class="figure">
+<p><img src="./images/sliver.png" alt="sliver.png" />
+</p>
+<p><span class="figure-number">Figure 1:</span> Image from <i>A gentle introduction to gis</i> <b>Sutton T., Dassau O., Sutton M.</b> <code>2009</code></p>
+</div>
+
+</section>
+<section>
+
+
+<div class="figure">
+<p><img src="images/overshoot_undershoot.png" alt="overshoot_undershoot.png" />
+</p>
+<p><span class="figure-number">Figure 2:</span> Image from <i>A gentle introduction to gis</i> <b>Sutton T., Dassau O., Sutton M.</b> <code>2009</code></p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline12">
+<h3 id="orgheadline12">Raster data</h3>
+<ul>
+<li>Stored as a grid of values</li>
+<li>Each <i>cell</i> or <i>pixel</i> represents a geographical region, and the value of the pixel represents some attribute of the region</li>
+<li>Use it when you want to represent a continuous information across an area</li>
+<li><i>Multi-band</i> images, each <i>band</i> contains different information</li>
+
+</ul>
+
+</section>
+<section>
+
+
+<div class="figure">
+<p><img src="images/raster.png" alt="raster.png" />
+</p>
+<p><span class="figure-number">Figure 3:</span> Image from <i>A gentle introduction to gis</i> <b>Sutton T., Dassau O., Sutton M.</b> <code>2009</code></p>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline13">
+<h3 id="orgheadline13">Problems with raster data</h3>
+<p>
+High resolution raster data requires a huge amount of computer storage.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline26">
+<h2 id="orgheadline26">Demo / exercise</h2>
+<div class="outline-text-2" id="text-orgheadline26">
+</div></section>
+</section>
+<section>
+<section id="slide-orgheadline15">
+<h3 id="orgheadline15">Connect to the db</h3>
+<pre class="example">
+host:  gis-tutorial.c5faqozfo86k.us-west-2.rds.amazonaws.com
+port: 5432
+username: dssg_gis
+password: dssg-gis
+db name:gis_tutorial
+</pre>
+
+</section>
+<section>
+
+<p>
+SSH Tunneling
+</p>
+
+<pre class="example">
+ssh -fNT -L \
+    8889:gis-tutorial.c5faqozfo86k.us-west-2.rds.amazonaws.com:5432  \
+    -i ~/.ssh/your-dssh-key ec2-instance.dssg.io  ## ssh tunneling
+</pre>
+
+</section>
+<section>
+
+<p>
+Command line client
+</p>
+
+<pre class="example">
+psql -h localhost -p 8889 -U dssg_gis  gis_tutorial
+</pre>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline16">
+<h3 id="orgheadline16">Setup</h3>
+<ul>
+<li>create an <code>schema</code> using your <code>github</code> account
+<ul>
+<li>(mine is <code>nanounanue</code>)</li>
+
+</ul></li>
+
+</ul>
+
+<pre class="example">
+create schema your-github-username;
+</pre>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline17">
+<h3 id="orgheadline17">Upload the first shapefiles</h3>
+<ul>
+<li>There are several <i>shapefiles</i> in the <code>data</code> directory</li>
+
+<li>First, we can see some information from the files</li>
+
+</ul>
+
+<pre class="example">
+ogrinfo -al roads.shp
+</pre>
+
+</section>
+<section>
+
+<p>
+Observe that the projection is
+</p>
+
+<pre class="example">
+...
+projcs["nad83_massachusetts_mainland",
+    geogcs["gcs_north_american_1983",
+        datum["north_american_datum_1983",
+            spheroid["grs_1980",6378137,298.257222101]],
+        primem["greenwich",0],
+        unit["degree",0.017453292519943295]],
+    projection["lambert_conformal_conic_2sp"],
+    parameter["standard_parallel_1",42.68333333333333],
+    parameter["standard_parallel_2",41.71666666666667],
+    parameter["latitude_of_origin",41],
+    parameter["central_meridian",-71.5],
+    parameter["false_easting",200000],
+    parameter["false_northing",750000],
+    unit["meter",1]]
+...
+</pre>
+
+</section>
+<section>
+
+<p>
+This projection measures the <b>area</b> in meters. but
+</p>
+
+<ul>
+<li>Using <code>shp2psql</code> tool upload the following files: <code>roads</code>, <code>land</code>, <code>hydrology</code></li>
+
+</ul>
+
+<pre class="example">
+shp2psql --host=localhost --port=8889 --username=dssg_gis \
+     -f roads.shp gis your-github-username.roads \
+     | psql -h localhost -p 8889 -u dssg_gis  gis_tutorial
+## if you want to change the projection to wgs 1984 (the one used in google maps)
+## you need to add the flag -s 26986:4326 before the name of the database (gis)
+</pre>
+
+</section>
+<section>
+
+<p>
+If you open <b>QGIS</b> you should see something like the following:
+</p>
+
+
+<div class="figure">
+<p><img src="images/before.png" alt="before.png" />
+</p>
+<p><span class="figure-number">Figure 4:</span> <code>land</code> (purple), <code>hydrology</code> (red) and <code>roads</code> (blue) after their insertion in the database</p>
+</div>
+
+</section>
+<section>
+
+<p>
+and after some customization:
+</p>
+
+
+<div class="figure">
+<p><img src="images/after.png" alt="after.png" />
+</p>
+<p><span class="figure-number">Figure 5:</span> After adjusting the style in <b>QGIS</b>: <code>land</code> (one color per type), <code>hydrology</code> (blue) and <code>roads</code> (yellow)</p>
+</div>
+
+<p>
+note that we have <i>lands</i> over the <i>roads</i> and over the <i>water</i>.
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline18">
+<h3 id="orgheadline18">Spatial predicates for cleaning</h3>
+<ul>
+<li>We will use <code>st_intersects()</code>  and <code>st_dwithin()</code> for removing the land which
+is touch with roads and water, and if it is too far of roads and water, respectively</li>
+
+<li>See the file <a href="sql/unviable_land.sql">sql/unviable_land.sql</a> for the <code>sql</code> statements.</li>
+
+<li><b>NOTE:</b> For use of the <code>EXISTS(subquery)</code> look <a href="http://www.techonthenet.com/postgresql/exists.php">here</a> and <a href="https://www.postgresql.org/docs/9.5/static/functions-subquery.html">here</a></li>
+
+</ul>
+
+</section>
+<section>
+
+
+<div class="figure">
+<p><img src="images/after_2.png" alt="after_2.png" />
+</p>
+<p><span class="figure-number">Figure 6:</span> After removing the land objects which intersects roads or water or where too far from those.</p>
+</div>
+
+</section>
+<section>
+
+<ul>
+<li><code>St_intersects(a,b)</code>  returns <code>true</code>  if exists at least one point in common between the geometrical objects <code>a</code> and <code>b</code>.</li>
+
+<li><code>St_dwithin(a,b,distance)</code> returns <code>true</code> if the geometries <code>a</code> and <code>b</code> are within the specified distance of one another.</li>
+
+<li>Other functions: <code>st_equals</code>, <code>st_disjoint</code>, <code>st_touches</code>, <code>st_crosses</code>, <code>st_overlaps</code>, <code>st_contains</code>.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline19">
+<h3 id="orgheadline19">Add more data: <code>buildings</code> and <code>residents</code></h3>
+<p>
+Upload to the database the shapefiles <code>buildings</code> and <code>residents</code>.
+</p>
+
+<pre class="example">
+## This time I will use ogr2ogr, but this is for demostration purpose only
+## It is easier use shp2pgsql
+ogr2ogr -f "PostgreSQL" \
+ PG:"host=localhost user=dssg_gis dbname=gis_tutorial password=dssg-gis port=8889" \
+  buildings.shp -nln your-github-username.buildings
+</pre>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline20">
+<h3 id="orgheadline20">Spatial joins: creating new views</h3>
+<ul>
+<li>As you can see, <a href="data/my_town/residents.psv">data/my_town/residents.psv</a> is not a spatial data.
+It is a regular <code>psv</code>  file. But it contains the <code>pid</code>  of the land in
+which the resident lives.</li>
+
+</ul>
+
+<pre class="example">
+csvhead -d '|' ./data/my_town/residents.psv | head
+</pre>
+
+</section>
+<section>
+
+<p>
+How can I convert this data in spatial data?
+</p>
+
+<pre class="example">
+select
+r.*  -- All the attributes of resident
+, st_centroid(l.the_geom) -- The centroid of the land in which this resident lives
+from
+residents as r
+inner join -- only the matches
+land as l
+on
+r.pid = l.pid;
+</pre>
+
+</section>
+<section>
+
+<p>
+Ok, very well. But, How can I see this new "data" in <b>QGIS</b>? You need to create a <code>view</code>
+</p>
+
+<pre class="example">
+create or replace view residents_loc
+as
+select
+row_number() over() as rl_id -- We need an unique identifier
+, r.*  -- All the attributes of resident
+, st_centroid(l.the_geom) as the_geom -- The centroid of the land in which this resident lives
+from
+residents as r
+inner join -- only the matches
+land as l
+on
+r.pid = l.pid;
+</pre>
+
+</section>
+<section>
+
+
+<div class="figure">
+<p><img src="images/residents_loc.png" alt="residents_loc.png" />
+</p>
+<p><span class="figure-number">Figure 7:</span> After the creation of the view <code>residents_loc</code> (red star)</p>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline21">
+<h3 id="orgheadline21">Spatial operations: Legal issues in our town</h3>
+<p>
+How much real state area do we have?
+</p>
+
+<pre class="example">
+select
+sum(st_area(the_geom))/1000 as total_sq_km
+, st_area(st_union(the_geom))/1000 as no_overlap_total_sq_km
+-- st_union dissolves the overlaps!
+from land;
+</pre>
+
+</section>
+<section>
+
+<p>
+Oh, oh. And  buildings?
+</p>
+
+<pre class="example">
+select
+sum(st_area(the_geom))/1000 as total_sq_km
+, st_area(st_union(the_geom))/1000 as no_overlap_total_sq_km
+from buildings;
+</pre>
+
+</section>
+<section>
+
+<ul>
+<li>We have buildings inside buildings, and some lands overlaps with other lands <code>:(</code></li>
+
+<li>Other operations: <code>st_intersection(a,b)</code>, <code>st_difference(a,b)</code>, <code>st_symdifference(a,b)</code>, <code>st_buffer(c)</code>, <code>st_convexhull(c)</code></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline22">
+<h3 id="orgheadline22">Spatial joins: Which lands intersects?</h3>
+<pre class="example">
+select
+p.pid -- the land
+, count(o.pid) as total_intersections -- qty of intersections
+, array_agg(o.pid) as intersected_parcels -- the other lands
+from
+land as p
+inner join
+land as o
+on
+(p.pid &lt;&gt; o.pid and st_intersects(p.the_geom, o.the_geom))
+group by p.pid
+order by p.pid;
+-- First row returned: pid IN ('000000225', '000027745','000092727','000057051')
+</pre>
+
+</section>
+<section>
+
+<p>
+Which kind of overlap?
+</p>
+
+<pre class="example">
+select
+count(o.pid) as total_intersections
+-- Overlaps?
+, count(case when st_overlaps(o.the_geom,p.the_geom) then 1 else null end) as o_overlaps_p
+-- It is the same?
+, count(case when st_equals(o.the_geom,p.the_geom) then 1 else null end) as o_equals_p
+from land as p
+inner join land as o
+on (p.pid &lt;&gt; o.pid and st_intersects(p.the_geom, o.the_geom));
+</pre>
+
+</section>
+<section>
+
+<ul>
+<li><code>st_overlaps(a,b)</code> returns <code>true</code> if the geometries share some but not all the points, and the intersection has the same dimension as <code>a</code>, <code>b</code></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline23">
+<h3 id="orgheadline23">Cleaning the mess: Reassigning residents</h3>
+<pre class="example">
+update residents
+set pid = a.newpid
+from (
+select p.pid, min(o.pid) as newpid
+from land as p
+inner join
+land as o on
+(p.pid = o.pid or st_equals(p.the_geom, o.the_geom))
+group by p.pid
+having p.pid &lt;&gt; min(o.pid)) as a
+where residents.pid = a.pid
+returning * -- Return all the updated residents
+-- so you can see what you just do
+-- (or you can store it in a another table using CTAS)
+</pre>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline24">
+<h3 id="orgheadline24">Cleaning the mess: Deleting the dupe land</h3>
+<pre class="example">
+-- Add a new column for storing the house types
+alter table land add column land_type_other varchar[];
+
+-- Copy the types to the first parcel
+update land
+set land_type_other = a.dupe_types
+from (
+select p.pid
+, min(o.pid) as newpid
+, array_agg(distinct o.land_type) as dupe_types
+from land as p
+inner join land as o
+on
+(st_equals(p.the_geom, o.the_geom))
+group by p.pid
+having count(p.pid) &gt; 1 and p.pid = min(o.pid)
+) as a
+where land.pid = a.pid
+returning *;
+
+-- Delete the parcels
+delete from land
+where pid in
+(select p.pid
+from land as p inner join land as o on
+(st_equals(p.the_geom, o.the_geom))
+group by p.pid
+having count(p.pid) &gt; 1 and p.pid &lt;&gt; min(o.pid)) ;
+</pre>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline25">
+<h3 id="orgheadline25">Spatial analytics: Questions</h3>
+<p>
+How many kinds under 12 are further than a km of an elementary school?
+</p>
+
+<pre class="example">
+select
+sum(num_children_b12)*100.00/(select sum(num_children_b12) from residents)
+from residents as r
+inner join land as l on r.pid = l.pid
+left join (
+select pid, the_geom from land
+where
+land_type = 'elementary school'
+or
+'elementary school' = any(land_type_other)
+) as eschools
+on st_dwithin(l.the_geom, eschools.the_geom, 1000)
+where eschools.pid is null;
+</pre>
+
+</section>
+<section>
+
+<p>
+How much area are in empty lands?
+</p>
+
+<pre class="example">
+select st_area(st_union(the_geom))/1000
+from land
+where
+land_type = 'vacant land';
+</pre>
+
+</section>
+<section>
+
+<p>
+Which are the 10 nearest houses to the lakes?
+</p>
+
+<pre class="example">
+select h.hyd_name,
+array(
+select bldg_name
+from buildings b
+where
+b.bldg_type like '%family'
+order by h.the_geom &lt;#&gt; b.the_geom limit 5
+)
+from hydrology h
+where h.hyd_name in  ('lake 1', 'elephantine youth');
+</pre>
+
+<ul>
+<li><b>Note</b> the <code>&lt;#&gt;</code> (bounding box), <code>&lt;-&gt;</code> (centroids) are distance operators,
+see <a href="http://boundlessgeo.com/2011/09/indexed-nearest-neighbour-search-in-postgis/">here</a> and <a href="https://geeohspatial.blogspot.com/2013/05/k-nearest-neighbor-search-in-postgis.html">here</a>.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline30">
+<h2 id="orgheadline30">Another example: mapping civilizations</h2>
+<div class="outline-text-2" id="text-orgheadline30">
+</div></section>
+</section>
+<section>
+<section id="slide-orgheadline27">
+<h3 id="orgheadline27">Intro</h3>
+<ul>
+<li>Recently this article was published: <a href="http://www.nature.com/articles/sdata201634#data-records"><i>Spatializing 6,000 years of global urbanization from 3700 BC to AD 2000</i> <b>Reba, M., Reitsma, F. and Seto, C.</b>, 2016</a></li>
+<li>The article describes all the cities since 3700 BC, including name, population and the position (latitude, longitude).</li>
+<li>We will use a subset (<code>chandlerV2</code>) of the data for transforming it to a table, and then generating a <code>geojson</code>.</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline28">
+<h3 id="orgheadline28">Uploading the data</h3>
+<ul>
+<li>In the directory ./data/Historical Urban Population Growth Data</li>
+
+</ul>
+
+<pre class="example">
+cvslook chandlerV2.csv
+</pre>
+
+<ul>
+<li>It will fail, because some encoding issues</li>
+
+</ul>
+
+<pre class="example">
+iconv -f iso-8859-1 -t utf-8 chandlerV2.csv &gt; chandler_utf8.csv
+csvsql --db postgresql://dssg_gis:dssg-gis@localhost:8889/gis_tutorial \
+  --insert chandlerV2_utf8.csv --table chandler --db-schema nanounanue
+</pre>
+
+</section>
+<section>
+
+<p>
+<code>SQL</code> stuff
+</p>
+
+<pre class="example">
+select count(*) from chandler;  -- How many cities do we have?
+</pre>
+
+</section>
+<section>
+
+<p>
+New table for easier manipulation
+</p>
+
+<pre class="example">
+create table cities as -- CTAS
+select
+"City" as city,
+"Country" as country,
+"Latitude" as y_lat,
+"Longitude" as x_lon from chandler;
+</pre>
+
+</section>
+<section>
+
+<p>
+Adding a geometry column and transform to <code>Point</code>
+</p>
+
+<pre class="example">
+alter table cities add column geom geometry(Point, 4326);
+-- Transforming Lon/Lat to Points
+update cities set geom = ST_SetSRID(ST_MakePoint(x_lon, y_lat), 4326);
+</pre>
+
+</section>
+<section>
+
+<p>
+Converting to <code>GeoJSON</code>
+</p>
+<pre class="example">
+\copy (
+ select row_to_json(fc)
+ from (
+    select 'featurecollection' as type, array_to_json(array_agg(f)) as features
+    from (
+      select 'feature' as type
+      , st_asgeojson(cities.geom)::json as geometry
+      , row_to_json(
+        (select c from (select city, country) as c)
+      ) as properties
+      from cities
+    ) as f
+  )  as fc)
+to '~/cities.geojson';
+</pre>
+
+<ul>
+<li>This type of file could be used with <code>d3.js</code> for making interactive plots.</li>
+
+<li>For better performance you could use <code>topojson</code></li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline29">
+<h3 id="orgheadline29">Thank you</h3>
+</section>
+</section>
+</div>
+</div>
+<p> Creada por Adolfo De Unánue. </p>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.10,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } }]
+});
+</script>
+</body>
+</html>
