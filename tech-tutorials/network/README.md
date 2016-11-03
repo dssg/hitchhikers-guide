@@ -21,8 +21,7 @@ developed at Los Alamos National Laboratory (LANL) for the majority of this work
 ## Installation
 
 To install the virtual environment and dependencies run the following command
-```
-./install
+
 ```
 ./install_network_env.sh && source network-venv/bin/activate
 ```
