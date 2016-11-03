@@ -1,6 +1,7 @@
 # "We're All Social Scientists Now"
 ## An Introduction to Quantitative Social Science
-In this session, we learn some of the fundamental differences between machine learning and quantitative social sciences. We also identify some useful datasets and lessons learned for DSSG projects.
+In this session, we learn some of the fundamental differences between machine learning and quantitative social sciences.
+We also identify some useful datasets and lessons learned for DSSG projects.
 
 ## Potential Teachouts
 * Experiments
@@ -8,7 +9,8 @@ In this session, we learn some of the fundamental differences between machine le
 * Observational studies
 
 ## Slides
-You can access the slides for this session [here](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/quantsocialscience/All_Social_Scientists.pdf).
+You can access the slides for this session 
+[here](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/quantsocialscience/All_Social_Scientists.pdf).
 
 ## Additional Reading
 * ["We're All Social Scientists Now"](http://stanford.edu/~jgrimmer/bd_2.pdf)
