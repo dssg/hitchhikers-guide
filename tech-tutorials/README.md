@@ -1,63 +1,69 @@
 #Data Science for Social Good Curriculum
-Our number one priority is to train fellows to do data science for social good 
-work. We expect that every incoming fellow has experience programming in Python,
- a basic knowledge of statistics and social science, and an interest in doing 
-social good. However, everyone comes from a different background, which is a 
-strength of the program. To ensure that everyone starts the summer able
- to contribute and be a productive member of the team and the fellowship, 
-we start the first few weeks off with an intensive orientation. 
+Our number one priority is to train fellows to do data science for social good work. To this end, we've developed
+a Data Science for Social Good curriculum, which includes many things you'd find in a data science course or bootcamp,
+but includes an emphasis on social science, ethics, privacy, and social issues.
 
-After initial orientation, we usually have two lunch and learns per week,
-taught by staff or by fellows with relevant specializations. Although we don't 
-expect all twelve teams to be working in unison, there is a [general structure](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-manual/summer-overview/high-level-summer-plan.pdf) 
-to the summer that guides how we schedule the remaining curriculum. 
-Our overarching teaching philosophy is as follows (see [meringue-making template](tutorial-template/) 
+Our guiding teaching philosophy is as follows (see [meringue-making template](tutorial-template/) 
 for an example):
+- *You get out what you put in.* Fellows are encouraged to take an active role in teaching and shaping the curriculum,
+as well as learning from it. Learning also takes initiative and participation on the student side.
+- *Clearly motivate topics and tools.* For more technical topics: what actual task that a data scientist does will require
+this tool? What other options are there to do similar tasks? What are pitfalls, and what will it look like when something
+goes wrong? What are common mistakes or bugs? For conceptual topics: Why do we feel the need to communicate this topic?
+What are some concrete examples of where it's been done well or poorly in the past?
+- *Lessons should be user friendly.* Lectures should be concise - 45 minutes at the outside - and materials should be 
+practical. Slides should be accompanied by a worksheet or exercises so fellows can follow along and learn by doing,
+and a cheat sheet with relevant commands or code snippets should be included where possible.  
 
-- *You get out what you put in.* Fellows are encouraged to take an active role in shaping and teaching the curriculum as well as learning from it. 
-- *You learn best by doing.* Lectures should be concise (under 45 minutes) and 
-interactive wherever possible. Tutorials should be practical, accompanied by a 
-worksheet or exercises (with solutions).
-- *Motivation should be clear.* For more technical topics: what task 
-will require this skill or tool? What other tools exist to do similar things? 
-Why use this tool instead of others? What will it look like when something goes
- awry? For conceptual talks: why do we feel the need to present this topic? What
- are some concrete examples of where it went right and where it went wrong in
- the past?
+This guide is for DSSG summer fellows, for those who want to learn more about the program, for universities or 
+companies hoping to start a similar program, and for anyone who wants to do data science for social good.
 
-We've assembled our curriculum materials for current and future fellows,
-for those looking to start similar programs elsewhere, and for anyone who is 
-interested in becoming a data scientist for social good to follow along at home:
-
-- Week 1
+## Orientation
+We expect that every incoming fellow has experience programming in Python, basic knowledge of statistics and social 
+science, and an interest in doing social good. However, we understand that everyone comes from a different background, 
+so to ensure that everyone is able to contribute as a productive member of the team and the fellowship, we start the first 
+few weeks off with an intensive orientation, getting everyone "up to speed" with the basic skills and tools they'll need. 
+- **Week One**
   - [Software Setup](software-setup/)
   - [Pipelines and Project Workflow](pipelines-and-project-workflow/)
-  - [Git and Github](git-and-github/)
+  - [Git and Github](git-and-github/) 
   - Making the Fellowship
-  - [Skills You Need]
-  - [Command Line Tools]
+  - [Skills You Need](https://github.com/dssg/hitchhikers-guide/tree/master/dssg-manual/skills-you-need)
+  - [Command Line Tools](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/command-line-tools)
   = [Project Management, Partners & Communications](https://github.com/dssg/hitchhikers-guide/tree/master/dssg-manual/project-management/)
   - [Data Exploration in Python](data-exploration-in-python/)
   - [Project Scoping Intro](https://dssg.uchicago.edu/2016/10/27/scoping-data-science-for-social-good-projects/)
-
-- Week 2 
-  - [Usability & User Interface Design](usability-and-user-interfaces/)
+- **Week Two**
+  - [Usability and User Interfaces](usability-and-user-interfaces/)
   - [CSV to DB](csv-to-db/)
   - Legal Agreements
   - [Data Security Primer](data-security-primer/)
   - [Legible, Good Code](legible-good-code/)
-  - [Conduct, Culture and Communications](https://github.com/dssg/hitchhikers-guide/tree/master/dssg-manual/conduct-culture-and-communications/)
-
-- Week 3
-  - [Reproducible ETL](reproducible-ETL/)
+  - [Conduct, Culture, and Communications](conduct-culture-and-communications/)
+- **Week Three**
+  - [Reproducible ETL](reproducible_ETL/)
   - The Work We Do
   - [Record Linkage](record-linkage/)
   - [Databases](databases/)
-  - Github Workflow
+  - Github Workflows
   - [Quantitative Social Science](quantitative-social-science/)
   - [Modeling in Python](modeling-in-python/)
 
-- Later in the Summer...
+##  Ongoing Curriculum
+Training continues on throughout the summer in the form of "lunch and learns" - less formal lessons over lunch - and 
+teachouts by staff or fellows who have relevant specializations. Sometimes we ask for volunteers to do a teachout on 
+a topic we think is important, like data visualization or inference with observational data, and a few fellows will work
+together to put together a lesson. Sometimes a DSSGer will suggest a topic that they have a pet interest in, or that they
+think will be relevant to one or more of the summer projects. We have lunch and learns scheduled twice a week through the
+summer, and some fellows choose to offer optional teachouts at the end of the workday.
+
+Although we don't expect all twelve teams to be working in unison, there is a [general structure](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-manual/summer-overview/high-level-summer-plan.pdf) 
+to the summer that guides how we pace the remaining curriculum - we try to schedule topics so that fellows know about 
+them with enough time to incorporate them into their projects, but not so early that they've forgotten about what they 
+learned by the time the knowledge would be useful. As we get nearer to the end of the summer, there are fewer required
+topics, so there are more open time slots for fellows to do teachouts.
+
+- **The Rest of the Summer**
   - Educational Data and Testing (Kevin Wilson)
   - Social Good Business Models (Allison Weil and Paul van der Boor)
   - [Basic Web Scraping](basic-web-scraping/) (Matt Bauman)
@@ -76,4 +82,5 @@ interested in becoming a data scientist for social good to follow along at home:
   - Natural Language Processing (Garren Gaut)
   - Julia (Matt Bauman)
   - Open and Closed Data (Jen Helsby) 
+
 
