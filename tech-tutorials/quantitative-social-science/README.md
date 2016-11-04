@@ -10,7 +10,7 @@ We also identify some useful datasets and lessons learned for DSSG projects.
 
 ## Slides
 You can access the slides for this session 
-[here](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/quantsocialscience/All_Social_Scientists.pdf).
+[here](https://github.com/dssg/hitchhikers-guide/blob/master/tech-tutorials/quantitative-social-science/All_Social_Scientists.pdf).
 
 ## Additional Reading
 * ["We're All Social Scientists Now"](http://stanford.edu/~jgrimmer/bd_2.pdf)
@@ -20,4 +20,3 @@ You can access the slides for this session
 * [Counterfactuals and Causal Inference](https://www.amazon.com/dp/1107694167/ref=pd_lpo_sbs_dp_ss_1?pf_rd_p=1944687682&pf_rd_s=lpo-top-stripe-1&pf_rd_t=201&pf_rd_i=0521671930&pf_rd_m=ATVPDKIKX0DER&pf_rd_r=908676750YHM8KJ9YSKH)
 * [Mostly Harmless Econometrics](https://www.amazon.com/dp/0691120358/ref=pd_lpo_sbs_dp_ss_2?pf_rd_p=1944687462&pf_rd_s=lpo-top-stripe-1&pf_rd_t=201&pf_rd_i=0521671930&pf_rd_m=ATVPDKIKX0DER&pf_rd_r=PSSFK0NSKF1B43G0PG71)
 
-## Discussion
