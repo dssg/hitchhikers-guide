@@ -30,7 +30,7 @@ few weeks off with an intensive orientation, getting everyone "up to speed" with
   - Making the Fellowship
   - [Skills You Need](https://github.com/dssg/hitchhikers-guide/tree/master/dssg-manual/skills-you-need)
   - [Command Line Tools](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/command-line-tools)
-  = [Project Management, Partners & Communications](https://github.com/dssg/hitchhikers-guide/tree/master/dssg-manual/project-management/)
+  - [Project Management, Partners & Communications](project-management/)
   - [Data Exploration in Python](data-exploration-in-python/)
   - [Project Scoping Intro](https://dssg.uchicago.edu/2016/10/27/scoping-data-science-for-social-good-projects/)
 - **Week Two**
@@ -45,7 +45,7 @@ few weeks off with an intensive orientation, getting everyone "up to speed" with
   - The Work We Do
   - [Record Linkage](record-linkage/)
   - [Databases](databases/)
-  - Github Workflows
+  - [Github Workflows](git-and-github/githubworkflow/)
   - [Quantitative Social Science](quantitative-social-science/)
   - [Modeling in Python](modeling-in-python/)
 
@@ -74,12 +74,12 @@ topics, so there are more open time slots for fellows to do teachouts.
   - [Causal Inference with Observational Data](causal-inference/) (Dean Magee, Monica Alexander, Zhe Zhang, and Jackie Gutman)
   - Model Evaluation
   - Spatial Analysis Tools
-  - Operations Research (Jan Vlachy)
+  - [Operations Research](operations-research/) (Jan Vlachy)
   - Theory and Theorizing in the Social Sciences (Tom Davidson)
   - Web Classification (Yaeli Cohen)
   - [Presentation Skills](presentation-skills/) (Allison Weil)
   - Data Visualization (Jon Keane)
-  - Natural Language Processing (Garren Gaut)
+  - [Natural Language Processing](text-analysis/) (Garren Gaut)
   - Julia (Matt Bauman)
   - Open and Closed Data (Jen Helsby) 
 
