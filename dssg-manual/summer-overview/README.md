@@ -2,13 +2,13 @@
 
 While specific schedules will vary from project to project, the summer will follow roughly the structure below. See also [high level summer plan](high-level-summer-plan.pdf) for an outline of the flow of the summer, and general concepts that will inform the topics addressed by tutorials and speakers as well as what we'll ask fellows to present about in weekly updates and deep dives.
 
-
-- Before the Summer
-- Learning About Projects
-- Working on Your Project
-- Presentations
-- Wrap-up and Handovers
-- A Typical Week at DSSG 
+## Table of Contents
+- [Before the Summer](#before-the-summer)
+- [Learning About Projects and Partners](#learning-about-projects-and-partners)
+- [Working on Your Project](#working-on-your-project)
+- [Presentations](#presentations)
+- [Wrap-up and Handovers](#wrap-up-and-handovers)
+- [A Typical Week at DSSG](#a-typical-week-at-dssg) 
 
 
 ## Before the Summer
@@ -44,7 +44,7 @@ Fellows drive the work of every project, learning their subject matter in depth,
 
 ## Presentations
 
-We believe that our work is only useful if we are able to communicate what we do and why it’s important to our partners, peers, and the general public. As such, an important piece of this training program is learning to present the work you do.
+We believe that our work is only useful if we are able to communicate what we do and why it’s important to our partners, peers, and the general public. As such, an important piece of this training program is [learning to present the work you do](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/presentations/). 
 
 Each week, a member of your team will give a 2-3 minute update to the entire fellowship, outlining your recent progress and findings, giving shoutouts to other fellows or staff members who have helped you along the way, and things you're stuck on and are seeking help with. Two teams per week (so each team presents twice throughout the summer) will give a longer 20-minute "deep dive" presentation, outlining more technical components of your project and seeking feedback from other fellows and mentors.
 
