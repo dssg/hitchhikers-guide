@@ -80,7 +80,7 @@ topics, so there are more open time slots for fellows to do teachouts.
   - Theory and Theorizing in the Social Sciences (Tom Davidson)
   - Web Classification (Yaeli Cohen)
   - [Presentation Skills](presentation-skills/) (Allison Weil)
-  - Data Visualization (Jon Keane)
+  - [Data Visualization](https://github.com/jonkeane/data-visualization-intro) (Jon Keane, Monica Alexander, Diego Olano, Ned Yoxall)
   - [Natural Language Processing](text-analysis/) (Garren Gaut)
   - Julia (Matt Bauman)
   - Open and Closed Data (Jen Helsby) 
