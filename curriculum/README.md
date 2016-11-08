@@ -29,7 +29,7 @@ few weeks off with an intensive orientation, getting everyone "up to speed" with
   - [Git and Github](git-and-github/) 
   - Making the Fellowship
   - [Skills You Need](https://github.com/dssg/hitchhikers-guide/tree/master/dssg-manual/skills-you-need)
-  - [Command Line Tools](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/command-line-tools)
+  - [Command Line Tools](command-line-tools/)
   - [Project Management, Partners & Communications](project-management/)
   - [Data Exploration in Python](data-exploration-in-python/)
   - [Project Scoping Intro](https://dssg.uchicago.edu/2016/10/27/scoping-data-science-for-social-good-projects/)
@@ -41,7 +41,7 @@ few weeks off with an intensive orientation, getting everyone "up to speed" with
   - [Legible, Good Code](legible-good-code/)
   - [Conduct, Culture, and Communications](conduct-culture-and-communications/)
 - **Week Three**
-  - [Reproducible ETL](reproducible_ETL/)
+  - [Reproducible ETL](reproducible-ETL/)
   - The Work We Do
   - [Record Linkage](record-linkage/)
   - [Databases](databases/)
