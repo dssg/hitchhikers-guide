@@ -22,8 +22,10 @@ companies hoping to start a similar program, and for anyone who wants to do data
 We expect that every incoming fellow has experience programming in Python, basic knowledge of statistics and social 
 science, and an interest in doing social good. However, we understand that everyone comes from a different background, 
 so to ensure that everyone is able to contribute as a productive member of the team and the fellowship, we start the first 
-few weeks off with an intensive orientation, getting everyone "up to speed" with the basic skills and tools they'll need. 
+few weeks off with an [intensive orientation](https://github.com/dssg/hitchhikers-guide/tree/master/dssg-manual/summer-overview/DSSG2016OrientationSchedule.pdf), getting everyone "up to speed" with the basic skills and tools they'll need. 
+
 - **Week One**
+  - [Prerequisites](prerequisites/)
   - [Software Setup](software-setup/)
   - [Pipelines and Project Workflow](pipelines-and-project-workflow/)
   - [Git and Github](git-and-github/) 
