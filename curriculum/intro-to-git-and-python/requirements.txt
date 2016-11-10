@@ -1,3 +1,4 @@
 pandas
-sqlalchemy
 numpy
+matplotlib
+psycopg2
