@@ -1,6 +1,6 @@
 pandas
-sqlalchemy
+psycopg2
 numpy
 ipython
 scikit-learn
-pymysql
+statsmodels
