@@ -1,4 +1,4 @@
-backports-abc==0.4
+]]backports-abc==0.4
 backports.shutil-get-terminal-size==1.0.0
 backports.ssl-match-hostname==3.5.0.1
 beautifulsoup4==4.5.1
@@ -80,18 +80,21 @@ pathlib2==2.1.0
 pexpect==4.2.1
 pickleshare==0.7.4
 prompt-toolkit==1.0.8
+psycopg2
 ptyprocess==0.5.1
 pyparsing==2.1.10
 python-dateutil==2.5.3
 python-louvain==0.4
 pytz==2016.7
 pyzmq==16.0.0
+pyyaml
 qtconsole==4.2.1
 scipy==0.18.1
 seaborn==0.7.1
 simplegeneric==0.8.1
 singledispatch==3.4.0.3
 six==1.10.0
+SQLAlchemy
 sklearn
 terminado==0.6
 tornado==4.4.2
