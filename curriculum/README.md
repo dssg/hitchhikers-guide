@@ -22,14 +22,16 @@ companies hoping to start a similar program, and for anyone who wants to do data
 We expect that every incoming fellow has experience programming in Python, basic knowledge of statistics and social 
 science, and an interest in doing social good. However, we understand that everyone comes from a different background, 
 so to ensure that everyone is able to contribute as a productive member of the team and the fellowship, we start the first 
-few weeks off with an intensive orientation, getting everyone "up to speed" with the basic skills and tools they'll need. 
+few weeks off with an [intensive orientation](https://github.com/dssg/hitchhikers-guide/tree/master/dssg-manual/summer-overview/DSSG2016OrientationSchedule.pdf), getting everyone "up to speed" with the basic skills and tools they'll need. 
+
 - **Week One**
+  - [Prerequisites](prerequisites/)
   - [Software Setup](software-setup/)
   - [Pipelines and Project Workflow](pipelines-and-project-workflow/)
   - [Git and Github](git-and-github/) 
   - Making the Fellowship
   - [Skills You Need](https://github.com/dssg/hitchhikers-guide/tree/master/dssg-manual/skills-you-need)
-  - [Command Line Tools](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/command-line-tools)
+  - [Command Line Tools](command-line-tools/)
   - [Project Management, Partners & Communications](project-management/)
   - [Data Exploration in Python](data-exploration-in-python/)
   - [Project Scoping Intro](https://dssg.uchicago.edu/2016/10/27/scoping-data-science-for-social-good-projects/)
@@ -41,7 +43,7 @@ few weeks off with an intensive orientation, getting everyone "up to speed" with
   - [Legible, Good Code](legible-good-code/)
   - [Conduct, Culture, and Communications](conduct-culture-and-communications/)
 - **Week Three**
-  - [Reproducible ETL](reproducible_ETL/)
+  - [Reproducible ETL](reproducible-ETL/)
   - The Work We Do
   - [Record Linkage](record-linkage/)
   - [Databases](databases/)
@@ -78,7 +80,7 @@ topics, so there are more open time slots for fellows to do teachouts.
   - Theory and Theorizing in the Social Sciences (Tom Davidson)
   - Web Classification (Yaeli Cohen)
   - [Presentation Skills](presentation-skills/) (Allison Weil)
-  - Data Visualization (Jon Keane)
+  - [Data Visualization](https://github.com/jonkeane/data-visualization-intro) (Jon Keane, Monica Alexander, Diego Olano, Ned Yoxall)
   - [Natural Language Processing](text-analysis/) (Garren Gaut)
   - Julia (Matt Bauman)
   - Open and Closed Data (Jen Helsby) 
