@@ -117,6 +117,7 @@ Some examples of open-source projects managed on GitHub:
 
 
 
+   
 * Different ways of do things
 
 ** Different ways of do things
@@ -227,7 +228,7 @@ Don't code anything if there is not a need of doing it
   - *Good*: /Add a method that does .../
   - *Bad*:  /Solve the dssg project/
   - *Bad*:  /Some error happen/
-
+x
 * About code reviewing
 
 ** DEMO
@@ -257,7 +258,7 @@ Don't code anything if there is not a need of doing it
   git pull
 #+end_src
 
-
+   
 * Practice makes the master
 
 - Goal: Simulate the creation of a pipeline
