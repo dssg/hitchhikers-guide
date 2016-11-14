@@ -59,7 +59,7 @@ print( df_311_calls['Complaint Type'].value_counts[:10]
 Let's commit that change:
 ```
 git add descriptive_stats.py 
-git commit -m "Changed the top 5 results to the top 10 results in desriptive_stats.py
+git commit -m "Changed the top 5 results to the top 10 results in descriptive_stats.py"
 ```
 If we look at our git log we should new be able to see history of our changes:
 ```
