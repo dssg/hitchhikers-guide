@@ -9,7 +9,7 @@ a README file. Now the time has come to actually write some code.
 
 Let's download some data to work with
 ```
-> curl -O https://github.com/avishekrk/pandas-cookbook/blob/master/data/311-service-requests.csv
+> curl -O https://raw.githubusercontent.com/avishekrk/pandas-cookbook/master/data/311-service-requests.csv
 ```
 
 Fire up your favorite text editor and let's write a little program
