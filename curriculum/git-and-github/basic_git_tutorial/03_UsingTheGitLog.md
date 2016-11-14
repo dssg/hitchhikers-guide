@@ -6,6 +6,7 @@ a README file. Now the time has come to actually write some code.
 
 ## Create a python script to output results of analyzing 311 calls
 
+
 Let's download some data to work with
 ```
 > curl -O https://github.com/avishekrk/pandas-cookbook/blob/master/data/311-service-requests.csv

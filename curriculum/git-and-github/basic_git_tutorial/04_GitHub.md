@@ -128,7 +128,9 @@ issues should be
   - *Good*: /Add a method that does .../
   - *Bad*:  /Solve the project/
   - *Bad*:  /Some error happen/
-  
+
+Here is how to create a GitHub [issue.](https://help.github.com/articles/creating-an-issue/)
+
 Once we have an issue we will then pull from the repo and create a *branch*. 
 A *branch* is a copy of the code base separate from the main master branch
 where we can work on our issue (e.g, fixing a bug, adding a feature) without
@@ -160,6 +162,7 @@ git pull
 ## Delete your local branch
 git branch -d a-meaningful-name
 ```
+Here is how to create a GitHub [pull request.](https://help.github.com/articles/creating-a-pull-request/)
 
 ## Solving a merge conflict
 
@@ -228,3 +231,32 @@ from the drama branch or create an entirely new line. In this case we are
 going to keep the line from the master branch. To do that we delete the 
 merge conflict markers and the line from the drama branch and then make a
 commit. Our merge conflict is know solved. 
+
+## Acknowledgements, References and Furthur Resources
+
+This tutorial is derived from tutorials created by Eduardo Blancas Reyes, 
+Benedict Kuester, Adolfo De Unanue, [Software Carpentry](swcarpentry.github.io/git-novice/), 
+and [ASU PHY-494](asu-compmethodsphysics-phy494.github.io/ASU-PHY494/2016/01/21/git_basics/). 
+
+Furthur resources for becoming a git master are: 
+* [Software Carpentry](swcarpentry.github.io/git-novice/) -- a more in-depth intro tutorial
+
+* [15 minute tutorial to learn git](https://try.github.io/levels/1/challenges/1) - Intro tutorial.
+
+* [git - the simple guide](http://rogerdudler.github.io/git-guide/) - A simple guide to get to know 
+the most important concepts.
+
+* [A successful git branching model](http://nvie.com/posts/a-successful-git-branching-model/) - A 
+model to work with git using branches. This model is widely used in the open source community.
+
+* [Learn Git Branching](http://learngitbranching.js.org/) - Understanding what branches and rebases 
+are, in an amazing interactive tutorial.
+
+* [Reset Demystified](https://git-scm.com/blog/2011/07/11/reset.html) - A blog post on `git reset` 
+which develops some useful concepts along the way.
+
+* [Understanding git for real by exploring the .git 
+directory](https://medium.freecodecamp.com/understanding-git-for-real-by-exploring-the-git-directory
+-1e079c15b807#.5pe75gc07) - A blog post on what's inside a commit.
+
+[Pro Git](https://git-scm.com/book/en/v2) -- An in-depth discussion written by git masters. 

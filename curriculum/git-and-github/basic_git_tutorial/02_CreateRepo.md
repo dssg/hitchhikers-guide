@@ -127,4 +127,17 @@ Another useful command is
 > git log --oneline --graph --all --decorate
 ```
 
+## Some helpful commands
+Removing files via git allows the to be recovered. 
+```
+git rm FILENAME
+git rm -r DIRECTORY
+```
+Renaming files can be done by moving a file and then
+adding it or you can use the following command:
+```
+git mv OLD NEW
+```
+`git rm` and `git mv` will stage the changes that will ulimately
+need to be commited. 
 That is it we have our first commit and repo! Next we are going to write some code! 

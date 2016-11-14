@@ -1,5 +1,10 @@
 # Git Overview
 
+The tutorial will give a quick overview of what git is, how to use it and how to work 
+as a team using the GitHub workflow. 
+
+For this tutorial you will need to have access to Git, a Terminal and a Text Editor. 
+
 ## Git in a nutshell
 
 ![git](https://imgs.xkcd.com/comics/git.png)
@@ -75,10 +80,11 @@ git config --global user.email "clark.kent@dailyplanet.com"
 git config --global color.ui "auto"
 git config --global core.editor 'nano' #or vim, emacs sublime
 ```
+For a list of text editors see Software Carpentry's [list](http://swcarpentry.github.io/git-novice/02-setup/)
 
 Also do the following (important)
 ```
 git config --global push.default current
 ```
-You know have your `git` client configured. Next we will create 
+You now have your `git` client configured. Next we will create 
 our first repository. 
