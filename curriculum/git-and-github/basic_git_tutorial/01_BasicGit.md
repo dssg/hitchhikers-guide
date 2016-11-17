@@ -82,7 +82,8 @@ git config --global core.editor 'nano' #or vim, emacs sublime
 ```
 For a list of text editors see Software Carpentry's [list](http://swcarpentry.github.io/git-novice/02-setup/)
 
-Also do the following (important)
+Also do the following (important). Ask about this during the branching section of the 
+tutorial if you want to know more. 
 ```
 git config --global push.default current
 ```
