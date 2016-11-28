@@ -1,15 +1,15 @@
 # Making Projects Reproducible
 
 Scientific software is often developed and used by a single person. It is all too common in academia
-to be handed a postdoc or graduate student's old code and be unable to replicate the original study, run 
-the software outside of the original development machine, or even get the software to work at all. The 
+to be handed a postdoc or graduate student's old code and be unable to replicate the original study, run
+the software outside of the original development machine, or even get the software to work at all. The
 goal of this tutorial is to provide some guidelines to make your summer projects reproducible -- this means your
-project can be installed on another computer and give the same results you got over the summer. At the end of 
-the summer, your project should be understandable and transferable to your future-self and anyone else who 
-may want to pick up where you left off without having to constantly email you about how to get your project 
-running. 
+project can be installed on another computer and give the same results you got over the summer. At the end of
+the summer, your project should be understandable and transferable to your future-self and anyone else who
+may want to pick up where you left off without having to constantly email you about how to get your project
+running.
 
-*(Note: Your future-self doesn't have the luxury of being able to email your past-self).* 
+*(Note: Your future-self doesn't have the luxury of being able to email your past-self).*
 
 ---
 
@@ -26,28 +26,28 @@ One that...
 
 # README.md(rst)
 
-All projects should have a README that communicates the following: 
+All projects should have a README that communicates the following:
 
 1. What the project is about
    - A short description of the project (i.e. the problem you are trying to solve).
 
 2. The required dependencies to run the software
-   - The can be in the form of a *requirements.txt* file for Python that lists 
+   - The can be in the form of a *requirements.txt* file for Python that lists
    the dependencies and version numbers.
    - The system-level dependencies.
 
 3. Installation instructions
    - How to install your software and associated binaries. This can be in the form of
-     instructions on how to use *pip*, *apt*, *yum*, or some other binary package 
-     manager. 
-     
+     instructions on how to use *pip*, *apt*, *yum*, or some other binary package
+     manager.
+
 4. Example usage
-   - The inputs and outputs of your software (i.e. how to use it) with code examples. 
-   
+   - The inputs and outputs of your software (i.e. how to use it) with code examples.
+
 5. Attribution/Licensing
    - Who did what and how others can use your software.
-   
-Examples: 
+
+Examples:
    - [Chicago Food Inspections](https://github.com/Chicago/food-inspections-evaluation)
    - [DSSG Police EIS](https://github.com/dssg/police-eis)
    - [Linux Kernel](https://github.com/torvalds/linux)
@@ -59,14 +59,14 @@ Examples:
 
 - Use [virtual environments](#virtual-environments).
 - [Use automation tools like Make or Drake](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/reproducible_ETL)
-- Keep your directory structure [intuitive, interpretable and easy to understand](#good-directory-organization). 
-- Keep your database free of "junk tables." Keep only what you need and what's current.   
-  - Junk tables will only confuse your future-self or others that come fresh to the project. 
-- Merge all branches into master. 
+- Keep your directory structure [intuitive, interpretable and easy to understand](#good-directory-organization).
+- Keep your database free of "junk tables." Keep only what you need and what's current.
+  - Junk tables will only confuse your future-self or others that come fresh to the project.
+- Merge all branches into master.
   - Branches are for adding features or patches. When you have added said feature or patch
-    and you know you won't break the master branch, merge into master and delete the branch. 
+    and you know you won't break the master branch, merge into master and delete the branch.
 - Write commit messages in such a way that your log is helpful (see [Git and Github tutorial](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/git-and-github).)
-- [Periodically make database backups](#backup-your-database). 
+- [Periodically make database backups](#backup-your-database).
 - Write unit tests and use continuous integration so you can catch bugs quickly, particularly when you are merging
   new features into master. (See [testing tutorial](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/test-test-test).)
 - Document all of your functions with docstrings. (See [legible, good code tutorial](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code).)
@@ -75,36 +75,36 @@ Examples:
 
 ---
 
-# What NOT to Do 
+# What NOT to Do
 
 - Use [hard-coded paths](#hard-coded-paths).
 
 - Require Sudo/root privileges to install your project.
-  - You can't anticipate whether or not someone will have root access to the machine 
-    they are installing your project on, so don't count on it. Additionally, you shouldn't 
-    require users to create separate user names for your project. 
+  - You can't anticipate whether or not someone will have root access to the machine
+    they are installing your project on, so don't count on it. Additionally, you shouldn't
+    require users to create separate user names for your project.
 - Use non-standard formats for inputs (stick to *YAML*, *XML*, *JSON*, *CLA*, etc).
   - My one exception to this rule is log files - which you should provide an example of in a README.
-    Otherwise it is easier to just stick with what is already in use. 
+    Otherwise it is easier to just stick with what is already in use.
 - Have a [messy repo with random files everywhere](#bad-directory-organization).
-  - This is confusing, irritating and cancerous to productive enterprise. 
+  - This is confusing, irritating and cancerous to productive enterprise.
 - Commit data or sensitive information like database passcodes to the GitHub repo.
-  - Your repository is for your codebase, not the data. Furthermore, your data may be sensitive 
-    and need to be protected. 
-  - Always assume that your repo will be public someday if you are hosting on GitHub (for your DSSG project it will be). 
-    Sensitive information also includes architecture decisions about your database. After sensitive 
+  - Your repository is for your codebase, not the data. Furthermore, your data may be sensitive
+    and need to be protected.
+  - Always assume that your repo will be public someday if you are hosting on GitHub (for your DSSG project it will be).
+    Sensitive information also includes architecture decisions about your database. After sensitive
     information is pushed to GitHub, you cannot remove it completely from the repository.
 - Have code that needs to be operationalized in Jupyter Notebooks.
   - Jupyter notebooks are wonderful for containing your analysis, code and figures in a single document,
     particularly for doing exploratory analysis. They are not good for keeping the code you will need for
-    your pipeline or code that you will eventually want to turn into a library. 
+    your pipeline or code that you will eventually want to turn into a library.
 
 ---
 
 # Virtual Environments
 
 A virtual environment solves the problem that projectX uses version 1.x of a package
-while projectY uses version 2.x of a package by keeping dependencies in different 
+while projectY uses version 2.x of a package by keeping dependencies in different
 environments.
 
 ### Install a virtualenv
@@ -112,6 +112,18 @@ environments.
 pip install --user virtualenv
 virtualenv dssg-venv --no-site-packages #does not use any global packages
 ```
+>You can also install a virtual environment and specify the type of python interpreter you
+>would like to use using the -p option. This is good for keeping Python2 and Python3
+>dependencies separate.
+>
+>Python2
+>
+>`virtualenv dssg-py2-venv -p $(which python) --no-site-packages`
+>
+>Python3
+>
+>`virtualenv dssg-py3-venv -p $(which python3) --no-site-packages`
+
 
 ### Activate a virtualenv
 ```
@@ -128,27 +140,27 @@ pip install -r requirements.txt
 pip freeze > requirements.txt #outputs a list of dependencies and version numbers
 
 ```
-> **Warning**: `pip freeze` will output every package that was installed using pip or setup.py (setuptools). 
-> External dependencies that are from github or some other source not found on PyPi will appear but will 
-> not be found when trying to reinstall the dependencies. You can include github repositories from github 
+> **Warning**: `pip freeze` will output every package that was installed using pip or setup.py (setuptools).
+> External dependencies that are from github or some other source not found on PyPi will appear but will
+> not be found when trying to reinstall the dependencies. You can include github repositories from github
 > in your requirements.txt file, you just have to do manual housekeeping. Other external dependencies and how
-> to install them should be recorded in your README.md file. 
+> to install them should be recorded in your README.md file.
 
-> Note: There is also the conda environment created by Continuum Analytics. The 
+> Note: There is also the conda environment created by Continuum Analytics. The
 > conda environment handles creating a environment and package dependencies -- what the virtual
-> environment + pip combination does. Conda, unlike pip, includes many non-python dependencies 
+> environment + pip combination does. Conda, unlike pip, includes many non-python dependencies
 > (e.g, MKL) as precompiled binaries that are necessary for scientific python packages.
 > The author is currently of the opinion that if you are a beginner or using a dated OS then using a
 > conda environment is not the worst of ideas. If you are a developer working on a development
-> machine then compile things yourself -- an important and useful skill. Whatever path you choose 
-> be consistent about how you set up your environment and document it thoroughly. 
+> machine then compile things yourself -- an important and useful skill. Whatever path you choose
+> be consistent about how you set up your environment and document it thoroughly.
 
 ---
 
 # Systems Level Dependencies
 
 Systems level dependencies are the libraries installed on your OS. For Ubuntu/Debian Linux
-you can get a list of them and then install them using the following: 
+you can get a list of them and then install them using the following:
 ```
 #grab systems level dependencies
 dpkg --get-selections > dependencies.txt
@@ -165,24 +177,24 @@ xargs -a <(awk '/^\s*[^#]/' dependencies.txt) -r -- sudo apt-get install
 
 
 This will give every package installed on your OS. An easier alternative is to just keep track when you
-install a new library and manually keep the list in a `dependencies.txt` file. 
+install a new library and manually keep the list in a `dependencies.txt` file.
 
-> There are also lightweight vitalization containers like Docker containers, Hyper-V images (Windows), 
-> or Ansible playbooks that can be used to "freeze" the systems level configuration of an OS. 
+> There are also lightweight vitalization containers like Docker containers, Hyper-V images (Windows),
+> or Ansible playbooks that can be used to "freeze" the systems level configuration of an OS.
 
 ---
 
-# Backup Your Database 
+# Backup Your Database
 
 In PostGreSQL when a table is dropped, it is gone forever. You don't want to drop your results
-table on the last day of the fellowship, so it is a good idea to backup periodically. 
+table on the last day of the fellowship, so it is a good idea to backup periodically.
 
 To dump your database in PostGreSQL:
 
 ```
 pg_dump -Fc --schema='raw|clean|models' -N '*public*' --no-acl -v -h <hostname> -U <dbuser> <dbname> > dssg-$(date +%F).dump
 ```
-*Note: This can be automated with a crontab script.* 
+*Note: This can be automated with a crontab script.*
 
 To restore your database from a dump:
 ```
@@ -190,14 +202,14 @@ To restore your database from a dump:
 ```
 ---
 
-# Hard-coded Paths 
+# Hard-coded Paths
 
 ## Example of Adding Shapefile with hard-coded paths
 
-Hard-coded paths are absolute paths that are native to the machine you are using for 
-development. It is unlikely someone else will keep their data in the exact same directory 
+Hard-coded paths are absolute paths that are native to the machine you are using for
+development. It is unlikely someone else will keep their data in the exact same directory
 as you when trying to use your project in a separate environment. Users should be able to set
-location of files as command line parameters. Below are examples. 
+location of files as command line parameters. Below are examples.
 
 ### load_shapefile_hardpath_v1.sh
 ```
@@ -206,7 +218,7 @@ shp2pgsql -d -s 4267:2261 -d /mnt/data/syracuse/NY_geol_dd soil.geology | psql
 
 ```
 Although this script documents the command that runs, it has a hard path and the purpose of the arguments
-are not clear. This script has the shelf-life of a banana. 
+are not clear. This script has the shelf-life of a banana.
 
 ### load_shapefile_hardpath_v2.sh
 ```
@@ -226,13 +238,13 @@ shp2pgsql -d -s ${original_projection}:${new_projection} -d ${shapefile} ${schem
 
 ```
 With this version someone can better surmise what is being done. Every time you want to load
-your data you have to change the filename in the script. It also checks if the table already exists 
-in the database so the command can be used to reload data. 
+your data you have to change the filename in the script. It also checks if the table already exists
+in the database so the command can be used to reload data.
 
 ### load_shapefile_hardpath_v3.sh
 ```
 #!/bin/bash
-#ETL script for importing shape files. 
+#ETL script for importing shape files.
 
 PROGRAM=$(basename $0)
 usage="${PROGRAM} -s schema -t table -p original_projection [-n new_projection] [-v] shapefilename"
@@ -243,11 +255,11 @@ echo "ERROR: ${errmsg}"
 exit ${errcode}
 }
 
-#if called with no command line arguments then output usage 
-if [ ${#} -eq 0 ] 
+#if called with no command line arguments then output usage
+if [ ${#} -eq 0 ]
 then
     echo ${usage}
-    exit 1; 
+    exit 1;
 fi
 
 #--------------------------------------------------
@@ -281,7 +293,7 @@ if [ ${verbose} == "true" ]
 then
     echo 'original_projection:' $original_projection
     echo 'new_projection:' $new_projection
-    echo 'schema:' $schema 
+    echo 'schema:' $schema
     echo 'table:'$table
     echo 'shapefile:'$shapefile
 fi
@@ -300,11 +312,11 @@ else
 fi
 
 ```
-In this version, you can call the script from the command line and use it for any shapefile. When 
-called with no arguments it prints out a usage so the user does not have to look into the actual 
-script. It also has a verbose mode for debugging. Here, there are no hard paths. 
+In this version, you can call the script from the command line and use it for any shapefile. When
+called with no arguments it prints out a usage so the user does not have to look into the actual
+script. It also has a verbose mode for debugging. Here, there are no hard paths.
 
-# Bad Directory Organization 
+# Bad Directory Organization
 ```
 nfp2/
 ├── 10_month_to_12_month_ISOMAP_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_final_asq_psolve_2r.png
@@ -567,7 +579,7 @@ nfp2/
 
 
 
-# Additional Resources/Inspiration for this Tutorial 
+# Additional Resources/Inspiration for this Tutorial
 
 - [10 Rules for Robust Software](http://oicr-gsi.github.io/robust-paper/#fn:2)
 - [Good Enough Practices in Scientific Computing](https://arxiv.org/pdf/1609.00037.pdf)
