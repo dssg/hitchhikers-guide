@@ -1,4 +1,4 @@
-# Create a Repository
+A# Create a Repository
 
 Let's work on creating our first git repository. All shell commands will be prefixed with `>`
 
@@ -99,6 +99,9 @@ Checking in README file
 * Added short description of the project
 * Added python3 as a dependency
 ```
+>If you are using nano, to save your text use Ctrl-O and to exit
+>use Ctrl-X. 
+
 Now that we have made our first commit we can examine our log!
 ```
 >git log 
