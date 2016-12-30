@@ -34,7 +34,7 @@ done
 
 
 echo "Creating the virtualenv"
-virtualenv -p $(which python) --no-site-packages network-venv
+virtualenv -p $(which python3) --no-site-packages network-venv
 source ./network-venv/bin/activate
 
 echo "Installing dependencies"
