@@ -10,7 +10,7 @@ We also identify some useful datasets and lessons learned for DSSG projects.
 
 ## Slides
 You can access the slides for this session 
-[here](https://github.com/dssg/hitchhikers-guide/blob/master/tech-tutorials/quantitative-social-science/All_Social_Scientists.pdf).
+[here](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/quantitative-social-science/All_Social_Scientists.pdf).
 
 ## Additional Reading
 * ["We're All Social Scientists Now"](http://stanford.edu/~jgrimmer/bd_2.pdf)
