@@ -22,7 +22,7 @@ In this session, we will introduce the data pipeline, an approach that helps you
 
 A *data pipeline* is a set of code that handles all the computational tasks your project needs from beginning to end. The typical data pipeline is a set of functions strung together. Here's a simple example using scikit-learn's boston dataset:
 
-![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/tech-tutorials/pipelines-and-project-workflow/boston_pipeline.png "Simple Pipeline")
+![alt text](https://github.com/dssg/hitchhikers-guide/blob/47aac0bffbb0328722ca52211e42b3277f2a36ea/curriculum/pipelines-and-project-workflow/boston_pipeline.png "Simple Pipeline")
 
 This pipeline has two steps. The first, which I call "preprocessing," prepares the data for modeling by creating training and testing splits. The second, which I call "models, predictions, and metrics," uses the preprocessed data to train models, make predictions, and print r^2 on the test set. The pipeline takes inputs (e.g. data, training/testing proportions, and model types) at one end and produces outputs (accuracy) at the other end. 
 
@@ -34,14 +34,14 @@ Aren't pipelines super duper?
 
 Our projects are far more complex than this Boston example, and our pipelines reflect that. Here's what a typical DSSG pipeline looks like:
  
-![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/tech-tutorials/pipelines-and-project-workflow/pipeline_diagram.png "Pipeline Diagram")
+![alt text](https://github.com/dssg/hitchhikers-guide/blob/47aac0bffbb0328722ca52211e42b3277f2a36ea/curriculum/pipelines-and-project-workflow/pipeline_diagram.png "Pipeline Diagram")
 
 The [police pipeline](https://github.com/dssg/police-eis), started at DSSG 2015, is an example of a relatively well developed pipeline. It lets us specify the pipeline options we want in a yaml file, from preprocessing on. (The code in this repository does not include ETL.) It gives us many modeling options, and it makes comparisons easy.
 
 
 ## Your Pipeline and the DSSG Schedule
 
-Much of your work will revolve around and within your pipeline, but we have identified specific aspects for you to focus on [each week](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-knowledge/logistics/high-level-summer-plan.pdf):
+Much of your work will revolve around and within your pipeline, but we have identified specific aspects for you to focus on [each week](https://github.com/dssg/hitchhikers-guide/blob/47aac0bffbb0328722ca52211e42b3277f2a36ea/dssg-manual/summer-overview/high-level-summer-plan.pdf):
 
 Week 4. Plan the pipeline, e.g. inputs and outputs for each part  
 Week 5. Very simple functioning pipeline  
