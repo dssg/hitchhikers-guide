@@ -31,7 +31,7 @@ You can find daily data for the US here:
 
 ### Getting Data from the Command Line
 
-First we have to get the data from the . For that we're going to use curl.
+First we have to get the data. For that we're going to use curl.
 
 `curl ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/2016.csv.gz`
 

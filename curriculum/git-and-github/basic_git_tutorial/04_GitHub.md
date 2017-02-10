@@ -7,7 +7,7 @@
 
 ## What is GitHub?
 
-There are several popular providers --[Bitbucket](bitbucket.org), [GitLab](gitlab.com) --
+There are several popular providers --[Bitbucket](https://bitbucket.org/), [GitLab](https://gitlab.com/) --
 that let you store your git repositories but the most widely used is [GitHub](https://github.com/).
 
 Apart from storing a copy of your projects, GitHub comes with a lot of useful
@@ -250,7 +250,7 @@ Our merge conflict is know solved.
 
 That concludes the tutorial on GitHub! Good Luck!
 
-## Acknowledgements, References and Furthur Resources
+## Acknowledgements, References and Further Resources
 
 This tutorial is derived from tutorials created by Eduardo Blancas Reyes,
 Benedict Kuester, Adolfo De Unanue, [Software Carpentry](swcarpentry.github.io/git-novice/),

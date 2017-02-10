@@ -77,7 +77,7 @@ Some examples of open-source projects managed on GitHub:
 - Open a terminal ...
   
 - Command line magic
-    - Use the up-and-down keys to scroll threw the history of our commands
+    - Use the up-and-down keys to scroll through the history of our commands
     - `TAB` completion
     - `Ctrl-R` to recursively search for previous commands
 

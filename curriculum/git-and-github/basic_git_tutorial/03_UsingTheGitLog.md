@@ -108,7 +108,7 @@ Date:   Sat Nov 12 13:45:11 2016 -0600
     * Added short description of the project
     * Added python3 as a dependency
 ```
-Now let's look at the differnce between the two commits in the log
+Now let's look at the difference between the two commits in the log
 using the `git diff` command. The `git diff` command is important
 for seeing changes in your source code and comparing one commit against
 another.
@@ -135,7 +135,7 @@ a commit 20 commits ago.
 The output of the diff file is the following. The first line looks similiar
 to a diff command. The second line shows the commit identifiers of the two
 commits being compared. The next two lines are the files being compared.
-The interesting part is at the bottomn. The line with the - sign is our
+The interesting part is at the bottom. The line with the - sign is our
 prior commit. The line with a + sign the the current commit. We can see
 the difference is the change between 5 to 10.
 
