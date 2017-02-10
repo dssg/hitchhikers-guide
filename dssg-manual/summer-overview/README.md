@@ -13,7 +13,7 @@ While specific schedules will vary from project to project, the summer will foll
 
 ## Before the Summer
 
-Prior to your arrival, we provide you with [the prerequisites](./prerequisites) so you can familiarize yourself with the tools you’ll use all summer and equip yourself with the knowledge to be able to follow along with the curriculum. You'll receive a list of software to install before the first day of orientation, programming languages you should brush up on, and tools we suggest you use to manage your data workflow. We will also send you a tentative list of projects and ask for you to respond with your preferences. Based on your preferences, the requirements of each project, and the balance of disciplines within each team, we will assign teams of 3-4 fellows per project. You will learn which project you've been assigned during the second week of the fellowship.
+Prior to your arrival, we provide you with [the prerequisites](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/prerequisites) so you can familiarize yourself with the tools you’ll use all summer and equip yourself with the knowledge to be able to follow along with the curriculum. You'll receive a list of software to install before the first day of orientation, programming languages you should brush up on, and tools we suggest you use to manage your data workflow. We will also send you a tentative list of projects and ask for you to respond with your preferences. Based on your preferences, the requirements of each project, and the balance of disciplines within each team, we will assign teams of 3-4 fellows per project. You will learn which project you've been assigned during the second week of the fellowship.
 
 ## Learning about Projects and Partners
 
@@ -44,7 +44,7 @@ Fellows drive the work of every project, learning their subject matter in depth,
 
 ## Presentations
 
-We believe that our work is only useful if we are able to communicate what we do and why it’s important to our partners, peers, and the general public. As such, an important piece of this training program is [learning to present the work you do](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/presentations/). 
+We believe that our work is only useful if we are able to communicate what we do and why it’s important to our partners, peers, and the general public. As such, an important piece of this training program is [learning to present the work you do](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/presentation-skills). 
 
 Each week, a member of your team will give a 2-3 minute update to the entire fellowship, outlining your recent progress and findings, giving shoutouts to other fellows or staff members who have helped you along the way, and things you're stuck on and are seeking help with. Two teams per week (so each team presents twice throughout the summer) will give a longer 20-minute "deep dive" presentation, outlining more technical components of your project and seeking feedback from other fellows and mentors.
 

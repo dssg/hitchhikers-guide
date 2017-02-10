@@ -34,7 +34,7 @@ In order to be ready for the summer, you need to install some packages on your c
 *   **OS X** users - Follow this [instructions](osx.md)
 *   **Linux** users - You probably know how to do it, but still [check this](osx.md#step-3-install-python-tools) for information on Python tools
 *   **Windows** users - We don't have a guide yet (any volunteers?)
-* We will also hold a [software setup session](https://github.com/dssg/hitchhikers-guide/tree/47aac0bffbb0328722ca52211e42b3277f2a36ea/curriculum/software-setup) during the first week with technical mentors there to help anyone still having difficulty.
+* We will also hold a [software setup session](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/software-setup) during the first week with technical mentors there to help anyone still having difficulty.
 
 ## Try it out!
 
