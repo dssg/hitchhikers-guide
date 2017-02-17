@@ -30,9 +30,9 @@ Things to Install
 
 For more information on requirements, see [this][2]. A guide to install pre-requirements on OS X is available [here][3].
 
-[1]: https://github.com/dssg/hitchhikers-guide/blob/master/prerequisites/osx.md#step-1-install-homebrew
-[2]: https://github.com/dssg/hitchhikers-guide/tree/master/prerequisites
-[3]: https://github.com/dssg/hitchhikers-guide/blob/master/prerequisites/osx.md
+[1]: https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/prerequisites/osx.md#step-1-install-homebrew
+[2]: https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/prerequisites/
+[3]: https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/prerequisites/osx.md
 
 Explanations & Tutorials
 -------------
@@ -43,7 +43,7 @@ You will be running code and storing project data on Amazon Web Services (AWS) m
 - [Secure Shell (ssh)][5]: You’ll need this to connect to AWS/cloud computers. If you’re on Windows, you’ll need [putty][6].
 - [grep/awk/sed][7]: Quickly find and manipulate files, without ever leaving the command line. 
 
-[4]: http://linuxcommand.org/lts0020.php
+[4]: http://linuxcommand.org/
 [5]: http://code.tutsplus.com/tutorials/ssh-what-and-how--net-25138
 [6]: http://putty.org/
 [7]: http://www-users.york.ac.uk/~mijp1/teaching/2nd_year_Comp_Lab/guides/grep_awk_sed.pdf
@@ -68,7 +68,7 @@ Python is the language of choice here at the Fellowship. If you’re only going 
 [12]: https://blog.safaribooksonline.com/2014/11/18/intro-python-debugger/
 [13]: http://nbviewer.ipython.org/github/jvns/talks/blob/master/pydatanyc2013/PyData%20NYC%202013%20tutorial.ipynb
 [14]: http://opentechschool.github.io/python-data-intro/core/notebook.html
-[15]: https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks
+[15]: https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-and-IPython-Notebooks
 
 
 **R** 
