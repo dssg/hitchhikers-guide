@@ -253,11 +253,11 @@ That concludes the tutorial on GitHub! Good Luck!
 ## Acknowledgements, References and Further Resources
 
 This tutorial is derived from tutorials created by Eduardo Blancas Reyes,
-Benedict Kuester, Adolfo De Unanue, [Software Carpentry](swcarpentry.github.io/git-novice/),
-and [ASU PHY-494](asu-compmethodsphysics-phy494.github.io/ASU-PHY494/2016/01/21/git_basics/).
+Benedict Kuester, Adolfo De Unanue, [Software Carpentry](http://swcarpentry.github.io/git-novice/),
+and [ASU PHY-494](http://asu-compmethodsphysics-phy494.github.io/ASU-PHY494/2017/01/24/04_Git_basics/).
 
 Furthur resources for becoming a git master are:
-* [Software Carpentry](swcarpentry.github.io/git-novice/) -- a more in-depth intro tutorial
+* [Software Carpentry](https://swcarpentry.github.io/git-novice/) -- a more in-depth intro tutorial
 
 * [15 minute tutorial to learn git](https://try.github.io/levels/1/challenges/1) - Intro tutorial.
 

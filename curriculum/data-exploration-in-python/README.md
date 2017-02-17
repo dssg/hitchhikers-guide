@@ -18,14 +18,14 @@ Matplotlib, Seaborn, PyTables, etc.)
 
 IPython is an enhanced, interactive python interpreter that started as a grad school project
 by Fernando Perez. The IPython project then evolved into the IPython notebook that would allow 
-users to archive their code, figures, and analysis in a single document making doing reproducible 
+users to archive their code, figures, and analysis in a single document, making doing reproducible 
 computational research and sharing said research much easier. The creators of the IPython notebook 
 quickly realized that the "notebook" aspects were agnostic to a specific programming language and
-ported the notebook to other languages include but not limited to Julia, Python and R. This then led
+ported the notebook to other languages, including but not limited to Julia, Python and R. This then led
 to a rebranding known as the Jupyter Project. 
 
 
-The Pandas library, created by Wes McKinney, introduced the R-like dataframe object in Python making
+The Pandas library, created by Wes McKinney, introduced the R-like dataframe object in Python, making
 working with data in Python much easier. 
 
 This tutorial will go over over the basics of Data Analysis in Python using the PyData stack. 
@@ -38,7 +38,7 @@ notebooks to be saved and run the command
 ```
 jupyter notebook
 ```
-A browser should open with a notebook navigator. Click the "New" button and select "Python 2".
+A browser should open with a notebook navigator. Click the "New" button and select "Python 3".
 A beautiful blank notebook should open in a new tab
 Name the notebook by clicking on "Untitled" at the top of the page.
 Notebooks are sequences of cells. Cells can be markdown, code, or raw text. 
