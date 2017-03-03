@@ -41,7 +41,7 @@ few weeks off with an [intensive orientation](https://github.com/dssg/hitchhiker
   - Legal Agreements
   - [Data Security Primer](data-security-primer/)
   - [Legible, Good Code](legible-good-code/)
-  - [Conduct, Culture, and Communications](conduct-culture-and-communications/)
+  - [Conduct, Culture, and Communications](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-manual/conduct-culture-and-communications/README.md)
 - **Week Three**
   - [Reproducible ETL](reproducible-ETL/)
   - The Work We Do

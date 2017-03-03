@@ -85,20 +85,20 @@ These commands all print things out raw and bunched together. I want to take adv
 
 `csvlook 2016.csv`
 
-Bit that's everything again. We just want to see the top. If only we could take the output from `head` and send it to `csvlook`. 
+But that's everything again. We just want to see the top. If only we could take the output from `head` and send it to `csvlook`. 
 
 We can! It's called *piping*, and you do it like this:
 
 `head 2016.csv | csvlook`
 
-The output from `head` was sent to `csvlook` for processing. Piping and redirection (more on that later) are two of the most important concepts to keep in mind when using command line tools. Because most commands use text as the interfact, you can chain commands together to create simple and powerful data processing pipelines!
+The output from `head` was sent to `csvlook` for processing. Piping and redirection (more on that later) are two of the most important concepts to keep in mind when using command line tools. Because most commands use text as the interface, you can chain commands together to create simple and powerful data processing pipelines!
 
 
 ### Filtering Data from the Command Line
 
 It looks like in order for us to make sense of the weather dataset, we're going to need to figure out what these station numbers mean. Let's grab the station dictionary from NOAA and take a look at it.
 
-`curl -O http://www1.ncdc.noaa.gov/pub/data/ghcn/daily/ghcnd-stations.txt`
+`curl -O https://www1.ncdc.noaa.gov/pub/data/ghcn/daily/ghcnd-stations.txt`
 
 `head ghcnd-stations.txt`
 
@@ -106,13 +106,13 @@ Looks like the sation description might come in handy. We want to look at just t
 
 `grep CHICAGO ghcnd-stations.txt | csvlook -H`
 
-Let's pick OHARE as the station we'll use for now. It's ID is 'USW00094846'
+Let's pick OHARE as the station we'll use for now. Its ID is 'USW00094846'
 
 Let's take a look at just the ID column from the weather file. We can do this using `cut`.
 
 `cut -f 1 2016.csv`
 
-Looks like `cut` isn't smart enough to know that we're using a csv. We can either using csvcut, or pass a delimiter argument that specifies comma.
+Looks like `cut` isn't smart enough to know that we're using a csv. We can either use csvcut, or pass a delimiter argument that specifies comma.
 
 `cut -d , -f 1 2016.csv | head`
 
@@ -124,7 +124,7 @@ Another powerful tool that can do filtering (and much more) is `awk`. `awk` trea
 
 `cut -d , -f 1 2016.csv | awk '/USW00094846/' | head`
 
-`awk` requires familiarity with regular expressions for contitions and has it's own language for actions, so `man` and stack overflow will be your friends if you want to go deep with `awk`.
+`awk` requires familiarity with regular expressions for contitions and has its own language for actions, so `man` and stack overflow will be your friends if you want to go deep with `awk`.
 
 ### Editing and Transforming Data
 Let's say we want to replace values in the files. PRCP is confusing. Let's change PRCP to RAIN. 
@@ -139,7 +139,7 @@ But when we look at the source file
 
 `head 2016.csv`
 
-Noting has changed. That's because we didn't write it to a file. In fact, none of the changes we've made 
+Noting has changed. That's because we didn't write it to a file. In fact, none of the changes we've made have. 
 
 `sed s/PRCP/RAIN/ 2016.csv > 2016_clean.csv`
 
