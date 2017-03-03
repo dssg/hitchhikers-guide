@@ -32,7 +32,7 @@ few weeks off with an [intensive orientation](https://github.com/dssg/hitchhiker
   - Making the Fellowship
   - [Skills You Need](https://github.com/dssg/hitchhikers-guide/tree/master/dssg-manual/skills-you-need)
   - [Command Line Tools](command-line-tools/)
-  - [Project Management, Partners & Communications](project-management/)
+  - [Project Management, Partners, and Communications](project-management/)
   - [Data Exploration in Python](data-exploration-in-python/)
   - [Project Scoping Intro](https://dssg.uchicago.edu/2016/10/27/scoping-data-science-for-social-good-projects/)
 - **Week Two**
@@ -47,7 +47,6 @@ few weeks off with an [intensive orientation](https://github.com/dssg/hitchhiker
   - The Work We Do
   - [Record Linkage](record-linkage/)
   - [Databases](databases/)
-  - [Github Workflows](git-and-github/githubworkflow/)
   - [Quantitative Social Science](quantitative-social-science/)
   - [Modeling in Python](modeling-in-python/)
 

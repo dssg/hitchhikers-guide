@@ -64,10 +64,10 @@ are calling wondering what the heck is going on over there (why are they awake, 
 
 # There is only one law of good coding: **Code is for humans, not for computers**.
 This law has 4 consequences: 
-1. [Give things informative names.](#give-things-informative-names)
-2. [Document inputs and outputs.](#document-inputs-and-outputs)
-3. [Don't repeat yourself.](#dont-repeat-yourself)
-4. [Reduce cognitive load: Use PEP-8.](#reduce-cognitive-load)
+1. [Give things informative names.](#give-things-informative-names)  
+2. [Document inputs and outputs.](#document-inputs-and-outputs)  
+3. [Don't repeat yourself.](#dont-repeat-yourself)  
+4. [Reduce cognitive load: Use PEP-8.](#reduce-cognitive-load)  
 
 ---
 
@@ -215,14 +215,14 @@ def max_intersection(left, right):
     """
     left_counts = {}
     for val in left:
-        if left not in left_counts:
+        if val not in left_counts:
             left_counts[val] = 1
         else:
             left_counts[val] += 1
 
     right_counts = {}
     for val in right:
-        if right not in right_counts:
+        if val not in right_counts:
             right_counts[val] = 1
         else:
             right_counts[val] += 1
@@ -249,6 +249,7 @@ def value_counts(the_list):
             output[val] = 1
         else:
             output[val] += 1
+    return output
 
 def max_intersection(left, right):
     """
