@@ -7,26 +7,28 @@ In order to be ready for the summer, you need to install some packages on your c
 ## Required
 
 *   SSH (PuTTY for Windows)
-*   Git
-*   psql (PostgreSQL CLI)
+*   Git (for version control)
+*   psql (PostgreSQL command line interface)
 *   Python tools
     *   Python
     *   Anaconda/Miniconda or pip + virtualenv
-    *   Packages
+    *   Python Packages
         *   pandas
         *   matplotlib
         *   scikit-learn
         *   psycopg2
         *   ipython
         *   jupyter
-* R
+
+## Highly Recommended
+*    DBeaver (GUI to access various databases)
+*   Tableau (students can request a free education license)
+*   Sublime Text/Atom (text editor for coding)
 
 ## Optional
 
+*   R
 *   RStudio
-*   DBeaver
-*   Tableau (students can request a free license)
-*   Sublime Text/Atom
 
 
 ## How to install pre-requisites?
