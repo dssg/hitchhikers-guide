@@ -64,6 +64,7 @@ are calling wondering what the heck is going on over there (why are they awake, 
 
 # There is only one law of good coding: **Code is for humans, not for computers**.
 This law has 4 consequences: 
+
 1. [Give things informative names.](#give-things-informative-names)  
 2. [Document inputs and outputs.](#document-inputs-and-outputs)  
 3. [Don't repeat yourself.](#dont-repeat-yourself)  
