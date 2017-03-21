@@ -10,7 +10,7 @@ This summer, you will use a database to hold, manipulate, and analyze data. Data
 * Databases are more secure. You can more carefully control who has which types of access to what data better in a database than with a CSV.
 * Databases can handle multiple users. Concurrent edits to a CSV can get messy. Some file systems won't even let multiple users access a CSV at the same time.
 
-This session builds on what you learned last week in the [pipeline](https://github.com/dssg/hitchhikers-guide/tree/master/dssg-knowledge/pipelines) and [command line](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/commandlinetools) sessions. We will focus on ETL. 
+This session builds on what you learned last week in the [pipeline](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/pipelines-and-project-workflow) and [command line](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/command-line-tools) sessions. We will focus on ETL. 
 
 
 ## Potential Teachouts
@@ -62,10 +62,10 @@ If you haven't already, download Matt's weather data to your training folder dir
 This gives you a file called `2016.csv`. You can explore the data using `head`, `tail`, `csvlook`, and other tools that Matt taught you.
 
 Here's the output from `csvlook`:
-![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/tech-tutorials/csv-to-db/weather_data_csvlook_output.png "weather data")
+![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/csv-to-db/weather_data_csvlook_output.png "weather data")
 
 The first weird thing I see when I look at the data: no headers. `csvlook -H` makes it easier to read:
-![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/tech-tutorials/csv-to-db/weather_data_csvlook_noheader_output.png "weather data") 
+![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/csv-to-db/weather_data_csvlook_noheader_output.png "weather data") 
 
 The README tells us that 
 * Column 1 is the station identifier
@@ -85,9 +85,9 @@ Station,Date,Value Type,Value,Measurement Flag,Quality Flag,Source Flag,Time
 
 
 Here's the new `csvlook`:
-![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/tech-tutorials/csv-to-db/weather_data_csvlook_header_output.png "weather data") 
+![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/csv-to-db/weather_data_csvlook_header_output.png "weather data") 
 
-`csvsql` generates `create table` statements for you. Because it uses Python, it will load all the data and then do its thing. For limit the resources it needs, I'll only use the first 1000 rows. We're using a PostgreSQL ("Postgres") database:
+`csvsql` generates `create table` statements for you. Because it uses Python, it will load all the data and then do its thing. To limit the resources it needs, I'll only use the first 1000 rows. We're using a PostgreSQL ("Postgres") database:
 
 `
 head -n 1000 2016.csv | csvsql -i postgresql
@@ -169,7 +169,7 @@ CREATE TABLE jwalsh_schema.jwalsh_table (
 ### Let's copy the data
 We ready to copy the data! We strongly recommend using `psql`. You can do it through Python scripts and other methods, but `psql` is optimized for this task. It will likely save you a lot of time.
 
-We should follow [Jen's guidelines](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/datasecurityprimer) by storing the database credentials in a file. Postgres looks for four environment variables: PGHOST, PGUSER, PGPASSWORD, and PGDATABASE. To set the environment variables using `default_profile.example`:
+We should follow [Jen's guidelines](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/data-security-primer) by storing the database credentials in a file. Postgres looks for four environment variables: PGHOST, PGUSER, PGPASSWORD, and PGDATABASE. To set the environment variables using `default_profile.example`:
 
 `
 eval $(cat default_profile.example)

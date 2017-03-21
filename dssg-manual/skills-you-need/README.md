@@ -1,6 +1,6 @@
 # __Skills You Need to do Data Science for Social Good__
 The following skill levels can help you gauge where you stand and what things would be useful to brush up on or seek out:   
-*   [What you should know before coming to the fellowship](../prerequisites/) and [what you should know after orientation.](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/)
+*   [What you should know before coming to the fellowship](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/prerequisites) and [what you should know after orientation.](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum)
 *   [Cool Kid](#cool-kid): what you should know at the end of the fellowship. 
 *   [Data Scientist for Social Good](#data-scientist-for-social-good): what you should know to practice in this field.
 *   [Data Witch](#data-witch): skills that are nice to have if you get the chance to pick them up.

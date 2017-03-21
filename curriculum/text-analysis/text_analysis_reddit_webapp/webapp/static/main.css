@@ -1,0 +1,15 @@
+/* custom styles */
+.result-img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.center-container {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.active {
+  border: 5px solid red;
+}

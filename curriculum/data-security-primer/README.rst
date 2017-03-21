@@ -103,7 +103,7 @@ Store these credentials in a separate file ``dbcreds.py``:
     database='mydatabase'
     password='ayylmao'
 
-Add this file to your `.gitignore` to ensure that you don't commit it (``https://help.github.com/articles/ignoring-files/``)
+Add this file to your `.gitignore` to ensure that you don't commit it (`https://help.github.com/articles/ignoring-files/ <https://help.github.com/articles/ignoring-files/>`_)
 
 ----
 
@@ -156,16 +156,16 @@ Beyond Content
 
 * Consider whether your project partner would want the names of tables disclosed
 
-* Example: ``https://github.com/dssg/police-eis/blob/master/example_police_dept.yaml``
+* Example: `https://github.com/dssg/police-eis/blob/master/example_police_dept.yaml <https://github.com/dssg/police-eis/blob/master/example_police_dept.yaml>`_
 
 ----
 
 Cleaning Repos
 ==============
 
-* Search for passwords/data leaks in a folder: ``https://github.com/dssg/repo-scraper``
+* Search for passwords/data leaks in a folder: `https://github.com/dssg/repo-scraper <https://github.com/dssg/repo-scraper>`_
 
-* Instead of ``git-filter-branch`` to remove secret things from your git repository: ``https://github.com/rtyley/bfg-repo-cleaner``
+* Instead of ``git-filter-branch`` to remove secret things from your git repository: `https://github.com/rtyley/bfg-repo-cleaner <https://github.com/rtyley/bfg-repo-cleaner>`_
 
 ----
 
@@ -181,5 +181,5 @@ Web Applications
 
 If you end up creating a web application, be aware of security best practices: 
 
-* OWASP Secure Coding Practices: ``https://www.owasp.org/images/0/08/OWASP_SCP_Quick_Reference_Guide_v2.pdf`` 
+* OWASP Secure Coding Practices: `https://www.owasp.org/images/0/08/OWASP_SCP_Quick_Reference_Guide_v2.pdf <https://www.owasp.org/images/0/08/OWASP_SCP_Quick_Reference_Guide_v2.pdf>`_ 
 
