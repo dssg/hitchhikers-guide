@@ -13,3 +13,4 @@ We at [DSSG](http://dssg.uchicago.edu) have spent many (sort of) early mornings 
 
 As the saying goes, when at DSSG, do as the cool kids (and data witches) do. But cool kids (and data witches) aren't built in a day. So we've put together a variety of resources for before, during, and after the summer. If you are applying to the program or have been accepted as a fellow, [check out the manual](dssg-manual/) to see how you can prepare before arriving, what orientation and training will cover, and what to expect from the summer. We invite everyone to follow along with the [tutorials and teach-outs](curriculum/) prepared by our staff and fellows throughout the summer, and to suggest or contribute additional resources. 
 
+All material is licensed under CC-BY 4.0 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)(http://creativecommons.org/licenses/by/4.0/)
