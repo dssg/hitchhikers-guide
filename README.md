@@ -4,9 +4,10 @@ We at [DSSG](http://dssg.uchicago.edu) have spent many (sort of) early mornings 
 - **Computer science,** because you'll need to understand how your data is - and should be - structured, as well as the algorithms you use to analyze it.  
 - **Math and stats,** because [everything else in life is just applied math](https://xkcd.com/435/), and numerical results are meaningless without some measure of uncertainty.
 - **Machine learning,** because you'll want to build predictive or descriptive models that can learn, evolve, and improve over time.
-- **Social science,** because you'll need to know how to design experiments to validate your models in the field, and to understand when correlation can plausibly suggest causation.
+- **Social science,** because you'll need to know how to design experiments to validate your models in the field, and to understand when correlation can plausibly suggest causation, and sometimes even do causal inference.
 - **Scoping and project management,** because you'll need to be able to talk to your partners about how to the data they have relates to the problem you're trying to solve, come up with a useful solution, and work with a team to make that useful solution actually happen.
-- **Privacy, ethics, and security,** because data is people, so you'll need to consider the potential effects that using data will have on the people it represents, as well as keep potentially sensitive data secure. 
+- **Privacy and security,** because data is people and needs to be kept secure and confidential.
+- **Ethics, Fairness, Bias, Transparency,** because your work can be misused and have a potentially negative impact on people's lives so you have to consider the biases in your data and analyses, the ethical and fairness implications, and how to make it interpretable and transparent to the users and to the people impacted by it.
 - **Communications,** because you'll need to be able to tell the story of why what you're doing matters and the methods you're using to a broad audience. 
 - **Social issues,** because you're doing this work to help people, and you don't live or work in a vacuum, so you need to understand the context and history surrounding the people, places and issues you want to impact. 
 
