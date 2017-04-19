@@ -24,11 +24,12 @@ PROFILE:=default_profile
 ;  but not on websites. [-timecheck] disables timestamp
 ;  checking, so it only runs when the output is missing
 ;  or when the user forces the step to run.
+
 /mnt/data/training/jwalsh/2016.csv.gz <- [-timecheck]
 	URL="ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/2016.csv.gz"
 	wget --output-document="$OUTPUT0" "$URL"
 /mnt/data/training/jwalsh/2016.csv <- /mnt/data/training/jwalsh/2016.csv.gz
-	gunzip -c $INPUT > $OUTPUT
+	gunzip -c "$INPUT" > "$OUTPUT"
 
 
 
@@ -37,7 +38,11 @@ PROFILE:=default_profile
 
 ;  Because our Postgres database doesn't have a timestamp we can check,
 ;  we create a fake file called `psql_weather` that tracks the timestamp.
+;
+;  `psql -f` runs the commands in the file
+;  `touch` updates the timestamp on the file or creates an empty file if the file doesn't exist
+;  `&&` the second command only runs if the first command finishes
+
 /mnt/data/training/jwalsh/psql_weather <- jwalsh_table.sql, /mnt/data/training/jwalsh/2016.csv
-	psql -f $INPUT0
-	touch $OUTPUT
+	psql -f "$INPUT0" && touch "$OUTPUT"
 	
