@@ -1,0 +1,8 @@
+Flask==0.10.1
+gensim==0.13.4
+scikit-learn
+pandas
+scipy
+nltk
+requests
+bokeh

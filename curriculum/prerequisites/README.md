@@ -1,32 +1,34 @@
 #Before the Summer: Pre-requisites
 
-All of our fellows come in with at least an intermediate scripting ability (usually in Python), some statistics knowledge, and some social science knowledge. We bring together people of all backgrounds, so we know that some will be stronger in some areas, and some might never have seen some of this material. To get everyone on the same page at the beginning, we send out a [welcome email](email.md) about a month before the fellowship begins with recommended background reading and what they'll need to install. We also spend the first two weeks of the summer getting everyone up to speed with the tools they'll be using on their projects.  
+All of our fellows come in with at least an intermediate programming ability (usually in Python), some statistics knowledge, and some social science knowledge. We bring together people of all backgrounds, so we know that some will be stronger in some areas, and some might never have seen some of this material. To get everyone on the same page at the beginning, we send out a [welcome email](email.md) about a month before the fellowship begins with recommended background reading and what they'll need to install. We also spend a significant part of the first two weeks of the summer getting everyone up to speed with the tools they'll be using in their projects.  
 
 In order to be ready for the summer, you need to install some packages on your computer:
 
 ## Required
 
 *   SSH (PuTTY for Windows)
-*   Git
-*   psql (PostgreSQL CLI)
+*   Git (for version control)
+*   psql (PostgreSQL command line interface)
 *   Python tools
     *   Python
     *   Anaconda/Miniconda or pip + virtualenv
-    *   Packages
+    *   Python Packages
         *   pandas
         *   matplotlib
         *   scikit-learn
         *   psycopg2
         *   ipython
         *   jupyter
-* R
+
+## Highly Recommended
+*    DBeaver (GUI to access various databases)
+*   Tableau (students can request a free education license)
+*   Sublime Text/Atom (text editor for coding)
 
 ## Optional
 
+*   R
 *   RStudio
-*   DBeaver
-*   Tableau (students can request a free license)
-*   Sublime Text/Atom
 
 
 ## How to install pre-requisites?
