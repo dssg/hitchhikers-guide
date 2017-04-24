@@ -49,7 +49,7 @@ To run it, make sure you specify the Postgres environment variables in `default_
 
 I've run this code many times without error, and I feel pretty confident that it will continue to run without error for a while.
 
-Because we wrote some decent ETL code, we don't need to start from scratch. We can borrow the code for this project. (Some of this code originated with the [https://github.com/dssg/lead-public](lead project).)
+Because we wrote some decent ETL code, we don't need to start from scratch. We can borrow the code for this project. (Some of this code originated with the [lead project](https://github.com/dssg/lead-public).)
 
 Let's say NOAA changes the format of the weather file. This code will throw an error when we try to run it. We don't need to start from scratch. We can simply modify `jwalsh_table.sql` to match the new format, re-run the code without error, and enjoy the up-to-date data. 
 
