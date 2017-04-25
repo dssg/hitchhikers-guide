@@ -38,7 +38,7 @@ few weeks off with an [intensive orientation](https://github.com/dssg/hitchhiker
 - **Week Two**
   - [Usability and User Interfaces](usability-and-user-interfaces/)
   - [CSV to DB](csv-to-db/)
-  - Legal Agreements
+  - [Legal Agreements](legal-agreements/)
   - [Data Security Primer](data-security-primer/)
   - [Legible, Good Code](legible-good-code/)
   - [Conduct, Culture, and Communications](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-manual/conduct-culture-and-communications/README.md)
@@ -99,18 +99,19 @@ steps you took to go from raw data to model-ready data ([Reproducible ETL](repro
 Often data science for social good projects will involve sensitive data, so be aware that you're keeping
 it safe: [Data Security Primer](data-security-primer/). 
 
-Now you're ready to start digging into the data! Python is a good tool for exploratory data analysis; 
-[Data Exploration in Python](data-exploration-in-python/). If you need to link data from multiple sources,
-[Record Linkage](record-linkage/) will be useful here. By now you'll also want to be using 
-[Git and Github](git-and-github/) to keep track of the progress of your project, and to work with collaborators
-and teammates. If you have text data, [Natural Language Processing](text-analysis/) will be useful.
+Now you're ready to start digging into the data! Before you start, check out our [Intro to Git and Python](intro-to-git-and-python/), then move onto [Data Exploration in Python](data-exploration-in-python/). 
+If you need to link data from multiple sources, [Record Linkage](record-linkage/) will be useful here. 
+By now you'll also want to be using [Git and Github](git-and-github/) to keep track of the progress of your project, 
+and to work with collaborators and teammates. Some types of data require special methods and tools; we have resources 
+for text data ([Natural Language Processing](text-analysis/)), spatial data ([PostGIS Workshop](postgis-workshop/)) 
+and network data ([Network Analysis](network/).
 
-Now you're ready to make some models. See the machine learning notebook. As your models produce results,
-it's important to provide context and interpretations for the results of said models; [Quantitative Social Science](quantitative-social-science/) and [Causal Inference with Observational Data](causal-inference/)
+Now you're ready to make some models! Check out the [machine learning](machine-learning/) section. As your models 
+produce results, it's important to provide context and interpretations for the results of said models; 
+[Quantitative Social Science](quantitative-social-science/) and [Causal Inference with Observational Data](causal-inference/)
 will help you think through what conclusions you can make from your analysis. As you start to write more 
-production code, check out [Legible, Good Code](legible-good-code/) to be sure that you're following 
-best practices to make your code readable and reusable, and [Test, Test, Test](test-test-test/) (Benedict Kuester)
-to learn how to write tests to keep your code base in tip-top shape.
+production code, check out [Legible, Good Code](legible-good-code/), [Test, Test, Test](test-test-test/)
+and [Reproducible Software](reproducible-software/) to learn how to keep your code base in tip-top shape.
 
 Remember that there's no point to doing data science for social good work if you don't have some audience
 that can understand it and put your insights to good use. You'll need to be able to communicate your work: 
