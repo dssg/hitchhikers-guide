@@ -21,7 +21,7 @@ If you need to link data from multiple sources, [Record Linkage](record-linkage/
 By now you'll also want to be using [Git and Github](git-and-github/) to keep track of the progress of your project, 
 and to work with collaborators and teammates. Some types of data require special methods and tools; we have resources 
 for text data ([Natural Language Processing](text-analysis/)), spatial data ([PostGIS Workshop](postgis-workshop/)) 
-and network data ([Network Analysis](network/).
+and network data ([Network Analysis](network/)).
 
 Now you're ready to make some models! Check out the [machine learning](machine-learning/) section. As your models 
 produce results, it's important to provide context and interpretations for the results of said models; 
