@@ -4,7 +4,7 @@
 * *Understanding what you did*: Save all the steps you took so you can tell how you got here. 
 * *Using what you did*: Use and re-use code for this project or for others. Fix errors easily. Import new data with confidence. GET IT IMPLEMENTED!
 
-This session builds on what you learned last week in the [CSV to DB](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/csvtodb) session.
+This session builds on what you learned last week in the [CSV to DB](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/csv-to-db) session.
 
 
 ## Potential Teachouts
@@ -64,7 +64,7 @@ You run the risk of losing or corrupting data with each step. To ensure that you
 Well-developed ETL in `input/`. 
 
 ### Sanergy Project
-`input/Drakefile` calls an R script. The repository is [here](https://github.com/dssg/sanergy).
+`input/Drakefile` calls an R script. The repository is [here](https://github.com/dssg/sanergy-public).
 
 ### What If You Have to Use Points and Clicks?
 See last year's police team [Oracle directions](https://github.com/dssg/police/tree/master/input/cmpd/oracle_export_code).
