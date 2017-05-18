@@ -1,6 +1,6 @@
 #!/bin/bash
 #Set up the environment for the Networks Tutorial
-#Released into the public domain (can be used by 
+#Released into the public domain (can be used by
 #anyone without limitation; you may delete the
 #comments at the top)
 
@@ -18,7 +18,7 @@ if hash ${1} 2>/dev/null
 then
     echo "${1} is installed"
 else
-    die "${1} not installed" 1 
+    die "${1} not installed" 1
 fi
 }
 
