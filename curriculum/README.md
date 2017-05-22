@@ -1,4 +1,4 @@
-# Data Science for Social Good Curriculum
+# Navigating the DSSG Curriculum
 
 ## [Before You Start](0_before_you_start/)
 So you want to start a DSSG project! First, please make sure you have gone through the [Prerequisites](0_before_you_start/prerequisites/) and [Software Setup](0_before_you_start/software-setup/) and are equipped 
@@ -58,4 +58,16 @@ whatever tools you create will be useful and usable.
 # How to Contribute
 We welcome contributions and collaboration! 
 If you find a broken link, or have a request or suggestion, please submit an issue. 
-If you have materials to contribute, please submit a pull request. New tutorials should follow our [tutorial template](tutorial-template/). 
+If you have materials to contribute, please submit a pull request. New tutorials should follow our [tutorial template](tutorial-template/), and keep in mind the teaching philosophy outlined below. 
+
+## Teaching Philosophy
+Our guiding teaching philosophy is as follows:
+- *You get out what you put in.* Fellows are encouraged to take an active role in teaching and shaping the curriculum,
+as well as learning from it. Learning also takes initiative and participation on the student side.
+- *Clearly motivate topics and tools.* For more technical topics: what actual task that a data scientist does will require
+this tool? What other options are there to do similar tasks? What are pitfalls, and what will it look like when something
+goes wrong? What are common mistakes or bugs? For conceptual topics: Why do we feel the need to communicate this topic?
+What are some concrete examples of where it's been done well or poorly in the past?
+- *Lessons should be user friendly.* Lectures should be concise - 45 minutes at the outside - and materials should be 
+practical. Slides should be accompanied by a worksheet or exercises so fellows can follow along and learn by doing,
+and a cheat sheet with relevant commands or code snippets should be included where possible.  
