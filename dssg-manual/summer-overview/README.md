@@ -117,33 +117,33 @@ To look through all of our curriculum materials, please see the [curriculum sect
 We expect that every incoming fellow has experience programming in Python, a basic working knowledge of statistics and social 
 science, and an interest in doing social good. However, we understand that everyone comes from a different background, 
 so to ensure that everyone is able to contribute as a productive member of the team and the fellowship, we start the first 
-few weeks off with an [intensive orientation](summer-overview/DSSG2016OrientationSchedule.pdf), getting everyone 
+few weeks off with an [intensive orientation](DSSG2016OrientationSchedule.pdf), getting everyone 
 "up to speed" with the basic skills and tools they'll need. 
 
 - **Week One**
-  - [Prerequisites](../curriculum/0_before_you_start/prerequisites/)
-  - [Software Setup](../curriculum/0_before_you_start/software-setup/)
-  - [Pipelines and Project Workflow](../curriculum/0_before_you_start/pipelines-and-project-workflow/)
-  - [Git and Github](../curriculum/2_data_exploration_and_analysis/git-and-github/) 
+  - [Prerequisites](../../curriculum/0_before_you_start/prerequisites/)
+  - [Software Setup](../../curriculum/0_before_you_start/software-setup/)
+  - [Pipelines and Project Workflow](../../curriculum/0_before_you_start/pipelines-and-project-workflow/)
+  - [Git and Github](../../curriculum/2_data_exploration_and_analysis/git-and-github/) 
   - Making the Fellowship
   - Skills You Need to do DSSG
-  - [Command Line Tools](../curriculum/1_getting_and_keeping_data/command-line-tools/)
+  - [Command Line Tools](../../curriculum/1_getting_and_keeping_data/command-line-tools/)
   - Project Management, Partners, and Communications
-  - [Data Exploration in Python](../curriculum/2_data_exploration_and_analysis/data-exploration-in-python/)
+  - [Data Exploration in Python](../../curriculum/2_data_exploration_and_analysis/data-exploration-in-python/)
   - [Project Scoping Intro](https://dssg.uchicago.edu/2016/10/27/scoping-data-science-for-social-good-projects/)
 - **Week Two**
-  - [Usability and User Interfaces](../curriculum/5_presentations_and_communications/usability-and-user-interfaces/)
-  - [CSV to DB](../curriculum/1_getting_and_keeping_data/csv-to-db/)
+  - [Usability and User Interfaces](../../curriculum/5_presentations_and_communications/usability-and-user-interfaces/)
+  - [CSV to DB](../../curriculum/1_getting_and_keeping_data/csv-to-db/)
   - Legal Agreements
-  - [Data Security Primer](../curriculum/1_getting_and_keeping_data/data-security-primer/)
-  - [Legible, Good Code](../curriculum/4_programming_best_practices/legible-good-code/)
-  - [Conduct, Culture, and Communications](conduct-culture-and-communications/README.md)
+  - [Data Security Primer](../../curriculum/1_getting_and_keeping_data/data-security-primer/)
+  - [Legible, Good Code](../../curriculum/4_programming_best_practices/legible-good-code/)
+  - [Conduct, Culture, and Communications](../conduct-culture-and-communications/README.md)
 - **Week Three**
-  - [Reproducible ETL](../curriculum/1_getting_and_keeping_data/reproducible-ETL/)
+  - [Reproducible ETL](../../curriculum/1_getting_and_keeping_data/reproducible-ETL/)
   - The Work We Do
-  - [Record Linkage](../curriculum/3_modeling_and_machine_learning/record-linkage/)
-  - [Databases](../curriculum/1_getting_and_keeping_data/databases/)
-  - [Quantitative Social Science](quantitative-social-science/)
+  - [Record Linkage](../../curriculum/2_data_exploration_and_analysis/record-linkage/)
+  - [Databases](../../curriculum/1_getting_and_keeping_data/databases/)
+  - [Quantitative Social Science](../../curriculum/3_modeling_and_machine_learning/quantitative-social-science/)
 
 ##  Ongoing Curriculum
 Training continues on throughout the summer in the form of "lunch and learns" - less formal lessons over lunch - and 
