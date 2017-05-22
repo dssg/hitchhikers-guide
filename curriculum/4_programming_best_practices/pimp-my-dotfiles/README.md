@@ -1,4 +1,4 @@
-# dotfiles - working on every computer and feel just like home
+# dotfiles - make working on any computer and feel just like home
 
 On this tutorial, you'll learn about `dotfiles`, what they are, why are they important and how to use them.
 
