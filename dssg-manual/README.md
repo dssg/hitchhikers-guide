@@ -1,7 +1,7 @@
 _We put together this manual for fellows in the Data Science for Social Good program at the University of Chicago. We are making it public to provide insight into the program to anyone interested in doing data science for social good, including potential fellows, mentors, and project partners, as well as those interested in funding or replicating such a program._
 ________________
 # The DSSG Manual
-- *Before You Arrive*: [Prerequisites](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/prerequisites/) and [Software Setup](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/software-setup/)
+- *Before You Arrive*: [Prerequisites](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/prerequisites/) and [Software Setup](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/software-setup/)
 - *What to Expect from the Fellowship*: [Code of Conduct, Culture and Communications](conduct-culture-and-communications/) and [Summer Overview](summer-overview/)
 
 Welcome to the [Data Science for Social Good](http://dssg.uchicago.edu) (DSSG) Fellowship program! We hope your experience this summer will help you grow your skills as a data scientist and learn how to apply those skills to solve real-world problems with social impact. This manual outlines our goals in running this fellowship program, our hopes for your experience, and our expectations of the participants. We’ve also outlined how the summer is typically structured and what you can expect from us.
