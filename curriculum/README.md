@@ -8,15 +8,17 @@ to help you decide on a project or refine a project you already have in mind.
 Then, check out [Pipelines and Project Workflow](0_before_you_start/pipelines-and-project-workflow/) for an
 overview of how the steps of your project (and, therefore, your code) will be organized.
 
-## Getting and Keeping Data 
-Data comes in many forms, and from many sources - you may get a database dump directly from the source,
-or you may need to scrape data from the web (see [Basic Web Scraping](basic-web-scraping/)). Either way,
-once you've got your hands on data, you'll need to bring it into a database (see [Databases](databases/)),
-and start formatting it in such a way that you can use it for analysis, and you want to keep track of what
-steps you took to go from raw data to model-ready data ([Reproducible ETL](reproducible-ETL/)).
-[Command Line Tools](command-line-tools/) will start to come in handy here.
-Often data science for social good projects will involve sensitive data, so be aware that you're keeping
-it safe: [Data Security Primer](data-security-primer/).
+## [Getting and Keeping Data](1_getting_and_keeping_data/)
+Data comes in many forms, from many sources - you may get a database dump or 
+[CSV files directly from a project partner](2_getting_and_keeping_data/csv-to-db/), or you may need to 
+[scrape data from the web](2_getting_and_keeping_data/basic-web-scraping/). Either way,
+once you've got your hands on some data, you'll need to bring it into a [database](2_getting_and_keeping_data/databases/),
+and start cleaning and "wrangling" it. You'll definitely want to keep track of the steps to take your data from its 
+original, raw form to being model-ready, so check out [Reproducible ETL](2_getting_and_keeping_data/reproducible-ETL/).
+[Command Line Tools](2_getting_and_keeping_data/command-line-tools/) will start to come in handy here. 
+Finally, data science for social good projects often involve sensitive data about real humans, which is what makes this 
+work both interesting and important, but also makes it extra important to keep security in mind, so make sure to check 
+out the [Data Security Primer](2_getting_and_keeping_data/data-security-primer/).
 
 ## Data Exploration and Analysis
 Now you're ready to start digging into the data! Before you start, check out our [Intro to Git and Python](intro-to-git-and-python/), then move onto [Data Exploration in Python](data-exploration-in-python/).
