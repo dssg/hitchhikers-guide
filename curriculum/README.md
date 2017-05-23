@@ -1,38 +1,73 @@
-# Data Science for Social Good Curriculum
+# Navigating the DSSG Curriculum
 
-When you first start a project, first make sure you have gone through the [Prerequisites](prerequisites/)
-and [Software Setup](software-setup/) and are equipped with the basic knowledge and tools you'll need.
-Then, you need to get some data (see [Legal and Data Use Agreements](https://dsapp.uchicago.edu/resources/legal-agreements/))
-and decide on a good project to use the data for - look at our
+## [Before You Start](0_before_you_start/)
+So you want to start a DSSG project! First, please make sure you have gone through the [Prerequisites](0_before_you_start/prerequisites/) and [Software Setup](0_before_you_start/software-setup/) and are equipped 
+with the basic knowledge and tools you'll need. Then use our 
 [Project Scoping Intro](https://dssg.uchicago.edu/2016/10/27/scoping-data-science-for-social-good-projects/)
-for a primer, then check out [Pipelines and Project Workflow](pipelines-and-project-workflow/) for an
+to help you decide on a project, or refine a project you already have in mind. 
+Next, check out [Pipelines and Project Workflow](0_before_you_start/pipelines-and-project-workflow/) for an
 overview of how the steps of your project (and, therefore, your code) will be organized.
 
-Data comes in many forms, and from many sources - you may get a database dump directly from the source,
-or you may need to scrape data from the web (see [Basic Web Scraping](basic-web-scraping/)). Either way,
-once you've got your hands on data, you'll need to bring it into a database (see [Databases](databases/)),
-and start formatting it in such a way that you can use it for analysis, and you want to keep track of what
-steps you took to go from raw data to model-ready data ([Reproducible ETL](reproducible-ETL/)).
-[Command Line Tools](command-line-tools/) will start to come in handy here.
-Often data science for social good projects will involve sensitive data, so be aware that you're keeping
-it safe: [Data Security Primer](data-security-primer/).
+## [Getting and Keeping Data](1_getting_and_keeping_data/)
+Data comes in many forms, from many sources - you may get a database dump or 
+[CSV files directly from a project partner](1_getting_and_keeping_data/csv-to-db/), or you may need to 
+[scrape data from the web](1_getting_and_keeping_data/basic-web-scraping/). Either way,
+once you've got your hands on some data, you'll need to bring it into a [database](1_getting_and_keeping_data/databases/),
+and start cleaning and "wrangling" it. You'll definitely want to keep track of the steps to take your data from its 
+original, raw form to being model-ready, so check out [Reproducible ETL](1_getting_and_keeping_data/reproducible-ETL/).
+[Command line tools](1_getting_and_keeping_data/command-line-tools/) will start to come in handy here. 
+Finally, data science for social good projects often involve sensitive data about real humans, which is what makes this 
+work both interesting and important, but also makes it extra important to keep security in mind, so make sure to check 
+out the [Data Security Primer](1_getting_and_keeping_data/data-security-primer/).
 
-Now you're ready to start digging into the data! Before you start, check out our [Intro to Git and Python](intro-to-git-and-python/), then move onto [Data Exploration in Python](data-exploration-in-python/).
-If you need to link data from multiple sources, [Record Linkage](record-linkage/) will be useful here.
-By now you'll also want to be using [Git and Github](git-and-github/) to keep track of the progress of your project,
-and to work with collaborators and teammates. Some types of data require special methods and tools; we have resources
-for text data ([Natural Language Processing](text-analysis/)), spatial data ([PostGIS Workshop](postgis-workshop/))
-and network data ([Network Analysis](network/)).
+## [Data Exploration and Analysis](2_data_exploration_and_analysis/)
+Once you've got some data, you're going to be eager to dig into it! Our tool of choice for data analysis is Python. Start off 
+with [Intro to Git and Python](2_data_exploration_and_analysis/intro-to-git-and-python/), then move onto 
+[Data Exploration in Python](2_data_exploration_and_analysis/data-exploration-in-python/). 
+If you're combining data from multiple sources, you'll have to do 
+[record linkage](2_data_exploration_and_analysis/record-linkage/) to match entities across datasets. Depending on your
+particular project, you may need special methods and tools; at this time, we have resources 
+for working with [text data](2_data_exploration_and_analysis/text-analysis/), [spatial data](2_data_exploration_and_analysis/postgis-workshop/) and [network data](2_data_exploration_and_analysis/network-analysis/).
 
-Now you're ready to make some models! Check out the [machine learning](machine-learning/) section. As your models
-produce results, it's important to provide context and interpretations for the results of said models;
-[Quantitative Social Science](quantitative-social-science/) and [Causal Inference with Observational Data](causal-inference/)
-will help you think through what conclusions you can make from your analysis. As you start to write more
-production code, check out [Legible, Good Code](legible-good-code/), [Test, Test, Test](test-test-test/)
-and [Reproducible Software](reproducible-software/) to learn how to keep your code base in tip-top shape.
+## [Modeling and Machine Learning](3_modeling_and_machine_learning/)
+Now you're ready to make some models! Most of the modeling techniques you'll use, whether supervised or unsupervised,
+will fall under the umbrella of [machine learning](3_modeling_and_machine_learning/machine-learning/), but that's 
+not all you need to know. Knowing some social science will go a long way when it comes to formulating models 
+appropriately, designing experiments to evaluate model performance, and understanding what conclusions you can make 
+based on your results. [Quantitative Social Science](3_modeling_and_machine_learning/quantitative-social-science/) and 
+[Causal Inference with Observational Data](3_modeling_and_machine_learning/causal-inference/) will help you think these questions through. 
 
-Remember that there's no point to doing data science for social good work if you don't have some audience
-that can understand it and put your insights to good use. You'll need to be able to communicate your work:
-[Data Visualization](https://github.com/jonkeane/data-visualization-intro) and [Presentation Skills](presentation-skills/) will help with that, both when communicating your work to a public audience, and to stakeholders. When you're
+## [Programming Best Practices](4_programming_best_practices/)
+As you begin to work on larger, more complicated projects, and work in teams with other programmers, you'll save yourself
+and your teammates a lot of grief and frustration by writing [legible, good code](4_programming_best_practices/legible-good-code/) 
+and [writing tests](4_programming_best_practices/test-test-test/). You'll also need to document and package up your work 
+so that other people can understand and reproduce your results, so check out the 
+[reproducible software](4_programming_best_practices/reproducible-software/) tutorial. As you continue to develop these
+skills, you'll start to change settings and configurations for various applications, so check out 
+[pimp my dotfiles](4_programming_best_practices/pimp-my-dotfiles/) for some tips on how to customize the environments 
+you're working in.
+
+## [Presentations and Communications](5_presentations_and_communications/)
+Remember that there's no point to doing data science for social good work if no one understands 
+what you did and can put it to good use. You'll need to be able to communicate your work:
+[Data Visualization](https://github.com/jonkeane/data-visualization-intro) and [Presentation Skills](5_presentations_and_communications/presentation-skills/) will help with that, whether you're communicating your work to a public audience or to stakeholders. When you're
 working directly with a project partner and are creating tools for them to use, keep
-[Usability and User Interfaces](usability-and-user-interfaces/) in mind.
+[Usability and User Interfaces](5_presentations_and_communications/usability-and-user-interfaces/) in mind to make sure that 
+whatever tools you create will be useful and usable.
+
+# How to Contribute
+We welcome contributions and collaboration! 
+If you find a broken link, or have a request or suggestion, please submit an issue. 
+If you have materials to contribute, please submit a pull request. New tutorials should follow our [tutorial template](tutorial-template/), and keep in mind the teaching philosophy outlined below. 
+
+## Teaching Philosophy
+Our guiding teaching philosophy is as follows:
+- *You get out what you put in.* Fellows are encouraged to take an active role in teaching and shaping the curriculum,
+as well as learning from it. Learning also takes initiative and participation on the student side.
+- *Clearly motivate topics and tools.* For more technical topics: what actual task that a data scientist does will require
+this tool? What other options are there to do similar tasks? What are pitfalls, and what will it look like when something
+goes wrong? What are common mistakes or bugs? For conceptual topics: Why do we feel the need to communicate this topic?
+What are some concrete examples of where it's been done well or poorly in the past?
+- *Lessons should be user friendly.* Lectures should be concise - 45 minutes at the outside - and materials should be 
+practical. Slides should be accompanied by a worksheet or exercises so fellows can follow along and learn by doing,
+and a cheat sheet with relevant commands or code snippets should be included where possible.  
