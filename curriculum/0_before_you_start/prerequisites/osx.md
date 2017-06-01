@@ -75,7 +75,7 @@ Anaconda includes Python, `conda` (a package and environment manager) and a bunc
 Once Anaconda is installed, run the following to install DSSG required Python packages:
 
 ```bash
-curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/prerequisites/requirements.txt -o dssg-requirements.txt
+curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/0_before_you_start/prerequisites/requirements.txt -o dssg-requirements.txt
 conda install --file dssg-requirements.txt
 ```
 
@@ -91,7 +91,7 @@ Miniconda is a light-weight version of Anaconda, it only includes Python and  `c
 Once Miniconda is installed, run the following to install DSSG required Python packages:
 
 ```bash
-curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/prerequisites/requirements.txt -o dssg-requirements.txt
+curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/0_before_you_start/prerequisites/requirements.txt -o dssg-requirements.txt
 conda install --file dssg-requirements.txt
 ```
 
@@ -107,7 +107,7 @@ brew install python
 #To install virtual env
 pip install virtualenv
 #To install dssg required python packages
-curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/prerequisites/requirements.txt -o dssg-requirements.txt
+curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/0_before_you_start/prerequisites/requirements.txt -o dssg-requirements.txt
 pip install -r dssg-requirements.txt
 ```
 
