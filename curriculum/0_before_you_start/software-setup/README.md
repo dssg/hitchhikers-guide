@@ -110,9 +110,9 @@ For all non-Windows users, also do these steps to access the Postgres server fro
 
 3. Connect to the Postgres database on the forwarded port
  ```
- psql -h localhost -p 8888 -U USERNAME -d USERNAME
+ psql -h localhost -p 8888 -U USERNAME -d DBNAME
  ```
- where you need to replace `USERNAME` with the postgres [!] username, and the `8888` with the number you chose in the previous step. You then get prompted for a password. This is now the postgres server asking, so you need to reply with the corresponding password!
+ where you need to replace `USERNAME` with the postgres [!] username, `DBNAME` with the name of your database, and the `8888` with the number you chose in the previous step. You then get prompted for a password. This is now the postgres server asking, so you need to reply with the corresponding password!
 
  This should drop you into a SQL shell on the database server.
  
