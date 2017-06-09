@@ -167,9 +167,9 @@ CREATE TABLE jwalsh_schema.jwalsh_table (
 ```
 
 ### Let's copy the data
-We ready to copy the data! We strongly recommend using `psql`. You can do it through Python scripts and other methods, but `psql` is optimized for this task. It will likely save you a lot of time.
+We are ready to copy the data! We strongly recommend using `psql`. You can do it through Python scripts and other methods, but `psql` is optimized for this task. It will likely save you a lot of time.
 
-We should follow [Jen's guidelines](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/data-security-primer) by storing the database credentials in a file. Postgres looks for four environment variables: PGHOST, PGUSER, PGPASSWORD, and PGDATABASE. To set the environment variables using `default_profile.example`:
+We should follow [Jen's guidelines](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/data-security-primer) by storing the database credentials in a file. Postgres looks for four environment variables: PGHOST, PGUSER, PGPASSWORD, and PGDATABASE. To set the environment variables using `default_profile.example`:
 
 `
 eval $(cat default_profile.example)
