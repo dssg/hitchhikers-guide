@@ -43,7 +43,7 @@ The [police pipeline](https://github.com/dssg/police-eis), started at DSSG 2015,
 
 Much of your work will revolve around and within your pipeline, but we have identified specific aspects for you to focus on [each week](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-manual/summer-overview/high-level-summer-plan.pdf):
 
-![](summerplan.png?raw=true)
+![](highlevelsummerplan.png?raw=true)
 
 ## Resources
 
