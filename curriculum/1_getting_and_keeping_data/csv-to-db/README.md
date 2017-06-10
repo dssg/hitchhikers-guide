@@ -4,17 +4,13 @@
 This summer, you will use a database to hold, manipulate, and analyze data. Databases have several advantages over using source files such as CSVs:
 
 * We're collecting more and more data -- often too much to fit in memory. Most databases can handle this. 
-* We're collecting more complex data. For example, there are databases that efficiently store and manipulate text and causal relationships. 
 * Databases can provide integrity checks and guarantees. If you have a column of numbers in a spreadsheet, Excel will let you change a random cell to text. In contrast, you can tell your database to only accept input that meets your conditions (e.g. type, uniqueness). This is especially important for ongoing projects, where you have new data coming in.
 * Databases allow you to store data in one place. That makes updates easy and reliable. 
 * Databases are more secure. You can more carefully control who has which types of access to what data better in a database than with a CSV.
 * Databases can handle multiple users. Concurrent edits to a CSV can get messy. Some file systems won't even let multiple users access a CSV at the same time.
+* Databases are designed to help you do analysis. SQl will probably become your best friend.
 
 This session builds on what you learned last week in the [pipeline](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/pipelines-and-project-workflow) and [command line](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/command-line-tools) sessions. We will focus on ETL. 
-
-
-## Potential Teachouts
-* Other types of databases (e.g. NoSQL, graph)
 
 
 ## Tools
@@ -24,17 +20,19 @@ This session builds on what you learned last week in the [pipeline](https://gith
 
 
 ## Basic Database Lingo
-* *Database server*: the computer on which the database is running. We use Amazon RDS as our server.
+* *Database server or host*: the computer on which the database is running. We will use Amazon RDS.
 * *Database*: a self-contained set of tables and schema. A server can run many databases. This summer, we will operate databases for almost all projects from the same Amazon server.
 * *Schema*: similar to a folder. A database can contain many schema, each containing many tables.
 * *Tables*: tables are like spreadsheets. They have rows and columns and values.
+* *Views*:
+* *Queries*:
 
 
 
 ## Let's Rock Some Data!
 
-### Two ways to connect to the database
-You cannot access the database server directly; you have to go through one of our EC2s. The data are far safer that way: you have to use your private key (better than a password) to access the EC2 and then a password to access the database. 
+### Connecting to the database
+You cannot access the database server directly; you have to (tunnel) go through one of the EC2 instances. The data are far safer that way: you have to use your private key (better than a password) to access the EC2 and then a username and password to access the database. 
 
 There are two ways to connect to the database:
 
@@ -45,8 +43,15 @@ There are two ways to connect to the database:
 
 You can use option 1 (especially dBeaver) to explore the data, but you should use option 2 to load the data. First, downloading the datasets to your laptop may violate our contracts. Second, the internet connections will be better. The connections within Amazon are pretty fast; the connections from our office to Amazon might not be. Option 2 keeps the heavy transfers on Amazon's systems. 
 
+### Getting data into a Database
+There are three steps to get data into a database. Let's assume for now that you have a (collection of) CSV(s) that you want to load into a database. Let's also assume that the database exists (if not, you should create it).
 
-### Let's get the structure of the data
+The three steps are:
+1. **Create table**: This involves figuring out the structure of the table (how many fields, what should they be called, and what data types they are). Once you figure out the structure, you can create a sql "CREATE TABLE" statement and run that to generate an *empty* table*
+2. **Copy CSV to the table**: Every database has a "bulk" copy command that is **much** more efficient than using pandas. Please do not use pandas to copy large csvs to a database. Postgres has a COPY command that can now copy your csv to the table you just created. 
+3. **Check if it copied successfully**: You want to check if your table now has the same number of rows and columns as the CSV (as well as other consistency checks). If it did not copy successfully, you may need to modify the table structure, clean the csv to remove characters, replace nulls, and try steps 1 and 2 again.
+
+### Step 1: Let's get the structure of the data
 
 In this session, we will put the weather data from last week's command-line session into the DSSG training database.
 
@@ -166,7 +171,7 @@ CREATE TABLE jwalsh_schema.jwalsh_table (
 );
 ```
 
-### Let's copy the data
+### Step 2: Let's copy the data
 We ready to copy the data! We strongly recommend using `psql`. You can do it through Python scripts and other methods, but `psql` is optimized for this task. It will likely save you a lot of time.
 
 We should follow [Jen's guidelines](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/data-security-primer) by storing the database credentials in a file. Postgres looks for four environment variables: PGHOST, PGUSER, PGPASSWORD, and PGDATABASE. To set the environment variables using `default_profile.example`:
@@ -182,7 +187,7 @@ cat 2016.csv | psql -c "\copy jwalsh_schema.jwalsh_table from stdin with csv hea
 Note: You want to pipe the data from `cat` to `psql`. You'll get a permissions error if you don't.
 
 
-### Let's look at the data
+### Step 3: Let's look at the data and make sure everythng is there
 Use dBeaver!
 
 ```
