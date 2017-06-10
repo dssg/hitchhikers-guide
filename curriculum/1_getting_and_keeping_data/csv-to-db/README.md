@@ -1,7 +1,7 @@
 # CSVs to the Database
 
 ## Motivation
-This summer, you will use a database to hold, manipulate, and analyze data. Databases have several advantages over using source files such as CSVs:
+This summer, you will use a database to store and analyze data. Databases have several advantages over using text files such as CSVs:
 
 * We're collecting more and more data -- often too much to fit in memory. Most databases can handle this. 
 * Databases can provide integrity checks and guarantees. If you have a column of numbers in a spreadsheet, Excel will let you change a random cell to text. In contrast, you can tell your database to only accept input that meets your conditions (e.g. type, uniqueness). This is especially important for ongoing projects, where you have new data coming in.
@@ -23,16 +23,16 @@ This session builds on what you learned last week in the [pipeline](https://gith
 * *Database server or host*: the computer on which the database is running. We will use Amazon RDS.
 * *Database*: a self-contained set of tables and schema. A server can run many databases. This summer, we will operate databases for almost all projects from the same Amazon server.
 * *Schema*: similar to a folder. A database can contain many schema, each containing many tables.
-* *Tables*: tables are like spreadsheets. They have rows and columns and values.
-* *Views*:
-* *Queries*:
+* *Tables*: tables are like spreadsheets. They have rows and columns and values in each cell.
+* *Views*: views are virtual tables created by a query but only instantiated when the query is run. They can be used as tables but are generated "on-demand" when they're used. An advantage is that they always contain the most current data but take time to compute.
+* *Queries*: Queries are analysis that you run on a database, often in SQL.
 
 
 
 ## Let's Rock Some Data!
 
 ### Connecting to the database
-You cannot access the database server directly; you have to (tunnel) go through one of the EC2 instances. The data are far safer that way: you have to use your private key (better than a password) to access the EC2 and then a username and password to access the database. 
+Some unique aspects of the setup at DSSG: You cannot access the database server directly; you have to (tunnel) go through one of the EC2 instances. The data are far safer that way: you have to use your private key (better than a password) to access the EC2 and then a username and password to access the database. 
 
 There are two ways to connect to the database:
 
