@@ -156,7 +156,7 @@ Beyond Content
 
 * Consider whether your project partner would want the names of tables disclosed
 
-* Example: `https://github.com/dssg/police-eis/blob/master/example_police_dept.yaml <https://github.com/dssg/police-eis/blob/master/example_police_dept.yaml>`_
+* Example: `https://github.com/dssg/police-eis/blob/master/example_officer_config.yaml <https://github.com/dssg/police-eis/blob/master/example_officer_config.yaml>`_
 
 ----
 
