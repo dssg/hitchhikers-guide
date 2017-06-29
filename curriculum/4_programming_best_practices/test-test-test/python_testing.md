@@ -1,8 +1,9 @@
-# Testing your Python projects
+# Testing Your Python Projects
 
-## Your first Python test
+## Your Very First Python Test
 
-Testing in Python is fairly easy. In a real-world example, the code to test and the actual test would be in different files but let's keep it simple for now. Let's write a simple test, to make sure our function `get_answer` returns [the answer to life, the universe and everything.](http://hitchhikers.wikia.com/wiki/42)
+Testing in Python is fairly straightforward. Here's an example: Say we wrote a function `get_answer`, which should return `42`, [the answer to life, the universe and everything.](http://hitchhikers.wikia.com/wiki/42) (In the real world, 
+the test and the code to be tested would live in different files, but we'll keep them together for simplicity here.) 
 
 ```python
 # function to test
@@ -15,35 +16,39 @@ def test_answer_to_life_is_42():
     assert get_answer() == 42
 ```
 
-This is pretty simple, the function is just a normal Python function and the test is another function that calls `get_answer`. The interesting part here is the keyword `assert`, which evaluates a condition, if the condition evaluates to `True` we say that *the test passed* if returns `False` we say *the test failed*.
+This is pretty simple. The function is just your everyday Python function, and the test is a separate 
+function that calls the function `get_answer`. The interesting part here is the keyword `assert`, which 
+evaluates a condition. If the condition evaluates to `True`, we say that *the test passed*; if it returns `False`, we say *the test failed*.
 
-There are many types of tests, the case above is what's called a *unit test*, the names comes from the notion that we are testing a *unit of code*, we are not testing our entire project, we are just testing one single thing, the function `get_answer`.
+There are many types of tests. The case above is called a *unit test*, which comes from the notion 
+that we are testing a *unit of code* (not the entire project). The idea is to have one unit test for each
+unit of code (e.g. a function).
 
-Software testing is an entire subject on its own but keep it simple for now and follow these guidelines when writing your tests:
+Software testing is an entire subject on its own, but keep it simple for now and follow these guidelines 
+when writing your tests:
 
-*   Your tests should check that one thing works (a function for example)
+*   Your tests should check that **one thing** works (a function for example)
 *   Your tests should be independent of other tests (the outcome of one should not affect others)
 *   Given the same input, your test should always return the result (when testing a Data Science pipeline this gets tricky given its probabilistic nature)
 
-## Running tests with `py.test`
+## Running Tests with `py.test`
 
-One of the best tools for testing in Python is `pytest`, it provides some useful features to reduce the amount of boilerplate code for your tests and also a command to automatically find Python files with tests and run them.
+One of the best tools for testing in Python is `pytest`, which provides some useful features to reduce 
+the amount of boilerplate code for your tests, as well as a command to automatically find Python files with 
+tests and run them.
 
-Install it with `pip`.
-
+You can install it with `pip`:
 ```bash
 pip install pytest
 ```
 
 If you want to actually run the test above, you need to get a copy of this repo.
-
 ```bash
 git clone https://github.com/dssg/hitchhikers-guide
 cd hitchhikers-guide
 ```
 
 To run your tests (note the dot in the middle):
-
 ```
 py.test
 ```
@@ -93,11 +98,11 @@ test_meaning.py:8: AssertionError
 ===================== 1 failed in 0.02 seconds ==================
 ```
 
-We can see from the output that our test failed. Now, every time you modify your code just run `py.test` to make sure your code still works! But remember to add new tests if you find any errors or edge cases.
+We can see from the output that our test failed. Now, every time you modify your code just run `py.test` to make sure your code still works! (*But remember: just because you tested something doesn't necessarily mean it works. You can keep adding new tests as you identify new edge cases and errors).*
 
-## Where to store your tests
+## Where to Store Your Tests
 
-The are no strict rules on where to store your tests. Specifically talking about a Data Science project, you are going to have a lot of folders with code for many tasks (e.g. etl, modeling). The first thing to take into account is to separate your pipeline steps from your source code, simply speaking, source code are those functions and classes that you want to reuse in various steps of your pipeline (e.g. creating a database connection). Let's see an example to make this clear:
+The are no strict rules on where to store your tests. In a Data Science project, you are going to have a lot of folders with code for many tasks (e.g. ETL, modeling). The first thing to take into account is to separate your pipeline steps from your source code: simply speaking, source code is functions and classes that you want to reuse in various steps of your pipeline (e.g. creating a database connection). Let's see an example to make this clear:
 
 ```
 .
@@ -126,23 +131,23 @@ The are no strict rules on where to store your tests. Specifically talking about
     └── code_to_train_models_here.txt
 ```
 
-In the diagram above, you can see the different steps in your pipeline (ETL, exploration, feature generation, modeling, model evaluation) all those folders will contain a mix of Python, shell and SQL scripts. Then, there's another folder called `lib`, which stores the source code for this project. Inside such folder, you'll find another two folders `lib` and `tests`, the first one stores the actual source code and the later stores the tests for the code inside `lib`.
+In the diagram above, you can see the different steps in your pipeline (ETL, exploration, feature generation, modeling, model evaluation) all those folders will contain a mix of Python, shell and SQL scripts. Then, there's another folder called `lib`, which stores the source code for this project. Inside such a folder, you'll find another two folders `lib` and `tests`, the first one stores the actual source code and the later stores the tests for the code inside `lib`.
 
-Of course, that doesn't mean you should limit your tests to your source code! You should also test your pipeline, but a good designed pipeline will put the complicated parts in the source code so your pipeline steps are short and simple.
+Of course, that doesn't mean you should limit your tests to your source code! You should also test your pipeline, but a well designed pipeline will put the complicated parts in the source code, so your pipeline steps are short and simple.
 
-The problem with testing pipeline is that some steps won't be deterministic, but there are some things you can do.
+The problem with testing a pipeline is that some steps won't be deterministic, but there are some things you can do.
 
 **Tip:** To access the code in `lib` you can either create a `setup.py` file to install or add the folder to your `PYTHONPATH`.
 
 ## 
 
-## Other Python testing tools
+## Other Python Testing Tools
 
 *   unittest or unitest2 if you use Python 3 (part of the Python standard library)
 *   [nose](https://github.com/nose-devs/nose) - another good option to run your tests
 
 
-## Where to go from here
+## Where to go From Here
 
 -   **Part 2:** [Testing Python Data Science pipelines](ds_testing.md)
 -   [Read the pytest documentation](http://pytest.org/latest/)
