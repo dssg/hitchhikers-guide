@@ -22,7 +22,7 @@ The last section covers *Continuous Integration* (or CI). CI is a technique to a
 your tests every time you push new code to Github. CI is language-agnostic, but our tutorial specifically
 addresses Python, because it is the language we use the most. 
 
-*   **Part 1:** [Unit Testing with Python](python_testing.md) (interactive tutorial), [How I Learned to Stop Worrying and Love Unit Testing](unit_testing.pdf) (teachout slides - [Kat Rasch](github.com/krasch))
+*   **Part 1:** [Unit Testing with Python](python_testing.md) (interactive tutorial), [How I Learned to Stop Worrying and Love Unit Testing](unit_testing.pdf) (teachout slides - [Kat Rasch](https://github.com/krasch))
 *   **Part 2:** [Testing Python Data Science Pipelines](ds_testing.md)
 *   **Part 3:** [Continuous Integration](ci.md)
 
