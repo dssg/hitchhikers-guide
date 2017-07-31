@@ -104,3 +104,23 @@ Remove dry-run to actually run the script ;) dry-run shows you what will happen 
 
 ### Custom prompts
 You can customise your command prompt by changing the $PS1 variable.
+
+### Motivational cow
+If you need a little inspiration, let the `fortune` package brighten up your day! Even better, let an ASCII cow lighten up your day!
+
+```
+# Install the fortune and cowsay packages
+sudo apt-get install cowsay fortune
+# "Pipe" the output of fortune into the cowsay command
+fortune | cowthink
+```
+ _______________________________
+/ Don't Worry, Be Happy.        \
+\                 -- Meher Baba /
+ -------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
