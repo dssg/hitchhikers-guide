@@ -57,8 +57,10 @@ When working via SSH, a connection interruption can terminate your running scrip
 
 ### tmux<br/>(aka: terminal multiplexer)
 ```
+# "Ping" the server to check if it's reachable (it "pongs" back... get it?)
+ping <server>
 # ssh into the server
-ssh user@IP
+ssh <user>@<server>
 # Open a tmux session
 tmux
 # List existing sessions
