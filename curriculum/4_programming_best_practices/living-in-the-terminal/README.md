@@ -177,14 +177,14 @@ If you need a little inspiration, let the `fortune` package brighten up your day
 sudo apt-get install cowsay fortune
 # "Pipe" the output of fortune into the cowsay command
 fortune | cowthink
-```
+
  _______________________________
 / Don't Worry, Be Happy.        \
 \                 -- Meher Baba /
  -------------------------------
-        \   ^__^
-         \  (oo)\_______
+        O   ^__^
+         o  (oo)\_______
             (__)\       )\/\
                 ||----w |
                 ||     ||
-
+```
