@@ -38,10 +38,10 @@ Counting words and lines (`wc` == "word count")...
 ## Data structures
 Variables are declared with a single "=" and no spaces.
 
-location="Lisbon"
+`location="Lisbon"`  
 
 Arrays are enclosed in brackets.  
-array=(abc 123 doremi)  
+`array=(abc 123 doremi)`  
 If you echo the array, you will get the first element.  
 ```
 $ echo $array
@@ -95,6 +95,23 @@ For example, run a jupyter notebook remotely through an SSH tunnel and forward t
 Then we can just write...
 `jupyter_local 8888 8889`
 ...to run a jupyter server on `<host>` (@ port 8888) and view it on our local machine (@port 8889)
+
+
+## Surfing the net
+You can send HTTP requests to URLs from the command line.  
+
+You can retrieve a page by sending a GET request:  
+`curl -iX GET https://duckduckgo.com`
+
+Or just the response header:
+`curl -I https://duckduckgo.com`
+
+From which you can parse out the status code, which is useful to see if the page is responding (200 OK) or non-existinent (404 File Not Found), etc.  
+`curl -I https://duckduckgo.com 2>/dev/null | head -n 1 | cut -d$' ' -f2`
+where...
+`2>/dev/null` redirects the stderr to oblivion
+`head -n 1` reads the top line only
+`cut -d$' ' -f2` separates the line by the divider (spacebar) and takes the 2nd field (which is the numerical HTTP response status code).
 
 
 ## Working remotely via SSH
