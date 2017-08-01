@@ -1,10 +1,36 @@
 # Living in command land, or:<br/>how I learned to stop worrying and love the terminal
 
 ## Where to start?
-Navigating online (stackoverflow) and offline (--help & the man pages).
+### Navigating online (stackoverflow) and offline (--help & the man pages).
 
+Terminal land is vast and may appear nebulous to the unseasoned scripter. Where do we start? Let search engines light the way, and manual pages hold your hand.  
 
-Tip! The (DuckDuckGo.com)[https://duckduckgo.com] search engine returns StackOverflow answers as the first-hit-preview ;) 
+The UNIX operating system Adding "bash" or "in terminal" to search terms like "replace whitespaces" or "filesize" will point you in the right direction.
+
+"My internet is down!"  
+man pages are stored on your computer, so you can reference the documentation even when you are outside the internet!  
+
+For example...  
+Search: "replace whitespaces in filename in bash"  
+Tip! The search engine DuckDuckGo returns StackOverflow answers as the first-hit-preview ;)  
+```
+find -name "* *" -type d | rename 's/ /_/g'
+find -name "* *" -type f | rename 's/ /_/g'
+```
+
+So what else can we do with `rename`?  
+
+```
+$ man rename
+> ...
+       -n, -nono
+               No action: print names of files to be renamed, but don't rename.
+```
+This is helpful when you're not too confident about what your command will do.  
+... use `/<keyword>` to search for `<keyword>` in the manual.  
+
+In fact, the first rule of command line is "be careful what you wish for". The computer will do exactly what you say, but human's may have trouble speaking the computer's language. This can be dangerous when youre running commands like `rm` (remove), or `mv` (move, also used for renaming files). You can "echo" your commands to just print the command text without actually running the command. This can save your files and sometimes even your jorb! (Tip! Don't delete all your data with a misplaced `mv`)  
+
 
 ## Basic commands
 `mv /source/path/$move_me /destination/path/$move_me`  
