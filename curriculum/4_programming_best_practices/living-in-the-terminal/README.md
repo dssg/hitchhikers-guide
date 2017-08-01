@@ -37,6 +37,8 @@ In fact, the first rule of command line is "be careful what you wish for". The c
 `rm $remove_me`  
 
 ### Caveats for git users
+Moving files around on your computer can confuse git. If you are git-tracking a file, make sure to use the following alternatives so git knows what's going on.
+
 `git mv /source/path/$move_me /destination/path/$move_me`  
 `git rm $remove_me`  
 
