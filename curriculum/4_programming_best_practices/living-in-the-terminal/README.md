@@ -1,38 +1,111 @@
 # Living in command land, or:<br/>how I learned to stop worrying and love the terminal
 
 ## Where to start?
-Navigating online (stackoverflow) and offline (--help & the man pages).
+### Navigating online (stackoverflow) and offline (--help & the man pages).
 
+Terminal land is vast and may appear nebulous to the unseasoned scripter. Where do we start? Let search engines light the way, and manual pages hold your hand.  
 
-Tip! The (DuckDuckGo.com)[https://duckduckgo.com] search engine returns StackOverflow answers as the first-hit-preview ;) 
+The UNIX operating system Adding "bash" or "in terminal" to search terms like "replace whitespaces" or "filesize" will point you in the right direction.
+
+"My internet is down!"  
+man pages are stored on your computer, so you can reference the documentation even when you are outside the internet!  
+
+For example...  
+Search: "replace whitespaces in filename in bash"  
+Tip! The search engine DuckDuckGo returns StackOverflow answers as the first-hit-preview ;)  
+```
+find -name "* *" -type d | rename 's/ /_/g'
+find -name "* *" -type f | rename 's/ /_/g'
+```
+
+So what else can we do with `rename`?  
+
+```
+$ man rename
+> ...
+       -n, -nono
+               No action: print names of files to be renamed, but don't rename.
+```
+This is helpful when you're not too confident about what your command will do.  
+... use `/<keyword>` to search for `<keyword>` in the manual.  
+
+In fact, the first rule of command line is "be careful what you wish for". The computer will do exactly what you say, but human's may have trouble speaking the computer's language. This can be dangerous when youre running commands like `rm` (remove), or `mv` (move, also used for renaming files). You can "echo" your commands to just print the command text without actually running the command. This can save your files and sometimes even your jorb! (Tip! Don't delete all your data with a misplaced `mv`)  
+
 
 ## Basic commands
-`mv <move_me>`
-`rm <remove_me>`
+`mv /source/path/$move_me /destination/path/$move_me`  
+`rm $remove_me`  
 
 ### Caveats for git users
-`git mv <move_me>`
-`git rm <remove_me>`
+Moving files around on your computer can confuse git. If you are git-tracking a file, make sure to use the following alternatives so git knows what's going on.
+
+`git mv /source/path/$move_me /destination/path/$move_me`  
+`git rm $remove_me`  
 
 ### What's in my folder?
-`ls`
-`ls -l`
-`tree`
-`tree -L 2`
-`tree -hs`
+`ls`  
+`ls -l`  
+`tree`  
+`tree -L 2`  
+`tree -hs`  
 
 ### What's in my file?
-`head -n10 $f`
-`tail -n10 $f`
-`tail -n10 $f | watch -n1`
-`tail -f -n10 $f`
+`head -n10 $f`  
+`tail -n10 $f`  
+`tail -n10 $f | watch -n1`  
+`tail -f -n10 $f`  
 
-Counting words and lines (`wc` == "word count")...
-`wc $f`
+Counting words and lines (`wc` == "word count")...  
+`wc $f`  
 
 ### Where is my file?
-`find -name "<lost_file_name>" -type f`
-`find -name "<lost_dir_name>" -type d`
+`find -name "<lost_file_name>" -type f`  
+`find -name "<lost_dir_name>" -type d`  
+
+
+## Data structures
+Variables are declared with a single "=" and no spaces.
+
+`location="Lisbon"`  
+
+Arrays are enclosed in brackets.  
+`array=(abc 123 doremi)`  
+If you echo the array, you will get the first element.  
+```
+$ echo $array
+> abc
+```
+To echo the full array, expand the array with @:  
+```
+$ echo ${array[@]}
+> abc 123 doremi
+```
+
+## Control flow and logic
+Every bash statement is separated by a semicolon. This allows us to write one-liners that would normally be spread out over multiple lines.
+
+So a for loop...  
+```
+for i in {a..z}; do
+  echo $i;
+done
+```  
+...can be written as a one-liner:  
+```
+for i in {a..z}; do echo $i; done
+```
+
+
+## Tricks
+Brace expansion allows you to iterate over a range of possible variables.  
+```
+$ echo {0..9}
+> 0 1 2 3 4 5 6 7 8 9
+$ echo {0..9..2}
+> 0 2 4 8
+$ echo happy_birthday.{wav,mp3,flac}
+> happy_birthday.wav happy_birthday.mp3 happy_birthday.flac
+```
 
 ## Functions
 We can write functions in shell scripts as well!
@@ -52,13 +125,32 @@ Then we can just write...
 ...to run a jupyter server on `<host>` (@ port 8888) and view it on our local machine (@port 8889)
 
 
+## Surfing the net
+You can send HTTP requests to URLs from the command line.  
+
+You can retrieve a page by sending a GET request:  
+`curl -iX GET https://duckduckgo.com`
+
+Or just the response header:
+`curl -I https://duckduckgo.com`
+
+From which you can parse out the status code, which is useful to see if the page is responding (200 OK) or non-existinent (404 File Not Found), etc.  
+`curl -I https://duckduckgo.com 2>/dev/null | head -n 1 | cut -d$' ' -f2`
+where...
+`2>/dev/null` redirects the stderr to oblivion
+`head -n 1` reads the top line only
+`cut -d$' ' -f2` separates the line by the divider (spacebar) and takes the 2nd field (which is the numerical HTTP response status code).
+
+
 ## Working remotely via SSH
 When working via SSH, a connection interruption can terminate your running scripts, lose your environment varaibles and lose your command history! D: There's a way to avoid this. Actually there's two: `screen` and `tmux` are two programs that allow you to run a terminal session remotely on a remote server which you can interact with from your own machine via SSH. So if you ever lose connection to the server, your terminal session is still running - you just have to log back into it. You can also run multiple independent terminal sessions on the same server this way.
 
 ### tmux<br/>(aka: terminal multiplexer)
 ```
+# "Ping" the server to check if it's reachable (it "pongs" back... get it?)
+ping <server>
 # ssh into the server
-ssh user@IP
+ssh <user>@<server>
 # Open a tmux session
 tmux
 # List existing sessions
@@ -186,5 +278,32 @@ ps -ef | grep badprocess | awk '{print $2}' | for f in `xargs $1`; do kill $f; d
 ### Parallel programming (sort of)
 Run parallel processes on a multi-core system using GNU parallel. Typically, High-Performance Computing clusters have multi-cores (think quad-quad-quad-core), but running your script on the HPC is not enough to exploit it. What if you could run your script multiple times across each of the cores?
 
+NUM_JOBS=16
+parallel -j=$NUM_JOBS --dry-run <script.sh>
+
+Remove dry-run to actually run the script ;) dry-run shows you what will happen without actually running any code - it's a good way to double-check the expected behaviour of your script before.
+
+
+
 ### Custom prompts
 You can customise your command prompt by changing the $PS1 variable.
+
+### Motivational cow
+If you need a little inspiration, let the `fortune` package brighten up your day! Even better, let an ASCII cow lighten up your day!
+
+```
+# Install the fortune and cowsay packages
+sudo apt-get install cowsay fortune
+# "Pipe" the output of fortune into the cowsay command
+fortune | cowthink
+
+ _______________________________
+/ Don't Worry, Be Happy.        \
+\                 -- Meher Baba /
+ -------------------------------
+        O   ^__^
+         o  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
