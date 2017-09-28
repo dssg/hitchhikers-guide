@@ -18,6 +18,10 @@
 
 * Before we start
 
+** The notes
+
+The code is located in:  [[http://bit.ly/2xBBQ5b][http://bit.ly/2xBBQ5b]]
+
 ** Test your connection
 
 If you are using =psql= use the following:
@@ -409,22 +413,26 @@ Number of violations in the last 3 inspections
 
 #+BEGIN_SRC sql
 
-select violation_comment, plainto_TSQUERY(violation_comment)::text, to_tsvector(violation_comment)  from cleaned.violations limit 1;
+
+  select
+         violation_comment as comment,
+         replace(plainto_tsquery(violation_comment)::text, ' & ', ' ') as cleaned_comment,
+         to_tsvector(violation_comment)
+  from cleaned.violations limit 1;
+
+#+END_SRC
 
 
-
+#+BEGIN_SRC sql
+with violations as (
 select
-    speaker
-    , regexp_split_to_table(lower(line), '\s+') as word
-    , count(1) as wc
-from
-    script_ferris_bueller
-group by
-    speaker
-    , word
-order by
-    3 desc
-LIMIT 10;
+inspection,
+license_num,
+jsonb_array_elements(violations) as violations
+from semantic.inspections
+), cleaned as (
+select inspection, license_num, violations ->> 'comment' as original_comment, replace(plainto_tsquery(violations ->> 'comment')::text, ' & ', ' ') as cleaned_comment, to_tsvector(violations ->> 'comment') from violations limit 10 )
+select regexp_split_to_table(cleaned_comment, '\s+') as word, count(1) as word_count from cleaned group by word order by word_count desc limit 50;
 #+END_SRC
 
 * Use the space
@@ -434,9 +442,9 @@ LIMIT 10;
 #+BEGIN_SRC sql
   select
           distinct on (license_num, facility, s.school_nm)
-          license_num, facility, s.school_nm
+          license_num, facility, s.school_nm as "school"
   from gis.public_schools as s join semantic.inspections as i
-  on ST_DWithin(geography(s.geom), geography(i.location), 200)
+       on ST_DWithin(geography(s.geom), geography(i.location), 200) -- This is the distance in meters
   where facility_type = 'RESTAURANT' and risk = 'High';
 #+END_SRC
 
