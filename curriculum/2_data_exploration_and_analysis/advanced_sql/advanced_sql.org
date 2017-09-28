@@ -15,21 +15,28 @@
 #+PROPERTY: header-args:ipython   :session food_inspections
 
 
-* TODOs [22%]
-  - [ ] Before start (Connect, create an schema with your name)
-  - [X] Add an Introduction: How an analytical project looks like? Why
-    is important? Is not basic SQL enough?
-  - [X] Explain the dataset
-  - [ ] Question 1
-  - [ ] Question 2
-  - [ ] Question 3
-  - [ ] Question 4
-  - [ ] Question 5
-  - [ ] Question 6
 
 * Before we start
 
-* Introduction
+** Test your connection
+
+If you are using =psql= use the following:
+
+#+BEGIN_EXAMPLE shell
+psql postgresql://attendee:dssg_conference_2017@advanced-sql.dssg.io:80/dssg_conference
+#+END_EXAMPLE
+
+If you are using a graphical client:
+
+#+BEGIN_EXAMPLE yaml
+  host: advanced-sql.dssg.io
+  port: 80
+  username: attendee
+  password: dssg_conference_2017
+  db: dssg_conference
+#+END_EXAMPLE
+
+* The punchline
 
 Databases are not only for *storage* they are for manipulating in an
 efficient way your data: Try to do the data manipulation near to where
@@ -62,7 +69,7 @@ in a given time at some place).
 We already prepared a partial "cleaning" of the data. That data is
 located in the =schema= =cleaned=.
 
-** Hands-on # 1
+** Hands-on
 
 Expected time: 2 minutes
 
@@ -72,7 +79,6 @@ Feel the data:
 - How many rows per table?
 - Any idea about how to join them?
 - Look at the inspection =2078651,= How many violations does it had?
-
 
 Let's move on, for most of the analytical purposes (related to data
 science) we need a consolidated view of the entities in our data,
@@ -85,12 +91,11 @@ we need a way of collapse those rows, without losing data.
 
 * Manipulating the data: JSON
 
-=PostgreSQL= supports collapsing several rows using [[https://www.postgresql.org/docs/9.3/static/functions-array.html][arrays]] o [[https://www.postgresql.org/docs/current/static/functions-json.html][JSON]].
+=PostgreSQL= supports collapsing several rows using [[https://www.postgresql.org/docs/9.3/static/functions-array.html][arrays]] or [[https://www.postgresql.org/docs/current/static/functions-json.html][JSON]].
 We will transform the rows of the =cleaned.violations= table into =json=
 and we will aggregate those into a =json array=.
 
 We will do this together using the functions  =row_to_json= and =json_agg.=
-
 
 #+BEGIN_SRC sql
   select
@@ -100,13 +105,6 @@ We will do this together using the functions  =row_to_json= and =json_agg.=
   from cleaned.violations as v
   where inspection  = '2078651'
 #+END_SRC
-
-#+RESULTS:
-:RESULTS:
-| violations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [{"inspection":"2078651","license_num":1477137,"date":"2017-08-18","violation_code":"12","violation_description":"HAND WASHING FACILITIES: WITH SOAP AND SANITARY HAND DRYING DEVICES, CONVENIENT AND ACCESSIBLE TO FOOD PREP AREA","violation_comment":"INADEQUATE TOILET FACILITIES ON SITE"}, {"inspection":"2078651","license_num":1477137,"date":"2017-08-18","violation_code":"41","violation_description":"PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED","violation_comment":"MUST ORGANIZE AND MAINTAIN THE STORAGE AREA BY THE FURNACE IN THE REAR PREP AREA, ORGANIZE BEHIND FRONT COUNTER"}, {"inspection":"2078651","license_num":1477137,"date":"2017-08-18","violation_code":"34","violation_description":"FLOORS: CONSTRUCTED PER CODE, CLEANED, GOOD REPAIR, COVING INSTALLED, DUST-LESS CLEANING METHODS USED","violation_comment":"CLEAN FLOORS UNDER AROUND AND BEHIND SHELVES, COUNTERS AND , FRONT COUNTER AREA, PREP AREA AND INSIDE OF THE WALK-IN COOLER"}, {"inspection":"2078651","license_num":1477137,"date":"2017-08-18","violation_code":"33","violation_description":"FOOD AND NON-FOOD CONTACT EQUIPMENT UTENSILS CLEAN, FREE OF ABRASIVE DETERGENTS","violation_comment":"OBSERVED THE STORAGE SHELVES NOT CLEAN IN DRY STORAGE AREA, AND IN REACH IN COOLERS, INSTRUCTED TO CLEAN"}, {"inspection":"2078651","license_num":1477137,"date":"2017-08-18","violation_code":"32","violation_description":"FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED","violation_comment":"OBSERVED INNER DOOR OF THE SODA MACHINE CRACKED GLASS, INSTRUCTED TO REPLACE"}, {"inspection":"2078651","license_num":1477137,"date":"2017-08-18","violation_code":"38","violation_description":"VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED","violation_comment":"TOILET ROOM VENTILATION IN POOR REPAIR"}, {"inspection":"2078651","license_num":1477137,"date":"2017-08-18","violation_code":"35","violation_description":"WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS","violation_comment":"WALLS AND CEILING IN STAFF TOILET ROOM IN POOR REPAIR, GAPS AND HOLES"}, {"inspection":"2078651","license_num":1477137,"date":"2017-08-18","violation_code":"22","violation_description":"DISH MACHINES: PROVIDED WITH ACCURATE THERMOMETERS, CHEMICAL TEST KITS AND SUITABLE GAUGE COCK","violation_comment":"NO CHEMICAL TEST KIT ON SITE FOR SANITIZER AT 3-COMPARTMENT SINK"}, {"inspection":"2078651","license_num":1477137,"date":"2017-08-18","violation_code":"3","violation_description":"POTENTIALLY HAZARDOUS FOOD MEETS TEMPERATURE REQUIREMENT DURING STORAGE, PREPARATION DISPLAY AND SERVICE","violation_comment":"POTENTIALLY HAZARDOUS FOOD AT IMPROPER TEMPERATURE"}, {"inspection":"2078651","license_num":1477137,"date":"2017-08-18","violation_code":"13","violation_description":"NO EVIDENCE OF RODENT OR INSECT INFESTATION, NO BIRDS, TURTLES OR OTHER ANIMALS","violation_comment":"LIVE CAT ON SITE, WALKING IN AISLES"}, {"inspection":"2078651","license_num":1477137,"date":"2017-08-18","violation_code":"18","violation_description":"NO EVIDENCE OF RODENT OR INSECT OUTER OPENINGS PROTECTED/RODENT PROOFED, A WRITTEN LOG SHALL BE MAINTAINED AVAILABLE TO THE INSPECTORS","violation_comment":"FRONT DOOR NOT RODENT PROOF, APPROX 1/2 INCH GAP AT TOP OF DOOR"}] |
-:END:
 
 We could improve the output using the function =json_build_object=, and
 a simple =group by=
@@ -123,31 +121,25 @@ a simple =group by=
           ) as violations
   from cleaned.violations as v
   where inspection  = '2078651'
-  group by v.inspection, v.license_num, v.date
+  group by v.inspection, v.license_num, v.date  -- We need a group by since we are using an aggregator function
 #+END_SRC
 
-#+RESULTS:
-:RESULTS:
-| inspection | license_num |       date | violations                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|------------+------------+------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    2078651 |    1477137 | 2017-08-18 | [{"code" : "12", "description" : "HAND WASHING FACILITIES: WITH SOAP AND SANITARY HAND DRYING DEVICES, CONVENIENT AND ACCESSIBLE TO FOOD PREP AREA", "comment" : "INADEQUATE TOILET FACILITIES ON SITE"}, {"code" : "41", "description" : "PREMISES MAINTAINED FREE OF LITTER, UNNECESSARY ARTICLES, CLEANING  EQUIPMENT PROPERLY STORED", "comment" : "MUST ORGANIZE AND MAINTAIN THE STORAGE AREA BY THE FURNACE IN THE REAR PREP AREA, ORGANIZE BEHIND FRONT COUNTER"}, {"code" : "34", "description" : "FLOORS: CONSTRUCTED PER CODE, CLEANED, GOOD REPAIR, COVING INSTALLED, DUST-LESS CLEANING METHODS USED", "comment" : "CLEAN FLOORS UNDER AROUND AND BEHIND SHELVES, COUNTERS AND , FRONT COUNTER AREA, PREP AREA AND INSIDE OF THE WALK-IN COOLER"}, {"code" : "33", "description" : "FOOD AND NON-FOOD CONTACT EQUIPMENT UTENSILS CLEAN, FREE OF ABRASIVE DETERGENTS", "comment" : "OBSERVED THE STORAGE SHELVES NOT CLEAN IN DRY STORAGE AREA, AND IN REACH IN COOLERS, INSTRUCTED TO CLEAN"}, {"code" : "32", "description" : "FOOD AND NON-FOOD CONTACT SURFACES PROPERLY DESIGNED, CONSTRUCTED AND MAINTAINED", "comment" : "OBSERVED INNER DOOR OF THE SODA MACHINE CRACKED GLASS, INSTRUCTED TO REPLACE"}, {"code" : "38", "description" : "VENTILATION: ROOMS AND EQUIPMENT VENTED AS REQUIRED: PLUMBING: INSTALLED AND MAINTAINED", "comment" : "TOILET ROOM VENTILATION IN POOR REPAIR"}, {"code" : "35", "description" : "WALLS, CEILINGS, ATTACHED EQUIPMENT CONSTRUCTED PER CODE: GOOD REPAIR, SURFACES CLEAN AND DUST-LESS CLEANING METHODS", "comment" : "WALLS AND CEILING IN STAFF TOILET ROOM IN POOR REPAIR, GAPS AND HOLES"}, {"code" : "22", "description" : "DISH MACHINES: PROVIDED WITH ACCURATE THERMOMETERS, CHEMICAL TEST KITS AND SUITABLE GAUGE COCK", "comment" : "NO CHEMICAL TEST KIT ON SITE FOR SANITIZER AT 3-COMPARTMENT SINK"}, {"code" : "3", "description" : "POTENTIALLY HAZARDOUS FOOD MEETS TEMPERATURE REQUIREMENT DURING STORAGE, PREPARATION DISPLAY AND SERVICE", "comment" : "POTENTIALLY HAZARDOUS FOOD AT IMPROPER TEMPERATURE"}, {"code" : "13", "description" : "NO EVIDENCE OF RODENT OR INSECT INFESTATION, NO BIRDS, TURTLES OR OTHER ANIMALS", "comment" : "LIVE CAT ON SITE, WALKING IN AISLES"}, {"code" : "18", "description" : "NO EVIDENCE OF RODENT OR INSECT OUTER OPENINGS PROTECTED/RODENT PROOFED, A WRITTEN LOG SHALL BE MAINTAINED AVAILABLE TO THE INSPECTORS", "comment" : "FRONT DOOR NOT RODENT PROOF, APPROX 1/2 INCH GAP AT TOP OF DOOR"}] |
-:END:
-
-** Hands-on 2
+** Hands-on
  Estimated time: 1 minute
  Manipulate the previous query statement
  and try to join it with the inspections (You should get
  only one row)
 
 
-* Cleaning your code and gaining a little speed: CTEs
+* Cleaning your code and (maybe) gaining a little speed: CTEs
 
 It is very probable that you use a sub-query in you previous hands-on.
 
-There are a better way of doing it, actually and is using [[https://www.postgresql.org/docs/current/static/queries-with.html][Common Table Expressions (CTEs)]]
+There are a better way of doing it, and is using [[https://www.postgresql.org/docs/current/static/queries-with.html][Common Table Expressions (CTEs)]]
 also know as /WITH queries/.
 
-This will improve your readability and in some cases speed improvements
+This will improve your readability (be nice wih the future you!) and in some cases speed
+improvements
 
 #+BEGIN_SRC sql
   -- You first define your subquery and assign a name to it
@@ -182,18 +174,16 @@ separate them by colons. We will show you more examples later in this workshop.
 We created for you the table =semantic.inspections=, and is very similar
 to the results of your last hands-on.
 
-** Hands-on: Querying json
-   Estimated time: 2 minutes
-   We first need to transform the array of =json= objects into rows, and
-   then use the operator =->>= for retrieving the value of the specified
-   key.
+We first need to transform the array of =json= objects into rows (using =jsonb_array_elements=, and
+then use the operator =->>= for retrieving the value of the specified
+key.
 
 #+BEGIN_SRC sql
 
   with violations as (
        select
           inspection,
-          jsonb_array_elements(violations) as violations
+          jsonb_array_elements(violations) as violations -- This returns several rows
        from semantic.inspections
        where inspection = '104246'
   )
@@ -206,30 +196,21 @@ to the results of your last hands-on.
 
 #+END_SRC
 
-#+RESULTS:
-:RESULTS:
-| inspection | violation_code | count |
-|------------+---------------+-------|
-|     104246 |            35 |     2 |
-|     104246 |            31 |     1 |
-|     104246 |            36 |     1 |
-|     104246 |            30 |     1 |
-|     104246 |            32 |     1 |
-|     104246 |            34 |     1 |
-|     104246 |            38 |     1 |
-|     104246 |            40 |     1 |
-:END:
-
-Modify this query to get the facility (using =license_num=) who found the biggest number
-of violation code 40.
+** Hands-on
+   Estimated time: 2 minutes
+   Modify this query to get the facility (using =license_num=) in which the
+   inspectors found the biggest number of violation code 40.
 
 
+* "Datawarehousing"
 
-* Question 4
+Generate data for a BI dashboard, that shows all total number of
+inspections, and their results,
+per city, facility type, month, year including totals and subtotals
 
-- Generate data for a BI dashboard, that shows all total number of
-  inspections, and their results,
-  per city, facility type, month, year including totals and subtotals
+** Hands-on
+   Estimated time: 2 minutes
+   How to solve this using basic sql?
 
 ** Datawarehousing functions
 
@@ -253,126 +234,41 @@ hierarchy (=ROLLUP=) and combinations (=CUBE=) in a simple query.
   --group by GROUPING SETS (month, year, city, facility_type, results, ())
   --group by ROLLUP (month, year, city, facility_type, results)
   --group by CUBE (month, year, city, facility_type, results)
-  --order by month asc, year asc, facility_type, results
 #+END_SRC
-
-#+RESULTS:
-:RESULTS:
-| month | year | city     | facility_type                    | results            | number_of_inspections |
-|-------+------+----------+---------------------------------+--------------------+---------------------|
-|     1 | 2017 | CCHICAGO | Grocery Store                   | Pass               |                   1 |
-|     1 | 2017 | CHICAGO  | Bakery                          | Fail               |                   4 |
-|     1 | 2017 | CHICAGO  | Bakery                          | Pass               |                   6 |
-|     1 | 2017 | CHICAGO  | Bakery                          | Pass w/ Conditions |                   2 |
-|     1 | 2017 | CHICAGO  | BANQUET HALL                    | Pass               |                   1 |
-|     1 | 2017 | CHICAGO  | BREWERY                         | Fail               |                   2 |
-|     1 | 2017 | CHICAGO  | BREWERY                         | Pass               |                   3 |
-|     1 | 2017 | CHICAGO  | Catering                        | Fail               |                   1 |
-|     1 | 2017 | CHICAGO  | Catering                        | Pass               |                   1 |
-|     1 | 2017 | CHICAGO  | CHARTER SCHOOL CAFETERIA        | Fail               |                   1 |
-|     1 | 2017 | CHICAGO  | CHARTER SCHOOL CAFETERIA        | Pass               |                   1 |
-|     1 | 2017 | CHICAGO  | Children's Services Facility    | Fail               |                   6 |
-|     1 | 2017 | CHICAGO  | Children's Services Facility    | Pass               |                  18 |
-|     1 | 2017 | CHICAGO  | Children's Services Facility    | Pass w/ Conditions |                   4 |
-|     1 | 2017 | CHICAGO  | cooking school                  | Pass               |                   1 |
-|     1 | 2017 | CHICAGO  | COOKING SCHOOL                  | Fail               |                   1 |
-|     1 | 2017 | CHICAGO  | DAYCARE                         | Pass               |                   1 |
-|     1 | 2017 | CHICAGO  | Daycare (2 - 6 Years)           | Pass               |                  10 |
-|     1 | 2017 | CHICAGO  | Daycare Above and Under 2 Years | Fail               |                   1 |
-|     1 | 2017 | CHICAGO  | Daycare Above and Under 2 Years | Pass               |                   4 |
-|     1 | 2017 | CHICAGO  | Daycare Combo 1586              | Fail               |                   1 |
-|     1 | 2017 | CHICAGO  | Daycare Combo 1586              | Pass               |                   1 |
-|     1 | 2017 | CHICAGO  | Golden Diner                    | Pass               |                   1 |
-|     1 | 2017 | CHICAGO  | Grocery Store                   | Fail               |                  26 |
-|     1 | 2017 | CHICAGO  | Grocery Store                   | Pass               |                  78 |
-|     1 | 2017 | CHICAGO  | Grocery Store                   | Pass w/ Conditions |                  16 |
-|     1 | 2017 | CHICAGO  | Hospital                        | Fail               |                   1 |
-|     1 | 2017 | CHICAGO  | Hospital                        | Pass               |                   5 |
-|     1 | 2017 | CHICAGO  | HOT DOG STATION                 | Pass w/ Conditions |                   1 |
-|     1 | 2017 | CHICAGO  | JUICE BAR                       | Pass w/ Conditions |                   1 |
-|     1 | 2017 | CHICAGO  | Liquor                          | Fail               |                   1 |
-|     1 | 2017 | CHICAGO  | Liquor                          | Pass               |                   4 |
-|     1 | 2017 | CHICAGO  | Long Term Care                  | Fail               |                   5 |
-|     1 | 2017 | CHICAGO  | Long Term Care                  | Pass               |                   8 |
-|     1 | 2017 | CHICAGO  | Long Term Care                  | Pass w/ Conditions |                   2 |
-|     1 | 2017 | CHICAGO  | Mobile Food Dispenser           | Fail               |                   1 |
-|     1 | 2017 | CHICAGO  | Mobile Food Dispenser           | Pass               |                   3 |
-|     1 | 2017 | CHICAGO  | Mobile Food Preparer            | Fail               |                   3 |
-|     1 | 2017 | CHICAGO  | Mobile Prepared Food Vendor     | Pass               |                  15 |
-|     1 | 2017 | CHICAGO  | PRE PACKAGED                    | Fail               |                   1 |
-|     1 | 2017 | CHICAGO  | PRE PACKAGED                    | Pass               |                   2 |
-|     1 | 2017 | CHICAGO  | Private School                  | Pass               |                   1 |
-|     1 | 2017 | CHICAGO  | Restaurant                      | Fail               |                 218 |
-|     1 | 2017 | CHICAGO  | Restaurant                      | Pass               |                 728 |
-|     1 | 2017 | CHICAGO  | Restaurant                      | Pass w/ Conditions |                 158 |
-|     1 | 2017 | CHICAGO  | Restaurant(protein shake bar)   | Pass               |                   1 |
-|     1 | 2017 | CHICAGO  | School                          | Fail               |                  50 |
-|     1 | 2017 | CHICAGO  | School                          | Pass               |                 140 |
-|     1 | 2017 | CHICAGO  | School                          | Pass w/ Conditions |                  13 |
-|     1 | 2017 | CHICAGO  | Shared Kitchen                  | Pass               |                   1 |
-|     1 | 2017 | CHICAGO  | WEIGHT LOSS PROGRAM             | Pass               |                   1 |
-|     1 | 2017 | CHICAGO  | [NULL]                          | Pass               |                   1 |
-|     1 | 2017 | EVANSTON | Mobile Food Preparer            | Fail               |                   2 |
-|     1 | 2017 | EVANSTON | Mobile Food Preparer            | Pass               |                   1 |
-:END:
 
 ** Hands-on
    Estimated time: 5 minutes
-   - First, play with the different commented lines in the example query
-   - Modify the example query, using the version with =ROLLUP=, wrap it
-     in a =CTE= and query the total of inspections per city.
+   - Play with the different commented lines in the example query, if
+     you only one the subtotal per =facility_type= and =city=, Which one
+     you should use?
 
 
-
-#+BEGIN_SRC sql
-  with rollup_table as (
-  select
-          month,
-          year,
-          city,
-          facility_type,
-          results,
-          count(*) as number_of_inspections
-  from semantic.inspections
-  where year = 2017 and month = 1
-  --group by month, year, city, facility_type, results
-  --group by GROUPING SETS (month, year, city, facility_type, results, ())
-  group by ROLLUP (month, year, city, facility_type, results)
-  --group by CUBE (month, year, city, facility_type, results)
-  --order by month asc, year asc, facility_type, results
-  )
-
-  select *
-  from rollup_table
-  where
-  month is not null
-  and  year is not null
-  and  city is not null
-  and facility_type is null
-  and results is null;
-#+END_SRC
-
-#+RESULTS:
-:RESULTS:
-| month | year | city     | facility_type | results | number_of_inspections |
-|-------+------+----------+--------------+---------+---------------------|
-|     1 | 2017 | CCHICAGO | [NULL]       | [NULL]  |                   1 |
-|     1 | 2017 | CHICAGO  | [NULL]       | [NULL]  |                   1 |
-|     1 | 2017 | CHICAGO  | [NULL]       | [NULL]  |                1556 |
-|     1 | 2017 | EVANSTON | [NULL]       | [NULL]  |                   3 |
-:END:
-
-
-* Question 1
+* Analytical Questions: Looking thorough the window
 
 How do each facility' number of inspections compares to others in
-their facility type?
+their facility type? Total of inspections? Average of inspections?
+Distance to the top? Distance from the average? How percentage of
+inspections where used in a particular facility?
 
 ** Hands-on:
-   Estimated time: 1 minute
+   Estimated time: 5 minutes
    Try to solve this by yourself using only =SELECT=, =GROUP BY=, =HAVING=, =WHERE=
 
-** Hands-on:
+
+* Analytical Questions: Looking thorough the window
+
+
+** Window functions
+
+ - They are similar to aggregate functions, but instead of operating on
+   groups of rows to produce a single row, they act on rows related to
+   the current row to produce the same amount of rows.
+ - There are several [[https://www.postgresql.org/docs/current/static/functions-window.html][window functions]]
+   like =row_number=, =rank=, =ntile=, =lag=, =lead=, =first_value=, =last_value=,
+   =nth_value=.
+ - And you can use any aggregation functions: =sum=, =count=, =avg=, etc
+ - Those functions are used in [[https://www.postgresql.org/docs/current/static/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS][window function calls]].
+
 
 #+BEGIN_SRC sql
 
@@ -383,18 +279,6 @@ their facility type?
           facility_type,
           year,
           count(*) as inspections
-          --,
-          -- sum(case results
-          --   when 'Fail'
-          --   then 1
-          --   else 0
-          --   end) as failures,
-          -- sum(case results
-          --   when 'Pass'
-          --   then 1
-          --   else 0
-          --   end) as passes
-
   from semantic.inspections
   where year = 2015 and facility_type is not null
   group by license_num, facility, facility_type, year
@@ -403,9 +287,12 @@ their facility type?
   select
           year,license_num,facility,facility_type,
           inspections,
-          sum(inspections) over w1 as inspections_per_type,
-          (avg(inspections) over w1)::numeric(18,3) as avg_inspections_per_type,
-          first_value(inspections) over w2 as max_inspections_per_type,
+          sum(inspections) over w1 as "total inspections per type",
+          100*(inspections::decimal/sum(inspections) over w1)::numeric(18,1)  as "% of inspections",
+          (avg(inspections) over w1)::numeric(18,3) as "avg inspections per type",
+          inspections - avg(inspections) over w1 as "distance from avg",
+          first_value(inspections) over w2 as "max inspections per type",
+          inspections - first_value(inspections) over w2 as "distance from top 1",
           dense_rank() over w2 as rank,
           (nth_value(inspections,1) over w3 / inspections::decimal)::numeric(18,1) as "rate to top 1",
           ntile(5) over w2 as ntile
@@ -419,21 +306,8 @@ their facility type?
   limit 10;
 #+END_SRC
 
-#+RESULTS:
-:RESULTS:
-| year | license_num | facility                     | facility_type | inspections | inspections_per_type | avg_inspections_per_type | max_inspections_per_type | rank | rate to top 1 | ntile |
-|------+------------+------------------------------+--------------+-------------+--------------------+-----------------------+-----------------------+------+---------------+-------|
-| 2015 |    2342341 | RAW                          | Wholesale    |           3 |                 10 |                 1.429 |                     3 |    1 |           1.0 |     1 |
-| 2015 |    2008956 | PARK PACKING OF CHICAGO, INC | Wholesale    |           2 |                 10 |                 1.429 |                     3 |    2 |           1.5 |     1 |
-| 2015 |       7722 | TORTILLERIA ATOTONILCO, INC  | Wholesale    |           1 |                 10 |                 1.429 |                     3 |    3 |           3.0 |     2 |
-| 2015 |    2124429 | EL POPOCATEPETL IND INC      | Wholesale    |           1 |                 10 |                 1.429 |                     3 |    3 |           3.0 |     2 |
-| 2015 |    1490343 | A-Z SALES INC.               | Wholesale    |           1 |                 10 |                 1.429 |                     3 |    3 |           3.0 |     3 |
-| 2015 |       6604 | SABINAS FOOD PRODUCTS INC    | Wholesale    |           1 |                 10 |                 1.429 |                     3 |    3 |           3.0 |     4 |
-| 2015 |    2196789 | MILK & HONEY GRANOLA         | Wholesale    |           1 |                 10 |                 1.429 |                     3 |    3 |           3.0 |     5 |
-:END:
 
-
-* Question 2
+* Analytical Questions: Get another previous row
 
 At a given date, number of days since the last inspection?
 
@@ -444,33 +318,13 @@ At a given date, number of days since the last inspection?
           facility,
           date as inspection_date,
           lag(date, 1) over w1 as previous_inspection,
-          age(date, lag(date,1) over w1)
+          age(date, lag(date,1) over w1) as time_since_last_inspection
           from semantic.inspections
           where facility = 'RAW'
           window w1 as (partition by license_num order by date asc)
 #+END_SRC
 
-#+RESULTS:
-:RESULTS:
-| license_num | facility | inspection_date | previous_inspection | age                   |
-|------------+----------+----------------+--------------------+-----------------------|
-|    1997766 | RAW      |     2010-09-28 |             [NULL] | [NULL]                |
-|    1997766 | RAW      |     2012-01-06 |         2010-09-28 | 1 year 3 mons 8 days  |
-|    1997766 | RAW      |     2013-05-01 |         2012-01-06 | 1 year 3 mons 26 days |
-|    1997766 | RAW      |     2014-08-20 |         2013-05-01 | 1 year 3 mons 19 days |
-|    1997766 | RAW      |     2014-08-21 |         2014-08-20 | 1 day                 |
-|    1997766 | RAW      |     2015-02-19 |         2014-08-21 | 5 mons 29 days        |
-|    1997766 | RAW      |     2016-12-02 |         2015-02-19 | 1 year 9 mons 11 days |
-|    2192615 | RAW      |     2013-08-28 |             [NULL] | [NULL]                |
-|    2192615 | RAW      |     2014-10-09 |         2013-08-28 | 1 year 1 mon 12 days  |
-|    2192615 | RAW      |     2015-12-04 |         2014-10-09 | 1 year 1 mon 26 days  |
-|    2192615 | RAW      |     2015-12-11 |         2015-12-04 | 7 days                |
-|    2192615 | RAW      |     2016-10-19 |         2015-12-11 | 10 mons 8 days        |
-|    2342341 | RAW      |     2015-01-23 |             [NULL] | [NULL]                |
-|    2342341 | RAW      |     2015-02-03 |         2015-01-23 | 11 days               |
-|    2342341 | RAW      |     2015-02-06 |         2015-02-03 | 3 days                |
-|    2342341 | RAW      |     2016-02-18 |         2015-02-06 | 1 year 12 days        |
-:END:
+* Analytical Questions: Using some rows
 
 Number of violations in the last 3 inspections
 
@@ -507,43 +361,11 @@ Number of violations in the last 3 inspections
 
 #+END_SRC
 
-#+RESULTS:
-:RESULTS:
-| license_num |       date | num_of_violations |    sum | previous_violations |
-|------------+------------+-----------------+--------+--------------------|
-|    1646652 | 2010-01-14 |               9 | [NULL] | [NULL]             |
-|    1646652 | 2010-05-24 |               4 |      9 | {9}                |
-|    1646652 | 2010-05-28 |               1 |     13 | {9,4}              |
-|    1646652 | 2011-11-21 |               4 |     14 | {9,4,1}            |
-|    1646652 | 2012-09-27 |               9 |      9 | {4,1,4}            |
-|    1646652 | 2013-08-28 |               8 |     14 | {1,4,9}            |
-|    1646652 | 2013-09-23 |               7 |     21 | {4,9,8}            |
-|    1646652 | 2014-03-27 |               3 |     24 | {9,8,7}            |
-|    1646652 | 2014-04-10 |              10 |     18 | {8,7,3}            |
-|    1646652 | 2015-02-04 |               6 |     20 | {7,3,10}           |
-|    1646652 | 2016-02-04 |               8 |     19 | {3,10,6}           |
-|    1646652 | 2016-02-11 |               7 |     24 | {10,6,8}           |
-|    1646652 | 2017-01-12 |               4 |     21 | {6,8,7}            |
-:END:
-
-
-** Window functions
-
- - They are similar to aggregate functions, but instead of operating on
-   groups of rows to produce a single row, they act on rows related to
-   the current row to produce the same amount of rows.
- - There are several [[https://www.postgresql.org/docs/current/static/functions-window.html][window functions]]
-   like =row_number=, =rank=, =ntile=, =lag=, =lead=, =first_value=, =last_value=,
-   =nth_value=.
- - And you can use any aggregation functions: =sum=, =count=, =avg=, etc
- - Those functions are used in [[https://www.postgresql.org/docs/current/static/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS][window function calls]].
-
-
-
-* Question 3
-
-- Which are the facilities with more changes in the =risk= column
-  (i.e. lower -> medium, medium -> high, high -> medium)?
+** Hands on
+  Estimated time: 5 minutes
+  - Which are the facilities with more changes in the =risk= column
+    (i.e. lower -> medium, medium -> high, high -> medium)? Could you
+    count how to many changes where "up" and how many where "down"?
 
 
 #+BEGIN_SRC sql
@@ -578,24 +400,8 @@ Number of violations in the last 3 inspections
   limit 10
 #+END_SRC
 
-#+RESULTS:
-:RESULTS:
-| year | license_num | up | down |
-|------+------------+----+------|
-| 2010 |    1354323 |  7 |    7 |
-| 2010 |      14616 |  5 |    5 |
-| 2010 |    1574001 |  2 |    2 |
-| 2010 |    2013828 |  1 |    1 |
-| 2010 |      23081 |  1 |    1 |
-| 2010 |    1932257 |  1 |    1 |
-| 2010 |      51011 |  1 |    1 |
-| 2010 |    1932251 |  1 |    1 |
-| 2010 |    1120537 |  1 |    0 |
-| 2010 |    2073687 |  1 |    0 |
-:END:
 
-
-* Question 5
+* Meaning in text
 
 - Which are the most common words descriptions of the violations?
 
@@ -603,7 +409,7 @@ Number of violations in the last 3 inspections
 
 #+BEGIN_SRC sql
 
- select violation_comment, replace(replace(plainto_TSQUERY(violation_comment)::text, ' & '), ' '), to_tsvector(violation_comment)  from cleaned.violations limit 1;
+select violation_comment, plainto_TSQUERY(violation_comment)::text, to_tsvector(violation_comment)  from cleaned.violations limit 1;
 
 
 
@@ -621,23 +427,42 @@ order by
 LIMIT 10;
 #+END_SRC
 
+* Use the space
 
-
-* Question 6
-
-- Generate a list with the top 5 facilities with the higher number of major
-  violations which are near to public schools
 - Which restaurants with high risk are located near to public schools?
+
+#+BEGIN_SRC sql
+  select
+          distinct on (license_num, facility, s.school_nm)
+          license_num, facility, s.school_nm
+  from gis.public_schools as s join semantic.inspections as i
+  on ST_DWithin(geography(s.geom), geography(i.location), 200)
+  where facility_type = 'RESTAURANT' and risk = 'High';
+#+END_SRC
+
+* Hands-on
+  Estimated time: 5 min
+  - There is another table: =gis.boundaries=, use the function
+    =ST_Contains= to calculate the number of facilities per zip code?
+    Compare that with the count using =zip_code= column in the
+    =semantic.inspections=
+    *Hint*: Use a CTE...
+
+* Hands-on
+  Estimated time: 10min
+  - Generate a list with the top 5 facilities with the higher number of
+    violations which are near to public schools
+
 
 ** Spatial queries
 
 
-
-
-
 * Appendix
 
+** Creating the database
+
 #+BEGIN_SRC sql
+     create schema if not exists cleaned ;
      drop table if exists cleaned.inspections cascade;
 
      create table cleaned.inspections as (
@@ -664,13 +489,14 @@ LIMIT 10;
      extract(week from date) as week_of_year,
      extract(quarter from date) as quarter,
      ST_SetSRID(ST_MakePoint(longitude, latitude),4326) as location
-     from inspections
+     from raw.inspections
      where results in ('Fail', 'Pass', 'Pass w/ Conditions') and license_num is not null
      )
 
 #+END_SRC
 
 #+BEGIN_SRC sql
+  create schema if not exists cleaned ;
   drop table if exists cleaned.violations cascade;
 
   create table cleaned.violations as (
@@ -689,7 +515,7 @@ LIMIT 10;
   regexp_split_to_array(
   regexp_split_to_table(coalesce(violations, '.- Comments:'), '\|'),   -- We don't want to loose inspections
   '\.|- Comments:') as tuple
-  from inspections
+  from raw.inspections
   where results in ('Fail', 'Pass', 'Pass w/ Conditions') and license_num is not null
   ) as t
   )
@@ -712,35 +538,45 @@ LIMIT 10;
 #+END_SRC
 
 #+BEGIN_SRC sql
-create table semantic.inspections as (  -- You first define your subquery and assign a name to it
-  -- This will work as a "common table"
-  with violations as (
-       select
-          v.inspection,
-          v.license_num,
-          v.date,
-          json_strip_nulls(json_agg(
-                  json_build_object('code',v.violation_code,
-                                    'description', v.violation_description,
-                                    'comment',v.violation_comment)
-          )) as violations
-        from cleaned.violations as v
-        group by v.inspection, v.license_num, v.date
-  )
-  -- Then you can use it
-  select i.*, v.violations
-  from cleaned.inspections as i
-  left join violations as v -- Here we are using the "common table"
-  using (inspection));
+  create table semantic.inspections as (  -- You first define your subquery and assign a name to it
+    -- This will work as a "common table"
+    with violations as (
+         select
+            v.inspection,
+            v.license_num,
+            v.date,
+            json_strip_nulls(json_agg(
+                    json_build_object('code',v.violation_code,
+                                      'description', v.violation_description,
+                                      'comment',v.violation_comment)
+            )) as violations
+          from cleaned.violations as v
+          group by v.inspection, v.license_num, v.date
+    )
+    -- Then you can use it
+    select i.*, v.violations
+    from cleaned.inspections as i
+    left join violations as v -- Here we are using the "common table"
+    using (inspection));
+
+  alter table semantic.inspections alter column violations type jsonb;
+
+  create index semantc_inspections_inspection_idx on semantic.inspections (inspection);
+  create index semantc_inspections_license_idx on semantic.inspections (license_num);
+  create index semantc_inspections_facility_type_idx on semantic.inspections (facility_type);
+  create index semantc_inspections_date_idx on semantic.inspections (date);
+  create index semantc_inspections_violations_idx on semantic.inspections using gin(violations);
 
 
-create index semantc_inspections_inspection_idx on semantic.inspections (inspection);
-create index semantc_inspections_license_idx on semantic.inspections (license_num);
-create index semantc_inspections_facility_type_idx on semantic.inspections (facility_type);
-create index semantc_inspections_date_idx on semantic.inspections (date);
-create index semantc_inspections_violations_idx on semantic.inspections using gin(violations);
+  CREATE INDEX semantic_inspections_location_idx ON semantic.inspections  USING GIST (geography(location));
+  CREATE INDEX gis_boundaries_geom_idx ON gis.boundaries  USING GIST (geography(geom));
+  CREATE INDEX gis_public_schools_geom_idx ON gis.public_schools  USING GIST (geography(geom));
+
 #+END_SRC
 
+#+BEGIN_SRC shell
+
+#+END_SRC
 
 
 #+BEGIN_SRC sql
@@ -758,6 +594,20 @@ create index semantc_inspections_violations_idx on semantic.inspections using gi
   order by count(*) desc
   limit 5
 #+END_SRC
+
+          --,
+          -- sum(case results
+          --   when 'Fail'
+          --   then 1
+          --   else 0
+          --   end) as failures,
+          -- sum(case results
+          --   when 'Pass'
+          --   then 1
+          --   else 0
+          --   end) as passes
+
+
 
 #+RESULTS:
 :RESULTS:
