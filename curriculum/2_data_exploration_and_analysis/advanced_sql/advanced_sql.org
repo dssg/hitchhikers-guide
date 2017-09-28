@@ -430,7 +430,7 @@ Which are the most common words descriptions of the violations?
 
 ** Full Text Search
 
-PostgreSQL' has a lot of capabilities for working with text data
+PostgreSQL' has a lot of capabilities for working with [[https://www.postgresql.org/docs/current/static/textsearch.html][text data]]
 (/fuzzy search/, /n-grams/, etc) that you can use for /searching inside/
 the text.
 
@@ -479,7 +479,7 @@ Which restaurants with high risk are located near to public schools?
 
 ** Spatial queries
 
-PostgresSQL allows you to do *Spatial Joins*, i.e. use geographical data
+PostgresSQL has an extension called [[http://postgis.net/][PosGIS]], that allows you to do *Spatial Joins*, i.e. use geographical data
 to answer questions as /What is near?/ /What is inside this area?/ /What intersects or connect with this?/
 
 * Hands-on
