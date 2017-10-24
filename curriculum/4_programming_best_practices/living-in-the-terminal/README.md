@@ -29,6 +29,7 @@ $ man rename
 This is helpful when you're not too confident about what your command will do.  
 ... use `/<keyword>` to search for `<keyword>` in the manual.  
 
+## Command Line 101
 ### Mind the command
 The first rule of command line is "be careful what you wish for". The computer will do exactly what you say, but human's may have trouble speaking the computer's language. This can be dangerous when you're running commands like `rm` (remove), or `mv` (move, also used for renaming files). You can "echo" your commands to just print the command text without actually running the command. This can save your files and sometimes even your jorb! (Tip! Don't delete all your data with a misplaced `mv`)  
 
@@ -65,7 +66,7 @@ Note the use of the escape character `\` to signal that we intend to use the spa
 `find -name "<lost_file_name>" -type f` finds files by name  
 `find -name "<lost_dir_name>" -type d` finds directories by name  
 
-## Renaming files
+### Renaming files
 Rename files with `rename`. For example, to replace all space bars with underscores:  
 `rename 's/ /_/g' space\ bars\ .txt`  
 
