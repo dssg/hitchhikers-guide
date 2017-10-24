@@ -49,11 +49,11 @@ Note the use of the escape character `\` to signal that we intend to use the spa
 `cd ~/` goes to the home directory  
 
 ### What's in my folder?
-`ls` lists the contents in your current dictory.
-`ls -l` "long listing" format (`-l`) shows the filesize, date of last change, and file permissions
-`tree` lists the contents of the current directory and all sub-directories as a tree structure (great for peeking into folder structures!)
-`tree -L 2` limits the tree expansion to 2 levels
-`tree -hs` shows file sizes (`-s`) in human-readable format (`-h`)
+`ls` lists the contents in your current dictory.  
+`ls -l` "long listing" format (`-l`) shows the filesize, date of last change, and file permissions  
+`tree` lists the contents of the current directory and all sub-directories as a tree structure (great for peeking into folder structures!)  
+`tree -L 2` limits the tree expansion to 2 levels  
+`tree -hs` shows file sizes (`-s`) in human-readable format (`-h`)  
 
 ### What's in my file?  
 `head -n10 $f` shows the "head" of the file, in this case the top 10 lines  
