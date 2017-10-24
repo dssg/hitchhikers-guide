@@ -73,7 +73,9 @@ Rename files with `rename`. For example, to replace all space bars with undersco
 This command substitutes (`s`) space bars (`/ /`) for underscores (`/_/`) in the entire file name (globally, `g`). (The 3 slashes can be replaced by any sequence of 3 characters, so `'s# #_#g'` would also work and can sometimes be more legible, for example when you need to escape a special character with a backslash.)  
 
 You can replace multiple characters at a time by using a simple logical OR "regular expression" (`|`) such as [ |?] which will replace every space bar or question mark.    
-`rename 's/[ |?|#|@|$|%]/_/g' space\ bars?.txt`
+`rename 's/[ |?]/_/g' space\ bars?.txt`
+
+(The file will be renamed to `space_bars_.txt`)
 
 ### Caveats for git users
 Moving files around on your computer can confuse git. If you are git-tracking a file, make sure to use the following alternatives so git knows what's going on.
