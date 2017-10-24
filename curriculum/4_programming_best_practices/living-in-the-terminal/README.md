@@ -5,14 +5,14 @@
 
 Terminal land is vast and may appear nebulous to the unseasoned scripter. Where do we start? Let search engines light the way, and manual pages hold your hand.  
 
-The UNIX operating system Adding "bash" or "in terminal" to search terms like "replace whitespaces" or "filesize" will point you in the right direction.
+Adding "bash" or "in terminal" to search terms like "replace whitespaces" or "filesize" will point you in the right direction.
 
 "My internet is down!"  
 man pages are stored on your computer, so you can reference the documentation even when you are outside the internet!  
 
 For example...  
 Search: "replace whitespaces in filename in bash"  
-Tip! The search engine DuckDuckGo returns StackOverflow answers as the first-hit-preview ;)  
+Tip! The search engine [DuckDuckGo](https://duckduckgo.com/) returns StackOverflow answers as the first-hit-preview ;)  
 ```
 find -name "* *" -type d | rename 's/ /_/g'
 find -name "* *" -type f | rename 's/ /_/g'
@@ -207,10 +207,12 @@ ps -ef | grep badprocess | awk '{print $2}' | for f in `xargs $1`; do kill $f; d
 ### Parallel programming (sort of)
 Run parallel processes on a multi-core system using GNU parallel. Typically, High-Performance Computing clusters have multi-cores (think quad-quad-quad-core), but running your script on the HPC is not enough to exploit it. What if you could run your script multiple times across each of the cores?
 
+```
 NUM_JOBS=16
 parallel -j=$NUM_JOBS --dry-run <script.sh>
+```
 
-Remove dry-run to actually run the script ;) dry-run shows you what will happen without actually running any code - it's a good way to double-check the expected behaviour of your script before.
+Remove `--dry-run` to actually run the script ;) dry-run shows you what will happen without actually running any code - it's a good way to double-check the expected behaviour of your script before.
 
 
 
