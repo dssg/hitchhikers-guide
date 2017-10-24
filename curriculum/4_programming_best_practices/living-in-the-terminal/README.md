@@ -77,6 +77,10 @@ You can replace multiple characters at a time by using a simple logical OR "regu
 
 (The file will be renamed to `space_bars_.txt`)
 
+Bonus points:  
+`rename 'y/A-Z/a-z/'` renames files to all-lowercase
+`rename 'y/a-z/A-Z/'` renames files to all-uppercase
+
 ### Caveats for git users
 Moving files around on your computer can confuse git. If you are git-tracking a file, make sure to use the following alternatives so git knows what's going on.
 
@@ -126,6 +130,7 @@ $ echo {0..9..2}
 $ echo happy_birthday.{wav,mp3,flac}
 > happy_birthday.wav happy_birthday.mp3 happy_birthday.flac
 ```
+
 
 ## Functions
 We can write functions in shell scripts as well!
