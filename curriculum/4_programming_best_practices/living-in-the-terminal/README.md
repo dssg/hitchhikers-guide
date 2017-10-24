@@ -29,39 +29,56 @@ $ man rename
 This is helpful when you're not too confident about what your command will do.  
 ... use `/<keyword>` to search for `<keyword>` in the manual.  
 
-In fact, the first rule of command line is "be careful what you wish for". The computer will do exactly what you say, but human's may have trouble speaking the computer's language. This can be dangerous when youre running commands like `rm` (remove), or `mv` (move, also used for renaming files). You can "echo" your commands to just print the command text without actually running the command. This can save your files and sometimes even your jorb! (Tip! Don't delete all your data with a misplaced `mv`)  
+### Mind the command
+The first rule of command line is "be careful what you wish for". The computer will do exactly what you say, but human's may have trouble speaking the computer's language. This can be dangerous when you're running commands like `rm` (remove), or `mv` (move, also used for renaming files). You can "echo" your commands to just print the command text without actually running the command. This can save your files and sometimes even your jorb! (Tip! Don't delete all your data with a misplaced `mv`)  
 
+You can create dummy files to use for this tutorial sing the `touch` command, in case you don't want to operate on real files until you're comfortable with these commands. Let's start by creating a file with space bars in the name.  
 
-## Basic commands
-`mv /source/path/$move_me /destination/path/$move_me`  
-`rm $remove_me`  
+`touch space\ bars\ .txt`
+
+Note the use of the escape character `\` to signal that we intend to use the space bar as a character in our filename string. Without the backslashes, the command is interepreted as `touch` with several separate arguments, so in fact...  
+
+`touch space bars .txt`  
+
+...will create 3 files seperate files! `space`, `bars`, and `.txt`.
+
+### Where am I?
+`pwd` prints the name of the current working directory  
+`cd ..` changes directory to one level/folder up  
+`cd ~/` goes to the home directory  
+
+### What's in my folder?
+`ls` lists the contents in your current dictory.
+`ls -l` "long listing" format (`-l`) shows the filesize, date of last change, and file permissions
+`tree` lists the contents of the current directory and all sub-directories as a tree structure (great for peeking into folder structures!)
+`tree -L 2` limits the tree expansion to 2 levels
+`tree -hs` shows file sizes (`-s`) in human-readable format (`-h`)
+
+### What's in my file?  
+`head -n10 $f` shows the "head" of the file, in this case the top 10 lines  
+`tail -n10 $f` shows the "tail" of the file  
+`tail -n10 $f | watch -n1` watches the tail of the file for any changes every second (`-n1`)  
+`tail -f -n10 $f` follows (`-f`) the tail of the file every time it changes, useful if you are checking the log of a running program  
+`wc $f` counts words, lines and characters in a file  (separate counts using `-w` or `-l` or `-c`)
+
+### Where is my file?
+`find -name "<lost_file_name>" -type f` finds files by name  
+`find -name "<lost_dir_name>" -type d` finds directories by name  
+
+## Renaming files
+Rename files with `rename`. For example, to replace all space bars with underscores:  
+`rename 's/ /_/g' space\ bars\ .txt`  
+
+This command substitutes (`s`) space bars (`/ /`) for underscores (`/_/`) in the entire file name (globally, `g`). (The 3 slashes can be replaced by any sequence of 3 characters, so `'s# #_#g'` would also work and can sometimes be more legible, for example when you need to escape a special character with a backslash.)  
+
+You can replace multiple characters at a time by using a simple logical OR "regular expression" (`|`) such as [ |?] which will replace every space bar or question mark.    
+`rename 's/[ |?|#|@|$|%]/_/g' space\ bars?.txt`
 
 ### Caveats for git users
 Moving files around on your computer can confuse git. If you are git-tracking a file, make sure to use the following alternatives so git knows what's going on.
 
 `git mv /source/path/$move_me /destination/path/$move_me`  
 `git rm $remove_me`  
-
-### What's in my folder?
-`ls`  
-`ls -l`  
-`tree`  
-`tree -L 2`  
-`tree -hs`  
-
-### What's in my file?
-`head -n10 $f`  
-`tail -n10 $f`  
-`tail -n10 $f | watch -n1`  
-`tail -f -n10 $f`  
-
-Counting words and lines (`wc` == "word count")...  
-`wc $f`  
-
-### Where is my file?
-`find -name "<lost_file_name>" -type f`  
-`find -name "<lost_dir_name>" -type d`  
-
 
 ## Data structures
 Variables are declared with a single "=" and no spaces.
