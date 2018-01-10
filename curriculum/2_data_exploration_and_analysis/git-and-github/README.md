@@ -74,13 +74,14 @@ are, in an amazing interactive tutorial.
 * [Reset Demystified](https://git-scm.com/blog/2011/07/11/reset.html) - A blog post on `git reset` 
 which develops some useful concepts along the way.
 * [Understanding git for real by exploring the .git directory](https://medium.freecodecamp.com/understanding-git-for-real-by-exploring-the-git-directory-1e079c15b807#.5pe75gc07) - A blog post on what's inside a commit.
+* [A git style guide](https://github.com/agis/git-style-guide), complete with branch naming, suggestions on how to handle commit messages, and more.
 
 
 ## READ THIS BEFORE YOU LEAVE  (please)
 
 By default, git saves *everything* inside the folder where you initiated the repo. When working on 
 software projects there are files you DON'T want to save on git (e.g. database passwords, 
-especially if you have a remote copy.
+especially if you have a remote copy).
 
 To prevent git from saving files, create a file and name it `.gitignore` in the folder where you 
 ran `git init`. In such file, you can add rules to let git know what you want it to ignore. For 
