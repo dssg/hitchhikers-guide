@@ -128,7 +128,7 @@ Note: After installing Postgres, you might have to add Postgres to your `PATH` (
 
 As said, your team will decide on which Python version (and versioning) to install. Thus, if you have any working setup already, don't break it (for now)! Just make sure you have the packages listed below installed.
 
-1. If you have no Python installed at all, [Anaconda](https://www.continuum.io/downloads) makes installing a lot of packages easy, and it comes with `jupyter notebook`. Go for Python 3.5.
+1. If you have no Python installed at all, [Anaconda](https://www.continuum.io/downloads) makes installing a lot of packages easy, and it comes with `jupyter notebook`. Go for Python 3.6.
 
 2. If you have a working Python installation, but you don't have `jupyter notebook`, [install jupyter](https://jupyter.readthedocs.io/en/latest/install.html).
 
