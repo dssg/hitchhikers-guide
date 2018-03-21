@@ -1,4 +1,4 @@
-_We put together this manual for fellows in the Data Science for Social Good program at the University of Chicago. We are making it public to provide insight into the program to anyone interested in doing data science for social good, including potential fellows, mentors, and project partners, as well as those interested in funding or replicating such a program._
+_We put together this manual for fellows in the Data Science for Social Good program. We are making it public to provide insight into the program to anyone interested in doing data science for social good, including potential fellows, mentors, and project partners, as well as those interested in funding or replicating such a program._
 ________________
 # The DSSG Manual
 - *Before You Arrive*: [Prerequisites](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/prerequisites/) and [Software Setup](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/software-setup/)
