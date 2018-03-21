@@ -14,7 +14,7 @@ Data comes in many forms, from many sources - you may get a database dump or
 [scrape data from the web](1_getting_and_keeping_data/basic-web-scraping/). Either way,
 once you've got your hands on some data, you'll need to bring it into a [database](1_getting_and_keeping_data/databases/),
 and start cleaning and "wrangling" it. You'll definitely want to keep track of the steps to take your data from its 
-original, raw form to being model-ready, so check out [Reproducible ETL](1_getting_and_keeping_data/reproducible-ETL/).
+original, raw form to being model-ready, so check out [Reproducible ETL](1_getting_and_keeping_data/reproducible_ETL/).
 [Command line tools](1_getting_and_keeping_data/command-line-tools/) will start to come in handy here. 
 Finally, data science for social good projects often involve sensitive data about real humans, which is what makes this 
 work both interesting and important, but also makes it extra important to keep security in mind, so make sure to check 
