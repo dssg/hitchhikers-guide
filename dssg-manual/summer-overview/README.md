@@ -15,7 +15,7 @@ and deep dives.
 
 ## Before the Summer
 
-Prior to your arrival, we provide you with [the prerequisites](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/prerequisites) 
+Prior to your arrival, we provide you with [the prerequisites](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/prerequisites/) 
 so you can familiarize yourself with the tools you’ll use all summer and equip yourself with the knowledge to be able to 
 follow along with the curriculum. You'll receive a list of software to install before the first day of orientation, 
 programming languages you should brush up on, and tools we suggest you use to manage your data workflow. We will also send 
