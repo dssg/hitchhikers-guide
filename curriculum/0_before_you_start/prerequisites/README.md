@@ -10,7 +10,7 @@ In order to be ready for the summer, you need to install some packages on your c
 *   Git (for version control)
 *   psql (PostgreSQL command line interface)
 *   Python tools
-    *   Python
+    *   Python 3.6
     *   Anaconda/Miniconda or pip + virtualenv
     *   Python Packages
         *   pandas
