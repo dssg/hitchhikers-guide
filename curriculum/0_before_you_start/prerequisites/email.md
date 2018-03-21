@@ -13,7 +13,7 @@ Things to Install
 - Git
 - psql (PostgreSQL CLI)
 - Python tools
-  - Python 2.7
+  - Python 3.6
   - Anaconda/Miniconda or pip + virtualenv
   - Packages
     - Pandas
