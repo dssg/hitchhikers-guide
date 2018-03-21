@@ -31,7 +31,7 @@ legal data sharing agreements and data transfer challenges), which means the lis
 finalized until the fellowship begins. You will find out your project and team assignments in the second week of the 
 fellowship.
 
-We ask all our project partners to come to Chicago in the first two weeks of the summer. During partner visits, you’ll 
+We ask all our project partners to come meet their team in the first two weeks of the summer. During partner visits, you’ll 
 spend a lot of time talking through the problem and the data with them, and they give a presentation to the fellowship. 
 We want you to meet the people you’re working with face to face. This also gives all of the fellows a chance to hear about
 all of the projects and for the partners to meet other project partners and the other fellows.
@@ -153,27 +153,27 @@ together to put together a lesson. Sometimes a DSSGer will suggest a topic that 
 think will be relevant to one or more of the summer projects. We have lunch and learns scheduled twice a week through the
 summer, and some fellows choose to offer optional teachouts at the end of the workday.
 
-Although we don't expect all twelve teams to be working in unison, there is a [general structure](summer-overview/high-level-summer-plan.pdf) 
+Although we don't expect all teams to be working in unison, there is a [general structure](summer-overview/high-level-summer-plan.pdf) 
 to the summer that guides how we pace the remaining curriculum - we try to schedule topics so that fellows know about 
 them with enough time to incorporate them into their projects, but not so early that they've forgotten about what they 
 learned by the time the knowledge would be useful. As we get nearer to the end of the summer, there are fewer required
 topics, so there are more open time slots for fellows to do teachouts.
 
-- **The Rest of the Summer**
-  - Educational Data and Testing (Kevin Wilson)
-  - Social Good Business Models (Allison Weil and Paul van der Boor)
-  - Basic Web Scraping (Matt Bauman)
+- **Example topics for the Rest of the Summer**
+  - Educational Data and Testing
+  - Social Good Business Models
+  - Basic Web Scraping
   - Pipelines and Evaluation
   - Feature Generation Workshop
-  - Test, Test, Test (Benedict Kuester)
-  - Beyond the Deep Learning Hype (Reza Borhani)
-  - Causal Inference with Observational Data (Dean Magee, Monica Alexander, Zhe Zhang, and Jackie Gutman)
+  - Test, Test, Test
+  - Beyond the Deep Learning Hype
+  - Causal Inference with Observational Data
   - Model Evaluation
   - Spatial Analysis Tools
-  - Operations Research (Jan Vlachy)
-  - Theory and Theorizing in the Social Sciences (Tom Davidson)
-  - Web Classification (Yaeli Cohen)
-  - Presentation Skills (Allison Weil)
-  - Data Visualization (Jon Keane, Monica Alexander, Diego Olano, Ned Yoxall)
-  - Natural Language Processing (Garren Gaut)
-  - Opening Closed Data (Jen Helsby) 
+  - Operations Research
+  - Theory and Theorizing in the Social Sciences
+  - Web Classification
+  - Presentation Skills
+  - Data Visualization
+  - Natural Language Processing
+  - Opening Closed Data
