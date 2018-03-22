@@ -4,7 +4,7 @@
 * *Understanding what you did*: Save all the steps you took so you can tell how you got here. 
 * *Using what you did*: Use and re-use code for this project or for others. Fix errors easily. Import new data with confidence. GET IT IMPLEMENTED!
 
-This session builds on what you learned last week in the [CSV to DB](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/csv-to-db) session.
+This session builds on what you learned last week in the [CSV to DB](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/csv-to-db) session.
 
 
 ## Potential Teachouts
