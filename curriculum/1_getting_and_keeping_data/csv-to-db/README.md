@@ -64,7 +64,7 @@ If you haven't already, download Matt's weather data to your training folder dir
 2. `curl -O ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/2016.csv.gz`
 3. `gunzip 2016.csv.gz`
 
-This gives you a file called `2016.csv`. You can explore the data using `head`, `tail`, `csvlook`, and other tools that you learnt in the [command line](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools) session.
+This gives you a file called `2016.csv`. You can explore the data using `head`, `tail`, `csvlook`, and other tools that you learned in the [command line](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools) session.
 
 Here's the output from `csvlook`:
 ![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/1_getting_and_keeping_data/csv-to-db/weather_data_csvlook_output.png "weather data")
