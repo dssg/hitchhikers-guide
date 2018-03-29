@@ -68,7 +68,7 @@ For managing your python environments and packages, we recommend to use `conda`,
 
 Anaconda includes Python, `conda` (a package and environment manager) and a bunch of [Python packages](https://docs.continuum.io/anaconda/pkg-docs). After installing Anaconda you'll have everything to get started, but it requires ~3GB of disk space.
 
-*   [Installation guide](https://www.continuum.io/downloads#_macosx) (Use Anaconda with Python 2.7)
+*   [Installation guide](https://www.continuum.io/downloads#_macosx) (Use Anaconda with Python 3.6)
 *   [Documentation](http://conda.pydata.org/docs/)
 
 
@@ -85,7 +85,7 @@ Note for advanced users: You can install anaconda using `brew`. Run `brew cask i
 
 Miniconda is a light-weight version of Anaconda, it only includes Python and  `conda`, you can later install only the Python packages that you'll need.
 
-*   [Installation guide](http://conda.pydata.org/docs/install/quick.html#os-x-miniconda-install) (Use Miniconda with Python 2.7)
+*   [Installation guide](http://conda.pydata.org/docs/install/quick.html#os-x-miniconda-install) (Use Miniconda with Python 3.6)
 *   [Documentation](http://conda.pydata.org/docs/)
 
 Once Miniconda is installed, run the following to install DSSG required Python packages:
