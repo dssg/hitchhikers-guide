@@ -36,7 +36,7 @@ If you don't know how to do that, run this:
 echo 'export PATH=/usr/local/bin:/usr/local/sbin:$PATH' >> ~/.profile
 ```
 
-If still not working. [Ask for help](https://github.com/dssg/hitchhikers-guide/blob/master/prerequisites/README.md#asking-for-help).
+If still not working. [Ask for help](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/0_before_you_start/prerequisites/README.md#asking-for-help).
 
 
 
