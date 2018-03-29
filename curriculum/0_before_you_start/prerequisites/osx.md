@@ -102,8 +102,8 @@ Note for advanced users: You can install miniconda using `brew`. Run `brew cask 
 If you don't want to install Anaconda/Miniconda, you can install Python directly from homebrew and manage your packages with `pip` and virtual environments with `virtualenv`.
 
 ```bash
-#To install Python 2 and pip
-brew install python
+#To install Python 3 and pip
+brew install python3
 #To install virtual env
 pip install virtualenv
 #To install dssg required python packages
@@ -111,6 +111,6 @@ curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/
 pip install -r dssg-requirements.txt
 ```
 
-Nice guide to use [virtualenv](http://docs.python-guide.org/en/latest/starting/install/osx/).
+Nice guide to use [virtualenv](http://docs.python-guide.org/en/latest/starting/install3/osx/#install3-osx).
 
 *Note: The caveat of using `pip` directly instead of `conda`, is that `conda` will take care of external dependencies for you (some Python packages depend on non-Python packages to work). But you can install those with `brew`.*
