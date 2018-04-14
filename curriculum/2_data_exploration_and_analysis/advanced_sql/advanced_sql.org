@@ -537,98 +537,195 @@ After that, we created a more "clean" version of the data
      create schema if not exists cleaned ;
      drop table if exists cleaned.inspections cascade;
 
-     create table cleaned.inspections as (
-     select
-     inspection,
-     btrim(results) as results,
-     license_num,
-     dba_name as facility,
-     aka_name as facility_aka,
-     upper(facility_type) as facility_type,
-     substring(risk from '\((.+)\)') as risk,
-     address,
-     zip as zip_code,
-     btrim(upper(city)) as city,
-     substring(btrim(upper(type)) from 'CANVASS|TASK FORCE|COMPLAINT|FOOD POISONING|CONSULTATION|LICENSE') as type,
-     date,
-     extract(year from date) as year,
-     extract(month from date) as month,
-     extract(isodow from date) as day_of_week, -- Monday: 1 ... Sunday: 7
-     case
-     when extract(isodow from date) in (6,7) then TRUE
-     else FALSE
-     end as is_weekend,
-     extract(week from date) as week_of_year,
-     extract(quarter from date) as quarter,
-     ST_SetSRID(ST_MakePoint(longitude, latitude),4326) as location
-     from raw.inspections
-     where results in ('Fail', 'Pass', 'Pass w/ Conditions') and license_num is not null
-     )
+create table cleaned.inspections as (
+with cleaned as (
+select
+inspection::integer,
+btrim(lower(results)) as result, 
+license_num::integer,
+btrim(lower(dba_name)) as facility,
+btrim(lower(aka_name)) as facility_aka,
+case when
+facility_type is null then 'unknown'
+else btrim(lower(facility_type))
+end as facility_type,
+lower(substring(risk from '\((.+)\)')) as risk,
+btrim(lower(address)) as address,
+zip as zip_code,
+substring(
+btrim(lower(regexp_replace(type, 'liquor', 'task force', 'gi')))
+from 'canvass|task force|complaint|food poisoning|consultation|license|tag removal') as type,
+date,
+ST_SetSRID(ST_MakePoint(longitude, latitude), 4326)::geography as location  -- We use geography so the measurements are in meters
+from raw.inspections
+where zip is not null  -- removing NULL zip codes
+)
 
+select * from cleaned where type is not null
+);
 #+END_SRC
 
 #+BEGIN_SRC sql
-  create schema if not exists cleaned ;
-  drop table if exists cleaned.violations cascade;
+ drop table if exists cleaned.violations cascade;
 
-  create table cleaned.violations as (
-  select
-  inspection,
-  license_num,
-  date,
-  btrim(tuple[1]) as violation_code,
-  btrim(tuple[2]) as violation_description,
-  btrim(tuple[3]) as violation_comment from
-  (
-  select
-  inspection,
-  license_num,
-  date,
-  regexp_split_to_array(
-  regexp_split_to_table(coalesce(violations, '.- Comments:'), '\|'),   -- We don't want to loose inspections
-  '\.|- Comments:') as tuple
-  from raw.inspections
-  where results in ('Fail', 'Pass', 'Pass w/ Conditions') and license_num is not null
-  ) as t
-  )
+create table cleaned.violations as (
+select
+inspection::integer,
+license_num::integer, 
+date::date,
+btrim(tuple[1]) as code,
+btrim(tuple[2]) as description,
+btrim(tuple[3]) as comment,
+(case
+  when btrim(tuple[1]) = '' then NULL 
+  when btrim(tuple[1])::int between 1 and 14 then 'critical' -- From the documentation
+  when btrim(tuple[1])::int between 15 and 29  then 'serious'
+  else 'minor'
+end
+) as severity from
+(
+select
+inspection,
+license_num,
+date,
+regexp_split_to_array(   -- Create an array we will split the code, description, comment
+  regexp_split_to_table( -- Create a row per each comment we split by |
+    coalesce(            -- If there isn't a violation add '- Comments:'
+      regexp_replace(violations, '[\n\r]+', '', 'g' )  -- Remove line breaks
+    , '- Comments:')
+  , '\|')  -- Split the violations
+, '(?<=\d+)\.\s*|\s*-\s*Comments:')  -- Split each violation in three 
+ as tuple
+from raw.inspections
+where results in ('Fail', 'Pass', 'Pass w/ Conditions') and license_num is not null
+) as t
+);
 #+END_SRC
 
 The =semantic.inspections= table
 
 #+BEGIN_SRC sql
-  create table semantic.inspections as (  -- You first define your subquery and assign a name to it
-    -- This will work as a "common table"
-    with violations as (
-         select
-            v.inspection,
-            v.license_num,
-            v.date,
-            json_strip_nulls(json_agg(
-                    json_build_object('code',v.violation_code,
-                                      'description', v.violation_description,
-                                      'comment',v.violation_comment)
-            )) as violations
-          from cleaned.violations as v
-          group by v.inspection, v.license_num, v.date
-    )
-    -- Then you can use it
-    select i.*, v.violations
-    from cleaned.inspections as i
-    left join violations as v -- Here we are using the "common table"
-    using (inspection));
+create schema if not exists semantic;
 
-  alter table semantic.inspections alter column violations type jsonb;
+drop table if exists semantic.entities cascade;
 
-  create index semantc_inspections_inspection_idx on semantic.inspections (inspection);
-  create index semantc_inspections_license_idx on semantic.inspections (license_num);
-  create index semantc_inspections_facility_type_idx on semantic.inspections (facility_type);
-  create index semantc_inspections_date_idx on semantic.inspections (date);
-  create index semantc_inspections_violations_idx on semantic.inspections using gin(violations);
+create table semantic.entities as (
+
+with entities_date as (
+
+  select
+  license_num,
+  facility,
+  facility_aka,
+  facility_type,
+  address,
+  zip_code,
+  location,
+  min(date) over (partition by license_num, facility, facility_aka, address) as start_time,
+  max(case when
+  result in ('out of business', 'business not located')
+  then
+  date
+  else
+  NULL
+  end) over (partition by license_num, facility, facility_aka, address) as end_time
+  from cleaned.inspections
+
+)
+
+select distinct
+   dense_rank() over (w) as entity_id,
+   license_num,
+   facility,
+   facility_aka,
+   facility_type,
+   address,
+   zip_code,
+   location,
+   start_time,
+   end_time
+from entities_date
+   window w as (order by license_num, facility, facility_aka, facility_type, address)
+);
 
 
-  CREATE INDEX semantic_inspections_location_idx ON semantic.inspections  USING GIST (geography(location));
-  CREATE INDEX gis_boundaries_geom_idx ON gis.boundaries  USING GIST (geography(geom));
-  CREATE INDEX gis_public_schools_geom_idx ON gis.public_schools  USING GIST (geography(geom));
+-- Adding some indices
+create index entities_ix on semantic.entities (entity_id);
+
+create index entities_license_num_ix on semantic.entities (license_num);
+create index entities_facility_ix on semantic.entities (facility);
+create index entities_facility_type_ix on semantic.entities (facility_type);
+create index entities_zip_code_ix on semantic.entities (zip_code);
+
+-- Spatial index
+create index entities_location_gix on semantic.entities using gist (location);
+
+create index entities_full_key_ix on semantic.entities (license_num, facility, facility_aka, facility_type, address);
+
+#+END_SRC
+
+The `semantics.inspections`:
+
+#+BEGIN_SRC
+drop table if exists semantic.events cascade;
+
+create table semantic.inspections as (
+
+with entities as (
+  select * from semantic.entities
+),
+
+inspections as (
+select
+i.inspection, i.type, i.date, i.risk, i.result,
+i.license_num, i.facility, i.facility_aka, i.facility_type, i.address, i.zip_code, i.location,
+jsonb_agg(
+    jsonb_build_object(
+        'code', v.code,
+        'severity', v.severity,
+	'description', v.description,
+	'comment', v.comment
+	)
+order  by code
+) as violations
+from cleaned.inspections as i
+inner join
+cleaned.violations as v
+on i.inspection = v.inspection
+group by
+i.inspection, i.type, i.license_num, i.facility, i.facility_aka, i.facility_type, i.address, i.zip_code, i.location,
+i.date, i.risk, i.result
+)
+
+select
+i.inspection as event_id, 
+e.entity_id, i.type, i.date, i.risk, i.result,
+e.facility_type, e.zip_code, e.location,
+i.violations
+from entities as e
+inner join
+inspections as i
+using (license_num, facility, facility_aka, facility_type, address, zip_code)
+
+);
+
+-- Add some indices
+create index events_entity_ix on semantic.inspections (entity_id);
+create index events_event_ix on semantic.inspections (event_id);
+create index events_type_ix on semantic.inspections (type);
+create index events_date_ix on semantic.inspections(date desc nulls last);
+create index events_facility_type_ix on semantic.inspections  (facility_type);
+create index events_zip_code_ix on semantic.inspections  (zip_code);
+
+-- Spatial index
+create index events_location_gix on semantic.inspections using gist (location);
+
+-- JSONB indices
+create index events_violations on semantic.inspections using gin(violations);
+create index events_violations_json_path on semantic.inspections using gin(violations jsonb_path_ops);
+
+create index events_event_entity_zip_code_date on semantic.inspections (event_id desc nulls last, entity_id, zip_code, date desc nulls last);
+
 
 #+END_SRC
 
