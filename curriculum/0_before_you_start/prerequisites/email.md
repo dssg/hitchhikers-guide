@@ -57,7 +57,8 @@ Python is the language of choice here at DSSG. If you’re only going to learn o
   - [Writing efficient Python][10]
   - [Tips for Idiomatic Python][11]
   - [Introduction to Python debugging tools][12]
-- Jupyter (formerly known as IPython)
+- Jupyter Notebooks and Jupyter Lab
+  - [Beginner's Guide to Jupyter Lab][32]
   - [Example of how IPython notebooks are used in data science][13] 
   - [Tutorial for setting up and opening IPython notebook][14]
   - [Amazing examples of IPython notebooks][15]
@@ -70,11 +71,11 @@ Python is the language of choice here at DSSG. If you’re only going to learn o
 [13]: http://nbviewer.ipython.org/github/jvns/talks/blob/master/pydatanyc2013/PyData%20NYC%202013%20tutorial.ipynb
 [14]: http://opentechschool.github.io/python-data-intro/core/notebook.html
 [15]: https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-and-IPython-Notebooks
-
+[32]: https://medium.com/@brianray_7981/jupyterlab-first-impressions-e6d70d8a175d
 
 **R** 
 
-R is an open-source programming language for statistical analysis, with lots of great packages for modeling and visualization. 
+R is an open-source programming language for statistical analysis, with lots of great packages for modeling and visualization. Jupyter Lab has an R kernel, so you don't have to switch environments to test and run both python and R scripts. However, if you want an R-centeric IDE, you can use the excellent RStudio linked to below.  
 - [RStudio (IDE made for R)][16]
 - [Shiny][17] - Shiny is a web framework for R, so that you can build interactive visualizations and web widgets. You can use this to prototype tools for project partners to visualize and understand your analyses.
 
