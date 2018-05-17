@@ -27,13 +27,13 @@ Things to Install
 - DBeaver *(to query databases)*
 - Tableau *(get the free license for students)*
 - Sublime Text *(if you need a decent editor)*
-**If you are an OS X user,** we highly recommend to install [Homebrew][1] to make software installation easier.
+- **If you are an OS X user,** we recommend to install [Homebrew][1] to make software installation easier.
 
 For more information on requirements, see [this][2]. A guide to install pre-requirements on OS X is available [here][3].
 
-[1]: https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/prerequisites/osx.md#step-1-install-homebrew
-[2]: https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/prerequisites/
-[3]: https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/prerequisites/osx.md
+[1]: https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/0_before_you_start/prerequisites/osx.md#step-1-install-homebrew
+[2]: https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/prerequisites/
+[3]: https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/0_before_you_start/prerequisites/osx.md
 
 Explanations & Tutorials
 -------------
@@ -83,7 +83,7 @@ R is an open-source programming language for statistical analysis, with lots of 
 
 **Databases**
 
-- We typically use postgres for our projects (and Redshift or mongodb when necessary). That will be installed on the server but you need a client to connect to it:
+- We typically use Postgres (full name PostgreSQL) for our projects (and Redshift or mongodb when necessary). That will be installed on the server but you need a client to connect to it:
    - [Dbeaver][18] is a free database access tool that allows you to easily query different types of databases.
    - [psql][19] is a powerful command line tool to interact with Postgres databases
 - [SQL introduction][20] and [SQL Cheatsheet][21]
