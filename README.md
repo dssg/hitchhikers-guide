@@ -38,7 +38,7 @@ This sections covers general information on projects, working with partners, pre
 - [Orientation schedule](dssg-manual/summer-overview/DSSG2016OrientationSchedule.pdf): detailed schedule for the first two weeks of the program
 
 ### [Conduct, Culture, and Communications](dssg-manual/conduct-culture-and-communications/README.md)
-This section details the DSSG anti-harassment policy, goals of the fellowship, what we hope fellows get out of the experience, the expectations of the fellows, and the DSSG environment. A slideshow version of this can also be found [here](dssg-manual/conduct-culture-and-communications/conduct-culture-and-communications.pdf)
+This section details the DSSG anti-harassment policy, goals of the fellowship, what we hope fellows get out of the experience, the expectations of the fellows, and the DSSG environment. A slideshow version of this can also be found [here](dssg-manual/conduct-culture-and-communications/conduct-culture-and-communications.pdf).
 
 ## [Curriculum](curriculum/README.md)
 
