@@ -45,9 +45,9 @@ This section details the DSSG anti-harassment policy, goals of the fellowship, w
 This section details the various topics we will be covering throughout the summer. This includes:
 
 - [Getting Started](curriculum/0_before_you_start/)
-  - [Prerequisites](curriculum/0_before_you_start/prerequisites/README.md)
-  - [Pipelines and Project Workflow](curriculum/0_before_you_start/pipelines-and-project-workflow/README.md)
-  - [Software Setup](curriculum/0_before_you_start/software-setup/README.md)
+  - [Prerequisites](curriculum/0_before_you_start/prerequisites/)
+  - [Pipelines and Project Workflow](curriculum/0_before_you_start/pipelines-and-project-workflow/)
+  - [Software Setup](curriculum/0_before_you_start/software-setup/)
 - [Getting and Keeping Data](curriculum/1_getting_and_keeping_data/)
   - [Web Scraping](curriculum/1_getting_and_keeping_data/basic-web-scraping/)
   - [Command Line Tools](curriculum/1_getting_and_keeping_data/command-line-tools/)
