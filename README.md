@@ -44,7 +44,7 @@ This section details the DSSG anti-harassment policy, goals of the fellowship, w
 
 This section details the various topics we will be covering throughout the summer. This includes:
 
-- Getting Started
+- [Getting Started](curriculum/0_before_you_start/)
   - [Prerequisites](curriculum/0_before_you_start/prerequisites/README.md)
   - [Pipelines and Project Workflow](curriculum/0_before_you_start/pipelines-and-project-workflow/README.md)
   - [Software Setup](curriculum/0_before_you_start/software-setup/README.md)
@@ -56,4 +56,27 @@ This section details the various topics we will be covering throughout the summe
   - [Databases](curriculum/1_getting_and_keeping_data/databases/)
   - [Reproducible ETL](curriculum/1_getting_and_keeping_data/reproducible_ETL/)
 - [Data Exploration and Analysis](curriculum/2_data_exploration_and_analysis/)
-  
+  - [Advanced SQL](curriculum/2_data_exploration_and_analysis/advanced_sql/)
+  - [Intro to Data Analysis in Python](curriculum/2_data_exploration_and_analysis/data-exploration-in-python/)
+  - [GIS analysis](curriculum/2_data_exploration_and_analysis/gis_analysis/)
+  - Git and GitHub
+    - [Git and Github](curriculum/2_data_exploration_and_analysis/git-and-github/) 
+    - [Intro oto Git and Python](curriculum/2_data_exploration_and_analysis/intro-to-git-and-python/)
+  - [Network Analysis](curriculum/2_data_exploration_and_analysis/network-analysis/)
+  - [Record Linkage](curriculum/2_data_exploration_and_analysis/record-linkage/)
+  - [Text Analysis](curriculum/2_data_exploration_and_analysis/text-analysis/)
+- [Modeling and Machine Learning](curriculum/3_modeling_and_machine_learning/)
+  - [Causal Inference](curriculum/3_modeling_and_machine_learning/causal-inference/)
+  - [Machine Learning](curriculum/3_modeling_and_machine_learning/causal-inference/)
+  - [Operations Research](curriculum/3_modeling_and_machine_learning/operations-research/)
+  - [Quantitative Social Science](curriculum/3_modeling_and_machine_learning/quantitative-social-science/)
+- [Programming Best Practices](curriculum/4_programming_best_practices/)
+  - [Writing Legible, Good Code](curriculum/4_programming_best_practices/legible-good-code/)
+  - [Living in Command Land](curriculum/4_programming_best_practices/living-in-the-terminal/)
+  - [Dotfiles](curriculum/4_programming_best_practices/pimp-my-dotfiles/)
+  - [Making Project Reproducible](curriculum/4_programming_best_practices/reproducible-software/)
+  - [Testing](curriculum/4_programming_best_practices/test-test-test/)
+- [Presentations and Communications](curriculum/5_presentations_and_communications/)
+  - [Good Presentations](curriculum/5_presentations_and_communications/presentation-skills/presentation-on-presentations.pdf)
+  - [Usability and User Interface Design](curriculum/5_presentations_and_communications/usability-and-user-interfaces/)
+- [Tutorial Templates](curriculum/tutorial-template/) (for making your own tutorials!)
