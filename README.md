@@ -29,13 +29,31 @@ All material is licensed under CC-BY 4.0
 # Table of Content
 The links below will help you find things quickly.
 
-## [DSSG Manual](https://github.com/dssg/hitchhikers-guide/tree/master/dssg-manual)
+## [DSSG Manual](dssg-manual/README.md)
 
-### Summer Overview
-- [what to expect out of the summer](dssg-manual/summer-overview/): includes general information on projects, working with partners, presentations, and orientation information
-- [high level summer plan](dssg-manual/summer-overview/high-level-summer-plan.pdf): details what the goals are for each week of the program
-- [orientation schedule](dssg-manual/summer-overview/DSSG2016OrientationSchedule.pdf): detailed schedule for the first two weeks of the program
+### [Summer Overview](dssg-manual/summer-overview/README.md)
+This sections covers general information on projects, working with partners, presentations, orientation information, and the following schedules:
 
-###
+- [High level summer plan](dssg-manual/summer-overview/high-level-summer-plan.pdf): details what the goals are for each week of the program
+- [Orientation schedule](dssg-manual/summer-overview/DSSG2016OrientationSchedule.pdf): detailed schedule for the first two weeks of the program
 
+### [Conduct, Culture, and Communications](dssg-manual/conduct-culture-and-communications/README.md)
+This section details the DSSG anti-harassment policy, goals of the fellowship, what we hope fellows get out of the experience, the expectations of the fellows, and the DSSG environment. A slideshow version of this can also be found [here](dssg-manual/conduct-culture-and-communications/conduct-culture-and-communications.pdf)
 
+## [Curriculum](curriculum/README.md)
+
+This section details the various topics we will be covering throughout the summer. This includes:
+
+- Getting Started
+  - [Prerequisites](curriculum/0_before_you_start/prerequisites/README.md)
+  - [Pipelines and Project Workflow](curriculum/0_before_you_start/pipelines-and-project-workflow/README.md)
+  - [Software Setup](curriculum/0_before_you_start/software-setup/README.md)
+- [Getting and Keeping Data](curriculum/1_getting_and_keeping_data/)
+  - [Web Scraping](curriculum/1_getting_and_keeping_data/basic-web-scraping/)
+  - [Command Line Tools](curriculum/1_getting_and_keeping_data/command-line-tools/)
+  - [cvs-to-db](curriculum/1_getting_and_keeping_data/csv-to-db/)
+  - [Data Security](curriculum/1_getting_and_keeping_data/data-security-primer/)
+  - [Databases](curriculum/1_getting_and_keeping_data/databases/)
+  - [Reproducible ETL](curriculum/1_getting_and_keeping_data/reproducible_ETL/)
+- [Data Exploration and Analysis](curriculum/2_data_exploration_and_analysis/)
+  
