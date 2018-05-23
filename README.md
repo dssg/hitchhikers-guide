@@ -67,7 +67,7 @@ This section details the various topics we will be covering throughout the summe
   - [Text Analysis](curriculum/2_data_exploration_and_analysis/text-analysis/)
 - [Modeling and Machine Learning](curriculum/3_modeling_and_machine_learning/)
   - [Causal Inference](curriculum/3_modeling_and_machine_learning/causal-inference/)
-  - [Machine Learning](curriculum/3_modeling_and_machine_learning/causal-inference/)
+  - [Machine Learning](curriculum/3_modeling_and_machine_learning/machine-learning/)
   - [Operations Research](curriculum/3_modeling_and_machine_learning/operations-research/)
   - [Quantitative Social Science](curriculum/3_modeling_and_machine_learning/quantitative-social-science/)
 - [Programming Best Practices](curriculum/4_programming_best_practices/)
