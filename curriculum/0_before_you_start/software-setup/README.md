@@ -40,7 +40,7 @@ A package manager will make your life easier.
 ## Git and GitHub Account
 1. If you don't have a GitHub account, [make one](https://github.com/join?source=header-home)!
 
-2. Add your username to the spreadsheet on Slack. We'll add your username to the DSSG organization on GitHub.
+2. Go to [this site](https://dssg-github-invite.herokuapp.com/), input your username, and click "Add me to organization". Your username will be automatically added to the DSSG organization on GitHub.
 
 3. Install Git:
  ```
