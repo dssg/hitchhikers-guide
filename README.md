@@ -25,3 +25,17 @@ We have spent many (sort of) early mornings waxing existential over Dunkin' Donu
 
 All material is licensed under CC-BY 4.0
 ![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
+
+# Table of Content
+The links below will help you find things quickly.
+
+## [DSSG Manual](https://github.com/dssg/hitchhikers-guide/tree/master/dssg-manual)
+
+### Summer Overview
+- [what to expect out of the summer](dssg-manual/summer-overview/): includes general information on projects, working with partners, presentations, and orientation information
+- [high level summer plan](dssg-manual/summer-overview/high-level-summer-plan.pdf): details what the goals are for each week of the program
+- [orientation schedule](dssg-manual/summer-overview/DSSG2016OrientationSchedule.pdf): detailed schedule for the first two weeks of the program
+
+###
+
+
