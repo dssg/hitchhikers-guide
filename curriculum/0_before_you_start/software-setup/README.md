@@ -141,9 +141,7 @@ As said, your team will decide on which Python version (and versioning) to insta
   *   scikit-learn
   *   psycopg2
   *   statsmodels
-  *   patsy
   *   csvkit
-  *   nltk
 
 4. Try importing the packages in a Python shell and see if it works:
  ```
