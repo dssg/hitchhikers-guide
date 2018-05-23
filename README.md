@@ -26,7 +26,7 @@ We have spent many (sort of) early mornings waxing existential over Dunkin' Donu
 All material is licensed under CC-BY 4.0
 ![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
 
-# Table of Content
+# Table of Contents
 The links below will help you find things quickly.
 
 ## [DSSG Manual](dssg-manual/README.md)
