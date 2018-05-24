@@ -68,7 +68,7 @@ A package manager will make your life easier.
  
  **Linux**: 
  
- (^^ similar for `yum` or `apt`). 
+ (^^ similar with `yum` or `apt`). 
  
  **Windows**:
  
