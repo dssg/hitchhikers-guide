@@ -32,10 +32,12 @@ Let's get this over with!
 
 ## Getting a terminal environment on a Windows Computer:
 
-You're going to want to access the terminal. Unfortunately, windows computers don't have this by default. Luckily, there are a couple options for obtaining a terminal-like environment.
+You're going to want to access the terminal. Unfortunately, windows computers don't have this by default. Fortunately, there are a couple options for obtaining a terminal-like environment, such as the following:
 
-- git-bash (instructions [here](http://www.techoism.com/how-to-install-git-bash-on-windows/))
-- Cygwin (instructions [here](https://cygwin.com/install.html))
+- [git-bash](http://www.techoism.com/how-to-install-git-bash-on-windows/)
+- [Cygwin](https://cygwin.com/install.html)
+
+If you're a windows user, make sure to download one of these.
 
 ## Package Manager
 
