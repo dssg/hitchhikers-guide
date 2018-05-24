@@ -53,7 +53,10 @@ A package manager will make your life easier.
 
 2. Go to [this site](https://dssg-github-invite.herokuapp.com/), input your username, and click "Add me to organization". Your username will be automatically added to the DSSG organization on GitHub.
 
-3. Install Git:
+3. Install Git
+
+In the terminal, type:
+
  ```
  brew update
  brew install git
