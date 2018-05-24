@@ -1,7 +1,7 @@
 # Summer Overview and What to Expect
 
 While specific schedules will vary from project to project, the summer will follow roughly the structure below. See also 
-[high level summer plan](High Level Plan for the Summer.pdf) for an outline of the flow of the summer, and general concepts that will 
+[high level summer plan](High-Level-Plan-for-the-Summer.pdf) for an outline of the flow of the summer, and general concepts that will 
 inform the topics addressed by tutorials and speakers as well as what we'll ask fellows to present about in weekly updates 
 and deep dives.
 
