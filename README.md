@@ -80,3 +80,19 @@ This section details the various topics we will be covering throughout the summe
   - [Good Presentations](curriculum/5_presentations_and_communications/presentation-skills/presentation-on-presentations.pdf)
   - [Usability and User Interface Design](curriculum/5_presentations_and_communications/usability-and-user-interfaces/)
 - [Tutorial Templates](curriculum/tutorial-template/) (for making your own tutorials!)
+
+## [Wiki](https://github.com/dssg/wiki/wiki)
+
+In the wiki, you will find a bunch of helpful information and instructions that people have found helpful along the way. They cover topics like:
+
+- Accessing S3 from the command line
+- Creating an alias to make Python3 your default (rather than python2)
+- Installing RStudio on your EC2
+- Killing your query
+- Creating a custom jupyter setup
+- Mounting box from ubuntu
+- Pretty Print psql and less output
+- Remotely editing text files in your favorite text editor
+- SQL Server to Postgres
+- Using rpy2
+- VNC Viewer
