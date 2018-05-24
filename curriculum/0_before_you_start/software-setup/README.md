@@ -34,8 +34,8 @@ Let's get this over with!
 
 You're going to want to access the terminal. Unfortunately, windows computers don't have this by default. Luckily, there are a couple options for obtaining a terminal-like environment.
 
-- git-bash: instructions for downloading [here](http://www.techoism.com/how-to-install-git-bash-on-windows/)
-- Cygwin: instructions for downloading [here](https://cygwin.com/install.html)
+- git-bash (instructions [here](http://www.techoism.com/how-to-install-git-bash-on-windows/))
+- Cygwin (instructions [here](https://cygwin.com/install.html))
 
 ## Package Manager
 
