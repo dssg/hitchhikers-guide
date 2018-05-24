@@ -34,6 +34,7 @@ Let's get this over with!
 
 A package manager will make your life easier.
 - on Mac, install [Brew](http://brew.sh/)
+    - **Testing**: To check that it installed, run the command `which brew` in the terminal. If it returns: `/usr/local/bin/brew`, it means that homebrew is installed; if it returns `brew not found`, it means homebrew is not installed.
 - on Linux, you probably already have yum or apt
 - on Windows, you could install [Cygwin](https://www.cygwin.com/) to provide a lot of Linux-style functionality; ask Windows users around you for their preferred way to manage packages
 
@@ -50,6 +51,7 @@ A package manager will make your life easier.
  (and similar for `yum` or `apt`). On Windows, Cygwin can provide git.
 
 4. Configure Git and GitHub. GitHub has, as always, [great instructions for that](https://help.github.com/articles/set-up-git/).
+TKTK - is this step confusing? 
 
 5. Test your installation. For example, create a directory, and make it a git repo:
  ```
@@ -60,7 +62,7 @@ A package manager will make your life easier.
  ```
  > Initialized empty Git repository in [...]/mytestdir/.git/
  ```
-You can un-git the directory by deleting the `.git` folder: `rm -r .git` (or simply delete `mytestdir` entirely).
+You can un-git the directory by deleting the `.git` folder: `rm -r .git` (or simply delete `mytestdir` entirely with command `rmdir mytestdir`).
 
 ## SSH / Putty
 
