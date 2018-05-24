@@ -36,6 +36,7 @@ You're going to want to access the terminal. Unfortunately, windows computers do
 
 - [git-bash](http://www.techoism.com/how-to-install-git-bash-on-windows/)
 - [Cygwin](https://cygwin.com/install.html)
+    - If you go with cygwin, make sure to choose all git packages when you're in the package menu portion of the setup
 
 If you're a windows user, make sure to download one of these.
 
@@ -49,19 +50,29 @@ A package manager will make your life easier.
 - ask Windows users around you for their preferred way to manage packages. And tell us, so we can add them here!
 
 ## Git and GitHub Account
+
 1. If you don't have a GitHub account, [make one](https://github.com/join?source=header-home)!
 
 2. Go to [this site](https://dssg-github-invite.herokuapp.com/), input your username, and click "Add me to organization". Your username will be automatically added to the DSSG organization on GitHub.
 
 3. Install Git
 
-In the terminal, type:
+**Mac**: 
+
+ In the terminal, type:
 
  ```
  brew update
  brew install git
  ```
- (and similar for `yum` or `apt`). On Windows, Cygwin can provide git.
+ 
+ **Linux**: 
+ 
+ (^^ similar for `yum` or `apt`). 
+ 
+ **Windows**:
+ 
+On Windows, you should already have git. (Either you installed **git-bash**, which is part of git, or you should have downloaded git in the **cygwin** package menu.)
 
 4. Configure Git and GitHub. GitHub has, as always, [great instructions for that](https://help.github.com/articles/set-up-git/).
 TKTK - is this step confusing? 
