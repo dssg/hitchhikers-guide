@@ -83,7 +83,7 @@ This section details the various topics we will be covering throughout the summe
 
 ## [Wiki](https://github.com/dssg/wiki/wiki)
 
-In [the wiki](https://github.com/dssg/wiki/wiki), you will find a bunch of helpful information and instructions that people have found helpful along the way. They cover topics like:
+In [the wiki](https://github.com/dssg/wiki/wiki), you will find a bunch of helpful information and instructions that people have found helpful along the way. It covers topics like:
 
 - Accessing S3 from the command line
 - Creating an alias to make Python3 your default (rather than python2)
