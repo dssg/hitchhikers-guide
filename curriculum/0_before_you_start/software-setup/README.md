@@ -36,6 +36,7 @@ A package manager will make your life easier.
 - on Mac, install [Brew](http://brew.sh/)
     - **Testing**: To check that it installed, run the command `which brew` in the terminal. If it returns: `/usr/local/bin/brew`, it means that homebrew is installed; if it returns `brew not found`, it means homebrew is not installed.
 - on Linux, you probably already have yum or apt
+    - **Testing**: run `yum help`
 - on Windows, you could install [Cygwin](https://www.cygwin.com/) to provide a lot of Linux-style functionality; ask Windows users around you for their preferred way to manage packages
 
 ## Git and GitHub Account
