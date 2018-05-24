@@ -30,6 +30,12 @@ You will need a few credentials for training accounts. We'll post them up front.
 
 Let's get this over with!
 
+## Getting a terminal environment on a Windows Computer:
+
+You're going to want to access the terminal. Unfortunately, windows computers don't have this by default. Luckily, there are a couple options for obtaining a terminal-like environment.
+    - git-bash - instructions for downloading [here](http://www.techoism.com/how-to-install-git-bash-on-windows/)
+    - Cygwin - instructions for downloading [here](https://cygwin.com/install.html)
+
 ## Package Manager
 
 A package manager will make your life easier.
@@ -37,7 +43,7 @@ A package manager will make your life easier.
     - **Testing**: To check that it installed, run the command `which brew` in the terminal. If it returns: `/usr/local/bin/brew`, it means that homebrew is installed; if it returns `brew not found`, it means homebrew is not installed.
 - on Linux, you probably already have yum or apt
     - **Testing**: run `yum help`
-- on Windows, you could install [Cygwin](https://www.cygwin.com/) to provide a lot of Linux-style functionality; ask Windows users around you for their preferred way to manage packages
+- ask Windows users around you for their preferred way to manage packages. And tell us, so we can add them here!
 
 ## Git and GitHub Account
 1. If you don't have a GitHub account, [make one](https://github.com/join?source=header-home)!
