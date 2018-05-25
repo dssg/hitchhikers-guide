@@ -167,10 +167,10 @@ As said, your team will decide on which Python version (and versioning) to insta
   *   csvkit
 
 4. It's time to test! In order to test that both jupyter and the python packages installed appropriately, you should do the following:
-- TKTK
-   
-## R
 
-If you're on Mac or Windows, [download R](https://www.r-project.org/) and install it. (It seems that using `brew` with R is a [bit tricky](http://www.r-bloggers.com/installing-r-on-os-x-100-homebrew-edition/).) On Linux, R can probably be installed via your package manager.
-
-[RStudio](https://www.rstudio.com/) is a popular R IDE that you might want to install, too.
+- Follow [this link](https://drive.google.com/drive/folders/1PtA4Io49v25TRRibtJdpfwCLnCYeJTzZ?usp=sharing) and download the `SoftwareSetup.ipynb`. You can leave the file in your downloads, or move it to whatever folder you like.
+- In the terminal, navigate to the folder with the `SoftwareSetup.ipynb` file.
+- In the terminal, type `jupyter notebook` and hit enter. This should launch a jupyter notebook tab in your browser. It should look something like this:
+<img src="imgs/jupyter.png" width="700px;"/>
+- Click on `SoftwareSetup.ipynb` to open the notebook
+- Follow the instructions in the notebook to run each cell.
