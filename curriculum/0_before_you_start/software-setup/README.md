@@ -87,22 +87,18 @@ You can un-git the directory by deleting the `.git` folder: `rm -r .git` (or sim
 
 ## SSH / Putty
 
-1. You should have already generated a key pair, and sent the public key to Joe, who will have generated a user account on the server for you. (If not, follow the instructions on [GitHub](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/), namely 'Generating a new SSH key' and 'Adding your SSH key to ssh-agent'. Name your key by your first initial + last name, like _jsmith_. Then send your _public_ key to the box address we emailed you previously. Windows users probably want to use [git bash](https://git-for-windows.github.io/) or [PuTTYgen](https://winscp.net/eng/docs/ui_puttygen)).
-
-2. Use your private key file, your username on the server, and the server's URL to ssh into the server:
+1. Use your username and server's address to ssh into the server:
  ```
- ssh -i pathtoyourkey yourusername@serverurl
+ ssh yourusername@serverurl
  ```
- This should drop you into a shell on the server:
+ Once you enter your password, you should be dropped into a shell on the server:
  ```
  > jsmith@servername: ~$
  ```
 
-If you run into an error, maybe the permissions on your private key are wrong? Do `chmod 600 pathtoyourkey` (with the correct path to your private key, of course).
-
 ## PSQL
 
-The database server runs Postgres 9.4.7.
+The database server runs Postgres 9.5.10.
 
 #### Windows users: 
 
@@ -128,11 +124,11 @@ For all non-Windows users, also do these steps to access the Postgres server fro
  ```
  sudo yum install libpq-devel
  ```
-2. Once you have the postgres client installed, you can access the training database with it. However, the database server only allows access from the training server. Thus, you need to set up an SSH tunnel through the training  server to the Postgres server:
+2. Once you have the postgres client installed, you can access the training database with it. However, the database server only allows access from the training server. Thus, you need to set up an SSH tunnel through the training server to the Postgres server:
  ```
- ssh -fNT -L 8888:POSTGRESURL:5432 -i pathtokey yourusername@SERVERURL
+ ssh -fNT -L 8888:POSTGRESURL:5432 yourusername@SERVERURL
  ```
- where you need to substitute the `POSTGRESURL`, `pathtokey`, `yourusername` and `SERVERURL` with the postgres server's URL, the local path to your private SSH (for the training server), your user name on the training server, and the training server's URL, respectively. Also, you should substitute `8888` with a random number in the 8000-65000 range of your choice (port `8888` might be in use already). This command forwards the Postgres server's port 5432 (which serves Postgres) to your laptop's port 8888 (or whatever port you chose), but through your account on the training server. So if you access your local port 8888 in the next step, you get forwarded to the Postgres server's port 5432 - but from the Postgres server's view, the traffic is now coming from the training server (instead of your laptop), and the training server is the only IP address that is allowed to access the postgres server.
+ where you need to substitute the `POSTGRESURL`, `pathtokey`, `yourusername` and `SERVERURL` with the postgres server's URL, your username on the training server, and the training server's URL, respectively. Also, you should substitute `8888` with a random number in the 8000-65000 range of your choice (port `8888` might be in use already). This command forwards the Postgres server's port 5432 (which serves Postgres) to your laptop's port 8888 (or whatever port you chose), but through your account on the training server. So if you access your local port 8888 in the next step, you get forwarded to the Postgres server's port 5432 - but from the Postgres server's view, the traffic is now coming from the training server (instead of your laptop), and the training server is the only IP address that is allowed to access the postgres server.
 
 3. Connect to the Postgres database on the forwarded port
  ```
