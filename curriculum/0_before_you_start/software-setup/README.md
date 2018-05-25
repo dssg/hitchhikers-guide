@@ -104,7 +104,11 @@ If you run into an error, maybe the permissions on your private key are wrong? D
 
 The database server runs Postgres 9.4.7.
 
+#### Windows users: 
+
 Windows users should skip the steps below, and instead use [DBeaver](http://dbeaver.jkiss.org/). When setting up the connection in DBeaver, you will need to specify the SSH tunnel; the database credentials are the ones we shared with you, and the SSH tunnel credentials are the ones you used in the previous step to SSH into the training server. Alternatively, everybody can access `psql` from the training server: SSH into the training server as in the step before, then, on the server's shell, call `psql -h POSTGRESURL -p 5432 -U USERNAME -d USERNAME`, where you need to substitute `POSTGRESURL` with the postgres server's address, and `USERNAME` with the username for the postgres [!] server.
+
+#### Non-Windows Users:
 
 For all non-Windows users, also do these steps to access the Postgres server from your local machine:
 
