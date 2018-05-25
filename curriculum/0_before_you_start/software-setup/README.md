@@ -108,6 +108,8 @@ The database server runs Postgres 9.4.7.
 
 Windows users should skip the steps below, and instead use [DBeaver](http://dbeaver.jkiss.org/). When setting up the connection in DBeaver, you will need to specify the SSH tunnel; the database credentials are the ones we shared with you, and the SSH tunnel credentials are the ones you used in the previous step to SSH into the training server. Alternatively, everybody can access `psql` from the training server: SSH into the training server as in the step before, then, on the server's shell, call `psql -h POSTGRESURL -p 5432 -U USERNAME -d USERNAME`, where you need to substitute `POSTGRESURL` with the postgres server's address, and `USERNAME` with the username for the postgres [!] server.
 
+For Windows - or if you want a graphical interface to databases - you might  want to use [DBeaver](http://dbeaver.jkiss.org/).
+
 #### Non-Windows Users:
 
 For all non-Windows users, also do these steps to access the Postgres server from your local machine:
@@ -126,9 +128,6 @@ For all non-Windows users, also do these steps to access the Postgres server fro
  ```
  sudo yum install libpq-devel
  ```
- 
- For Windows - or if you want a graphical interface to databases - you might  want to use [DBeaver](http://dbeaver.jkiss.org/).
-
 2. Once you have the postgres client installed, you can access the training database with it. However, the database server only allows access from the training server. Thus, you need to set up an SSH tunnel through the training  server to the Postgres server:
  ```
  ssh -fNT -L 8888:POSTGRESURL:5432 -i pathtokey yourusername@SERVERURL
