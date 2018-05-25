@@ -66,8 +66,8 @@ Python is the language of choice here at DSSG. If you’re only going to learn o
 [8]: https://www.continuum.io/downloads
 [9]: http://conda.pydata.org/miniconda.html
 [10]: https://www.memonic.com/user/pneff/folder/python/id/1bufp
-[11]: http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html
-[12]: https://blog.safaribooksonline.com/2014/11/18/intro-python-debugger/
+[11]: https://web.archive.org/web/20180411011411/http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html
+[12]: https://web.archive.org/web/20141209082719/https://blog.safaribooksonline.com/2014/11/18/intro-python-debugger/
 [13]: http://nbviewer.ipython.org/github/jvns/talks/blob/master/pydatanyc2013/PyData%20NYC%202013%20tutorial.ipynb
 [14]: http://opentechschool.github.io/python-data-intro/core/notebook.html
 [15]: https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-and-IPython-Notebooks
