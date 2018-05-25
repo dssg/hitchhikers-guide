@@ -74,10 +74,7 @@ A package manager will make your life easier.
  
 On Windows, you should already have git. (Either you installed **git-bash**, which is part of git, or you should have downloaded git in the **cygwin** package menu.)
 
-4. Configure Git and GitHub. GitHub has, as always, [great instructions for that](https://help.github.com/articles/set-up-git/).
-TKTK - is this step confusing? 
-
-5. Test your installation. For example, create a directory, and make it a git repo:
+4. Test your installation. For example, create a directory, and make it a git repo:
  ```
  mkdir mytestdir
  cd mytestdir/
@@ -169,16 +166,8 @@ As said, your team will decide on which Python version (and versioning) to insta
   *   statsmodels
   *   csvkit
 
-4. Try importing the packages in a Python shell and see if it works:
- ```
- ~$ python
- >>> import pandas
- >>> pandas.__version__
- '0.15.1'
- >>> 
- ```
- 
- (Note: The module name for scikit-learn is `sklearn`.)
+4. It's time to test! In order to test that both jupyter and the python packages installed appropriately, you should do the following:
+- TKTK
    
 ## R
 
