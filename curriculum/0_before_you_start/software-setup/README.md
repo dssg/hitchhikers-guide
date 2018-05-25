@@ -171,6 +171,6 @@ As said, your team will decide on which Python version (and versioning) to insta
 - Follow [this link](https://drive.google.com/drive/folders/1PtA4Io49v25TRRibtJdpfwCLnCYeJTzZ?usp=sharing) and download the `SoftwareSetup.ipynb`. You can leave the file in your downloads, or move it to whatever folder you like.
 - In the terminal, navigate to the folder with the `SoftwareSetup.ipynb` file.
 - In the terminal, type `jupyter notebook` and hit enter. This should launch a jupyter notebook tab in your browser. It should look something like this:
-<img src="imgs/jupyter.png" width="700px;"/>
+<img src="imgs/jupyter.png" width="900px;"/>
 - Click on `SoftwareSetup.ipynb` to open the notebook
 - Follow the instructions in the notebook to run each cell.
