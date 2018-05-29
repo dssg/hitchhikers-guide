@@ -85,6 +85,34 @@ On Windows, you should already have git. (Either you installed **git-bash**, whi
  ```
 You can un-git the directory by deleting the `.git` folder: `rm -r .git` (or simply delete `mytestdir` entirely with command `rmdir mytestdir`).
 
+## Python
+
+As said, your team will decide on which Python version (and versioning) to install. Thus, if you have any working setup already, don't break it (for now)! Just make sure you have the packages listed below installed.
+
+1. If you have no Python installed at all, [Anaconda](https://www.continuum.io/downloads) makes installing a lot of packages easy, and it comes with `jupyter notebook`. Go for Python 3.6.
+
+2. If you have a working Python installation, but you don't have `jupyter notebook`, [install jupyter](https://jupyter.readthedocs.io/en/latest/install.html).
+
+3. Make sure you have the following packages installed. If you use Anaconda, most of them will already be included. Simply call `conda install <packagename>`. Outside of conda, you might want to use `pip` to install packages instead. (Linux users might need to install the packages `libfreetype6-dev` and `libpng-dev` before installing the packages below.) You'll need:
+  *   numpy
+  *   scipy
+  *   pandas
+  *   matplotlib
+  *   seaborn
+  *   scikit-learn
+  *   psycopg2
+  *   statsmodels
+  *   csvkit
+
+4. It's time to test! In order to test that both jupyter and the python packages installed appropriately, you should do the following:
+
+- Follow [this link](https://drive.google.com/drive/folders/1PtA4Io49v25TRRibtJdpfwCLnCYeJTzZ?usp=sharing) and download the `SoftwareSetup.ipynb`. You can leave the file in your downloads, or move it to whatever folder you like.
+- In the terminal, navigate to the folder with the `SoftwareSetup.ipynb` file.
+- In the terminal, type `jupyter notebook` and hit enter. This should launch a jupyter notebook tab in your browser. The page should look something like this:
+<img src="imgs/jupyter.png" width="900px;"/>
+- Click on `SoftwareSetup.ipynb` to open the notebook
+- Follow the instructions in the notebook to run each cell.
+
 ## SSH / Putty
 
 1. Use your username and server's address to ssh into the server:
@@ -145,31 +173,3 @@ For all non-Windows users, also do these steps to access the Postgres server fro
  ```
 
 Note: After installing Postgres, you might have to add Postgres to your `PATH` (at least on OS X). You'd do this by adding a line to your `.bashrc`, similar to `export PATH=$PATH:/path/to/your/postgres/binaries`, and then re-loading your `.bashrc` file: `source ~/.bashrc`
-
-## Python
-
-As said, your team will decide on which Python version (and versioning) to install. Thus, if you have any working setup already, don't break it (for now)! Just make sure you have the packages listed below installed.
-
-1. If you have no Python installed at all, [Anaconda](https://www.continuum.io/downloads) makes installing a lot of packages easy, and it comes with `jupyter notebook`. Go for Python 3.6.
-
-2. If you have a working Python installation, but you don't have `jupyter notebook`, [install jupyter](https://jupyter.readthedocs.io/en/latest/install.html).
-
-3. Make sure you have the following packages installed. If you use Anaconda, most of them will already be included. Simply call `conda install <packagename>`. Outside of conda, you might want to use `pip` to install packages instead. (Linux users might need to install the packages `libfreetype6-dev` and `libpng-dev` before installing the packages below.) You'll need:
-  *   numpy
-  *   scipy
-  *   pandas
-  *   matplotlib
-  *   seaborn
-  *   scikit-learn
-  *   psycopg2
-  *   statsmodels
-  *   csvkit
-
-4. It's time to test! In order to test that both jupyter and the python packages installed appropriately, you should do the following:
-
-- Follow [this link](https://drive.google.com/drive/folders/1PtA4Io49v25TRRibtJdpfwCLnCYeJTzZ?usp=sharing) and download the `SoftwareSetup.ipynb`. You can leave the file in your downloads, or move it to whatever folder you like.
-- In the terminal, navigate to the folder with the `SoftwareSetup.ipynb` file.
-- In the terminal, type `jupyter notebook` and hit enter. This should launch a jupyter notebook tab in your browser. The page should look something like this:
-<img src="imgs/jupyter.png" width="900px;"/>
-- Click on `SoftwareSetup.ipynb` to open the notebook
-- Follow the instructions in the notebook to run each cell.
