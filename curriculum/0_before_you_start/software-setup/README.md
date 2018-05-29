@@ -154,7 +154,7 @@ For all non-Windows users, also do these steps to access the Postgres server fro
  ```
 2. Once you have the postgres client installed, you can access the training database with it. However, the database server only allows access from the training server. Thus, you need to set up an SSH tunnel through the training server to the Postgres server:
  ```
- ssh -fNT -L 8888:POSTGRESURL:5432 yourusername@SERVERURL
+ ssh -NL 8888:POSTGRESURL:5432 yourusername@SERVERURL
  ```
  where you need to substitute the `POSTGRESURL`, `pathtokey`, `yourusername` and `SERVERURL` with the postgres server's URL, your username on the training server, and the training server's URL, respectively. Also, you should substitute `8888` with a random number in the 8000-65000 range of your choice (port `8888` might be in use already). This command forwards the Postgres server's port 5432 (which serves Postgres) to your laptop's port 8888 (or whatever port you chose), but through your account on the training server. So if you access your local port 8888 in the next step, you get forwarded to the Postgres server's port 5432 - but from the Postgres server's view, the traffic is now coming from the training server (instead of your laptop), and the training server is the only IP address that is allowed to access the postgres server.
 
