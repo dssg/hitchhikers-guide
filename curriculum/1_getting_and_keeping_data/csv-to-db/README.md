@@ -8,7 +8,7 @@ This summer, you will use a database to store and analyze data. Databases have s
 * Databases allow you to store data in one place. That makes updates easy and reliable. 
 * Databases are more secure. You can more carefully control who has which types of access to what data better in a database than with a CSV.
 * Databases can handle multiple users. Concurrent edits to a CSV can get messy. Some file systems won't even let multiple users access a CSV at the same time.
-* Databases are designed to help you do analysis. SQl will probably become your best friend.
+* Databases are designed to help you do analysis. SQL will probably become your best friend.
 
 This session builds on what you learned last week in the [pipeline](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/pipelines-and-project-workflow) and [command line](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools) sessions. We will focus on ETL. 
 
