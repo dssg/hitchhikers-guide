@@ -49,7 +49,7 @@ Much of your work will revolve around and within your pipeline, but we have iden
 
 * [Our lead pipeline](https://github.com/dssg/lead-public), started at DSSG 2014
 * [Our Cincinnati pipeline](https://github.com/dssg/cincinnati), started at DSSG 2015
-* [Diogenes](https://github.com/dssg/diogenes) (a generalized DSSG pipeline)
+* [Triage](https://github.com/dssg/triage) (a generalized DSSG pipeline)
 * [Data Science Toolbox](http://datasciencetoolbox.org/)
 
 
