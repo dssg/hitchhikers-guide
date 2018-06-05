@@ -82,7 +82,7 @@ Feel the data:
 - Which are the respective columns?
 - How many rows per table?
 - Any idea about how to join them?
-- Look at the inspection =2078651,= How many violations does it had?
+- Look at the inspection =2078651=, How many violations does it had?
 
 Let's move on, for most of the analytical purposes (related to data
 science) we need a consolidated view of the entities in our data,
@@ -430,7 +430,7 @@ Which are the most common words descriptions of the violations?
 
 ** Full Text Search
 
-PostgreSQL' has a lot of capabilities for working with [[https://www.postgresql.org/docs/current/static/textsearch.html][text data]]
+PostgreSQL has a lot of capabilities for working with [[https://www.postgresql.org/docs/current/static/textsearch.html][text data]]
 (/fuzzy search/, /n-grams/, etc) that you can use for /searching inside/
 the text.
 
@@ -534,8 +534,8 @@ Then we fill that table with data
 After that, we created a more "clean" version of the data
 
 #+BEGIN_SRC sql
-     create schema if not exists cleaned ;
-     drop table if exists cleaned.inspections cascade;
+create schema if not exists cleaned ;
+drop table if exists cleaned.inspections cascade;
 
 create table cleaned.inspections as (
 with cleaned as (
@@ -664,9 +664,9 @@ create index entities_full_key_ix on semantic.entities (license_num, facility, f
 
 #+END_SRC
 
-The `semantics.inspections`:
+The =semantics.inspections=:
 
-#+BEGIN_SRC
+#+BEGIN_SRC sql
 drop table if exists semantic.events cascade;
 
 create table semantic.inspections as (
