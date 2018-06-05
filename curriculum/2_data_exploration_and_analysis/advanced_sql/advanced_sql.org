@@ -20,11 +20,11 @@
 
 ** The notes
 
-The code is located in:  [[http://bit.ly/2xBBQ5b][http://bit.ly/2xBBQ5b]]
+This code is located at:  [[http://bit.ly/2xBBQ5b][http://bit.ly/2xBBQ5b]]
 
 ** Test your connection
 
-If you are using =psql= use the following:
+If you are using =psql= use the following command to connect:
 
 #+BEGIN_EXAMPLE shell
 psql postgresql://attendee:dssg_conference_2017@advanced-sql.dssg.io:80/dssg_conference
@@ -39,6 +39,9 @@ If you are using a graphical client:
   password: dssg_conference_2017
   db: dssg_conference
 #+END_EXAMPLE
+
+*NOTE* It is very likely that you are using a different database, please
+adjust the previous connection parameters.
 
 * The punchline
 
@@ -175,7 +178,7 @@ separate them by colons. We will show you more examples later in this workshop.
 
 * Querying unstructured data
 
-We created for you the table =semantic.inspections=, and is very similar
+We created for you the table =semantic.events=, and is very similar
 to the results of your last hands-on.
 
 For querying =json= unstructured data, PostgreSQL provides you with the
@@ -190,19 +193,21 @@ key.
 
   with violations as (
        select
-          inspection,
+          event_id,
           jsonb_array_elements(violations) as violations -- This returns several rows
-       from semantic.inspections
-       where inspection = '104246'
+       from semantic.events
+       where event_id = '104246'
   )
 
-  select inspection,
+  select event_id,
          violations ->> 'code' as violation_code, -- We want the value of the key 'code'
          count(*)
   from violations
-  group by inspection, violation_code;
+  group by event_id, violation_code;
 
 #+END_SRC
+
+#+RESULTS:
 
 ** Hands-on
    Estimated time: 2 minutes
@@ -230,26 +235,30 @@ hierarchy (=ROLLUP=) and combinations (=CUBE=) in a simple query.
 #+BEGIN_SRC sql
   -- This doesn't give you the subtotals and totals
   select
-          month,
-          year,
-          city,
+          extract(month from date) as month,
+          extract(year from date) as year,
           facility_type,
-          results,
+          result,
           count(*) as number_of_inspections
-  from semantic.inspections
-  where year = 2017 and month = 1
-  group by month, year, city, facility_type, results
-  --group by GROUPING SETS (month, year, city, facility_type, results, ())
-  --group by ROLLUP (month, year, city, facility_type, results)
-  --group by CUBE (month, year, city, facility_type, results)
+  from semantic.events
+  where extract(year from date) = 2017 and
+        extract(month from date)  = 1
+  group by month, year, facility_type, result
+  --group by GROUPING SETS (month, year, facility_type, result, ())
+  --group by ROLLUP (month, year, facility_type, result)
+  --group by CUBE (month, year, facility_type, result)
 #+END_SRC
+
+#+RESULTS:
+
+*NOTE* Instead of the function =extract(...)= you could use =date_trunc(...)=
+
 
 ** Hands-on
    Estimated time: 5 minutes
    Play with the different commented lines in the example query, if
    you only one the subtotal per =facility_type= and =city=, Which one
    you should use?
-
 
 * Analytical Questions: Looking through the window
 
@@ -274,7 +283,8 @@ inspections where used in a particular facility?
  - There are several [[https://www.postgresql.org/docs/current/static/functions-window.html][window functions]]
    like =row_number=, =rank=, =ntile=, =lag=, =lead=, =first_value=, =last_value=,
    =nth_value=.
- - And you can use any aggregation functions: =sum=, =count=, =avg=, etc
+ - And you can use any aggregation functions: =sum=, =count=, =avg=,
+   =json_agg=, =array_agg=, etc
  - Those functions are used in [[https://www.postgresql.org/docs/current/static/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS][window function calls]].
 
 
@@ -282,18 +292,18 @@ inspections where used in a particular facility?
 
   with failures_per_facility as (
   select
-          license_num,
-          facility,
+          entity_id,
           facility_type,
-          year,
+          extract(year from date) as year,
           count(*) as inspections
-  from semantic.inspections
-  where year = 2015 and facility_type is not null
-  group by license_num, facility, facility_type, year
+  from semantic.events
+  where extract(year from date) = 2015 and facility_type is not null
+  group by entity_id, facility_type, year
   )
 
   select
-          year,license_num,facility,facility_type,
+          year, entity_id,
+          facility_type,
           inspections,
           sum(inspections) over w1 as "total inspections per type",
           100*(inspections::decimal/sum(inspections) over w1)::numeric(18,1)  as "% of inspections",
@@ -305,7 +315,7 @@ inspections where used in a particular facility?
           (nth_value(inspections,1) over w3 / inspections::decimal)::numeric(18,1) as "rate to top 1",
           ntile(5) over w2 as ntile
   from failures_per_facility
-  where facility_type = 'WHOLESALE'
+  where facility_type = 'wholesale'
   window
          w1 as (partition by facility_type, year),
          w2 as (partition by facility_type, year order by inspections desc),
@@ -338,15 +348,15 @@ At a given date, number of days since the last inspection?
 
 
 #+BEGIN_SRC sql
-  select
-          license_num,
-          facility,
-          date as inspection_date,
-          lag(date, 1) over w1 as previous_inspection,
-          age(date, lag(date,1) over w1) as time_since_last_inspection
-          from semantic.inspections
-          where facility = 'RAW'
-          window w1 as (partition by license_num order by date asc)
+select
+entity_id,
+date as inspection_date,
+lag(date, 1) over w1 as previous_inspection,
+age(date, lag(date,1) over w1) as time_since_last_inspection
+from semantic.events
+where facility_type = 'wholesale'
+window w1 as (partition by entity_id order by date asc)
+order by entity_id, date asc ;
 #+END_SRC
 
 * Analytical Questions: Using some other rows
@@ -357,32 +367,32 @@ Number of violations in the last 3 inspections
 
   with violations as (
   select
-          inspection,
-          license_num,
+          event_id,
+          entity_id,
           date,
           jsonb_array_elements(violations) as violations
-  from semantic.inspections
+  from semantic.events
   ),
 
   number_of_violations as (
   select
-          inspection,
-          license_num,
+          event_id,
+          entity_id,
           date,
           count(*) as num_of_violations
   from violations
-  group by inspection, license_num, date
+  group by event_id, entity_id, date
   )
 
   select
-          license_num,
+          entity_id,
           date,
           num_of_violations,
-          sum(num_of_violations) over w,
+          sum(num_of_violations) over w as running_total,
           array_agg(num_of_violations) over w as previous_violations
   from number_of_violations
-  where license_num = '1646652'
-  window w as (partition by license_num order by date asc rows between 3 preceding and 1 preceding)
+  where  entity_id = 11326
+  window w as (partition by entity_id order by date asc rows between 3 preceding and 1 preceding)
 
 #+END_SRC
 
@@ -398,27 +408,26 @@ Number of violations in the last 3 inspections
   with risks as (
   select
           date,
-          license_num,
+          entity_id,
           risk,
           lag(risk,1) over w as previous_risk
-  from semantic.inspections
-  window w as (partition by license_num order by date asc)
+  from semantic.events
+  window w as (partition by entity_id order by date asc)
   )
 
   select
           extract(year from date) as year,
-          license_num,
+          entity_id,
           count(case
-               when risk = 'High' and previous_risk = 'Medium' then 1
-               when risk = 'Medium' and previous_risk = 'Low' then 1
+               when risk = 'high' and previous_risk = 'medium' then 1
+               when risk = 'medium' and previous_risk = 'low' then 1
           end) as up,
           count(case
-               when risk = 'Medium' and previous_risk = 'High' then 1
-               when risk = 'Low' and previous_risk = 'Medium' then 1
+               when risk = 'medium' and previous_risk = 'high' then 1
+               when risk = 'low' and previous_risk = 'medium' then 1
           end) as down
   from risks
-  where  license_num != '0'
-  group by license_num, extract(year from date)
+  group by entity_id, extract(year from date)
   order by year, up desc, down desc
   limit 10
 #+END_SRC
@@ -443,9 +452,9 @@ See the following example:
 #+BEGIN_SRC sql
 
   select
-         violation_comment as comment,
-         replace(plainto_tsquery(violation_comment)::text, ' & ', ' ') as cleaned_comment,
-         to_tsvector(violation_comment) as vectorized_comment
+         comment,
+         replace(plainto_tsquery(comment)::text, ' & ', ' ') as cleaned_comment,
+         to_tsvector(comment) as vectorized_comment
   from cleaned.violations limit 1;
 
 #+END_SRC
@@ -466,15 +475,15 @@ you like it). We will use the table =text_analysis.comments=
 
 * Spatial awareness
 
-Which restaurants with high risk are located near to public schools?
+Which restaurants with high risk which had an inspection are located near to public schools?
 
 #+BEGIN_SRC sql
   select
-          distinct on (license_num, facility, s.school_nm)
-          license_num, facility, s.school_nm as "school"
-  from gis.public_schools as s join semantic.inspections as i
-       on ST_DWithin(geography(s.geom), geography(i.location), 200) -- This is the distance in meters
-  where facility_type = 'RESTAURANT' and risk = 'High';
+          distinct on (entity_id, s.school_nm)
+          entity_id, s.school_nm as "school"
+  from gis.public_schools as s join semantic.events as i
+       on ST_DWithin(geography(s.wkb_geometry), geography(i.location), 200) -- This is the distance in meters
+  where facility_type = 'restaurant' and risk = 'high';
 #+END_SRC
 
 ** Spatial queries
@@ -487,7 +496,7 @@ to answer questions as /What is near?/ /What is inside this area?/ /What interse
   - There is another table: =gis.boundaries=, use the function
     =ST_Contains= to calculate the number of facilities per zip code?
     Compare that with the count using =zip_code= column in the
-    =semantic.inspections=
+    =semantic.events=
     *Hint*: Use a CTE...
 
 * Hands-on
@@ -541,7 +550,7 @@ create table cleaned.inspections as (
 with cleaned as (
 select
 inspection::integer,
-btrim(lower(results)) as result, 
+btrim(lower(results)) as result,
 license_num::integer,
 btrim(lower(dba_name)) as facility,
 btrim(lower(aka_name)) as facility_aka,
@@ -571,13 +580,13 @@ select * from cleaned where type is not null
 create table cleaned.violations as (
 select
 inspection::integer,
-license_num::integer, 
+license_num::integer,
 date::date,
 btrim(tuple[1]) as code,
 btrim(tuple[2]) as description,
 btrim(tuple[3]) as comment,
 (case
-  when btrim(tuple[1]) = '' then NULL 
+  when btrim(tuple[1]) = '' then NULL
   when btrim(tuple[1])::int between 1 and 14 then 'critical' -- From the documentation
   when btrim(tuple[1])::int between 15 and 29  then 'serious'
   else 'minor'
@@ -594,7 +603,7 @@ regexp_split_to_array(   -- Create an array we will split the code, description,
       regexp_replace(violations, '[\n\r]+', '', 'g' )  -- Remove line breaks
     , '- Comments:')
   , '\|')  -- Split the violations
-, '(?<=\d+)\.\s*|\s*-\s*Comments:')  -- Split each violation in three 
+, '(?<=\d+)\.\s*|\s*-\s*Comments:')  -- Split each violation in three
  as tuple
 from raw.inspections
 where results in ('Fail', 'Pass', 'Pass w/ Conditions') and license_num is not null
@@ -645,7 +654,7 @@ select distinct
    start_time,
    end_time
 from entities_date
-   window w as (order by license_num, facility, facility_aka, facility_type, address)
+   window w as (order by license_num, facility, facility_aka, facility_type, address) -- This kinda defines an unique facility
 );
 
 
@@ -698,8 +707,8 @@ i.date, i.risk, i.result
 )
 
 select
-i.inspection as event_id, 
-e.facility, i.type, i.date, i.risk, i.result,
+i.inspection as event_id,
+e.entity_id, i.type, i.date, i.risk, i.result,
 e.facility_type, e.zip_code, e.location,
 i.violations
 from entities as e
@@ -710,26 +719,28 @@ using (license_num, facility, facility_aka, facility_type, address, zip_code)
 );
 
 -- Add some indices
-create index events_entity_ix on semantic.inspections (entity_id);
-create index events_event_ix on semantic.inspections (event_id);
-create index events_type_ix on semantic.inspections (type);
-create index events_date_ix on semantic.inspections(date desc nulls last);
-create index events_facility_type_ix on semantic.inspections  (facility_type);
-create index events_zip_code_ix on semantic.inspections  (zip_code);
+create index events_entity_ix on semantic.events (entity_id);
+create index events_event_ix on semantic.events (event_id);
+create index events_type_ix on semantic.events (type);
+create index events_date_ix on semantic.events(date desc nulls last);
+create index events_facility_type_ix on semantic.events  (facility_type);
+create index events_zip_code_ix on semantic.events  (zip_code);
 
 -- Spatial index
-create index events_location_gix on semantic.inspections using gist (location);
+create index events_location_gix on semantic.events using gist (location);
 
 -- JSONB indices
-create index events_violations on semantic.inspections using gin(violations);
-create index events_violations_json_path on semantic.inspections using gin(violations jsonb_path_ops);
+create index events_violations on semantic.events using gin(violations);
+create index events_violations_json_path on semantic.events using gin(violations jsonb_path_ops);
 
-create index events_event_entity_zip_code_date on semantic.inspections (event_id desc nulls last, entity_id, zip_code, date desc nulls last);
+create index events_event_entity_zip_code_date on semantic.events (event_id desc nulls last, entity_id, zip_code, date desc nulls last);
 
 
 #+END_SRC
 
-And finally the table for text analytics:
+#+RESULTS:
+
+Next we will create the table for text analytics:
 
 #+BEGIN_SRC sql
 
@@ -741,14 +752,14 @@ And finally the table for text analytics:
 
   with violations as (
        select
-          inspection,
-          license_num,
+          event_id,
+          entity_id,
           jsonb_array_elements(violations) as violations
-          from semantic.inspections
+          from semantic.events
   ), cleaned as (
      select
-          inspection,
-          license_num,
+          event_id,
+          entity_id,
           violations ->> 'comment' as original_comment,
           replace(plainto_tsquery(violations ->> 'comment')::text, ' & ', ' ') as cleaned_comment,
           to_tsvector(violations ->> 'comment') as vectorized_comment
@@ -758,4 +769,77 @@ And finally the table for text analytics:
 
   select * from cleaned
   )
+#+END_SRC
+
+And finally the tables for the spatial analysis. The data was
+downloaded from the [[https://data.cityofchicago.org/browse?tags=gis][Chicago Data Portal]]. In particular we are using
+the location of the schools (/Chicago Public Schools - School Locations SY1415/)
+and the Chicago ZIP codes boundaries  (/Boundaries - ZIP Codes/). Both
+data sources use the =WSG84= projection, by the way.
+
+You can check that you have everything setup to upload the data with
+the following command (I recommend to use =ogr2ogr=)
+
+#+BEGIN_SRC shell :dir data
+ogrinfo -ro PG:'host=0.0.0.0 port=5434 user=food_user password=some_password dbname=food'
+#+END_SRC
+
+Again, adjust the connection string accordingly.
+
+Then unzip the files that you downloaded, first the boundaries
+
+#+BEGIN_SRC shell :dir data
+unzip "Boundaries - ZIP Codes.zip"
+#+END_SRC
+
+(This will create 4 files in your directory, all of them with the
+prefix =geo_export_c0962a58-51c1-4ea4-af11-acb7ed233465=, the extensions
+will be =shp= (the spatial data), =dbf= (the data in tabular form), =prj=
+(specifies the projection) and =shx= (index information)
+
+#+RESULTS:
+:RESULTS:
+:END:
+
+And now the schools:
+
+#+BEGIN_SRC shell :dir data
+unzip 'Chicago Public Schools - School Locations SY1415.zip'
+#+END_SRC
+
+Be careful, now there are 4 new files, all of them with the prefix:
+=geo_export_ebe2869c-9bf6-4a04-ae14-a01062f8fa2a=, and the same
+extensions as before.
+
+Finally,
+
+#+BEGIN_SRC shell :dir data
+ogr2ogr -f "PostgreSQL" \
+ PG:'host=0.0.0.0 port=5434 user=food_user password=some_password dbname=food' \
+  geo_export_c0962a58-51c1-4ea4-af11-acb7ed233465.shp \
+  -nln gis.boundaries  -nlt PROMOTE_TO_MULTI -lco precision=NO
+#+END_SRC
+
+*NOTE*: I added the =-nlt PROMOTE_TO_MULTI= because the data source had
+mixed spatial types (Multipolygon and polygon), see
+https://trac.osgeo.org/gdal/ticket/4939 for details.
+
+*NOTE*: I added the =-lco precision=NO= due to a precision error with the
+data:
+
+#+BEGIN_EXPORT text
+ERROR 1: COPY statement failed.
+ERROR:  numeric field overflow
+DETAIL:  A field with precision 33, scale 31 must round to an absolute value less than 10^2.
+CONTEXT:  COPY boundaries, line 1, column shape_len: "42720.0444057999993674457073211669922"
+#+END_EXPORT
+
+See this Stackoverflow question for details: https://gis.stackexchange.com/questions/254671/ogr2ogr-error-importing-shapefile-into-postgis-numeric-field-overflow
+
+
+#+BEGIN_SRC shell :dir data
+ogr2ogr -f "PostgreSQL" \
+PG:'host=0.0.0.0 port=5434 user=food_user password=some_password dbname=food' \
+geo_export_ebe2869c-9bf6-4a04-ae14-a01062f8fa2a.shp \
+  -nln gis.public_schools
 #+END_SRC
