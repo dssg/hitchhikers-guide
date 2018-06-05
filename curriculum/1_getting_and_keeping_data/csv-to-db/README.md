@@ -28,11 +28,10 @@ This session builds on what you learned last week in the [pipeline](https://gith
 * *Queries*: Queries are analysis that you run on a database, often in SQL.
 
 
-
 ## Let's Rock Some Data!
 
 ### Connecting to the database
-Some unique aspects of the setup at DSSG: You cannot access the database server directly; you have to (tunnel) go through one of the EC2 instances. The data are far safer that way: you have to use your private key (better than a password) to access the EC2 and then a username and password to access the database. 
+Some unique aspects of the setup at DSSG: You cannot access the database server directly; you have to (tunnel) go through one of the EC2 instances. The data are far safer that way: you have to access the University's secure network, then one of our EC2s, and then a username and password to access the database. 
 
 There are two ways to connect to the database:
 
@@ -41,7 +40,7 @@ There are two ways to connect to the database:
 2. *Connect from the EC2*: You SSH into the EC2 and run everything from there. Your laptop only sends your commands to the EC2; the EC2 does the work. You don't use an SSH tunnel because everything stays on the EC2.
 ![Connect from the EC2](https://www.lucidchart.com/publicSegments/view/9ca0e0f9-da92-468a-935c-b1fc1d3d467a/image.png)
 
-You can use option 1 (especially dBeaver) to explore the data, but you should use option 2 to load the data. First, downloading the datasets to your laptop may violate our contracts. Second, the internet connections will be better. The connections within Amazon are pretty fast; the connections from our office to Amazon might not be. Option 2 keeps the heavy transfers on Amazon's systems. 
+You can use option 1 (especially dBeaver) to explore the data, but you should use option 2 to load the data. First, downloading the datasets to your laptop may violate our contracts. Second, the internet connections will be better. The connections within Amazon are pretty fast; the connections from our office to Amazon might not be. Option 2 keeps the heavy transfers on Amazon's infrastructure. 
 
 ### Getting data into a Database
 There are three steps to get data into a database. Let's assume for now that you have a (collection of) CSV(s) that you want to load into a database. Let's also assume that the database exists (if not, you should create it).
@@ -56,65 +55,52 @@ The three steps are:
 In this session, we will put the weather data from last week's command-line session into the DSSG training database.
 
 Start by SSHing into the training server:
-`ssh -i ~/.ssh/your_private_key your_username@the_training_EC2_address`
+`ssh your_username@the_training_EC2_address`
 
-If you haven't already, download Matt's weather data to your training folder directory on the training server and unzip, e.g.:
+Create a folder for yourself in the EC2 training directory and download the data:
 
-1. `cd /mnt/data/training/jwalsh/`
-2. `curl -O ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/2016.csv.gz`
-3. `gunzip 2016.csv.gz`
+1. `cd /mnt/data/projects/training/`
+2. `mkdir jwalsh/`
+3. `cd jwalsh`
+4. `wget -O inspections.csv https://data.cityofchicago.org/api/views/4ijn-s7e5/rows.csv?accessType=DOWNLOAD`
 
-This gives you a file called `2016.csv`. You can explore the data using `head`, `tail`, `csvlook`, and other tools that you learned in the [command line](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools) session.
+This gives you a file called `inspections.csv`. You can explore the data using `head`, `tail`, `csvlook`, and other command-line tools you learned.
 
 Here's the output from `csvlook`:
-![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/1_getting_and_keeping_data/csv-to-db/weather_data_csvlook_output.png "weather data")
-
-The first weird thing I see when I look at the data: no headers. `csvlook -H` makes it easier to read:
-![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/1_getting_and_keeping_data/csv-to-db/weather_data_csvlook_noheader_output.png "weather data") 
-
-The README tells us that 
-* Column 1 is the station identifier
-* Column 2 is the date (yyyymmdd)
-* Column 3 is the value type (e.g. "PRCP" is precipitation)
-* Column 4 is the value
-* Column 5 is the "character Measurement Flag," whatever that means
-* Column 6 is the "1 character Quality Flag," whatever that means
-* Column 7 is the "1 character Source Flag," whatever that means
-* Column 8 is the time (hhmm)
-
-Most of the files you work with have a header, so I'll add one here:
-
-`
-Station,Date,Value Type,Value,Measurement Flag,Quality Flag,Source Flag,Time
-`
-
-
-Here's the new `csvlook`:
-![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/1_getting_and_keeping_data/csv-to-db/weather_data_csvlook_header_output.png "weather data") 
+![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/csv-to-db/inspections_data_csvlook.png "inspections data")
 
 `csvsql` generates `create table` statements for you. Because it uses Python, it will load all the data and then do its thing. To limit the resources it needs, I'll only use the first 1000 rows. We're using a PostgreSQL ("Postgres") database:
 
 `
-head -n 1000 2016.csv | csvsql -i postgresql
+head -n1000 inspections.csv | csvsql -i postgresql
 `
 
 Here's the output:
 
 ```
 CREATE TABLE stdin (
-    "Station" VARCHAR(11) NOT NULL, 
-    "Date" INTEGER NOT NULL, 
-    "Value Type" VARCHAR(4) NOT NULL, 
-    "Value" INTEGER NOT NULL, 
-    "Measurement Flag" VARCHAR(4), 
-    "Quality Flag" VARCHAR(4), 
-    "Source Flag" VARCHAR(1) NOT NULL, 
-    "Time" VARCHAR(4)
+	"Inspection ID" DECIMAL NOT NULL, 
+	"DBA Name" VARCHAR NOT NULL, 
+	"AKA Name" VARCHAR, 
+	"License #" DECIMAL NOT NULL, 
+	"Facility Type" VARCHAR, 
+	"Risk" VARCHAR, 
+	"Address" VARCHAR NOT NULL, 
+	"City" VARCHAR NOT NULL, 
+	"State" VARCHAR, 
+	"Zip" DECIMAL NOT NULL, 
+	"Inspection Date" DATE NOT NULL, 
+	"Inspection Type" VARCHAR NOT NULL, 
+	"Results" VARCHAR NOT NULL, 
+	"Violations" VARCHAR, 
+	"Latitude" DECIMAL, 
+	"Longitude" DECIMAL, 
+	"Location" VARCHAR
 );
 ```
 
 A few things to note:
-* Station, Date, etc. are column names.
+* Inspection ID, DBA Name, AKA Name, etc. are column names.
 * VARCHAR and INTEGER are column types. VARCHAR(11) means variable character length column up to 11 characters. If you try to give a character column a number, an integer column a decimal, and so on, Postgres will prevent the entire transfer. 
 * NOT NULL means you have to provide a value for that column.
 * Postgres hates uppercase and spaces in column names. If you have either, you need to wrap the column name in quotation marks. Yuck.
@@ -124,83 +110,147 @@ A few things to note:
 Let's give it another shot:
 
 `
-head -n 1000 2016.csv | iconv -t ascii | tr [:upper:] [:lower:] | tr ' ' '_' | csvsql -i postgresql
+head -n 1000 inspections.csv | tr [:upper:] [:lower:] | tr ' ' '_' | sed 's/#/num/' | csvsql -i postgresql --db-schema jwalsh --tables jwalsh
 `
 
-* `iconv -t ascii` attempts to output ascii. It can also help to use the `-f` option, which gives `iconv` the format of the input.
 * `tr [:upper:] [:lower:]` converts all uppercase to all lowercase. 
 * `tr ' ' '_'` converts all spaces to underscores.
-* `csvsql -i postgresql` generates the postgres `create table` statement.
+* `sed 's/#/num/'` replaces the pound sign with "num".
+* `csvsql -i postgresql --db-schema jwalsh --tables jwalsh` generates the postgres `create table` statement.
 
 Here's the output:
 
 ```
-CREATE TABLE stdin (
-    station VARCHAR(11) NOT NULL, 
-    date INTEGER NOT NULL, 
-    value_type VARCHAR(4) NOT NULL, 
-    value INTEGER NOT NULL, 
-    measurement_flag VARCHAR(4), 
-    quality_flag VARCHAR(4), 
-    source_flag VARCHAR(1) NOT NULL, 
-    time VARCHAR(4)
+CREATE TABLE jwalsh_schema.jwalsh_table (
+	inspection_id DECIMAL NOT NULL, 
+	dba_name VARCHAR NOT NULL, 
+	aka_name VARCHAR, 
+	license_num DECIMAL NOT NULL, 
+	facility_type VARCHAR, 
+	risk VARCHAR, 
+	address VARCHAR NOT NULL, 
+	city VARCHAR NOT NULL, 
+	state VARCHAR, 
+	zip DECIMAL NOT NULL, 
+	inspection_date DATE NOT NULL, 
+	inspection_type VARCHAR NOT NULL, 
+	results VARCHAR NOT NULL, 
+	violations VARCHAR, 
+	latitude DECIMAL, 
+	longitude DECIMAL, 
+	location VARCHAR
 );
 ```
 
-`csvsql` ain't perfect. We still need to make some changes:
-* Replace `stdin` with the table name: `jwalsh_schema.jwalsh_table`.
-* `date` is listed as an integer. It should be `date`.
-
-
+`csvsql` ain't perfect. We could still make changes if we wanted, e.g. changing the `license_num`
+column type. But DECIMAL is good enough for this exercise. 
 
 ### Let's create the schema and table
 Remember, the schema is like a folder. You can use schema to categorize your tables. In dBeaver:
 
 ```
+SET ROLE training_write;
 CREATE SCHEMA jwalsh_schema;
-
-CREATE TABLE jwalsh_schema.jwalsh_table (
-    station VARCHAR(11) NOT NULL, 
-    date DATE NOT NULL, 
-    value_type VARCHAR(4) NOT NULL, 
-    value INTEGER NOT NULL, 
-    measurement_flag VARCHAR(4), 
-    quality_flag VARCHAR(4), 
-    source_flag VARCHAR(1) NOT NULL, 
-    time VARCHAR(4)
-);
 ```
+
 
 ### Step 2: Let's copy the data
 We ready to copy the data! We strongly recommend using `psql`. You can do it through Python scripts and other methods, but `psql` is optimized for this task. It will likely save you a lot of time.
 
-We should follow the [data security guidelines](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/data-security-primer) by storing the database credentials in a file. Postgres looks for four environment variables: PGHOST, PGUSER, PGPASSWORD, and PGDATABASE. To set the environment variables using `default_profile.example`:
+You have a number of ways to copy data, but perhaps the best is to use a script. I'll call mine `inspections.sql`:
+```
+SET ROLE training_write;
+
+CREATE SCHEMA IF NOT EXISTS jwalsh_schema;
+
+CREATE TABLE jwalsh_schema.jwalsh_table (
+        inspection_id DECIMAL NOT NULL,
+        dba_name VARCHAR NOT NULL,
+        aka_name VARCHAR,
+        license_num DECIMAL NOT NULL,
+        facility_type VARCHAR,
+        risk VARCHAR, 
+        address VARCHAR NOT NULL,
+        city VARCHAR NOT NULL,
+        state VARCHAR,  
+        zip DECIMAL NOT NULL,
+        inspection_date DATE NOT NULL,
+        inspection_type VARCHAR NOT NULL,
+        results VARCHAR NOT NULL,
+        violations VARCHAR,
+        latitude DECIMAL,
+        longitude DECIMAL,
+        location VARCHAR
+);
+
+\COPY jwalsh_schema.jwalsh_table from 'inspections.csv' WITH CSV HEADER;
+```
+
+To run the script securely, follow these [data security guidelines](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/data-security-primer) by storing the database credentials in a file. Postgres looks for four environment variables: PGHOST, PGUSER, PGPASSWORD, and PGDATABASE. To set the environment variables using default_profile.example:
 
 `
 eval $(cat default_profile.example)
 `
 
+Then
 `
-cat 2016.csv | psql -c "\copy jwalsh_schema.jwalsh_table from stdin with csv header;"
+psql -f inspections.sql
 `
 
-Note: You want to pipe the data from `cat` to `psql`. You'll get a permissions error if you don't.
+Uh oh, we got an error:
+```
+Password for user jwalsh: 
+SET
+psql:copy_example.sql:2: ERROR:  null value in column "city" violates not-null constraint
+DETAIL:  Failing row contains (2145008, INTERURBAN, INTERURBAN, 2492070, Restaurant, Risk 1 (High), 1438 W CORTLAND ST , null, null, 60642, 2018-02-15, License, Pass, null, 41.916996072966775, -87.6645967198223, (41.916996072966775, -87.6645967198223)).
+CONTEXT:  COPY jwalsh_table, line 7960: "2145008,INTERURBAN,INTERURBAN,2492070,Restaurant,Risk 1 (High),1438 W CORTLAND ST ,,,60642,02/15/201..."
+```
+
+I'll modify `inspections.sql` to handle this:
+```
+SET ROLE training_write;
+
+CREATE SCHEMA IF NOT EXISTS jwalsh_schema;
+
+DROP TABLE IF EXISTS jwalsh_schema.jwalsh_table;
+
+CREATE TABLE jwalsh_schema.jwalsh_table (
+        inspection_id DECIMAL,
+        dba_name VARCHAR,
+        aka_name VARCHAR,
+        license_num DECIMAL,
+        facility_type VARCHAR,
+        risk VARCHAR,
+        address VARCHAR,
+        city VARCHAR,
+        state VARCHAR,
+        zip DECIMAL,
+        inspection_date DATE,
+        inspection_type VARCHAR,
+        results VARCHAR,
+        violations VARCHAR,
+        latitude DECIMAL,
+        longitude DECIMAL,
+        location VARCHAR
+);
+
+\COPY jwalsh_schema.jwalsh_table from 'inspections.csv' WITH CSV HEADER;
+```
+
+Let's try again:
+`
+psql -f inspections.sql
+`
 
 
 ### Step 3: Let's look at the data and make sure everythng is there
 Use dBeaver!
 
-```
-select * from jwalsh_schema.jwalsh_table limit 25;
-select count(*) from jwalsh_schema.jwalsh_table;
-select * from jwalsh_schema.jwalsh_table where station = 'USW00094846';
-select * from jwalsh_schema.jwalsh_table where station = 'USW00094846' and value_type = 'PRCP';
-```
+![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/csv-to-db/data_inserted_into_table.png "data inserted")
 
 
 ## Further Resources
 * Software Carpentry: [Databases and SQL](http://swcarpentry.github.io/sql-novice-survey/)
-* [Computation for Public Policy, Harris School of Public Policy](https://computationforpolicy.github.io/slides/08.pdf)
 
 
 
