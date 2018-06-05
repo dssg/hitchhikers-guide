@@ -11,7 +11,7 @@ This summer, you will use a database to store and analyze data. Databases have s
 * Databases can handle multiple users. Concurrent edits to a CSV can get messy. Some file systems won't even let multiple users access a CSV at the same time.
 * Databases are designed to help you do analysis. SQL will probably become your best friend.
 
-This session builds on what you learned last week in the [pipeline](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/pipelines-and-project-workflow) and [command line](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools) sessions. We will focus on ETL. 
+You'll likely have to load CSVs into your database (e.g. from the open data portal), even if your partner gave a database dump ([which is ideal](https://dsapp.uchicago.edu/home/resources/give-us-direct-access-system-database-dump/)). This session builds on what you learned last week in the [pipeline](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/pipelines-and-project-workflow) and [command line](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools) sessions. We will focus on ETL. 
 
 
 ## Tools
