@@ -67,7 +67,7 @@ Create a folder for yourself in the EC2 training directory and download the data
 This gives you a file called `inspections.csv`. You can explore the data using `head`, `tail`, `csvlook`, and other command-line tools you learned.
 
 Here's the output from `csvlook`:
-![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/csv-to-db/inspections_data_csvlook.png "inspections data")
+![alt text](https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/1_getting_and_keeping_data/csv-to-db/inspections_data_csvlook.png "inspections data")
 
 `csvsql` generates `create table` statements for you. Because it uses Python, it will load all the data and then do its thing. To limit the resources it needs, I'll only use the first 1000 rows. We're using a PostgreSQL ("Postgres") database:
 
@@ -246,7 +246,7 @@ psql -f inspections.sql
 ### Step 3: Let's look at the data and make sure everythng is there
 Use dBeaver!
 
-![alt text](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/csv-to-db/data_inserted_into_table.png "data inserted")
+![alt text](https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/1_getting_and_keeping_data/csv-to-db/data_inserted_into_table.png "data inserted")
 
 
 ## Further Resources
