@@ -3,6 +3,7 @@
 ## Motivation
 This summer, you will use a database to store and analyze data. Databases have several advantages over using text files such as CSVs:
 
+* Databases can store information about relationships between tables.
 * We're collecting more and more data -- often too much to fit in memory. Most databases can handle this. 
 * Databases can provide integrity checks and guarantees. If you have a column of numbers in a spreadsheet, Excel will let you change a random cell to text. In contrast, you can tell your database to only accept input that meets your conditions (e.g. type, uniqueness). This is especially important for ongoing projects, where you have new data coming in.
 * Databases allow you to store data in one place. That makes updates easy and reliable. 
