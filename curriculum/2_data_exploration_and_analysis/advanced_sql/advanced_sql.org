@@ -119,13 +119,13 @@ a simple =group by=
           v.license_num,
           v.date,
           json_agg(
-                   json_build_object('code',v.violation_code,
-                                     'description', v.violation_description,
-                                     'comment',v.violation_comment)
+                   json_build_object('code',v.code,
+                                     'description', v.description,
+                                     'comment',v.comment)
           ) as violations
   from cleaned.violations as v
   where inspection  = '2078651'
-  group by v.inspection, v.license_num, v.date  -- We need a group by since we are using an aggregator function
+  group by v.inspection, v.license_num, v.date;  -- We need a group by since we are using an aggregator function
 #+END_SRC
 
 ** Hands-on
@@ -154,9 +154,9 @@ improvements
           v.license_num,
           v.date,
           json_agg(
-                  json_build_object('code',v.violation_code,
-                                    'description', v.violation_description,
-                                    'comment',v.violation_comment)
+                  json_build_object('code',v.code,
+                                    'description', v.description,
+                                    'comment',v.comment)
           ) as violations
         from cleaned.violations as v
         group by v.inspection, v.license_num, v.date
@@ -167,7 +167,7 @@ improvements
   select i.*, v.violations
   from cleaned.inspections as i
   left join violations as v -- Here we are using the "common table"
-  using (inspection)
+  using (inspection);   -- we can use this, since both tables have the same column name
 #+END_SRC
 
 You can use several CTEs, just remove all except the first =with= and
@@ -200,7 +200,7 @@ key.
          violations ->> 'code' as violation_code, -- We want the value of the key 'code'
          count(*)
   from violations
-  group by inspection, violation_code
+  group by inspection, violation_code;
 
 #+END_SRC
 
@@ -602,7 +602,7 @@ where results in ('Fail', 'Pass', 'Pass w/ Conditions') and license_num is not n
 );
 #+END_SRC
 
-The =semantic.inspections= table
+The =semantic.entities= table
 
 #+BEGIN_SRC sql
 create schema if not exists semantic;
@@ -664,12 +664,12 @@ create index entities_full_key_ix on semantic.entities (license_num, facility, f
 
 #+END_SRC
 
-The =semantics.inspections=:
+The =semantics.events=:
 
 #+BEGIN_SRC sql
 drop table if exists semantic.events cascade;
 
-create table semantic.inspections as (
+create table semantic.events as (
 
 with entities as (
   select * from semantic.entities
@@ -699,7 +699,7 @@ i.date, i.risk, i.result
 
 select
 i.inspection as event_id, 
-e.entity_id, i.type, i.date, i.risk, i.result,
+e.facility, i.type, i.date, i.risk, i.result,
 e.facility_type, e.zip_code, e.location,
 i.violations
 from entities as e
