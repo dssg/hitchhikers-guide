@@ -38,13 +38,14 @@ We assume a linux (ubuntu) server that's been set up for you, and access to a da
   * If you're writing (or running) your code in jupyter notebooks, then you should:
    1. create a no-browser jupyter session on the *server* [jupyter notebook --no-browser --port=8888] You may need to chage the port number to avoid conflicts with other teammates using the same port.
    2. On your local machine, create an SSH tunnel that forwards the port for Jupyter Notebook (0888 in the above command) on the remote machine to a port on the local machine (also 888 above) so that we can access it using our local browser. [ssh -N -L localhost:8888:localhost:8889 username@projectname.dssg.io]
-   3. Access the remote jupyter server via your local browser. Open your browser and go to http://localhost:8888 (you may need to copy and paste the longer URL with a token that is generated when you run the command in step 1)
+   3. Access the remote jupyter server via your local browser. Open your browser and go to http://localhost:8888 (you may need to copy and paste the longer URL with a token that is generated when you run the command in step 1) that looks like http://localhost:8889/?token=343vdfvdfggdfgfdt345&token=fdsfdf345353vc
 
    [More detailed instructions](https://hsaghir.github.io/data_science/jupyter-notebook-on-a-remote-machine-linux/)
 
-3. When should you use Jupyter notebooks, versus when you should use .py files to write code
-4. When to use psql versus DBeaver
-5. When to use SQL versus when to use Python and/or Pandas
+#### 4. Other Workflow ConsiderationsL
+1. When should you use Jupyter notebooks, versus when you should use .py files to write code
+2. When to use psql versus DBeaver
+3. When to use SQL versus when to use Python and/or Pandas
 
 
 
