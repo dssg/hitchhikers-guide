@@ -34,12 +34,15 @@ A few things we can do to explore:
 * Look at the schemas currently present; make sure yours is there: `\dn`
 * List databases: `\l`
 * Find the count of the list of rows:
+  
   `SELECT COUNT(*) FROM mpettit_schema.mpettit_table;`
 * Output the list of columns for this table:
+  
   `SELECT column_name
    FROM information_schema.columns
    WHERE table_name = 'mpettit_table';`
 * If you also want to look at datatype:
+   
    `SELECT column_name, data_type
    FROM information_schema.columns
    WHERE table_name = 'mpettit_table';`
