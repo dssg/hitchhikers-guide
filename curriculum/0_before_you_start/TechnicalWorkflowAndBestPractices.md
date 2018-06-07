@@ -47,6 +47,9 @@ We assume a linux (ubuntu) server that's been set up for you, and access to a da
 2. When to use psql versus DBeaver
 3. When to use SQL versus when to use Python and/or Pandas
 
+#### 5. Other Tips
+* Tunneling to the DB for Tableau: ssh  -L 5433:databaseservername:5432 username@projectservername
+
 
 
 
