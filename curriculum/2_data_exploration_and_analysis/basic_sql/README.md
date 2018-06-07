@@ -49,7 +49,7 @@ A few things we can do to explore:
    
 Ok, now that we've gotten a sense of the data, let's dial it back and get to the basics. :)
 
-### Select
+### SELECT and FROM
 Now, let's look a bit more into SELECT. The SELECT statement is used to select data from a database. The data returned is stored in a result table, called the result-set.
 
 In SQL, data is usually organized in various tables. For example, a sports team database might have the tables teams, players, and games. A wedding database might have tables guests, vendors, and music_playlist. 
@@ -62,9 +62,44 @@ There's a lot to view at once here. Let's say we're not interested in all those 
 
 `SELECT inspection_id, dba_name, aka_name, results, inspection_date FROM mpettit_schema.mpettit_table;`
 
-### Where 
+### LIMIT
+
+Often, tables contain millions of rows, and it can take a while to grab everything. If we just want to see a few examples of the data in a table, we can select the first few rows with the LIMIT keyword. (This might remind you of using `.head` in pandas.)
+
+`SELECT inspection_id, dba_name, aka_name, results, inspection_date FROM mpettit_schema.mpettit_table LIMIT 20;`
+
+### ORDER BY
+
+The ORDER BY keyword is used to sort the result-set in ascending or descending order.
+
+The ORDER BY keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
+
+Here's how you might order by dba_name in ascending order:
+
+`SELECT inspection_id, dba_name, aka_name, results, inspection_date FROM mpettit_schema.mpettit_table ORDER BY dba_name;`
+
+Now, try altering the above line so that it orders the list in descending order. How might we do that? Can look [here](https://www.w3schools.com/sql/sql_orderby.asp) for help.
+
+**ORDER BY / LIMIT COMBO**
+
+If you use ORDER BY and then LIMIT, you would get the first rows for that order. 
+
+`SELECT inspection_id, dba_name, aka_name, results, inspection_date FROM mpettit_schema.mpettit_table ORDER BY dba_name LIMIT 10;`
+
+### WHERE 
 
 The WHERE clause is used to filter records. That is, the WHERE class extracts only those records that fulfill a specified condition.
 
+Let's say we only want to look at records where the restaurant name is SUN WAH, so that we can check to see if it's a good time to go to Joe's favorite duck place. 
 
+`SELECT inspection_id, dba_name, aka_name, results, inspection_date FROM mpettit_schema.mpettit_table WHERE dba_name='SUN WAH';`
 
+We'll notice that this does not get us any results... Hmmmm. 
+
+Let's try using the [LIKE operator](https://www.w3schools.com/sql/sql_like.asp)!! 
+
+`SELECT inspection_id, dba_name, aka_name, results, inspection_date FROM mpettit_schema.mpettit_table WHERE dba_name LIKE '%SUN WAH%';`
+
+### GROUPBY
+
+https://www.periscopedata.com/blog/sql-query-order-of-operations
