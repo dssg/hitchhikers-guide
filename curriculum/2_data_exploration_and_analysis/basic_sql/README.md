@@ -32,6 +32,7 @@ A few things we can do to explore:
 
 * Look at the schemas currently present; make sure yours is there: `\dn`
 * List databases: `\l`
+* ([This doc](https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546) has a list of some other quick exploratory commands.)
 * Find the count of the list of rows:
   
   `SELECT COUNT(*) FROM mpettit_schema.mpettit_table;`
