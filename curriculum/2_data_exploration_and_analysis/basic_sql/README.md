@@ -102,4 +102,16 @@ Let's try using the [LIKE operator](https://www.w3schools.com/sql/sql_like.asp)!
 
 ### GROUPBY
 
+The GROUP BY statement is often used with aggregate functions (COUNT, MAX, MIN, SUM, AVG) to group the result-set by one or more columns.
+
+For example, if we want to find the amount of times that each restaurant has been inspected over this time frame, we might run:
+
+`SELECT dba_name, COUNT(*) FROM mpettit_schema.mpettit_table GROUP BY dba_name;`
+
+Let's say you are only concerned with the amount of times that the restaurant failed in this timeframe...
+
+`SELECT dba_name, COUNT(*) FROM mpettit_schema.mpettit_table WHERE results LIKE 'Fail%' GROUP BY dba_name;`
+
+
+
 https://www.periscopedata.com/blog/sql-query-order-of-operations
