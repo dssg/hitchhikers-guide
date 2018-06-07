@@ -27,17 +27,17 @@ This code is located at:  [[http://bit.ly/2xBBQ5b][http://bit.ly/2xBBQ5b]]
 If you are using =psql= use the following command to connect:
 
 #+BEGIN_EXAMPLE shell
-psql postgresql://attendee:dssg_conference_2017@advanced-sql.dssg.io:80/dssg_conference
+psql postgresql://your_host:your_password@db_host:db_port/training
 #+END_EXAMPLE
 
 If you are using a graphical client:
 
 #+BEGIN_EXAMPLE yaml
-  host: advanced-sql.dssg.io
-  port: 80
-  username: attendee
-  password: dssg_conference_2017
-  db: dssg_conference
+  host: db_host
+  port: db_port
+  username: your_username
+  password: your_password
+  db: training
 #+END_EXAMPLE
 
 *NOTE* It is very likely that you are using a different database, please
@@ -575,7 +575,7 @@ select * from cleaned where type is not null
 #+END_SRC
 
 #+BEGIN_SRC sql
- drop table if exists cleaned.violations cascade;
+drop table if exists cleaned.violations cascade;
 
 create table cleaned.violations as (
 select
@@ -604,6 +604,7 @@ regexp_split_to_array(   -- Create an array we will split the code, description,
     , '- Comments:')
   , '\|')  -- Split the violations
 , '(?<=\d+)\.\s*|\s*-\s*Comments:')  -- Split each violation in three
+-- , '\.\s*|\s*-\s*Comments:')  -- Split each violation in three (Use this if your postgresql is kind off old
  as tuple
 from raw.inspections
 where results in ('Fail', 'Pass', 'Pass w/ Conditions') and license_num is not null
@@ -768,7 +769,7 @@ Next we will create the table for text analytics:
   )
 
   select * from cleaned
-  )
+  );
 #+END_SRC
 
 And finally the tables for the spatial analysis. The data was
@@ -781,7 +782,7 @@ You can check that you have everything setup to upload the data with
 the following command (I recommend to use =ogr2ogr=)
 
 #+BEGIN_SRC shell :dir data
-ogrinfo -ro PG:'host=0.0.0.0 port=5434 user=food_user password=some_password dbname=food'
+ogrinfo -ro PG:'host=0.0.0.0 port=5434 user=your_user password=some_password dbname=food'
 #+END_SRC
 
 Again, adjust the connection string accordingly.
@@ -815,7 +816,7 @@ Finally,
 
 #+BEGIN_SRC shell :dir data
 ogr2ogr -f "PostgreSQL" \
- PG:'host=0.0.0.0 port=5434 user=food_user password=some_password dbname=food' \
+ PG:'host=0.0.0.0 port=8888 user=your_user password=some_password dbname=training' \
   geo_export_c0962a58-51c1-4ea4-af11-acb7ed233465.shp \
   -nln gis.boundaries  -nlt PROMOTE_TO_MULTI -lco precision=NO
 #+END_SRC
@@ -839,7 +840,7 @@ See this Stackoverflow question for details: https://gis.stackexchange.com/quest
 
 #+BEGIN_SRC shell :dir data
 ogr2ogr -f "PostgreSQL" \
-PG:'host=0.0.0.0 port=5434 user=food_user password=some_password dbname=food' \
+PG:'host=0.0.0.0 port=8888 user=your_user password=some_password dbname=training' \
 geo_export_ebe2869c-9bf6-4a04-ae14-a01062f8fa2a.shp \
   -nln gis.public_schools
 #+END_SRC
