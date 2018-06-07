@@ -19,6 +19,8 @@ You'll likely have to load CSVs into your database (e.g. from the open data port
 * dBeaver
 * csvkit
 
+Notice that we're not using pandas. DO NOT COPY DATA INTO THE DATABASE USING PANDAS. We strongly recommend using `psql`, which is orders of magnitude faster.
+
 
 ## Basic Database Lingo
 * *Database server or host*: the computer on which the database is running. We will use Amazon RDS.
@@ -32,28 +34,26 @@ You'll likely have to load CSVs into your database (e.g. from the open data port
 ## Let's Rock Some Data!
 
 ### Connecting to the database
-Some unique aspects of the setup at DSSG: You cannot access the database server directly; you have to (tunnel) go through one of the EC2 instances. The data are far safer that way: you have to access the University's secure network, then one of our EC2s, and then a username and password to access the database. 
+Some unique aspects of the setup at DSSG: You cannot access the database server directly; you have to connect to the University's secure network and tunnel go through one of the EC2 instances. The data are far safer that way: you have to access the University's secure network, then one of our EC2s, and then the database. 
 
-There are two ways to connect to the database:
+There are two ways to connect to the database (once you're on the University network):
 
-1. *Connect from your laptop*: You use an SSH tunnel to pass data between your laptop and the database. You have a database program running locally. If you're using dBeaver, you're connecting from your laptop.
+1. *Connect from your laptop*: Use an SSH tunnel to pass data between your laptop and the database. You have a database program running locally. If you're using dBeaver, you're connecting from your laptop.
 ![Connect from your laptop](https://www.lucidchart.com/publicSegments/view/0a5f49d0-d66c-4ef3-90eb-f7e037d20ec3/image.png)
-2. *Connect from the EC2*: You SSH into the EC2 and run everything from there. Your laptop only sends your commands to the EC2; the EC2 does the work. You don't use an SSH tunnel because everything stays on the EC2.
+2. *Connect from the EC2*: SSH into the EC2 and run everything from there. Your laptop only sends your commands to the EC2; the EC2 does the work. You don't use an SSH tunnel because everything stays on the EC2.
 ![Connect from the EC2](https://www.lucidchart.com/publicSegments/view/9ca0e0f9-da92-468a-935c-b1fc1d3d467a/image.png)
 
 You can use option 1 (especially dBeaver) to explore the data, but you should use option 2 to load the data. First, downloading the datasets to your laptop may violate our contracts. Second, the internet connections will be better. The connections within Amazon are pretty fast; the connections from our office to Amazon might not be. Option 2 keeps the heavy transfers on Amazon's infrastructure. 
 
 ### Getting data into a Database
-There are three steps to get data into a database. Let's assume for now that you have a (collection of) CSV(s) that you want to load into a database. Let's also assume that the database exists (if not, you should create it).
-
-The three steps are:
+There are three steps to get a CSV into an existing database:
 1. **Create table**: This involves figuring out the structure of the table (how many fields, what should they be called, and what data types they are). Once you figure out the structure, you can create a sql "CREATE TABLE" statement and run that to generate an *empty* table*
 2. **Copy CSV to the table**: Every database has a "bulk" copy command that is **much** more efficient than using pandas. Please do not use pandas to copy large csvs to a database. Postgres has a COPY command that can now copy your csv to the table you just created. 
 3. **Check if it copied successfully**: You want to check if your table now has the same number of rows and columns as the CSV (as well as other consistency checks). If it did not copy successfully, you may need to modify the table structure, clean the csv to remove characters, replace nulls, and try steps 1 and 2 again.
 
 ### Step 1: Let's get the structure of the data
 
-In this session, we will put the weather data from last week's command-line session into the DSSG training database.
+In this session, we will put the City of Chicago's food-inspection data into the DSSG training database.
 
 Start by SSHing into the training server:
 `ssh your_username@the_training_EC2_address`
@@ -61,16 +61,16 @@ Start by SSHing into the training server:
 Create a folder for yourself in the EC2 training directory and download the data:
 
 1. `cd /mnt/data/projects/training/`
-2. `mkdir jwalsh/`
+2. `mkdir jwalsh`
 3. `cd jwalsh`
 4. `wget -O inspections.csv https://data.cityofchicago.org/api/views/4ijn-s7e5/rows.csv?accessType=DOWNLOAD`
 
-This gives you a file called `inspections.csv`. You can explore the data using `head`, `tail`, `csvlook`, and other command-line tools you learned.
+This gives you a file called `inspections.csv`. You can explore the data using `head`, `tail`, `csvlook`, and other command-line tools you've learned in previous sessions.
 
 Here's the output from `csvlook`:
 ![alt text](https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/1_getting_and_keeping_data/csv-to-db/inspections_data_csvlook.png "inspections data")
 
-`csvsql` generates `create table` statements for you. Because it uses Python, it will load all the data and then do its thing. To limit the resources it needs, I'll only use the first 1000 rows. We're using a PostgreSQL ("Postgres") database:
+`csvsql` generates `create table` statements for you. Because it uses Python, it will load all the data and then do its thing. That can be really inefficient for large datasets: you have to wait to read the entire dataset, and you need lots of memory to do it. To limit the resources csvsql needs, I'll only use the first 1000 rows. We're using a PostgreSQL ("Postgres") database:
 
 `
 head -n1000 inspections.csv | csvsql -i postgresql
@@ -105,8 +105,7 @@ A few things to note:
 * VARCHAR and INTEGER are column types. VARCHAR(11) means variable character length column up to 11 characters. If you try to give a character column a number, an integer column a decimal, and so on, Postgres will prevent the entire transfer. 
 * NOT NULL means you have to provide a value for that column.
 * Postgres hates uppercase and spaces in column names. If you have either, you need to wrap the column name in quotation marks. Yuck.
-* We need to replace `stdin` with the table name (`jwalsh_schema.jwalsh_table`). 
-* A common problem: funky (non-unicode) characters often appear in the source files. While that's not true here, you can fix many of them using `iconv`.
+* We need to replace `stdin` with the table name (`jwalsh.jwalsh`). 
 
 Let's give it another shot:
 
@@ -122,7 +121,7 @@ head -n 1000 inspections.csv | tr [:upper:] [:lower:] | tr ' ' '_' | sed 's/#/nu
 Here's the output:
 
 ```
-CREATE TABLE jwalsh_schema.jwalsh_table (
+CREATE TABLE jwalsh.jwalsh (
 	inspection_id DECIMAL NOT NULL, 
 	dba_name VARCHAR NOT NULL, 
 	aka_name VARCHAR, 
@@ -143,22 +142,46 @@ CREATE TABLE jwalsh_schema.jwalsh_table (
 );
 ```
 
-`csvsql` ain't perfect. We could still make changes if we wanted, e.g. changing the `license_num`
-column type. But DECIMAL is good enough for this exercise. 
+`csvsql` ain't perfect. We could still make changes if we wanted, e.g. changing the `license_num` column type. But DECIMAL is good enough for this exercise. 
 
 ### Let's create the schema and table
-Remember, the schema is like a folder. You can use schema to categorize your tables. In dBeaver:
+Remember, the schema is like a folder. You can use schema to categorize your tables. Let's use a script, which I'll call `inspections.sql`, to create the schema and table. Here's what it looks like:
 
 ```
 SET ROLE training_write;
-CREATE SCHEMA jwalsh_schema;
+
+CREATE SCHEMA IF NOT EXISTS jwalsh;
+
+CREATE TABLE IF NOT EXISTS jwalsh.jwalsh (
+	inspection_id DECIMAL NOT NULL, 
+	dba_name VARCHAR NOT NULL, 
+	aka_name VARCHAR, 
+	license_num DECIMAL NOT NULL, 
+	facility_type VARCHAR, 
+	risk VARCHAR, 
+	address VARCHAR NOT NULL, 
+	city VARCHAR NOT NULL, 
+	state VARCHAR, 
+	zip DECIMAL NOT NULL, 
+	inspection_date DATE NOT NULL, 
+	inspection_type VARCHAR NOT NULL, 
+	results VARCHAR NOT NULL, 
+	violations VARCHAR, 
+	latitude DECIMAL, 
+	longitude DECIMAL, 
+	location VARCHAR
+);
 ```
+
+A few things to note:
+* The first row sets the role. You need to assume a role that has write permissions to create schemas and tables and to copy data.
+* I added `IF NOT EXISTS` conditions for `create schema` and `create table`. You don't need those if you run the script once, but if you run the script multiple times, you'll get errors if those already exist.
+* The `create table` statement is from above.
 
 
 ### Step 2: Let's copy the data
-We ready to copy the data! We strongly recommend using `psql`. You can do it through Python scripts and other methods, but `psql` is optimized for this task. It will likely save you a lot of time.
 
-You have a number of ways to copy data, but perhaps the best is to use a script. I'll call mine `inspections.sql`:
+All you've given the database to this point is a schema and an empty table. Use psql's `\copy` command to get data into the table: `\copy [db table] from '[source CSV]' with csv header`. I'll add it to the `inspections.sql` script:
 ```
 SET ROLE training_write;
 
@@ -187,10 +210,10 @@ CREATE TABLE jwalsh_schema.jwalsh_table (
 \COPY jwalsh_schema.jwalsh_table from 'inspections.csv' WITH CSV HEADER;
 ```
 
-To run the script securely, follow these [data security guidelines](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/data-security-primer) by storing the database credentials in a file. Postgres looks for four environment variables: PGHOST, PGUSER, PGPASSWORD, and PGDATABASE. To set the environment variables using default_profile.example:
+To run the script securely, follow these [data security guidelines](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/data-security-primer) by storing the database credentials in a file. Postgres looks for four environment variables: PGHOST, PGUSER, PGPASSWORD, and PGDATABASE. To set the environment variables using default_profile (copy and modify from `default_profile.example`):
 
 `
-eval $(cat default_profile.example)
+eval $(cat default_profile)
 `
 
 Then
@@ -207,7 +230,7 @@ DETAIL:  Failing row contains (2145008, INTERURBAN, INTERURBAN, 2492070, Restaur
 CONTEXT:  COPY jwalsh_table, line 7960: "2145008,INTERURBAN,INTERURBAN,2492070,Restaurant,Risk 1 (High),1438 W CORTLAND ST ,,,60642,02/15/201..."
 ```
 
-I'll modify `inspections.sql` to handle this:
+With Postgres `copy`, either the entire copy is successful or none of it is. Check your table: nothing is there. I'll modify `inspections.sql` to allow missing values and try again:
 ```
 SET ROLE training_write;
 
@@ -238,14 +261,14 @@ CREATE TABLE jwalsh_schema.jwalsh_table (
 \COPY jwalsh_schema.jwalsh_table from 'inspections.csv' WITH CSV HEADER;
 ```
 
-Let's try again:
+Run the script:
 `
 psql -f inspections.sql
 `
 
 
-### Step 3: Let's look at the data and make sure everythng is there
-Use dBeaver!
+### Step 3: Let's look at the data and make sure everything is there
+Check if the data are there. Here's what it looks like in dBeaver:
 
 ![alt text](https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/1_getting_and_keeping_data/csv-to-db/data_inserted_into_table.png "data inserted")
 
