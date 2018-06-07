@@ -122,4 +122,22 @@ Here is [a blog post](https://www.periscopedata.com/blog/sql-query-order-of-oper
 
 ### JOIN
 
-A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
+A JOIN clause is used to combine rows from two or more tables, based on a related column between them.  Let's first look [here](https://www.w3schools.com/sql/sql_join.asp) to look at some ven diagrams of the various types of joins.
+
+We have a table with zip code boundaries. To demonstrate how joins work, let's join them! 
+
+So, in order to select the `dba_name` from the inspections table (`mpettit_schema.mpettit_table`) and the `objectid` from the `gis.boundaries` table, we would do something like below. Let's discuss what's happening!
+
+`SELECT mpettit_schema.mpettit_table.dba_name, gis.boundaries.objectid FROM mpettit_schema.mpettit_table INNER JOIN gis.boundaries ON gis.boundaries.zip=mpettit_schema.mpettit_table.zip:;`
+
+So, something went wrong. Any idea what it was?
+
+Let's investigate...
+
+`SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'mpettit_table';`
+
+`SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'boundaries';`
+
+We see the problem is that 
+
+`SELECT mpettit_schema.mpettit_table.dba_name, gis.boundaries.objectid FROM mpettit_schema.mpettit_table INNER JOIN gis.boundaries ON gis.boundaries.zip=mpettit_schema.mpettit_table.zip::varchar;`
