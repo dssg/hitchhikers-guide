@@ -50,8 +50,21 @@ A few things we can do to explore:
 Ok, now that we've gotten a sense of the data, let's dial it back and get to the basics. :)
 
 ### Select
-Now, let's look a bit more into SELECT
+Now, let's look a bit more into SELECT. The SELECT statement is used to select data from a database. The data returned is stored in a result table, called the result-set.
 
-In SQL, data is usually organized in various tables. For example, a sports team database might have the tables teams, players, and games. A wedding database might have tables guests, vendors, and music_playlist.
+In SQL, data is usually organized in various tables. For example, a sports team database might have the tables teams, players, and games. A wedding database might have tables guests, vendors, and music_playlist. 
+
+First off, let's select everything from the table to see what we get:
+
+`SELECT * FROM mpettit_schema.mpettit_table;`
+
+There's a lot to view at once here. Let's say we're not interested in all those comments and just want to look at the columns `inspection_id`, `dba_name`, `aka_name`, `results`, and `inspection_date`. We can edit the above command to only select those columns:
+
+`SELECT inspection_id, dba_name, aka_name, results, inspection_date FROM mpettit_schema.mpettit_table;`
+
+### Where 
+
+The WHERE clause is used to filter records. That is, the WHERE class extracts only those records that fulfill a specified condition.
+
 
 
