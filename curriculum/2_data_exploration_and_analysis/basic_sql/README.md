@@ -112,6 +112,7 @@ Let's say you are only concerned with the amount of times that the restaurant fa
 
 `SELECT dba_name, COUNT(*) FROM mpettit_schema.mpettit_table WHERE results LIKE 'Fail%' GROUP BY dba_name;`
 
+### SQL order of execution:
 
+The clauses of an SQL query are evaluated in a specific order. Here is [a blog post](https://www.periscopedata.com/blog/sql-query-order-of-operations) that addresses this for easy reference.
 
-https://www.periscopedata.com/blog/sql-query-order-of-operations
