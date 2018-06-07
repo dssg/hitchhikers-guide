@@ -42,7 +42,7 @@ We assume a linux (ubuntu) server that's been set up for you, and access to a da
 
    [More detailed instructions](https://hsaghir.github.io/data_science/jupyter-notebook-on-a-remote-machine-linux/)
 
-#### 4. Other Workflow ConsiderationsL
+#### 4. Other Workflow Considerations
 1. When should you use Jupyter notebooks, versus when you should use .py files to write code
 2. When to use psql versus DBeaver
 3. When to use SQL versus when to use Python and/or Pandas
