@@ -120,3 +120,6 @@ The clauses of an SQL query are evaluated in a specific order.
 
 Here is [a blog post](https://www.periscopedata.com/blog/sql-query-order-of-operations) that goes into a bit more detail.
 
+### JOIN
+
+A JOIN clause is used to combine rows from two or more tables, based on a related column between them.
