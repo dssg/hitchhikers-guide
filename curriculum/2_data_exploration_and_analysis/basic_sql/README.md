@@ -114,5 +114,9 @@ Let's say you are only concerned with the amount of times that the restaurant fa
 
 ### SQL order of execution:
 
-The clauses of an SQL query are evaluated in a specific order. Here is [a blog post](https://www.periscopedata.com/blog/sql-query-order-of-operations) that addresses this for easy reference.
+The clauses of an SQL query are evaluated in a specific order. 
+
+<img src="imgs/order_of_executions.png" width="500px;"/>
+
+Here is [a blog post](https://www.periscopedata.com/blog/sql-query-order-of-operations) that goes into a bit more detail.
 
