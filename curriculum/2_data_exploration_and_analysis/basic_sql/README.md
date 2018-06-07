@@ -18,3 +18,37 @@ Things to cover:
 * `group by`
 * `order by`
 * joins
+
+**So, let's get into it, shall we!?**
+
+First, we'll need to:
+
+* ssh into the server
+* Run  `psql`
+* Run `SET ROLE training_write` so that we have the appropriate permissions
+
+### Getting a sense of the tables and data:
+
+A few things we can do to explore:
+
+* Look at the schemas currently present; make sure yours is there: `\dn`
+* List databases: `\l`
+* Find the count of the list of rows:
+  `SELECT COUNT(*) FROM mpettit_schema.mpettit_table;`
+* Output the list of columns for this table:
+  `SELECT column_name
+   FROM information_schema.columns
+   WHERE table_name = 'mpettit_table';`
+* If you also want to look at datatype:
+   `SELECT column_name, data_type
+   FROM information_schema.columns
+   WHERE table_name = 'mpettit_table';`
+   
+Ok, now that we've gotten a sense of the data, let's dial it back and get to the basics. :)
+
+### Select
+Now, let's look a bit more into SELECT
+
+In SQL, data is usually organized in various tables. For example, a sports team database might have the tables teams, players, and games. A wedding database might have tables guests, vendors, and music_playlist.
+
+
