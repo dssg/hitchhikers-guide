@@ -17,7 +17,6 @@ Things to cover:
 * `where`
 * `group by`
 * `order by`
-* joins
 
 **So, let's get into it, shall we!?**
 
