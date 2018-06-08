@@ -130,7 +130,7 @@ The database server runs Postgres 9.5.10.
 
 #### Windows users: 
 
-Windows users should skip the steps below, and instead use [DBeaver](http://dbeaver.jkiss.org/). When setting up the connection in DBeaver, you will need to specify the SSH tunnel; the database credentials are the ones we shared with you, and the SSH tunnel credentials are the ones you used in the previous step to SSH into the training server. Alternatively, everybody can access `psql` from the training server: SSH into the training server as in the step before, then, on the server's shell, call `psql -h POSTGRESURL -p 5432 -U USERNAME -d USERNAME`, where you need to substitute `POSTGRESURL` with the postgres server's address, and `USERNAME` with the username for the postgres [!] server.
+Windows users should skip the steps below, and instead use [DBeaver](http://dbeaver.jkiss.org/). When setting up the connection in DBeaver, you will need to specify the SSH tunnel; the database credentials are the ones we shared with you, and the SSH tunnel credentials are the ones you used in the previous step to SSH into the training server. Alternatively, everybody can access `psql` from the training server: SSH into the training server as in the step before, then, on the server's shell, call `psql -h POSTGRESURL -U USERNAME -d DBNAME`, where you need to substitute `POSTGRESURL` with the postgres server's address, `USERNAME` with your database username, and `DBNAME` with the name of the database.
 
 For Windows - or if you want a graphical interface to databases - you might  want to use [DBeaver](http://dbeaver.jkiss.org/).
 
@@ -144,7 +144,7 @@ For all non-Windows users, also do these steps to access the Postgres server fro
  ```
  On Ubuntu: ```apt-get install postgresql-client-9.4```. This won't work for  Ubuntu <= 14.4, which by default only packages 9.3; in that case follow [these  instructions](https://www.postgresql.org/download/linux/ubuntu/). (Though the  older client seems to be happy to connect to the server, too.)
 
- Some Linux distributions might need to install `libpq`:
+ Some Linux distributions might need `libpq`:
  ```
  sudo apt-get install libpq-dev
  ```
@@ -154,9 +154,11 @@ For all non-Windows users, also do these steps to access the Postgres server fro
  ```
 2. Once you have the postgres client installed, you can access the training database with it. However, the database server only allows access from the training server. Thus, you need to set up an SSH tunnel through the training server to the Postgres server:
  ```
- ssh -NL 8888:POSTGRESURL:5432 yourusername@SERVERURL
+ ssh -NL localhost:8888:POSTGRESURL:5432 ec2username@EC2URL
  ```
- where you need to substitute the `POSTGRESURL`, `pathtokey`, `yourusername` and `SERVERURL` with the postgres server's URL, your username on the training server, and the training server's URL, respectively. Also, you should substitute `8888` with a random number in the 8000-65000 range of your choice (port `8888` might be in use already). This command forwards the Postgres server's port 5432 (which serves Postgres) to your laptop's port 8888 (or whatever port you chose), but through your account on the training server. So if you access your local port 8888 in the next step, you get forwarded to the Postgres server's port 5432 - but from the Postgres server's view, the traffic is now coming from the training server (instead of your laptop), and the training server is the only IP address that is allowed to access the postgres server.
+ where you need to substitute `POSTGRESURL`, `ec2username`, and `EC2URL` with the postgres server's URL, your username on the training server, and the training server's URL respectively. Also, you should substitute `8888` with a random number in the 8000-65000 range of your choice (port `8888` might be in use already). 
+ 
+ This command forwards your laptop's port 8888 through your account on the EC2 (EC2URL) to the Postgres server port 5432. So if you access your local port 8888 in the next step, you get forwarded to the Postgres server's port 5432 - but from the Postgres server's view, the traffic is now coming from the training server (instead of your laptop), and the training server is the only IP address that is allowed to access the postgres server.
 
 3. Connect to the Postgres database on the forwarded port
  ```
@@ -166,8 +168,9 @@ For all non-Windows users, also do these steps to access the Postgres server fro
 
  This should drop you into a SQL shell on the database server.
  
- For fun, make a schema with your name, and then drop it again:
+You'll need to explicitly assume a role to do anything beyond connecting to the database. To make changes to the training database, use the `training_write` role. Let's test it by creating and dropping a schema:
  ```
+ set role training_write;
  create schema jsmith;
  drop schema jsmith;
  ```
