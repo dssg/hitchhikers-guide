@@ -68,13 +68,19 @@ First off, let's select everything from the table to see what we get:
 
 There's a lot to view at once here. Let's say we're not interested in all those comments and just want to look at the columns `inspection_id`, `dba_name`, `aka_name`, `results`, and `inspection_date`. We can edit the above command to only select those columns:
 
-`SELECT inspection_id, dba_name, aka_name, results, inspection_date FROM mpettit_schema.mpettit_table;`
+`SELECT inspection_id, dba_name, aka_name, results, inspection_date` 
+
+`FROM mpettit_schema.mpettit_table;`
 
 ### LIMIT
 
 Often, tables contain millions of rows, and it can take a while to grab everything. If we just want to see a few examples of the data in a table, we can select the first few rows with the LIMIT keyword. (This might remind you of using `.head` in pandas.)
 
-`SELECT inspection_id, dba_name, aka_name, results, inspection_date FROM mpettit_schema.mpettit_table LIMIT 20;`
+`SELECT inspection_id, dba_name, aka_name, results, inspection_date` 
+
+`FROM mpettit_schema.mpettit_table` 
+
+`LIMIT 20;`
 
 ### ORDER BY
 
