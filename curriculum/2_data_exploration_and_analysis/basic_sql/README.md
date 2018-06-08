@@ -39,12 +39,17 @@ A few things we can do to explore:
 * Output the list of columns for this table:
   
   `SELECT column_name
+  
    FROM information_schema.columns
+   
    WHERE table_name = 'mpettit_table';`
+   
 * If you also want to look at datatype:
    
    `SELECT column_name, data_type
+   
    FROM information_schema.columns
+   
    WHERE table_name = 'mpettit_table';`
    
 Ok, now that we've gotten a sense of the data, let's dial it back and get to the basics. :)
@@ -56,7 +61,9 @@ In SQL, data is usually organized in various tables. For example, a sports team 
 
 First off, let's select everything from the table to see what we get:
 
-`SELECT * FROM mpettit_schema.mpettit_table;`
+`SELECT * 
+
+FROM mpettit_schema.mpettit_table;`
 
 There's a lot to view at once here. Let's say we're not interested in all those comments and just want to look at the columns `inspection_id`, `dba_name`, `aka_name`, `results`, and `inspection_date`. We can edit the above command to only select those columns:
 
@@ -138,6 +145,8 @@ Let's investigate...
 
 `SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'boundaries';`
 
-We see the problem is that 
+We see the problem is that the data types for zip code don't match up between the two tables. Let's fix that:
 
 `SELECT mpettit_schema.mpettit_table.dba_name, gis.boundaries.objectid FROM mpettit_schema.mpettit_table INNER JOIN gis.boundaries ON gis.boundaries.zip=mpettit_schema.mpettit_table.zip::varchar;`
+
+Also, you might notice that this 
