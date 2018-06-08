@@ -158,7 +158,7 @@ Let's say you are only concerned with the amount of times that the restaurant fa
 
 A JOIN clause is used to combine rows from two or more tables, based on a related column between them.  Let's first look [here](https://www.w3schools.com/sql/sql_join.asp) to look at some ven diagrams of the various types of joins.
 
-We have a table with zip code boundaries. To demonstrate how joins work, let's join them! 
+We have a table with zip code boundaries. To demonstrate how joins work, let's join the boundaries table to the inspections table!
 
 So, in order to select the `dba_name` from the inspections table (`mpettit_schema.mpettit_table`) and the `objectid` from the `gis.boundaries` table, we would do something like below. Let's discuss what's happening!
 
@@ -166,7 +166,7 @@ So, in order to select the `dba_name` from the inspections table (`mpettit_schem
 
 `FROM mpettit_schema.mpettit_table` 
 
-`INNER JOIN gis.boundaries` 
+`LEFT JOIN gis.boundaries` 
 
 `ON gis.boundaries.zip=mpettit_schema.mpettit_table.zip:;`
 
@@ -194,7 +194,7 @@ We see the problem is that the data types for zip code don't match up between th
 
 `FROM mpettit_schema.mpettit_table` 
 
-`INNER JOIN gis.boundaries` 
+`LEFT JOIN gis.boundaries` 
 
 `ON gis.boundaries.zip=mpettit_schema.mpettit_table.zip::varchar;`
 
@@ -206,7 +206,7 @@ If you want to use an alias for a table, you add `AS *alias_name*` after the tab
 
 `FROM mpettit_schema.mpettit_table AS inspect` 
 
-`INNER JOIN gis.boundaries AS bound`
+`LEFT JOIN gis.boundaries AS bound`
 
 `ON bound.zip=inspect.zip::varchar;`
 
