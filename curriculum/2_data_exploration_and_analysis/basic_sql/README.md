@@ -154,14 +154,6 @@ Let's say you are only concerned with the amount of times that the restaurant fa
 
 `GROUP BY dba_name;`
 
-### SQL order of execution:
-
-The clauses of an SQL query are evaluated in a specific order. 
-
-<img src="imgs/order_of_executions.png" width="500px;"/>
-
-Here is [a blog post](https://www.periscopedata.com/blog/sql-query-order-of-operations) that goes into a bit more detail.
-
 ### JOIN
 
 A JOIN clause is used to combine rows from two or more tables, based on a related column between them.  Let's first look [here](https://www.w3schools.com/sql/sql_join.asp) to look at some ven diagrams of the various types of joins.
@@ -174,18 +166,56 @@ So, in order to select the `dba_name` from the inspections table (`mpettit_schem
 
 `FROM mpettit_schema.mpettit_table` 
 
-`INNER JOIN gis.boundaries ON gis.boundaries.zip=mpettit_schema.mpettit_table.zip:;`
+`INNER JOIN gis.boundaries` 
+
+`ON gis.boundaries.zip=mpettit_schema.mpettit_table.zip:;`
 
 So, something went wrong. Any idea what it was?
 
 Let's investigate...
 
-`SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'mpettit_table';`
+`SELECT column_name, data_type` 
 
-`SELECT column_name, data_type FROM information_schema.columns WHERE table_name = 'boundaries';`
+`FROM information_schema.columns` 
+
+`WHERE table_name = 'mpettit_table';`
+
+  &
+
+`SELECT column_name, data_type` 
+
+`FROM information_schema.columns` 
+
+`WHERE table_name = 'boundaries';`
 
 We see the problem is that the data types for zip code don't match up between the two tables. Let's fix that:
 
-`SELECT mpettit_schema.mpettit_table.dba_name, gis.boundaries.objectid FROM mpettit_schema.mpettit_table INNER JOIN gis.boundaries ON gis.boundaries.zip=mpettit_schema.mpettit_table.zip::varchar;`
+`SELECT mpettit_schema.mpettit_table.dba_name, gis.boundaries.objectid` 
 
-Also, you might notice that this 
+`FROM mpettit_schema.mpettit_table` 
+
+`INNER JOIN gis.boundaries` 
+
+`ON gis.boundaries.zip=mpettit_schema.mpettit_table.zip::varchar;`
+
+Also, you might notice that this is extremely wordy... We can write a shorter query if we used aliases for those tables. Basically, we create a "nickname" for that table. 
+
+If you want to use an alias for a table, you add `AS *alias_name*` after the table name. 
+
+`SELECT inspect.dba_name, bound.objectid` 
+
+`FROM mpettit_schema.mpettit_table AS inspect` 
+
+`INNER JOIN gis.boundaries AS bound`
+
+`ON bound.zip=inspect.zip::varchar;`
+
+### SQL order of execution:
+
+The clauses of an SQL query are evaluated in a specific order. 
+
+<img src="imgs/order_of_executions.png" width="500px;"/>
+
+Here is [a blog post](https://www.periscopedata.com/blog/sql-query-order-of-operations) that goes into a bit more detail.
+
+**Joins:**  SQL's FROM clause selects and joins your tables and is the first executed part of a query. This means that in queries with joins, the join is the first thing to happen. 
