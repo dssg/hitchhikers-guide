@@ -90,7 +90,11 @@ The ORDER BY keyword sorts the records in ascending order by default. To sort th
 
 Here's how you might order by dba_name in ascending order:
 
-`SELECT inspection_id, dba_name, aka_name, results, inspection_date FROM mpettit_schema.mpettit_table ORDER BY dba_name;`
+`SELECT inspection_id, dba_name, aka_name, results, inspection_date` 
+
+`FROM mpettit_schema.mpettit_table` 
+
+`ORDER BY dba_name;`
 
 Now, try altering the above line so that it orders the list in descending order. How might we do that? Can look [here](https://www.w3schools.com/sql/sql_orderby.asp) for help.
 
@@ -98,7 +102,13 @@ Now, try altering the above line so that it orders the list in descending order.
 
 If you use ORDER BY and then LIMIT, you would get the first rows for that order. 
 
-`SELECT inspection_id, dba_name, aka_name, results, inspection_date FROM mpettit_schema.mpettit_table ORDER BY dba_name LIMIT 10;`
+`SELECT inspection_id, dba_name, aka_name, results, inspection_date` 
+
+`FROM mpettit_schema.mpettit_table` 
+
+`ORDER BY dba_name`
+
+`LIMIT 10;`
 
 ### WHERE 
 
@@ -106,13 +116,21 @@ The WHERE clause is used to filter records. That is, the WHERE class extracts on
 
 Let's say we only want to look at records where the restaurant name is SUN WAH, so that we can check to see if it's a good time to go to Joe's favorite duck place. 
 
-`SELECT inspection_id, dba_name, aka_name, results, inspection_date FROM mpettit_schema.mpettit_table WHERE dba_name='SUN WAH';`
+`SELECT inspection_id, dba_name, aka_name, results, inspection_date` 
+
+`FROM mpettit_schema.mpettit_table` 
+
+`WHERE dba_name='SUN WAH';`
 
 We'll notice that this does not get us any results... Hmmmm. 
 
 Let's try using the [LIKE operator](https://www.w3schools.com/sql/sql_like.asp)!! 
 
-`SELECT inspection_id, dba_name, aka_name, results, inspection_date FROM mpettit_schema.mpettit_table WHERE dba_name LIKE '%SUN WAH%';`
+`SELECT inspection_id, dba_name, aka_name, results, inspection_date` 
+
+`FROM mpettit_schema.mpettit_table` 
+
+`WHERE dba_name LIKE '%SUN WAH%';`
 
 ### GROUPBY
 
@@ -120,11 +138,21 @@ The GROUP BY statement is often used with aggregate functions (COUNT, MAX, MIN, 
 
 For example, if we want to find the amount of times that each restaurant has been inspected over this time frame, we might run:
 
-`SELECT dba_name, COUNT(*) FROM mpettit_schema.mpettit_table GROUP BY dba_name;`
+`SELECT dba_name, COUNT(*)` 
+
+`FROM mpettit_schema.mpettit_table` 
+
+`GROUP BY dba_name;`
 
 Let's say you are only concerned with the amount of times that the restaurant failed in this timeframe...
 
-`SELECT dba_name, COUNT(*) FROM mpettit_schema.mpettit_table WHERE results LIKE 'Fail%' GROUP BY dba_name;`
+`SELECT dba_name, COUNT(*)` 
+
+`FROM mpettit_schema.mpettit_table` 
+
+`WHERE results LIKE 'Fail%'` 
+
+`GROUP BY dba_name;`
 
 ### SQL order of execution:
 
@@ -142,7 +170,11 @@ We have a table with zip code boundaries. To demonstrate how joins work, let's j
 
 So, in order to select the `dba_name` from the inspections table (`mpettit_schema.mpettit_table`) and the `objectid` from the `gis.boundaries` table, we would do something like below. Let's discuss what's happening!
 
-`SELECT mpettit_schema.mpettit_table.dba_name, gis.boundaries.objectid FROM mpettit_schema.mpettit_table INNER JOIN gis.boundaries ON gis.boundaries.zip=mpettit_schema.mpettit_table.zip:;`
+`SELECT mpettit_schema.mpettit_table.dba_name, gis.boundaries.objectid` 
+
+`FROM mpettit_schema.mpettit_table` 
+
+`INNER JOIN gis.boundaries ON gis.boundaries.zip=mpettit_schema.mpettit_table.zip:;`
 
 So, something went wrong. Any idea what it was?
 
