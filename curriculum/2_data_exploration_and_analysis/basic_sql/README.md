@@ -20,10 +20,12 @@ Things to cover:
 
 **So, let's get into it, shall we!?**
 
-First, we'll need to:
-
+First, we'll need to either:
+1. use psql
 * ssh into the server
 * Run  `psql`
+* Run `SET ROLE training_write` so that we have the appropriate permissions
+2. use dbeaver
 * Run `SET ROLE training_write` so that we have the appropriate permissions
 
 ### Getting a sense of the tables and data:
