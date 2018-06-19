@@ -19,4 +19,4 @@ You can access the slides for this session
 * ["Fuck Nuance"](https://kieranhealy.org/files/papers/fuck-nuance.pdf)
 * [Counterfactuals and Causal Inference](https://www.amazon.com/dp/1107694167/ref=pd_lpo_sbs_dp_ss_1?pf_rd_p=1944687682&pf_rd_s=lpo-top-stripe-1&pf_rd_t=201&pf_rd_i=0521671930&pf_rd_m=ATVPDKIKX0DER&pf_rd_r=908676750YHM8KJ9YSKH)
 * [Mostly Harmless Econometrics](https://www.amazon.com/dp/0691120358/ref=pd_lpo_sbs_dp_ss_2?pf_rd_p=1944687462&pf_rd_s=lpo-top-stripe-1&pf_rd_t=201&pf_rd_i=0521671930&pf_rd_m=ATVPDKIKX0DER&pf_rd_r=PSSFK0NSKF1B43G0PG71)
-
+* [Prediction Policy Problems](https://www.cs.cornell.edu/home/kleinber/aer15-prediction.pdf)
