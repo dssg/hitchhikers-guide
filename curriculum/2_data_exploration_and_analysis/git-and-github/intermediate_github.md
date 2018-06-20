@@ -64,31 +64,19 @@ There are five practice files in the [practice repo](https://github.com/dssg/git
 
 1. Open your practice markdown file
 2. Make a change somewhere in the document. Perhaps you want to profess your love for your favorite sweets, or add some new confections to the [cupcake ipsum](http://www.cupcakeipsum.com/).
-3. Add file to staging - 
+3. Add file to staging -  - `git add *`
 
-`git add *`
+4. Commit your changes -  - `git commit -m 'some description of edit I just made'`
 
-4. Commit your changes - 
-
-`git commit -m 'some description of edit I just made'`
-
-5. Push 
-
-`git push`
+5. Push  - `git push`
 
 **Note: If at this point you wanted to merge the branch without a pull request, you would do the following, but don't do this in this example:**
 
-6. Switch to master
+6. Switch to master - `git checkout master`
 
-`git checkout master`
+7. merge the edits from your branch - `git merge [branchname]`
 
-7. merge the edits from your branch
-
-`git merge [branchname]`
-
-8. delete old branchname
-
-`git branch -d [branchname]`
+8. delete old branchname - `git branch -d [branchname]`
 
 TKTK pictures of branches
 
