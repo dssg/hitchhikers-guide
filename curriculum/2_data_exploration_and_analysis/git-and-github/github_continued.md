@@ -31,8 +31,8 @@ This diagram shows:
 Have you ever saved different versions of a file? Something like:
 
 - story.txt
-- story-joe-edit.txt
-- story-joe-edit-reviewed.txt
+- story-mollie-edit.txt
+- story-mollie-edit-reviewed.txt
 
 **Branches** accomplish similar goals in GitHub repositories.
 
