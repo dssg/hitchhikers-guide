@@ -50,6 +50,10 @@ Now, you’re on the code view for your new branch, which is a copy of `master`.
 
 On GitHub, saved changes are called commits. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes, so other contributors can understand what you’ve done and why.
 
+Some reasons why COMMITTING OFTEN IS IMPORTANT:
+- Committing often makes each bit-size change easy to parse for your teammates
+- If bugs appear, you can checkout past versions and compare the commit history. If you are committing often, it will be much easier to find where the bug krept in. 
+
 There are five practice files in the [practice repo](https://github.com/dssg/github_practice/tree/master). Let's split up which document we'll work with based on rows. 
 
 ### On Github:
@@ -78,6 +82,46 @@ There are five practice files in the [practice repo](https://github.com/dssg/git
 - Merge the edits from your branch - `git merge [branchname]`
 - Delete old branchname - `git branch -d [branchname]`
 
+## Using commit history to find bugs
+
+Why is committing so important you might ask? Well, one reason is that you can use your commit history to find bugs!!! Let's take a look at how that might be done.
+
+Run `git log` to see your commit history. From here, you can use the version commit number to checkout different versions of your code.
+
+To explore a past version, you can simply run `git checkout [revision]` where `revision` is the commit hash (for example: 12345678901234567890123456789012345678ab). You are now viewing the code as it was during that version! Let's say a bug has crept into the code at some point, and you're trying to find where that happened. You can simply checkout various versions of your code, run the buggy file, and find the point at which the bug was introduced.
+
+Then, you'll want to look at the difference between the last version where the code was not present, and the first version where it was introduced. You can check out these differences by running `git diff [revision1] [revision2]`. So, for example, something like `git diff d8f59d0d27a50adba45a54fd50047ea94d6effcf 12f74c691786445d675f1b45ed244778eb3328dd`.
+
+Something to keep in mind is that if you are **not** committing often (for example, committing every few days instead of multiple times a day), this process will be unhelpful because the differences will be so large and the commit messages will not be very meaningful/helpful. 
+
+Make sure to commit often with informative commit messages! :)
+
+## `.gitignore`
+
+`.gitignore` files specify which files are ignored in a git repository. 
+
+Example:
+
+```
+#ignore a single file
+`mycode.class`
+
+#ignore an entire directory
+`/mydebugdir/`
+
+#ignore a file type
+`*.json`
+
+#add an exception (using !) to the preceding rule to track a specific file
+`!package.json`
+```
+
+Let's create an empty `.gitignore` file (touch `.gitignore`) and play around!
+
+## Tags
+
+
+
 ## Opening a pull request
 
 Pull Requests are the heart of collaboration on GitHub. When you open a pull request, you’re proposing your changes and requesting that someone review and pull in your contribution and merge them into their branch. Pull requests show diffs, or differences, of the content from both branches. The changes, additions, and subtractions are shown in green and red.
@@ -102,32 +146,6 @@ In this final step, it’s time to bring your changes together – merging your 
 - Click on the green **Merge pull request** button to merge the changes into `master`
 - Click **confirm merge**
 - Since you're now done with this new branch, you can delete the branch by clicking the **Delete branch** button.
-
-## Using commit history to find bugs
-
-TKTK - fill in this section
-
-## `.gitignore`
-
-`.gitignore` files specify which files are ignored in a git repository. 
-
-Example:
-
-```
-#ignore a single file
-`mycode.class`
-
-#ignore an entire directory
-`/mydebugdir/`
-
-#ignore a file type
-`*.json`
-
-#add an exception (using !) to the preceding rule to track a specific file
-`!package.json`
-```
-
-Let's create an empty `.gitignore` file (touch `.gitignore`) and play around!
 
 ## Github Command Line Cheatsheet
 
