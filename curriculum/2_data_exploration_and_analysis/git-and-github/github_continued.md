@@ -1,5 +1,15 @@
 # GitHub Continued
 
+**Agenda**
+
+- Branches
+- Committing (and why it's important to commit OFTEN!)
+- Merging Branches
+- Finding (and fixing) bugs with commit history
+- `.gitignore`
+- Tags
+- Pull Requests
+
 To get started, clone [this repo](https://github.com/dssg/github_practice/tree/mollie_edits).
 
 ## Branches
@@ -53,6 +63,8 @@ On GitHub, saved changes are called commits. Each commit has an associated commi
 Some reasons why COMMITTING OFTEN IS IMPORTANT:
 - Committing often makes each bit-size change easy to parse for your teammates
 - If bugs appear, you can checkout past versions and compare the commit history. If you are committing often, it will be much easier to find where the bug krept in. 
+
+**Rid yourself of your fear of committment!**
 
 There are five practice files in the [practice repo](https://github.com/dssg/github_practice/tree/master). Let's split up which document we'll work with based on rows. 
 
