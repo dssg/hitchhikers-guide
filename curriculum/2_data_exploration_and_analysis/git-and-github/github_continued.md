@@ -38,14 +38,6 @@ Have you ever saved different versions of a file? Something like:
 
 ## Creating a Branch
 
-### On Github:
-- Go to [this practice repository](https://github.com/dssg/github_practice).
-- Click the drop down at the top of the file list that says branch: master.
-- Type a branch name (perhaps your name?) into the new branch text box.
-- Select the blue **Create branch** box or hit “Enter” on your keyboard.
-
-TKTK add video of this
-
 ### On Command line:
 
 Create new branch with `git branch [branchname]`
@@ -53,6 +45,12 @@ Create new branch with `git branch [branchname]`
 Move to the new branch with `git checkout branchname`
 
 Now you have two branches, `master` and your new branch. They look exactly the same, but not for long! Next we’ll add our changes to the new branch.
+
+### On Github:
+- Go to [this practice repository](https://github.com/dssg/github_practice).
+- Click the drop down at the top of the file list that says branch: master.
+- Type a branch name (perhaps your name?) into the new branch text box.
+- Select the blue **Create branch** box or hit “Enter” on your keyboard.
 
 ## Making and Committing Changes
 
@@ -85,8 +83,6 @@ There are five practice files in the [practice repo](https://github.com/dssg/git
 5. Push  - `git push`
 
 ## Merging branches
-
-**Note: If at this point you wanted to merge the branch without a pull request, you would do the following; however, for this example, we'll skip ahead to the pull request**
 
 ### On Command Line:
 
