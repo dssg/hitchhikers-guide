@@ -87,6 +87,8 @@ In this final step, it’s time to bring your changes together – merging your 
 
 `.gitignore` files specify which files are ignored in a git repository. 
 
+Example:
+
 ```
 #ignore a single file
 `mycode.class`
