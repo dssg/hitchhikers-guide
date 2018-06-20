@@ -70,19 +70,19 @@ There are five practice files in the [practice repo](https://github.com/dssg/git
 
 5. Push  - `git push`
 
-**Note: If at this point you wanted to merge the branch without a pull request, you would do the following, but don't do this in this example:**
-
-6. Switch to master - `git checkout master`
-
-7. merge the edits from your branch - `git merge [branchname]`
-
-8. delete old branchname - `git branch -d [branchname]`
-
-TKTK pictures of branches
-
 ## Using commit history to find bugs
 
 TKTK - fill in this section
+
+## Merging branches
+
+**Note: If at this point you wanted to merge the branch without a pull request, you would do the following; however, for this example, we'll skip ahead to the pull request**
+
+### On Command Line:
+
+- Switch to master - `git checkout master`
+- Merge the edits from your branch - `git merge [branchname]`
+- Delete old branchname - `git branch -d [branchname]`
 
 ## Opening a pull request
 
