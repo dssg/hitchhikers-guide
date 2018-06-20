@@ -26,7 +26,7 @@ This diagram shows:
 - A new branch called feature (because we’re doing ‘feature work’ on this branch)
 - The journey that feature takes before it’s merged into master
 
-TKTK picture
+<img src="imgs/branching.png" width="500px;"/>
 
 Have you ever saved different versions of a file? Something like:
 
