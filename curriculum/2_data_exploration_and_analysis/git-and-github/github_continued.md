@@ -165,7 +165,8 @@ In this final step, it’s time to bring your changes together – merging your 
 - Click **confirm merge**
 - Since you're now done with this new branch, you can delete the branch by clicking the **Delete branch** button.
 
-## Github Command Line Cheatsheet
+## Other stuff:
 
 There are a bunch of these out there, but here is [one](https://gist.github.com/davfre/8313299) that you might find useful on your journey.
 
+Oh yeah, and some of this is shamelessly stolen from [this post](https://guides.github.com/activities/hello-world/). :)
