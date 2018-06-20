@@ -20,13 +20,13 @@ By default your repository has one branch named `master` which is considered to 
 
 When you create a branch off the `master` branch, you’re making a copy, or snapshot, of `master` as it was at that point in time. If someone else made changes to the `master` branch while you were working on your branch, you could pull in those updates.
 
+<img src="imgs/branching.png" width="500px;"/>
+
 This diagram shows:
 
 - The `master` branch
-- A new branch called feature (because we’re doing ‘feature work’ on this branch)
-- The journey that feature takes before it’s merged into master
-
-<img src="imgs/branching.png" width="500px;"/>
+- A new branch called `feature` (because we’re doing ‘feature work’ on this branch)
+- The journey that `feature` takes before it’s merged into master
 
 Have you ever saved different versions of a file? Something like:
 
@@ -66,14 +66,6 @@ Some reasons why COMMITTING OFTEN IS IMPORTANT:
 
 There are five practice files in the [practice repo](https://github.com/dssg/github_practice/tree/master). Let's split up which document we'll work with based on rows. 
 
-### On Github:
-
-- Click the README.md file.
-- Click the  pencil icon in the upper right corner of the file view to edit.
-- In the editor, write a bit about yourself.
-- Write a commit message that describes your changes.
-- Click Commit changes button.
-
 ### On the Command Line: 
 
 1. Open your practice markdown file
@@ -82,13 +74,21 @@ There are five practice files in the [practice repo](https://github.com/dssg/git
 4. Commit your changes -  - `git commit -m 'some description of edit I just made'`
 5. Push  - `git push`
 
+### On Github:
+
+- Click the file.
+- Click the  pencil icon in the upper right corner of the file view to edit.
+- In the editor, write a bit about yourself.
+- Write a commit message that describes your changes.
+- Click Commit changes button.
+
 ## Merging branches
 
 ### On Command Line:
 
 - Switch to master - `git checkout master`
 - Merge the edits from your branch - `git merge [branchname]`
-- Delete old branchname - `git branch -d [branchname]`
+- Delete old branchname - `git branch -d [branchname]` (**note: don't delete your branch yet**)
 
 ## Using commit history to find bugs
 
@@ -124,7 +124,7 @@ Example:
 `!package.json`
 ```
 
-Let's create an empty `.gitignore` file (touch `.gitignore`) and play around!
+Let's create an empty `.gitignore` file (touch `.gitignore`) and add some stuff!
 
 ## Tags
 
