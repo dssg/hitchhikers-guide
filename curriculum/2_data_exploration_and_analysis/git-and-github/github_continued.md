@@ -48,7 +48,7 @@ Now you have two branches, `master` and your new branch. They look exactly the s
 
 ### On Github:
 - Go to [this practice repository](https://github.com/dssg/github_practice).
-- Click the drop down at the top of the file list that says branch: master.
+- Click the drop down at the top of the file list that says branch: `master`.
 - Type a branch name (perhaps your name?) into the new branch text box.
 - Select the blue **Create branch** box or hit “Enter” on your keyboard.
 
