@@ -34,7 +34,7 @@ Have you ever saved different versions of a file? Something like:
 - Type a branch name (perhaps your name?) into the new branch text box.
 - Select the blue **Create branch** box or hit “Enter” on your keyboard.
 
-TKTK add video of me doing this
+TKTK add video of this
 
 ### On Command line:
 
@@ -52,11 +52,45 @@ On GitHub, saved changes are called commits. Each commit has an associated commi
 
 There are five practice files in the [practice repo](https://github.com/dssg/github_practice/tree/master). Let's split up which document we'll work with based on rows. 
 
+### On Github:
+
 - Click the README.md file.
 - Click the  pencil icon in the upper right corner of the file view to edit.
 - In the editor, write a bit about yourself.
 - Write a commit message that describes your changes.
 - Click Commit changes button.
+
+### On the Command Line: 
+
+1. Open your practice markdown file
+2. Make a change somewhere in the document. Perhaps you want to profess your love for your favorite sweets, or add some new confections to the [cupcake ipsum](http://www.cupcakeipsum.com/).
+3. Add file to staging - 
+
+`git add *`
+
+4. Commit your changes - 
+
+`git commit -m 'some description of edit I just made'`
+
+5. Push 
+
+`git push`
+
+**Note: If at this point you wanted to merge the branch without a pull request, you would do the following, but don't do this in this example:**
+
+6. Switch to master
+
+`git checkout master`
+
+7. merge the edits from your branch
+
+`git merge [branchname]`
+
+8. delete old branchname
+
+`git branch -d [branchname]`
+
+TKTK pictures of branches
 
 ## Using commit history to find bugs
 
