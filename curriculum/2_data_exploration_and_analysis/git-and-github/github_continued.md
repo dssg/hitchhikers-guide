@@ -63,16 +63,10 @@ There are five practice files in the [practice repo](https://github.com/dssg/git
 ### On the Command Line: 
 
 1. Open your practice markdown file
-2. Make a change somewhere in the document. Perhaps you want to profess your love for your favorite sweets, or add some new confections to the [cupcake ipsum](http://www.cupcakeipsum.com/).
+2. Make a change somewhere in the document. Perhaps you want to profess your love for your favorite sweets, or add some new confections to the [cupcake ipsum](http://www.cupcakeipsum.com/). Or, go crazy and just make your own file with whatever gibberish you like.
 3. Add file to staging -  - `git add *`
-
 4. Commit your changes -  - `git commit -m 'some description of edit I just made'`
-
 5. Push  - `git push`
-
-## Using commit history to find bugs
-
-TKTK - fill in this section
 
 ## Merging branches
 
@@ -108,6 +102,10 @@ In this final step, it’s time to bring your changes together – merging your 
 - Click on the green **Merge pull request** button to merge the changes into `master`
 - Click **confirm merge**
 - Since you're now done with this new branch, you can delete the branch by clicking the **Delete branch** button.
+
+## Using commit history to find bugs
+
+TKTK - fill in this section
 
 ## `.gitignore`
 
