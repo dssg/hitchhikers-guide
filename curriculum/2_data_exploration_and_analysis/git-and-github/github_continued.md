@@ -20,13 +20,13 @@ By default your repository has one branch named `master` which is considered to 
 
 When you create a branch off the `master` branch, you’re making a copy, or snapshot, of `master` as it was at that point in time. If someone else made changes to the `master` branch while you were working on your branch, you could pull in those updates.
 
-<img src="imgs/branching.png" width="500px;"/>
-
 This diagram shows:
 
 - The `master` branch
 - A new branch called `feature` (because we’re doing ‘feature work’ on this branch)
 - The journey that `feature` takes before it’s merged into master
+
+<img src="imgs/branching.png" width="800px;"/>
 
 Have you ever saved different versions of a file? Something like:
 
