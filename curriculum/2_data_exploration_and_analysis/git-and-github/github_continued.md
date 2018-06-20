@@ -96,13 +96,15 @@ Why is committing so important you might ask? Well, one reason is that you can u
 
 Run `git log` to see your commit history. From here, you can use the version commit number to checkout different versions of your code.
 
-To explore a past version, you can simply run `git checkout [revision]` where `revision` is the commit hash (for example: 12345678901234567890123456789012345678ab). You are now viewing the code as it was during that version! Let's say a bug has crept into the code at some point, and you're trying to find where that happened. You can simply checkout various versions of your code, run the buggy file, and find the point at which the bug was introduced.
+To explore a past version, you can simply run `git checkout [revision]` where `revision` is the commit hash (for example: 12345678901234567890123456789012345678ab). You are now viewing the code as it was during that version! 
 
-Then, you'll want to look at the difference between the last version where the code was not present, and the first version where it was introduced. You can check out these differences by running `git diff [revision1] [revision2]`. So, for example, something like `git diff d8f59d0d27a50adba45a54fd50047ea94d6effcf 12f74c691786445d675f1b45ed244778eb3328dd`.
+Let's say a bug has crept into the code at some point, and you're trying to find where that happened. You can simply checkout various versions of your code, run the buggy file, and find the point at which the bug was introduced.
+
+Then, you'll want to look at the difference between the last version where the code was not present, and the first version where it was introduced. You can check out these differences by running `git diff [revision1] [revision2]`. (e.g. `git diff d8f59d0d27a50adba45a54fd50047ea94d6effcf 12f74c691786445d675f1b45ed244778eb3328dd`)
 
 Something to keep in mind is that if you are **not** committing often (for example, committing every few days instead of multiple times a day), this process will be unhelpful because the differences will be so large and the commit messages will not be very meaningful/helpful. 
 
-Make sure to commit often with informative commit messages! :)
+**Make sure to commit often with informative commit messages!** :)
 
 ## `.gitignore`
 
@@ -130,9 +132,13 @@ Let's create an empty `.gitignore` file (touch `.gitignore`) and add some stuff!
 
 This summer, we'd like you to use weekly tags so that future mentors/managers can look back at projects to see where people were during certain weeks for reference. 
 
-To create a tag run `git tag <tagname>`. This will create a local tag with the current state of the branch you are on. When pushing to your remote repo, tags are NOT included by default. You will need to explicitly say that you want to push your tags to your remote repo.
+To create a tag run `git tag <tagname>`. 
 
-To push your tag run `git push origin <tag>`, or to push all tags (in the case there are multiple), you'd run `git push origin --tags`. In our case, we'll just be working with on at a time.
+This will create a local tag with the current state of the branch you are on. When pushing to your remote repo, tags are NOT included by default. You will need to explicitly say that you want to push your tags to your remote repo.
+
+To push your tag run `git push origin <tag>`. Or to push all tags (in the case there are multiple), you'd run `git push origin --tags`. 
+
+In our case, we'll just be working with on at a time.
 
 **Create and push a new weekly tag each Monday morning.**
 
