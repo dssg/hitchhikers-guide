@@ -58,7 +58,7 @@ Now, you’re on the code view for your new branch, which is a copy of `master`.
 
 On GitHub, saved changes are called commits. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes, so other contributors can understand what you’ve done and why.
 
-Some reasons why COMMITTING OFTEN IS IMPORTANT:
+Some reasons why **COMMITTING OFTEN IS IMPORTANT**:
 - Committing often makes each bit-size change easy to parse for your teammates
 - If bugs appear, you can checkout past versions and compare the commit history. If you are committing often, it will be much easier to find where the bug krept in. 
 
