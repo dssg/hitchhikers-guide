@@ -109,5 +109,7 @@ Example:
 
 Let's create an empty `.gitignore` file (touch `.gitignore`) and play around!
 
-TKTK - github cheatsheet: https://gist.github.com/davfre/8313299
+## Github Command Line Cheatsheet
+
+There are a bunch of these out there, but here is [one](https://gist.github.com/davfre/8313299) that you might find useful on your journey.
 
