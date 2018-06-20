@@ -58,6 +58,10 @@ There are five practice files in the [practice repo](https://github.com/dssg/git
 - Write a commit message that describes your changes.
 - Click Commit changes button.
 
+## Using commit history to find bugs
+
+TKTK - fill in this section
+
 ## Opening a pull request
 
 Pull Requests are the heart of collaboration on GitHub. When you open a pull request, you’re proposing your changes and requesting that someone review and pull in your contribution and merge them into their branch. Pull requests show diffs, or differences, of the content from both branches. The changes, additions, and subtractions are shown in green and red.
