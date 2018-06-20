@@ -132,7 +132,13 @@ Let's create an empty `.gitignore` file (touch `.gitignore`) and play around!
 
 ## Tags
 
+This summer, we'd like you to use weekly tags so that future mentors/managers can look back at projects to see where people were during certain weeks for reference. 
 
+To create a tag run `git tag <tagname>`. This will create a local tag with the current state of the branch you are on. When pushing to your remote repo, tags are NOT included by default. You will need to explicitly say that you want to push your tags to your remote repo.
+
+To push your tag run `git push origin <tag>`, or to push all tags (in the case there are multiple), you'd run `git push origin --tags`. In our case, we'll just be working with on at a time.
+
+**Create and push a new weekly tag each Monday morning.**
 
 ## Opening a pull request
 
