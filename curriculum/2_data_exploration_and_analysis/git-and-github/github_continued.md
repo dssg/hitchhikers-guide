@@ -106,6 +106,10 @@ Something to keep in mind is that if you are **not** committing often (for examp
 
 **Make sure to commit often with informative commit messages!** :)
 
+Return to your most recent version with:
+
+`git checkout HEAD`
+
 ## `.gitignore`
 
 `.gitignore` files specify which files are ignored in a git repository. 
