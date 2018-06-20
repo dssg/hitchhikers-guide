@@ -108,7 +108,7 @@ Something to keep in mind is that if you are **not** committing often (for examp
 
 Return to your most recent version with:
 
-`git checkout HEAD`
+`git checkout master`
 
 ## `.gitignore`
 
