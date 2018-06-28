@@ -433,6 +433,59 @@ Number of violations in the last 3 inspections
 #+END_SRC
 
 
+* SQL "for loops"
+
+Let's try to solve the following: For each facility still active, with
+less than 1 year, In which failed inspection they got the most
+violations inspected?
+
+One way to solve this is using =LATERAL= joins
+
+
+#+BEGIN_SRC sql
+select
+entity_id as facility,
+start_time,
+date as inspected_at,
+event_id as inpection,
+number_of_violations
+from (
+       select
+       entity_id,
+       start_time,
+       date_part('year', age(now(), start_time)) as years_in_service
+       from semantic.entities
+       where
+       end_time is null  -- Still active
+       group by entity_id, start_time
+       having date_part('year', age(now(), start_time)) < 1
+       ) as facilities,
+       lateral ( --subquery
+       select
+          event_id,
+          date,
+          jsonb_array_length(violations) as number_of_violations
+       from semantic.events
+       where
+       entity_id = facilities.entity_id
+       and result = 'fail'
+       group by event_id, date, violations
+       order by 3
+       desc limit 1
+       ) inspections
+order by number_of_violations desc;
+#+END_SRC
+
+The equivalent /pseudo-code/ is
+
+#+BEGIN_EXAMPLE python
+results = []
+for entity_row in semantic.entities:
+    for inspection_row in subquery:
+        results.append( (entity_row, inspection_row) )  # We are doing more complicated things, but is just an example
+#+END_EXAMPLE
+
+
 * Meaning in text
 
 Which are the most common words descriptions of the violations?
