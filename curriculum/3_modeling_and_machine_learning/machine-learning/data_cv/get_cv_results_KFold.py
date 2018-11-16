@@ -48,7 +48,10 @@ def standard_cv_classification(validation_year, model, fold, queue, indices):
         # fit the model
         clf = clfs[model]
         clf.fit(training_X, training_y)
-        validation_precision = precision_at_abs(validation_y, clf.predict(validation_X))
+        index_of_class_1 = [i for i,val in enumerate(clf.classes_) if val == 1][0]
+
+        predictions = clf.predict_proba(validation_X)[:, index_of_class_1]
+        validation_precision = precision_at_abs(validation_y, predictions)
 
         # return the results
         queue.put([validation_year, model, fold, validation_precision, round(timeit.default_timer() - start_time, 2)])
@@ -73,7 +76,10 @@ def temporal_cv_classification(validation_year, model, queue):
         # fit the model
         clf = clfs[model]
         clf.fit(training_X, training_y)
-        validation_precision = precision_at_abs(validation_y, clf.predict(validation_X))
+        index_of_class_1 = [i for i,val in enumerate(clf.classes_) if val == 1][0]
+
+        predictions = clf.predict_proba(validation_X)[:, index_of_class_1]
+        validation_precision = precision_at_abs(validation_y, predictions)
 
         # return the results
         queue.put([validation_year, model, validation_precision, round(timeit.default_timer() - start_time, 2)])
@@ -146,7 +152,7 @@ if __name__ == "__main__":
     # Standard ----------------------------------------------------------------
 
     print('Starting Standard CV')
-    pool = mp.Pool(processes=64)
+    pool = mp.Pool(processes=40)
     m = mp.Manager()
     queue = m.Queue()
 
@@ -170,7 +176,7 @@ if __name__ == "__main__":
     # we have modeling precisions for those years as well
     temporal_years = range(test_begin_year - 4, test_end_year + 1)
 
-    pool = mp.Pool(processes=64)
+    pool = mp.Pool(processes=40)
     m = mp.Manager()
     queue = m.Queue()
 
