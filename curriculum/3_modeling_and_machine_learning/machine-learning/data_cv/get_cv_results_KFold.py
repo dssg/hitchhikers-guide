@@ -110,15 +110,11 @@ if __name__ == "__main__":
     X_cols = data.columns.difference(['RECITIVATED', 'INMATE_DOC_NUMBER', 'SENTENCE_END', 'SENTENCE_START'])
     y_cols = 'RECITIVATED'
 
-    print(data.dtypes)
-
     clfs = {
         'rf1': RandomForestClassifier(n_estimators=500, n_jobs=1, max_depth=30, max_features='log2', min_samples_split=10),
         'rf2': RandomForestClassifier(n_estimators=700, n_jobs=1, max_depth=20, max_features='log2', min_samples_split=10),
         'extra1': ExtraTreesClassifier(n_estimators=200, n_jobs=1, criterion='gini', max_depth=50, max_features='log2'),
         'extra2': ExtraTreesClassifier(n_estimators=400, n_jobs=1, criterion='gini', max_depth=30, max_features='log2'),
-        'logistic1': LogisticRegression(penalty='l1', C=0.001, solver='saga', max_iter=1000),
-        'logistic2': LogisticRegression(penalty='l2', C=0.001, solver='saga', max_iter=1000),
         'decision1': DecisionTreeClassifier(criterion='gini', max_depth=20, max_features='sqrt', min_samples_split=2),
         'decision2': DecisionTreeClassifier(criterion='gini', max_depth=50, max_features='sqrt', min_samples_split=2)
     }
