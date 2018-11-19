@@ -4,3 +4,5 @@ numpy
 ipython
 scikit-learn
 statsmodels
+jupyter
+plotnine
