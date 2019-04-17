@@ -7,11 +7,12 @@ fellows, staff, and visitors.
 
 
 ## Anti-Harassment Policy
-> Our Anti-Harassment Policy explicitly outlines the behavior for which we have a **zero tolerance policy**.
-> If you feel that you or anyone else is being harassed or treated
-> unfairly, or have any other concerns related to this policy,
-> **please contact one of your fellow advocates.** All contact with
-> the fellow advocates will be confidential.
+!!! info
+    Our Anti-Harassment Policy explicitly outlines the behavior for which we have a **zero tolerance policy**.
+    If you feel that you or anyone else is being harassed or treated
+    unfairly, or have any other concerns related to this policy,
+    **please contact one of your fellow advocates.** All contact with
+    the fellow advocates will be confidential.
 
 Data Science for Social Good is dedicated to providing a
 harassment-free experience in all event venues, including talks,
@@ -244,22 +245,21 @@ so directly, you can bring up your concerns with the fellow advocate.*
   candidates. We ask that you do what you're able to contribute to the
   DSSG mission and community.
 
-> ________________
-> ## _DON'T PANIC_
-Regardless of how much experience you have, we admitted you because we
-> believe that you can make a valuable contribution to your cohort,
-> and we think being a DSSG fellow will help prepare you to do data
-> science for social good in the real world. We've made a commitment
-> to you and want to do everything we can to help you succeed. This is
-> really important, so we'll say it again, in bold: **If you're
-> reading this, you are here because we want you to be here and
-> believe that you are ready to make an impact.** For example, don't
-> worry about how much more or less productive, knowledgable, or
-> experienced other fellows in your cohort might appear to be. It's
-> easy to only pay attention - and compare yourself - to those who
-> seem to be doing particularly well. Know that everyone has their own
-> struggles, and everyone has good and bad days.
-> ________________
+
+!!! warning "DON'T PANIC"
+    Regardless of how much experience you have, we admitted you because we
+    believe that you can make a valuable contribution to your cohort,
+    and we think being a DSSG fellow will help prepare you to do data
+    science for social good in the real world. We've made a commitment
+    to you and want to do everything we can to help you succeed. This is
+    really important, so we'll say it again, in bold: **If you're
+    reading this, you are here because we want you to be here and
+    believe that you are ready to make an impact.** For example, don't
+    worry about how much more or less productive, knowledgable, or
+    experienced other fellows in your cohort might appear to be. It's
+    easy to only pay attention - and compare yourself - to those who
+    seem to be doing particularly well. Know that everyone has their own
+    struggles, and everyone has good and bad days.
 
 
 # The DSSG Environment

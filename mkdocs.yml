@@ -1,14 +1,40 @@
 site_name: DSSG Hitchhickers guide
-theme: readthedocs
+theme: material
 docs_dir: sources
+repo_name: 'dssg/hitchhikers-guide'
 repo_url: https://github.com/dssg/hitchhikers-guide
 edit_uri: blob/master/docs/templates
 site_description: ''
 
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/dssg/hitchhikers-guide'
+    - type: 'twitter'
+      link: 'https://twitter.com/datascifellows'
+    - type: 'linkedin'
+      link: 'https://linkedin.com/company/center-for-data-science-and-public-policy-university-of-chicago'
+
 markdown_extensions:
+  - admonition
   - toc:
       permalink: True
       baselevel: 2
+  - codehilite:
+      guess_lang: false
+  - def_list
+  - footnotes
+  - meta
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.extrarawhtml
+  - pymdownx.keys
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
 
 extra_javascript:
   - "js/mermaid.min.js"
