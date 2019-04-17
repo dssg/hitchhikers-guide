@@ -1,0 +1,21 @@
+site_name: DSSG Hitchhickers guide
+theme: readthedocs
+docs_dir: sources
+repo_url: https://github.com/dssg/hitchhikers-guide
+edit_uri: blob/master/docs/templates
+site_description: ''
+
+markdown_extensions:
+  - toc:
+      permalink: True
+      baselevel: 2
+
+extra_javascript:
+  - "js/mermaid.min.js"
+
+pages:
+  - Home: index.md
+  - DSSG Manual:
+      - Code of conduct: dssg-manual/conduct-culture-and-communications/README.md
+      - Summer overview: dssg-manual/summer-overview/README.md
+  - Curriculum: curriculum/README.md
