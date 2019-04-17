@@ -1,5 +1,16 @@
 site_name: DSSG Hitchhickers guide
-theme: material
+theme:
+  name: 'material'
+  palette:
+    primary: 'red'
+    accent: 'deep orange'
+  font:
+    text: 'Ubuntu'
+    code: 'Ubuntu Mono'
+  logo:
+    icon: 'bubble_chart'
+
+
 docs_dir: sources
 repo_name: 'dssg/hitchhikers-guide'
 repo_url: https://github.com/dssg/hitchhikers-guide
