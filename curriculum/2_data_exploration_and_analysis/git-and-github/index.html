@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Git tutorial - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Git tutorial";
+    var mkdocs_page_input_path = "curriculum/2_data_exploration_and_analysis/git-and-github/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Git tutorial</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/2_data_exploration_and_analysis/git-and-github/README.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="git-tutorial">Git tutorial<a class="headerlink" href="#git-tutorial" title="Permanent link">&para;</a></h2>
+<h3 id="what-is-git-and-why-you-should-be-using-it-for-practically-everything">What is git? (and why you should be using it for practically everything)<a class="headerlink" href="#what-is-git-and-why-you-should-be-using-it-for-practically-everything" title="Permanent link">&para;</a></h3>
+<p><img alt="git" src="https://imgs.xkcd.com/comics/git.png" /></p>
+<p><a href="https://xkcd.com/1597/">Image source</a></p>
+<p>Git is a <em>free</em> version control system which helps you keep track of file changes in your computer. 
+Think of it as a time machine that lets you go back to any point in your project development.</p>
+<p>While git is most used in software development, you can use it for anything you like (<a href="https://www.gitbook.com/">writing 
+books</a>, for example), as long as your files are plain text (e.g. source 
+code, latex files), you won't have any issue with git (this guide is actually hosted using git, 
+git-ception!).</p>
+<p>Simply speaking, git saves snapshots of your work called <code>commits</code>, after a <code>commit</code> is done, you 
+can go back and forth to check the state of your project, maybe you were experimenting with some 
+new function and realized the old one was better, no problem, you can bring back anything!</p>
+<p><img alt="git 2" src="https://imgs.xkcd.com/comics/git_commit.png" /></p>
+<p><a href="https://xkcd.com/1296/">Image source</a></p>
+<p>The entire development of your project is stored in your computer, but we know that's dangerous, so 
+you can also host a remote copy (just like you do with Dropbox or Google Drive).</p>
+<h3 id="what-is-github">What is github?<a class="headerlink" href="#what-is-github" title="Permanent link">&para;</a></h3>
+<p>There are <a href="https://gitlab.com/">many</a>, <a href="https://bitbucket.org/">many</a> providers that let you store 
+your git repositories (that's how you call a <em>git project</em>) but the most widely used is 
+<a href="https://github.com/">github</a> (you'll be using it for dssg).</p>
+<p>Apart from storing a copy of your projects, github comes with a lot of useful features. For 
+example, you can use it to share your projects with your colleagues, so they can see (or modify if 
+you want) your project.</p>
+<h3 id="git-sounds-awesome-how-do-i-get-it">git sounds awesome! How do I get it?<a class="headerlink" href="#git-sounds-awesome-how-do-i-get-it" title="Permanent link">&para;</a></h3>
+<p>Chances are, git is already installed on your computer. If not, you can get it from 
+<a href="https://git-scm.com/">here</a>.</p>
+<p>OS X users: use homebrew, if you don't know what homebrew is, you probably didn't read the 
+prerequisites :(</p>
+<h3 id="can-i-get-buttons-and-stuff">Can I get buttons and stuff?<a class="headerlink" href="#can-i-get-buttons-and-stuff" title="Permanent link">&para;</a></h3>
+<p>git is a command line tool, which means it doesn't have a graphical user interface. Using the git 
+cli is the most flexible way of working with git, and if you are working on a remote serve (like in 
+dssg) is best way of doing it.</p>
+<p>However, if you still want a GUI (e.g. for using git in your computer), here are some options 
+available:</p>
+<ul>
+<li><a href="https://git-scm.com/download/gui/mac">Options for Mac</a></li>
+<li><a href="https://www.gitkraken.com/">GitKraken</a> (Windows and Mac)</li>
+</ul>
+<h3 id="ok-how-do-i-do-the-magic">Ok, how do I do the magic?<a class="headerlink" href="#ok-how-do-i-do-the-magic" title="Permanent link">&para;</a></h3>
+<h4 id="resources-for-beginners">Resources for beginners<a class="headerlink" href="#resources-for-beginners" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="https://try.github.io/levels/1/challenges/1">15 minute tutorial to learn git</a> - This is a must 
+for people to get started.</li>
+<li><a href="http://rogerdudler.github.io/git-guide/">git - the simple guide</a> - A simple guide to get to know 
+the most important concepts.</li>
+</ul>
+<h4 id="resouces-for-becoming-a-git-ninja">Resouces for becoming a git ninja<a class="headerlink" href="#resouces-for-becoming-a-git-ninja" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful git branching model</a> - A 
+model to work with git using branches. This model is widely used in the open source community.</li>
+<li><a href="http://learngitbranching.js.org/">Learn Git Branching</a> - Understanding what branches and rebases 
+are, in an amazing interactive tutorial.</li>
+<li><a href="https://git-scm.com/blog/2011/07/11/reset.html">Reset Demystified</a> - A blog post on <code>git reset</code> 
+which develops some useful concepts along the way.</li>
+<li><a href="https://medium.freecodecamp.com/understanding-git-for-real-by-exploring-the-git-directory-1e079c15b807#.5pe75gc07">Understanding git for real by exploring the .git directory</a> - A blog post on what's inside a commit.</li>
+<li><a href="https://github.com/agis/git-style-guide">A git style guide</a>, complete with branch naming, suggestions on how to handle commit messages, and more.</li>
+</ul>
+<h3 id="read-this-before-you-leave-please">READ THIS BEFORE YOU LEAVE  (please)<a class="headerlink" href="#read-this-before-you-leave-please" title="Permanent link">&para;</a></h3>
+<p>By default, git saves <em>everything</em> inside the folder where you initiated the repo. When working on 
+software projects there are files you DON'T want to save on git (e.g. database passwords, 
+especially if you have a remote copy).</p>
+<p>To prevent git from saving files, create a file and name it <code>.gitignore</code> in the folder where you 
+ran <code>git init</code>. In such file, you can add rules to let git know what you want it to ignore. For 
+more information, <a href="https://git-scm.com/docs/gitignore">read this</a>.</p>
+<p>Besides sensitive data, you want to also ignore intermediate files generated automatically by some 
+programming languages or libraries. There are <a href="https://github.com/github/gitignore">templates</a> 
+available depending on the tools you use. There's also a nice <a href="https://github.com/karan/joe">command line 
+tool</a> to fetch such templates.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../js/mermaid.min.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-04-17 22:11:04
+-->

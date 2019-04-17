@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../../img/favicon.ico">
+  <title>Testing Your Python Projects - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Testing Your Python Projects";
+    var mkdocs_page_input_path = "curriculum/4_programming_best_practices/test-test-test/python_testing.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Testing Your Python Projects</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/4_programming_best_practices/test-test-test/python_testing.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="testing-your-python-projects">Testing Your Python Projects<a class="headerlink" href="#testing-your-python-projects" title="Permanent link">&para;</a></h2>
+<h3 id="your-very-first-python-test">Your Very First Python Test<a class="headerlink" href="#your-very-first-python-test" title="Permanent link">&para;</a></h3>
+<p>Testing in Python is fairly straightforward. Here's an example: Say we wrote a function <code>get_answer</code>, which should return <code>42</code>, <a href="http://hitchhikers.wikia.com/wiki/42">the answer to life, the universe and everything.</a> (In the real world, 
+the test and the code to be tested would live in different files, but we'll keep them together for simplicity here.) </p>
+<pre><code class="python"># function to test
+def get_answer():
+    return 42
+
+
+# actual test
+def test_answer_to_life_is_42():
+    assert get_answer() == 42
+</code></pre>
+
+<p>This is pretty simple. The function is just your everyday Python function, and the test is a separate 
+function that calls the function <code>get_answer</code>. The interesting part here is the keyword <code>assert</code>, which 
+evaluates a condition. If the condition evaluates to <code>True</code>, we say that <em>the test passed</em>; if it returns <code>False</code>, we say <em>the test failed</em>.</p>
+<p>There are many types of tests. The case above is called a <em>unit test</em>, which comes from the notion 
+that we are testing a <em>unit of code</em> (not the entire project). The idea is to have one unit test for each
+unit of code (e.g. a function).</p>
+<p>Software testing is an entire subject on its own, but keep it simple for now and follow these guidelines 
+when writing your tests:</p>
+<ul>
+<li>Your tests should check that <strong>one thing</strong> works (a function for example)</li>
+<li>Your tests should be independent of other tests (the outcome of one should not affect others)</li>
+<li>Given the same input, your test should always return the result (when testing a Data Science pipeline this gets tricky given its probabilistic nature)</li>
+</ul>
+<h3 id="running-tests-with-pytest">Running Tests with <code>py.test</code><a class="headerlink" href="#running-tests-with-pytest" title="Permanent link">&para;</a></h3>
+<p>One of the best tools for testing in Python is <code>pytest</code>, which provides some useful features to reduce 
+the amount of boilerplate code for your tests, as well as a command to automatically find Python files with 
+tests and run them.</p>
+<p>You can install it with <code>pip</code>:</p>
+<pre><code class="bash">pip install pytest
+</code></pre>
+
+<p>If you want to actually run the test above, you need to get a copy of this repo.</p>
+<pre><code class="bash">git clone https://github.com/dssg/hitchhikers-guide
+cd hitchhikers-guide
+</code></pre>
+
+<p>To run your tests (note the dot in the middle):</p>
+<pre><code>py.test
+</code></pre>
+
+<p><code>pytest</code> will look for all the tests in your project. In our case there's a copy of our test in a file called <code>test_meaning.py</code> on this folder.</p>
+<p>The output should look like this:</p>
+<pre><code>==================== test session starts ===========================
+platform darwin -- Python 3.5.1, pytest-2.9.1, py-1.4.31, pluggy-0.3.1
+rootdir: stuff/hitchhikers-guide/tech-tutorials/testtesttest, inifile:
+collected 1 items
+
+test_life.py .
+
+==================== 1 passed in 0.01 seconds =======================
+</code></pre>
+
+<p>Now, imagine that we accidentally modify our function to:</p>
+<pre><code class="python"># function to test
+def get_answer():
+    return 41
+</code></pre>
+
+<p>If we run <code>py.test</code> again, we'll see the following:</p>
+<pre><code>======================== test session starts ====================
+platform darwin -- Python 3.5.1, pytest-2.9.1, py-1.4.31, pluggy-0.3.1
+rootdir: /Users/Edu/development/dsapp/hitchhikers-guide/tech-tutorials/testtesttest, inifile:
+collected 1 items
+
+test_meaning.py F
+
+============================== FAILURES ========================
+__________________ test_answer_to_file_is_42 __________________
+
+    def test_answer_to_file_is_42():
+&gt;       assert get_answer() == 42
+E       assert 41 == 42
+E        +  where 41 = get_answer()
+
+test_meaning.py:8: AssertionError
+===================== 1 failed in 0.02 seconds ==================
+</code></pre>
+
+<p>We can see from the output that our test failed. Now, every time you modify your code just run <code>py.test</code> to make sure your code still works! (<em>But remember: just because you tested something doesn't necessarily mean it works. You can keep adding new tests as you identify new edge cases and errors).</em></p>
+<h3 id="where-to-store-your-tests">Where to Store Your Tests<a class="headerlink" href="#where-to-store-your-tests" title="Permanent link">&para;</a></h3>
+<p>The are no strict rules on where to store your tests. In a Data Science project, you are going to have a lot of folders with code for many tasks (e.g. ETL, modeling). The first thing to take into account is to separate your pipeline steps from your source code: simply speaking, source code is functions and classes that you want to reuse in various steps of your pipeline (e.g. creating a database connection). Let's see an example to make this clear:</p>
+<pre><code>.
+├── docs
+│   └── documentation_here.txt
+├── etl
+│   └── code_to_load_to_db.txt
+├── evaluation
+│   └── code_to_evaluate_models_here.txt
+├── exploration
+│   └── jupyter_notebooks_with_cool_plots_here.txt
+├── features
+│   └── code_to_generate_features_here.txt
+├── lib
+│   ├── lib
+│   │   ├── __init__.py
+│   │   ├── db
+│   │   │   ├── __init__.py
+│   │   │   ├── load.py
+│   │   │   └── process.py
+│   │   └── util.py
+│   └── tests
+│       ├── test_db.py
+│       └── test_util.py
+└── model
+    └── code_to_train_models_here.txt
+</code></pre>
+
+<p>In the diagram above, you can see the different steps in your pipeline (ETL, exploration, feature generation, modeling, model evaluation) all those folders will contain a mix of Python, shell and SQL scripts. Then, there's another folder called <code>lib</code>, which stores the source code for this project. Inside such a folder, you'll find another two folders <code>lib</code> and <code>tests</code>, the first one stores the actual source code and the later stores the tests for the code inside <code>lib</code>.</p>
+<p>Of course, that doesn't mean you should limit your tests to your source code! You should also test your pipeline, but a well designed pipeline will put the complicated parts in the source code, so your pipeline steps are short and simple.</p>
+<p>The problem with testing a pipeline is that some steps won't be deterministic, but there are some things you can do.</p>
+<p><strong>Tip:</strong> To access the code in <code>lib</code> you can either create a <code>setup.py</code> file to install or add the folder to your <code>PYTHONPATH</code>.</p>
+<h3 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="other-python-testing-tools">Other Python Testing Tools<a class="headerlink" href="#other-python-testing-tools" title="Permanent link">&para;</a></h3>
+<ul>
+<li>unittest or unitest2 if you use Python 3 (part of the Python standard library)</li>
+<li><a href="https://github.com/nose-devs/nose">nose</a> - another good option to run your tests</li>
+</ul>
+<h3 id="where-to-go-from-here">Where to go From Here<a class="headerlink" href="#where-to-go-from-here" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Part 2:</strong> <a href="../ds_testing/">Testing Python Data Science pipelines</a></li>
+<li><a href="http://pytest.org/latest/">Read the pytest documentation</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../../..';</script>
+    <script src="../../../../js/theme.js" defer></script>
+      <script src="../../../../js/mermaid.min.js" defer></script>
+      <script src="../../../../search/main.js" defer></script>
+
+</body>
+</html>

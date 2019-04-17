@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Reddit Analysis</title>
+
+  <!-- stylesheets -->
+  <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/yeti/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.4.min.css" type="text/css" />
+
+</head>
+
+<body>
+
+    <!-- Page Content -->
+    <div class="container center-container">
+
+      <!-- messages -->
+      {% for message in get_flashed_messages() %}
+        <div class="alert alert-success alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          {{ message }}
+        </div>
+      {% endfor %}
+
+      <!-- child template -->
+      {% block content %}{% endblock %}
+
+      <!-- errors -->
+      {% if error %}
+      <p class="error"><strong>Error:</strong> {{ error }}</p>
+      {% endif %}
+
+
+    </div>
+    <!-- /.container -->
+
+  <!-- Scripts -->
+  <script src="//code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.4.min.js"></script>
+  <script type="text/javascript">Bokeh.set_log_level("info");</script>
+  <script src="{{ url_for('static', filename='main.js') }}" type="text/javascript"></script>
+
+</body>
+
+</html>

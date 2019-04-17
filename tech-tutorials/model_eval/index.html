@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Model Evaluation and Bias in Data Science Projects - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Model Evaluation and Bias in Data Science Projects";
+    var mkdocs_page_input_path = "tech-tutorials/model_eval/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../curriculum/">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Model Evaluation and Bias in Data Science Projects</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/tech-tutorials/model_eval/README.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="model-evaluation-and-bias-in-data-science-projects">Model Evaluation and Bias in Data Science Projects<a class="headerlink" href="#model-evaluation-and-bias-in-data-science-projects" title="Permanent link">&para;</a></h2>
+<p>We have 6 lessons - two sessions a day over three days. One session a day (or 
+the latter half of the second session in a given day) should be hands-on. We 
+can give homework, which could simply be the 'leftovers' of a given day's 
+hands-on session.</p>
+<ul>
+<li>Day 1</li>
+<li>
+<ul>
+<li>introduction &amp; brief outline of workshop</li>
+<li>examples of DSaPP projects</li>
+<li>explanation of common data structure (temporal data, entities, ...)</li>
+<li>examples of common features (spatiotemporal aggregations, prior behavior, 'static' features like demographics)</li>
+<li>examples of common outcome definitions ('binarizations')</li>
+<li>What do we mean by 'successful' predictions? Examples of deployments; explain resource constraints.</li>
+<li>accuracy, precision, ROC</li>
+<li>top-k precision, recall-precision curves</li>
+<li>list stability</li>
+<li>Detour into caveats: We are <em>not</em> working causally. We are <em>not</em> (most of the time) modeling inspection densities.
+  We are <em>not</em> (most of the time) providing statistical inference, optimality guarantees, or anything like that. 
+  Delineate 'science' vs 'engineering' approach (here, we are sharing conceptual and technical tools, not 
+  scientific, or even empirical, knowledge). Encourage questions &amp; suggestions throughout workshop.</li>
+<li>introduce toy/example dataset and have students connect to SQL DB (<em>maybe in next session?</em>)</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>simple temporal cross-validation ('as-of' date, label window, feature window, metrics)</li>
+<li>train, test, evaluation sets (TODO: ensure universal terminology)</li>
+<li>caveats on temporal cross-validation: incorrect dates, overwritten or backfilled 
+  data (example: student dropouts), data updating frequencies (e.g. end-of-year reports), 
+  non-stationary derivatives in the data, changes in policy, changes in systems, bias in the 
+  labelling process (e.g. biased judges)</li>
+<li>Exercise: Implement temporal split generator, label generator, feature getter, label-feature
+  join, some evaluation metrics, on toy data set with pre-built features</li>
+</ul>
+</li>
+<li>Day 2</li>
+<li>
+<ul>
+<li>difference between incident and label dates, and how that influence label generation; 
+      caveat on correlates of the incident that are predictive of the label</li>
+<li>leakage, and examples of hard-to-find leakage</li>
+<li>prediction horizons (e.g. in education)</li>
+<li>prediction frequencies (depending on deployment)</li>
+<li>overlapping label windows (caveat: dependent 'samples')</li>
+<li>overlapping feature windows (generally no problem)</li>
+<li>label rank breaking (unknown <code>k</code> vs additional randomization)</li>
+<li>'status list' of entities - finding labels for <code>null</code> entities in a given label window</li>
+<li>imputation - finding features for <code>null</code> entities in a given feature window; counts/mean/median
+  caveat on leakage</li>
+<li>dummification, and the problems of knowing the set of all levels upfront</li>
+<li>"train however you like, test however you deploy"</li>
+<li>sub-sampling of training and/or testing data (?)</li>
+<li>making train and/or test sets more reprensetative (?)</li>
+<li>modeling/weighting by <code>P(I)</code> / inverse probability weighting (?)</li>
+<li>evaluating predictions in field trials / problems of randomized trials on ranked
+  lists (?)</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>novelty vs accuracy (Cincinnati?)</li>
+<li>stability across temporal splits</li>
+<li>Exercise: Implement label generator with incident-vs-decision date, in-split imputation, 
+  global dummification, plots for temporal stability</li>
+</ul>
+</li>
+<li>Day 3</li>
+<li>
+<ul>
+<li>characterizing models via entities, not via labels (back ref: list overlap)</li>
+<li>cross-tabs on categorical features or discretized continuous features between high-risk/low-risk predictions</li>
+<li>scatter plots on continuous features</li>
+<li>simple significance tests (chi-square, KS-test); caveat: multiple testing, dependency between features</li>
+<li>protected class definitions</li>
+<li>not sufficient: removing protected features</li>
+<li>population parity</li>
+<li>disparate impact</li>
+<li>test equality</li>
+<li>extension from equal FNR/FPR to independence of score and class; removing dependency on thresholds</li>
+<li>(is there an equivalent formulation for equal precision?)</li>
+<li>caveat about curse of dimensionality - marginal bias is 'easy', but interactions of bias are very many 
+  (e.g. difficulties of testing not only for discrimination against age, or race, or gender, but also for 
+  discrimination against (age x race x gender) )</li>
+<li>science thriller: ProPublica's COMPASS coverage, initial response articles, follow-up articles</li>
+</ul>
+</li>
+<li>Exercise: calculating cross-tabs on toy data set; calculating condtioned cross-tabs and scatter plots for 
+    disparate impact and test equality; applying chi-square test</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../js/mermaid.min.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-04-17 22:11:04
+-->

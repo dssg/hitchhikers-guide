@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../../img/favicon.ico">
+  <title>Email - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Email";
+    var mkdocs_page_input_path = "curriculum/0_before_you_start/prerequisites/email.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Email</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/0_before_you_start/prerequisites/email.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Hey DSSG 2018 Fellows!</p>
+<p>We’re SUPER stoked that DSSG 2018 is less than a couple of weeks away. A lot of you have expressed both excitement about the fellowship and trepidation about being prepared. We are here to help! Here is a guide of everything you need to install before showing up in Chicago, on your machine as well as in your brain. </p>
+<p>We expect everyone should at least be familiar with Python to an intermediate level, and have some knowledge of data analysis, computers, and stats. However, everyone comes from different backgrounds. Make sure you have everything on the <strong>Things to Install</strong> list installed, look through the <strong>Explanations &amp; Tutorials</strong> section if you don't know why/how to use any of these tools, and check out the <strong>Background Reading</strong> section to brush up on quantitative social science or machine learning (or both!) and you’ll be ready to roll.</p>
+<p>Cry out for help on Slack if you are having trouble! And get used to it, you’ll be doing a lot of it over the summer (the Slacking, not the crying).</p>
+<h3 id="things-to-install">Things to Install<a class="headerlink" href="#things-to-install" title="Permanent link">&para;</a></h3>
+<ul>
+<li>SSH (PuTTY or cygwin if you’re Windows)</li>
+<li>Git</li>
+<li>psql (PostgreSQL CLI)</li>
+<li>Python tools</li>
+<li>Python 3.6</li>
+<li>Anaconda/Miniconda or pip + virtualenv</li>
+<li>Packages<ul>
+<li>Pandas</li>
+<li>Matpotlib</li>
+<li>Scikit-learn</li>
+<li>Psycopg2</li>
+<li>Ipython</li>
+<li>Jupyter</li>
+<li>Seaborn</li>
+</ul>
+</li>
+<li>R (you won't need it but it may make some of you feel better)</li>
+<li>DBeaver <em>(to query databases)</em></li>
+<li>Tableau <em>(get the free license for students)</em></li>
+<li>Sublime Text <em>(if you need a decent editor)</em></li>
+<li><strong>If you are an OS X user,</strong> we recommend to install <a href="https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/0_before_you_start/prerequisites/osx.md#step-1-install-homebrew">Homebrew</a> to make software installation easier.</li>
+</ul>
+<p>For more information on requirements, see <a href="https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/prerequisites/">this</a>. A guide to install pre-requirements on OS X is available <a href="https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/0_before_you_start/prerequisites/osx.md">here</a>.</p>
+<h3 id="explanations-tutorials">Explanations &amp; Tutorials<a class="headerlink" href="#explanations-tutorials" title="Permanent link">&para;</a></h3>
+<p><strong>Command Line</strong>
+You will be running code and storing project data on Amazon Web Services (AWS) machines that run Linux, requiring the use of the command line. If you are on Mac or Windows, you can open up Terminal (on Mac) or download Cygwin or Putty (on Windows).
+- <a href="http://linuxcommand.org/">General command line navigation</a>
+- <a href="http://code.tutsplus.com/tutorials/ssh-what-and-how--net-25138">Secure Shell (ssh)</a>: You’ll need this to connect to AWS/cloud computers. If you’re on Windows, you’ll need <a href="http://putty.org/">putty</a>.
+- <a href="http://www-users.york.ac.uk/~mijp1/teaching/2nd_year_Comp_Lab/guides/grep_awk_sed.pdf">grep/awk/sed</a>: Quickly find and manipulate files, without ever leaving the command line. </p>
+<p><strong>Python</strong></p>
+<p>Python is the language of choice here at DSSG. If you’re only going to learn one programming language, learn Python! It’s powerful, expressive, and easy to read (even by non-programmers).
+- <strong>Python Package &amp; Environment Management:</strong> To properly create a Python environment, we recommend you use <a href="https://www.continuum.io/downloads">Anaconda</a> or <a href="http://conda.pydata.org/miniconda.html">Miniconda</a>. If you feel adventurous, feel free to use pip + virtualenv.
+- <strong>Python Programming Resources:</strong>
+  - <a href="https://www.memonic.com/user/pneff/folder/python/id/1bufp">Writing efficient Python</a>
+  - <a href="https://web.archive.org/web/20180411011411/http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html">Tips for Idiomatic Python</a>
+  - <a href="https://web.archive.org/web/20141209082719/https://blog.safaribooksonline.com/2014/11/18/intro-python-debugger/">Introduction to Python debugging tools</a>
+- Jupyter Notebooks and Jupyter Lab
+  - <a href="https://medium.com/@brianray_7981/jupyterlab-first-impressions-e6d70d8a175d">Beginner's Guide to Jupyter Lab</a>
+  - <a href="http://nbviewer.ipython.org/github/jvns/talks/blob/master/pydatanyc2013/PyData%20NYC%202013%20tutorial.ipynb">Example of how IPython notebooks are used in data science</a> 
+  - <a href="http://opentechschool.github.io/python-data-intro/core/notebook.html">Tutorial for setting up and opening IPython notebook</a>
+  - <a href="https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-and-IPython-Notebooks">Amazing examples of IPython notebooks</a></p>
+<p><strong>R</strong> </p>
+<p>R is an open-source programming language for statistical analysis, with lots of great packages for modeling and visualization. Jupyter Lab has an R kernel, so you don't have to switch environments to test and run both python and R scripts. However, if you want an R-centeric IDE, you can use the excellent RStudio linked to below.<br />
+- <a href="http://www.rstudio.com/products/rstudio/">RStudio (IDE made for R)</a>
+- <a href="http://www.shinyapps.io/">Shiny</a> - Shiny is a web framework for R, so that you can build interactive visualizations and web widgets. You can use this to prototype tools for project partners to visualize and understand your analyses.</p>
+<p><strong>Databases</strong></p>
+<ul>
+<li>We typically use Postgres (full name PostgreSQL) for our projects (and Redshift or mongodb when necessary). That will be installed on the server but you need a client to connect to it:</li>
+<li><a href="http://dbeaver.jkiss.org/">Dbeaver</a> is a free database access tool that allows you to easily query different types of databases.</li>
+<li><a href="http://postgresguide.com/utilities/psql.html">psql</a> is a powerful command line tool to interact with Postgres databases</li>
+<li><a href="http://joshualande.com/">SQL introduction</a> and <a href="https://gist.github.com/hofmannsven/9164408">SQL Cheatsheet</a></li>
+</ul>
+<p><strong>Git and Github</strong></p>
+<p>Working on code together is almost impossible without using a version control system. This summer, we’ll be using Git. Our code will be stored on Github. These are fantastic tools for any software project.
+- <a href="http://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Installing Git</a>
+- <a href="http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1">Complete Beginner’s Guide to Git and Github</a>
+- <a href="https://guides.github.com/activities/hello-world/">10-minute Hello World Tutorial to using Git and Github</a>
+- <a href="https://try.github.io/levels/1/challenges/1">Github’s interactive web tutorial</a></p>
+<p><strong>Other Useful Tools</strong></p>
+<ul>
+<li>Text Editors and/or IDEs: Unless you prefer to program using vim/emacs, we suggest you install a general purpose text editor, such as <a href="http://www.sublimetext.com/">Sublime Text</a>.</li>
+<li><a href="http://www.tableau.com/products/desktop">Tableau</a> is a good tool to explore and visualize data without using any programming. If you’re a student, you can request a free license. </li>
+</ul>
+<h3 id="background-reading">Background Reading<a class="headerlink" href="#background-reading" title="Permanent link">&para;</a></h3>
+<ul>
+<li>General Concepts in Machine Learning</li>
+<li><a href="http://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf">A few useful things to know about machine learning</a></li>
+<li><a href="http://people.ischool.berkeley.edu/~hal/Papers/2013/ml.pdf">Survey of machine learning tools for social scientists</a></li>
+<li>Quantitative Social Science Methods</li>
+<li><a href="http://dholakia.web.rice.edu/CausalInference.pdf">Intro to Causal Inference</a></li>
+<li><a href="http://people.ischool.berkeley.edu/~hal/Papers/2015/cause03.pdf">Causal Inference in Social Science</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../../..';</script>
+    <script src="../../../../js/theme.js" defer></script>
+      <script src="../../../../js/mermaid.min.js" defer></script>
+      <script src="../../../../search/main.js" defer></script>
+
+</body>
+</html>

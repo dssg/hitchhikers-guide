@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Technical Workflow and Best Practices - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Technical Workflow and Best Practices";
+    var mkdocs_page_input_path = "curriculum/0_before_you_start/TechnicalWorkflowAndBestPractices.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Technical Workflow and Best Practices</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/0_before_you_start/TechnicalWorkflowAndBestPractices.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="technical-workflow-and-best-practices">Technical Workflow and Best Practices<a class="headerlink" href="#technical-workflow-and-best-practices" title="Permanent link">&para;</a></h2>
+<h2 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>This tutorial is designed to help you understand how to get started with setting up your computing environment, how to decide what to use your local laptop/desktop for, what to do on the server (and how), and how to go back and forth between different environments and tools  on your laptop, the server, and your remote database (an other data resources).</p>
+<p>We assume a linux (ubuntu) server that's been set up for you, and access to a database (postgres).</p>
+<h4 id="things-well-cover-in-this-tutorial">Things we'll cover in this tutorial:<a class="headerlink" href="#things-well-cover-in-this-tutorial" title="Permanent link">&para;</a></h4>
+<h4 id="_2"><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<h5 id="1-what-should-you-have-on-your-laptop-you-should-have-the-following-tools-installed-on-your-local-machine-whether-its-a-mac-windows-or-linux-that-you-will-use-primarily-locally">1. What should you have on your laptop? You should have the following tools installed on your local machine (whether it's a mac, windows, or linux) that you will use primarily locally:<a class="headerlink" href="#1-what-should-you-have-on-your-laptop-you-should-have-the-following-tools-installed-on-your-local-machine-whether-its-a-mac-windows-or-linux-that-you-will-use-primarily-locally" title="Permanent link">&para;</a></h5>
+<ul>
+<li>ssh (to connect to the server)</li>
+<li>psql (to connect to the database through command line)</li>
+<li>dbeaver (or dbvisualizer) to connect to the database through a gui</li>
+<li>Git client (to work with github repositories)</li>
+<li>Tableau</li>
+<li>sublime or atom (text editor to edit code locally)</li>
+<li>python, jupyter and other coding tools are helpful but you will be primarily using them on the server and not on your laptop</li>
+</ul>
+<h5 id="2-what-should-you-set-up-on-the-server">2. What should you set up on the server?<a class="headerlink" href="#2-what-should-you-set-up-on-the-server" title="Permanent link">&para;</a></h5>
+<ul>
+<li>Decide which shell you're using. You have bash by default, but many of us like zsh.</li>
+<li>Set up dotfiles. you can clone this <a href="http://www.github.com/dssg/dotfiles">repo</a> with Adolfo's dotfiles</li>
+<li><a href="https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/2_data_exploration_and_analysis/git-and-github/basic_git_tutorial/01_BasicGit.md">Configure git</a></li>
+<li>Decide on your editor (vim or emacs). Get a good vimrc to make life easier for yourself if you choose vim</li>
+<li>Create a file with your database credentials (<a href="https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/1_getting_and_keeping_data/csv-to-db/default_profile.example">sample file</a>)</li>
+<li>Learn about virtual environments and set one up (if it hasn't been set up for you). For DSSG 2018, we've set up venvs for every project that get activated when you enter your project directory) </li>
+<li>Learn how to install new python packages through pip install</li>
+</ul>
+<h5 id="3-workflow-how-should-you-work-day-to-day-with-your-laptop-and-the-remote-server">3. Workflow: How should you work day to day with your laptop and the remote server?<a class="headerlink" href="#3-workflow-how-should-you-work-day-to-day-with-your-laptop-and-the-remote-server" title="Permanent link">&para;</a></h5>
+<ol>
+<li>screen/tmux: When you log in to your remote machine, run <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-screen-on-an-ubuntu-cloud-server">screen</a> or <a href="https://hackernoon.com/a-gentle-introduction-to-tmux-8d784c404340">tmux</a> and work from a screen/tmux session</li>
+<li>(Optional) When using the database for any reason from your laptop (to connect with tableau or dbeaver or for any other application), open an ssh tunnel from your local machine to the remote server. </li>
+<li>windows https://www.skyverge.com/blog/how-to-set-up-an-ssh-tunnel-with-putty/</li>
+<li>mac/linux ssh -N -L localhost:8888:localhost:8888 username@[projectname].dssg.io</li>
+<li>Writing and Running Code</li>
+<li>If you're using your laptop (sublime, atom, or some other editor) to edit code, use git to commit nad push to the repo and then do a git pull on the server to get your code there. </li>
+<li>If you're writing code on the server directly, you should use vim or emacs.</li>
+<li>git commit often. Every time you finish a chunk of work, do a git commit. git push when you've tested it and it is doing what you intended for it to do. Do not push code to master if it breaks. You will annoy your teammates :) Later in the summer, we'll talk more about how to create git branches. </li>
+<li>Every time you resume working, do a git pull to get the latest version of the code.</li>
+<li>If you need to copy files from your laptop to server, use scp. Other way around, DON'T! All the data needs to stay on the remote server.</li>
+<li>If you're writing (or running) your code in jupyter notebooks, then you should:</li>
+<li>create a no-browser jupyter session on the <em>server</em> [jupyter notebook --no-browser --port=8888] You may need to chage the port number to avoid conflicts with other teammates using the same port.</li>
+<li>On your local machine, create an SSH tunnel that forwards the port for Jupyter Notebook (0888 in the above command) on the remote machine to a port on the local machine (also 888 above) so that we can access it using our local browser. [ssh -N -L localhost:8888:localhost:8889 username@projectname.dssg.io]</li>
+<li>Access the remote jupyter server via your local browser. Open your browser and go to http://localhost:8888 (you may need to copy and paste the longer URL with a token that is generated when you run the command in step 1) that looks like http://localhost:8889/?token=343vdfvdfggdfgfdt345&amp;token=fdsfdf345353vc</li>
+</ol>
+<p><a href="https://hsaghir.github.io/data_science/jupyter-notebook-on-a-remote-machine-linux/">More detailed instructions</a></p>
+<h5 id="4-other-workflow-considerations">4. Other Workflow Considerations<a class="headerlink" href="#4-other-workflow-considerations" title="Permanent link">&para;</a></h5>
+<ol>
+<li>When should you use Jupyter notebooks, versus when you should use .py files to write code</li>
+<li>When to use psql versus DBeaver</li>
+<li>When to use SQL versus when to use Python and/or Pandas</li>
+</ol>
+<h5 id="5-other-tips">5. Other Tips<a class="headerlink" href="#5-other-tips" title="Permanent link">&para;</a></h5>
+<ul>
+<li>Tunneling to the DB for Tableau: ssh  -L 5433:databaseservername:5432 username@projectservername</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../js/mermaid.min.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>

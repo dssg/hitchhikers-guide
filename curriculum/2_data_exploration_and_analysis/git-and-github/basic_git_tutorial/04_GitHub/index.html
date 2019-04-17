@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  <title>GitHub - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "GitHub";
+    var mkdocs_page_input_path = "curriculum/2_data_exploration_and_analysis/git-and-github/basic_git_tutorial/04_GitHub.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>GitHub</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/2_data_exploration_and_analysis/git-and-github/basic_git_tutorial/04_GitHub.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="github">GitHub<a class="headerlink" href="#github" title="Permanent link">&para;</a></h2>
+<ul>
+<li>This part of the tutorial will go over how to host your project on GitHub</li>
+<li>The virtue of using a <code>.gitignore</code> file</li>
+<li>The GitHub workflow</li>
+<li>How to solve a merge conflict</li>
+</ul>
+<h3 id="what-is-github">What is GitHub?<a class="headerlink" href="#what-is-github" title="Permanent link">&para;</a></h3>
+<p>There are several popular providers --<a href="https://bitbucket.org/">Bitbucket</a>, <a href="https://gitlab.com/">GitLab</a> --
+that let you store your git repositories but the most widely used is <a href="https://github.com/">GitHub</a>.</p>
+<p>Apart from storing a copy of your projects, GitHub comes with a lot of useful
+features. For example, you can use it to share your projects with your
+colleagues so they can see or modify your project. Is is also
+a collaboration tool that you can use to work as a part of a team.</p>
+<h3 id="getting-started-on-github">Getting started on GitHub?<a class="headerlink" href="#getting-started-on-github" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Go to https://github.com and create a free account.</p>
+</li>
+<li>
+<p>Create a new repository called <em>NYC-311</em></p>
+</li>
+<li>
+<p>The repository URL will then be
+<em>https://github.com/username/NYC-311</em></p>
+</li>
+<li>
+<p>Add the remote repository in your local repository</p>
+</li>
+</ol>
+<pre><code>&gt; git remote add origin https://github.com/username/nyc-311.git
+</code></pre>
+
+<p>You can then see the remote repository with the following command</p>
+<pre><code>&gt; git remote -v
+</code></pre>
+
+<p>The remote is named "origin" which is a common choice for the
+primary repository.</p>
+<p>Now we are going to <code>push</code> the local changes on our repository
+to the GitHub repository using the command</p>
+<pre><code>&gt; git push --set-upstream origin master
+</code></pre>
+
+<p>What we have done is taken a copy of our repository and <code>pushed</code> it
+to GitHub. When you push changes to GitHub in the future you just
+need to use the command</p>
+<pre><code>git push origin master
+</code></pre>
+
+<p>To pull in changes in your repository done by yourself or
+another person you can use the following command</p>
+<pre><code>git pull origin master
+</code></pre>
+
+<p>To see this in action grab a friend and have them <code>clone</code> your
+repo with the command. First make sure they also have a GitHub
+account and add them as a collaborator to your repository. If
+you can't find a friend you can still do this part of the tutorial
+just skip the parts about using <code>git clone</code> and <code>git pull</code>.</p>
+<pre><code>&gt; git clone https://github.com/username/nyc-311.git
+</code></pre>
+
+<p>They will then have a copy of your repository. Now <code>cd</code> into
+the project folder and add a special file called <code>.gitignore</code>.
+Fire up a text editor and add the following</p>
+<pre><code>#Ignore pyc files
+*.pyc
+</code></pre>
+
+<p>The <code>.gitignore</code> file is a special file that git looks at when trying
+to make a commit. We added the entry '*.pyc'. This is an instruction
+for git to not commit files that end in <code>.pyc</code>. Files that end
+in pyc are python bytecode files that will appear when you run your
+python code. All lines prefixed with <code>#</code> are comments and will be
+ignored; they are meant to be read by people not computers.</p>
+<p>Now lets add this file to our repository</p>
+<pre><code>git add .gitignore
+git commit -m &quot;Added .gitignore&quot;
+</code></pre>
+
+<p>And push our changes to the repository</p>
+<pre><code>git push origin master
+</code></pre>
+
+<p>Now on your machine <code>git pull</code> the new state of the repository</p>
+<pre><code>git pull origin master
+</code></pre>
+
+<p>If we then use the command <code>ls -a</code> you should then see the .gitignore file.</p>
+<p>And if we look at the log using 'git log` you should see the new commit.</p>
+<h3 id="github-flow">GitHub Flow<a class="headerlink" href="#github-flow" title="Permanent link">&para;</a></h3>
+<p>In this portion of the tutorial we will go over branching and the
+general GitHub workflow.</p>
+<p>So far we have been doing the "solo" workflow which consists
+of the following:</p>
+<pre><code>  mkdir my_working_directory
+  cd my_working_directory
+  git init
+  touch some_file.py
+  # hack
+  # hack
+  git add some_file.py
+  git commit -m &quot;Working with some awesome idea&quot;
+  git push origin master
+  # hack
+  # more hack
+</code></pre>
+
+<p>We are now going to introduce the GitHub flow that is largely done in
+teams.</p>
+<p>In the GitHub flow we never code anything unless there is a need to. When
+there is a need we then create an issue on the GitHub repository. Good
+issues should be</p>
+<ul>
+<li>Clear</li>
+<li>Defined output</li>
+<li>Actionable (written in the Imperative Voice)</li>
+<li>Could be completed at most in few days</li>
+<li>Examples</li>
+<li><em>Good</em>: /Fix the bug in .../</li>
+<li><em>Good</em>: /Add a method that does .../</li>
+<li><em>Bad</em>:  /Solve the project/</li>
+<li><em>Bad</em>:  /Some error happen/</li>
+</ul>
+<p>Here is how to create a GitHub <a href="https://help.github.com/articles/creating-an-issue/">issue.</a></p>
+<p>Once we have an issue we will then pull from the repo and create a <em>branch</em>.
+A <em>branch</em> is a copy of the code base separate from the main master branch
+where we can work on our issue (e.g, fixing a bug, adding a feature) without
+affecting the master branch during our work and then ultimately merge our
+change into the master branch.</p>
+<p>The flow goes something like this:</p>
+<pre><code>## Pull from the repo
+git pull
+## Decide what do you want to do and create an issue
+git checkout -b a-meaningful-name
+</code></pre>
+
+<p>The command <code>git checkout -b</code> creates a new branch which in this case
+is named "a-meaningful-name". We can see what branch we are on by using
+the command <code>git branch</code> which will show all the branches in the local
+repository and place an * next to the branch we are currently on.</p>
+<pre><code>## hack, hack, hack, add/rm, commit
+## Push to the repo and create a remote branch
+git push
+## Create a pull-request and describe your work (Suggest/add a reviewer)
+## Someone then reviews your code
+## The pull-request is closed and the remote branch is destroyed
+## Switch to master locally
+git checkout master
+## Pull the most recent changes (including yours)
+git pull
+## Delete your local branch
+git branch -d a-meaningful-name
+</code></pre>
+
+<p>Here is how to create a GitHub <a href="https://help.github.com/articles/creating-a-pull-request/">pull request.</a></p>
+<h3 id="solving-a-merge-conflict">Solving a merge conflict<a class="headerlink" href="#solving-a-merge-conflict" title="Permanent link">&para;</a></h3>
+<p>As you work on projects with others you will inevitably run into
+merge conflicts. A merge conflict is caused when you and another
+person edits the same line of a file. Git will not know which
+line is the correct one and create a conflict.</p>
+<p>Let's make a conflict!</p>
+<pre><code>#create a branch called drama
+&gt; git checkout -b drama
+#now modify the descriptive_stats.py file and change the top 10
+#values to top 13
+#commit your changes
+&gt; git add descriptive_stats.py
+&gt; git commit -m &quot;Changed top 10 to top 13 in descriptive_stats.py
+#switch back to master
+&gt; git checkout master
+#now modify the descriptive_stats.py file and change the top 10
+#values to top 3
+# commit your changes
+&gt; git add descriptive_stats.py
+&gt; git commit -m &quot;Changed the top 10 to the top 3 in descriptive_stats.py&quot;
+</code></pre>
+
+<p>Now we are going to merge the drama branch into the master branch</p>
+<pre><code>&gt; git merge drama
+
+Auto-merging descriptive_stats.py
+CONFLICT (content): Merge conflict in descriptive_stats.py
+Automatic merge failed; fix conflicts and then commit the result.
+</code></pre>
+
+<p>Our arbitrary drama has now lead to a conflict.
+If we check the status we should see the following</p>
+<pre><code>On branch master
+You have unmerged paths.
+  (fix conflicts and run &quot;git commit&quot;)
+
+  Unmerged paths:
+    (use &quot;git add &lt;file&gt;...&quot; to mark resolution)
+
+            both modified:      descriptive_stats.py
+</code></pre>
+
+<p>Let's examine the conflicting file <code>descriptive_stats.py</code>, you should
+see the following:</p>
+<pre><code>from __future__ import print_function
+import pandas
+
+fname_data = '311-service-requests.csv'
+df_311_calls = pd.read_csv(fname_data)
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+print(df_311_calls['Complaint Type'].value_counts()[:3])
+=======
+print(df_311_calls['Complaint Type'].value_counts()[:13])
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; drama
+</code></pre>
+
+<p>The <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> and <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> denote the section of the conflicting code. <code>HEAD</code>
+means the following line if from the maser branch while <code>drama</code> shows that
+the preceding line is from the drama branch. The lines of the two branches
+are separated by the <code>=======</code>. Given a merge conflict we have
+three choices: either keep the line from the master branch, keep the line
+from the drama branch or create an entirely new line. In this case we are
+going to keep the line from the master branch. To do that we delete the
+merge conflict markers and the line from the drama branch and then make a
+commit.</p>
+<p>Your code should look like this:</p>
+<pre><code>from __future__ import print_function
+import pandas
+
+fname_data = '311-service-requests.csv'
+df_311_calls = pd.read_csv(fname_data)
+print(df_311_calls['Complaint Type'].value_counts()[:3])
+</code></pre>
+
+<p>Now add this file and make a commit.</p>
+<pre><code>git add descriptive_stats.py
+git commit -m &quot;Fixed merge conflict in descriptive stats&quot;
+</code></pre>
+
+<p>Our merge conflict is know solved.</p>
+<p>That concludes the tutorial on GitHub! Good Luck!</p>
+<h3 id="acknowledgements-references-and-further-resources">Acknowledgements, References and Further Resources<a class="headerlink" href="#acknowledgements-references-and-further-resources" title="Permanent link">&para;</a></h3>
+<p>This tutorial is derived from tutorials created by Eduardo Blancas Reyes,
+Benedict Kuester, Adolfo De Unanue, <a href="http://swcarpentry.github.io/git-novice/">Software Carpentry</a>,
+and <a href="http://asu-compmethodsphysics-phy494.github.io/ASU-PHY494/2017/01/24/04_Git_basics/">ASU PHY-494</a>.</p>
+<p>Furthur resources for becoming a git master are:
+* <a href="https://swcarpentry.github.io/git-novice/">Software Carpentry</a> -- a more in-depth intro tutorial</p>
+<ul>
+<li>
+<p><a href="https://try.github.io/levels/1/challenges/1">15 minute tutorial to learn git</a> - Intro tutorial.</p>
+</li>
+<li>
+<p><a href="http://rogerdudler.github.io/git-guide/">git - the simple guide</a> - A simple guide to get to know
+the most important concepts.</p>
+</li>
+<li>
+<p><a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful git branching model</a> - A
+model to work with git using branches. This model is widely used in the open source community.</p>
+</li>
+<li>
+<p><a href="http://learngitbranching.js.org/">Learn Git Branching</a> - Understanding what branches and rebases
+are, in an amazing interactive tutorial.</p>
+</li>
+<li>
+<p><a href="https://git-scm.com/blog/2011/07/11/reset.html">Reset Demystified</a> - A blog post on <code>git reset</code>
+which develops some useful concepts along the way.</p>
+</li>
+<li>
+<p><a href="https://medium.freecodecamp.com/understanding-git-for-real-by-exploring-the-git-directory
+-1e079c15b807#.5pe75gc07">Understanding git for real by exploring the .git
+directory</a> - A blog post on what's inside a commit.</p>
+</li>
+</ul>
+<p><a href="https://git-scm.com/book/en/v2">Pro Git</a> -- An in-depth discussion written by git masters.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../../../..';</script>
+    <script src="../../../../../js/theme.js" defer></script>
+      <script src="../../../../../js/mermaid.min.js" defer></script>
+      <script src="../../../../../search/main.js" defer></script>
+
+</body>
+</html>

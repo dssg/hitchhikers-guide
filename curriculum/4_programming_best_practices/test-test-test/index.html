@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Software testing - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Software testing";
+    var mkdocs_page_input_path = "curriculum/4_programming_best_practices/test-test-test/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Software testing</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/4_programming_best_practices/test-test-test/README.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="software-testing">Software testing<a class="headerlink" href="#software-testing" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/redshiftzero/testing-tutorial">Slides from 2016 DSSG</a></p>
+<p><img alt="tests meme" src="http://s2.quickmeme.com/img/bf/bf321947675de864ac980948a6c835a82768a0eb48091d32e432fabcf4165666.jpg" /></p>
+<p>You've finished your wonderful web prototpe for the Data Fest, your model is awesome and that visualizaiton is going to blow everyone's minds... You get on stage for a live demo and open the webapp only to find that nothing works. Spooky.</p>
+<p>To prevent that from happening, it's important to write tests. Think about it, when you write a function, when do you know <em>it works</em>™? You probably test it against some ad hoc inputs and, if you get the proper result, you move on. Maybe your function <em>does</em> indeed work today, but what if in the following weeks you change a few lines of the function to make it faster, but you don't want to spend time testing again (<em>it works</em>™)? Maybe you just introduced a bug and didn't notice.</p>
+<p>For that reason, it's important to write automated tests to check your code and make sure that everything
+<em>works consistently</em>, and that you can identify bugs introduced by future changes.</p>
+<h3 id="i-didnt-choose-the-test-life-the-test-life-chose-me">I didn't choose the test life, the test life chose me<a class="headerlink" href="#i-didnt-choose-the-test-life-the-test-life-chose-me" title="Permanent link">&para;</a></h3>
+<p><img alt="darth tester" src="http://s2.quickmeme.com/img/03/0347c3efdc17cc1959d089f60b8b2fc267d9093caa8e8cb483bf476b58e63e45.jpg" /></p>
+<p>This tutorial is divided in three parts. The first one addresses <em>unit testing</em>, which is a simple 
+(but powerful) form of testing. The second part is devoted specifically to testing Data Science pipelines.</p>
+<p>The last section covers <em>Continuous Integration</em> (or CI). CI is a technique to automatically run all of 
+your tests every time you push new code to Github. CI is language-agnostic, but our tutorial specifically
+addresses Python, because it is the language we use the most. </p>
+<ul>
+<li><strong>Part 1:</strong> <a href="python_testing/">Unit Testing with Python</a> (interactive tutorial), <a href="unit_testing.pdf">How I Learned to Stop Worrying and Love Unit Testing</a> (teachout slides - <a href="https://github.com/krasch">Kat Rasch</a>)</li>
+<li><strong>Part 2:</strong> <a href="ds_testing/">Testing Python Data Science Pipelines</a></li>
+<li><strong>Part 3:</strong> <a href="ci/">Continuous Integration</a></li>
+</ul>
+<h3 id="external-resources">External Resources<a class="headerlink" href="#external-resources" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://www.udacity.com/course/software-testing--cs258">Software Testing - Udacity course</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../js/mermaid.min.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-04-17 22:11:04
+-->

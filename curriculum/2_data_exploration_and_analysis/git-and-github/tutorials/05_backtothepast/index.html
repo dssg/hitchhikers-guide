@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  <title>05 backtothepast - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "05 backtothepast";
+    var mkdocs_page_input_path = "curriculum/2_data_exploration_and_analysis/git-and-github/tutorials/05_backtothepast.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>05 backtothepast</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/2_data_exploration_and_analysis/git-and-github/tutorials/05_backtothepast.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Sometimes, you check out a repo, happily working along, and then just screw your files up badly. Let's do that.</p>
+<h2 id="commands-youll-learn">Commands you'll learn<a class="headerlink" href="#commands-youll-learn" title="Permanent link">&para;</a></h2>
+<p>In this tutorial you'll be using the following commands:
+* <code>git checkout</code>: Take a snapshot (commit) and make your working directory look like it.</p>
+<h2 id="i-just-want-to-go-back">I Just Want To Go Back<a class="headerlink" href="#i-just-want-to-go-back" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Learner A, B, and C</strong>: Go to your 'soup' repo from the previous exercise. Just to be sure that everybody is up to date, everybody should call <code>git pull</code>. You can also have a look at your <code>git log</code>; they should all look the same.</p>
+</li>
+<li>
+<p><strong>Learner A, B, and C</strong>: Individually, do something bad to your local files (only in the repo, of course!). Delete the <code>ingredients.md</code>, or delete lines in one of the files, and then save them. <strong>Learner B</strong>! Do <strong>not</strong> delete your <code>sauce.secret</code>! It has never been committed, so you cannot get it back!</p>
+</li>
+<li>
+<p><strong>Learner A, B, and C</strong>: Now, again individually, you decide that those working changes were really not great, and you want to restore the last commit. There are several ways of doing this in git. Say <code>git status</code> - it will recommend one possible way.</p>
+</li>
+<li>
+<p><strong>Learner A, B, and C</strong>: As <code>git status</code> tells you, you can use <code>git checkout -- &lt;filename&gt;</code> to discard your working changes. If you call <code>git checkout -- .</code>, you will discard all your working changes in your current directory, and thus be thrown back to the last commit. <em>Be super careful.</em> This <em>discards</em> your working changes. They will be lost. (If you feel like it, google <code>git stash</code> at this point if you would like to back up your working changes, just to be safe.)</p>
+</li>
+<li>
+<p><strong>Learner A, B, and C</strong>: What do you do if you have <em>committed</em> changes that you would like to undo? That is, if you want to go back to a commit far back in time? There are really neat ways of doing this in git, even if you have already pushed (shared) your newer commits to GitHub. Cliffhanger: You will learn about this in the git branching tutorial. (<code>git revert</code> and <code>git reset</code> is where it's at.)</p>
+</li>
+</ol>
+<hr />
+<p><img alt="back" src="http://media1.s-nbcnews.com/j/newscms/2015_01/831346/150102-back-to-the-future-mn-850_6c1cc5c2a0c7767b593e1bf9054a4d0f.nbcnews-fp-1200-800.jpg" /></p>
+<p><a href="http://media1.s-nbcnews.com/j/newscms/2015_01/831346/150102-back-to-the-future-mn-850_6c1cc5c2a0c7767b593e1bf9054a4d0f.nbcnews-fp-1200-800.jpg">Image source</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../../../..';</script>
+    <script src="../../../../../js/theme.js" defer></script>
+      <script src="../../../../../js/mermaid.min.js" defer></script>
+      <script src="../../../../../search/main.js" defer></script>
+
+</body>
+</html>

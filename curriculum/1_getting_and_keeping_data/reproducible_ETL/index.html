@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Reproducible ETL - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Reproducible ETL";
+    var mkdocs_page_input_path = "curriculum/1_getting_and_keeping_data/reproducible_ETL/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Reproducible ETL</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/1_getting_and_keeping_data/reproducible_ETL/README.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="reproducible-etl">Reproducible ETL<a class="headerlink" href="#reproducible-etl" title="Permanent link">&para;</a></h2>
+<h3 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><em>Understanding what you did</em>: Save all the steps you took so you can tell how you got here. </li>
+<li><em>Using what you did</em>: Use and re-use code for this project or for others. Fix errors easily. Import new data with confidence. GET IT IMPLEMENTED!</li>
+</ul>
+<p>This session builds on what you learned last week in the <a href="https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/csv-to-db">CSV to DB</a> session.</p>
+<h3 id="potential-teachouts">Potential Teachouts<a class="headerlink" href="#potential-teachouts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Proprietary-database transfers (e.g. SQL Server, Oracle) </li>
+</ul>
+<h3 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h3>
+<p>Many people associate data science with fancy machine-learning algorithms, but ETL is arguably more important.</p>
+<p>ETL: </p>
+<ol>
+<li><em>Extract</em>: Get data from the source, e.g. a CSV the partner gave you.</li>
+<li><em>Transform</em>: Get the data into the format you want/need, e.g. standardize missing values.</li>
+<li><em>Load</em>: Get the data into the database.</li>
+</ol>
+<p>There are two reasons why ETL matters so much:</p>
+<ol>
+<li>The rest of your analysis depends on your ETL. For example, <a href="http://www.stabilityjournal.org/articles/10.5334/sta.cr/">you might ignore some of the most important cases if you drop rows with missing values</a>. </li>
+<li>Better data can help more than better methods.</li>
+</ol>
+<p>So you should do ETL well:
+* Reliably
+* Understandably
+* Preferably automatically</p>
+<p>Tools:
+* Code is typically better than GUIs. Code can be automated.
+* All else being equal, command-line tools are good choices. They are time tested and efficient.
+* make (command-line tool written to compile software efficiently)
+* <a href="https://github.com/Factual/drake">drake</a>
+* If you can't save the code, save the notes, e.g. record how you used Pentaho to transfer an Oracle database to Postgres.</p>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
+<h4 id="hitchhikers-guide-weather-example">Hitchhiker's Guide Weather Example<a class="headerlink" href="#hitchhikers-guide-weather-example" title="Permanent link">&para;</a></h4>
+<p>Remember the <a href="https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/csv-to-db">weather example</a>? Let's make sure it's reproducible. I stored the code in two files:
+* <code>jwalsh_table.sql</code> drops <code>jwalsh_schema.jwalsh_table</code> if it exists, creates the table using our statement from the CSV-to-DB session, then copies the data.
+* <code>Drakefile</code> downloads the weather data, unzips it, then calls <code>jwalsh_table.sql</code></p>
+<p>To run it, make sure you specify the Postgres environment variables in <code>default_profile</code>, then type <code>drake</code> while in this directory.</p>
+<p>I've run this code many times without error, and I feel pretty confident that it will continue to run without error for a while.</p>
+<p>Because we wrote some decent ETL code, we don't need to start from scratch. We can borrow the code for this project. (Some of this code originated with the <a href="https://github.com/dssg/lead-public">lead project</a>.)</p>
+<p>Let's say NOAA changes the format of the weather file. This code will throw an error when we try to run it. We don't need to start from scratch. We can simply modify <code>jwalsh_table.sql</code> to match the new format, re-run the code without error, and enjoy the up-to-date data. </p>
+<h4 id="etl-tests">ETL Tests<a class="headerlink" href="#etl-tests" title="Permanent link">&para;</a></h4>
+<p>You run the risk of losing or corrupting data with each step. To ensure that you extracted, transformed, and loaded the data correctly, you can run simple checks. Here are a few ways:
+* If you're copying a file, check the hash before and after. They should match.
+* Count rows. If they should match before and after, do they?
+* Check aggregate statistics, such as the sum of a column. If they should match before and after, do they?
+* If you receive a database dump, count the number of schemas/tables/sequences/etc in the origin and destination databases. Do they match? For example, we request partners who use Oracle to run the <code>count_rows_oracle.sql</code> script, which gives the number of rows and columns in the origin database. It's one (necessary but not sufficient) way to check that we got all the data. </p>
+<h4 id="lead-project">Lead Project<a class="headerlink" href="#lead-project" title="Permanent link">&para;</a></h4>
+<p>Well-developed ETL in <code>input/</code>. </p>
+<h4 id="sanergy-project">Sanergy Project<a class="headerlink" href="#sanergy-project" title="Permanent link">&para;</a></h4>
+<p><code>input/Drakefile</code> calls an R script. The repository is <a href="https://github.com/dssg/sanergy-public">here</a>.</p>
+<h4 id="what-if-you-have-to-use-points-and-clicks">What If You Have to Use Points and Clicks?<a class="headerlink" href="#what-if-you-have-to-use-points-and-clicks" title="Permanent link">&para;</a></h4>
+<p>See last year's police team <a href="https://github.com/dssg/police/tree/master/input/cmpd/oracle_export_code">Oracle directions</a>.</p>
+<h3 id="discussion">Discussion<a class="headerlink" href="#discussion" title="Permanent link">&para;</a></h3>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../js/mermaid.min.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-04-17 22:11:04
+-->

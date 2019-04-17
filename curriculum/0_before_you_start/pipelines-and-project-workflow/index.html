@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Pipelines and Project Workflow - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Pipelines and Project Workflow";
+    var mkdocs_page_input_path = "curriculum/0_before_you_start/pipelines-and-project-workflow/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Pipelines and Project Workflow</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/0_before_you_start/pipelines-and-project-workflow/README.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="pipelines-and-project-workflow">Pipelines and Project Workflow<a class="headerlink" href="#pipelines-and-project-workflow" title="Permanent link">&para;</a></h2>
+<h3 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h3>
+<p>Most data-science projects have the same set of tasks:</p>
+<ol>
+<li>ETL: extracting data from its source, transforming it, then loading it into a database.</li>
+<li>Pre-process data: This might include imputing missing values and choosing the training and testing sets.</li>
+<li>Train the model(s): You can try different algorithms, features, and so on. </li>
+<li>Assess performance on the test set: Using an appropriate accuracy metric (e.g. AUC), examine the performance of your model "out of sample." </li>
+<li>Think of new things to try. Repeat steps 1 through 4 as appropriate. </li>
+</ol>
+<p>Often, by the time you build a couple dozen models, you're struggling to remember the details of each. What features did you use for each? What training and testing split?  What hyperparameters?</p>
+<p>Your code might be getting messy too. Did you overwrite the code for the previous model? Maybe you copied, pasted, and edited code from an earlier model. Can you still read what's there? It can quickly become a hodgepodge that requires heroics to decipher.</p>
+<p>In this session, we will introduce the data pipeline, an approach that helps you simplify the modeling process.</p>
+<h3 id="concepts">Concepts<a class="headerlink" href="#concepts" title="Permanent link">&para;</a></h3>
+<p>A <em>data pipeline</em> is a set of code that handles all the computational tasks your project needs from beginning to end. The typical data pipeline is a set of functions strung together. Here's a simple example using scikit-learn's boston dataset:</p>
+<p><img alt="alt text" src="boston_pipeline.png" title="Simple Pipeline" /></p>
+<p>This pipeline has two steps. The first, which I call "preprocessing," prepares the data for modeling by creating training and testing splits. The second, which I call "models, predictions, and metrics," uses the preprocessed data to train models, make predictions, and print r^2 on the test set. The pipeline takes inputs (e.g. data, training/testing proportions, and model types) at one end and produces outputs (accuracy) at the other end. </p>
+<p>Obviously, this analysis is incomplete, but the pipeline is a good start. Because we use the same code and data, we can run the pipeline from beginning to end and get the same results. And because we split the pipeline into functions, we can identify where the pipeline goes wrong and improve the pipeline one function at a time. (Each function just needs to use the same inputs and outputs as before.) </p>
+<p>Also note the function and loops in the second part of the pipeline. We're somewhat agnostic about the methods we use. If it works, great! This structure lets us loop through many types of models using the same preprocessed data and the same predictions and metrics. It makes adding new methods and comparing the results easier, and it helps us focus on other parts of the pipeline, such as feature generation. </p>
+<p>Aren't pipelines super duper?</p>
+<p>Our projects are far more complex than this Boston example, and our pipelines reflect that. Here's what a typical DSSG pipeline looks like:</p>
+<p><img alt="alt text" src="pipeline_diagram.png" title="Pipeline Diagram" /></p>
+<p>The <a href="https://github.com/dssg/police-eis">police pipeline</a>, started at DSSG 2015, is an example of a relatively well developed pipeline. It lets us specify the pipeline options we want in a yaml file, from preprocessing on. (The code in this repository does not include ETL.) It gives us many modeling options, and it makes comparisons easy.</p>
+<h3 id="your-pipeline-and-the-dssg-schedule">Your Pipeline and the DSSG Schedule<a class="headerlink" href="#your-pipeline-and-the-dssg-schedule" title="Permanent link">&para;</a></h3>
+<p>Much of your work will revolve around and within your pipeline, but we have identified specific aspects for you to focus on <a href="https://github.com/dssg/hitchhikers-guide/blob/master/dssg-manual/summer-overview/high-level-summer-plan.pdf">each week</a>:</p>
+<p><img alt="" src="highlevelsummerplan.png?raw=true" /></p>
+<h3 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/dssg/lead-public">Our lead pipeline</a>, started at DSSG 2014</li>
+<li><a href="https://github.com/dssg/cincinnati">Our Cincinnati pipeline</a>, started at DSSG 2015</li>
+<li><a href="https://github.com/dssg/triage">Triage</a> (a generalized DSSG pipeline)</li>
+<li><a href="http://datasciencetoolbox.org/">Data Science Toolbox</a></li>
+</ul>
+<h3 id="discussion-notes">Discussion Notes<a class="headerlink" href="#discussion-notes" title="Permanent link">&para;</a></h3>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../js/mermaid.min.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-04-17 22:11:04
+-->

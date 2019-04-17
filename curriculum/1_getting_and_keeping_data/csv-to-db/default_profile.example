@@ -1,0 +1,4 @@
+export PGHOST=dssg.isawesome.com
+export PGUSER=your_username
+export PGPASSWORD=you_can't_guess_this
+export PGDATABASE=name_of_your_database

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Making Projects Reproducible - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Making Projects Reproducible";
+    var mkdocs_page_input_path = "curriculum/4_programming_best_practices/reproducible-software/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Making Projects Reproducible</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/4_programming_best_practices/reproducible-software/README.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="making-projects-reproducible">Making Projects Reproducible<a class="headerlink" href="#making-projects-reproducible" title="Permanent link">&para;</a></h2>
+<p>Scientific software is often developed and used by a single person. It is all too common in academia
+to be handed a postdoc or graduate student's old code and be unable to replicate the original study, run
+the software outside of the original development machine, or even get the software to work at all. The
+goal of this tutorial is to provide some guidelines to make your summer projects reproducible -- this means your
+project can be installed on another computer and give the same results you got over the summer. At the end of
+the summer, your project should be understandable and transferable to your future-self and anyone else who
+may want to pick up where you left off without having to constantly email you about how to get your project
+running.</p>
+<p><em>(Note: Your future-self doesn't have the luxury of being able to email your past-self).</em></p>
+<hr />
+<h2 id="what-is-a-reproducible-project">What is a reproducible project?<a class="headerlink" href="#what-is-a-reproducible-project" title="Permanent link">&para;</a></h2>
+<p>One that...</p>
+<ul>
+<li>works for someone other than the original team</li>
+<li>can be <strong>easily</strong> installed on another computer</li>
+<li>has documentation that describes any dependencies and how to install them</li>
+<li>comes with enough tests to indicate the software is running properly</li>
+</ul>
+<hr />
+<h2 id="readmemdrst">README.md(rst)<a class="headerlink" href="#readmemdrst" title="Permanent link">&para;</a></h2>
+<p>All projects should have a README that communicates the following:</p>
+<ol>
+<li>What the project is about</li>
+<li>
+<p>A short description of the project (i.e. the problem you are trying to solve).</p>
+</li>
+<li>
+<p>The required dependencies to run the software</p>
+</li>
+<li>The can be in the form of a <em>requirements.txt</em> file for Python that lists
+   the dependencies and version numbers.</li>
+<li>
+<p>The system-level dependencies.</p>
+</li>
+<li>
+<p>Installation instructions</p>
+</li>
+<li>
+<p>How to install your software and associated binaries. This can be in the form of
+     instructions on how to use <em>pip</em>, <em>apt</em>, <em>yum</em>, or some other binary package
+     manager.</p>
+</li>
+<li>
+<p>Example usage</p>
+</li>
+<li>
+<p>The inputs and outputs of your software (i.e. how to use it) with code examples.</p>
+</li>
+<li>
+<p>Attribution/Licensing</p>
+</li>
+<li>Who did what and how others can use your software.</li>
+</ol>
+<p>Examples:
+   - <a href="https://github.com/Chicago/food-inspections-evaluation">Chicago Food Inspections</a>
+   - <a href="https://github.com/dssg/police-eis">DSSG Police EIS</a>
+   - <a href="https://github.com/torvalds/linux">Linux Kernel</a></p>
+<hr />
+<h2 id="what-to-do">What to Do<a class="headerlink" href="#what-to-do" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Use <a href="#virtual-environments">virtual environments</a>.</li>
+<li><a href="https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/reproducible_ETL">Use automation tools like Make or Drake</a></li>
+<li>Keep your directory structure <a href="#good-directory-organization">intuitive, interpretable and easy to understand</a>.</li>
+<li>Keep your database free of "junk tables." Keep only what you need and what's current.</li>
+<li>Junk tables will only confuse your future-self or others that come fresh to the project.</li>
+<li>Merge all branches into master.</li>
+<li>Branches are for adding features or patches. When you have added said feature or patch
+    and you know you won't break the master branch, merge into master and delete the branch.</li>
+<li>Write commit messages in such a way that your log is helpful (see <a href="https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/git-and-github">Git and Github tutorial</a>.)</li>
+<li><a href="#backup-your-database">Periodically make database backups</a>.</li>
+<li>Write unit tests and use continuous integration so you can catch bugs quickly, particularly when you are merging
+  new features into master. (See <a href="https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/test-test-test">testing tutorial</a>.)</li>
+<li>Document all of your functions with docstrings. (See <a href="https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code">legible, good code tutorial</a>.)</li>
+<li>Write your python code following the PEP8 standard. (See <a href="https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code">legible, good code tutorial</a>.)</li>
+<li>Use (4) spaces instead of tabs in your Python code for indentation.</li>
+</ul>
+<hr />
+<h2 id="what-not-to-do">What NOT to Do<a class="headerlink" href="#what-not-to-do" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Use <a href="#hard-coded-paths">hard-coded paths</a>.</p>
+</li>
+<li>
+<p>Require Sudo/root privileges to install your project.</p>
+</li>
+<li>You can't anticipate whether or not someone will have root access to the machine
+    they are installing your project on, so don't count on it. Additionally, you shouldn't
+    require users to create separate user names for your project.</li>
+<li>Use non-standard formats for inputs (stick to <em>YAML</em>, <em>XML</em>, <em>JSON</em>, <em>CLA</em>, etc).</li>
+<li>My one exception to this rule is log files - which you should provide an example of in a README.
+    Otherwise it is easier to just stick with what is already in use.</li>
+<li>Have a <a href="#bad-directory-organization">messy repo with random files everywhere</a>.</li>
+<li>This is confusing, irritating and cancerous to productive enterprise.</li>
+<li>Commit data or sensitive information like database passcodes to the GitHub repo.</li>
+<li>Your repository is for your codebase, not the data. Furthermore, your data may be sensitive
+    and need to be protected.</li>
+<li>Always assume that your repo will be public someday if you are hosting on GitHub (for your DSSG project it will be).
+    Sensitive information also includes architecture decisions about your database. After sensitive
+    information is pushed to GitHub, you cannot remove it completely from the repository.</li>
+<li>Have code that needs to be operationalized in Jupyter Notebooks.</li>
+<li>Jupyter notebooks are wonderful for containing your analysis, code and figures in a single document,
+    particularly for doing exploratory analysis. They are not good for keeping the code you will need for
+    your pipeline or code that you will eventually want to turn into a library.</li>
+</ul>
+<hr />
+<h2 id="virtual-environments">Virtual Environments<a class="headerlink" href="#virtual-environments" title="Permanent link">&para;</a></h2>
+<p>A virtual environment solves the problem that projectX uses version 1.x of a package
+while projectY uses version 2.x of a package by keeping dependencies in different
+environments.</p>
+<h4 id="install-a-virtualenv">Install a virtualenv<a class="headerlink" href="#install-a-virtualenv" title="Permanent link">&para;</a></h4>
+<pre><code>pip install --user virtualenv
+virtualenv dssg-venv --no-site-packages #does not use any global packages
+</code></pre>
+
+<blockquote>
+<p>You can also install a virtual environment and specify the type of python interpreter you
+would like to use using the -p option. This is good for keeping Python2 and Python3
+dependencies separate.</p>
+<p>Python2</p>
+<p><code>virtualenv dssg-py2-venv -p $(which python) --no-site-packages</code></p>
+<p>Python3</p>
+<p><code>virtualenv dssg-py3-venv -p $(which python3) --no-site-packages</code></p>
+</blockquote>
+<h4 id="activate-a-virtualenv">Activate a virtualenv<a class="headerlink" href="#activate-a-virtualenv" title="Permanent link">&para;</a></h4>
+<pre><code>source ./dssg-venv/bin/activate
+</code></pre>
+
+<h4 id="install-dependencies">Install Dependencies<a class="headerlink" href="#install-dependencies" title="Permanent link">&para;</a></h4>
+<pre><code>pip install -r requirements.txt
+</code></pre>
+
+<h4 id="freeze-dependencies">Freeze Dependencies<a class="headerlink" href="#freeze-dependencies" title="Permanent link">&para;</a></h4>
+<pre><code>pip freeze &gt; requirements.txt #outputs a list of dependencies and version numbers
+
+</code></pre>
+
+<blockquote>
+<p><strong>Warning</strong>: <code>pip freeze</code> will output every package that was installed using pip or setup.py (setuptools).
+External dependencies that are from github or some other source not found on PyPi will appear but will
+not be found when trying to reinstall the dependencies. You can include github repositories from github
+in your requirements.txt file, you just have to do manual housekeeping. Other external dependencies and how
+to install them should be recorded in your README.md file.</p>
+<p>Note: There is also the conda environment created by Continuum Analytics. The
+conda environment handles creating a environment and package dependencies -- what the virtual
+environment + pip combination does. Conda, unlike pip, includes many non-python dependencies
+(e.g, MKL) as precompiled binaries that are necessary for scientific python packages.
+The author is currently of the opinion that if you are a beginner or using a dated OS then using a
+conda environment is not the worst of ideas. If you are a developer working on a development
+machine then compile things yourself -- an important and useful skill. Whatever path you choose
+be consistent about how you set up your environment and document it thoroughly.</p>
+</blockquote>
+<hr />
+<h2 id="systems-level-dependencies">Systems Level Dependencies<a class="headerlink" href="#systems-level-dependencies" title="Permanent link">&para;</a></h2>
+<p>Systems level dependencies are the libraries installed on your OS. For Ubuntu/Debian Linux
+you can get a list of them and then install them using the following:</p>
+<pre><code>#grab systems level dependencies
+dpkg --get-selections &gt; dependencies.txt
+#reinstall on a new machine
+dpkg --clear-selections
+sudo dpkg --set-selections &lt; dependencies.txt
+</code></pre>
+
+<p>Also courtesy of Tristan Crockett: installing a list of dependencies using apt</p>
+<pre><code>xargs -a &lt;(awk '/^\s*[^#]/' dependencies.txt) -r -- sudo apt-get install
+
+</code></pre>
+
+<p>This will give every package installed on your OS. An easier alternative is to just keep track when you
+install a new library and manually keep the list in a <code>dependencies.txt</code> file.</p>
+<blockquote>
+<p>There are also lightweight vitalization containers like Docker containers, Hyper-V images (Windows),
+or Ansible playbooks that can be used to "freeze" the systems level configuration of an OS.</p>
+</blockquote>
+<hr />
+<h2 id="backup-your-database">Backup Your Database<a class="headerlink" href="#backup-your-database" title="Permanent link">&para;</a></h2>
+<p>In PostGreSQL when a table is dropped, it is gone forever. You don't want to drop your results
+table on the last day of the fellowship, so it is a good idea to backup periodically.</p>
+<p>To dump your database in PostGreSQL:</p>
+<pre><code>pg_dump -Fc --schema='raw|clean|models' -N '*public*' --no-acl -v -h &lt;hostname&gt; -U &lt;dbuser&gt; &lt;dbname&gt; &gt; dssg-$(date +%F).dump
+</code></pre>
+
+<p><em>Note: This can be automated with a crontab script.</em></p>
+<p>To restore your database from a dump:</p>
+<pre><code>&lt; dump_file psql -U dbuser -h dbhost dbname
+</code></pre>
+
+<hr />
+<h2 id="hard-coded-paths">Hard-coded Paths<a class="headerlink" href="#hard-coded-paths" title="Permanent link">&para;</a></h2>
+<h3 id="example-of-adding-shapefile-with-hard-coded-paths">Example of Adding Shapefile with hard-coded paths<a class="headerlink" href="#example-of-adding-shapefile-with-hard-coded-paths" title="Permanent link">&para;</a></h3>
+<p>Hard-coded paths are absolute paths that are native to the machine you are using for
+development. It is unlikely someone else will keep their data in the exact same directory
+as you when trying to use your project in a separate environment. Users should be able to set
+location of files as command line parameters. Below are examples.</p>
+<h4 id="load_shapefile_hardpath_v1sh">load_shapefile_hardpath_v1.sh<a class="headerlink" href="#load_shapefile_hardpath_v1sh" title="Permanent link">&para;</a></h4>
+<pre><code># Data downloaded from this website: http://mrdata.usgs.gov/geology/state/state.php?state=NY
+shp2pgsql -d -s 4267:2261 -d /mnt/data/syracuse/NY_geol_dd soil.geology | psql
+
+</code></pre>
+
+<p>Although this script documents the command that runs, it has a hard path and the purpose of the arguments
+are not clear. This script has the shelf-life of a banana.</p>
+<h4 id="load_shapefile_hardpath_v2sh">load_shapefile_hardpath_v2.sh<a class="headerlink" href="#load_shapefile_hardpath_v2sh" title="Permanent link">&para;</a></h4>
+<pre><code>#!/bin/bash
+# Data downloaded from this website: http://mrdata.usgs.gov/geology/state/state.php?state=NY
+original_projection=4267
+new_projection=2261 #projection of Upstate NY
+schema='soil'
+table='geology'
+shapefile='/mnt/data/syracuse/NY_geol_dd/nygeol_poly_dd.shp'
+
+#create table and schema
+psql -c &quot;drop table if exists ${schema}.${table}&quot;
+psql -c &quot;create schema if not exists ${schema}&quot;
+#import the data
+shp2pgsql -d -s ${original_projection}:${new_projection} -d ${shapefile} ${schema}.${table} | psql
+
+</code></pre>
+
+<p>With this version someone can better surmise what is being done. Every time you want to load
+your data you have to change the filename in the script. It also checks if the table already exists
+in the database so the command can be used to reload data.</p>
+<h4 id="load_shapefile_hardpath_v3sh">load_shapefile_hardpath_v3.sh<a class="headerlink" href="#load_shapefile_hardpath_v3sh" title="Permanent link">&para;</a></h4>
+<pre><code>#!/bin/bash
+#ETL script for importing shape files.
+
+PROGRAM=$(basename $0)
+usage=&quot;${PROGRAM} -s schema -t table -p original_projection [-n new_projection] [-v] shapefilename&quot;
+
+function die() {
+local errmsg=&quot;$1&quot; errcode=&quot;${2:-1}&quot;
+echo &quot;ERROR: ${errmsg}&quot;
+exit ${errcode}
+}
+
+#if called with no command line arguments then output usage
+if [ ${#} -eq 0 ]
+then
+    echo ${usage}
+    exit 1;
+fi
+
+#--------------------------------------------------
+# process input arguments
+#--------------------------------------------------
+verbose=&quot;false&quot;
+new_projection=&quot;&quot;
+while getopts hp:n:s:t:v OPT; do
+case &quot;${OPT}&quot; in
+h)  echo &quot;${usage}&quot;;
+exit 0
+;;
+p)  original_projection=&quot;${OPTARG}&quot;
+;;
+n)  new_projection=&quot;${OPTARG}&quot;
+;;
+s)  schema=&quot;${OPTARG}&quot;
+;;
+t)  table=&quot;${OPTARG}&quot;
+;;
+v)  verbose=&quot;true&quot;
+;;
+?)  die &quot;unknown option or missing argument; see -h for usage&quot; 2
+;;
+esac
+done
+shift $((OPTIND - 1))
+shapefile=&quot;$*&quot;
+
+if [ ${verbose} == &quot;true&quot; ]
+then
+    echo 'original_projection:' $original_projection
+    echo 'new_projection:' $new_projection
+    echo 'schema:' $schema
+    echo 'table:'$table
+    echo 'shapefile:'$shapefile
+fi
+
+
+#create table and schema
+psql -c &quot;drop table if exists ${schema}.${table}&quot;
+psql -c &quot;create schema if not exists ${schema}&quot;
+
+#import the data
+if [ -z &quot;${new_projection}&quot; ]
+then
+    shp2pgsql -s ${original_projection} -d ${shapefile} ${schema}.${table} | psql
+else
+    shp2pgsql -s ${original_projection}:${new_projection} -d ${shapefile} ${schema}.${table} | psql
+fi
+
+</code></pre>
+
+<p>In this version, you can call the script from the command line and use it for any shapefile. When
+called with no arguments it prints out a usage so the user does not have to look into the actual
+script. It also has a verbose mode for debugging. Here, there are no hard paths.</p>
+<h2 id="bad-directory-organization">Bad Directory Organization<a class="headerlink" href="#bad-directory-organization" title="Permanent link">&para;</a></h2>
+<pre><code>nfp2/
+├── 10_month_to_12_month_ISOMAP_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_final_asq_psolve_2r.png
+├── 10_month_to_12_month_ISOMAP_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_time4_cumulative_DURATION_time_MATERNAL_sum.png
+├── 10_month_to_12_month_ISOMAP_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_whptile1.png
+├── 10_month_to_12_month_LLE_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_final_asq_psolve_2r.png
+├── 10_month_to_12_month_LLE_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_time4_cumulative_DURATION_time_MATERNAL_sum.png
+├── 10_month_to_12_month_LLE_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_whptile1.png
+├── 12_month_to_14_month_ISOMAP_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_PREPGBMI_and_time4_DURATION_time_MATERNAL_sum.png
+├── 12_month_to_14_month_ISOMAP_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_PREPGBMI_and_whptile2.png
+├── 12_month_to_14_month_ISOMAP_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_time5_cumulative_DURATION_sum_and_whptile2.png
+├── 12_month_to_14_month_ISOMAP_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_time5_DURATION_sum_and_time4_DURATION_time_MATERNAL_sum.png
+├── 12_month_to_14_month_LLE_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_PREPGBMI_and_time4_DURATION_time_MATERNAL_sum.png
+├── 12_month_to_14_month_LLE_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_PREPGBMI_and_whptile2.png
+├── 12_month_to_14_month_LLE_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_time5_cumulative_DURATION_sum_and_whptile2.png
+├── 12_month_to_14_month_LLE_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_time5_DURATION_sum_and_time4_DURATION_time_MATERNAL_sum.png
+├── 4_month_to_6_month_ISOMAP_final_asq_fmotor_1r_and_final_asq_psocial_1r_and_final_asq_gmotor_1r_and_final_asq_comm_1r_and_final_asq_psolve_1r.png
+├── 4_month_to_6_month_ISOMAP_final_asq_fmotor_1r_and_final_asq_psocial_1r_and_final_asq_gmotor_1r_and_final_asq_comm_1r_and_time2_DURATION_sum.png
+├── 4_month_to_6_month_LLE_final_asq_fmotor_1r_and_final_asq_psocial_1r_and_final_asq_gmotor_1r_and_final_asq_comm_1r_and_final_asq_psolve_1r.png
+├── 4_month_to_6_month_LLE_final_asq_fmotor_1r_and_final_asq_psocial_1r_and_final_asq_gmotor_1r_and_final_asq_comm_1r_and_time2_DURATION_sum.png
+├── 6_month_to_10_month_ISOMAP_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_birthgms2_and_momwtgain_and_time3_cumulative_DURATION_sum.png
+├── 6_month_to_10_month_ISOMAP_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_time2_DURATION_sum_and_time3_cumulative_DURATION_sum_and_MomsAgeBirth_and_time3_cumulative_DURATION_time_MATERNAL_sum.png
+├── 6_month_to_10_month_ISOMAP_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_time2_DURATION_sum_and_time3_cumulative_DURATION_sum_and_momwtgain.png
+├── 6_month_to_10_month_ISOMAP_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_time2_DURATION_sum_and_time3_DURATION_sum_and_time3_cumulative_DURATION_time_MATERNAL_sum.png
+├── 6_month_to_10_month_LLE_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_birthgms2_and_momwtgain_and_time3_cumulative_DURATION_sum.png
+├── 6_month_to_10_month_LLE_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_time2_DURATION_sum_and_time3_cumulative_DURATION_sum_and_MomsAgeBirth_and_time3_cumulative_DURATION_time_MATERNAL_sum.png
+├── 6_month_to_10_month_LLE_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_time2_DURATION_sum_and_time3_cumulative_DURATION_sum_and_momwtgain.png
+├── 6_month_to_10_month_LLE_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_time2_DURATION_sum_and_time3_DURATION_sum_and_time3_cumulative_DURATION_time_MATERNAL_sum.png
+├── ada_all.yaml
+├── ada_simple_SAMMER.yaml
+├── Add_null_data.ipynb
+├── Add_null_data.py
+├── all.yaml
+├── assemble_long_data.ipynb
+├── binary_classifer.py
+├── birth_to_4_month_ISOMAP_MomsAgeBirth_and_time1_DURATION_time_PERSHLTH_std_and_time1_DURATION_sum_and_momwtgain_and_birthgms2.png
+├── birth_to_4_month_ISOMAP_MomsAgeBirth_and_time1_DURATION_time_PERSHLTH_std_and_time1_DURATION_sum_and_time1_DURATION_time_MATERNAL_sum_and_time1_DURATION_time_PERSHLTH_sum.png
+├── birth_to_4_month_LLE_MomsAgeBirth_and_time1_DURATION_time_PERSHLTH_std_and_time1_DURATION_sum_and_momwtgain_and_birthgms2.png
+├── birth_to_4_month_LLE_MomsAgeBirth_and_time1_DURATION_time_PERSHLTH_std_and_time1_DURATION_sum_and_time1_DURATION_time_MATERNAL_sum_and_time1_DURATION_time_PERSHLTH_sum.png
+├── BRL_file_generation.ipynb
+├── #BRL.py#
+├── BRL.py
+├── classification.ipynb
+├── classifier_t1-Copy0.ipynb
+├── classifier_t1-Copy0.py
+├── classifier_t1.ipynb
+├── classifier_t3.py
+├── clique_feature_coprus.p
+├── Clique_Features.ipynb
+├── #Clique_Features.py#
+├── Clique_Features.py
+├── Clustering_Scoring.ipynb
+├── cohort_creation.py
+├── convert_nfp_sas_to_csv.R
+├── corpus.ipynb
+├── create_dropout_files.py
+├── cross_val_copy.py
+├── cross_val.ipynb
+├── cross_val.py
+├── dal_test.ipynb
+├── data_cleaning.ipynb
+├── data_cleaning.py
+├── data_creation_1.yaml
+├── data_creation_2.yaml
+├── data_creation_3.yaml
+├── data_creation_4.yaml
+├── data_creation_and_model_applicaition.py
+├── data_creation_and_model_application_1.yaml
+├── data_creation_and_model_application_2.yaml
+├── data_creation_and_model_application_3.yaml
+├── data_creation_and_model_application_4.yaml
+├── data_creation_and_model_application.yaml
+├── data_creation_for_dropout.py
+├── data_creation.yaml
+├── dataframe.py
+├── datasets.flowingdata.com
+├── data_visualization
+├── data_wrangling
+├── decision_tree.yaml
+├── dropout
+├── dropout_explore.ipynb
+├── experiment.log
+├── Feature_graph_for_interval_with_top_2_features_for_interval_10_month_to_12_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_12_month_to_14_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_14_month_to_18_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_18_month_20_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_18_month_to_20_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_4_month_to_6_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_6_month_to_10_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_birth_to_4_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_intake_to_birth.dot
+├── Feature Importance.ipynb
+├── find_model.ipynb
+├── find_model.py
+├── #.gitignore#
+├── graph
+├── graph_code.py
+├── Histrogram_Feature_Creation.ipynb
+├── how_to_merge.txt
+├── Imputation.ipynb
+├── Imputation.py
+├── impute
+├── impute_and_filter-Copy0.ipynb
+├── impute_and_filter-Copy1.ipynb
+├── impute_and_filter.ipynb
+├── impute_and_filter.py
+├── intake_to_birth_ISOMAP_CLIENT_HEALTH_PREGNANCY_0_WKS_PR_and_CLIENT_HEALTH_GENERAL_HEIGHT_1_I_and_PREPGBMI_and_PREPGKG_and_CLIENT_HEALTH_GENERAL_WEIGHT_0_P.png
+├── intake_to_birth_ISOMAP_CLIENT_HEALTH_PREGNANCY_0_WKS_PR_and_CLIENT_HEALTH_GENERAL_HEIGHT_1_I_and_PREPGBMI_and_PREPGKG_and_NURSE_0_YEAR_NURSING_EXPERIENCE.png
+├── intake_to_birth_LLE_CLIENT_HEALTH_PREGNANCY_0_WKS_PR_and_CLIENT_HEALTH_GENERAL_HEIGHT_1_I_and_PREPGBMI_and_PREPGKG_and_CLIENT_HEALTH_GENERAL_WEIGHT_0_P.png
+├── intake_to_birth_LLE_CLIENT_HEALTH_PREGNANCY_0_WKS_PR_and_CLIENT_HEALTH_GENERAL_HEIGHT_1_I_and_PREPGBMI_and_PREPGKG_and_NURSE_0_YEAR_NURSING_EXPERIENCE.png
+├── I_S_O_M_A_P_ _m_o_m_w_t_g_a_i_n___a_n_d___b_i_r_t_h_g_m_s_2___a_n_d___t_i_m_e_4___D_U_R_A_T_I_O_N___s_u_m___a_n_d___P_R_E_P_G_B_M_I___a_n_d___t_i_m_e_4___D_U_R_A_T_I_O_N___t_i_m_e___M_A_T_E_R_N_A_L___s_u_m.png
+├── Jeff_Models-Copy0.ipynb
+├── Jeff_recipe.txt
+├── #KMS.txt#
+├── KMS.txt
+├── legend.html
+├── load_data.py
+├── media
+├── merge.py
+├── meta_data
+├── metr
+├── metrics_r_f_d.p
+├── metrics_will_drop.p
+├── model_pipeline_2-Copy0.ipynb
+├── model_pipeline_2.ipynb
+├── model_pipeline_2.py
+├── model_pipeline_3.py
+├── #model_pipeline_5.py#
+├── model_pipeline_5.py
+├── model_run_rf.txt
+├── models
+├── model_without_pca.yaml
+├── model_with_pca.yaml
+├── model.yaml
+├── name_change.pl
+├── nbstripout
+├── N_Features.ipynb
+├── nfp2-public
+├── nfpt2.tree
+├── notes
+├── out
+├── out.txt
+├── paralllel_coordinates.ipynb
+├── pickle_files
+├── pipeline
+├── pipeline_demo1.py
+├── PipeLine_Phase1.ipynb
+├── PipeLine_Phase1.py
+├── pipeline_utilities.py
+├── plot_binary.py
+├── plot.yaml
+├── Precision-Recall_curve_across_all_intervals.png
+├── prediction_set_maker-Copy0.ipynb
+├── prediction_set_maker-Copy1.ipynb
+├── prediction_set_maker_for_dropout.ipynb
+├── prediction_set_maker.ipynb
+├── prediction_set_maker.py
+├── Prep for R.ipynb
+├── project-pipeline.dia
+├── pyensemble
+├── #pyliny_report.txt#
+├── pyliny_report.txt
+├── python_to_nb.py
+├── Rafael_weeks.ipynb
+├── RandomForestClassifier_on_interval_1.png
+├── RandomForestClassifier_on_interval_2.png
+├── RandomForestClassifier_on_interval_3.png
+├── RandomForestClassifier_on_interval_4.png
+├── RandomForestClassifier_on_interval_5.png
+├── RandomForestClassifier_on_interval_6.png
+├── R_code
+├── README.md
+├── Receiver_operating_characteristic_curve_across_all_intervals.png
+├── results_pipeline2-Copy0.ipynb
+├── results_pipeline2.html
+├── results_pipeline2.ipynb
+├── results_pipeline2.py
+├── roc_auc_score_across_all_intervals.png
+├── rollin_visit.ipynb
+├── run.sh
+├── run_sklearn_model.py
+├── run_some_pipelines.sh
+├── run_weka.pl
+├── sanity_check_pipeline.ipynb
+├── sanity_check_Rafael_pipeline.ipynb
+├── sarah_a.ipynb
+├── Secondary_feature_gen.ipynb
+├── Secondary_feature_gen-Rafael-Copy0.ipynb
+├── Secondary_feature_gen-Rafael.ipynb
+├── Secondary_feature_gen-Rafael.py
+├── secondary_features.ipynb
+├── secondary_features_on_visit_data.ipynb
+├── see_test_model_results.ipynb
+├── sklearn_DT.yaml
+├── sklearn.yaml
+├── sklearn.yaml_bk
+├── Slicer-Copy0.ipynb
+├── Slicer.ipynb
+├── summary_statistics.ipynb
+├── temporal_data_creation_bk.ipynb
+├── temporal_data_creation.ipynb
+├── temporal_data_creation.py
+├── test.d
+├── testing_fiber_2_split.p
+├── test_model.ipynb
+├── test.py
+├── time_based_cross_validation-Rafael.ipynb
+├── time_cv_impute.ipynb
+├── timeline_creation_driver.py
+├── Timeline_Help.ipynb
+├── tree.dot
+├── tr_te_to_head.py
+├── Untitled0.ipynb
+├── Untitled1.ipynb
+├── Untitled2.ipynb
+├── Untitled3.ipynb
+├── Untitled4.ipynb
+├── Untitled5.ipynb
+├── Untitled6.ipynb
+├── Untitled7.ipynb
+├── utils
+├── Weka.ipynb
+├── weka_to_pr_jeff.py
+├── weka_to_pr_raf.py
+├── weka_to_roc.py
+└── weka_to_roc_time.py
+
+</code></pre>
+
+<hr />
+<h2 id="good-directory-organization">Good Directory Organization<a class="headerlink" href="#good-directory-organization" title="Permanent link">&para;</a></h2>
+<pre><code>.
+├── config
+├── descriptive_stats
+│   ├── mains_streets_stats
+│   └── water_work_orders
+├── etl
+│   ├── bin
+│   ├── geology
+│   ├── road_ratings
+│   ├── soil
+│   ├── street_line_data
+│   ├── tax_data
+│   ├── updated_main_data
+│   ├── waterorders
+│   └── water_system
+├── model
+│   ├── config
+│   ├── features
+│   └── log
+├── models_evaluation
+└── results
+    └── figures
+
+</code></pre>
+
+<h2 id="additional-resourcesinspiration-for-this-tutorial">Additional Resources/Inspiration for this Tutorial<a class="headerlink" href="#additional-resourcesinspiration-for-this-tutorial" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="http://oicr-gsi.github.io/robust-paper/#fn:2">10 Rules for Robust Software</a></li>
+<li><a href="https://arxiv.org/pdf/1609.00037.pdf">Good Enough Practices in Scientific Computing</a></li>
+<li><a href="http://journals.plos.org/plosbiology/article?id=10.1371%2Fjournal.pbio.1001745">Best Practices for Scientific Computing</a></li>
+<li><a href="https://www.software.ac.uk/attach/ChangingResearchSoftwareAttitudes.pdf">Reproducible Research SSI</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../js/mermaid.min.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-04-17 22:11:04
+-->

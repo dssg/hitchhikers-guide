@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  <title>Git Overview - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Git Overview";
+    var mkdocs_page_input_path = "curriculum/2_data_exploration_and_analysis/git-and-github/basic_git_tutorial/01_BasicGit.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Git Overview</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/2_data_exploration_and_analysis/git-and-github/basic_git_tutorial/01_BasicGit.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="git-overview">Git Overview<a class="headerlink" href="#git-overview" title="Permanent link">&para;</a></h2>
+<p>The tutorial will give a quick overview of what git is, how to use it and how to work 
+as a team using the GitHub workflow. </p>
+<p>For this tutorial you will need to have access to Git, a Terminal and a Text Editor. </p>
+<h3 id="git-in-a-nutshell">Git in a nutshell<a class="headerlink" href="#git-in-a-nutshell" title="Permanent link">&para;</a></h3>
+<p><img alt="git" src="https://imgs.xkcd.com/comics/git.png" /></p>
+<p><a href="https://xkcd.com/1597/">Image source</a></p>
+<p>Git is a version control system which helps you keep track changes in files you make during the development
+of your project. Think of it as a lab notebook that lets you go back-and-forth to any point in your project,
+an undo button, and a tool to safely and efficiently collaborate with others on a shared project. 
+All serious software projects use version control. </p>
+<p>While git is mostly used in software development, it can be used for anything you like
+(<a href="https://www.gitbook.com/">writing books</a>, for example), as long as your files are plain text
+(e.g., source code, latex files). </p>
+<p>Simply speaking, git saves snapshots of your work called <code>commits</code>; after a <code>commit</code> is created, you can go back
+and forth through different commits in your project -- maybe you were experimenting with some new function and 
+realized the old function was better, no problem, you can bring back anything! The collections of commits and associated
+metadata form the <code>repository</code> of your project. </p>
+<p><img alt="git 2" src="https://imgs.xkcd.com/comics/git_commit.png" /></p>
+<p><a href="https://xkcd.com/1296/">Image source</a></p>
+<p>The entire development of your project, the <code>repository</code>, is stored on your computer, but we know that's
+dangerous, so you can also host a remote copy on a server like GitHub, Bitbucket, or GitLab. Hosting a project's
+<code>repository</code> on GitHub also allows for the distribution of your work and collaboration. This prevents 
+endless emailing of source code and the following situation: </p>
+<p><img alt="final" src="www.phdcomics.com/comics/archive/phd101212s.gif" /></p>
+<h3 id="git-sounds-awesome-how-do-i-get-it">git sounds awesome! How do I get it?<a class="headerlink" href="#git-sounds-awesome-how-do-i-get-it" title="Permanent link">&para;</a></h3>
+<p>Chances are, git is already installed on your computer. To check open-up a terminal and type <code>git</code>. 
+If not, you can get it from <a href="https://git-scm.com/">here</a>.</p>
+<p>OS X users: use <code>homebrew</code> </p>
+<h3 id="can-i-get-buttons-and-stuff">Can I get buttons and stuff?<a class="headerlink" href="#can-i-get-buttons-and-stuff" title="Permanent link">&para;</a></h3>
+<p><code>git</code> is a command line tool, which means it doesn't natively have a graphical user interface. Using the
+git cli is the most flexible way of working with git, and if you are working on a remote server you will 
+unlikely be able to use a GUI. </p>
+<p>However, if you still want a GUI (e.g., for using git on your computer), here are some options 
+available:</p>
+<ul>
+<li><a href="https://git-scm.com/download/gui/mac">Options for Mac</a></li>
+<li><a href="https://www.gitkraken.com/">GitKraken</a> (Windows and Mac)</li>
+</ul>
+<p><em>Keep in mind that if you are logging into a remote machine like AWS. A GUI may not be an option.</em></p>
+<p>This tutorial will cover the basics of <code>git</code> and hosting a project on GitHub. </p>
+<h3 id="configure-your-git-profile">Configure your Git Profile<a class="headerlink" href="#configure-your-git-profile" title="Permanent link">&para;</a></h3>
+<p>First things first. You need to configure you git client so your commits are attributed to you
+and you get pretty output. Do the following: </p>
+<pre><code># How my git configuration currently look like
+git config --list
+</code></pre>
+
+<p>My workspace</p>
+<pre><code># Adding some, if you don't have a user.name or user.email set
+git config --global user.name &quot;Clark Kent&quot;
+git config --global user.email &quot;clark.kent@dailyplanet.com&quot;
+git config --global color.ui &quot;auto&quot;
+git config --global core.editor 'nano' #or vim, emacs sublime
+</code></pre>
+
+<p>For a list of text editors see Software Carpentry's <a href="http://swcarpentry.github.io/git-novice/02-setup/">list</a></p>
+<p>Also do the following (important). Ask about this during the branching section of the 
+tutorial if you want to know more. </p>
+<pre><code>git config --global push.default current
+</code></pre>
+
+<p>You now have your <code>git</code> client configured. Next we will create 
+our first repository. </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../../../..';</script>
+    <script src="../../../../../js/theme.js" defer></script>
+      <script src="../../../../../js/mermaid.min.js" defer></script>
+      <script src="../../../../../search/main.js" defer></script>
+
+</body>
+</html>

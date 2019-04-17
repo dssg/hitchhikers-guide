@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Introduction to Data Analysis in Python - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Introduction to Data Analysis in Python";
+    var mkdocs_page_input_path = "curriculum/2_data_exploration_and_analysis/data-exploration-in-python/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Introduction to Data Analysis in Python</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/2_data_exploration_and_analysis/data-exploration-in-python/README.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="introduction-to-data-analysis-in-python">Introduction to Data Analysis in Python<a class="headerlink" href="#introduction-to-data-analysis-in-python" title="Permanent link">&para;</a></h2>
+<h3 id="background-and-motivation">Background and Motivation<a class="headerlink" href="#background-and-motivation" title="Permanent link">&para;</a></h3>
+<p>Python is a high-level interpreted general purpose programming language named after
+a British Comedy Troupe, created by Guido van Rossum (Python's benevolent dictator
+for life), and maintained by a international group of python enthusiasts. <em>In a python
+interpreter type import this to read Python's guiding principles.</em> </p>
+<p>As of the time of this writing (10/2016) python is currently the fifth most popular
+programming language. It is popular for data science due to being powerful, fast, 
+playing well with others, runs everywhere, easy to learn, highly-readable, open-source,
+and its fast development time compared to other languages. Because of its general-purpose 
+and ability to call compiled languages like FORTRAN or C it can be used for full-stack development.
+There is a growing and every improving list of open-source libraries for scientific programming, 
+data manipulation, and data analysis (e.g. NumPy, SciPy, Pandas, Scikit-Learn, Statsmodels
+Matplotlib, Seaborn, PyTables, etc.)</p>
+<p>IPython is an enhanced, interactive python interpreter that started as a grad school project
+by Fernando Perez. The IPython project then evolved into the IPython notebook that would allow 
+users to archive their code, figures, and analysis in a single document, making doing reproducible 
+computational research and sharing said research much easier. The creators of the IPython notebook 
+quickly realized that the "notebook" aspects were agnostic to a specific programming language and
+ported the notebook to other languages, including but not limited to Julia, Python and R. This then led
+to a rebranding known as the Jupyter Project. </p>
+<p>The Pandas library, created by Wes McKinney, introduced the R-like dataframe object in Python, making
+working with data in Python much easier. </p>
+<p>This tutorial will go over over the basics of Data Analysis in Python using the PyData stack. </p>
+<h3 id="getting-started-with-jupyter-notebooks">Getting started with Jupyter Notebooks<a class="headerlink" href="#getting-started-with-jupyter-notebooks" title="Permanent link">&para;</a></h3>
+<p>To start up a Jupyter notebook server, simply navigate to the directory where you want the 
+notebooks to be saved and run the command</p>
+<pre><code>jupyter notebook
+</code></pre>
+
+<p>A browser should open with a notebook navigator. Click the "New" button and select "Python 3".
+A beautiful blank notebook should open in a new tab
+Name the notebook by clicking on "Untitled" at the top of the page.
+Notebooks are sequences of cells. Cells can be markdown, code, or raw text. 
+Change the first cell to markdown and briefly describe what you are going to do in the notebook.</p>
+<h3 id="running-a-remote-jupyter-server">Running a remote Jupyter Server<a class="headerlink" href="#running-a-remote-jupyter-server" title="Permanent link">&para;</a></h3>
+<p>You can also run a Jupyter server from a remote machine (e.g, EC2 Instance) and forward the
+notebook to your local machine. This is preferable if you need to access a large amount of data
+on a database. Your work will also be saved on a server that is periodically backed-up which will 
+make your work immune to computer-crashes/someone-stealing-your-computer/(some)acts-of-god.</p>
+<p>Basic port forwarding:</p>
+<pre><code>ssh -L 44444:localhost:44444 &lt;username&gt;@&lt;instance-name&gt;.dssg.io
+</code></pre>
+
+<p>Now go to the location in the file system you would like to launch a Jupyter server and type</p>
+<pre><code>jupyter notebook --no-browser --port 44444
+</code></pre>
+
+<p>You should now be able to go to your browser and go to the address <code>localhost:44444</code>. </p>
+<blockquote>
+<p><strong>Note</strong>:The port <em>44444</em> is an arbitrary port. If another user is running a server with 
+the same port forwarding then you will not be able to run a Jupyter Server using that port. 
+You will then need to switch to another port number. Anything between 30000-70000 should work</p>
+</blockquote>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../js/mermaid.min.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-04-17 22:11:04
+-->

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Best Practices: Writing Legible, Good Code - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Best Practices: Writing Legible, Good Code";
+    var mkdocs_page_input_path = "curriculum/4_programming_best_practices/legible-good-code/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Best Practices: Writing Legible, Good Code</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/4_programming_best_practices/legible-good-code/README.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="best-practices-writing-legible-good-code">Best Practices: Writing Legible, Good Code<a class="headerlink" href="#best-practices-writing-legible-good-code" title="Permanent link">&para;</a></h2>
+<h3 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h3>
+<p>All fellows will have to write code that is usable and understandable by their peers and partners, and potentially 
+other 3rd parties. What does that entail in practice? Many fellows are coming from academic backgrounds, 
+have self-taught programming skills, and have never worked collaboratively on a software project. 
+We want to help them establish good habits and avoid common mistakes.</p>
+<p>(Adapted from Tutorial by Kevin Wilson, 2016 DSSG Technical Mentor)</p>
+<hr />
+<h2 id="for-whom-do-we-write-code">For whom do we write code?<a class="headerlink" href="#for-whom-do-we-write-code" title="Permanent link">&para;</a></h2>
+<h3 id="what-you-write-for-people">What you write (for people).<a class="headerlink" href="#what-you-write-for-people" title="Permanent link">&para;</a></h3>
+<pre><code class="python">def fib(n):
+    &quot;&quot;&quot;
+    :param int n: The Fibonnaci index you want to return
+    :return: The nth Fibonnaci number
+    :rtype: int
+    &quot;&quot;&quot;
+    if n &lt; 2:
+        return 1
+    else:
+        return fib(n - 1) + fib(n - 2)
+</code></pre>
+
+<p>Here is an example of a function. Why write this function? Well, literally, you give the function an integer <em>n</em>, and the function gives you back the <em>n</em>th Fibonnaci number. Writing code allows you to have the computer calculate the <em>n</em>th Fibonnaci number, which it can probably do much faster than you can, especially as <em>n</em> gets larger and larger. It also allows your human comrades to see for themselves how you rattle off arbitrary Fibonacci numbers so fast. But you don't really write code for the computer... </p>
+<h3 id="what-the-computer-sees-assembly-language-for-the-processor">What the computer sees (assembly language for the processor).<a class="headerlink" href="#what-the-computer-sees-assembly-language-for-the-processor" title="Permanent link">&para;</a></h3>
+<p>... because if you did, it would look like this.</p>
+<pre><code>  2           0 LOAD_FAST                0 (n)
+              3 LOAD_CONST               1 (2)
+              6 COMPARE_OP               0 (&lt;)
+              9 POP_JUMP_IF_FALSE       16
+
+  3          12 LOAD_CONST               2 (1)
+             15 RETURN_VALUE
+
+  5     &gt;&gt;   16 LOAD_GLOBAL              0 (fib)
+             19 LOAD_FAST                0 (n)
+             22 LOAD_CONST               2 (1)
+             25 BINARY_SUBTRACT
+             26 CALL_FUNCTION            1
+             29 LOAD_GLOBAL              0 (fib)
+             32 LOAD_FAST                0 (n)
+             35 LOAD_CONST               1 (2)
+             38 BINARY_SUBTRACT
+             39 CALL_FUNCTION            1
+             42 BINARY_ADD
+             43 RETURN_VALUE
+             44 LOAD_CONST               0 (None)
+             47 RETURN_VALUE
+</code></pre>
+
+<h4 id="seriously-the-code-is-for-you">Seriously, the code is for <em>you</em>...<a class="headerlink" href="#seriously-the-code-is-for-you" title="Permanent link">&para;</a></h4>
+<ul>
+<li>...one month from now when you've completely forgotten what the heck <code>alpha</code> was...</li>
+<li>...or tomorrow when your teammate wonders why all those <code>3</code>s are in the database....</li>
+<li>...or when your system is on fire at 2 AM (the witching hour of production systems), you're tired, and your customers 
+are calling wondering what the heck is going on over there (why are they awake, anyway?)...</li>
+<li>...or when I'm doing code review for you...</li>
+</ul>
+<h2 id="there-is-only-one-law-of-good-coding-code-is-for-humans-not-for-computers">There is only one law of good coding: <strong>Code is for humans, not for computers</strong>.<a class="headerlink" href="#there-is-only-one-law-of-good-coding-code-is-for-humans-not-for-computers" title="Permanent link">&para;</a></h2>
+<p>This law has 4 consequences: </p>
+<ol>
+<li><a href="#give-things-informative-names">Give things informative names.</a>  </li>
+<li><a href="#document-inputs-and-outputs">Document inputs and outputs.</a>  </li>
+<li><a href="#dont-repeat-yourself">Don't repeat yourself.</a>  </li>
+<li><a href="#reduce-cognitive-load">Reduce cognitive load: Use PEP-8.</a>  </li>
+</ol>
+<hr />
+<h2 id="give-things-informative-names">Give Things Informative Names<a class="headerlink" href="#give-things-informative-names" title="Permanent link">&para;</a></h2>
+<p>What does the function below do?</p>
+<pre><code class="python">import math  
+
+def doit(x):  
+    output = []  
+    y = 2  
+    while x != 1:  
+        if x % y == 0:  
+            output.append(y)  
+            x //= y  
+        else:  
+            y += 1  
+            continue  
+    return output  
+</code></pre>
+
+<pre><code class="python">def magic(input):
+    filter = set()
+    return sorted(x for x in y 
+                    for y in input 
+                    if (len(x) &lt; 20 and x not in filter) or filter.add(x))
+</code></pre>
+
+<pre><code class="python">def pretty_pictures():
+    df = pd.read_csv('2016.csv.gz', names=['STATION', 'DATE', 'TYPE', 'VALUE', 
+                                           'MEASUREMENT_FLAG', 'QUALITY_FLAG', 
+                                           'SOURCE_FLAG', 'OBS_TIME'])
+    first = df[weather_df.STATION == 'US1ILCK0010']
+    first[first.TYPE == 'PRCP']['VALUE'].plot()
+    plt.title(&quot;Precipitation values&quot;)
+    plt.xlabel(&quot;Day&quot;)
+    plt.ylabel(&quot;Value&quot;)
+    plt.savefig('first_fig.png')
+
+    second = df[weather_df.STATION == 'US1ILCK0014']
+    second[second.TYPE == 'PRCP']['VALUE'].plot()
+    plt.title(&quot;Precipitation values&quot;)
+    plt.xlabel(&quot;Day&quot;)
+    plt.ylabel(&quot;Value&quot;)
+    plt.savefig('second_fig.png')
+
+    return first[first.TYPE == 'PRCP'].mean(), second[second.TYPE == 'PRCP'].mean()
+</code></pre>
+
+<ul>
+<li>Names should have meaning to the intended readers, e.g.,</li>
+<li>You a week from now</li>
+<li>Your teammates tomorrow</li>
+<li>Your future teammates who have to deal with your code</li>
+<li>[<code>i</code>, <code>j</code>, <code>k</code>] for iterators are OK, <code>alpha</code> with a reference to a specific paper is <em>not</em></li>
+<li>kwargs are a great place to name things</li>
+<li>CONSTANT_VALUES are too</li>
+<li>Do not fear long names; you have autocomplete. The TAB key is your friend. </li>
+</ul>
+<hr />
+<h2 id="document-inputs-and-outputs">Document Inputs and Outputs<a class="headerlink" href="#document-inputs-and-outputs" title="Permanent link">&para;</a></h2>
+<pre><code class="python">import math  
+
+def factor(x):  
+    output = []  
+    fact = 2 
+    while x != 1:  
+        if x % fact == 0:  
+            output.append(y)  
+            x //= fact 
+        else:
+            fact += 1
+            continue
+    return output
+</code></pre>
+
+<pre><code class="python">def unique_flatten(the_input, max_length=20):
+    flattened_set = {val for val in row for row in the_input}
+    filtered_list = [val for val in flattened_set if len(val) &lt; max_length]
+    filtered_list.sort()
+    return filtered_list
+</code></pre>
+
+<pre><code class="python">WEATHER_HEADERS = ['STATION', 'DATE', 'TYPE', 'VALUE', 
+                   'MEASUREMENT_FLAG', 'QUALITY_FLAG', 
+                   'SOURCE_FLAG', 'OBS_TIME']
+
+PRECIPITATION_TYPE = 'PRCP'
+CHICAGO_STATION_NAMES = ['US1ILCK0010', 'US1ILCK0014']
+
+def precipitation_in_chicago():
+    df = pd.read_csv('2016.csv.gz', names=WEATHER_HEADERS)
+    first = df[weather_df.STATION == CHICAGO_STATION_NAMES[0]]
+    first[first.TYPE == PRECIPITATION_TYPE]['VALUE'].plot()
+    plt.title(&quot;Precipitation values&quot;)
+    plt.xlabel(&quot;Day&quot;)
+    plt.ylabel(&quot;Value&quot;)
+    plt.savefig('first_fig.png')
+
+    second = df[weather_df.STATION == CHICAGO_STATION_NAMES]
+    second[second.TYPE == PRECIPITATION_TYPE]['VALUE'].plot()
+    plt.title(&quot;Precipitation values&quot;)
+    plt.xlabel(&quot;Day&quot;)
+    plt.ylabel(&quot;Value&quot;)
+    plt.savefig('second_fig.png')
+
+    return (first[first.TYPE == PRECIPITATION_TYPE].mean(), 
+            second[second.TYPE == PRECIPITATION_TYPE].mean()) 
+</code></pre>
+
+<ul>
+<li>Every function should have a docstring</li>
+<li>The docstring should:</li>
+<li>Describe the function briefly</li>
+<li>Explicitly document the <em>inputs</em> with <code>:param type name: description</code></li>
+<li>Explicitly document the <em>return value</em> with <code>:returns: description</code></li>
+<li>Explicitly document the <em>return type</em> with <code>:rtype:</code></li>
+<li>Note this follows the <a href="http://thomas-cokelaer.info/tutorials/sphinx/docstring_python.html">Sphinx/RST syntax guide</a>. You can also follow the <a href="https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt#docstring-standard">Numpy Format</a>. <strong>Just be consistent.</strong></li>
+</ul>
+<hr />
+<h2 id="dont-repeat-yourself">Don't Repeat Yourself<a class="headerlink" href="#dont-repeat-yourself" title="Permanent link">&para;</a></h2>
+<h4 id="the-wet-write-everything-twice-way">The WET (Write Everything Twice) Way<a class="headerlink" href="#the-wet-write-everything-twice-way" title="Permanent link">&para;</a></h4>
+<pre><code class="python">def max_intersection(left, right):
+    &quot;&quot;&quot;
+    Compute the value counts of the left and right lists and then return
+    the maximum for each value.
+
+    :param list[object] left: The left list
+    :param list[object] right: The right list
+    :rtype: dict[object, int]
+    :return: A dictionary from the value to
+        max(# occurrences in left, # occurrences in right)
+    &quot;&quot;&quot;
+    left_counts = {}
+    for val in left:
+        if val not in left_counts:
+            left_counts[val] = 1
+        else:
+            left_counts[val] += 1
+
+    right_counts = {}
+    for val in right:
+        if val not in right_counts:
+            right_counts[val] = 1
+        else:
+            right_counts[val] += 1
+
+    left_counts.update({key: max(left_counts.get(key, 0), val)
+                        for key, val in right_counts.items()})
+    return left_counts
+</code></pre>
+
+<p>In this case, the value counting logic is redundant and can be abstracted
+away into a function. </p>
+<h4 id="the-dry-way-use-a-function-to-avoid-redundancy">The DRY Way: Use a function to avoid redundancy<a class="headerlink" href="#the-dry-way-use-a-function-to-avoid-redundancy" title="Permanent link">&para;</a></h4>
+<pre><code class="python">def value_counts(the_list):
+    &quot;&quot;&quot;
+    :param list[object] the_list: The list whose values we'll count
+    :rtype: dict[object, int]
+    :return: A dict from the value to its count
+    &quot;&quot;&quot;
+    output = {}
+    for val in the_list:
+        if val not in output:
+            output[val] = 1
+        else:
+            output[val] += 1
+    return output
+
+def max_intersection(left, right):
+    &quot;&quot;&quot;
+    Compute the value counts of the left and right lists and then return
+    the maximum for each value.
+
+    :param list[object] left: The left list
+    :param list[object] right: The right list
+    :rtype: dict[object, int]
+    :return: A dictionary from the value to
+        max(# occurrences in left, # occurrences in right)
+    &quot;&quot;&quot;
+    left_counts = value_counts(left)
+    right_counts = value_counts(right)
+
+    left_counts.update({key: max(left_counts.get(key, 0), val)
+                        for key, val in right_counts.items()})
+    return left_counts
+</code></pre>
+
+<p>Better... But, there is no need to reinvent the wheel with the <code>value_count</code> function if it has already been implemented for you. </p>
+<hr />
+<h4 id="the-dry-er-way">The DRY-er Way<a class="headerlink" href="#the-dry-er-way" title="Permanent link">&para;</a></h4>
+<pre><code class="ruby">from collections import Counter
+
+def max_intersection(left, right):
+    &quot;&quot;&quot;
+    Compute the value counts of the left and right lists and then return
+    the maximum for each value.
+
+    :param list[object] left: The left list
+    :param list[object] right: The right list
+    :rtype: dict[object, int]
+    :return: A dictionary from the value to
+        max(# occurrences in left, # occurrences in right)
+    &quot;&quot;&quot;
+    left_counts = Counter(left)
+    right_counts = Counter(right)
+
+    left_counts.update({key: max(left_counts.get(key, 0), val)
+                        for key, val in right_counts.items()})
+    return left_counts
+</code></pre>
+
+<p>The Python Standard Library has a <a href="https://docs.python.org/2/library/collections.html#module-collections">collections library</a> that has a Counter object already built. </p>
+<h4 id="the-wet-way-plotting">The WET Way: Plotting<a class="headerlink" href="#the-wet-way-plotting" title="Permanent link">&para;</a></h4>
+<p>Here is a soggy example of a function that makes plots. Good: Docstring, somewhat informative name. Bad: This function does multiple things, and uses a hard path ('2016.csv.gz').</p>
+<pre><code class="ruby">def precipitation_in_chicago():
+    &quot;&quot;&quot; Saves plots of the precipitation from two Chicago weather stations
+    in 2016 to `first_fig.png` and `second_fig.png` and returns the mean
+    precipitation at them for the year.
+
+    :return: The mean precipitation at two weather stations in 2016
+    :rtype: (float, float)
+    &quot;&quot;&quot;
+    df = pd.read_csv('2016.csv.gz', names=WEATHER_HEADERS)
+    first = df[weather_df.STATION == CHICAGO_STATION_NAMES[0]]
+    first[first.TYPE == PRECIPITATION_TYPE]['VALUE'].plot()
+    plt.title(&quot;Precipitation values&quot;)
+    plt.xlabel(&quot;Day&quot;)
+    plt.ylabel(&quot;Value&quot;)
+    plt.savefig('first_fig.png')
+
+    second = df[weather_df.STATION == CHICAGO_STATION_NAMES[1]]
+    second[second.TYPE == PRECIPITATION_TYPE]['VALUE'].plot()
+    plt.title(&quot;Precipitation values&quot;)
+    plt.xlabel(&quot;Day&quot;)
+    plt.ylabel(&quot;Value&quot;)
+    plt.savefig('second_fig.png')
+
+    return (first[first.TYPE == PRECIPITATION_TYPE].mean(), 
+            second[second.TYPE == PRECIPITATION_TYPE].mean())
+</code></pre>
+
+<h4 id="the-dry-way-plotting">The DRY Way: Plotting<a class="headerlink" href="#the-dry-way-plotting" title="Permanent link">&para;</a></h4>
+<p>In this example, we've made a helper function. In this example, the function has a better name, doesn't load the dataframe within the function, and has a docstring specifying what the inputs and outputs are as well as their types. </p>
+<pre><code class="ruby">def plot_precipitation(df, station_id, output_file='out.png'):
+    &quot;&quot;&quot; Plot the precipitation at the passed weather station and return
+    the mean precipitation among all values.
+
+    :param pd.DataFrame df: NOAA data (see parsers.py for more info)
+    :param str station_id: The station to plot
+    :param str output_file: Where to store the output plot
+    :return: The mean precipitation in the data frame
+    :rtype: float
+    &quot;&quot;&quot;
+    res_df = df[df.STATION == station_id]
+    res_df[res_df.TYPE == PRECIPITATION_TYPE]['VALUE'].plot()
+    plt.title(&quot;Precipitation values&quot;)
+    plt.xlabel(&quot;Day&quot;)
+    plt.ylabel(&quot;Value&quot;)
+    plt.savefig(output_file)
+
+    return res_df['VALUE'].mean()
+
+
+def precipitation_in_chicago():
+    &quot;&quot;&quot; Saves plots of the precipitation from two Chicago weather stations
+    in 2016 to `first_fig.png` and `second_fig.png` and returns the mean
+    precipitation at them for the year.
+
+    :return: The mean precipitation at two weather stations in 2016
+    :rtype: (float, float)
+    &quot;&quot;&quot;
+    df = pd.read_csv('2016.csv.gz', names=WEATHER_HEADERS)
+    return (plot_precipitation(df, CHICAGO_STATION_NAMES[0], output_file='first_fig.png'),
+            plot_precipitation(df, CHICAGO_STATION_NAMES[1], output_file='second_fig.png'))    
+</code></pre>
+
+<ul>
+<li>Use functions to not repeat yourself</li>
+<li>Good rule of thumb: If you've gone <em>20 lines without making a comment</em> (e.g., the docstring of a 
+function), you likely should add one.</li>
+</ul>
+<hr />
+<h2 id="reduce-cognitive-load">Reduce Cognitive Load.<a class="headerlink" href="#reduce-cognitive-load" title="Permanent link">&para;</a></h2>
+<h3 id="follow-pep-8">Follow PEP-8<a class="headerlink" href="#follow-pep-8" title="Permanent link">&para;</a></h3>
+<p>How long does it take you to understand what this function is doing?</p>
+<pre><code class="python">def GCD(a,b):
+   &quot;&quot;&quot;Return the GCD of a and b&quot;&quot;&quot;
+   a,b=max(a,b),min(a,b)
+   return b if a%b==0 else GCD(b,a%b)
+</code></pre>
+
+<h4 id="what-makes-this-one-better">What makes this one better?<a class="headerlink" href="#what-makes-this-one-better" title="Permanent link">&para;</a></h4>
+<pre><code class="python">def gcd(a, b):
+    &quot;&quot;&quot;Return the GCD of a and b
+
+    :param int a: The first number (positive)
+    :param int b: The second number (positive)
+    :return: The GCD of a and b
+    :rtype: int
+    &quot;&quot;&quot;
+    if a &lt; b:
+        b, a = a, b
+
+    if a % b:
+        return gcd(b, a%b)
+
+    return b
+</code></pre>
+
+<h4 id="pep-8-is-your-friend">PEP-8 is your friend!<a class="headerlink" href="#pep-8-is-your-friend" title="Permanent link">&para;</a></h4>
+<ul>
+<li>79 character lines (comes from the days of punchcards)</li>
+<li>Use parenthesis for lines that span multiple lines</li>
+<li>function_names are snake_case</li>
+<li>ClassNames are CamelCase</li>
+<li>CONSTANT_NAMES are BIG_CASE</li>
+<li>One statement per line</li>
+<li>Use spaces not tabs!</li>
+</ul>
+<h4 id="you-can-use-a-checker-to-pep-8-your-code">You can use a checker to PEP-8 your code.<a class="headerlink" href="#you-can-use-a-checker-to-pep-8-your-code" title="Permanent link">&para;</a></h4>
+<pre><code>pip install autopep8
+autopep8 --in-place mypythonfile.py 
+
+</code></pre>
+
+<hr />
+<h2 id="summary-code-is-for-humans-not-computers">Summary: Code is for humans, not computers.<a class="headerlink" href="#summary-code-is-for-humans-not-computers" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Give things informative names</li>
+<li>Document inputs and outputs</li>
+<li>Don't repeat yourself (or others!)</li>
+<li>PEP-8 is your friend</li>
+</ul>
+<hr />
+<h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
+<h3 id="fix-this-class">Fix this class!<a class="headerlink" href="#fix-this-class" title="Permanent link">&para;</a></h3>
+<pre><code class="ruby">class myclass(object):
+    def __init__(self, R, I):
+        self.R = R
+        self.I = I
+
+    def Multiply(self, other):
+        return myclass(self.R * other.R - self.I * other.I,
+                       self.R * other.I + self.I * other.R)
+</code></pre>
+
+<hr />
+<h3 id="fix-this-function">Fix this function!<a class="headerlink" href="#fix-this-function" title="Permanent link">&para;</a></h3>
+<pre><code class="ruby">def bang(n):
+    return n == 1 or (n * bang(n))
+</code></pre>
+
+<h3 id="fix-this-function_1">Fix this function!<a class="headerlink" href="#fix-this-function_1" title="Permanent link">&para;</a></h3>
+<pre><code class="ruby">def read_data(filename):
+    &quot;&quot;&quot; Return the precipitation field from the csv passed in &quot;&quot;&quot;
+    with open(filename, 'r') as f:
+        return [line.split(',')[2] for line in f]
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../js/mermaid.min.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-04-17 22:11:04
+-->

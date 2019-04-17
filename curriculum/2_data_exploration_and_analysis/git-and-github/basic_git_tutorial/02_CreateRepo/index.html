@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  <title>02 CreateRepo - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "02 CreateRepo";
+    var mkdocs_page_input_path = "curriculum/2_data_exploration_and_analysis/git-and-github/basic_git_tutorial/02_CreateRepo.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>02 CreateRepo</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/2_data_exploration_and_analysis/git-and-github/basic_git_tutorial/02_CreateRepo.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>A# Create a Repository</p>
+<p>Let's work on creating our first git repository.</p>
+<p>All shell commands will be prefixed with <code>&gt;</code>
+All comments, text not meant to be parsed by the computer,
+is prefixed with <code>#</code>.</p>
+<h3 id="create-a-git-repository">Create a git repository<a class="headerlink" href="#create-a-git-repository" title="Permanent link">&para;</a></h3>
+<p>First create a directory for our project and <code>cd</code> into the directory</p>
+<pre><code>&gt; mkdir -v nyc-311
+&gt; cd nyc-311
+</code></pre>
+
+<p>The <code>-v</code> flag produces verbose output so you can see what happened after the invocation of the command.</p>
+<p>Now lets initialize the git repository. All git commands start with <code>git &lt;verb&gt;</code>.  To initialize the git repo
+for our project we invoke the command</p>
+<pre><code>&gt; git init
+</code></pre>
+
+<p>Let's look at the contents of our directory using the command <code>ls -a</code></p>
+<pre><code>&gt; ls -a
+
+.  ..  .git/
+</code></pre>
+
+<p>The <code>-a</code> flag tells the <code>ls</code> command to include hidden directories when displaying files. We can see that there
+is now a <code>.git</code> directory.  <em>Unless you really know what you are doing</em> <strong>DO NOT EVER</strong> <em>modify anything in this
+directory. If you delete this directory, the entire history of your project will be gone.</em></p>
+<h3 id="make-our-first-commit">Make our first commit!!<a class="headerlink" href="#make-our-first-commit" title="Permanent link">&para;</a></h3>
+<p>All good projects should have a README.md to describe the project. So let's start with that. Fire up
+you favorite text editor and name a file <code>README.md</code>.</p>
+<p>Add something like this in your README:</p>
+<pre><code># Exploring 311 Calls in NYC
+
+## Description
+
+This repo is for an analysis of 311 calls in NYC using Python 3.4
+</code></pre>
+
+<p>The <code>#</code> are part of <code>markdown</code> syntax for designating headings.</p>
+<p>Now let's look at the status of our repo using <code>git status</code>:</p>
+<pre><code>&gt; git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+
+          README.md
+
+          nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+</code></pre>
+
+<p>We can see that git knows that we have added a file but it is <code>untracked</code>. What this means is that <code>git</code>
+knows that this file has been added but it is currently "untracked" by git. Like the command said let's use <code>git add</code> to
+track changes in the the file by invoking the command <code>git add README.md</code>.</p>
+<pre><code>&gt; git add README.md
+</code></pre>
+
+<p>Now lets look at the status of the repository by invoking the command <code>git status</code> again.</p>
+<pre><code>&gt; git status
+
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+
+          new file:   README.md
+</code></pre>
+
+<p>Now that we have added the file it has been "staged" in the staging area. We can now make our first commit!</p>
+<pre><code>&gt; git commit
+</code></pre>
+
+<p>When you invoke this command an editor should pop-up and you have to leave a commit message. Good commit
+messages lead to a usable git log and separates the novice git users from the competent practitioners.
+Generally you should follow these guidelines in a commit message:</p>
+<ol>
+<li>
+<p>First line is a one line summary of the commit that is in title case and less
+then 80 characters, written in the imperative voice.</p>
+</li>
+<li>
+<p>Second line should be blank.</p>
+</li>
+<li>
+<p>Third and subsequent lines should be more details of the commit.</p>
+</li>
+</ol>
+<p>Anyone can look at a commit and examine what was changed. The commit message
+is where you provide a context of what and why you did what you did in the project.</p>
+<p>A good rule of thumb is <em>If applied this commit will, <insert title of git message here></em></p>
+<p>My commit message is the following:</p>
+<pre><code>Checking in README file
+
+* Added short description of the project
+* Added python3 as a dependency
+
+### Using Nano as a text editor
+</code></pre>
+
+<blockquote>
+<p>If you are using nano, to save your text use Ctrl-O, write a filename
+and to exit use Ctrl-X.</p>
+</blockquote>
+<p>Now that we have made our first commit we can examine our log!</p>
+<pre><code>&gt; git log
+</code></pre>
+
+<p>The first line should output</p>
+<pre><code>* commit aaf89fd77e9b43d99fe32823843a7519b2108c90
+  Author: Clark Kent &lt;clark.kent@dailyplanet.com&gt;
+  Date:   Sat Nov 05 13:45:11 2016 -0600
+
+          Checking in README file
+
+          * Added short description of the project
+          * Added python3 as a dependency
+</code></pre>
+
+<p>The first line is a unique identifier of your commit. The second
+give information on who made the commit. The third line gives the
+date. The rest is the commit message.</p>
+<p>To just get titles of commit messages you can use the following command</p>
+<pre><code>&gt; git log --oneline
+</code></pre>
+
+<p>Another useful command is</p>
+<pre><code>&gt; git log --oneline --graph --all --decorate
+</code></pre>
+
+<h3 id="some-helpful-commands">Some helpful commands<a class="headerlink" href="#some-helpful-commands" title="Permanent link">&para;</a></h3>
+<p>Removing files via git allows them to be recovered.</p>
+<pre><code>git rm FILENAME
+git rm -r DIRECTORY
+</code></pre>
+
+<p>Renaming files can be done by moving a file and then
+adding it or you can use the following command:</p>
+<pre><code>git mv OLD NEW
+</code></pre>
+
+<p><code>git rm</code> and <code>git mv</code> will stage the changes that will ulimately
+need to be commited.
+That is it we have our first commit and repo! Next we are going to write some code!</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../../../..';</script>
+    <script src="../../../../../js/theme.js" defer></script>
+      <script src="../../../../../js/mermaid.min.js" defer></script>
+      <script src="../../../../../search/main.js" defer></script>
+
+</body>
+</html>

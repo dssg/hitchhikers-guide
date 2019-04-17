@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../../img/favicon.ico">
+  <title>Installing DSSG pre-requisites on OS X - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Installing DSSG pre-requisites on OS X";
+    var mkdocs_page_input_path = "curriculum/0_before_you_start/prerequisites/osx.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Installing DSSG pre-requisites on OS X</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/0_before_you_start/prerequisites/osx.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="installing-dssg-pre-requisites-on-os-x">Installing DSSG pre-requisites on OS X<a class="headerlink" href="#installing-dssg-pre-requisites-on-os-x" title="Permanent link">&para;</a></h2>
+<p>This guide will help you install all pre-requisites to be ready for the summer.</p>
+<h3 id="step-1-install-homebrew">Step 1. Install Homebrew<a class="headerlink" href="#step-1-install-homebrew" title="Permanent link">&para;</a></h3>
+<p><a href="http://brew.sh/">Homebrew</a> is a package manager for OS X that will make your life a lot easier...</p>
+<p>To install, open Terminal.app and execute the following:</p>
+<pre><code class="bash">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre>
+
+<p>Now you can do:</p>
+<pre><code class="bash">brew install anything
+</code></pre>
+
+<p>Awesome!</p>
+<p>If that doesn't work, you need to add the following to your PATH:</p>
+<pre><code class="bash">export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+</code></pre>
+
+<p>If you don't know how to do that, run this:</p>
+<pre><code class="bash">echo 'export PATH=/usr/local/bin:/usr/local/sbin:$PATH' &gt;&gt; ~/.profile
+</code></pre>
+
+<p>If still not working. <a href="https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/0_before_you_start/prerequisites/README.md#asking-for-help">Ask for help</a>.</p>
+<h3 id="step-2-install-tools">Step 2. Install tools<a class="headerlink" href="#step-2-install-tools" title="Permanent link">&para;</a></h3>
+<h5 id="minimum-pre-requisites">Minimum pre-requisites<a class="headerlink" href="#minimum-pre-requisites" title="Permanent link">&para;</a></h5>
+<ol>
+<li>SSH - this comes already installed with OS X</li>
+<li>Git - this comes already installed with OS X</li>
+<li>psql (PostgreSQL CLI) - <code>brew install postgresql</code></li>
+<li>R - <code>brew install r</code></li>
+</ol>
+<h4 id="other-useful-tools">Other useful tools<a class="headerlink" href="#other-useful-tools" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Sublime Text - <code>brew cask install sublime-text</code></li>
+<li>Atom - <code>brew cask install atom</code></li>
+<li>Rstudio - <code>brew cask install rstudio</code></li>
+<li>DBeaver - <code>brew tap caskroom/versions; brew cask install dbeaver-community</code></li>
+</ul>
+<p><strong>Note:</strong> applications installed via <code>brew cask install</code> will be available in <code>~/Applications</code></p>
+<h3 id="step-3-install-python-tools">Step 3. Install Python tools<a class="headerlink" href="#step-3-install-python-tools" title="Permanent link">&para;</a></h3>
+<p>For managing your python environments and packages, we recommend to use <code>conda</code>, but you can also use <code>virtualenv</code>and <code>pip</code>.</p>
+<h5 id="option-a-install-anaconda-recommended-for-beginners">Option A - Install Anaconda (recommended for beginners)<a class="headerlink" href="#option-a-install-anaconda-recommended-for-beginners" title="Permanent link">&para;</a></h5>
+<p>Anaconda includes Python, <code>conda</code> (a package and environment manager) and a bunch of <a href="https://docs.continuum.io/anaconda/pkg-docs">Python packages</a>. After installing Anaconda you'll have everything to get started, but it requires ~3GB of disk space.</p>
+<ul>
+<li><a href="https://www.continuum.io/downloads#_macosx">Installation guide</a> (Use Anaconda with Python 3.6)</li>
+<li><a href="http://conda.pydata.org/docs/">Documentation</a></li>
+</ul>
+<p>Once Anaconda is installed, run the following to install DSSG required Python packages:</p>
+<pre><code class="bash">curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/0_before_you_start/prerequisites/requirements.txt -o dssg-requirements.txt
+conda install --file dssg-requirements.txt
+</code></pre>
+
+<p>Note for advanced users: You can install anaconda using <code>brew</code>. Run <code>brew cask info anaconda</code> for details.</p>
+<h5 id="option-b-install-miniconda-recommended-for-beginnners-without-much-space-disk-left">Option B - Install Miniconda (recommended for beginnners without much space disk left)<a class="headerlink" href="#option-b-install-miniconda-recommended-for-beginnners-without-much-space-disk-left" title="Permanent link">&para;</a></h5>
+<p>Miniconda is a light-weight version of Anaconda, it only includes Python and  <code>conda</code>, you can later install only the Python packages that you'll need.</p>
+<ul>
+<li><a href="http://conda.pydata.org/docs/install/quick.html#os-x-miniconda-install">Installation guide</a> (Use Miniconda with Python 3.6)</li>
+<li><a href="http://conda.pydata.org/docs/">Documentation</a></li>
+</ul>
+<p>Once Miniconda is installed, run the following to install DSSG required Python packages:</p>
+<pre><code class="bash">curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/0_before_you_start/prerequisites/requirements.txt -o dssg-requirements.txt
+conda install --file dssg-requirements.txt
+</code></pre>
+
+<p>Note for advanced users: You can install miniconda using <code>brew</code>. Run <code>brew cask info miniconda</code> for details.</p>
+<h5 id="option-c-python-manual-installation-pip-virtualenv-only-if-you-like-to-live-dangerously">Option C - Python manual installation + <code>pip</code> + <code>virtualenv</code> (only if you like to live dangerously)<a class="headerlink" href="#option-c-python-manual-installation-pip-virtualenv-only-if-you-like-to-live-dangerously" title="Permanent link">&para;</a></h5>
+<p>If you don't want to install Anaconda/Miniconda, you can install Python directly from homebrew and manage your packages with <code>pip</code> and virtual environments with <code>virtualenv</code>.</p>
+<pre><code class="bash">#To install Python 3 and pip
+brew install python3
+#To install virtual env
+pip install virtualenv
+#To install dssg required python packages
+curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/0_before_you_start/prerequisites/requirements.txt -o dssg-requirements.txt
+pip install -r dssg-requirements.txt
+</code></pre>
+
+<p>Nice guide to use <a href="http://docs.python-guide.org/en/latest/starting/install3/osx/#install3-osx">virtualenv</a>.</p>
+<p><em>Note: The caveat of using <code>pip</code> directly instead of <code>conda</code>, is that <code>conda</code> will take care of external dependencies for you (some Python packages depend on non-Python packages to work). But you can install those with <code>brew</code>.</em></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../../..';</script>
+    <script src="../../../../js/theme.js" defer></script>
+      <script src="../../../../js/mermaid.min.js" defer></script>
+      <script src="../../../../search/main.js" defer></script>
+
+</body>
+</html>

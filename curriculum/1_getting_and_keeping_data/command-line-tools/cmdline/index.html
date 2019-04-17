@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../../img/favicon.ico">
+  <title>CommandLine, Git, and GitHub Tutorial (DSSG 2018) - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "CommandLine, Git, and GitHub Tutorial (DSSG 2018)";
+    var mkdocs_page_input_path = "curriculum/1_getting_and_keeping_data/command-line-tools/cmdline.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>CommandLine, Git, and GitHub Tutorial (DSSG 2018)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/1_getting_and_keeping_data/command-line-tools/cmdline.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="commandline-git-and-github-tutorial-dssg-2018">CommandLine, Git, and GitHub Tutorial (DSSG 2018)<a class="headerlink" href="#commandline-git-and-github-tutorial-dssg-2018" title="Permanent link">&para;</a></h2>
+<h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h3>
+<p>You are most likely comfortable interacting with a computer using point-and-click
+interfaces, also known as <strong>GUIs</strong>, or <em>Graphical User Interfaces</em>. But there is
+another way that came before and will always be: the <strong>CLI</strong>, or <em>Command Line Interface</em>.</p>
+<p>The command line interface allows you to communicate with your computer more
+directly than you can through a GUI, in a <strong>REPL</strong>, or <em>read-evaluate-print loop</em>
+format: The user (you!) types a command, then presses the return key. The computer
+reads the command, evaluates it, and <em>prints out</em> the output. This term comes from
+the days when we had to use physical printers called "teleprinters" to interact with
+computers.</p>
+<p>The software you use to communicate with your computer is known as a <strong>shell</strong>,
+because it acts as a "shell" from the underlying complexity of the operating system.
+The most popular shell is known as <a href="https://www.gnu.org/software/bash/">BASH, the Bourne Again Shell</a>.
+Bash is the default shell for most UNIX systems and Macs. You can also look into more exotic shells like
+Xonsh, Zsh, plumbum, and fish. I personally like xonsh and zsh.</p>
+<p>So, why use the command line instead of a GUI? There are several reasons:</p>
+<ol>
+<li>
+<p>In the shell you can easily handle data by chaining programs into a cohesive pipeline
+to handle large amounts of data.</p>
+</li>
+<li>
+<p>You can automate your workflow through scripting to save time and be more productive. A good
+rule of thumb is if you do something twice -- script it!</p>
+</li>
+<li>
+<p>Your work will be much more reproducible because there will be a
+digital record of the steps you took to produce your results compared to
+point and clicking in a program like Excel.</p>
+</li>
+<li>
+<p>If you're working with remote machines, like supercomputers or
+machines in the cloud, the CLI is often the only interface available.</p>
+</li>
+<li>
+<p>The CLI is usually much faster -- once you get the hang out of it.</p>
+</li>
+</ol>
+<p>The learning objectives of this mini-tutorial are the following:</p>
+<ul>
+<li>Learn how to navigate a UNIX file system.</li>
+<li>Learn some basic shell commands.</li>
+<li>Learn how to use to use git and github.</li>
+</ul>
+<p><em>The commandline has always been and always will be.</em></p>
+<h3 id="navigating-the-file-system">Navigating the File System<a class="headerlink" href="#navigating-the-file-system" title="Permanent link">&para;</a></h3>
+<p>Now we'll learn how to navigate though a UNIX file system and how to <strong>create</strong>,
+<strong>edit</strong>, <strong>rename</strong> and <strong>copy</strong> files and directories within the system.</p>
+<p>First, a little background: UNIX has a hierarchical (tree-structure)
+directory organization known as the <strong>file system</strong>. In the file system our
+data is organized into <strong>files</strong>, which are organized in <strong>directories</strong>.
+The base of the directory is called the <em>root directory</em> and denoted by a <code>/</code>.
+All user-available disk space is combined into a single directory under '/'.</p>
+<p>Here is an example of the directory tree of a typical Linux system.</p>
+<p><img alt="Image source" src="../FS-layout.png" /></p>
+<p>From this figure, we can see all directories are under the root directory (<code>/</code>).
+The folders under the root directory contain information for the configuration and operation
+of the operating system, so you shouldn't change these (unless you really know
+what you are doing). The special folder <code>home</code> contains the files for all users. In this
+example, we have the directories <code>rick</code>, <code>anna</code>, <code>emmy</code>, <code>bob</code>, which contain files
+created by users rick, anna, emmy, and bob, respectively.</p>
+<p>To navigate through the file system, or <strong>change directories</strong>, we use the <code>cd</code>
+command. If you just type <code>cd</code>, without any arguements it will take you to your
+home directory. To see where  you are within the file system, you use the <code>pwd</code>,
+or <strong>print working directory</strong> command:</p>
+<pre><code>$ cd
+$ pwd
+
+/home/akumar
+
+</code></pre>
+
+<p>You can also check who is logged into the machine with the <code>whoami</code> command.</p>
+<pre><code>$ whoami
+
+akumar
+</code></pre>
+
+<p>In my case, my home directory is located at <code>/home/akumar</code>, because as we saw above
+using the <code>whoami</code> command, my username is <code>akumar</code>. Yours will be something different.</p>
+<p><code>/home/akumar/</code> is a <strong>path</strong>; in this case, the path leads to my home directory.
+A path can also be a path to a file name, for example
+<code>/home/akumar/Documents/justice_league_meetings_notes.txt</code>. Paths that start with <code>/</code>
+are called <strong>absolute paths</strong>, because they begin at the root directory.
+They're <em>absolute</em> because they start at the root (the beginning of the filesystem),
+so they will always be the same <em>regardless of your current location</em>.</p>
+<p><strong>Relative paths</strong> start at your current location. So the relative path to the file
+above <em>from my home directory</em> (<code>/home/akumar</code>) would be
+<code>Documents/justice_leage_meetings_notes.txt</code>.  Note that <code>/</code> has two meanings:
+To signify an absolute path (originating in the root directory), and to separate
+directories and files in the path.</p>
+<p>Let's assume that I (user <code>akumar</code>) have the following directory data:</p>
+<p>To <strong>list</strong> all the files and subdirectories in a given directory, we can
+ type <code>ls</code>:
+ ```
+ $ ls</p>
+<p>data
+ Documents
+ ```
+ Try the command in your terminal.</p>
+<p>We see that the contents of <code>akumar</code>'s home directory are two directories called
+ <code>data</code> and <code>Documents</code>, as we'd expect. If we want to see the contents of one
+ of these directories, we can use the same <code>ls</code> command, but specify the directory
+ whose contents we'd like to see as an argument to the <code>ls</code> command.:
+ ```
+ $ ls Documents/DailyPlanet_Articles</p>
+<p>superman_saves_the_day.txt
+ ```</p>
+<p>Note that this would have the same output as running:
+ ```
+ $ cd Documents/DailyPlanet_Articles
+ $ ls</p>
+<p>superman_saves_the_day.txt
+ <code>``
+ where we moved into the</code>DailyPlanet_Articles<code>directory and ran the</code>ls`
+ command from within the directory.</p>
+<p>Say we've navigated to the <code>DailyPlanet_Articles</code> directory, and now we want
+ to navigate to the <code>data</code> directory. There are multiple ways to do this:
+ We could use the absolute path: <code>cd /home/akumar/data/</code> (remember, that will
+ work from anywhere in the filesystem), or we could use a relative path.
+ But how do we use a relative path when <code>data</code> is not in our current directory,
+ and we have to go up the tree to reach our destination? We can use the
+ shorthand <code>.</code>. One <code>.</code> means our current directory, and <code>..</code> means <strong>move up one directory</strong>
+ relative to where we currently are in the filesystem:</p>
+<p>First, we would navigate to the <code>DailyPlant_Articles</code> directory:
+ <code>cd /home/akumar/Documents/DailyPlant_Articles</code>
+ Now let move up two directories into the data directory.</p>
+<p>```
+ cd ../../data</p>
+<p><code>``
+ So we move up one directory from</code>DailyPlanet_Articles<code>to</code>Documents<code>, then up
+ one more directory to</code>/home/akumar<code>, then down one directory to</code>data`.</p>
+<blockquote>
+<p>Note: When you start typing in the path the data directory, you can use <code>TAB</code> to
+<strong>auto-complete</strong>. The TAB button is your friend on the command-line.</p>
+</blockquote>
+<p>If you ever get lost in the file system, remember that the command <code>cd</code> (without
+ specifying another directory) will always drop you into your home directory.
+ ```
+ $ cd
+ $ pwd</p>
+<p>/home/akumar
+ ```</p>
+<h3 id="creating-editing-moving-copying-and-deleting-files">Creating, Editing, Moving, Copying, and Deleting Files<a class="headerlink" href="#creating-editing-moving-copying-and-deleting-files" title="Permanent link">&para;</a></h3>
+<p>Now let's put the UNIX file system to work for us. Let's get started
+ in our home directory:
+ <code>$ cp &lt;source-file&gt; &lt;destination-file&gt; #copy file
+ $ mv &lt;source-file&gt; &lt;destination-file&gt; #move file
+ $ rm &lt;source-file&gt; &lt;destination-file&gt; #remove a file
+ $ find ~/ -name '*.txt' #find all text files in my home directory</code>
+ <strong>Note: There is no Recycle Bin or Trash rm can be a weapon of mass
+ destruction</strong></p>
+<h2 id="using-git">Using Git<a class="headerlink" href="#using-git" title="Permanent link">&para;</a></h2>
+<p>Git is a version control system that allows you to take snapshots of your
+project so you can go back in time or safely add features without breaking
+your code. This is much much better than taking turns working on software and
+emailing versions to eachother. Git can be used for any project involving plain
+text files, including code, books, papers, small datasets.</p>
+<p>Git and GitHub are used for hosting, distributing, and collaborating on a project
+with others. Through tools like GitHub issues, GitHub Pull Requests, and branches
+you can manage large scale collaborations.</p>
+<p>An example of an open-source project here at DSaPP is Triage or Aequitas.</p>
+<h3 id="guidelines-to-keep-in-mind-for-effective-collaboration">Guidelines to keep in mind for effective collaboration<a class="headerlink" href="#guidelines-to-keep-in-mind-for-effective-collaboration" title="Permanent link">&para;</a></h3>
+<ul>
+<li>You are a team, work as a team.</li>
+<li>You are physically located with your teammate so actually work together.</li>
+<li>Know what eachother is doing. Collaborate, code review (and learn), Pair Program</li>
+<li>People come before process (most of the time).</li>
+</ul>
+<p>Say we are starting a new project called "where_not_to_eat". About the chicago
+ food inspections. We are going to combine data from different years into a
+ single CSV. First we are going to clone a project using <code>git</code>.</p>
+<p>Link to the project on github.</p>
+<p><code>$ git clone &lt;add link to repo here&gt;</code></p>
+<p>We are going to use the github flow for this project. First we want to configure our
+ git profile.</p>
+<p><code># See how your git config looks
+ git config --list</code></p>
+<p>Set your workspace
+ ```
+ # Adding some if you dont have a user.name or user.email</p>
+<p>git config --global user.name "Rayid Ghani"
+ git config --global user.email "rayid.ghani@dssg.io"
+ git config --global color.ui "auto"
+ git config --global core.editor 'vim'
+ git config --global push.default current
+ ```</p>
+<p>Different work flows:</p>
+<p><strong>Solo Style</strong>
+ <code>mkdir my_working_directory
+ cd my_working_directory
+ git init
+ touch some_file.py
+ # hack
+ # hack
+ git add some_file.py
+ git commit -m "Working with some awesome idea"
+ # hack
+ # more hack</code></p>
+<p><strong>GitHub Style</strong></p>
+<ul>
+<li>
+<p>Also know as the [[http://endoflineblog.com/gitflow-considered-harmful][/Anti-gitflow/]]</p>
+</li>
+<li>
+<p>[[https://guides.github.com/introduction/flow/][Github Flow]] (explained with images and animation!)</p>
+</li>
+</ul>
+<p><em>Don't code anything if there isn't a need for it.</em></p>
+<p>First create good issues. A good issue is</p>
+<ul>
+<li>clear</li>
+<li>defined output</li>
+<li>actionable</li>
+<li>should only take a few days at most</li>
+<li>good: <em>fix this bug</em>, <em>add this method</em> (good to write in the imperative voice)</li>
+<li>bad: <em>it doesn't work for me</em>, <em>finish the project</em></li>
+</ul>
+<p>Now do a <code>git pull</code> to fetch any changes in the remote repository and
+merge into your repository.</p>
+<pre><code>$ git pull
+
+
+</code></pre>
+
+<p>Now create your own "branch" of the project where you can make changes
+separate from the <em>master</em> branch. The <em>master</em> branch should always be
+pristine.</p>
+<pre><code>$ git checkout -b &lt;username&gt;-branch
+</code></pre>
+
+<p>Alternativly, you can name branches with the issue number of the issue you are
+working on (e.g., add_features_issue#44).</p>
+<p>Now we do a little hacking where we are going to write a bash script that will
+clean the header of a CSV file and concatenate all the files.</p>
+<p>Then we are going to <code>push</code> our changes to the remote repo. And create a pull
+request.</p>
+<h2 id="class-exercise">Class Exercise<a class="headerlink" href="#class-exercise" title="Permanent link">&para;</a></h2>
+<p>Download data via the commandline and clean it, concatenate files so it can be
+read into a database.</p>
+<p>First clone the project:</p>
+<p>Then create your own branch:</p>
+<pre><code>$ git checkout -b &lt;username&gt;-branch
+
+</code></pre>
+
+<p>Link to download data: https://github.com/avishekrk/where_not_to_eat/archive/master.zip</p>
+<p>Here is my solution:</p>
+<pre><code class="shell">wget https://github.com/avishekrk/where_not_to_eat/archive/master.zip;
+unzip master.zip;
+rm -v master.zip
+mv -v where_not_to_eat-master raw
+cd ./raw/
+pwd
+find -name &quot;* *&quot; | while read f; do echo ${f}; new=$(echo $f | sed &quot;s/ /_/g&quot;); echo ${new}; mv -v &quot;$f&quot; $new; done
+mkdir -v ./../staging
+head -1 food_inspection_2018-01-01.csv| tr '[:upper:]' '[:lower:]' | sed -e &quot;s/#//g&quot; -e &quot;s/ ,/,/g&quot; -e &quot;s/ /_/g&quot; -e s&quot;/^,//g&quot; &gt; header
+cat header &gt; all_inspections.csv
+for f in food_inspection_2018-0*.csv; do echo ${f}; awk 'NR &gt; 1 {print}' ${f} &gt;&gt; all_inspections.csv; done
+mv -v all_inspections.csv ./../staging
+
+</code></pre>
+
+<p>After saving our script we can commit our changes on our branch:</p>
+<pre><code>git add clean.sh
+git commit -m &quot;Added script to clean and concatenate files
+git push #push to our remote repository
+</code></pre>
+
+<p>Then you can create a Pull Request.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../../..';</script>
+    <script src="../../../../js/theme.js" defer></script>
+      <script src="../../../../js/mermaid.min.js" defer></script>
+      <script src="../../../../search/main.js" defer></script>
+
+</body>
+</html>

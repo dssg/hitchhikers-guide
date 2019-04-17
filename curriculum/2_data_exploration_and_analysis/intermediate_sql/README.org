@@ -1,0 +1,222 @@
+* Intermediate SQL
+
+#+BEGIN_SRC sql
+-- Recall
+
+select * from cleaned.inspections limit 1;
+
+select * from cleaned.violations limit 10;
+
+
+-- Warming up...
+
+-- What are the top 3 facilities  in inspections? (use facility, license_num, address)  It is the same? What are the differences?
+select address, /* license_num, */
+count(*) from cleaned.inspections
+group by address /*, license_num */
+order by count(*) desc limit 3;
+-- What are the top 3 zip_codes  in inspections?
+
+-- What is the top 5 most frequent violation codes?
+select code, description, count(*)
+from cleaned.violations
+group by code,  description
+order by count(*) desc
+limit 5;
+
+-- What is the facility with more violation codes inspected?
+
+select facility, i.license_num, address, count(*)
+from cleaned.inspections as i
+join cleaned.violations as v
+using (inspection)
+group by facility, i.license_num, address
+order by count(*) desc
+limit 1;
+
+
+
+
+-- Given that facility, how are distributed its violation codes?
+
+
+-- distinct
+
+-- You can use distinct for eliminate duplicate rows from the result.
+-- it is equivalent to group by without aggregators
+
+select distinct result from cleaned.inspections;
+
+-- What are the top 3 facilities  in failed inspections?
+select facility, count(*)
+from cleaned.inspections where result = 'fail'
+group by facility order by count(*) desc limit 3;
+
+
+-- distinct on
+-- Find the facility per type with more inspections
+select distinct on (facility_type)
+facility, facility_type, count(*)
+from cleaned.inspections
+group by facility_type, facility
+order by  facility_type;
+count(*) desc;
+
+-- array_agg
+
+select facility_type,
+array_agg(distinct code) as violation_codes,
+array_length(array_agg(distinct code), 1) -- Google: postgres array operations
+from cleaned.inspections
+join cleaned.violations
+using (inspection)
+where code <> ''
+group by facility_type
+order by 3 desc;
+
+
+
+-- conditionals
+
+select facility,
+count(*) as total_inspections,
+(count(*) filter (where result = 'fail')) / count(*)::float   failed_inspections,
+count(*) filter (where result not in ('fail')) as passed_inspections
+from cleaned.inspections
+group by facility
+--order by failed_inspections desc
+limit 5;
+
+-- Change it to express the percentage of failed inspections...
+-- What are the top 3 zip_codes which had the higher percentage of failed inspections?
+
+-- another type of conditional is CASE
+
+select date,
+case
+when extract(month from date) in (12, 1, 2) then 'winter'
+when extract(month from date) in (3, 4, 5) then 'spring'
+when extract(month from date) in (6, 7, 8) then 'summer'
+when extract(month from date) in (9, 10, 11) then 'fall'
+else 'weird...'
+end as season
+from cleaned.violations
+limit 10;
+
+
+-- dates
+
+select facility, date, date_trunc('hour', date), extract(year from date)
+from cleaned.inspections
+limit 10;
+
+-- Change the previous query to get the time series from sun wah
+-- Which is the most inspected violation code per month?
+-- per year?
+
+-- date arithmetic and contention operator
+
+select address, facility, count(*)
+from cleaned.inspections
+where tsrange(('2016-07-04'::date - interval '1 week'), '2016-07-04', '[]') @> date::timestamp
+group by address, facility
+order by count(*) desc;
+
+select '2016-07-04'::date - interval '3 week 4 days';
+-- weird..
+
+select *
+from cleaned.inspections
+where
+address = '1244 n dearborn st'
+and tsrange(('2016-07-04'::date - interval '1 week'), '2016-07-04', '[]') @> date::timestamp;
+
+-- all happened the same day!
+
+-- Could you retrieve the comments?
+
+
+
+-- Ok, let's move
+-- How many inspections happened in the last month?
+select count(*) from
+cleaned.inspections
+where date >= now() - interval '1 month';
+
+-- Given today, time elapsed since last inspection
+select distinct on (facility)
+facility,
+date as last_inspected_at,
+extract(epoch from age(date)) as time_elapsed_since_last_inspection
+from cleaned.inspections
+-- where facility ~ 'sun wah'
+order by facility, date desc;
+
+-- Subqueries
+
+select * from
+(select distinct on (facility)
+facility,
+date as last_inspected_at,
+age(date) as time_elapsed_since_last_inspection
+from cleaned.inspections
+order by facility
+) as last_inspections
+order by time_elapsed_since_last_inspection desc
+limit 10;
+
+-- What is the mode per monthly basis?
+
+select
+date_trunc('month', date) as month,
+mode() within group (order by facility) as most_inspected
+from cleaned.inspections group by 1;
+
+-- What is the median number of inspections per month?
+
+select
+percentile_disc(0.5) within group (order by number_of_inspections)
+from
+(
+select
+extract(month from date) as monthly_date,
+count(*) as number_of_inspections
+from cleaned.inspections
+group by 1
+order by 2 asc
+) as t;
+
+
+-- array[0, 0.25, 0.33, 0.5, 0.66, 0.75, 0.95, 1]
+
+-- 22747
+select count(*) --facilities.facility, facilities.address
+from (
+(
+	select distinct facility, address from cleaned.inspections
+	where date >= '2017-01-01'
+) as facilities
+left join
+(
+	select distinct facility, address, inspections.date
+	from cleaned.inspections
+	join cleaned.violations
+	using (inspection)
+	where
+	violations.severity = 'critical'
+) as critical_inspections
+on
+facilities.facility = critical_inspections.facility
+and
+facilities.address = critical_inspections.address
+and
+critical_inspections.date between '2017-01-01' and '2017-12-31'
+);
+
+where critical_inspections.facility is null and critical_inspections.address is null;
+
+
+
+select distinct severity from cleaned.violations;
+
+#+END_SRC

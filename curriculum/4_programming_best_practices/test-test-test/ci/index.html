@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../../img/favicon.ico">
+  <title>Continuous integration - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Continuous integration";
+    var mkdocs_page_input_path = "curriculum/4_programming_best_practices/test-test-test/ci.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Continuous integration</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/4_programming_best_practices/test-test-test/ci.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="continuous-integration">Continuous integration<a class="headerlink" href="#continuous-integration" title="Permanent link">&para;</a></h2>
+<p>Tests are (ideally) cheap to run, so it makes sense to run them every time your code changes. In <a href="(python_testing.md)">Part 1</a>, we ran a test suite using <code>py.test</code>. Running our test suite locally every time your project changes is a good practice, but it's important to also test it on a completely different machine (maybe some of your tests are passing because of local configuration and you don't even know). Furthermore, when working in teams someone may forget to run the tests locally breaking the project. Continuous integration helps you identify those cases (and with proper configuration even reject commits that break the build) just after a push is made.</p>
+<p>If you are working on an open source project, you can get Continuous Integration for free using <a href="https://travis-ci.org/">Travis CI</a>. In the following sections we'll see how to setup Travis to run your tests every time you push to Github.</p>
+<h3 id="using-travis-ci">Using Travis CI<a class="headerlink" href="#using-travis-ci" title="Permanent link">&para;</a></h3>
+<p>The first step is to <a href="https://travis-ci.com/">create an account</a> and link it to your Github profile. Travis is integrated with Github and requires minimal setup,  you just need to create a <code>.travis.yml</code> file (note the leading dot) in your root folder, then go to Travis and activate the repo. Let's see how a <code>.travis.yml</code> file looks like.</p>
+<h3 id="travis-configuration-file-for-testing-scientific-python-projects">Travis configuration file for testing scientific Python projects<a class="headerlink" href="#travis-configuration-file-for-testing-scientific-python-projects" title="Permanent link">&para;</a></h3>
+<p>The content of your configuration file completely depends on your project, but given that most DSSG (if not all) teams use Python + Numpy + Scipy, the following file will work for you with minimal changes. The contents of the file are straightforward and tell Travis how to build your project and run the test suite.</p>
+<pre><code class="yaml">language: python
+python:
+  # list the python version you want to check your tests on
+  - &quot;2.7&quot;
+  - &quot;3.5&quot;
+sudo: required
+install:
+  # this are requirements to install many scentific python packages
+  # such as numpy/scipy, you cannot install them with pip
+  # so we need to use the system package manager
+  - &quot;sudo apt-get install gfortran python-liblas libblas-dev liblapack-dev libatlas-dev&quot;
+  # as of June 2, 2016, travis has an outdated version of pip,
+  # this may cause trouble when installing some packages such as sci-kit learn
+  # updating pip before using 'pip install' solves those issues
+  - &quot;pip install --upgrade pip&quot;
+  # install specific requirements your test suite uses
+  # e.g. pytest, nose, mock
+  # make sure you have the requirements.txt in your repo's root folder
+  - &quot;pip install -r requirements.txt&quot;
+script:
+  # steps needed to run your scripts, for simple projects
+  # this may be just 'py.test' or 'nosetests', depending on
+  # which library you use
+  - py.test
+</code></pre>
+
+<p>Once Travis is configured it will run your tests every time you push (this is the default configuration but you can change it if you want) and if your tests don't pass it will send you and e-mail (awesome!), you can also see the log to check which tests didn't pass in the Travis website.</p>
+<p>When configuring Travis you may encounter some issues, feel free to open an issue on this repo if that happens so we can help you out.</p>
+<h3 id="project-samples-using-travis-scientific-python">Project samples using Travis + Scientific Python<a class="headerlink" href="#project-samples-using-travis-scientific-python" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://github.com/dssg/police-eis">Police project</a></li>
+<li><a href="https://github.com/edublancas/sklearn-evaluation">sklearn-evaluation</a> - See this if you want to make tests that compare images since it requires a different setup</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../../..';</script>
+    <script src="../../../../js/theme.js" defer></script>
+      <script src="../../../../js/mermaid.min.js" defer></script>
+      <script src="../../../../search/main.js" defer></script>
+
+</body>
+</html>

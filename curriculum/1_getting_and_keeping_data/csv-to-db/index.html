@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>CSVs to the Database - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "CSVs to the Database";
+    var mkdocs_page_input_path = "curriculum/1_getting_and_keeping_data/csv-to-db/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>CSVs to the Database</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/1_getting_and_keeping_data/csv-to-db/README.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="csvs-to-the-database">CSVs to the Database<a class="headerlink" href="#csvs-to-the-database" title="Permanent link">&para;</a></h2>
+<h3 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h3>
+<p>This summer, you will use a database to store and analyze data. Databases have several advantages over using text files such as CSVs:</p>
+<ul>
+<li>Databases can store information about relationships between tables.</li>
+<li>We're collecting more and more data -- often too much to fit in memory. Most databases can handle this. </li>
+<li>Databases can provide integrity checks and guarantees. If you have a column of numbers in a spreadsheet, Excel will let you change a random cell to text. In contrast, you can tell your database to only accept input that meets your conditions (e.g. type, uniqueness). This is especially important for ongoing projects, where you have new data coming in.</li>
+<li>Databases allow you to store data in one place. That makes updates easy and reliable. </li>
+<li>Databases are more secure. You can more carefully control who has which types of access to what data better in a database than with a CSV.</li>
+<li>Databases can handle multiple users. Concurrent edits to a CSV can get messy. Some file systems won't even let multiple users access a CSV at the same time.</li>
+<li>Databases are designed to help you do analysis. SQL will probably become your best friend.</li>
+</ul>
+<p>You'll likely have to load CSVs into your database (e.g. from the open data portal), even if your partner gave a database dump (<a href="https://dsapp.uchicago.edu/home/resources/give-us-direct-access-system-database-dump/">which is ideal</a>). This session builds on what you learned last week in the <a href="https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/pipelines-and-project-workflow">pipeline</a> and <a href="https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools">command line</a> sessions. We will focus on ETL. </p>
+<h3 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h3>
+<ul>
+<li>psql (command line)</li>
+<li>dBeaver</li>
+<li>csvkit</li>
+</ul>
+<p>Notice that we're not using pandas. DO NOT COPY DATA INTO THE DATABASE USING PANDAS. We strongly recommend using <code>psql</code>, which is orders of magnitude faster.</p>
+<h3 id="basic-database-lingo">Basic Database Lingo<a class="headerlink" href="#basic-database-lingo" title="Permanent link">&para;</a></h3>
+<ul>
+<li><em>Database server or host</em>: the computer on which the database is running. We will use Amazon RDS.</li>
+<li><em>Database</em>: a self-contained set of tables and schema. A server can run many databases. This summer, we will operate databases for almost all projects from the same Amazon server.</li>
+<li><em>Schema</em>: similar to a folder. A database can contain many schema, each containing many tables.</li>
+<li><em>Tables</em>: tables are like spreadsheets. They have rows and columns and values in each cell.</li>
+<li><em>Views</em>: views are virtual tables created by a query but only instantiated when the query is run. They can be used as tables but are generated "on-demand" when they're used. An advantage is that they always contain the most current data but take time to compute.</li>
+<li><em>Queries</em>: Queries are analysis that you run on a database, often in SQL.</li>
+</ul>
+<h3 id="lets-rock-some-data">Let's Rock Some Data!<a class="headerlink" href="#lets-rock-some-data" title="Permanent link">&para;</a></h3>
+<h4 id="connecting-to-the-database">Connecting to the database<a class="headerlink" href="#connecting-to-the-database" title="Permanent link">&para;</a></h4>
+<p>Some unique aspects of the setup at DSSG: You cannot access the database server directly; you have to connect to the University's secure network and tunnel go through one of the EC2 instances. The data are far safer that way: you have to access the University's secure network, then one of our EC2s, and then the database. </p>
+<p>There are two ways to connect to the database (once you're on the University network):</p>
+<ol>
+<li><em>Connect from your laptop</em>: Use an SSH tunnel to pass data between your laptop and the database. You have a database program running locally. If you're using dBeaver, you're connecting from your laptop.
+<img alt="Connect from your laptop" src="https://www.lucidchart.com/publicSegments/view/0a5f49d0-d66c-4ef3-90eb-f7e037d20ec3/image.png" /></li>
+<li><em>Connect from the EC2</em>: SSH into the EC2 and run everything from there. Your laptop only sends your commands to the EC2; the EC2 does the work. You don't use an SSH tunnel because everything stays on the EC2.
+<img alt="Connect from the EC2" src="https://www.lucidchart.com/publicSegments/view/9ca0e0f9-da92-468a-935c-b1fc1d3d467a/image.png" /></li>
+</ol>
+<p>You can use option 1 (especially dBeaver) to explore the data, but you should use option 2 to load the data. First, downloading the datasets to your laptop may violate our contracts. Second, the internet connections will be better. The connections within Amazon are pretty fast; the connections from our office to Amazon might not be. Option 2 keeps the heavy transfers on Amazon's infrastructure. </p>
+<h4 id="getting-data-into-a-database">Getting data into a Database<a class="headerlink" href="#getting-data-into-a-database" title="Permanent link">&para;</a></h4>
+<p>There are three steps to get a CSV into an existing database:
+1. <strong>Create table</strong>: This involves figuring out the structure of the table (how many fields, what should they be called, and what data types they are). Once you figure out the structure, you can create a sql "CREATE TABLE" statement and run that to generate an <em>empty</em> table*
+2. <strong>Copy CSV to the table</strong>: Every database has a "bulk" copy command that is <strong>much</strong> more efficient than using pandas. Please do not use pandas to copy large csvs to a database. Postgres has a COPY command that can now copy your csv to the table you just created. 
+3. <strong>Check if it copied successfully</strong>: You want to check if your table now has the same number of rows and columns as the CSV (as well as other consistency checks). If it did not copy successfully, you may need to modify the table structure, clean the csv to remove characters, replace nulls, and try steps 1 and 2 again.</p>
+<h4 id="step-1-lets-get-the-structure-of-the-data">Step 1: Let's get the structure of the data<a class="headerlink" href="#step-1-lets-get-the-structure-of-the-data" title="Permanent link">&para;</a></h4>
+<p>In this session, we will put the City of Chicago's food-inspection data into the DSSG training database.</p>
+<p>Start by SSHing into the training server:
+<code>ssh your_username@the_training_EC2_address</code></p>
+<p>Create a folder for yourself in the EC2 training directory and download the data:</p>
+<ol>
+<li><code>cd /mnt/data/projects/training/</code></li>
+<li><code>mkdir jwalsh</code></li>
+<li><code>cd jwalsh</code></li>
+<li><code>wget -O inspections.csv https://data.cityofchicago.org/api/views/4ijn-s7e5/rows.csv?accessType=DOWNLOAD</code></li>
+</ol>
+<p>This gives you a file called <code>inspections.csv</code>. You can explore the data using <code>head</code>, <code>tail</code>, <code>csvlook</code>, and other command-line tools you've learned in previous sessions.</p>
+<p>Here's the output from <code>csvlook</code>:
+<img alt="alt text" src="https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/1_getting_and_keeping_data/csv-to-db/inspections_data_csvlook.png" title="inspections data" /></p>
+<p><code>csvsql</code> generates <code>create table</code> statements for you. Because it uses Python, it will load all the data and then do its thing. That can be really inefficient for large datasets: you have to wait to read the entire dataset, and you need lots of memory to do it. To limit the resources csvsql needs, I'll only use the first 1000 rows. We're using a PostgreSQL ("Postgres") database:</p>
+<p><code>head -n1000 inspections.csv | csvsql -i postgresql</code></p>
+<p>Here's the output:</p>
+<pre><code>CREATE TABLE stdin (
+    &quot;Inspection ID&quot; DECIMAL NOT NULL, 
+    &quot;DBA Name&quot; VARCHAR NOT NULL, 
+    &quot;AKA Name&quot; VARCHAR, 
+    &quot;License #&quot; DECIMAL NOT NULL, 
+    &quot;Facility Type&quot; VARCHAR, 
+    &quot;Risk&quot; VARCHAR, 
+    &quot;Address&quot; VARCHAR NOT NULL, 
+    &quot;City&quot; VARCHAR NOT NULL, 
+    &quot;State&quot; VARCHAR, 
+    &quot;Zip&quot; DECIMAL NOT NULL, 
+    &quot;Inspection Date&quot; DATE NOT NULL, 
+    &quot;Inspection Type&quot; VARCHAR NOT NULL, 
+    &quot;Results&quot; VARCHAR NOT NULL, 
+    &quot;Violations&quot; VARCHAR, 
+    &quot;Latitude&quot; DECIMAL, 
+    &quot;Longitude&quot; DECIMAL, 
+    &quot;Location&quot; VARCHAR
+);
+</code></pre>
+
+<p>A few things to note:
+* Inspection ID, DBA Name, AKA Name, etc. are column names.
+* VARCHAR and INTEGER are column types. VARCHAR(11) means variable character length column up to 11 characters. If you try to give a character column a number, an integer column a decimal, and so on, Postgres will prevent the entire transfer. 
+* NOT NULL means you have to provide a value for that column.
+* Postgres hates uppercase and spaces in column names. If you have either, you need to wrap the column name in quotation marks. Yuck.
+* We need to replace <code>stdin</code> with the table name (<code>jwalsh.jwalsh</code>). </p>
+<p>Let's give it another shot:</p>
+<p><code>head -n 1000 inspections.csv | tr [:upper:] [:lower:] | tr ' ' '_' | sed 's/#/num/' | csvsql -i postgresql --db-schema jwalsh --tables jwalsh</code></p>
+<ul>
+<li><code>tr [:upper:] [:lower:]</code> converts all uppercase to all lowercase. </li>
+<li><code>tr ' ' '_'</code> converts all spaces to underscores.</li>
+<li><code>sed 's/#/num/'</code> replaces the pound sign with "num".</li>
+<li><code>csvsql -i postgresql --db-schema jwalsh --tables jwalsh</code> generates the postgres <code>create table</code> statement.</li>
+</ul>
+<p>Here's the output:</p>
+<pre><code>CREATE TABLE jwalsh.jwalsh (
+    inspection_id DECIMAL NOT NULL, 
+    dba_name VARCHAR NOT NULL, 
+    aka_name VARCHAR, 
+    license_num DECIMAL NOT NULL, 
+    facility_type VARCHAR, 
+    risk VARCHAR, 
+    address VARCHAR NOT NULL, 
+    city VARCHAR NOT NULL, 
+    state VARCHAR, 
+    zip DECIMAL NOT NULL, 
+    inspection_date DATE NOT NULL, 
+    inspection_type VARCHAR NOT NULL, 
+    results VARCHAR NOT NULL, 
+    violations VARCHAR, 
+    latitude DECIMAL, 
+    longitude DECIMAL, 
+    location VARCHAR
+);
+</code></pre>
+
+<p><code>csvsql</code> ain't perfect. We could still make changes if we wanted, e.g. changing the <code>license_num</code> column type. But DECIMAL is good enough for this exercise. </p>
+<h4 id="lets-create-the-schema-and-table">Let's create the schema and table<a class="headerlink" href="#lets-create-the-schema-and-table" title="Permanent link">&para;</a></h4>
+<p>Remember, the schema is like a folder. You can use schema to categorize your tables. Let's use a script, which I'll call <code>inspections.sql</code>, to create the schema and table. Here's what it looks like:</p>
+<pre><code>SET ROLE training_write;
+
+CREATE SCHEMA IF NOT EXISTS jwalsh;
+
+CREATE TABLE IF NOT EXISTS jwalsh.jwalsh (
+    inspection_id DECIMAL NOT NULL, 
+    dba_name VARCHAR NOT NULL, 
+    aka_name VARCHAR, 
+    license_num DECIMAL NOT NULL, 
+    facility_type VARCHAR, 
+    risk VARCHAR, 
+    address VARCHAR NOT NULL, 
+    city VARCHAR NOT NULL, 
+    state VARCHAR, 
+    zip DECIMAL NOT NULL, 
+    inspection_date DATE NOT NULL, 
+    inspection_type VARCHAR NOT NULL, 
+    results VARCHAR NOT NULL, 
+    violations VARCHAR, 
+    latitude DECIMAL, 
+    longitude DECIMAL, 
+    location VARCHAR
+);
+</code></pre>
+
+<p>A few things to note:
+* The first row sets the role. You need to assume a role that has write permissions to create schemas and tables and to copy data.
+* I added <code>IF NOT EXISTS</code> conditions for <code>create schema</code> and <code>create table</code>. You don't need those if you run the script once, but if you run the script multiple times, you'll get errors if those already exist.
+* The <code>create table</code> statement is from above.</p>
+<h4 id="step-2-lets-copy-the-data">Step 2: Let's copy the data<a class="headerlink" href="#step-2-lets-copy-the-data" title="Permanent link">&para;</a></h4>
+<p>All you've given the database to this point is a schema and an empty table. Use psql's <code>\copy</code> command to get data into the table: <code>\copy [db table] from '[source CSV]' with csv header</code>. I'll add it to the <code>inspections.sql</code> script:</p>
+<pre><code>SET ROLE training_write;
+
+CREATE SCHEMA IF NOT EXISTS jwalsh_schema;
+
+CREATE TABLE jwalsh_schema.jwalsh_table (
+        inspection_id DECIMAL NOT NULL,
+        dba_name VARCHAR NOT NULL,
+        aka_name VARCHAR,
+        license_num DECIMAL NOT NULL,
+        facility_type VARCHAR,
+        risk VARCHAR, 
+        address VARCHAR NOT NULL,
+        city VARCHAR NOT NULL,
+        state VARCHAR,  
+        zip DECIMAL NOT NULL,
+        inspection_date DATE NOT NULL,
+        inspection_type VARCHAR NOT NULL,
+        results VARCHAR NOT NULL,
+        violations VARCHAR,
+        latitude DECIMAL,
+        longitude DECIMAL,
+        location VARCHAR
+);
+
+\COPY jwalsh_schema.jwalsh_table from 'inspections.csv' WITH CSV HEADER;
+</code></pre>
+
+<p>To run the script securely, follow these <a href="https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/data-security-primer">data security guidelines</a> by storing the database credentials in a file. Postgres looks for four environment variables: PGHOST, PGUSER, PGPASSWORD, and PGDATABASE. To set the environment variables using default_profile (copy and modify from <code>default_profile.example</code>):</p>
+<p><code>eval $(cat default_profile)</code></p>
+<p>Then
+<code>psql -f inspections.sql</code></p>
+<p>Uh oh, we got an error:</p>
+<pre><code>Password for user jwalsh: 
+SET
+psql:copy_example.sql:2: ERROR:  null value in column &quot;city&quot; violates not-null constraint
+DETAIL:  Failing row contains (2145008, INTERURBAN, INTERURBAN, 2492070, Restaurant, Risk 1 (High), 1438 W CORTLAND ST , null, null, 60642, 2018-02-15, License, Pass, null, 41.916996072966775, -87.6645967198223, (41.916996072966775, -87.6645967198223)).
+CONTEXT:  COPY jwalsh_table, line 7960: &quot;2145008,INTERURBAN,INTERURBAN,2492070,Restaurant,Risk 1 (High),1438 W CORTLAND ST ,,,60642,02/15/201...&quot;
+</code></pre>
+
+<p>With Postgres <code>copy</code>, either the entire copy is successful or none of it is. Check your table: nothing is there. I'll modify <code>inspections.sql</code> to allow missing values and try again:</p>
+<pre><code>SET ROLE training_write;
+
+CREATE SCHEMA IF NOT EXISTS jwalsh_schema;
+
+DROP TABLE IF EXISTS jwalsh_schema.jwalsh_table;
+
+CREATE TABLE jwalsh_schema.jwalsh_table (
+        inspection_id DECIMAL,
+        dba_name VARCHAR,
+        aka_name VARCHAR,
+        license_num DECIMAL,
+        facility_type VARCHAR,
+        risk VARCHAR,
+        address VARCHAR,
+        city VARCHAR,
+        state VARCHAR,
+        zip DECIMAL,
+        inspection_date DATE,
+        inspection_type VARCHAR,
+        results VARCHAR,
+        violations VARCHAR,
+        latitude DECIMAL,
+        longitude DECIMAL,
+        location VARCHAR
+);
+
+\COPY jwalsh_schema.jwalsh_table from 'inspections.csv' WITH CSV HEADER;
+</code></pre>
+
+<p>Run the script:
+<code>psql -f inspections.sql</code></p>
+<h4 id="step-3-lets-look-at-the-data-and-make-sure-everything-is-there">Step 3: Let's look at the data and make sure everything is there<a class="headerlink" href="#step-3-lets-look-at-the-data-and-make-sure-everything-is-there" title="Permanent link">&para;</a></h4>
+<p>Check if the data are there. Here's what it looks like in dBeaver:</p>
+<p><img alt="alt text" src="https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/1_getting_and_keeping_data/csv-to-db/data_inserted_into_table.png" title="data inserted" /></p>
+<h3 id="further-resources">Further Resources<a class="headerlink" href="#further-resources" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Software Carpentry: <a href="http://swcarpentry.github.io/sql-novice-survey/">Databases and SQL</a></li>
+</ul>
+<h3 id="discussion-notes">Discussion Notes<a class="headerlink" href="#discussion-notes" title="Permanent link">&para;</a></h3>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../js/mermaid.min.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-04-17 22:11:04
+-->

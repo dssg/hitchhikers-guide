@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
+  <title>03 addingon - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "03 addingon";
+    var mkdocs_page_input_path = "curriculum/2_data_exploration_and_analysis/git-and-github/tutorials/03_addingon.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>03 addingon</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/2_data_exploration_and_analysis/git-and-github/tutorials/03_addingon.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>While having a repo for yourself is nice for version control, how do you add to somebody else's work? There are some pretty neat ways of handling this, but right now, we'll go through one of the simplest.</p>
+<h2 id="commands-youll-learn">Commands you'll learn<a class="headerlink" href="#commands-youll-learn" title="Permanent link">&para;</a></h2>
+<p>In this tutorial you'll be using the following commands:
+* <code>git pull</code>: Get changes from the repo's GitHub page (or another 'remote') into your local folder
+* <code>git push</code>: Sync your commits back to your repo's GitHub page (or another 'remote')</p>
+<h2 id="adding-to-it">Adding to It<a class="headerlink" href="#adding-to-it" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p><strong>Learner C</strong>: Create a new repo called 'soup', and add Learner A and Learner B as collaborators.</p>
+</li>
+<li>
+<p><strong>Learner C</strong>: Add a file <code>ingredients.md</code>. Populate it with a short list of ingredients that would make a medieval witch scratch her head. Commit your list. Add a few more ingredients (or delete some!). Commit again. Push your commits with <code>git push origin master</code>.</p>
+</li>
+<li>
+<p><strong>Learners A and B</strong>: Get the necessary URL from Learner C, then clone Learner C's 'soup' repo (<code>git clone https://github.com/learnerc/soup.git</code>, where you need to substitute the correct URL), and go into the repo's folder: <code>cd soup/</code></p>
+</li>
+<li>
+<p><strong>Learners A and B</strong>: Do <code>git log</code> to see what Learner C has been up to so far.</p>
+</li>
+<li>
+<p><strong>Learner C</strong>: Add another ingredient to your file, commit and push again.</p>
+</li>
+<li>
+<p><strong>Learner A and B</strong>: As Learner C has added more stuff, you need to update your local clone of their repository! To do this, call <code>git pull</code>. Check what just happened with <code>git log</code>. Do you see the new commit that Learner A only added to their repo <em>after</em> you first cloned it?</p>
+</li>
+<li>
+<p><strong>Learner A</strong>: In the repo's folder, create a new file called <code>spices.md</code>. In that file, list some fantasmorgacically hot spices. Do a <code>git status</code>. What does have git to say about your new file so far?</p>
+</li>
+<li>
+<p><strong>Learner A</strong>: Do <code>git add spices.md</code> to tell git that it should prepare for a snapshot of your changes to that file. (Just like in the first tutorial.) Check <code>git status</code>.</p>
+</li>
+<li>
+<p><strong>Learner A</strong>: Do <code>git commit -m 'blablabla'</code> to create a new snapshot (commit) of the repo as you have it now, which includes your new file now! You should probably make the commit message more meaningful than 'blablabla'. Then, push your changes: <code>git push origin master</code>, to synchronize your local commits with your repo on GitHub (your 'remote').</p>
+</li>
+<li>
+<p><strong>Learner B and C</strong>: Pull the changes that Learner A made, and show Learner A that you now have the spice list. Also show Learner A your <code>git log</code>. Learner A's commit is there! <em>(Great success.</em>)</p>
+</li>
+</ol>
+<p>Here is the <a href="../04_thesecretsauce/">next tutorial</a>.</p>
+<hr />
+<p><em>Talking of spicy food, here is YouTube channel of <a href="https://www.youtube.com/user/wunderhits">a Dutchman eating chili peppers while interviewing people</a>.</em></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../../../..';</script>
+    <script src="../../../../../js/theme.js" defer></script>
+      <script src="../../../../../js/mermaid.min.js" defer></script>
+      <script src="../../../../../search/main.js" defer></script>
+
+</body>
+</html>

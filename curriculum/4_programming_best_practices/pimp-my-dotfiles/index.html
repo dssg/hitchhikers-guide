@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>dotfiles - make working on any computer and feel just like home - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "dotfiles - make working on any computer and feel just like home";
+    var mkdocs_page_input_path = "curriculum/4_programming_best_practices/pimp-my-dotfiles/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>dotfiles - make working on any computer and feel just like home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/4_programming_best_practices/pimp-my-dotfiles/README.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="dotfiles-make-working-on-any-computer-and-feel-just-like-home">dotfiles - make working on any computer and feel just like home<a class="headerlink" href="#dotfiles-make-working-on-any-computer-and-feel-just-like-home" title="Permanent link">&para;</a></h2>
+<p>On this tutorial, you'll learn about <code>dotfiles</code>, what they are, why are they important and how to use them.</p>
+<h3 id="what-are-dotfiles-anyway">What are dotfiles anyway?<a class="headerlink" href="#what-are-dotfiles-anyway" title="Permanent link">&para;</a></h3>
+<p>Dotfiles are used to configure system settings, you can configure anything from them. From text editor syntax to a list of commands to execute each time you open a terminal session.</p>
+<p>Dotfiles names start with <code>.</code>, e.g. <code>.bash_profile</code>, <code>.Rprofile</code>, <code>.vimrc</code> and most of them reside in your home folder. As you get familiar with the command line, you are going to start tweaking your computer with personal settings. Maybe setting special shortcuts for common commands (e.g. typing <code>jnb</code> to start Jupyter instead of typing <code>jupyter notebook</code>).</p>
+<p>As your system becomes more and more customized, it's going to be pretty different to the original configuration. So imagine you have dozens of nice shortcuts and configuration settings for your favorite applications, then you start working on the DSSG server and all the magic is gone... not cool.</p>
+<p>A common practice is to store your files in a git repository. This way you have a history of the modifications you've done but more important, a copy you can grab from anywhere (e.g. the DSSG server) and get all your magic.</p>
+<h3 id="finding-your-dotfiles">Finding your dotfiles<a class="headerlink" href="#finding-your-dotfiles" title="Permanent link">&para;</a></h3>
+<p>Most applications store a dotfile in your home folder, type the following in the command line to see yours:</p>
+<pre><code class="bash">find . -name '.*' -maxdepth 1
+</code></pre>
+
+<p>Here are some of mine:</p>
+<pre><code class="bash">.Rprofile #settings for your R sessions
+.vimrc #vim settings
+.bash_profile #shell settings
+</code></pre>
+
+<p>Let's see how my <code>.Rprofile</code> looks:</p>
+<pre><code class="R">## Change colors when running R in the terminal
+if (Sys.getenv(&quot;TERM&quot;) == &quot;xterm-256color&quot;) library(&quot;colorout&quot;)
+</code></pre>
+
+<p>If you have an <code>.Rprofile</code> file, Whatever it is there will be executed when you start an R session. Mine just loads a package <code>colorout</code> which adds nice colors to the R interpreter.</p>
+<p><strong>Note:</strong> even though every dotfile starts with <code>.</code>, not everything that starts with a <code>.</code> is a dotfile. For example <code>.DS_Store</code> is a file you'll find on many folder if you use OS X, this file stores custom attributes for the folder but you don't want to modify it directly, it's just a file the system uses to keep track of folder customizations (e.g. changing the icon)</p>
+<h3 id="bashrc-and-bash_profile"><code>.bashrc</code> and <code>.bash_profile</code><a class="headerlink" href="#bashrc-and-bash_profile" title="Permanent link">&para;</a></h3>
+<p>When you open a terminal, a program called <code>bash</code> starts, this program let's you execute commands such as <code>cd</code>, <code>ls</code>, etc. Bash is highly configurable through its dotfiles: <code>.bashrc</code>and <code>.bash_profile</code>. There are some differences between those two and they get executed at different times, but a nice setting to get started is to make <code>.bash_profile</code> call  <code>.bashrc</code> and set your configuration file in the later. To to that follow this steps:</p>
+<pre><code class="bash"># open .bash_profile
+open ~/.bash_profile
+</code></pre>
+
+<p>Your default editor will open the file, chances are the file contains some settings already, to avoid breaking your system, do not delete anything and just put this at the top of the file.</p>
+<pre><code class="bash"># just load ~/.bashrc
+if [ -f ~/.bashrc ]; then
+   source ~/.bashrc
+fi
+</code></pre>
+
+<p>Now you can start twerking your shell, for example adding shortcuts. Let's create one that outputs only folders in our current working directory.</p>
+<p>First, open your <code>.bashrc</code>:</p>
+<pre><code class="bash">open ~/.bashrc
+</code></pre>
+
+<p>Add this line:</p>
+<pre><code class="bash"># List only directories
+alias lsd='ls -l | grep &quot;^d&quot;'
+</code></pre>
+
+<p>Save the file. Close the terminal and open a new one.</p>
+<p>Now, every time you execute  <code>lsd</code>, your command line will print only folders in the current directory and not the files.</p>
+<p>Ok, that was a pretty simple example, not let's see how to use git.</p>
+<h3 id="using-git-to-manage-your-dotfiles">Using git to manage your dotfiles<a class="headerlink" href="#using-git-to-manage-your-dotfiles" title="Permanent link">&para;</a></h3>
+<p>As I mentioned before, your dotfiles live in your home folder (type <code>cd ~; pwd</code> to see which is yours). Your home folder contains a lot of stuff and you probably don't want to create a git repo there (please don't). To solve this issue we can do the following: create a folder anywhere in your computer, create your dotfiles there and then link them to your home folder, where your applications expect your dotfiles to be.</p>
+<p>Let's imagine you want to save your dotfiles in <code>~/dotfiles</code>. Run the following to create the folder add some files and start a git repository:</p>
+<pre><code class="bash"># create and move to the folder
+mkdir ~/dotfiles; cd ~/dotfiles
+# get the content from your original .bashrc and copy it in your
+# .bashrc stored in ~/dotfiles, to the same with .bash_profile
+cat ~/.bashrc &gt; ~/dotfiles/.bashrc
+cat ~/.bash_profile &gt; ~/dotfiles/.bash_profile
+# init repo and commit
+git init
+git add --all
+git commit -m 'dotfiles are awesome'
+</code></pre>
+
+<p>Now you have a copy of your <code>.bashrc</code> and <code>.bash_profile</code> outside your home folder and you created a repo to store them. But there's one step missing, if you modify your dotfiles in <code>~/dotfiles</code>, your computer won't do anything because it will look in your home folder. To fix it we need to link our files in <code>~/dotfiles</code> to our home folder.</p>
+<p>To do that we'll create <em>symlinks</em>, which are basically pointers to files, that way you can store your dotfiles anywhere and your computer is still going to find them.</p>
+<pre><code class="bash"># link files in ~/dotfiles to your home folder
+ln -s ~/dotfiles/.bashrc ~/.bashrc
+ln -s ~/dotfiles/.bash_profile ~/.bash_profile
+</code></pre>
+
+<p>Now, you can modify, commit, push, pull from <code>~/dotfiles</code> and still make your computer find them in your home folder!</p>
+<p>Now, create a remote repository to host them on github. If you don't know how, check out the <a href="../gitandgithub">git tutorial</a>.</p>
+<h3 id="using-your-dot-files-in-another-machine">Using your dot files in another machine<a class="headerlink" href="#using-your-dot-files-in-another-machine" title="Permanent link">&para;</a></h3>
+<p>At this point you setup your dotfiles (only two for now) using git, you can version them and backup using github. Let's see how to bring your dotfiles to a new machine.</p>
+<p>First, login in the new machine and clone your repo:</p>
+<pre><code class="bash">git clone https://github.com/youruser/yourrepo
+cd yourrepo
+</code></pre>
+
+<p>You just got your files, now it's time to link them to your home folder on this new machine.</p>
+<pre><code class="bash">ln -s .bashrc ~/.bashrc
+ln -s .bash_profile ~/.bash_profile
+</code></pre>
+
+<p>Now, you can use your local settings in the server!</p>
+<h3 id="its-all-about-automation">It's all about automation<a class="headerlink" href="#its-all-about-automation" title="Permanent link">&para;</a></h3>
+<p>Manually linking each dotfiles is tedious, let's automate it. The easiest way of doing it is to add a script in your repo to run the code to create the links, the problem is that every time you create a new dotfile, you'll also need to update the script. If you only have a couple of dotfiles this is fine.</p>
+<p>But if you want superpowers, you can automate the process so next time you use a new machine, setting up your dot files will look like this:</p>
+<pre><code class="bash">git clone https://github.com/youruser/yourrepo
+cd yourrepo
+./install
+</code></pre>
+
+<p>There are many ways of doing the <code>./install</code> step but you need to be familiar with bash.  If you want to see examples of it, <a href="http://dotfiles.github.io/">see this</a>.</p>
+<h3 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="http://dotfiles.github.io/">dotfiles - unofficial guide to dotfiles on Github</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../js/mermaid.min.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-04-17 22:11:04
+-->

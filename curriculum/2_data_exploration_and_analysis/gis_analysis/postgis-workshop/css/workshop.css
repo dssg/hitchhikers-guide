@@ -1,0 +1,25 @@
+.reveal p {
+  text-align: left;
+}
+
+h2#orgheadline13 {
+  background-color: rgba(255,0,0,0.8);
+}
+
+.reveal table {
+  font-size: 0.5em;
+}
+
+pre.example {
+  background-color: black;
+}
+
+.reveal .figure p { text-align: center; }
+
+.reveal ul ul { font-size: 30px; }
+
+.reveal ul {
+  padding: 0;
+  text-align: left;
+  display: block;
+}

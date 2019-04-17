@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  
+  <link rel="shortcut icon" href="../../../img/favicon.ico">
+  <title>Intro to SQL - DSSG Hitchhickers guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Intro to SQL";
+    var mkdocs_page_input_path = "curriculum/2_data_exploration_and_analysis/basic_sql/README.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DSSG Manual</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../../dssg-manual/summer-overview/">Summer overview</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../">Curriculum</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../..">DSSG Hitchhickers guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Intro to SQL</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/2_data_exploration_and_analysis/basic_sql/README.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="intro-to-sql">Intro to SQL<a class="headerlink" href="#intro-to-sql" title="Permanent link">&para;</a></h2>
+<p>You've already used databases. Excel spreadsheets are a simple example. But those databases have many problems, such as </p>
+<ul>
+<li>size of data you can use is limited by RAM</li>
+<li>cannot handle complex data (there are databases to handle more complex data types, e.g. documents)</li>
+<li>difficult to use data from multiple tables/sheets</li>
+<li>no data integrity guarantees (you can accidentally put a letter in a numeric column and the entire column will become a character column)</li>
+<li>it's difficult for multiple people to use the spreadsheet at the same time. If one person updates sheet A and another person updates sheet B, integrating both updates gets ugly.</li>
+</ul>
+<p>Things to cover:</p>
+<ul>
+<li><code>select</code></li>
+<li><code>from</code></li>
+<li><code>limit</code> (Postgres)</li>
+<li><code>where</code></li>
+<li><code>group by</code></li>
+<li><code>order by</code></li>
+</ul>
+<p><strong>So, let's get into it, shall we!?</strong></p>
+<p>First, we'll need to either:
+1. use psql
+* ssh into the server
+* Run  <code>psql</code>
+* Run <code>SET ROLE training_write</code> so that we have the appropriate permissions
+2. use dbeaver
+* Run <code>SET ROLE training_write</code> so that we have the appropriate permissions</p>
+<h4 id="getting-a-sense-of-the-tables-and-data">Getting a sense of the tables and data:<a class="headerlink" href="#getting-a-sense-of-the-tables-and-data" title="Permanent link">&para;</a></h4>
+<p>A few things we can do to explore:</p>
+<ul>
+<li>Look at the schemas currently present; make sure yours is there: <code>\dn</code></li>
+<li>List databases: <code>\l</code></li>
+<li>(<a href="https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546">This doc</a> has a list of some other quick exploratory commands.)</li>
+<li>Find the count of the list of rows:</li>
+</ul>
+<p><code>SELECT COUNT(*) FROM mpettit_schema.mpettit_table;</code></p>
+<ul>
+<li>Output the list of columns for this table:</li>
+</ul>
+<p><code>SELECT column_name</code></p>
+<p><code>FROM information_schema.columns</code></p>
+<p><code>WHERE table_name = 'mpettit_table';</code></p>
+<ul>
+<li>If you also want to look at datatype:</li>
+</ul>
+<p><code>SELECT column_name, data_type</code></p>
+<p><code>FROM information_schema.columns</code></p>
+<p><code>WHERE table_name = 'mpettit_table';</code></p>
+<p>Ok, now that we've gotten a sense of the data, let's dial it back and get to the basics. :)</p>
+<h4 id="select-and-from">SELECT and FROM<a class="headerlink" href="#select-and-from" title="Permanent link">&para;</a></h4>
+<p>Now, let's look a bit more into SELECT. The SELECT statement is used to select data from a database. The data returned is stored in a result table, called the result-set.</p>
+<p>In SQL, data is usually organized in various tables. For example, a sports team database might have the tables teams, players, and games. A wedding database might have tables guests, vendors, and music_playlist. </p>
+<p>First off, let's select everything from the table to see what we get:</p>
+<p><code>SELECT *</code></p>
+<p><code>FROM mpettit_schema.mpettit_table;</code></p>
+<p>There's a lot to view at once here. Let's say we're not interested in all those comments and just want to look at the columns <code>inspection_id</code>, <code>dba_name</code>, <code>aka_name</code>, <code>results</code>, and <code>inspection_date</code>. We can edit the above command to only select those columns:</p>
+<p><code>SELECT inspection_id, dba_name, aka_name, results, inspection_date</code> </p>
+<p><code>FROM mpettit_schema.mpettit_table;</code></p>
+<h4 id="limit">LIMIT<a class="headerlink" href="#limit" title="Permanent link">&para;</a></h4>
+<p>Often, tables contain millions of rows, and it can take a while to grab everything. If we just want to see a few examples of the data in a table, we can select the first few rows with the LIMIT keyword. (This might remind you of using <code>.head</code> in pandas.)</p>
+<p><code>SELECT inspection_id, dba_name, aka_name, results, inspection_date</code> </p>
+<p><code>FROM mpettit_schema.mpettit_table</code> </p>
+<p><code>LIMIT 20;</code></p>
+<h4 id="order-by">ORDER BY<a class="headerlink" href="#order-by" title="Permanent link">&para;</a></h4>
+<p>The ORDER BY keyword is used to sort the result-set in ascending or descending order.</p>
+<p>The ORDER BY keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.</p>
+<p>Here's how you might order by dba_name in ascending order:</p>
+<p><code>SELECT inspection_id, dba_name, aka_name, results, inspection_date</code> </p>
+<p><code>FROM mpettit_schema.mpettit_table</code> </p>
+<p><code>ORDER BY dba_name;</code></p>
+<p>Now, try altering the above line so that it orders the list in descending order. How might we do that? Can look <a href="https://www.w3schools.com/sql/sql_orderby.asp">here</a> for help.</p>
+<p><strong>ORDER BY / LIMIT COMBO</strong></p>
+<p>If you use ORDER BY and then LIMIT, you would get the first rows for that order. </p>
+<p><code>SELECT inspection_id, dba_name, aka_name, results, inspection_date</code> </p>
+<p><code>FROM mpettit_schema.mpettit_table</code> </p>
+<p><code>ORDER BY dba_name</code></p>
+<p><code>LIMIT 10;</code></p>
+<h4 id="where">WHERE<a class="headerlink" href="#where" title="Permanent link">&para;</a></h4>
+<p>The WHERE clause is used to filter records. That is, the WHERE class extracts only those records that fulfill a specified condition.</p>
+<p>Let's say we only want to look at records where the restaurant name is SUN WAH, so that we can check to see if it's a good time to go to Joe's favorite duck place. </p>
+<p><code>SELECT inspection_id, dba_name, aka_name, results, inspection_date</code> </p>
+<p><code>FROM mpettit_schema.mpettit_table</code> </p>
+<p><code>WHERE dba_name='SUN WAH';</code></p>
+<p>We'll notice that this does not get us any results... Hmmmm. </p>
+<p>Let's try using the <a href="https://www.w3schools.com/sql/sql_like.asp">LIKE operator</a>!! </p>
+<p><code>SELECT inspection_id, dba_name, aka_name, results, inspection_date</code> </p>
+<p><code>FROM mpettit_schema.mpettit_table</code> </p>
+<p><code>WHERE dba_name LIKE '%SUN WAH%';</code></p>
+<h4 id="groupby">GROUPBY<a class="headerlink" href="#groupby" title="Permanent link">&para;</a></h4>
+<p>The GROUP BY statement is often used with aggregate functions (COUNT, MAX, MIN, SUM, AVG) to group the result-set by one or more columns.</p>
+<p>For example, if we want to find the amount of times that each restaurant has been inspected over this time frame, we might run:</p>
+<p><code>SELECT dba_name, COUNT(*)</code> </p>
+<p><code>FROM mpettit_schema.mpettit_table</code> </p>
+<p><code>GROUP BY dba_name;</code></p>
+<p>Let's say you are only concerned with the amount of times that the restaurant failed in this timeframe...</p>
+<p><code>SELECT dba_name, COUNT(*)</code> </p>
+<p><code>FROM mpettit_schema.mpettit_table</code> </p>
+<p><code>WHERE results LIKE 'Fail%'</code> </p>
+<p><code>GROUP BY dba_name;</code></p>
+<h4 id="join">JOIN<a class="headerlink" href="#join" title="Permanent link">&para;</a></h4>
+<p>A JOIN clause is used to combine rows from two or more tables, based on a related column between them.  Let's first look <a href="https://www.w3schools.com/sql/sql_join.asp">here</a> to look at some ven diagrams of the various types of joins.</p>
+<p>We have a table with zip code boundaries. To demonstrate how joins work, let's join the boundaries table to the inspections table!</p>
+<p>So, in order to select the <code>dba_name</code> from the inspections table (<code>mpettit_schema.mpettit_table</code>) and the <code>objectid</code> from the <code>gis.boundaries</code> table, we would do something like below. Let's discuss what's happening!</p>
+<p><code>SELECT mpettit_schema.mpettit_table.dba_name, gis.boundaries.objectid</code> </p>
+<p><code>FROM mpettit_schema.mpettit_table</code> </p>
+<p><code>LEFT JOIN gis.boundaries</code> </p>
+<p><code>ON gis.boundaries.zip=mpettit_schema.mpettit_table.zip:;</code></p>
+<p>So, something went wrong. Any idea what it was?</p>
+<p>Let's investigate...</p>
+<p><code>SELECT column_name, data_type</code> </p>
+<p><code>FROM information_schema.columns</code> </p>
+<p><code>WHERE table_name = 'mpettit_table';</code></p>
+<p>&amp;</p>
+<p><code>SELECT column_name, data_type</code> </p>
+<p><code>FROM information_schema.columns</code> </p>
+<p><code>WHERE table_name = 'boundaries';</code></p>
+<p>We see the problem is that the data types for zip code don't match up between the two tables. Let's fix that:</p>
+<p><code>SELECT mpettit_schema.mpettit_table.dba_name, gis.boundaries.objectid</code> </p>
+<p><code>FROM mpettit_schema.mpettit_table</code> </p>
+<p><code>LEFT JOIN gis.boundaries</code> </p>
+<p><code>ON gis.boundaries.zip=mpettit_schema.mpettit_table.zip::varchar;</code></p>
+<p>Also, you might notice that this is extremely wordy... We can write a shorter query if we used aliases for those tables. Basically, we create a "nickname" for that table. </p>
+<p>If you want to use an alias for a table, you add <code>AS *alias_name*</code> after the table name. </p>
+<p><code>SELECT inspect.dba_name, bound.objectid</code> </p>
+<p><code>FROM mpettit_schema.mpettit_table AS inspect</code> </p>
+<p><code>LEFT JOIN gis.boundaries AS bound</code></p>
+<p><code>ON bound.zip=inspect.zip::varchar;</code></p>
+<h4 id="sql-order-of-execution">SQL order of execution:<a class="headerlink" href="#sql-order-of-execution" title="Permanent link">&para;</a></h4>
+<p>The clauses of an SQL query are evaluated in a specific order. </p>
+<p><img src="imgs/order_of_executions.png" width="500px;"/></p>
+<p>Here is <a href="https://www.periscopedata.com/blog/sql-query-order-of-operations">a blog post</a> that goes into a bit more detail.</p>
+<p><strong>Joins:</strong>  SQL's FROM clause selects and joins your tables and is the first executed part of a query. This means that in queries with joins, the join is the first thing to happen. </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../js/mermaid.min.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-04-17 22:11:04
+-->
