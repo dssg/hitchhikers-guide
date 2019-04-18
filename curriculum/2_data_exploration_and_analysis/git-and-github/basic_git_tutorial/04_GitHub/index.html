@@ -514,10 +514,10 @@ a collaboration tool that you can use to work as a part of a team.</p>
 </li>
 <li>
 <p>Add the remote repository in your local repository
-<div class="codehilite"><pre><span></span>&gt; git remote add origin https://github.com/username/nyc-311.git
+<div class="highlight"><pre><span></span>&gt; git remote add origin https://github.com/username/nyc-311.git
 </pre></div>
 You can then see the remote repository with the following command
-<div class="codehilite"><pre><span></span>&gt; git remote -v
+<div class="highlight"><pre><span></span>&gt; git remote -v
 </pre></div>
 The remote is named "origin" which is a common choice for the
 primary repository.</p>
@@ -525,28 +525,28 @@ primary repository.</p>
 </ol>
 <p>Now we are going to <code>push</code> the local changes on our repository
 to the GitHub repository using the command
-<div class="codehilite"><pre><span></span>&gt; git push --set-upstream origin master
+<div class="highlight"><pre><span></span>&gt; git push --set-upstream origin master
 </pre></div>
 What we have done is taken a copy of our repository and <code>pushed</code> it
 to GitHub. When you push changes to GitHub in the future you just
 need to use the command
-<div class="codehilite"><pre><span></span>git push origin master
+<div class="highlight"><pre><span></span>git push origin master
 </pre></div></p>
 <p>To pull in changes in your repository done by yourself or
 another person you can use the following command
-<div class="codehilite"><pre><span></span>git pull origin master
+<div class="highlight"><pre><span></span>git pull origin master
 </pre></div></p>
 <p>To see this in action grab a friend and have them <code>clone</code> your
 repo with the command. First make sure they also have a GitHub
 account and add them as a collaborator to your repository. If
 you can't find a friend you can still do this part of the tutorial
 just skip the parts about using <code>git clone</code> and <code>git pull</code>.
-<div class="codehilite"><pre><span></span>&gt; git clone https://github.com/username/nyc-311.git
+<div class="highlight"><pre><span></span>&gt; git clone https://github.com/username/nyc-311.git
 </pre></div>
 They will then have a copy of your repository. Now <code>cd</code> into
 the project folder and add a special file called <code>.gitignore</code>.
 Fire up a text editor and add the following
-<div class="codehilite"><pre><span></span>#Ignore pyc files
+<div class="highlight"><pre><span></span>#Ignore pyc files
 *.pyc
 </pre></div>
 The <code>.gitignore</code> file is a special file that git looks at when trying
@@ -556,14 +556,14 @@ in pyc are python bytecode files that will appear when you run your
 python code. All lines prefixed with <code>#</code> are comments and will be
 ignored; they are meant to be read by people not computers.</p>
 <p>Now lets add this file to our repository
-<div class="codehilite"><pre><span></span>git add .gitignore
+<div class="highlight"><pre><span></span>git add .gitignore
 git commit -m &quot;Added .gitignore&quot;
 </pre></div>
 And push our changes to the repository
-<div class="codehilite"><pre><span></span>git push origin master
+<div class="highlight"><pre><span></span>git push origin master
 </pre></div></p>
 <p>Now on your machine <code>git pull</code> the new state of the repository
-<div class="codehilite"><pre><span></span>git pull origin master
+<div class="highlight"><pre><span></span>git pull origin master
 </pre></div>
 If we then use the command <code>ls -a</code> you should then see the .gitignore file.</p>
 <p>And if we look at the log using 'git log` you should see the new commit.</p>
@@ -572,7 +572,7 @@ If we then use the command <code>ls -a</code> you should then see the .gitignore
 general GitHub workflow.</p>
 <p>So far we have been doing the "solo" workflow which consists
 of the following:
-<div class="codehilite"><pre><span></span>  mkdir my_working_directory
+<div class="highlight"><pre><span></span>  mkdir my_working_directory
   cd my_working_directory
   git init
   touch some_file.py
@@ -607,7 +607,7 @@ where we can work on our issue (e.g, fixing a bug, adding a feature) without
 affecting the master branch during our work and then ultimately merge our
 change into the master branch.</p>
 <p>The flow goes something like this:
-<div class="codehilite"><pre><span></span>## Pull from the repo
+<div class="highlight"><pre><span></span>## Pull from the repo
 git pull
 ## Decide what do you want to do and create an issue
 git checkout -b a-meaningful-name
@@ -616,7 +616,7 @@ The command <code>git checkout -b</code> creates a new branch which in this case
 is named "a-meaningful-name". We can see what branch we are on by using
 the command <code>git branch</code> which will show all the branches in the local
 repository and place an * next to the branch we are currently on.
-<div class="codehilite"><pre><span></span>## hack, hack, hack, add/rm, commit
+<div class="highlight"><pre><span></span>## hack, hack, hack, add/rm, commit
 ## Push to the repo and create a remote branch
 git push
 ## Create a pull-request and describe your work (Suggest/add a reviewer)
@@ -636,7 +636,7 @@ merge conflicts. A merge conflict is caused when you and another
 person edits the same line of a file. Git will not know which
 line is the correct one and create a conflict.</p>
 <p>Let's make a conflict!
-<div class="codehilite"><pre><span></span>#create a branch called drama
+<div class="highlight"><pre><span></span>#create a branch called drama
 &gt; git checkout -b drama
 #now modify the descriptive_stats.py file and change the top 10
 #values to top 13
@@ -652,7 +652,7 @@ line is the correct one and create a conflict.</p>
 &gt; git commit -m &quot;Changed the top 10 to the top 3 in descriptive_stats.py&quot;
 </pre></div>
 Now we are going to merge the drama branch into the master branch
-<div class="codehilite"><pre><span></span>&gt; git merge drama
+<div class="highlight"><pre><span></span>&gt; git merge drama
 
 Auto-merging descriptive_stats.py
 CONFLICT (content): Merge conflict in descriptive_stats.py
@@ -660,7 +660,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 </pre></div>
 Our arbitrary drama has now lead to a conflict.
 If we check the status we should see the following
-<div class="codehilite"><pre><span></span>On branch master
+<div class="highlight"><pre><span></span>On branch master
 You have unmerged paths.
   (fix conflicts and run &quot;git commit&quot;)
 
@@ -671,7 +671,7 @@ You have unmerged paths.
 </pre></div>
 Let's examine the conflicting file <code>descriptive_stats.py</code>, you should
 see the following:
-<div class="codehilite"><pre><span></span>from __future__ import print_function
+<div class="highlight"><pre><span></span>from __future__ import print_function
 import pandas
 
 fname_data = &#39;311-service-requests.csv&#39;
@@ -692,7 +692,7 @@ going to keep the line from the master branch. To do that we delete the
 merge conflict markers and the line from the drama branch and then make a
 commit.</p>
 <p>Your code should look like this:
-<div class="codehilite"><pre><span></span>from __future__ import print_function
+<div class="highlight"><pre><span></span>from __future__ import print_function
 import pandas
 
 fname_data = &#39;311-service-requests.csv&#39;
@@ -700,7 +700,7 @@ df_311_calls = pd.read_csv(fname_data)
 print(df_311_calls[&#39;Complaint Type&#39;].value_counts()[:3])
 </pre></div>
 Now add this file and make a commit.
-<div class="codehilite"><pre><span></span>git add descriptive_stats.py
+<div class="highlight"><pre><span></span>git add descriptive_stats.py
 git commit -m &quot;Fixed merge conflict in descriptive stats&quot;
 </pre></div>
 Our merge conflict is know solved.</p>

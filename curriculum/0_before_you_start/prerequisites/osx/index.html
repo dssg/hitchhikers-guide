@@ -524,20 +524,20 @@
 <h3 id="step-1-install-homebrew">Step 1. Install Homebrew<a class="headerlink" href="#step-1-install-homebrew" title="Permanent link">&para;</a></h3>
 <p><a href="http://brew.sh/">Homebrew</a> is a package manager for OS X that will make your life a lot easier...</p>
 <p>To install, open Terminal.app and execute the following:</p>
-<div class="codehilite"><pre><span></span>/usr/bin/ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span>/usr/bin/ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
 </pre></div>
 
 <p>Now you can do:</p>
-<div class="codehilite"><pre><span></span>brew install anything
+<div class="highlight"><pre><span></span>brew install anything
 </pre></div>
 
 <p>Awesome!</p>
 <p>If that doesn't work, you need to add the following to your PATH:</p>
-<div class="codehilite"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/local/sbin:<span class="nv">$PATH</span>
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/local/sbin:<span class="nv">$PATH</span>
 </pre></div>
 
 <p>If you don't know how to do that, run this:</p>
-<div class="codehilite"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;export PATH=/usr/local/bin:/usr/local/sbin:$PATH&#39;</span> &gt;&gt; ~/.profile
+<div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;export PATH=/usr/local/bin:/usr/local/sbin:$PATH&#39;</span> &gt;&gt; ~/.profile
 </pre></div>
 
 <p>If still not working. <a href="https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/0_before_you_start/prerequisites/README.md#asking-for-help">Ask for help</a>.</p>
@@ -566,7 +566,7 @@
 <li><a href="http://conda.pydata.org/docs/">Documentation</a></li>
 </ul>
 <p>Once Anaconda is installed, run the following to install DSSG required Python packages:</p>
-<div class="codehilite"><pre><span></span>curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/0_before_you_start/prerequisites/requirements.txt -o dssg-requirements.txt
+<div class="highlight"><pre><span></span>curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/0_before_you_start/prerequisites/requirements.txt -o dssg-requirements.txt
 conda install --file dssg-requirements.txt
 </pre></div>
 
@@ -578,14 +578,14 @@ conda install --file dssg-requirements.txt
 <li><a href="http://conda.pydata.org/docs/">Documentation</a></li>
 </ul>
 <p>Once Miniconda is installed, run the following to install DSSG required Python packages:</p>
-<div class="codehilite"><pre><span></span>curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/0_before_you_start/prerequisites/requirements.txt -o dssg-requirements.txt
+<div class="highlight"><pre><span></span>curl https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/0_before_you_start/prerequisites/requirements.txt -o dssg-requirements.txt
 conda install --file dssg-requirements.txt
 </pre></div>
 
 <p>Note for advanced users: You can install miniconda using <code>brew</code>. Run <code>brew cask info miniconda</code> for details.</p>
 <h5 id="option-c-python-manual-installation-pip-virtualenv-only-if-you-like-to-live-dangerously">Option C - Python manual installation + <code>pip</code> + <code>virtualenv</code> (only if you like to live dangerously)<a class="headerlink" href="#option-c-python-manual-installation-pip-virtualenv-only-if-you-like-to-live-dangerously" title="Permanent link">&para;</a></h5>
 <p>If you don't want to install Anaconda/Miniconda, you can install Python directly from homebrew and manage your packages with <code>pip</code> and virtual environments with <code>virtualenv</code>.</p>
-<div class="codehilite"><pre><span></span><span class="c1">#To install Python 3 and pip</span>
+<div class="highlight"><pre><span></span><span class="c1">#To install Python 3 and pip</span>
 brew install python3
 <span class="c1">#To install virtual env</span>
 pip install virtualenv

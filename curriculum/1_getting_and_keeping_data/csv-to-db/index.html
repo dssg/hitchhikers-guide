@@ -603,7 +603,7 @@
 <p><code>csvsql</code> generates <code>create table</code> statements for you. Because it uses Python, it will load all the data and then do its thing. That can be really inefficient for large datasets: you have to wait to read the entire dataset, and you need lots of memory to do it. To limit the resources csvsql needs, I'll only use the first 1000 rows. We're using a PostgreSQL ("Postgres") database:</p>
 <p><code>head -n1000 inspections.csv | csvsql -i postgresql</code></p>
 <p>Here's the output:</p>
-<div class="codehilite"><pre><span></span>CREATE TABLE stdin (
+<div class="highlight"><pre><span></span>CREATE TABLE stdin (
     &quot;Inspection ID&quot; DECIMAL NOT NULL, 
     &quot;DBA Name&quot; VARCHAR NOT NULL, 
     &quot;AKA Name&quot; VARCHAR, 
@@ -639,7 +639,7 @@
 <li><code>csvsql -i postgresql --db-schema jwalsh --tables jwalsh</code> generates the postgres <code>create table</code> statement.</li>
 </ul>
 <p>Here's the output:</p>
-<div class="codehilite"><pre><span></span>CREATE TABLE jwalsh.jwalsh (
+<div class="highlight"><pre><span></span>CREATE TABLE jwalsh.jwalsh (
     inspection_id DECIMAL NOT NULL, 
     dba_name VARCHAR NOT NULL, 
     aka_name VARCHAR, 
@@ -663,7 +663,7 @@
 <p><code>csvsql</code> ain't perfect. We could still make changes if we wanted, e.g. changing the <code>license_num</code> column type. But DECIMAL is good enough for this exercise. </p>
 <h4 id="lets-create-the-schema-and-table">Let's create the schema and table<a class="headerlink" href="#lets-create-the-schema-and-table" title="Permanent link">&para;</a></h4>
 <p>Remember, the schema is like a folder. You can use schema to categorize your tables. Let's use a script, which I'll call <code>inspections.sql</code>, to create the schema and table. Here's what it looks like:</p>
-<div class="codehilite"><pre><span></span>SET ROLE training_write;
+<div class="highlight"><pre><span></span>SET ROLE training_write;
 
 CREATE SCHEMA IF NOT EXISTS jwalsh;
 
@@ -694,7 +694,7 @@ CREATE TABLE IF NOT EXISTS jwalsh.jwalsh (
 * The <code>create table</code> statement is from above.</p>
 <h4 id="step-2-lets-copy-the-data">Step 2: Let's copy the data<a class="headerlink" href="#step-2-lets-copy-the-data" title="Permanent link">&para;</a></h4>
 <p>All you've given the database to this point is a schema and an empty table. Use psql's <code>\copy</code> command to get data into the table: <code>\copy [db table] from '[source CSV]' with csv header</code>. I'll add it to the <code>inspections.sql</code> script:
-<div class="codehilite"><pre><span></span>SET ROLE training_write;
+<div class="highlight"><pre><span></span>SET ROLE training_write;
 
 CREATE SCHEMA IF NOT EXISTS jwalsh_schema;
 
@@ -725,14 +725,14 @@ CREATE TABLE jwalsh_schema.jwalsh_table (
 <p>Then
 <code>psql -f inspections.sql</code></p>
 <p>Uh oh, we got an error:
-<div class="codehilite"><pre><span></span>Password for user jwalsh: 
+<div class="highlight"><pre><span></span>Password for user jwalsh: 
 SET
 psql:copy_example.sql:2: ERROR:  null value in column &quot;city&quot; violates not-null constraint
 DETAIL:  Failing row contains (2145008, INTERURBAN, INTERURBAN, 2492070, Restaurant, Risk 1 (High), 1438 W CORTLAND ST , null, null, 60642, 2018-02-15, License, Pass, null, 41.916996072966775, -87.6645967198223, (41.916996072966775, -87.6645967198223)).
 CONTEXT:  COPY jwalsh_table, line 7960: &quot;2145008,INTERURBAN,INTERURBAN,2492070,Restaurant,Risk 1 (High),1438 W CORTLAND ST ,,,60642,02/15/201...&quot;
 </pre></div></p>
 <p>With Postgres <code>copy</code>, either the entire copy is successful or none of it is. Check your table: nothing is there. I'll modify <code>inspections.sql</code> to allow missing values and try again:
-<div class="codehilite"><pre><span></span>SET ROLE training_write;
+<div class="highlight"><pre><span></span>SET ROLE training_write;
 
 CREATE SCHEMA IF NOT EXISTS jwalsh_schema;
 

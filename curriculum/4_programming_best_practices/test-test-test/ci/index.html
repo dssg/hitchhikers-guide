@@ -479,7 +479,7 @@
 <p>The first step is to <a href="https://travis-ci.com/">create an account</a> and link it to your Github profile. Travis is integrated with Github and requires minimal setup,  you just need to create a <code>.travis.yml</code> file (note the leading dot) in your root folder, then go to Travis and activate the repo. Let's see how a <code>.travis.yml</code> file looks like.</p>
 <h3 id="travis-configuration-file-for-testing-scientific-python-projects">Travis configuration file for testing scientific Python projects<a class="headerlink" href="#travis-configuration-file-for-testing-scientific-python-projects" title="Permanent link">&para;</a></h3>
 <p>The content of your configuration file completely depends on your project, but given that most DSSG (if not all) teams use Python + Numpy + Scipy, the following file will work for you with minimal changes. The contents of the file are straightforward and tell Travis how to build your project and run the test suite.</p>
-<div class="codehilite"><pre><span></span><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<div class="highlight"><pre><span></span><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
 <span class="nt">python</span><span class="p">:</span>
   <span class="c1"># list the python version you want to check your tests on</span>
   <span class="p p-Indicator">-</span> <span class="s">&quot;2.7&quot;</span>

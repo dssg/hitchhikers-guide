@@ -466,16 +466,16 @@ All comments, text not meant to be parsed by the computer,
 is prefixed with <code>#</code>.</p>
 <h3 id="create-a-git-repository">Create a git repository<a class="headerlink" href="#create-a-git-repository" title="Permanent link">&para;</a></h3>
 <p>First create a directory for our project and <code>cd</code> into the directory
-<div class="codehilite"><pre><span></span>&gt; mkdir -v nyc-311
+<div class="highlight"><pre><span></span>&gt; mkdir -v nyc-311
 &gt; cd nyc-311
 </pre></div>
 The <code>-v</code> flag produces verbose output so you can see what happened after the invocation of the command.</p>
 <p>Now lets initialize the git repository. All git commands start with <code>git &lt;verb&gt;</code>.  To initialize the git repo
 for our project we invoke the command
-<div class="codehilite"><pre><span></span>&gt; git init
+<div class="highlight"><pre><span></span>&gt; git init
 </pre></div>
 Let's look at the contents of our directory using the command <code>ls -a</code>
-<div class="codehilite"><pre><span></span>&gt; ls -a
+<div class="highlight"><pre><span></span>&gt; ls -a
 
 .  ..  .git/
 </pre></div>
@@ -486,7 +486,7 @@ directory. If you delete this directory, the entire history of your project will
 <p>All good projects should have a README.md to describe the project. So let's start with that. Fire up
 you favorite text editor and name a file <code>README.md</code>.</p>
 <p>Add something like this in your README:
-<div class="codehilite"><pre><span></span># Exploring 311 Calls in NYC
+<div class="highlight"><pre><span></span># Exploring 311 Calls in NYC
 
 ## Description
 
@@ -494,7 +494,7 @@ This repo is for an analysis of 311 calls in NYC using Python 3.4
 </pre></div>
 The <code>#</code> are part of <code>markdown</code> syntax for designating headings.</p>
 <p>Now let's look at the status of our repo using <code>git status</code>:
-<div class="codehilite"><pre><span></span>&gt; git status
+<div class="highlight"><pre><span></span>&gt; git status
 On branch master
 
 Initial commit
@@ -509,10 +509,10 @@ Untracked files:
 We can see that git knows that we have added a file but it is <code>untracked</code>. What this means is that <code>git</code>
 knows that this file has been added but it is currently "untracked" by git. Like the command said let's use <code>git add</code> to
 track changes in the the file by invoking the command <code>git add README.md</code>.
-<div class="codehilite"><pre><span></span>&gt; git add README.md
+<div class="highlight"><pre><span></span>&gt; git add README.md
 </pre></div>
 Now lets look at the status of the repository by invoking the command <code>git status</code> again.</p>
-<p><div class="codehilite"><pre><span></span>&gt; git status
+<p><div class="highlight"><pre><span></span>&gt; git status
 
 On branch master
 
@@ -524,7 +524,7 @@ Changes to be committed:
           new file:   README.md
 </pre></div>
 Now that we have added the file it has been "staged" in the staging area. We can now make our first commit!
-<div class="codehilite"><pre><span></span>&gt; git commit
+<div class="highlight"><pre><span></span>&gt; git commit
 </pre></div>
 When you invoke this command an editor should pop-up and you have to leave a commit message. Good commit
 messages lead to a usable git log and separates the novice git users from the competent practitioners.
@@ -545,7 +545,7 @@ then 80 characters, written in the imperative voice.</p>
 is where you provide a context of what and why you did what you did in the project.</p>
 <p>A good rule of thumb is <em>If applied this commit will, <insert title of git message here></em></p>
 <p>My commit message is the following:
-<div class="codehilite"><pre><span></span>Checking in README file
+<div class="highlight"><pre><span></span>Checking in README file
 
 * Added short description of the project
 * Added python3 as a dependency
@@ -557,10 +557,10 @@ is where you provide a context of what and why you did what you did in the proje
 and to exit use Ctrl-X.</p>
 </blockquote>
 <p>Now that we have made our first commit we can examine our log!
-<div class="codehilite"><pre><span></span>&gt; git log
+<div class="highlight"><pre><span></span>&gt; git log
 </pre></div>
 The first line should output
-<div class="codehilite"><pre><span></span>* commit aaf89fd77e9b43d99fe32823843a7519b2108c90
+<div class="highlight"><pre><span></span>* commit aaf89fd77e9b43d99fe32823843a7519b2108c90
   Author: Clark Kent &lt;clark.kent@dailyplanet.com&gt;
   Date:   Sat Nov 05 13:45:11 2016 -0600
 
@@ -573,19 +573,19 @@ The first line is a unique identifier of your commit. The second
 give information on who made the commit. The third line gives the
 date. The rest is the commit message.</p>
 <p>To just get titles of commit messages you can use the following command
-<div class="codehilite"><pre><span></span>&gt; git log --oneline
+<div class="highlight"><pre><span></span>&gt; git log --oneline
 </pre></div>
 Another useful command is
-<div class="codehilite"><pre><span></span>&gt; git log --oneline --graph --all --decorate
+<div class="highlight"><pre><span></span>&gt; git log --oneline --graph --all --decorate
 </pre></div></p>
 <h3 id="some-helpful-commands">Some helpful commands<a class="headerlink" href="#some-helpful-commands" title="Permanent link">&para;</a></h3>
 <p>Removing files via git allows them to be recovered.
-<div class="codehilite"><pre><span></span>git rm FILENAME
+<div class="highlight"><pre><span></span>git rm FILENAME
 git rm -r DIRECTORY
 </pre></div>
 Renaming files can be done by moving a file and then
 adding it or you can use the following command:
-<div class="codehilite"><pre><span></span>git mv OLD NEW
+<div class="highlight"><pre><span></span>git mv OLD NEW
 </pre></div>
 <code>git rm</code> and <code>git mv</code> will stage the changes that will ulimately
 need to be commited.

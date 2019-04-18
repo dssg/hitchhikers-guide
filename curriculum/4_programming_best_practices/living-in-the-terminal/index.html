@@ -680,11 +680,11 @@ man pages are stored on your computer, so you can reference the documentation ev
 <p>For example...<br />
 Search: "replace whitespaces in filename in bash"<br />
 Tip! The search engine <a href="https://duckduckgo.com/">DuckDuckGo</a> returns StackOverflow answers as the first-hit-preview ;)<br />
-<div class="codehilite"><pre><span></span>find -name &quot;* *&quot; -type d | rename &#39;s/ /_/g&#39;
+<div class="highlight"><pre><span></span>find -name &quot;* *&quot; -type d | rename &#39;s/ /_/g&#39;
 find -name &quot;* *&quot; -type f | rename &#39;s/ /_/g&#39;
 </pre></div></p>
 <p>So what else can we do with <code>rename</code>?  </p>
-<p><div class="codehilite"><pre><span></span>$ man rename
+<p><div class="highlight"><pre><span></span>$ man rename
 &gt; ...
        -n, -nono
                No action: print names of files to be renamed, but don&#39;t rename.
@@ -738,26 +738,26 @@ This is helpful when you're not too confident about what your command will do.<b
 <p>Arrays are enclosed in brackets.<br />
 <code>array=(abc 123 doremi)</code><br />
 If you echo the array, you will get the first element.<br />
-<div class="codehilite"><pre><span></span>$ echo $array
+<div class="highlight"><pre><span></span>$ echo $array
 &gt; abc
 </pre></div>
 To echo the full array, expand the array with @:<br />
-<div class="codehilite"><pre><span></span>$ echo ${array[@]}
+<div class="highlight"><pre><span></span>$ echo ${array[@]}
 &gt; abc 123 doremi
 </pre></div></p>
 <h3 id="control-flow-and-logic">Control flow and logic<a class="headerlink" href="#control-flow-and-logic" title="Permanent link">&para;</a></h3>
 <p>Every bash statement is separated by a semicolon. This allows us to write one-liners that would normally be spread out over multiple lines.</p>
 <p>So a for loop...<br />
-<div class="codehilite"><pre><span></span>for i in {a..z}; do
+<div class="highlight"><pre><span></span>for i in {a..z}; do
   echo $i;
 done
 </pre></div>
 ...can be written as a one-liner:<br />
-<div class="codehilite"><pre><span></span>for i in {a..z}; do echo $i; done
+<div class="highlight"><pre><span></span>for i in {a..z}; do echo $i; done
 </pre></div></p>
 <h3 id="tricks">Tricks<a class="headerlink" href="#tricks" title="Permanent link">&para;</a></h3>
 <p>Brace expansion allows you to iterate over a range of possible variables.<br />
-<div class="codehilite"><pre><span></span>$ echo {0..9}
+<div class="highlight"><pre><span></span>$ echo {0..9}
 &gt; 0 1 2 3 4 5 6 7 8 9
 $ echo {0..9..2}
 &gt; 0 2 4 8
@@ -767,7 +767,7 @@ $ echo happy_birthday.{wav,mp3,flac}
 <h3 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h3>
 <p>We can write functions in shell scripts as well!
 The syntax looks like this...
-<div class="codehilite"><pre><span></span>function_name(args) {
+<div class="highlight"><pre><span></span>function_name(args) {
     function_body
 }
 </pre></div></p>
@@ -792,7 +792,7 @@ where...
 <h3 id="working-remotely-via-ssh">Working remotely via SSH<a class="headerlink" href="#working-remotely-via-ssh" title="Permanent link">&para;</a></h3>
 <p>When working via SSH, a connection interruption can terminate your running scripts, lose your environment varaibles and lose your command history! D: There's a way to avoid this. Actually there's two: <code>screen</code> and <code>tmux</code> are two programs that allow you to run a terminal session remotely on a remote server which you can interact with from your own machine via SSH. So if you ever lose connection to the server, your terminal session is still running - you just have to log back into it. You can also run multiple independent terminal sessions on the same server this way.</p>
 <h4 id="tmuxaka-terminal-multiplexer">tmux<br/>(aka: terminal multiplexer)<a class="headerlink" href="#tmuxaka-terminal-multiplexer" title="Permanent link">&para;</a></h4>
-<p><div class="codehilite"><pre><span></span># &quot;Ping&quot; the server to check if it&#39;s reachable (it &quot;pongs&quot; back... get it?)
+<p><div class="highlight"><pre><span></span># &quot;Ping&quot; the server to check if it&#39;s reachable (it &quot;pongs&quot; back... get it?)
 ping &lt;server&gt;
 # ssh into the server
 ssh &lt;user&gt;@&lt;server&gt;
@@ -914,15 +914,15 @@ features.  See sponsor.  The money goes to Uganda anyway.</p>
 What do we do when "Ctrl+C" is not enough?
 <code>top</code> or <code>htop</code> allow us to see what processes are running on our computer. (cf. System Monitor @ Mac)
 Every process has an ID (<code>pid</code>) which we can use to send a <code>kill</code> command to it.</p>
-<div class="codehilite"><pre><span></span>ps -ef | grep badprocess | awk &#39;{print $2}&#39; | kill `xargs $1`
+<div class="highlight"><pre><span></span>ps -ef | grep badprocess | awk &#39;{print $2}&#39; | kill `xargs $1`
 </pre></div>
 
 <p>Sometimes badprocess spawns other badprocess processes... so we can loop over them all.
-<div class="codehilite"><pre><span></span>ps -ef | grep badprocess | awk &#39;{print $2}&#39; | for f in `xargs $1`; do kill $f; done
+<div class="highlight"><pre><span></span>ps -ef | grep badprocess | awk &#39;{print $2}&#39; | for f in `xargs $1`; do kill $f; done
 </pre></div></p>
 <h4 id="parallel-programming-sort-of">Parallel programming (sort of)<a class="headerlink" href="#parallel-programming-sort-of" title="Permanent link">&para;</a></h4>
 <p>Run parallel processes on a multi-core system using GNU parallel. Typically, High-Performance Computing clusters have multi-cores (think quad-quad-quad-core), but running your script on the HPC is not enough to exploit it. What if you could run your script multiple times across each of the cores?</p>
-<div class="codehilite"><pre><span></span>NUM_JOBS=16
+<div class="highlight"><pre><span></span>NUM_JOBS=16
 parallel -j=$NUM_JOBS --dry-run &lt;script.sh&gt;
 </pre></div>
 
@@ -931,7 +931,7 @@ parallel -j=$NUM_JOBS --dry-run &lt;script.sh&gt;
 <p>You can customise your command prompt by changing the $PS1 variable.</p>
 <h4 id="motivational-cow">Motivational cow<a class="headerlink" href="#motivational-cow" title="Permanent link">&para;</a></h4>
 <p>If you need a little inspiration, let the <code>fortune</code> package brighten up your day! Even better, let an ASCII cow lighten up your day!</p>
-<div class="codehilite"><pre><span></span># Install the fortune and cowsay packages
+<div class="highlight"><pre><span></span># Install the fortune and cowsay packages
 sudo apt-get install cowsay fortune
 # &quot;Pipe&quot; the output of fortune into the cowsay command
 fortune | cowthink

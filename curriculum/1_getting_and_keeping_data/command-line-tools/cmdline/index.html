@@ -565,14 +565,14 @@ created by users rick, anna, emmy, and bob, respectively.</p>
 command. If you just type <code>cd</code>, without any arguements it will take you to your
 home directory. To see where  you are within the file system, you use the <code>pwd</code>,
 or <strong>print working directory</strong> command:</p>
-<div class="codehilite"><pre><span></span>$ cd
+<div class="highlight"><pre><span></span>$ cd
 $ pwd
 
 /home/akumar
 </pre></div>
 
 <p>You can also check who is logged into the machine with the <code>whoami</code> command.</p>
-<div class="codehilite"><pre><span></span>$ whoami
+<div class="highlight"><pre><span></span>$ whoami
 
 akumar
 </pre></div>
@@ -593,7 +593,7 @@ directories and files in the path.</p>
 <p>Let's assume that I (user <code>akumar</code>) have the following directory data:</p>
 <p>To <strong>list</strong> all the files and subdirectories in a given directory, we can
  type <code>ls</code>:
- <div class="codehilite"><pre><span></span>$ ls
+ <div class="highlight"><pre><span></span>$ ls
 
 data
 Documents
@@ -603,12 +603,12 @@ Documents
  <code>data</code> and <code>Documents</code>, as we'd expect. If we want to see the contents of one
  of these directories, we can use the same <code>ls</code> command, but specify the directory
  whose contents we'd like to see as an argument to the <code>ls</code> command.:
- <div class="codehilite"><pre><span></span>$ ls Documents/DailyPlanet_Articles
+ <div class="highlight"><pre><span></span>$ ls Documents/DailyPlanet_Articles
 
 superman_saves_the_day.txt
 </pre></div></p>
 <p>Note that this would have the same output as running:
- <div class="codehilite"><pre><span></span>$ cd Documents/DailyPlanet_Articles
+ <div class="highlight"><pre><span></span>$ cd Documents/DailyPlanet_Articles
 $ ls
 
 superman_saves_the_day.txt
@@ -624,10 +624,10 @@ superman_saves_the_day.txt
  shorthand <code>.</code>. One <code>.</code> means our current directory, and <code>..</code> means <strong>move up one directory</strong>
  relative to where we currently are in the filesystem:</p>
 <p>First, we would navigate to the <code>DailyPlant_Articles</code> directory:
- <div class="codehilite"><pre><span></span>cd /home/akumar/Documents/DailyPlant_Articles
+ <div class="highlight"><pre><span></span>cd /home/akumar/Documents/DailyPlant_Articles
 </pre></div>
  Now let move up two directories into the data directory.</p>
-<p><div class="codehilite"><pre><span></span>cd ../../data
+<p><div class="highlight"><pre><span></span>cd ../../data
 </pre></div>
  So we move up one directory from <code>DailyPlanet_Articles</code> to <code>Documents</code>, then up
  one more directory to <code>/home/akumar</code>, then down one directory to <code>data</code>.</p>
@@ -637,7 +637,7 @@ superman_saves_the_day.txt
 </blockquote>
 <p>If you ever get lost in the file system, remember that the command <code>cd</code> (without
  specifying another directory) will always drop you into your home directory.
- <div class="codehilite"><pre><span></span>$ cd
+ <div class="highlight"><pre><span></span>$ cd
 $ pwd
 
 /home/akumar
@@ -645,7 +645,7 @@ $ pwd
 <h3 id="creating-editing-moving-copying-and-deleting-files">Creating, Editing, Moving, Copying, and Deleting Files<a class="headerlink" href="#creating-editing-moving-copying-and-deleting-files" title="Permanent link">&para;</a></h3>
 <p>Now let's put the UNIX file system to work for us. Let's get started
  in our home directory:
- <div class="codehilite"><pre><span></span>$ cp &lt;source-file&gt; &lt;destination-file&gt; #copy file
+ <div class="highlight"><pre><span></span>$ cp &lt;source-file&gt; &lt;destination-file&gt; #copy file
 $ mv &lt;source-file&gt; &lt;destination-file&gt; #move file
 $ rm &lt;source-file&gt; &lt;destination-file&gt; #remove a file
 $ find ~/ -name &#39;*.txt&#39; #find all text files in my home directory
@@ -673,17 +673,17 @@ you can manage large scale collaborations.</p>
  food inspections. We are going to combine data from different years into a
  single CSV. First we are going to clone a project using <code>git</code>.</p>
 <p>Link to the project on github.</p>
-<div class="codehilite"><pre><span></span>$ git clone &lt;add link to repo here&gt;
+<div class="highlight"><pre><span></span>$ git clone &lt;add link to repo here&gt;
 </pre></div>
 
 <p>We are going to use the github flow for this project. First we want to configure our
  git profile.</p>
-<div class="codehilite"><pre><span></span># See how your git config looks
+<div class="highlight"><pre><span></span># See how your git config looks
 git config --list
 </pre></div>
 
 <p>Set your workspace
- <div class="codehilite"><pre><span></span># Adding some if you dont have a user.name or user.email
+ <div class="highlight"><pre><span></span># Adding some if you dont have a user.name or user.email
 
 git config --global user.name &quot;Rayid Ghani&quot;
 git config --global user.email &quot;rayid.ghani@dssg.io&quot;
@@ -693,7 +693,7 @@ git config --global push.default current
 </pre></div></p>
 <p>Different work flows:</p>
 <p><strong>Solo Style</strong>
- <div class="codehilite"><pre><span></span>mkdir my_working_directory
+ <div class="highlight"><pre><span></span>mkdir my_working_directory
 cd my_working_directory
 git init
 touch some_file.py
@@ -725,13 +725,13 @@ git commit -m &quot;Working with some awesome idea&quot;
 </ul>
 <p>Now do a <code>git pull</code> to fetch any changes in the remote repository and
 merge into your repository.</p>
-<div class="codehilite"><pre><span></span>$ git pull
+<div class="highlight"><pre><span></span>$ git pull
 </pre></div>
 
 <p>Now create your own "branch" of the project where you can make changes
 separate from the <em>master</em> branch. The <em>master</em> branch should always be
 pristine.</p>
-<p><div class="codehilite"><pre><span></span>$ git checkout -b &lt;username&gt;-branch
+<p><div class="highlight"><pre><span></span>$ git checkout -b &lt;username&gt;-branch
 </pre></div>
 Alternativly, you can name branches with the issue number of the issue you are
 working on (e.g., add_features_issue#44).</p>
@@ -744,12 +744,12 @@ request.</p>
 read into a database.</p>
 <p>First clone the project:</p>
 <p>Then create your own branch:</p>
-<div class="codehilite"><pre><span></span>$ git checkout -b &lt;username&gt;-branch
+<div class="highlight"><pre><span></span>$ git checkout -b &lt;username&gt;-branch
 </pre></div>
 
 <p>Link to download data: https://github.com/avishekrk/where_not_to_eat/archive/master.zip</p>
 <p>Here is my solution:</p>
-<div class="codehilite"><pre><span></span>wget https://github.com/avishekrk/where_not_to_eat/archive/master.zip<span class="p">;</span>
+<div class="highlight"><pre><span></span>wget https://github.com/avishekrk/where_not_to_eat/archive/master.zip<span class="p">;</span>
 unzip master.zip<span class="p">;</span>
 rm -v master.zip
 mv -v where_not_to_eat-master raw
@@ -764,7 +764,7 @@ mv -v all_inspections.csv ./../staging
 </pre></div>
 
 <p>After saving our script we can commit our changes on our branch:</p>
-<div class="codehilite"><pre><span></span>git add clean.sh
+<div class="highlight"><pre><span></span>git add clean.sh
 git commit -m &quot;Added script to clean and concatenate files
 git push #push to our remote repository
 </pre></div>

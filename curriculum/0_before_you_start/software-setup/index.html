@@ -584,7 +584,7 @@
 </ol>
 <p><strong>Mac</strong>: </p>
 <p>In the terminal, type:</p>
-<div class="codehilite"><pre><span></span>brew update
+<div class="highlight"><pre><span></span>brew update
 brew install git
 </pre></div>
 
@@ -594,11 +594,11 @@ brew install git
 <p>On Windows, you should already have git. (Either you installed <strong>git-bash</strong>, which is part of git, or you should have downloaded git in the <strong>cygwin</strong> package menu.)</p>
 <ol>
 <li>Test your installation. For example, create a directory, and make it a git repo:
- <div class="codehilite"><pre><span></span>mkdir mytestdir
+ <div class="highlight"><pre><span></span>mkdir mytestdir
 cd mytestdir/
 git init
 </pre></div>
- <div class="codehilite"><pre><span></span>&gt; Initialized empty Git repository in [...]/mytestdir/.git/
+ <div class="highlight"><pre><span></span>&gt; Initialized empty Git repository in [...]/mytestdir/.git/
 </pre></div>
 You can un-git the directory by deleting the <code>.git</code> folder: <code>rm -r .git</code> (or simply delete <code>mytestdir</code> entirely with command <code>rmdir mytestdir</code>).</li>
 </ol>
@@ -640,10 +640,10 @@ You can un-git the directory by deleting the <code>.git</code> folder: <code>rm 
 <h3 id="ssh-putty">SSH / Putty<a class="headerlink" href="#ssh-putty" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Use your username and server's address to ssh into the server:
- <div class="codehilite"><pre><span></span>ssh yourusername@serverurl
+ <div class="highlight"><pre><span></span>ssh yourusername@serverurl
 </pre></div>
  Once you enter your password, you should be dropped into a shell on the server:
- <div class="codehilite"><pre><span></span>&gt; jsmith@servername: ~$
+ <div class="highlight"><pre><span></span>&gt; jsmith@servername: ~$
 </pre></div></li>
 </ol>
 <h3 id="psql">PSQL<a class="headerlink" href="#psql" title="Permanent link">&para;</a></h3>
@@ -655,30 +655,30 @@ You can un-git the directory by deleting the <code>.git</code> folder: <code>rm 
 <p>For all non-Windows users, also do these steps to access the Postgres server from your local machine:</p>
 <ol>
 <li>Make sure you have the <code>psql</code> client installed; on Mac, this would be
- <div class="codehilite"><pre><span></span>brew install postgresql
+ <div class="highlight"><pre><span></span>brew install postgresql
 </pre></div>
  On Ubuntu: <code>apt-get install postgresql-client-9.4</code>. This won't work for  Ubuntu &lt;= 14.4, which by default only packages 9.3; in that case follow <a href="https://www.postgresql.org/download/linux/ubuntu/">these  instructions</a>. (Though the  older client seems to be happy to connect to the server, too.)</li>
 </ol>
 <p>Some Linux distributions might need <code>libpq</code>:
- <div class="codehilite"><pre><span></span>sudo apt-get install libpq-dev
+ <div class="highlight"><pre><span></span>sudo apt-get install libpq-dev
 </pre></div>
  or
- <div class="codehilite"><pre><span></span>sudo yum install libpq-devel
+ <div class="highlight"><pre><span></span>sudo yum install libpq-devel
 </pre></div>
 2. Once you have the postgres client installed, you can access the training database with it. However, the database server only allows access from the training server. Thus, you need to set up an SSH tunnel through the training server to the Postgres server:
- <div class="codehilite"><pre><span></span>ssh -NL localhost:8888:POSTGRESURL:5432 ec2username@EC2URL
+ <div class="highlight"><pre><span></span>ssh -NL localhost:8888:POSTGRESURL:5432 ec2username@EC2URL
 </pre></div>
  where you need to substitute <code>POSTGRESURL</code>, <code>ec2username</code>, and <code>EC2URL</code> with the postgres server's URL, your username on the training server, and the training server's URL respectively. Also, you should substitute <code>8888</code> with a random number in the 8000-65000 range of your choice (port <code>8888</code> might be in use already). </p>
 <p>This command forwards your laptop's port 8888 through your account on the EC2 (EC2URL) to the Postgres server port 5432. So if you access your local port 8888 in the next step, you get forwarded to the Postgres server's port 5432 - but from the Postgres server's view, the traffic is now coming from the training server (instead of your laptop), and the training server is the only IP address that is allowed to access the postgres server.</p>
 <ol>
 <li>Connect to the Postgres database on the forwarded port
- <div class="codehilite"><pre><span></span>psql -h localhost -p 8888 -U USERNAME -d DBNAME
+ <div class="highlight"><pre><span></span>psql -h localhost -p 8888 -U USERNAME -d DBNAME
 </pre></div>
  where you need to replace <code>USERNAME</code> with the postgres [!] username, <code>DBNAME</code> with the name of your database, and the <code>8888</code> with the number you chose in the previous step. You then get prompted for a password. This is now the postgres server asking, so you need to reply with the corresponding password!</li>
 </ol>
 <p>This should drop you into a SQL shell on the database server.</p>
 <p>You'll need to explicitly assume a role to do anything beyond connecting to the database. To make changes to the training database, use the <code>training_write</code> role. Let's test it by creating and dropping a schema:
- <div class="codehilite"><pre><span></span>set role training_write;
+ <div class="highlight"><pre><span></span>set role training_write;
 create schema jsmith;
 drop schema jsmith;
 </pre></div></p>

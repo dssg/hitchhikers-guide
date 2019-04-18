@@ -464,18 +464,18 @@ and how to go back to prior parts of our project. We left off creating
 a README file. Now the time has come to actually write some code.</p>
 <h3 id="create-a-python-script-to-output-results-of-analyzing-311-calls">Create a python script to output results of analyzing 311 calls<a class="headerlink" href="#create-a-python-script-to-output-results-of-analyzing-311-calls" title="Permanent link">&para;</a></h3>
 <p>Let's download some data to work with using the following command you can copy and paste.
-<div class="codehilite"><pre><span></span>&gt; curl -O https://raw.githubusercontent.com/avishekrk/pandas-cookbook/master/data/311-service-requests.csv
+<div class="highlight"><pre><span></span>&gt; curl -O https://raw.githubusercontent.com/avishekrk/pandas-cookbook/master/data/311-service-requests.csv
 </pre></div></p>
 <p>Fire up your favorite text editor and let's write a little program
 called <code>descriptive_stats.py</code> to get the most common complaints
 from 311 data in NYC.</p>
 <p>If you are using <code>nano</code> invoke the command
-<div class="codehilite"><pre><span></span>&gt; nano descriptive_stats.py
+<div class="highlight"><pre><span></span>&gt; nano descriptive_stats.py
 </pre></div>
 Add the following in the text. Don't worry you don't need to know what this means
 right now. We are loading some data into and finding the top 5 categories of
 complaints using 311 data.</p>
-<div class="codehilite"><pre><span></span>from __future__ import print_function
+<div class="highlight"><pre><span></span>from __future__ import print_function
 import pandas as pd
 
 fname_data = &#39;311-service-requests.csv&#39;
@@ -487,13 +487,13 @@ print( df_311_calls[&#39;Complaint Type&#39;].value_counts()[:5])
 the to exit is <code>Ctrl-X</code>.</p>
 <p>We have just created a python program. We can run the program
 using the following syntax.
-<div class="codehilite"><pre><span></span>&gt; python &lt;program name&gt;
+<div class="highlight"><pre><span></span>&gt; python &lt;program name&gt;
 </pre></div></p>
 <p>In our case we run the following command:
-<div class="codehilite"><pre><span></span>&gt; python descriptive_stats.py
+<div class="highlight"><pre><span></span>&gt; python descriptive_stats.py
 </pre></div>
 When we run the program we should get the following output
-<div class="codehilite"><pre><span></span>HEATING                   14200
+<div class="highlight"><pre><span></span>HEATING                   14200
 GENERAL CONSTRUCTION       7471
 Street Light Condition     7117
 DOF Literature Request     5797
@@ -502,7 +502,7 @@ Name: Complaint Type, dtype: int64
 </pre></div>
 These is the top 5 311 complaints for 2010 in NYC.</p>
 <p>Now that we have a working program lets commit it to the repo, just like before.
-<div class="codehilite"><pre><span></span>&gt; git add descriptive_stats.py # to the staging area
+<div class="highlight"><pre><span></span>&gt; git add descriptive_stats.py # to the staging area
 &gt; git commit -m &quot;Checking in descriptive_stats.py, output top 5 311 complaints&quot;
 </pre></div>
 In this case rather then launching a text editor to write a commit message we
@@ -511,7 +511,7 @@ require a lengthy commit message. Now we should have a commited version of descr
 stats.</p>
 <p>Let's now decide that we want the top 10 311 complaints and modify our program
 to output the top 10 results. Our current program should now be:
-<div class="codehilite"><pre><span></span>from __future__ import print_function
+<div class="highlight"><pre><span></span>from __future__ import print_function
 import pandas as pd
 
 fname_data = &#39;311-service-requests.csv&#39;
@@ -519,11 +519,11 @@ df_311_calls = pd.read_csv(&#39;311-service-requests.csv&#39;)
 print( df_311_calls[&#39;Complaint Type&#39;].value_counts[:10])
 </pre></div>
 Let's commit that change:
-<div class="codehilite"><pre><span></span>git add descriptive_stats.py
+<div class="highlight"><pre><span></span>git add descriptive_stats.py
 git commit -m &quot;Changed the top 5 results to the top 10 results in descriptive_stats.py&quot;
 </pre></div>
 If we look at our git log we should new be able to see history of our changes:
-<div class="codehilite"><pre><span></span>&gt; git log
+<div class="highlight"><pre><span></span>&gt; git log
 
 
 commit 42c35933c4d52708c2562c1c05361b152a2b9230
@@ -551,7 +551,7 @@ using the <code>git diff</code> command. The <code>git diff</code> command is im
 for seeing changes in your source code and comparing one commit against
 another.</p>
 <p>If we now invoke the command
-<div class="codehilite"><pre><span></span>&gt; git diff HEAD~1
+<div class="highlight"><pre><span></span>&gt; git diff HEAD~1
 
 diff --git a/descriptive_stats.py b/descriptive_stats.py
 index 09b7168..c38d3e3 100644
@@ -578,14 +578,14 @@ is a very handy feature for when we break something and want to start from a
 working copy or if we have an old feature that has since been discarded it can
 be restored.</p>
 <p>Let's now go back to our prior commit using the <code>git checkout</code> command
-<div class="codehilite"><pre><span></span>git checkout HEAD~1 descriptive_stats.py
+<div class="highlight"><pre><span></span>git checkout HEAD~1 descriptive_stats.py
 </pre></div>
 If we look at our file <code>descriptive_stats.py</code> we will have reverted
 back to our old version.
-<div class="codehilite"><pre><span></span>git checkout HEAD descriptive_stats.py
+<div class="highlight"><pre><span></span>git checkout HEAD descriptive_stats.py
 </pre></div></p>
 <p>Another useful <code>git diff</code> command is:
-<div class="codehilite"><pre><span></span>git diff --staged
+<div class="highlight"><pre><span></span>git diff --staged
 </pre></div>
 where we can examine the differences between files that have been staged
 for commit and the last commit.</p>

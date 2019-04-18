@@ -499,7 +499,7 @@ working with data in Python much easier. </p>
 <h3 id="getting-started-with-jupyter-notebooks">Getting started with Jupyter Notebooks<a class="headerlink" href="#getting-started-with-jupyter-notebooks" title="Permanent link">&para;</a></h3>
 <p>To start up a Jupyter notebook server, simply navigate to the directory where you want the 
 notebooks to be saved and run the command
-<div class="codehilite"><pre><span></span>jupyter notebook
+<div class="highlight"><pre><span></span>jupyter notebook
 </pre></div>
 A browser should open with a notebook navigator. Click the "New" button and select "Python 3".
 A beautiful blank notebook should open in a new tab
@@ -512,10 +512,10 @@ notebook to your local machine. This is preferable if you need to access a large
 on a database. Your work will also be saved on a server that is periodically backed-up which will 
 make your work immune to computer-crashes/someone-stealing-your-computer/(some)acts-of-god.</p>
 <p>Basic port forwarding:
-<div class="codehilite"><pre><span></span>ssh -L 44444:localhost:44444 &lt;username&gt;@&lt;instance-name&gt;.dssg.io
+<div class="highlight"><pre><span></span>ssh -L 44444:localhost:44444 &lt;username&gt;@&lt;instance-name&gt;.dssg.io
 </pre></div>
 Now go to the location in the file system you would like to launch a Jupyter server and type</p>
-<div class="codehilite"><pre><span></span>jupyter notebook --no-browser --port 44444
+<div class="highlight"><pre><span></span>jupyter notebook --no-browser --port 44444
 </pre></div>
 
 <p>You should now be able to go to your browser and go to the address <code>localhost:44444</code>. </p>

@@ -679,7 +679,7 @@ We want to help them establish good habits and avoid common mistakes.</p>
 <hr />
 <h2 id="for-whom-do-we-write-code">For whom do we write code?<a class="headerlink" href="#for-whom-do-we-write-code" title="Permanent link">&para;</a></h2>
 <h3 id="what-you-write-for-people">What you write (for people).<a class="headerlink" href="#what-you-write-for-people" title="Permanent link">&para;</a></h3>
-<p><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<p><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    :param int n: The Fibonnaci index you want to return</span>
 <span class="sd">    :return: The nth Fibonnaci number</span>
@@ -693,7 +693,7 @@ We want to help them establish good habits and avoid common mistakes.</p>
 Here is an example of a function. Why write this function? Well, literally, you give the function an integer <em>n</em>, and the function gives you back the <em>n</em>th Fibonnaci number. Writing code allows you to have the computer calculate the <em>n</em>th Fibonnaci number, which it can probably do much faster than you can, especially as <em>n</em> gets larger and larger. It also allows your human comrades to see for themselves how you rattle off arbitrary Fibonacci numbers so fast. But you don't really write code for the computer... </p>
 <h3 id="what-the-computer-sees-assembly-language-for-the-processor">What the computer sees (assembly language for the processor).<a class="headerlink" href="#what-the-computer-sees-assembly-language-for-the-processor" title="Permanent link">&para;</a></h3>
 <p>... because if you did, it would look like this.
-<div class="codehilite"><pre><span></span>  2           0 LOAD_FAST                0 (n)
+<div class="highlight"><pre><span></span>  2           0 LOAD_FAST                0 (n)
               3 LOAD_CONST               1 (2)
               6 COMPARE_OP               0 (&lt;)
               9 POP_JUMP_IF_FALSE       16
@@ -735,7 +735,7 @@ are calling wondering what the heck is going on over there (why are they awake, 
 <hr />
 <h2 id="give-things-informative-names">Give Things Informative Names<a class="headerlink" href="#give-things-informative-names" title="Permanent link">&para;</a></h2>
 <p>What does the function below do?
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>  
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>  
 
 <span class="k">def</span> <span class="nf">doit</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>  
     <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>  
@@ -749,14 +749,14 @@ are calling wondering what the heck is going on over there (why are they awake, 
             <span class="k">continue</span>  
     <span class="k">return</span> <span class="n">output</span>  
 </pre></div></p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">magic</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">magic</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
     <span class="nb">filter</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
     <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y</span> 
                     <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">input</span> 
                     <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">20</span> <span class="ow">and</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">filter</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">filter</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">pretty_pictures</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pretty_pictures</span><span class="p">():</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;2016.csv.gz&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;STATION&#39;</span><span class="p">,</span> <span class="s1">&#39;DATE&#39;</span><span class="p">,</span> <span class="s1">&#39;TYPE&#39;</span><span class="p">,</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span> 
                                            <span class="s1">&#39;MEASUREMENT_FLAG&#39;</span><span class="p">,</span> <span class="s1">&#39;QUALITY_FLAG&#39;</span><span class="p">,</span> 
                                            <span class="s1">&#39;SOURCE_FLAG&#39;</span><span class="p">,</span> <span class="s1">&#39;OBS_TIME&#39;</span><span class="p">])</span>
@@ -789,7 +789,7 @@ are calling wondering what the heck is going on over there (why are they awake, 
 </ul>
 <hr />
 <h2 id="document-inputs-and-outputs">Document Inputs and Outputs<a class="headerlink" href="#document-inputs-and-outputs" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>  
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>  
 
 <span class="k">def</span> <span class="nf">factor</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>  
     <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>  
@@ -804,14 +804,14 @@ are calling wondering what the heck is going on over there (why are they awake, 
     <span class="k">return</span> <span class="n">output</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">unique_flatten</span><span class="p">(</span><span class="n">the_input</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">unique_flatten</span><span class="p">(</span><span class="n">the_input</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
     <span class="n">flattened_set</span> <span class="o">=</span> <span class="p">{</span><span class="n">val</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">the_input</span><span class="p">}</span>
     <span class="n">filtered_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">val</span> <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">flattened_set</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">max_length</span><span class="p">]</span>
     <span class="n">filtered_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">filtered_list</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="n">WEATHER_HEADERS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;STATION&#39;</span><span class="p">,</span> <span class="s1">&#39;DATE&#39;</span><span class="p">,</span> <span class="s1">&#39;TYPE&#39;</span><span class="p">,</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><span class="n">WEATHER_HEADERS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;STATION&#39;</span><span class="p">,</span> <span class="s1">&#39;DATE&#39;</span><span class="p">,</span> <span class="s1">&#39;TYPE&#39;</span><span class="p">,</span> <span class="s1">&#39;VALUE&#39;</span><span class="p">,</span> 
                    <span class="s1">&#39;MEASUREMENT_FLAG&#39;</span><span class="p">,</span> <span class="s1">&#39;QUALITY_FLAG&#39;</span><span class="p">,</span> 
                    <span class="s1">&#39;SOURCE_FLAG&#39;</span><span class="p">,</span> <span class="s1">&#39;OBS_TIME&#39;</span><span class="p">]</span>
 
@@ -850,7 +850,7 @@ are calling wondering what the heck is going on over there (why are they awake, 
 <hr />
 <h2 id="dont-repeat-yourself">Don't Repeat Yourself<a class="headerlink" href="#dont-repeat-yourself" title="Permanent link">&para;</a></h2>
 <h4 id="the-wet-write-everything-twice-way">The WET (Write Everything Twice) Way<a class="headerlink" href="#the-wet-write-everything-twice-way" title="Permanent link">&para;</a></h4>
-<p><div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">max_intersection</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+<p><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">max_intersection</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compute the value counts of the left and right lists and then return</span>
 <span class="sd">    the maximum for each value.</span>
@@ -882,7 +882,7 @@ are calling wondering what the heck is going on over there (why are they awake, 
 In this case, the value counting logic is redundant and can be abstracted
 away into a function. </p>
 <h4 id="the-dry-way-use-a-function-to-avoid-redundancy">The DRY Way: Use a function to avoid redundancy<a class="headerlink" href="#the-dry-way-use-a-function-to-avoid-redundancy" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">value_counts</span><span class="p">(</span><span class="n">the_list</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">value_counts</span><span class="p">(</span><span class="n">the_list</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    :param list[object] the_list: The list whose values we&#39;ll count</span>
 <span class="sd">    :rtype: dict[object, int]</span>
@@ -918,7 +918,7 @@ away into a function. </p>
 <p>Better... But, there is no need to reinvent the wheel with the <code>value_count</code> function if it has already been implemented for you. </p>
 <hr />
 <h4 id="the-dry-er-way">The DRY-er Way<a class="headerlink" href="#the-dry-er-way" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="n">from</span> <span class="n">collections</span> <span class="n">import</span> <span class="no">Counter</span>
+<div class="highlight"><pre><span></span><span class="n">from</span> <span class="n">collections</span> <span class="n">import</span> <span class="no">Counter</span>
 
 <span class="k">def</span> <span class="nf">max_intersection</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
     <span class="s2">&quot;&quot;&quot;</span>
@@ -942,7 +942,7 @@ away into a function. </p>
 <p>The Python Standard Library has a <a href="https://docs.python.org/2/library/collections.html#module-collections">collections library</a> that has a Counter object already built. </p>
 <h4 id="the-wet-way-plotting">The WET Way: Plotting<a class="headerlink" href="#the-wet-way-plotting" title="Permanent link">&para;</a></h4>
 <p>Here is a soggy example of a function that makes plots. Good: Docstring, somewhat informative name. Bad: This function does multiple things, and uses a hard path ('2016.csv.gz').
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">precipitation_in_chicago</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">precipitation_in_chicago</span><span class="p">():</span>
     <span class="s2">&quot;&quot;&quot; Saves plots of the precipitation from two Chicago weather stations</span>
 <span class="s2">    in 2016 to `first_fig.png` and `second_fig.png` and returns the mean</span>
 <span class="s2">    precipitation at them for the year.</span>
@@ -970,7 +970,7 @@ away into a function. </p>
 </pre></div></p>
 <h4 id="the-dry-way-plotting">The DRY Way: Plotting<a class="headerlink" href="#the-dry-way-plotting" title="Permanent link">&para;</a></h4>
 <p>In this example, we've made a helper function. In this example, the function has a better name, doesn't load the dataframe within the function, and has a docstring specifying what the inputs and outputs are as well as their types. </p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">plot_precipitation</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">station_id</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s1">&#39;out.png&#39;</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_precipitation</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">station_id</span><span class="p">,</span> <span class="n">output_file</span><span class="o">=</span><span class="s1">&#39;out.png&#39;</span><span class="p">):</span>
     <span class="s2">&quot;&quot;&quot; Plot the precipitation at the passed weather station and return</span>
 <span class="s2">    the mean precipitation among all values.</span>
 
@@ -1012,14 +1012,14 @@ function), you likely should add one.</li>
 <h2 id="reduce-cognitive-load">Reduce Cognitive Load.<a class="headerlink" href="#reduce-cognitive-load" title="Permanent link">&para;</a></h2>
 <h3 id="follow-pep-8">Follow PEP-8<a class="headerlink" href="#follow-pep-8" title="Permanent link">&para;</a></h3>
 <p>How long does it take you to understand what this function is doing?</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">GCD</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">GCD</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
    <span class="sd">&quot;&quot;&quot;Return the GCD of a and b&quot;&quot;&quot;</span>
    <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span><span class="nb">min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
    <span class="k">return</span> <span class="n">b</span> <span class="k">if</span> <span class="n">a</span><span class="o">%</span><span class="n">b</span><span class="o">==</span><span class="mi">0</span> <span class="k">else</span> <span class="n">GCD</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="o">%</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 
 <h4 id="what-makes-this-one-better">What makes this one better?<a class="headerlink" href="#what-makes-this-one-better" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Return the GCD of a and b</span>
 
 <span class="sd">    :param int a: The first number (positive)</span>
@@ -1047,7 +1047,7 @@ function), you likely should add one.</li>
 <li>Use spaces not tabs!</li>
 </ul>
 <h4 id="you-can-use-a-checker-to-pep-8-your-code">You can use a checker to PEP-8 your code.<a class="headerlink" href="#you-can-use-a-checker-to-pep-8-your-code" title="Permanent link">&para;</a></h4>
-<h3 id="pip-install-autopep8-autopep8-in-place-mypythonfilepy"><div class="codehilite"><pre><span></span>pip install autopep8
+<h3 id="pip-install-autopep8-autopep8-in-place-mypythonfilepy"><div class="highlight"><pre><span></span>pip install autopep8
 autopep8 --in-place mypythonfile.py 
 </pre></div><a class="headerlink" href="#pip-install-autopep8-autopep8-in-place-mypythonfilepy" title="Permanent link">&para;</a></h3>
 <h2 id="summary-code-is-for-humans-not-computers">Summary: Code is for humans, not computers.<a class="headerlink" href="#summary-code-is-for-humans-not-computers" title="Permanent link">&para;</a></h2>
@@ -1060,7 +1060,7 @@ autopep8 --in-place mypythonfile.py
 <hr />
 <h2 id="exercises">Exercises<a class="headerlink" href="#exercises" title="Permanent link">&para;</a></h2>
 <h3 id="fix-this-class">Fix this class!<a class="headerlink" href="#fix-this-class" title="Permanent link">&para;</a></h3>
-<h3 id="class-myclassobject-def-__init__self-r-i-selfr-r-selfi-i-def-multiplyself-other-return-myclassselfr-otherr-selfi-otheri-selfr-otheri-selfi-otherr"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="n">myclass</span><span class="p">(</span><span class="n">object</span><span class="p">):</span>
+<h3 id="class-myclassobject-def-__init__self-r-i-selfr-r-selfi-i-def-multiplyself-other-return-myclassselfr-otherr-selfi-otheri-selfr-otheri-selfi-otherr"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">myclass</span><span class="p">(</span><span class="n">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">I</span><span class="p">):</span>
         <span class="nb">self</span><span class="o">.</span><span class="n">R</span> <span class="o">=</span> <span class="n">R</span>
         <span class="nb">self</span><span class="o">.</span><span class="n">I</span> <span class="o">=</span> <span class="n">I</span>
@@ -1070,12 +1070,12 @@ autopep8 --in-place mypythonfile.py
                        <span class="nb">self</span><span class="o">.</span><span class="n">R</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">I</span> <span class="o">+</span> <span class="nb">self</span><span class="o">.</span><span class="n">I</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">R</span><span class="p">)</span>
 </pre></div><a class="headerlink" href="#class-myclassobject-def-__init__self-r-i-selfr-r-selfi-i-def-multiplyself-other-return-myclassselfr-otherr-selfi-otheri-selfr-otheri-selfi-otherr" title="Permanent link">&para;</a></h3>
 <h3 id="fix-this-function">Fix this function!<a class="headerlink" href="#fix-this-function" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">bang</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">bang</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">bang</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 </pre></div>
 
 <h3 id="fix-this-function_1">Fix this function!<a class="headerlink" href="#fix-this-function_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="s2">&quot;&quot;&quot; Return the precipitation field from the csv passed in &quot;&quot;&quot;</span>
     <span class="n">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="n">as</span> <span class="ss">f</span><span class="p">:</span>
         <span class="k">return</span> <span class="o">[</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="k">for</span> <span class="n">line</span> <span class="k">in</span> <span class="n">f</span><span class="o">]</span>

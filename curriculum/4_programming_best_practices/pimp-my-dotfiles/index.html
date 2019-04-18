@@ -509,17 +509,17 @@
 <p>A common practice is to store your files in a git repository. This way you have a history of the modifications you've done but more important, a copy you can grab from anywhere (e.g. the DSSG server) and get all your magic.</p>
 <h3 id="finding-your-dotfiles">Finding your dotfiles<a class="headerlink" href="#finding-your-dotfiles" title="Permanent link">&para;</a></h3>
 <p>Most applications store a dotfile in your home folder, type the following in the command line to see yours:</p>
-<div class="codehilite"><pre><span></span>find . -name <span class="s1">&#39;.*&#39;</span> -maxdepth <span class="m">1</span>
+<div class="highlight"><pre><span></span>find . -name <span class="s1">&#39;.*&#39;</span> -maxdepth <span class="m">1</span>
 </pre></div>
 
 <p>Here are some of mine:</p>
-<div class="codehilite"><pre><span></span>.Rprofile <span class="c1">#settings for your R sessions</span>
+<div class="highlight"><pre><span></span>.Rprofile <span class="c1">#settings for your R sessions</span>
 .vimrc <span class="c1">#vim settings</span>
 .bash_profile <span class="c1">#shell settings</span>
 </pre></div>
 
 <p>Let's see how my <code>.Rprofile</code> looks:</p>
-<div class="codehilite"><pre><span></span><span class="c1">## Change colors when running R in the terminal</span>
+<div class="highlight"><pre><span></span><span class="c1">## Change colors when running R in the terminal</span>
 <span class="nf">if </span><span class="p">(</span><span class="nf">Sys.getenv</span><span class="p">(</span><span class="s">&quot;TERM&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;xterm-256color&quot;</span><span class="p">)</span> <span class="nf">library</span><span class="p">(</span><span class="s">&quot;colorout&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -527,12 +527,12 @@
 <p><strong>Note:</strong> even though every dotfile starts with <code>.</code>, not everything that starts with a <code>.</code> is a dotfile. For example <code>.DS_Store</code> is a file you'll find on many folder if you use OS X, this file stores custom attributes for the folder but you don't want to modify it directly, it's just a file the system uses to keep track of folder customizations (e.g. changing the icon)</p>
 <h3 id="bashrc-and-bash_profile"><code>.bashrc</code> and <code>.bash_profile</code><a class="headerlink" href="#bashrc-and-bash_profile" title="Permanent link">&para;</a></h3>
 <p>When you open a terminal, a program called <code>bash</code> starts, this program let's you execute commands such as <code>cd</code>, <code>ls</code>, etc. Bash is highly configurable through its dotfiles: <code>.bashrc</code>and <code>.bash_profile</code>. There are some differences between those two and they get executed at different times, but a nice setting to get started is to make <code>.bash_profile</code> call  <code>.bashrc</code> and set your configuration file in the later. To to that follow this steps:</p>
-<div class="codehilite"><pre><span></span><span class="c1"># open .bash_profile</span>
+<div class="highlight"><pre><span></span><span class="c1"># open .bash_profile</span>
 open ~/.bash_profile
 </pre></div>
 
 <p>Your default editor will open the file, chances are the file contains some settings already, to avoid breaking your system, do not delete anything and just put this at the top of the file.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># just load ~/.bashrc</span>
+<div class="highlight"><pre><span></span><span class="c1"># just load ~/.bashrc</span>
 <span class="k">if</span> <span class="o">[</span> -f ~/.bashrc <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
    <span class="nb">source</span> ~/.bashrc
 <span class="k">fi</span>
@@ -540,11 +540,11 @@ open ~/.bash_profile
 
 <p>Now you can start twerking your shell, for example adding shortcuts. Let's create one that outputs only folders in our current working directory.</p>
 <p>First, open your <code>.bashrc</code>:</p>
-<div class="codehilite"><pre><span></span>open ~/.bashrc
+<div class="highlight"><pre><span></span>open ~/.bashrc
 </pre></div>
 
 <p>Add this line:</p>
-<div class="codehilite"><pre><span></span><span class="c1"># List only directories</span>
+<div class="highlight"><pre><span></span><span class="c1"># List only directories</span>
 <span class="nb">alias</span> <span class="nv">lsd</span><span class="o">=</span><span class="s1">&#39;ls -l | grep &quot;^d&quot;&#39;</span>
 </pre></div>
 
@@ -554,7 +554,7 @@ open ~/.bash_profile
 <h3 id="using-git-to-manage-your-dotfiles">Using git to manage your dotfiles<a class="headerlink" href="#using-git-to-manage-your-dotfiles" title="Permanent link">&para;</a></h3>
 <p>As I mentioned before, your dotfiles live in your home folder (type <code>cd ~; pwd</code> to see which is yours). Your home folder contains a lot of stuff and you probably don't want to create a git repo there (please don't). To solve this issue we can do the following: create a folder anywhere in your computer, create your dotfiles there and then link them to your home folder, where your applications expect your dotfiles to be.</p>
 <p>Let's imagine you want to save your dotfiles in <code>~/dotfiles</code>. Run the following to create the folder add some files and start a git repository:</p>
-<div class="codehilite"><pre><span></span><span class="c1"># create and move to the folder</span>
+<div class="highlight"><pre><span></span><span class="c1"># create and move to the folder</span>
 mkdir ~/dotfiles<span class="p">;</span> <span class="nb">cd</span> ~/dotfiles
 <span class="c1"># get the content from your original .bashrc and copy it in your</span>
 <span class="c1"># .bashrc stored in ~/dotfiles, to the same with .bash_profile</span>
@@ -568,7 +568,7 @@ git commit -m <span class="s1">&#39;dotfiles are awesome&#39;</span>
 
 <p>Now you have a copy of your <code>.bashrc</code> and <code>.bash_profile</code> outside your home folder and you created a repo to store them. But there's one step missing, if you modify your dotfiles in <code>~/dotfiles</code>, your computer won't do anything because it will look in your home folder. To fix it we need to link our files in <code>~/dotfiles</code> to our home folder.</p>
 <p>To do that we'll create <em>symlinks</em>, which are basically pointers to files, that way you can store your dotfiles anywhere and your computer is still going to find them.</p>
-<div class="codehilite"><pre><span></span><span class="c1"># link files in ~/dotfiles to your home folder</span>
+<div class="highlight"><pre><span></span><span class="c1"># link files in ~/dotfiles to your home folder</span>
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.bash_profile ~/.bash_profile
 </pre></div>
@@ -578,12 +578,12 @@ ln -s ~/dotfiles/.bash_profile ~/.bash_profile
 <h3 id="using-your-dot-files-in-another-machine">Using your dot files in another machine<a class="headerlink" href="#using-your-dot-files-in-another-machine" title="Permanent link">&para;</a></h3>
 <p>At this point you setup your dotfiles (only two for now) using git, you can version them and backup using github. Let's see how to bring your dotfiles to a new machine.</p>
 <p>First, login in the new machine and clone your repo:</p>
-<div class="codehilite"><pre><span></span>git clone https://github.com/youruser/yourrepo
+<div class="highlight"><pre><span></span>git clone https://github.com/youruser/yourrepo
 <span class="nb">cd</span> yourrepo
 </pre></div>
 
 <p>You just got your files, now it's time to link them to your home folder on this new machine.</p>
-<div class="codehilite"><pre><span></span>ln -s .bashrc ~/.bashrc
+<div class="highlight"><pre><span></span>ln -s .bashrc ~/.bashrc
 ln -s .bash_profile ~/.bash_profile
 </pre></div>
 
@@ -591,7 +591,7 @@ ln -s .bash_profile ~/.bash_profile
 <h3 id="its-all-about-automation">It's all about automation<a class="headerlink" href="#its-all-about-automation" title="Permanent link">&para;</a></h3>
 <p>Manually linking each dotfiles is tedious, let's automate it. The easiest way of doing it is to add a script in your repo to run the code to create the links, the problem is that every time you create a new dotfile, you'll also need to update the script. If you only have a couple of dotfiles this is fine.</p>
 <p>But if you want superpowers, you can automate the process so next time you use a new machine, setting up your dot files will look like this:</p>
-<div class="codehilite"><pre><span></span>git clone https://github.com/youruser/yourrepo
+<div class="highlight"><pre><span></span>git clone https://github.com/youruser/yourrepo
 <span class="nb">cd</span> yourrepo
 ./install
 </pre></div>

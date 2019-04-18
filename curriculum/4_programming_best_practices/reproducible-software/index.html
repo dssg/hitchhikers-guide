@@ -707,7 +707,7 @@ running.</p>
 while projectY uses version 2.x of a package by keeping dependencies in different
 environments.</p>
 <h4 id="install-a-virtualenv">Install a virtualenv<a class="headerlink" href="#install-a-virtualenv" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>pip install --user virtualenv
+<div class="highlight"><pre><span></span>pip install --user virtualenv
 virtualenv dssg-venv --no-site-packages #does not use any global packages
 </pre></div>
 
@@ -721,15 +721,15 @@ dependencies separate.</p>
 <p><code>virtualenv dssg-py3-venv -p $(which python3) --no-site-packages</code></p>
 </blockquote>
 <h4 id="activate-a-virtualenv">Activate a virtualenv<a class="headerlink" href="#activate-a-virtualenv" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>source ./dssg-venv/bin/activate
+<div class="highlight"><pre><span></span>source ./dssg-venv/bin/activate
 </pre></div>
 
 <h4 id="install-dependencies">Install Dependencies<a class="headerlink" href="#install-dependencies" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>pip install -r requirements.txt
+<div class="highlight"><pre><span></span>pip install -r requirements.txt
 </pre></div>
 
 <h4 id="freeze-dependencies">Freeze Dependencies<a class="headerlink" href="#freeze-dependencies" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span>pip freeze &gt; requirements.txt #outputs a list of dependencies and version numbers
+<div class="highlight"><pre><span></span>pip freeze &gt; requirements.txt #outputs a list of dependencies and version numbers
 </pre></div>
 
 <blockquote>
@@ -751,14 +751,14 @@ be consistent about how you set up your environment and document it thoroughly.<
 <h2 id="systems-level-dependencies">Systems Level Dependencies<a class="headerlink" href="#systems-level-dependencies" title="Permanent link">&para;</a></h2>
 <p>Systems level dependencies are the libraries installed on your OS. For Ubuntu/Debian Linux
 you can get a list of them and then install them using the following:
-<div class="codehilite"><pre><span></span>#grab systems level dependencies
+<div class="highlight"><pre><span></span>#grab systems level dependencies
 dpkg --get-selections &gt; dependencies.txt
 #reinstall on a new machine
 dpkg --clear-selections
 sudo dpkg --set-selections &lt; dependencies.txt
 </pre></div></p>
 <p>Also courtesy of Tristan Crockett: installing a list of dependencies using apt
-<div class="codehilite"><pre><span></span>xargs -a &lt;(awk &#39;/^\s*[^#]/&#39; dependencies.txt) -r -- sudo apt-get install
+<div class="highlight"><pre><span></span>xargs -a &lt;(awk &#39;/^\s*[^#]/&#39; dependencies.txt) -r -- sudo apt-get install
 </pre></div></p>
 <p>This will give every package installed on your OS. An easier alternative is to just keep track when you
 install a new library and manually keep the list in a <code>dependencies.txt</code> file.</p>
@@ -771,11 +771,11 @@ or Ansible playbooks that can be used to "freeze" the systems level configuratio
 <p>In PostGreSQL when a table is dropped, it is gone forever. You don't want to drop your results
 table on the last day of the fellowship, so it is a good idea to backup periodically.</p>
 <p>To dump your database in PostGreSQL:</p>
-<p><div class="codehilite"><pre><span></span>pg_dump -Fc --schema=&#39;raw|clean|models&#39; -N &#39;*public*&#39; --no-acl -v -h &lt;hostname&gt; -U &lt;dbuser&gt; &lt;dbname&gt; &gt; dssg-$(date +%F).dump
+<p><div class="highlight"><pre><span></span>pg_dump -Fc --schema=&#39;raw|clean|models&#39; -N &#39;*public*&#39; --no-acl -v -h &lt;hostname&gt; -U &lt;dbuser&gt; &lt;dbname&gt; &gt; dssg-$(date +%F).dump
 </pre></div>
 <em>Note: This can be automated with a crontab script.</em></p>
 <p>To restore your database from a dump:
-<div class="codehilite"><pre><span></span>&lt; dump_file psql -U dbuser -h dbhost dbname
+<div class="highlight"><pre><span></span>&lt; dump_file psql -U dbuser -h dbhost dbname
 </pre></div></p>
 <hr />
 <h2 id="hard-coded-paths">Hard-coded Paths<a class="headerlink" href="#hard-coded-paths" title="Permanent link">&para;</a></h2>
@@ -785,13 +785,13 @@ development. It is unlikely someone else will keep their data in the exact same 
 as you when trying to use your project in a separate environment. Users should be able to set
 location of files as command line parameters. Below are examples.</p>
 <h4 id="load_shapefile_hardpath_v1sh">load_shapefile_hardpath_v1.sh<a class="headerlink" href="#load_shapefile_hardpath_v1sh" title="Permanent link">&para;</a></h4>
-<p><div class="codehilite"><pre><span></span># Data downloaded from this website: http://mrdata.usgs.gov/geology/state/state.php?state=NY
+<p><div class="highlight"><pre><span></span># Data downloaded from this website: http://mrdata.usgs.gov/geology/state/state.php?state=NY
 shp2pgsql -d -s 4267:2261 -d /mnt/data/syracuse/NY_geol_dd soil.geology | psql
 </pre></div>
 Although this script documents the command that runs, it has a hard path and the purpose of the arguments
 are not clear. This script has the shelf-life of a banana.</p>
 <h4 id="load_shapefile_hardpath_v2sh">load_shapefile_hardpath_v2.sh<a class="headerlink" href="#load_shapefile_hardpath_v2sh" title="Permanent link">&para;</a></h4>
-<p><div class="codehilite"><pre><span></span>#!/bin/bash
+<p><div class="highlight"><pre><span></span>#!/bin/bash
 # Data downloaded from this website: http://mrdata.usgs.gov/geology/state/state.php?state=NY
 original_projection=4267
 new_projection=2261 #projection of Upstate NY
@@ -809,7 +809,7 @@ With this version someone can better surmise what is being done. Every time you 
 your data you have to change the filename in the script. It also checks if the table already exists
 in the database so the command can be used to reload data.</p>
 <h4 id="load_shapefile_hardpath_v3sh">load_shapefile_hardpath_v3.sh<a class="headerlink" href="#load_shapefile_hardpath_v3sh" title="Permanent link">&para;</a></h4>
-<p><div class="codehilite"><pre><span></span>#!/bin/bash
+<p><div class="highlight"><pre><span></span>#!/bin/bash
 #ETL script for importing shape files.
 
 PROGRAM=$(basename $0)
@@ -881,7 +881,7 @@ In this version, you can call the script from the command line and use it for an
 called with no arguments it prints out a usage so the user does not have to look into the actual
 script. It also has a verbose mode for debugging. Here, there are no hard paths.</p>
 <h2 id="bad-directory-organization">Bad Directory Organization<a class="headerlink" href="#bad-directory-organization" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>nfp2/
+<div class="highlight"><pre><span></span>nfp2/
 ├── 10_month_to_12_month_ISOMAP_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_final_asq_psolve_2r.png
 ├── 10_month_to_12_month_ISOMAP_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_time4_cumulative_DURATION_time_MATERNAL_sum.png
 ├── 10_month_to_12_month_ISOMAP_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_whptile1.png
@@ -1110,7 +1110,7 @@ script. It also has a verbose mode for debugging. Here, there are no hard paths.
 
 <hr />
 <h2 id="good-directory-organization">Good Directory Organization<a class="headerlink" href="#good-directory-organization" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>.
+<div class="highlight"><pre><span></span>.
 ├── config
 ├── descriptive_stats
 │   ├── mains_streets_stats
