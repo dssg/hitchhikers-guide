@@ -35,11 +35,14 @@ markdown_extensions:
   - def_list
   - footnotes
   - meta
+  - pymdownx.arithmatex
+  - pymdownx.b64
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.extrarawhtml
   - pymdownx.keys
+  - pymdownx.highlight
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.tasklist:
