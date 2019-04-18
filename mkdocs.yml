@@ -54,4 +54,11 @@ pages:
   - DSSG Manual:
       - Code of conduct: dssg-manual/conduct-culture-and-communications/README.md
       - Summer overview: dssg-manual/summer-overview/README.md
-  - Curriculum: curriculum/README.md
+  - Curriculum:
+      - Intro: curriculum/README.md
+      - Before you start: curriculum/0_before_you_start/README.md
+      - Getting and keeping data: curriculum/1_getting_and_keeping_data/README.md
+      - Data exploration and analysis: curriculum/2_data_exploration_and_analysis/README.md
+      - Modeling and ML: curriculum/3_modeling_and_machine_learning/README.md
+      - Programming best practices: curriculum/4_programming_best_practices/README.md
+      - Presentations and communications: curriculum/5_presentations_and_communications/README.md
