@@ -1,113 +1,409 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  
-  <link rel="shortcut icon" href="../../../img/favicon.ico">
-  <title>dotfiles - make working on any computer and feel just like home - DSSG Hitchhickers guide</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "dotfiles - make working on any computer and feel just like home";
-    var mkdocs_page_input_path = "curriculum/4_programming_best_practices/pimp-my-dotfiles/README.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
+    
+    
+      
+        <title>DSSG Hitchhickers guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.3020aac5.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ef5350">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="red" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#dotfiles-make-working-on-any-computer-and-feel-just-like-home" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="DSSG Hitchhickers guide" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">bubble_chart</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              DSSG Hitchhickers guide
+            </span>
+            <span class="md-header-nav__topic">
+              dotfiles - make working on any computer and feel just like home
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/dssg/hitchhikers-guide/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    dssg/hitchhikers-guide
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="DSSG Hitchhickers guide" class="md-nav__button md-logo">
+      
+        <i class="md-icon">bubble_chart</i>
+      
+    </a>
+    DSSG Hitchhickers guide
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/dssg/hitchhikers-guide/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    dssg/hitchhikers-guide
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
 
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+      
+      
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      DSSG Manual
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        DSSG Manual
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../../..">Home</a>
-	    </li>
           
-            <li class="toctree-l1">
-		
-    <span class="caption-text">DSSG Manual</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../../dssg-manual/summer-overview/">Summer overview</a>
-                </li>
-    </ul>
-	    </li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../../">Curriculum</a>
-	    </li>
+
+
+  <li class="md-nav__item">
+    <a href="../../../dssg-manual/conduct-culture-and-communications/" title="Code of conduct" class="md-nav__link">
+      Code of conduct
+    </a>
+  </li>
+
+        
           
-        </ul>
-      </div>
-      &nbsp;
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../dssg-manual/summer-overview/" title="Summer overview" class="md-nav__link">
+      Summer overview
+    </a>
+  </li>
+
+        
+      </ul>
     </nav>
+  </li>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../..">DSSG Hitchhickers guide</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../../..">Docs</a> &raquo;</li>
     
       
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../" title="Curriculum" class="md-nav__link">
+      Curriculum
+    </a>
+  </li>
+
     
-    <li>dotfiles - make working on any computer and feel just like home</li>
-    <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/4_programming_best_practices/pimp-my-dotfiles/README.md"
-          class="icon icon-github"> Edit on GitHub</a>
-      
-    </li>
   </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dotfiles-make-working-on-any-computer-and-feel-just-like-home" title="dotfiles - make working on any computer and feel just like home" class="md-nav__link">
+    dotfiles - make working on any computer and feel just like home
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-are-dotfiles-anyway" title="What are dotfiles anyway?" class="md-nav__link">
+    What are dotfiles anyway?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-your-dotfiles" title="Finding your dotfiles" class="md-nav__link">
+    Finding your dotfiles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bashrc-and-bash_profile" title=".bashrc and .bash_profile" class="md-nav__link">
+    .bashrc and .bash_profile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-git-to-manage-your-dotfiles" title="Using git to manage your dotfiles" class="md-nav__link">
+    Using git to manage your dotfiles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-your-dot-files-in-another-machine" title="Using your dot files in another machine" class="md-nav__link">
+    Using your dot files in another machine
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#its-all-about-automation" title="It's all about automation" class="md-nav__link">
+    It's all about automation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resources" title="Resources" class="md-nav__link">
+    Resources
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
               
+                
+                  <a href="https://github.com/dssg/hitchhikers-guide/edit/master/docs/curriculum/4_programming_best_practices/pimp-my-dotfiles/README.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>dotfiles - make working on any computer and feel just like home</h1>
+                
                 <h2 id="dotfiles-make-working-on-any-computer-and-feel-just-like-home">dotfiles - make working on any computer and feel just like home<a class="headerlink" href="#dotfiles-make-working-on-any-computer-and-feel-just-like-home" title="Permanent link">&para;</a></h2>
 <p>On this tutorial, you'll learn about <code>dotfiles</code>, what they are, why are they important and how to use them.</p>
 <h3 id="what-are-dotfiles-anyway">What are dotfiles anyway?<a class="headerlink" href="#what-are-dotfiles-anyway" title="Permanent link">&para;</a></h3>
@@ -117,44 +413,44 @@
 <p>A common practice is to store your files in a git repository. This way you have a history of the modifications you've done but more important, a copy you can grab from anywhere (e.g. the DSSG server) and get all your magic.</p>
 <h3 id="finding-your-dotfiles">Finding your dotfiles<a class="headerlink" href="#finding-your-dotfiles" title="Permanent link">&para;</a></h3>
 <p>Most applications store a dotfile in your home folder, type the following in the command line to see yours:</p>
-<pre><code class="bash">find . -name '.*' -maxdepth 1
-</code></pre>
+<div class="codehilite"><pre><span></span>find . -name <span class="s1">&#39;.*&#39;</span> -maxdepth <span class="m">1</span>
+</pre></div>
 
 <p>Here are some of mine:</p>
-<pre><code class="bash">.Rprofile #settings for your R sessions
-.vimrc #vim settings
-.bash_profile #shell settings
-</code></pre>
+<div class="codehilite"><pre><span></span>.Rprofile <span class="c1">#settings for your R sessions</span>
+.vimrc <span class="c1">#vim settings</span>
+.bash_profile <span class="c1">#shell settings</span>
+</pre></div>
 
 <p>Let's see how my <code>.Rprofile</code> looks:</p>
-<pre><code class="R">## Change colors when running R in the terminal
-if (Sys.getenv(&quot;TERM&quot;) == &quot;xterm-256color&quot;) library(&quot;colorout&quot;)
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="c1">## Change colors when running R in the terminal</span>
+<span class="nf">if </span><span class="p">(</span><span class="nf">Sys.getenv</span><span class="p">(</span><span class="s">&quot;TERM&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s">&quot;xterm-256color&quot;</span><span class="p">)</span> <span class="nf">library</span><span class="p">(</span><span class="s">&quot;colorout&quot;</span><span class="p">)</span>
+</pre></div>
 
 <p>If you have an <code>.Rprofile</code> file, Whatever it is there will be executed when you start an R session. Mine just loads a package <code>colorout</code> which adds nice colors to the R interpreter.</p>
 <p><strong>Note:</strong> even though every dotfile starts with <code>.</code>, not everything that starts with a <code>.</code> is a dotfile. For example <code>.DS_Store</code> is a file you'll find on many folder if you use OS X, this file stores custom attributes for the folder but you don't want to modify it directly, it's just a file the system uses to keep track of folder customizations (e.g. changing the icon)</p>
 <h3 id="bashrc-and-bash_profile"><code>.bashrc</code> and <code>.bash_profile</code><a class="headerlink" href="#bashrc-and-bash_profile" title="Permanent link">&para;</a></h3>
 <p>When you open a terminal, a program called <code>bash</code> starts, this program let's you execute commands such as <code>cd</code>, <code>ls</code>, etc. Bash is highly configurable through its dotfiles: <code>.bashrc</code>and <code>.bash_profile</code>. There are some differences between those two and they get executed at different times, but a nice setting to get started is to make <code>.bash_profile</code> call  <code>.bashrc</code> and set your configuration file in the later. To to that follow this steps:</p>
-<pre><code class="bash"># open .bash_profile
+<div class="codehilite"><pre><span></span><span class="c1"># open .bash_profile</span>
 open ~/.bash_profile
-</code></pre>
+</pre></div>
 
 <p>Your default editor will open the file, chances are the file contains some settings already, to avoid breaking your system, do not delete anything and just put this at the top of the file.</p>
-<pre><code class="bash"># just load ~/.bashrc
-if [ -f ~/.bashrc ]; then
-   source ~/.bashrc
-fi
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="c1"># just load ~/.bashrc</span>
+<span class="k">if</span> <span class="o">[</span> -f ~/.bashrc <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+   <span class="nb">source</span> ~/.bashrc
+<span class="k">fi</span>
+</pre></div>
 
 <p>Now you can start twerking your shell, for example adding shortcuts. Let's create one that outputs only folders in our current working directory.</p>
 <p>First, open your <code>.bashrc</code>:</p>
-<pre><code class="bash">open ~/.bashrc
-</code></pre>
+<div class="codehilite"><pre><span></span>open ~/.bashrc
+</pre></div>
 
 <p>Add this line:</p>
-<pre><code class="bash"># List only directories
-alias lsd='ls -l | grep &quot;^d&quot;'
-</code></pre>
+<div class="codehilite"><pre><span></span><span class="c1"># List only directories</span>
+<span class="nb">alias</span> <span class="nv">lsd</span><span class="o">=</span><span class="s1">&#39;ls -l | grep &quot;^d&quot;&#39;</span>
+</pre></div>
 
 <p>Save the file. Close the terminal and open a new one.</p>
 <p>Now, every time you execute  <code>lsd</code>, your command line will print only folders in the current directory and not the files.</p>
@@ -162,94 +458,104 @@ alias lsd='ls -l | grep &quot;^d&quot;'
 <h3 id="using-git-to-manage-your-dotfiles">Using git to manage your dotfiles<a class="headerlink" href="#using-git-to-manage-your-dotfiles" title="Permanent link">&para;</a></h3>
 <p>As I mentioned before, your dotfiles live in your home folder (type <code>cd ~; pwd</code> to see which is yours). Your home folder contains a lot of stuff and you probably don't want to create a git repo there (please don't). To solve this issue we can do the following: create a folder anywhere in your computer, create your dotfiles there and then link them to your home folder, where your applications expect your dotfiles to be.</p>
 <p>Let's imagine you want to save your dotfiles in <code>~/dotfiles</code>. Run the following to create the folder add some files and start a git repository:</p>
-<pre><code class="bash"># create and move to the folder
-mkdir ~/dotfiles; cd ~/dotfiles
-# get the content from your original .bashrc and copy it in your
-# .bashrc stored in ~/dotfiles, to the same with .bash_profile
+<div class="codehilite"><pre><span></span><span class="c1"># create and move to the folder</span>
+mkdir ~/dotfiles<span class="p">;</span> <span class="nb">cd</span> ~/dotfiles
+<span class="c1"># get the content from your original .bashrc and copy it in your</span>
+<span class="c1"># .bashrc stored in ~/dotfiles, to the same with .bash_profile</span>
 cat ~/.bashrc &gt; ~/dotfiles/.bashrc
 cat ~/.bash_profile &gt; ~/dotfiles/.bash_profile
-# init repo and commit
+<span class="c1"># init repo and commit</span>
 git init
 git add --all
-git commit -m 'dotfiles are awesome'
-</code></pre>
+git commit -m <span class="s1">&#39;dotfiles are awesome&#39;</span>
+</pre></div>
 
 <p>Now you have a copy of your <code>.bashrc</code> and <code>.bash_profile</code> outside your home folder and you created a repo to store them. But there's one step missing, if you modify your dotfiles in <code>~/dotfiles</code>, your computer won't do anything because it will look in your home folder. To fix it we need to link our files in <code>~/dotfiles</code> to our home folder.</p>
 <p>To do that we'll create <em>symlinks</em>, which are basically pointers to files, that way you can store your dotfiles anywhere and your computer is still going to find them.</p>
-<pre><code class="bash"># link files in ~/dotfiles to your home folder
+<div class="codehilite"><pre><span></span><span class="c1"># link files in ~/dotfiles to your home folder</span>
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.bash_profile ~/.bash_profile
-</code></pre>
+</pre></div>
 
 <p>Now, you can modify, commit, push, pull from <code>~/dotfiles</code> and still make your computer find them in your home folder!</p>
 <p>Now, create a remote repository to host them on github. If you don't know how, check out the <a href="../gitandgithub">git tutorial</a>.</p>
 <h3 id="using-your-dot-files-in-another-machine">Using your dot files in another machine<a class="headerlink" href="#using-your-dot-files-in-another-machine" title="Permanent link">&para;</a></h3>
 <p>At this point you setup your dotfiles (only two for now) using git, you can version them and backup using github. Let's see how to bring your dotfiles to a new machine.</p>
 <p>First, login in the new machine and clone your repo:</p>
-<pre><code class="bash">git clone https://github.com/youruser/yourrepo
-cd yourrepo
-</code></pre>
+<div class="codehilite"><pre><span></span>git clone https://github.com/youruser/yourrepo
+<span class="nb">cd</span> yourrepo
+</pre></div>
 
 <p>You just got your files, now it's time to link them to your home folder on this new machine.</p>
-<pre><code class="bash">ln -s .bashrc ~/.bashrc
+<div class="codehilite"><pre><span></span>ln -s .bashrc ~/.bashrc
 ln -s .bash_profile ~/.bash_profile
-</code></pre>
+</pre></div>
 
 <p>Now, you can use your local settings in the server!</p>
 <h3 id="its-all-about-automation">It's all about automation<a class="headerlink" href="#its-all-about-automation" title="Permanent link">&para;</a></h3>
 <p>Manually linking each dotfiles is tedious, let's automate it. The easiest way of doing it is to add a script in your repo to run the code to create the links, the problem is that every time you create a new dotfile, you'll also need to update the script. If you only have a couple of dotfiles this is fine.</p>
 <p>But if you want superpowers, you can automate the process so next time you use a new machine, setting up your dot files will look like this:</p>
-<pre><code class="bash">git clone https://github.com/youruser/yourrepo
-cd yourrepo
+<div class="codehilite"><pre><span></span>git clone https://github.com/youruser/yourrepo
+<span class="nb">cd</span> yourrepo
 ./install
-</code></pre>
+</pre></div>
 
 <p>There are many ways of doing the <code>./install</code> step but you need to be familiar with bash.  If you want to see examples of it, <a href="http://dotfiles.github.io/">see this</a>.</p>
 <h3 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="http://dotfiles.github.io/">dotfiles - unofficial guide to dotfiles on Github</a></li>
 </ul>
+                
+                  
+                
               
-            </div>
+              
+                
+
+
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/dssg/hitchhikers-guide" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/datascifellows" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/company/center-for-data-science-and-public-policy-university-of-chicago" class="md-footer-social__link fa fa-linkedin"></a>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    </div>
+  </div>
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    
+      <script src="../../../assets/javascripts/application.267712eb.js"></script>
       
-          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
+        <script src="../../../js/mermaid.min.js"></script>
       
-      
-    </span>
-</div>
-    <script>var base_url = '../../..';</script>
-    <script src="../../../js/theme.js" defer></script>
-      <script src="../../../js/mermaid.min.js" defer></script>
-      <script src="../../../search/main.js" defer></script>
-
-</body>
+    
+  </body>
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2019-04-17 22:11:04
--->

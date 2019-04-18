@@ -1,113 +1,408 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../../../../img/favicon.ico">
-  <title>CommandLine, Git, and GitHub Tutorial (DSSG 2018) - DSSG Hitchhickers guide</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../../../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "CommandLine, Git, and GitHub Tutorial (DSSG 2018)";
-    var mkdocs_page_input_path = "curriculum/1_getting_and_keeping_data/command-line-tools/cmdline.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
+    
+    
+      
+        <title>CommandLine, Git, and GitHub Tutorial (DSSG 2018) - DSSG Hitchhickers guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.3020aac5.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ef5350">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="red" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#commandline-git-and-github-tutorial-dssg-2018" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../.." title="DSSG Hitchhickers guide" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">bubble_chart</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              DSSG Hitchhickers guide
+            </span>
+            <span class="md-header-nav__topic">
+              CommandLine, Git, and GitHub Tutorial (DSSG 2018)
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/dssg/hitchhikers-guide/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    dssg/hitchhikers-guide
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../.." title="DSSG Hitchhickers guide" class="md-nav__button md-logo">
+      
+        <i class="md-icon">bubble_chart</i>
+      
+    </a>
+    DSSG Hitchhickers guide
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/dssg/hitchhikers-guide/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    dssg/hitchhikers-guide
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
 
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+      
+      
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      DSSG Manual
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        DSSG Manual
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../../../..">Home</a>
-	    </li>
           
-            <li class="toctree-l1">
-		
-    <span class="caption-text">DSSG Manual</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../../../dssg-manual/summer-overview/">Summer overview</a>
-                </li>
-    </ul>
-	    </li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../../../">Curriculum</a>
-	    </li>
+
+
+  <li class="md-nav__item">
+    <a href="../../../../dssg-manual/conduct-culture-and-communications/" title="Code of conduct" class="md-nav__link">
+      Code of conduct
+    </a>
+  </li>
+
+        
           
-        </ul>
-      </div>
-      &nbsp;
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../dssg-manual/summer-overview/" title="Summer overview" class="md-nav__link">
+      Summer overview
+    </a>
+  </li>
+
+        
+      </ul>
     </nav>
+  </li>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../../..">DSSG Hitchhickers guide</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../../../..">Docs</a> &raquo;</li>
     
       
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../" title="Curriculum" class="md-nav__link">
+      Curriculum
+    </a>
+  </li>
+
     
-    <li>CommandLine, Git, and GitHub Tutorial (DSSG 2018)</li>
-    <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/1_getting_and_keeping_data/command-line-tools/cmdline.md"
-          class="icon icon-github"> Edit on GitHub</a>
-      
-    </li>
   </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commandline-git-and-github-tutorial-dssg-2018" title="CommandLine, Git, and GitHub Tutorial (DSSG 2018)" class="md-nav__link">
+    CommandLine, Git, and GitHub Tutorial (DSSG 2018)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction" title="Introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#navigating-the-file-system" title="Navigating the File System" class="md-nav__link">
+    Navigating the File System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-editing-moving-copying-and-deleting-files" title="Creating, Editing, Moving, Copying, and Deleting Files" class="md-nav__link">
+    Creating, Editing, Moving, Copying, and Deleting Files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-git" title="Using Git" class="md-nav__link">
+    Using Git
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#guidelines-to-keep-in-mind-for-effective-collaboration" title="Guidelines to keep in mind for effective collaboration" class="md-nav__link">
+    Guidelines to keep in mind for effective collaboration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-exercise" title="Class Exercise" class="md-nav__link">
+    Class Exercise
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
               
+                
+                  <a href="https://github.com/dssg/hitchhikers-guide/edit/master/docs/curriculum/1_getting_and_keeping_data/command-line-tools/cmdline.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>CommandLine, Git, and GitHub Tutorial (DSSG 2018)</h1>
+                
                 <h2 id="commandline-git-and-github-tutorial-dssg-2018">CommandLine, Git, and GitHub Tutorial (DSSG 2018)<a class="headerlink" href="#commandline-git-and-github-tutorial-dssg-2018" title="Permanent link">&para;</a></h2>
 <h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h3>
 <p>You are most likely comfortable interacting with a computer using point-and-click
@@ -174,18 +469,17 @@ created by users rick, anna, emmy, and bob, respectively.</p>
 command. If you just type <code>cd</code>, without any arguements it will take you to your
 home directory. To see where  you are within the file system, you use the <code>pwd</code>,
 or <strong>print working directory</strong> command:</p>
-<pre><code>$ cd
+<div class="codehilite"><pre><span></span>$ cd
 $ pwd
 
 /home/akumar
-
-</code></pre>
+</pre></div>
 
 <p>You can also check who is logged into the machine with the <code>whoami</code> command.</p>
-<pre><code>$ whoami
+<div class="codehilite"><pre><span></span>$ whoami
 
 akumar
-</code></pre>
+</pre></div>
 
 <p>In my case, my home directory is located at <code>/home/akumar</code>, because as we saw above
 using the <code>whoami</code> command, my username is <code>akumar</code>. Yours will be something different.</p>
@@ -203,27 +497,27 @@ directories and files in the path.</p>
 <p>Let's assume that I (user <code>akumar</code>) have the following directory data:</p>
 <p>To <strong>list</strong> all the files and subdirectories in a given directory, we can
  type <code>ls</code>:
- ```
- $ ls</p>
-<p>data
- Documents
- ```
+ <div class="codehilite"><pre><span></span>$ ls
+
+data
+Documents
+</pre></div>
  Try the command in your terminal.</p>
 <p>We see that the contents of <code>akumar</code>'s home directory are two directories called
  <code>data</code> and <code>Documents</code>, as we'd expect. If we want to see the contents of one
  of these directories, we can use the same <code>ls</code> command, but specify the directory
  whose contents we'd like to see as an argument to the <code>ls</code> command.:
- ```
- $ ls Documents/DailyPlanet_Articles</p>
-<p>superman_saves_the_day.txt
- ```</p>
+ <div class="codehilite"><pre><span></span>$ ls Documents/DailyPlanet_Articles
+
+superman_saves_the_day.txt
+</pre></div></p>
 <p>Note that this would have the same output as running:
- ```
- $ cd Documents/DailyPlanet_Articles
- $ ls</p>
-<p>superman_saves_the_day.txt
- <code>``
- where we moved into the</code>DailyPlanet_Articles<code>directory and ran the</code>ls`
+ <div class="codehilite"><pre><span></span>$ cd Documents/DailyPlanet_Articles
+$ ls
+
+superman_saves_the_day.txt
+</pre></div>
+ where we moved into the <code>DailyPlanet_Articles</code> directory and ran the <code>ls</code>
  command from within the directory.</p>
 <p>Say we've navigated to the <code>DailyPlanet_Articles</code> directory, and now we want
  to navigate to the <code>data</code> directory. There are multiple ways to do this:
@@ -234,31 +528,32 @@ directories and files in the path.</p>
  shorthand <code>.</code>. One <code>.</code> means our current directory, and <code>..</code> means <strong>move up one directory</strong>
  relative to where we currently are in the filesystem:</p>
 <p>First, we would navigate to the <code>DailyPlant_Articles</code> directory:
- <code>cd /home/akumar/Documents/DailyPlant_Articles</code>
+ <div class="codehilite"><pre><span></span>cd /home/akumar/Documents/DailyPlant_Articles
+</pre></div>
  Now let move up two directories into the data directory.</p>
-<p>```
- cd ../../data</p>
-<p><code>``
- So we move up one directory from</code>DailyPlanet_Articles<code>to</code>Documents<code>, then up
- one more directory to</code>/home/akumar<code>, then down one directory to</code>data`.</p>
+<p><div class="codehilite"><pre><span></span>cd ../../data
+</pre></div>
+ So we move up one directory from <code>DailyPlanet_Articles</code> to <code>Documents</code>, then up
+ one more directory to <code>/home/akumar</code>, then down one directory to <code>data</code>.</p>
 <blockquote>
 <p>Note: When you start typing in the path the data directory, you can use <code>TAB</code> to
 <strong>auto-complete</strong>. The TAB button is your friend on the command-line.</p>
 </blockquote>
 <p>If you ever get lost in the file system, remember that the command <code>cd</code> (without
  specifying another directory) will always drop you into your home directory.
- ```
- $ cd
- $ pwd</p>
-<p>/home/akumar
- ```</p>
+ <div class="codehilite"><pre><span></span>$ cd
+$ pwd
+
+/home/akumar
+</pre></div></p>
 <h3 id="creating-editing-moving-copying-and-deleting-files">Creating, Editing, Moving, Copying, and Deleting Files<a class="headerlink" href="#creating-editing-moving-copying-and-deleting-files" title="Permanent link">&para;</a></h3>
 <p>Now let's put the UNIX file system to work for us. Let's get started
  in our home directory:
- <code>$ cp &lt;source-file&gt; &lt;destination-file&gt; #copy file
- $ mv &lt;source-file&gt; &lt;destination-file&gt; #move file
- $ rm &lt;source-file&gt; &lt;destination-file&gt; #remove a file
- $ find ~/ -name '*.txt' #find all text files in my home directory</code>
+ <div class="codehilite"><pre><span></span>$ cp &lt;source-file&gt; &lt;destination-file&gt; #copy file
+$ mv &lt;source-file&gt; &lt;destination-file&gt; #move file
+$ rm &lt;source-file&gt; &lt;destination-file&gt; #remove a file
+$ find ~/ -name &#39;*.txt&#39; #find all text files in my home directory
+</pre></div>
  <strong>Note: There is no Recycle Bin or Trash rm can be a weapon of mass
  destruction</strong></p>
 <h2 id="using-git">Using Git<a class="headerlink" href="#using-git" title="Permanent link">&para;</a></h2>
@@ -282,32 +577,37 @@ you can manage large scale collaborations.</p>
  food inspections. We are going to combine data from different years into a
  single CSV. First we are going to clone a project using <code>git</code>.</p>
 <p>Link to the project on github.</p>
-<p><code>$ git clone &lt;add link to repo here&gt;</code></p>
+<div class="codehilite"><pre><span></span>$ git clone &lt;add link to repo here&gt;
+</pre></div>
+
 <p>We are going to use the github flow for this project. First we want to configure our
  git profile.</p>
-<p><code># See how your git config looks
- git config --list</code></p>
+<div class="codehilite"><pre><span></span># See how your git config looks
+git config --list
+</pre></div>
+
 <p>Set your workspace
- ```
- # Adding some if you dont have a user.name or user.email</p>
-<p>git config --global user.name "Rayid Ghani"
- git config --global user.email "rayid.ghani@dssg.io"
- git config --global color.ui "auto"
- git config --global core.editor 'vim'
- git config --global push.default current
- ```</p>
+ <div class="codehilite"><pre><span></span># Adding some if you dont have a user.name or user.email
+
+git config --global user.name &quot;Rayid Ghani&quot;
+git config --global user.email &quot;rayid.ghani@dssg.io&quot;
+git config --global color.ui &quot;auto&quot;
+git config --global core.editor &#39;vim&#39;
+git config --global push.default current
+</pre></div></p>
 <p>Different work flows:</p>
 <p><strong>Solo Style</strong>
- <code>mkdir my_working_directory
- cd my_working_directory
- git init
- touch some_file.py
- # hack
- # hack
- git add some_file.py
- git commit -m "Working with some awesome idea"
- # hack
- # more hack</code></p>
+ <div class="codehilite"><pre><span></span>mkdir my_working_directory
+cd my_working_directory
+git init
+touch some_file.py
+# hack
+# hack
+git add some_file.py
+git commit -m &quot;Working with some awesome idea&quot;
+# hack
+# more hack
+</pre></div></p>
 <p><strong>GitHub Style</strong></p>
 <ul>
 <li>
@@ -329,18 +629,15 @@ you can manage large scale collaborations.</p>
 </ul>
 <p>Now do a <code>git pull</code> to fetch any changes in the remote repository and
 merge into your repository.</p>
-<pre><code>$ git pull
-
-
-</code></pre>
+<div class="codehilite"><pre><span></span>$ git pull
+</pre></div>
 
 <p>Now create your own "branch" of the project where you can make changes
 separate from the <em>master</em> branch. The <em>master</em> branch should always be
 pristine.</p>
-<pre><code>$ git checkout -b &lt;username&gt;-branch
-</code></pre>
-
-<p>Alternativly, you can name branches with the issue number of the issue you are
+<p><div class="codehilite"><pre><span></span>$ git checkout -b &lt;username&gt;-branch
+</pre></div>
+Alternativly, you can name branches with the issue number of the issue you are
 working on (e.g., add_features_issue#44).</p>
 <p>Now we do a little hacking where we are going to write a bash script that will
 clean the header of a CSV file and concatenate all the files.</p>
@@ -351,70 +648,83 @@ request.</p>
 read into a database.</p>
 <p>First clone the project:</p>
 <p>Then create your own branch:</p>
-<pre><code>$ git checkout -b &lt;username&gt;-branch
-
-</code></pre>
+<div class="codehilite"><pre><span></span>$ git checkout -b &lt;username&gt;-branch
+</pre></div>
 
 <p>Link to download data: https://github.com/avishekrk/where_not_to_eat/archive/master.zip</p>
 <p>Here is my solution:</p>
-<pre><code class="shell">wget https://github.com/avishekrk/where_not_to_eat/archive/master.zip;
-unzip master.zip;
+<div class="codehilite"><pre><span></span>wget https://github.com/avishekrk/where_not_to_eat/archive/master.zip<span class="p">;</span>
+unzip master.zip<span class="p">;</span>
 rm -v master.zip
 mv -v where_not_to_eat-master raw
-cd ./raw/
-pwd
-find -name &quot;* *&quot; | while read f; do echo ${f}; new=$(echo $f | sed &quot;s/ /_/g&quot;); echo ${new}; mv -v &quot;$f&quot; $new; done
+<span class="nb">cd</span> ./raw/
+<span class="nb">pwd</span>
+find -name <span class="s2">&quot;* *&quot;</span> <span class="p">|</span> <span class="k">while</span> <span class="nb">read</span> f<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="si">${</span><span class="nv">f</span><span class="si">}</span><span class="p">;</span> <span class="nv">new</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$f</span> <span class="p">|</span> sed <span class="s2">&quot;s/ /_/g&quot;</span><span class="k">)</span><span class="p">;</span> <span class="nb">echo</span> <span class="si">${</span><span class="nv">new</span><span class="si">}</span><span class="p">;</span> mv -v <span class="s2">&quot;</span><span class="nv">$f</span><span class="s2">&quot;</span> <span class="nv">$new</span><span class="p">;</span> <span class="k">done</span>
 mkdir -v ./../staging
-head -1 food_inspection_2018-01-01.csv| tr '[:upper:]' '[:lower:]' | sed -e &quot;s/#//g&quot; -e &quot;s/ ,/,/g&quot; -e &quot;s/ /_/g&quot; -e s&quot;/^,//g&quot; &gt; header
+head -1 food_inspection_2018-01-01.csv<span class="p">|</span> tr <span class="s1">&#39;[:upper:]&#39;</span> <span class="s1">&#39;[:lower:]&#39;</span> <span class="p">|</span> sed -e <span class="s2">&quot;s/#//g&quot;</span> -e <span class="s2">&quot;s/ ,/,/g&quot;</span> -e <span class="s2">&quot;s/ /_/g&quot;</span> -e s<span class="s2">&quot;/^,//g&quot;</span> &gt; header
 cat header &gt; all_inspections.csv
-for f in food_inspection_2018-0*.csv; do echo ${f}; awk 'NR &gt; 1 {print}' ${f} &gt;&gt; all_inspections.csv; done
+<span class="k">for</span> f in food_inspection_2018-0*.csv<span class="p">;</span> <span class="k">do</span> <span class="nb">echo</span> <span class="si">${</span><span class="nv">f</span><span class="si">}</span><span class="p">;</span> awk <span class="s1">&#39;NR &gt; 1 {print}&#39;</span> <span class="si">${</span><span class="nv">f</span><span class="si">}</span> &gt;&gt; all_inspections.csv<span class="p">;</span> <span class="k">done</span>
 mv -v all_inspections.csv ./../staging
-
-</code></pre>
+</pre></div>
 
 <p>After saving our script we can commit our changes on our branch:</p>
-<pre><code>git add clean.sh
+<div class="codehilite"><pre><span></span>git add clean.sh
 git commit -m &quot;Added script to clean and concatenate files
 git push #push to our remote repository
-</code></pre>
+</pre></div>
 
 <p>Then you can create a Pull Request.</p>
+                
+                  
+                
               
-            </div>
+              
+                
+
+
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/dssg/hitchhikers-guide" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/datascifellows" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/company/center-for-data-science-and-public-policy-university-of-chicago" class="md-footer-social__link fa fa-linkedin"></a>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    </div>
+  </div>
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.267712eb.js"></script>
       
-          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
       
+        <script src="../../../../js/mermaid.min.js"></script>
       
-      
-    </span>
-</div>
-    <script>var base_url = '../../../..';</script>
-    <script src="../../../../js/theme.js" defer></script>
-      <script src="../../../../js/mermaid.min.js" defer></script>
-      <script src="../../../../search/main.js" defer></script>
-
-</body>
+    
+  </body>
 </html>

@@ -1,153 +1,404 @@
-<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../../../../../img/favicon.ico">
-  <title>02 CreateRepo - DSSG Hitchhickers guide</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../../../../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../../../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "02 CreateRepo";
-    var mkdocs_page_input_path = "curriculum/2_data_exploration_and_analysis/git-and-github/basic_git_tutorial/02_CreateRepo.md";
-    var mkdocs_page_url = null;
-  </script>
-  
-  <script src="../../../../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../../../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
-</head>
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
+    
+    
+      
+        <title>02 CreateRepo - DSSG Hitchhickers guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/application.3020aac5.css">
+      
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/application-palette.224b79ff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ef5350">
+      
+    
+    
+      <script src="../../../../../assets/javascripts/modernizr.01ccdecf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="red" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#create-a-git-repository" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../../../.." title="DSSG Hitchhickers guide" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">bubble_chart</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              DSSG Hitchhickers guide
+            </span>
+            <span class="md-header-nav__topic">
+              02 CreateRepo
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/dssg/hitchhikers-guide/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    dssg/hitchhikers-guide
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../../../.." title="DSSG Hitchhickers guide" class="md-nav__button md-logo">
+      
+        <i class="md-icon">bubble_chart</i>
+      
+    </a>
+    DSSG Hitchhickers guide
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/dssg/hitchhikers-guide/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    dssg/hitchhikers-guide
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
 
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../../../../.." class="icon icon-home"> DSSG Hitchhickers guide</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+      
+      
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      DSSG Manual
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        DSSG Manual
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../../../../..">Home</a>
-	    </li>
           
-            <li class="toctree-l1">
-		
-    <span class="caption-text">DSSG Manual</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../../../../dssg-manual/conduct-culture-and-communications/">Code of conduct</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../../../../dssg-manual/summer-overview/">Summer overview</a>
-                </li>
-    </ul>
-	    </li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../../../../">Curriculum</a>
-	    </li>
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../dssg-manual/conduct-culture-and-communications/" title="Code of conduct" class="md-nav__link">
+      Code of conduct
+    </a>
+  </li>
+
+        
           
-        </ul>
-      </div>
-      &nbsp;
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../dssg-manual/summer-overview/" title="Summer overview" class="md-nav__link">
+      Summer overview
+    </a>
+  </li>
+
+        
+      </ul>
     </nav>
+  </li>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../../../../..">DSSG Hitchhickers guide</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../../../../..">Docs</a> &raquo;</li>
     
       
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../" title="Curriculum" class="md-nav__link">
+      Curriculum
+    </a>
+  </li>
+
     
-    <li>02 CreateRepo</li>
-    <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/dssg/hitchhikers-guide/blob/master/docs/templates/curriculum/2_data_exploration_and_analysis/git-and-github/basic_git_tutorial/02_CreateRepo.md"
-          class="icon icon-github"> Edit on GitHub</a>
-      
-    </li>
   </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-git-repository" title="Create a git repository" class="md-nav__link">
+    Create a git repository
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#make-our-first-commit" title="Make our first commit!!" class="md-nav__link">
+    Make our first commit!!
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-helpful-commands" title="Some helpful commands" class="md-nav__link">
+    Some helpful commands
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
               
+                
+                  <a href="https://github.com/dssg/hitchhikers-guide/edit/master/docs/curriculum/2_data_exploration_and_analysis/git-and-github/basic_git_tutorial/02_CreateRepo.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>02 CreateRepo</h1>
+                
                 <p>A# Create a Repository</p>
 <p>Let's work on creating our first git repository.</p>
 <p>All shell commands will be prefixed with <code>&gt;</code>
 All comments, text not meant to be parsed by the computer,
 is prefixed with <code>#</code>.</p>
 <h3 id="create-a-git-repository">Create a git repository<a class="headerlink" href="#create-a-git-repository" title="Permanent link">&para;</a></h3>
-<p>First create a directory for our project and <code>cd</code> into the directory</p>
-<pre><code>&gt; mkdir -v nyc-311
+<p>First create a directory for our project and <code>cd</code> into the directory
+<div class="codehilite"><pre><span></span>&gt; mkdir -v nyc-311
 &gt; cd nyc-311
-</code></pre>
-
-<p>The <code>-v</code> flag produces verbose output so you can see what happened after the invocation of the command.</p>
+</pre></div>
+The <code>-v</code> flag produces verbose output so you can see what happened after the invocation of the command.</p>
 <p>Now lets initialize the git repository. All git commands start with <code>git &lt;verb&gt;</code>.  To initialize the git repo
-for our project we invoke the command</p>
-<pre><code>&gt; git init
-</code></pre>
-
-<p>Let's look at the contents of our directory using the command <code>ls -a</code></p>
-<pre><code>&gt; ls -a
+for our project we invoke the command
+<div class="codehilite"><pre><span></span>&gt; git init
+</pre></div>
+Let's look at the contents of our directory using the command <code>ls -a</code>
+<div class="codehilite"><pre><span></span>&gt; ls -a
 
 .  ..  .git/
-</code></pre>
-
-<p>The <code>-a</code> flag tells the <code>ls</code> command to include hidden directories when displaying files. We can see that there
+</pre></div>
+The <code>-a</code> flag tells the <code>ls</code> command to include hidden directories when displaying files. We can see that there
 is now a <code>.git</code> directory.  <em>Unless you really know what you are doing</em> <strong>DO NOT EVER</strong> <em>modify anything in this
 directory. If you delete this directory, the entire history of your project will be gone.</em></p>
 <h3 id="make-our-first-commit">Make our first commit!!<a class="headerlink" href="#make-our-first-commit" title="Permanent link">&para;</a></h3>
 <p>All good projects should have a README.md to describe the project. So let's start with that. Fire up
 you favorite text editor and name a file <code>README.md</code>.</p>
-<p>Add something like this in your README:</p>
-<pre><code># Exploring 311 Calls in NYC
+<p>Add something like this in your README:
+<div class="codehilite"><pre><span></span># Exploring 311 Calls in NYC
 
 ## Description
 
 This repo is for an analysis of 311 calls in NYC using Python 3.4
-</code></pre>
-
-<p>The <code>#</code> are part of <code>markdown</code> syntax for designating headings.</p>
-<p>Now let's look at the status of our repo using <code>git status</code>:</p>
-<pre><code>&gt; git status
+</pre></div>
+The <code>#</code> are part of <code>markdown</code> syntax for designating headings.</p>
+<p>Now let's look at the status of our repo using <code>git status</code>:
+<div class="codehilite"><pre><span></span>&gt; git status
 On branch master
 
 Initial commit
@@ -158,16 +409,14 @@ Untracked files:
           README.md
 
           nothing added to commit but untracked files present (use &quot;git add&quot; to track)
-</code></pre>
-
-<p>We can see that git knows that we have added a file but it is <code>untracked</code>. What this means is that <code>git</code>
+</pre></div>
+We can see that git knows that we have added a file but it is <code>untracked</code>. What this means is that <code>git</code>
 knows that this file has been added but it is currently "untracked" by git. Like the command said let's use <code>git add</code> to
-track changes in the the file by invoking the command <code>git add README.md</code>.</p>
-<pre><code>&gt; git add README.md
-</code></pre>
-
-<p>Now lets look at the status of the repository by invoking the command <code>git status</code> again.</p>
-<pre><code>&gt; git status
+track changes in the the file by invoking the command <code>git add README.md</code>.
+<div class="codehilite"><pre><span></span>&gt; git add README.md
+</pre></div>
+Now lets look at the status of the repository by invoking the command <code>git status</code> again.</p>
+<p><div class="codehilite"><pre><span></span>&gt; git status
 
 On branch master
 
@@ -177,13 +426,11 @@ Changes to be committed:
   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
 
           new file:   README.md
-</code></pre>
-
-<p>Now that we have added the file it has been "staged" in the staging area. We can now make our first commit!</p>
-<pre><code>&gt; git commit
-</code></pre>
-
-<p>When you invoke this command an editor should pop-up and you have to leave a commit message. Good commit
+</pre></div>
+Now that we have added the file it has been "staged" in the staging area. We can now make our first commit!
+<div class="codehilite"><pre><span></span>&gt; git commit
+</pre></div>
+When you invoke this command an editor should pop-up and you have to leave a commit message. Good commit
 messages lead to a usable git log and separates the novice git users from the competent practitioners.
 Generally you should follow these guidelines in a commit message:</p>
 <ol>
@@ -201,25 +448,23 @@ then 80 characters, written in the imperative voice.</p>
 <p>Anyone can look at a commit and examine what was changed. The commit message
 is where you provide a context of what and why you did what you did in the project.</p>
 <p>A good rule of thumb is <em>If applied this commit will, <insert title of git message here></em></p>
-<p>My commit message is the following:</p>
-<pre><code>Checking in README file
+<p>My commit message is the following:
+<div class="codehilite"><pre><span></span>Checking in README file
 
 * Added short description of the project
 * Added python3 as a dependency
 
 ### Using Nano as a text editor
-</code></pre>
-
+</pre></div></p>
 <blockquote>
 <p>If you are using nano, to save your text use Ctrl-O, write a filename
 and to exit use Ctrl-X.</p>
 </blockquote>
-<p>Now that we have made our first commit we can examine our log!</p>
-<pre><code>&gt; git log
-</code></pre>
-
-<p>The first line should output</p>
-<pre><code>* commit aaf89fd77e9b43d99fe32823843a7519b2108c90
+<p>Now that we have made our first commit we can examine our log!
+<div class="codehilite"><pre><span></span>&gt; git log
+</pre></div>
+The first line should output
+<div class="codehilite"><pre><span></span>* commit aaf89fd77e9b43d99fe32823843a7519b2108c90
   Author: Clark Kent &lt;clark.kent@dailyplanet.com&gt;
   Date:   Sat Nov 05 13:45:11 2016 -0600
 
@@ -227,69 +472,79 @@ and to exit use Ctrl-X.</p>
 
           * Added short description of the project
           * Added python3 as a dependency
-</code></pre>
-
-<p>The first line is a unique identifier of your commit. The second
+</pre></div>
+The first line is a unique identifier of your commit. The second
 give information on who made the commit. The third line gives the
 date. The rest is the commit message.</p>
-<p>To just get titles of commit messages you can use the following command</p>
-<pre><code>&gt; git log --oneline
-</code></pre>
-
-<p>Another useful command is</p>
-<pre><code>&gt; git log --oneline --graph --all --decorate
-</code></pre>
-
+<p>To just get titles of commit messages you can use the following command
+<div class="codehilite"><pre><span></span>&gt; git log --oneline
+</pre></div>
+Another useful command is
+<div class="codehilite"><pre><span></span>&gt; git log --oneline --graph --all --decorate
+</pre></div></p>
 <h3 id="some-helpful-commands">Some helpful commands<a class="headerlink" href="#some-helpful-commands" title="Permanent link">&para;</a></h3>
-<p>Removing files via git allows them to be recovered.</p>
-<pre><code>git rm FILENAME
+<p>Removing files via git allows them to be recovered.
+<div class="codehilite"><pre><span></span>git rm FILENAME
 git rm -r DIRECTORY
-</code></pre>
-
-<p>Renaming files can be done by moving a file and then
-adding it or you can use the following command:</p>
-<pre><code>git mv OLD NEW
-</code></pre>
-
-<p><code>git rm</code> and <code>git mv</code> will stage the changes that will ulimately
+</pre></div>
+Renaming files can be done by moving a file and then
+adding it or you can use the following command:
+<div class="codehilite"><pre><span></span>git mv OLD NEW
+</pre></div>
+<code>git rm</code> and <code>git mv</code> will stage the changes that will ulimately
 need to be commited.
 That is it we have our first commit and repo! Next we are going to write some code!</p>
+                
+                  
+                
               
-            </div>
+              
+                
+
+
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/dssg/hitchhikers-guide" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/datascifellows" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/company/center-for-data-science-and-public-policy-university-of-chicago" class="md-footer-social__link fa fa-linkedin"></a>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+    </div>
+  </div>
 </footer>
       
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+    </div>
+    
+      <script src="../../../../../assets/javascripts/application.267712eb.js"></script>
       
-          <a href="https://github.com/dssg/hitchhikers-guide/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../../.."}})</script>
       
+        <script src="../../../../../js/mermaid.min.js"></script>
       
-      
-    </span>
-</div>
-    <script>var base_url = '../../../../..';</script>
-    <script src="../../../../../js/theme.js" defer></script>
-      <script src="../../../../../js/mermaid.min.js" defer></script>
-      <script src="../../../../../search/main.js" defer></script>
-
-</body>
+    
+  </body>
 </html>
