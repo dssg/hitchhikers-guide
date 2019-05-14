@@ -9,12 +9,13 @@ theme:
     code: 'Ubuntu Mono'
   logo:
     icon: 'bubble_chart'
-
+  favicon: 'assets/images/favicon.ico'
 
 docs_dir: sources
 repo_name: 'dssg/hitchhikers-guide'
 repo_url: https://github.com/dssg/hitchhikers-guide
-site_description: ''
+edit_uri: ''
+site_description: 'DSSG Hitchhikers guide'
 
 extra:
   social:
@@ -28,8 +29,10 @@ extra:
 markdown_extensions:
   - admonition
   - toc:
-      permalink: True
+      permalink: "#"
       baselevel: 2
+      toc_depth: 3
+      separator: "-"
   - codehilite:
       guess_lang: false
   - def_list
@@ -51,11 +54,16 @@ markdown_extensions:
 
 extra_javascript:
   - "js/mermaid.min.js"
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
 
 nav:
   - Home: index.md
+  - What is DSSG?: what-is-dssg.md
+  - DSSG Host cities: host-cities.md
   - DSSG Manual:
       - Code of conduct: dssg-manual/conduct-culture-and-communications/README.md
+      - Goals of the Fellowship: dssg-manual/conduct-culture-and-communications/goals.md
+      - The DSSG Environment: dssg-manual/conduct-culture-and-communications/environment.md
       - Summer overview: dssg-manual/summer-overview/README.md
   - Curriculum:
       - Intro: curriculum/README.md
@@ -65,3 +73,108 @@ nav:
       - Modeling and ML: curriculum/3_modeling_and_machine_learning/README.md
       - Programming best practices: curriculum/4_programming_best_practices/README.md
       - Presentations and communications: curriculum/5_presentations_and_communications/README.md
+  - New curriculum:
+      - Ethics, Bias, Fairness: ethics_bias_fairness.md
+      - Communication: communication.md
+      - Software Practices: software/good_practices.md
+      - Domain Understanding: domain_understanding.md
+      - Pipeline: ml_pipeline.md
+      - Project Scoping:
+          - Scoping overview: scoping/overview.md
+          - Project workflow: scoping/project_workflow.md
+          - Data Maturity evaluation: scoping/dme.md
+          - Intro to data analysis methods: scoping/analysis_methods.md
+          - Project deliverables: scoping/deliverables.md
+      - Tech setup:
+          - Software you need: setup/you_need.md
+          - Setting up machines: setup/machines.md
+          - Command line intro: setup/cli.md
+          - Git and github basic: setup/git.md
+          - Good software practices: software/good_practices.md
+          - Python: software/basic_python.md
+          - SQL: software/basic_sql.md
+          - ML pipeline: ml_pipeline.md
+          - Software testing: software/testing.md
+          - Good repos: setup/good_repos.md
+      - Get data:
+          - APIs and scrapping: get_data/scrapping.md
+          - Working with images: get_data/images.md
+          - Working with text: get_data/text.md
+          - Flat files: get_data/flat_files.md
+          - DBs:
+              - Why a DB?: dbs/why.md
+              - Designing a DB: dbs/relational_design.md
+              - Getting data in: dbs/getting_data_in.md
+              - Getting data out: dbs/getting_data_out.md
+              - Analyzing data (SQL): software/sql_data_analysis.md
+          - Data security: get_data/security.md
+      - Store data:
+          - ETL - cleaning, loading: store_data/etl.md
+          - Other types of DBs: dbs/other_types.md
+      - Link data:
+          - Record linkage: link_data/record_linkage.md
+      - Data exploration:
+          - Introduction to EDA: eda/intro.md
+          - Visualization: eda/visualization.md
+          - SQL: software/sql_data_analysis.md
+          - pandas: software/python_pandas.md
+          - GIS: eda/gis.md
+          - Text: eda/text.md
+          - Network: eda/network.md
+          - Tableau (?): eda/trableau.md
+          - Data stories concept and code: eda/data_stories.md
+          - ML as a data mining tool (Clustering): eda/clustering.md
+      - Set up problem:
+          - ML problem formulation: ml/problem_formulation.md
+          - ML pipeline II: ml/pipeline_ii.md
+          - Machine learning methods: ml/methods.md
+          - Causal inference methods: causal_inference.md
+          - Other statistical analysis methods: statistical_analysis.md
+          - OR/optimization methods: or.md
+          - ML Checklist: ml/checklist.md
+          - Social science methods: social_science.md
+          - Templates of policy problems: ml/templates.md
+      - Labels:
+          - One or many: ml/labels/one_or_many.md
+          - Implications of a label: ml/labels/implications.md
+      - Features:
+          - Feature engineering: ml/feature_engineering/intro.md
+          - Workshop on feature engineering: ml/feature_engineering/workshop.md
+          - Case studies: ml/feature_engineering/case_studies.md
+      - Validation:
+          - Process and goal: ml/validation/process_and_goal.md
+          - K-fold cross-validation: ml/validation/kfold.md
+          - Temporal cross-validation: ml/validation/tcc.md
+          - Field trials: ml/validation/field_trials.md
+      - Metrics:
+          - Overview: metrics/overview.md
+          - Examples: metrics/examples.md
+      - Models/Methods:
+          - Machine learning methods: ml/methods.md
+          - Practical tips on how to use them, parameters, etc.: ml/tips.md
+      - Model selection:
+          - Audition: selection/audition.md
+          - What metrics do we care about?:
+              - Performance: selection/performance.md
+              - Stability: selection/stability.md
+              - Interpretability: selection/interpretability.md
+              - Bias: selection/bias.md
+      - Postmodeling:
+          - Model understanding: postmodeling/understanding.md
+          - Feature importance: postmodeling/feature_importance.md
+          - Comparing different models: postmodeling/model_comparison.md
+          - Comparing lists: postmodeling/list_comparison.md
+          - Error analysis: postmodeling/error_analysis.md
+          - Bias analysis: postmodeling/bias_analysis.md
+      - Experiment design:
+          - Experiment design: experiment_design/intro.md
+          - Case studies: experiment_design/case_studies.md
+      - Communication:
+          - Writing reports/presentations: communication/writing.md
+          - Visualization: eda/visualization.md
+          - User interface: communication/user_interface.md
+      - Deployment and Maintenance:
+          - How to deploy: deployment/how_to.md
+          - Monitor: deployment/monitor.md
+          - Update: deployment/update.md
+          - Advance pipelines: deployment/advance_pipelines.md
