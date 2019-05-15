@@ -59,7 +59,7 @@ extra_javascript:
 nav:
   - Home: index.md
   - What is DSSG?: what-is-dssg.md
-  - DSSG Host cities: host-cities.md
+  - DSSG some history: host-cities.md
   - DSSG Manual:
       - Code of conduct: dssg-manual/conduct-culture-and-communications/README.md
       - Goals of the Fellowship: dssg-manual/conduct-culture-and-communications/goals.md

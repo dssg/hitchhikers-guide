@@ -8,7 +8,7 @@ data portal we can use to download curated data or they an API. In the case wher
 data stored in web pages we can create programs for the automatic and systematic gathering and
 parsing of data from the web.
 
-
+Go to the [notebook](Scraping.ipynb)
 
 
 
