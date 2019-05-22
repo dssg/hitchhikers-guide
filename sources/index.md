@@ -2,8 +2,8 @@
 
 Our number one priority at DSSG is to train fellows to do data science
 for social good work. This curriculum includes many things you'd find
-in a data science course or bootcamp, but with an emphasis on social
-science, ethics, privacy, and social issues.
+in a data science course or bootcamp, but with an emphasis on solving problems with social
+impact, integrating data science with the social sciences, discussing ethical implications of the work, as well as privacy, and confidentiality issues.
 
 
 **If you are applying to the program or have been accepted as a
