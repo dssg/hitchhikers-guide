@@ -58,8 +58,8 @@ extra_javascript:
 
 nav:
   - Home: index.md
-  - What is DSSG?: what-is-dssg.md
-  - DSSG some history: host-cities.md
+  - What is in this curriculum?: what-is-dssg.md
+  - DSSG Locations: host-cities.md
   - DSSG Manual:
       - Code of conduct: dssg-manual/conduct-culture-and-communications/README.md
       - Goals of the Fellowship: dssg-manual/conduct-culture-and-communications/goals.md
