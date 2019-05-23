@@ -1,0 +1,3 @@
+# https://www.postgresql.org/docs/11/libpq-pgpass.html
+
+hostname:port:database:username:password

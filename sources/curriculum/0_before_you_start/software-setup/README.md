@@ -193,6 +193,10 @@ Once you enter your password, you should be dropped into a shell on the server:
 
     jsmith@servername: ~$
 
+
+Your life will be easier if you set up a [`.ssh/config` file](ssh_config.example)
+
+
 ## PSQL
 
 The database server runs Postgres 9.5.10.
@@ -258,13 +262,29 @@ where you need to replace `USERNAME` with the postgres [!] username, `DBNAME` wi
 
 This should drop you into a SQL shell on the database server.
 
-In some configurations, you'll need to explicitly assume a role to do anything beyond connecting to the database. To make changes to the training database, use the `training_write` role. Let's test it by creating and dropping a schema:
+!!! note
 
-```
- set role training_write;
- create schema jsmith;
- drop schema jsmith;
-```
+    In some configurations, you'll need to explicitly assume a role to do anything beyond connecting to the database. To make changes to the training database, use the `training_write` role. Let's test it by creating and dropping a schema:
+
+    ```
+    set role training_write;
+    create schema jsmith;
+    drop schema jsmith;
+    ```
+
+!!! important "PRO tip"
+
+    You could save a lot of keystrokes if you setup a [`.pgservice.conf`](./pgservice_conf.example)file  and a [`.pgpass`](./pgpass.example) file in your `$HOME` folder.
+
+    Then you could simply type
+
+    ```
+    $ psql service=mydb  # mydb is the name of the dbservice
+    ```
+
+
+
+
 
 
 ??? info "I really prefer a GUI"

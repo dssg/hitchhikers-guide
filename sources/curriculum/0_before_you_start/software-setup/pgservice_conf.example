@@ -1,0 +1,7 @@
+# From https://www.postgresql.org/docs/11/libpq-pgservice.html
+
+# comment
+[mydb]
+host=somehost
+port=5433
+user=admin
