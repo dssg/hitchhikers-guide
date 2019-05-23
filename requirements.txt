@@ -1,0 +1,17 @@
+mkdocs
+pymdown-extensions
+mkdocs-material
+jupyter
+ipython
+pandas
+numpy
+sklearn
+beautifulsoup4
+requests
+tqdm
+matplotlib
+statsmodels
+seaborn
+psycopg2-binary
+csvkit
+httpie
