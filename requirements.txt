@@ -9,3 +9,9 @@ sklearn
 beautifulsoup4
 requests
 tqdm
+matplotlib
+statsmodels
+seaborn
+psycopg2-binary
+csvkit
+httpie
