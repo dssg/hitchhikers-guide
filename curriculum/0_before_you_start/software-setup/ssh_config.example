@@ -1,0 +1,16 @@
+# general ssh server
+Host dev
+    HostName dev.example.com
+    Port 22000
+    User fooey
+# github
+Host github.com
+    User git
+    IdentityFile ~/.ssh/github.key
+
+# A ssh tunnel!
+Host tunnel
+    HostName database.example.com
+    IdentityFile ~/.ssh/coolio.example.key
+    LocalForward 9906 127.0.0.1:3306
+    User coolio

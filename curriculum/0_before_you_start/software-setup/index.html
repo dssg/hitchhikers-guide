@@ -175,6 +175,7 @@ dssg (set by /home/user/projects/.python-version)
 </pre></div>
 
 
+<p>Your life will be easier if you set up a <a href="ssh_config.example"><code>.ssh/config</code> file</a></p>
 <h3 id="psql">PSQL<a class="headerlink" href="#psql" title="Permanent link">#</a></h3>
 <p>The database server runs Postgres 9.5.10.</p>
 <details class="info"><summary>For Windows users</summary><p>Windows users should skip the steps below, and instead use <a href="http://dbeaver.jkiss.org/">DBeaver</a>. When setting up the connection in DBeaver, you will need to specify the SSH tunnel; the database credentials are the ones we shared with you, and the SSH tunnel credentials are the ones you used in the previous step to SSH into the training server. Alternatively, everybody can access <code>psql</code> from the training server: SSH into the training server as in the step before, then, on the server's shell, call <code>psql -h POSTGRESURL -U USERNAME -d DBNAME</code>, where you need to substitute <code>POSTGRESURL</code> with the postgres server's address, <code>USERNAME</code> with your database username, and <code>DBNAME</code> with the name of the database.</p>
@@ -210,12 +211,23 @@ $ brew install pgcli
 
 <p>where you need to replace <code>USERNAME</code> with the postgres [!] username, <code>DBNAME</code> with the name of your database, and the <code>8888</code> with the number you chose in the previous step. You then get prompted for a password. This is now the postgres server asking, so you need to reply with the corresponding password!</p>
 <p>This should drop you into a SQL shell on the database server.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>In some configurations, you'll need to explicitly assume a role to do anything beyond connecting to the database. To make changes to the training database, use the <code>training_write</code> role. Let's test it by creating and dropping a schema:</p>
-<div class="highlight"><pre><span></span> set role training_write;
- create schema jsmith;
- drop schema jsmith;
+<div class="highlight"><pre><span></span>set role training_write;
+create schema jsmith;
+drop schema jsmith;
 </pre></div>
 
+</div>
+<div class="admonition important">
+<p class="admonition-title">PRO tip</p>
+<p>You could save a lot of keystrokes if you setup a <a href="pgservice_conf.example"><code>.pgservice.conf</code></a>file  and a <a href="pgpass.example"><code>.pgpass</code></a> file in your <code>$HOME</code> folder.</p>
+<p>Then you could simply type</p>
+<div class="highlight"><pre><span></span>$ psql service=mydb  # mydb is the name of the dbservice
+</pre></div>
+
+</div>
 <details class="info"><summary>I really prefer a GUI</summary><p>if you want a graphical interface to databases - you might  want to use <a href="http://dbeaver.jkiss.org/">DBeaver</a>.</p>
 </details>
 <div class="footnote">
