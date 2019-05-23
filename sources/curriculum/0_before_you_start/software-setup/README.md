@@ -3,6 +3,7 @@
 ## Motivation
 
 Every team will settle on a specific setup with their tech mentors. This setup will determine, for example:
+
 - which Python version to use
 - versioning via virtual environments
 - maintaining package dependencies
@@ -16,8 +17,9 @@ Today, we're **not** doing that. We're making sure that everybody has some basic
 Work through the prerequisites below, making sure that all the software you installed works.
 
 Affix three kinds of post-it notes to your laptop:
-- one with your operating system, e.g. 'Ubuntu 14.04'
-- if you get an app working (e.g. ssh), write its name on a **green** post-it and stick it to your screen
+
+- one with your operating system, e.g. **Ubuntu 18.04**
+- if you get an app working (e.g. `ssh`), write its name on a **green** post-it and stick it to your screen
 - if you tried - but the app failed - write its name on a **red** post-it
 
 If you're stuck with a step, ask a person with a corresponding green post-it (and preferrably your operating system) for help.
@@ -57,7 +59,7 @@ A package manager will make your life easier.
 
 3. Install Git
 
-**Mac**: 
+**Mac**:
 
  In the terminal, type:
 
@@ -65,13 +67,13 @@ A package manager will make your life easier.
  brew update
  brew install git
  ```
- 
- **Linux**: 
- 
- (^^ similar with `yum` or `apt`). 
- 
+
+ **Linux**:
+
+ (^^ similar with `yum` or `apt`).
+
  **Windows**:
- 
+
 On Windows, you should already have git. (Either you installed **git-bash**, which is part of git, or you should have downloaded git in the **cygwin** package menu.)
 
 4. Test your installation. For example, create a directory, and make it a git repo:
@@ -128,7 +130,7 @@ As said, your team will decide on which Python version (and versioning) to insta
 
 The database server runs Postgres 9.5.10.
 
-#### Windows users: 
+#### Windows users:
 
 Windows users should skip the steps below, and instead use [DBeaver](http://dbeaver.jkiss.org/). When setting up the connection in DBeaver, you will need to specify the SSH tunnel; the database credentials are the ones we shared with you, and the SSH tunnel credentials are the ones you used in the previous step to SSH into the training server. Alternatively, everybody can access `psql` from the training server: SSH into the training server as in the step before, then, on the server's shell, call `psql -h POSTGRESURL -U USERNAME -d DBNAME`, where you need to substitute `POSTGRESURL` with the postgres server's address, `USERNAME` with your database username, and `DBNAME` with the name of the database.
 
@@ -156,8 +158,8 @@ For all non-Windows users, also do these steps to access the Postgres server fro
  ```
  ssh -NL localhost:8888:POSTGRESURL:5432 ec2username@EC2URL
  ```
- where you need to substitute `POSTGRESURL`, `ec2username`, and `EC2URL` with the postgres server's URL, your username on the training server, and the training server's URL respectively. Also, you should substitute `8888` with a random number in the 8000-65000 range of your choice (port `8888` might be in use already). 
- 
+ where you need to substitute `POSTGRESURL`, `ec2username`, and `EC2URL` with the postgres server's URL, your username on the training server, and the training server's URL respectively. Also, you should substitute `8888` with a random number in the 8000-65000 range of your choice (port `8888` might be in use already).
+
  This command forwards your laptop's port 8888 through your account on the EC2 (EC2URL) to the Postgres server port 5432. So if you access your local port 8888 in the next step, you get forwarded to the Postgres server's port 5432 - but from the Postgres server's view, the traffic is now coming from the training server (instead of your laptop), and the training server is the only IP address that is allowed to access the postgres server.
 
 3. Connect to the Postgres database on the forwarded port
@@ -167,7 +169,7 @@ For all non-Windows users, also do these steps to access the Postgres server fro
  where you need to replace `USERNAME` with the postgres [!] username, `DBNAME` with the name of your database, and the `8888` with the number you chose in the previous step. You then get prompted for a password. This is now the postgres server asking, so you need to reply with the corresponding password!
 
  This should drop you into a SQL shell on the database server.
- 
+
 You'll need to explicitly assume a role to do anything beyond connecting to the database. To make changes to the training database, use the `training_write` role. Let's test it by creating and dropping a schema:
  ```
  set role training_write;

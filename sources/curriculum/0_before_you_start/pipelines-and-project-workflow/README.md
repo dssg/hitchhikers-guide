@@ -4,12 +4,12 @@
 
 Most data-science projects have the same set of tasks:
 
-1. ETL: extracting data from its source, transforming it, then loading it into a database.
-2. Pre-process data: This might include imputing missing values and choosing the training and testing sets.
-3. Train the model(s): You can try different algorithms, features, and
+1. **ETL**: extracting data from its source, transforming it, then loading it into a database.
+2. **Pre-process data**: This might include imputing missing values and choosing the training and testing sets.
+3. **Train the model(s)**: You can try different algorithms, features, and
 so on.
-4. Assess performance on the test set: Using an appropriate accuracy
-metric (e.g. AUC), examine the performance of your model "out of
+4. Assess performance on the test set: Using an appropriate
+metric (e.g. $Precision@k$, $Recall$, $AUC$), examine the performance of your model "out of
 sample."
 5. Think of new things to try. Repeat steps 1 through 4 as appropriate.
 
@@ -26,13 +26,12 @@ In this session, we will introduce the data pipeline, an approach that
 helps you simplify the modeling process.
 
 
-
 ## Concepts
 
 A *data pipeline* is a set of code that handles all the computational
 tasks your project needs from beginning to end. The typical data
 pipeline is a set of functions strung together. Here's a simple
-example using scikit-learn's boston dataset:
+example using `scikit-learn`'s boston dataset:
 
 ![alt text](boston_pipeline.png "Simple Pipeline")
 
@@ -40,9 +39,9 @@ This pipeline has two steps. The first, which I call "preprocessing,"
 prepares the data for modeling by creating training and testing
 splits. The second, which I call "models, predictions, and metrics,"
 uses the preprocessed data to train models, make predictions, and
-print r^2 on the test set. The pipeline takes inputs (e.g. data,
+print $R^2$ on the test set. The pipeline takes inputs (e.g. data,
 training/testing proportions, and model types) at one end and produces
-outputs (accuracy) at the other end.
+outputs (*accuracy*) at the other end.
 
 Obviously, this analysis is incomplete, but the pipeline is a good
 start. Because we use the same code and data, we can run the pipeline
@@ -68,10 +67,13 @@ like:
 ![alt text](pipeline_diagram.png "Pipeline Diagram")
 
 The [police pipeline](https://github.com/dssg/police-eis), started at
-DSSG 2015, is an example of a relatively well developed pipeline. It
+[**DSSG 2015**](https://dssg.uchicago.edu/people/2015-fellows-mentors/), is an example of a relatively well developed pipeline. It
 lets us specify the pipeline options we want in a yaml file, from
 preprocessing on. (The code in this repository does not include ETL.)
 It gives us many modeling options, and it makes comparisons easy.
+
+!!! info "Remember"
+    **ETL** stands for *Extract* , *Transform* and *Load*
 
 
 ## Your Pipeline and the DSSG Schedule
@@ -87,7 +89,3 @@ week](https://github.com/dssg/hitchhikers-guide/blob/master/dssg-manual/summer-o
 * [Our lead pipeline](https://github.com/dssg/lead-public), started at DSSG 2014
 * [Our Cincinnati pipeline](https://github.com/dssg/cincinnati), started at DSSG 2015
 * [Triage](https://github.com/dssg/triage) (a generalized DSSG pipeline)
-
-
-
-## Discussion Notes

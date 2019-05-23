@@ -2,7 +2,8 @@
 
 While specific schedules will vary from project to project, the summer
 will follow roughly the structure below. See also
-[high level summer plan](./High-Level-Plan-for-the-Summer.pdf) for an
+[high level summer plan](./High Level Plan for the Summer.pdf "Summer plan")
+for an
 outline of the flow of the summer, and general concepts that will
 inform the topics addressed by tutorials and speakers as well as what
 we'll ask fellows to present about in weekly updates
@@ -159,7 +160,7 @@ we accomplish this throughout the summer.
 
 To look through all of our curriculum materials, please see the
 [curriculum
-section](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum).
+section](/curriculum).
 
 ## Orientation
 We expect that every incoming fellow has experience programming in
@@ -168,8 +169,10 @@ science, and an interest in doing social good. However, we understand
 that everyone comes from a different background,
 so to ensure that everyone is able to contribute as a productive
 member of the team and the fellowship, we start the first
-few weeks off with an [intensive orientation](DSSG2016OrientationSchedule.pdf), getting everyone
+few weeks off with an [intensive orientation](DSSG2016OrientationSchedule.pdf), (e.g. DSSG 2016) getting everyone
 "up to speed" with the basic skills and tools they'll need.
+
+### Possible schedule
 
 - **Week One**
     - [Prerequisites](/curriculum/0_before_you_start/prerequisites/)
