@@ -100,10 +100,8 @@ nav:
               - Basic tutorial: curriculum/setup/git-and-github/basic_git_tutorial/README.md
               - Group tutorial: curriculum/setup/git-and-github/group_tutorial/README.md
               - Workflow: curriculum/setup/git-and-github/githubflow/github-flow.html
-          - Good software practices: curriculum/software/good_practices.md
           - Python: curriculum/software/basic_python.md
-          - SQL: curriculum/software/basic_sql.md
-          - Software testing: curriculum/software/testing.md
+          - SQL: curriculum/software/basic_sql/README.md
           - Good repos: curriculum/setup/good_repos.md
       - Getting, storing, and linking data:
           - Intro: curriculum/1_getting_and_keeping_data/README.md
