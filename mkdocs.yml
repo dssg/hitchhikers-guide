@@ -70,122 +70,122 @@ nav:
       - What is in this curriculum: curriculum/README.md
       - Sample curriculum for Summer 2019: curriculum/sample.md
       - Skills you need throughout a project:
-            - Ethics, Bias, Fairness: skills/ethics_bias_fairness.md
+            - Ethics, Bias, Fairness: curriculum/skills/ethics_bias_fairness.md
             - Communication:
-                  - Intro: skills/communication.md
+                  - Intro: curriculum/skills/communication.md
                   - Presentations and communications: curriculum/5_presentations_and_communications/README.md
             - Software Practices:
-                  - Intro: skills/software_good_practices.md
+                  - Intro: curriculum/skills/software_good_practices.md
                   - Programming best practices: curriculum/4_programming_best_practices/README.md
-            - Domain Understanding: skills/domain_understanding.md
+            - Domain Understanding: curriculum/skills/domain_understanding.md
       - Project Scoping:
-          - Scoping overview: scoping/overview.md
-          - Project workflow: scoping/project_workflow.md
-          - Data Maturity evaluation: scoping/dme.md
-          - Intro to data analysis methods: scoping/analysis_methods.md
-          - Project deliverables: scoping/deliverables.md
+          - Scoping overview: curriculum/scoping/overview.md
+          - Project workflow: curriculum/scoping/project_workflow.md
+          - Data Maturity evaluation: curriculum/scoping/dme.md
+          - Intro to data analysis methods: curriculum/scoping/analysis_methods.md
+          - Project deliverables: curriculum/scoping/deliverables.md
       - Before you start: curriculum/0_before_you_start/README.md
       - Tech setup:
-          - Software you need: setup/you_need.md
-          - Setting up machines: setup/machines.md
-          - Command line intro: setup/cli.md
-          - Git and github basic: setup/git.md
-          - Good software practices: software/good_practices.md
-          - Python: software/basic_python.md
-          - SQL: software/basic_sql.md
-          - Software testing: software/testing.md
-          - Good repos: setup/good_repos.md
+          - Software you need: curriculum/setup/you_need.md
+          - Setting up machines: curriculum/setup/machines.md
+          - Command line intro: curriculum/setup/cli.md
+          - Git and github basic: curriculum/setup/git.md
+          - Good software practices: curriculum/software/good_practices.md
+          - Python: curriculum/software/basic_python.md
+          - SQL: curriculum/software/basic_sql.md
+          - Software testing: curriculum/software/testing.md
+          - Good repos: curriculum/setup/good_repos.md
       - Getting, storing, and linking data:
           - Intro: curriculum/1_getting_and_keeping_data/README.md
-          - Data security: get_data/security.md
+          - Data security: curriculum/get_data/security.md
           - Get data:
-              - APIs and scrapping: get_data/scrapping.md
-              - Working with images: get_data/images.md
-              - Working with text: get_data/text.md
-              - Flat files: get_data/flat_files.md
+              - APIs and scrapping: curriculum/get_data/scrapping.md
+              - Working with images: curriculum/get_data/images.md
+              - Working with text: curriculum/get_data/text.md
+              - Flat files: curriculum/get_data/flat_files.md
           - Store data:
-              - ETL - cleaning, loading: store_data/etl.md
+              - ETL - cleaning, loading: curriculum/store_data/etl.md
               - DBs:
-                  - Why a DB?: dbs/why.md
-                  - Designing a DB: dbs/relational_design.md
-                  - Getting data in: dbs/getting_data_in.md
-                  - Getting data out: dbs/getting_data_out.md
-                  - Analyzing data (SQL): software/sql_data_analysis.md
-              - Other types of DBs: dbs/other_types.md
+                  - Why a DB?: curriculum/dbs/why.md
+                  - Designing a DB: curriculum/dbs/relational_design.md
+                  - Getting data in: curriculum/dbs/getting_data_in.md
+                  - Getting data out: curriculum/dbs/getting_data_out.md
+                  - Analyzing data (SQL): curriculum/software/sql_data_analysis.md
+              - Other types of DBs: curriculum/dbs/other_types.md
           - Link data:
-              - Record linkage: link_data/record_linkage.md
+              - Record linkage: curriculum/link_data/record_linkage.md
       - Data exploration:
             - Intro: curriculum/2_data_exploration_and_analysis/README.md
-            - Introduction to EDA: eda/intro.md
-            - Visualization: eda/visualization.md
-            - SQL: software/sql_data_analysis.md
-            - pandas: software/python_pandas.md
-            - GIS: eda/gis.md
-            - Text: eda/text.md
-            - Network: eda/network.md
-            - Tableau (?): eda/tableau.md
-            - Data stories concept and code: eda/data_stories.md
-            - ML as a data exploration tool (Clustering): eda/clustering.md
+            - Introduction to EDA: curriculum/eda/intro.md
+            - Visualization: curriculum/eda/visualization.md
+            - SQL: curriculum/software/sql_data_analysis.md
+            - pandas: curriculum/software/python_pandas.md
+            - GIS: curriculum/eda/gis.md
+            - Text: curriculum/eda/text.md
+            - Network: curriculum/eda/network.md
+            - Tableau (?): curriculum/eda/tableau.md
+            - Data stories concept and code: curriculum/eda/data_stories.md
+            - ML as a data exploration tool (Clustering): curriculum/eda/clustering.md
       - Computational and Data Analysis Methods:
             - Intro: curriculum/3_modeling_and_machine_learning/README.md
             - Machine Learning: curriculum/3_modeling_and_machine_learning/README.md
             - Social Sciences: curriculum/3_modeling_and_machine_learning/README.md
             - Operations Research: curriculum/3_modeling_and_machine_learning/README.md
-            - Machine learning methods: ml/methods.md
-            - Causal inference methods: methods/causal_inference.md
-            - Social science methods: methods/social_science.md
-            - Other statistical analysis methods: methods/statistical_analysis.md
-            - OR/optimization methods: methods/or.md
-      - Problem Templates in Social Good and Public Policy: ml/templates.md
+            - Machine learning methods: curriculum/ml/methods.md
+            - Causal inference methods: curriculum/methods/causal_inference.md
+            - Social science methods: curriculum/methods/social_science.md
+            - Other statistical analysis methods: curriculum/methods/statistical_analysis.md
+            - OR/optimization methods: curriculum/methods/or.md
+      - Problem Templates in Social Good and Public Policy: curriculum/ml/templates.md
       - Practical Steps in Using Machine Learning to Solve Social Problems:
             - Building an ML Pipeline:
-                - ML pipeline I: ml/pipeline.md
-                - ML pipeline II: ml/pipeline_ii.md
+                - ML pipeline I: curriculum/ml/pipeline.md
+                - ML pipeline II: curriculum/ml/pipeline_ii.md
             - Set up problem:
-                - ML problem formulation: ml/problem_formulation.md
-                - ML Checklist: ml/checklist.md
-                - Templates of policy problems: ml/templates.md
+                - ML problem formulation: curriculum/ml/problem_formulation.md
+                - ML Checklist: curriculum/ml/checklist.md
+                - Templates of policy problems: curriculum/ml/templates.md
             - Labels/Outcomes:
-                - One or many: ml/labels/one_or_many.md
-                - Implications of a label: ml/labels/implications.md
+                - One or many: curriculum/ml/labels/one_or_many.md
+                - Implications of a label: curriculum/ml/labels/implications.md
             - Features/Predictors:
-                - Feature engineering: ml/feature_engineering/intro.md
-                - Workshop on feature engineering: ml/feature_engineering/workshop.md
-                - Case studies: ml/feature_engineering/case_studies.md
+                - Feature engineering: curriculum/ml/feature_engineering/intro.md
+                - Workshop on feature engineering: curriculum/ml/feature_engineering/workshop.md
+                - Case studies: curriculum/ml/feature_engineering/case_studies.md
             - Validation Methodology:
-                - Process and goal: ml/validation/process_and_goal.md
-                - K-fold cross-validation: ml/validation/kfold.md
-                - Temporal cross-validation: ml/validation/tcc.md
-                - Field trials: ml/validation/field_trials.md
+                - Process and goal: curriculum/ml/validation/process_and_goal.md
+                - K-fold cross-validation: curriculum/ml/validation/kfold.md
+                - Temporal cross-validation: curriculum/ml/validation/tcc.md
+                - Field trials: curriculum/ml/validation/field_trials.md
             - Evalution Metrics:
-                - Overview: ml/metrics/overview.md
-                - Examples: ml/metrics/examples.md
+                - Overview: curriculum/ml/metrics/overview.md
+                - Examples: curriculum/ml/metrics/examples.md
             - Models/Methods:
-                - Machine learning methods: ml/methods.md
-                - Practical tips on how to use them, parameters, etc.: ml/tips.md
+                - Machine learning methods: curriculum/ml/methods.md
+                - Practical tips on how to use them, parameters, etc.: curriculum/ml/tips.md
             - Model selection:
-                - Audition: ml/selection/audition.md
+                - Audition: curriculum/ml/selection/audition.md
                 - What metrics do we care about?:
-                    - Performance: ml/selection/performance.md
-                    - Stability: ml/selection/stability.md
-                    - Interpretability: ml/selection/interpretability.md
-                    - Bias: ml/selection/bias.md
+                    - Performance: curriculum/ml/selection/performance.md
+                    - Stability: curriculum/ml/selection/stability.md
+                    - Interpretability: curriculum/ml/selection/interpretability.md
+                    - Bias: curriculum/ml/selection/bias.md
             - Postmodeling:
-                - Model understanding: ml/postmodeling/understanding.md
-                - Feature importance: ml/postmodeling/feature_importance.md
-                - Comparing different models: ml/postmodeling/model_comparison.md
-                - Comparing lists: ml/postmodeling/list_comparison.md
-                - Error analysis: ml/postmodeling/error_analysis.md
-                - Bias analysis: ml/postmodeling/bias_analysis.md
+                - Model understanding: curriculum/ml/postmodeling/understanding.md
+                - Feature importance: curriculum/ml/postmodeling/feature_importance.md
+                - Comparing different models: curriculum/ml/postmodeling/model_comparison.md
+                - Comparing lists: curriculum/ml/postmodeling/list_comparison.md
+                - Error analysis: curriculum/ml/postmodeling/error_analysis.md
+                - Bias analysis: curriculum/ml/postmodeling/bias_analysis.md
             - Experimental design:
-                - Experiment design: experimental_design/intro.md
-                - Case studies: experimental_design/case_studies.md
+                - Experiment design: curriculum/experimental_design/intro.md
+                - Case studies: curriculum/experimental_design/case_studies.md
       - Communication:
-          - Writing reports/presentations: communication/writing.md
-          - Visualization: eda/visualization.md
-          - User interface: communication/user_interface.md
+          - Writing reports/presentations: curriculum/communication/writing.md
+          - Visualization: curriculum/eda/visualization.md
+          - User interface: curriculum/communication/user_interface.md
       - Deployment and Maintenance:
-          - How to deploy: deployment/how_to.md
-          - Monitor: deployment/monitor.md
-          - Update: deployment/update.md
-          - Advanced pipelines: deployment/advanced_pipelines.md
+          - How to deploy: curriculum/deployment/how_to.md
+          - Monitor: curriculum/deployment/monitor.md
+          - Update: curriculum/deployment/update.md
+          - Advanced pipelines: curriculum/deployment/advanced_pipelines.md
