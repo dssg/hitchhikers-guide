@@ -1,0 +1,545 @@
+<!doctype html><html lang="en" class="no-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="DSSG Hitchhikers guide"><meta name="lang:clipboard.copy" content="Copy to clipboard"><meta name="lang:clipboard.copied" content="Copied to clipboard"><meta name="lang:search.language" content="en"><meta name="lang:search.pipeline.stopwords" content="True"><meta name="lang:search.pipeline.trimmer" content="True"><meta name="lang:search.result.none" content="No matching documents"><meta name="lang:search.result.one" content="1 matching document"><meta name="lang:search.result.other" content="# matching documents"><meta name="lang:search.tokenizer" content="[\s\-]+"><link rel="shortcut icon" href="../../../assets/images/favicon.ico"><meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.3.1"><title>Reproducible software - DSSG Hitchhickers guide</title><link rel="stylesheet" href="../../../assets/stylesheets/application.4031d38b.css"><link rel="stylesheet" href="../../../assets/stylesheets/application-palette.224b79ff.css"><meta name="theme-color" content="#ef5350"><script src="../../../assets/javascripts/modernizr.74668098.js"></script><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700|Ubuntu+Mono&display=swap"><style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style><link rel="stylesheet" href="../../../assets/fonts/material-icons.css"></head><body dir="ltr" data-md-color-primary="red" data-md-color-accent="deep-orange"><svg class="md-svg"><defs><svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg></defs></svg> <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off"> <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off"> <label class="md-overlay" data-md-component="overlay" for="__drawer"></label><a href="#making-projects-reproducible" tabindex="1" class="md-skip">Skip to content </a><header class="md-header" data-md-component="header"><nav class="md-header-nav md-grid"><div class="md-flex"><div class="md-flex__cell md-flex__cell--shrink"><a href="../../.." title="DSSG Hitchhickers guide" class="md-header-nav__button md-logo"><i class="md-icon">bubble_chart</i></a></div><div class="md-flex__cell md-flex__cell--shrink"><label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label></div><div class="md-flex__cell md-flex__cell--stretch"><div class="md-flex__ellipsis md-header-nav__title" data-md-component="title"><span class="md-header-nav__topic">DSSG Hitchhickers guide</span><span class="md-header-nav__topic">Reproducible software</span></div></div><div class="md-flex__cell md-flex__cell--shrink"><label class="md-icon md-icon--search md-header-nav__button" for="__search"></label><div class="md-search" data-md-component="search" role="dialog"><label class="md-search__overlay" for="__search"></label><div class="md-search__inner" role="search"><form class="md-search__form" name="search"><input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active"> <label class="md-icon md-search__icon" for="__search"></label> <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">&#xE5CD;</button></form><div class="md-search__output"><div class="md-search__scrollwrap" data-md-scrollfix><div class="md-search-result" data-md-component="result"><div class="md-search-result__meta">Type to start searching</div><ol class="md-search-result__list"></ol></div></div></div></div></div></div><div class="md-flex__cell md-flex__cell--shrink"><div class="md-header-nav__source"><a href="https://github.com/dssg/hitchhikers-guide" title="Go to repository" class="md-source" data-md-source="github"><div class="md-source__icon"><svg viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#__github" width="24" height="24"></use></svg></div><div class="md-source__repository">dssg/hitchhikers-guide</div></a></div></div></div></nav></header><div class="md-container"><main class="md-main"><div class="md-main__inner md-grid" data-md-component="container"><div class="md-sidebar md-sidebar--primary" data-md-component="navigation"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--primary" data-md-level="0"><label class="md-nav__title md-nav__title--site" for="__drawer"><a href="../../.." title="DSSG Hitchhickers guide" class="md-nav__button md-logo"><i class="md-icon">bubble_chart</i></a>DSSG Hitchhickers guide</label><div class="md-nav__source"><a href="https://github.com/dssg/hitchhikers-guide" title="Go to repository" class="md-source" data-md-source="github"><div class="md-source__icon"><svg viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#__github" width="24" height="24"></use></svg></div><div class="md-source__repository">dssg/hitchhikers-guide</div></a></div><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../.." title="Home" class="md-nav__link">Home</a></li><li class="md-nav__item"><a href="../../../what-is-dssg/" title="What is in this curriculum?" class="md-nav__link">What is in this curriculum?</a></li><li class="md-nav__item"><a href="../../../host-cities/" title="DSSG Locations" class="md-nav__link">DSSG Locations</a></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4"><label class="md-nav__link" for="nav-4">DSSG Manual (for summer fellows)</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-4">DSSG Manual (for summer fellows)</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../../dssg-manual/" title="What is in this manual" class="md-nav__link">What is in this manual</a></li><li class="md-nav__item"><a href="../../../dssg-manual/conduct-culture-and-communications/goals/" title="Goals of the Fellowship" class="md-nav__link">Goals of the Fellowship</a></li><li class="md-nav__item"><a href="../../../dssg-manual/conduct-culture-and-communications/environment/" title="The DSSG Environment" class="md-nav__link">The DSSG Environment</a></li><li class="md-nav__item"><a href="../../../dssg-manual/summer-overview/" title="Summer overview" class="md-nav__link">Summer overview</a></li><li class="md-nav__item"><a href="../../../dssg-manual/conduct-culture-and-communications/" title="Code of conduct" class="md-nav__link">Code of conduct</a></li></ul></nav></li><li class="md-nav__item md-nav__item--active md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked><label class="md-nav__link" for="nav-5">Curriculum</label><nav class="md-nav" data-md-component="collapsible" data-md-level="1"><label class="md-nav__title" for="nav-5">Curriculum</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../" title="What is in this curriculum" class="md-nav__link">What is in this curriculum</a></li><li class="md-nav__item"><a href="../../sample/" title="Sample curriculum for Summer 2019" class="md-nav__link">Sample curriculum for Summer 2019</a></li><li class="md-nav__item md-nav__item--active md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3" checked><label class="md-nav__link" for="nav-5-3">Skills you need throughout a project</label><nav class="md-nav" data-md-component="collapsible" data-md-level="2"><label class="md-nav__title" for="nav-5-3">Skills you need throughout a project</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../skills/ethics_bias_fairness/" title="Ethics, Bias, Fairness" class="md-nav__link">Ethics, Bias, Fairness</a></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-2" type="checkbox" id="nav-5-3-2"><label class="md-nav__link" for="nav-5-3-2">Communication</label><nav class="md-nav" data-md-component="collapsible" data-md-level="3"><label class="md-nav__title" for="nav-5-3-2">Communication</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../communication/" title="Intro" class="md-nav__link">Intro</a></li><li class="md-nav__item"><a href="../../communication/presentation-on-presentations.pdf" title="Presentations and communications" class="md-nav__link">Presentations and communications</a></li><li class="md-nav__item"><a href="../../communication/writing/" title="Writing reports" class="md-nav__link">Writing reports</a></li><li class="md-nav__item"><a href="../../eda/visualization/" title="Visualization" class="md-nav__link">Visualization</a></li><li class="md-nav__item"><a href="../../communication/user_interface/" title="User interface" class="md-nav__link">User interface</a></li></ul></nav></li><li class="md-nav__item md-nav__item--active md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3-3" type="checkbox" id="nav-5-3-3" checked><label class="md-nav__link" for="nav-5-3-3">Software Practices</label><nav class="md-nav" data-md-component="collapsible" data-md-level="3"><label class="md-nav__title" for="nav-5-3-3">Software Practices</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../" title="Intro" class="md-nav__link">Intro</a></li><li class="md-nav__item"><a href="../legible-good-code/" title="Legible, good code" class="md-nav__link">Legible, good code</a></li><li class="md-nav__item"><a href="../test-test-test/" title="Writing tests" class="md-nav__link">Writing tests</a></li><li class="md-nav__item md-nav__item--active"><input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc"><a href="./" title="Reproducible software" class="md-nav__link md-nav__link--active">Reproducible software</a></li><li class="md-nav__item"><a href="../pimp-my-dotfiles/" title="Pimp my dotfiles!" class="md-nav__link">Pimp my dotfiles!</a></li></ul></nav></li><li class="md-nav__item"><a href="../../skills/domain_understanding/" title="Domain Understanding" class="md-nav__link">Domain Understanding</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4"><label class="md-nav__link" for="nav-5-4">Project Scoping</label><nav class="md-nav" data-md-component="collapsible" data-md-level="2"><label class="md-nav__title" for="nav-5-4">Project Scoping</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../scoping/overview/" title="Scoping overview" class="md-nav__link">Scoping overview</a></li><li class="md-nav__item"><a href="../../scoping/project_workflow/" title="Project workflow" class="md-nav__link">Project workflow</a></li><li class="md-nav__item"><a href="../../scoping/dme/" title="Data Maturity evaluation" class="md-nav__link">Data Maturity evaluation</a></li><li class="md-nav__item"><a href="../../scoping/analysis_methods/" title="Intro to data analysis methods" class="md-nav__link">Intro to data analysis methods</a></li><li class="md-nav__item"><a href="../../scoping/deliverables/" title="Project deliverables" class="md-nav__link">Project deliverables</a></li></ul></nav></li><li class="md-nav__item"><a href="../../0_before_you_start/" title="Before you start" class="md-nav__link">Before you start</a></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-6" type="checkbox" id="nav-5-6"><label class="md-nav__link" for="nav-5-6">Tech setup</label><nav class="md-nav" data-md-component="collapsible" data-md-level="2"><label class="md-nav__title" for="nav-5-6">Tech setup</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../setup/you_need/" title="Software you need" class="md-nav__link">Software you need</a></li><li class="md-nav__item"><a href="../../setup/machines/" title="Setting up machines" class="md-nav__link">Setting up machines</a></li><li class="md-nav__item"><a href="../../setup/cli/" title="Command line intro" class="md-nav__link">Command line intro</a></li><li class="md-nav__item"><a href="../../setup/git/" title="Git and github basic" class="md-nav__link">Git and github basic</a></li><li class="md-nav__item"><a href="../../software/good_practices/" title="Good software practices" class="md-nav__link">Good software practices</a></li><li class="md-nav__item"><a href="../../software/basic_python/" title="Python" class="md-nav__link">Python</a></li><li class="md-nav__item"><a href="../../software/basic_sql/" title="SQL" class="md-nav__link">SQL</a></li><li class="md-nav__item"><a href="../../software/testing/" title="Software testing" class="md-nav__link">Software testing</a></li><li class="md-nav__item"><a href="../../setup/good_repos/" title="Good repos" class="md-nav__link">Good repos</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-7" type="checkbox" id="nav-5-7"><label class="md-nav__link" for="nav-5-7">Getting, storing, and linking data</label><nav class="md-nav" data-md-component="collapsible" data-md-level="2"><label class="md-nav__title" for="nav-5-7">Getting, storing, and linking data</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../1_getting_and_keeping_data/" title="Intro" class="md-nav__link">Intro</a></li><li class="md-nav__item"><a href="../../get_data/security/" title="Data security" class="md-nav__link">Data security</a></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-7-3" type="checkbox" id="nav-5-7-3"><label class="md-nav__link" for="nav-5-7-3">Get data</label><nav class="md-nav" data-md-component="collapsible" data-md-level="3"><label class="md-nav__title" for="nav-5-7-3">Get data</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../get_data/scrapping/" title="APIs and scrapping" class="md-nav__link">APIs and scrapping</a></li><li class="md-nav__item"><a href="../../get_data/images/" title="Working with images" class="md-nav__link">Working with images</a></li><li class="md-nav__item"><a href="../../get_data/text/" title="Working with text" class="md-nav__link">Working with text</a></li><li class="md-nav__item"><a href="../../get_data/flat_files/" title="Flat files" class="md-nav__link">Flat files</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-7-4" type="checkbox" id="nav-5-7-4"><label class="md-nav__link" for="nav-5-7-4">Store data</label><nav class="md-nav" data-md-component="collapsible" data-md-level="3"><label class="md-nav__title" for="nav-5-7-4">Store data</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../store_data/etl/" title="ETL - cleaning, loading" class="md-nav__link">ETL - cleaning, loading</a></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-7-4-2" type="checkbox" id="nav-5-7-4-2"><label class="md-nav__link" for="nav-5-7-4-2">DBs</label><nav class="md-nav" data-md-component="collapsible" data-md-level="4"><label class="md-nav__title" for="nav-5-7-4-2">DBs</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../dbs/why/" title="Why a DB?" class="md-nav__link">Why a DB?</a></li><li class="md-nav__item"><a href="../../dbs/relational_design/" title="Designing a DB" class="md-nav__link">Designing a DB</a></li><li class="md-nav__item"><a href="../../dbs/getting_data_in/" title="Getting data in" class="md-nav__link">Getting data in</a></li><li class="md-nav__item"><a href="../../dbs/getting_data_out/" title="Getting data out" class="md-nav__link">Getting data out</a></li><li class="md-nav__item"><a href="../../software/sql_data_analysis/" title="Analyzing data (SQL)" class="md-nav__link">Analyzing data (SQL)</a></li></ul></nav></li><li class="md-nav__item"><a href="../../dbs/other_types/" title="Other types of DBs" class="md-nav__link">Other types of DBs</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-7-5" type="checkbox" id="nav-5-7-5"><label class="md-nav__link" for="nav-5-7-5">Link data</label><nav class="md-nav" data-md-component="collapsible" data-md-level="3"><label class="md-nav__title" for="nav-5-7-5">Link data</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../link_data/record_linkage/" title="Record linkage" class="md-nav__link">Record linkage</a></li></ul></nav></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-8" type="checkbox" id="nav-5-8"><label class="md-nav__link" for="nav-5-8">Data exploration</label><nav class="md-nav" data-md-component="collapsible" data-md-level="2"><label class="md-nav__title" for="nav-5-8">Data exploration</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../2_data_exploration_and_analysis/" title="Intro" class="md-nav__link">Intro</a></li><li class="md-nav__item"><a href="../../eda/intro/" title="Introduction to EDA" class="md-nav__link">Introduction to EDA</a></li><li class="md-nav__item"><a href="../../eda/visualization/" title="Visualization" class="md-nav__link">Visualization</a></li><li class="md-nav__item"><a href="../../software/sql_data_analysis/" title="SQL" class="md-nav__link">SQL</a></li><li class="md-nav__item"><a href="../../software/python_pandas/" title="pandas" class="md-nav__link">pandas</a></li><li class="md-nav__item"><a href="../../eda/gis/" title="GIS" class="md-nav__link">GIS</a></li><li class="md-nav__item"><a href="../../eda/text/" title="Text" class="md-nav__link">Text</a></li><li class="md-nav__item"><a href="../../eda/network/" title="Network" class="md-nav__link">Network</a></li><li class="md-nav__item"><a href="../../eda/tableau/" title="Tableau (?)" class="md-nav__link">Tableau (?)</a></li><li class="md-nav__item"><a href="../../eda/data_stories/" title="Data stories concept and code" class="md-nav__link">Data stories concept and code</a></li><li class="md-nav__item"><a href="../../eda/clustering/" title="ML as a data exploration tool (Clustering)" class="md-nav__link">ML as a data exploration tool (Clustering)</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-9" type="checkbox" id="nav-5-9"><label class="md-nav__link" for="nav-5-9">Computational and Data Analysis Methods</label><nav class="md-nav" data-md-component="collapsible" data-md-level="2"><label class="md-nav__title" for="nav-5-9">Computational and Data Analysis Methods</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../3_modeling_and_machine_learning/" title="Intro" class="md-nav__link">Intro</a></li><li class="md-nav__item"><a href="../../3_modeling_and_machine_learning/" title="Machine Learning" class="md-nav__link">Machine Learning</a></li><li class="md-nav__item"><a href="../../3_modeling_and_machine_learning/" title="Social Sciences" class="md-nav__link">Social Sciences</a></li><li class="md-nav__item"><a href="../../3_modeling_and_machine_learning/" title="Operations Research" class="md-nav__link">Operations Research</a></li><li class="md-nav__item"><a href="../../ml/methods/" title="Machine learning methods" class="md-nav__link">Machine learning methods</a></li><li class="md-nav__item"><a href="../../methods/causal_inference/" title="Causal inference methods" class="md-nav__link">Causal inference methods</a></li><li class="md-nav__item"><a href="../../methods/social_science/" title="Social science methods" class="md-nav__link">Social science methods</a></li><li class="md-nav__item"><a href="../../methods/statistical_analysis/" title="Other statistical analysis methods" class="md-nav__link">Other statistical analysis methods</a></li><li class="md-nav__item"><a href="../../methods/or/" title="OR/optimization methods" class="md-nav__link">OR/optimization methods</a></li></ul></nav></li><li class="md-nav__item"><a href="../../ml/templates/" title="Problem Templates in Social Good and Public Policy" class="md-nav__link">Problem Templates in Social Good and Public Policy</a></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-11" type="checkbox" id="nav-5-11"><label class="md-nav__link" for="nav-5-11">Practical Steps in Using Machine Learning to Solve Social Problems</label><nav class="md-nav" data-md-component="collapsible" data-md-level="2"><label class="md-nav__title" for="nav-5-11">Practical Steps in Using Machine Learning to Solve Social Problems</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-11-1" type="checkbox" id="nav-5-11-1"><label class="md-nav__link" for="nav-5-11-1">Building an ML Pipeline</label><nav class="md-nav" data-md-component="collapsible" data-md-level="3"><label class="md-nav__title" for="nav-5-11-1">Building an ML Pipeline</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../ml/pipeline.md" title="ML pipeline I" class="md-nav__link">ML pipeline I</a></li><li class="md-nav__item"><a href="../../ml/pipeline_ii/" title="ML pipeline II" class="md-nav__link">ML pipeline II</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-11-2" type="checkbox" id="nav-5-11-2"><label class="md-nav__link" for="nav-5-11-2">Set up problem</label><nav class="md-nav" data-md-component="collapsible" data-md-level="3"><label class="md-nav__title" for="nav-5-11-2">Set up problem</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../ml/problem_formulation/" title="ML problem formulation" class="md-nav__link">ML problem formulation</a></li><li class="md-nav__item"><a href="../../ml/checklist.md" title="ML Checklist" class="md-nav__link">ML Checklist</a></li><li class="md-nav__item"><a href="../../ml/templates/" title="Templates of policy problems" class="md-nav__link">Templates of policy problems</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-11-3" type="checkbox" id="nav-5-11-3"><label class="md-nav__link" for="nav-5-11-3">Labels/Outcomes</label><nav class="md-nav" data-md-component="collapsible" data-md-level="3"><label class="md-nav__title" for="nav-5-11-3">Labels/Outcomes</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../ml/labels/one_or_many/" title="One or many" class="md-nav__link">One or many</a></li><li class="md-nav__item"><a href="../../ml/labels/implications/" title="Implications of a label" class="md-nav__link">Implications of a label</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-11-4" type="checkbox" id="nav-5-11-4"><label class="md-nav__link" for="nav-5-11-4">Features/Predictors</label><nav class="md-nav" data-md-component="collapsible" data-md-level="3"><label class="md-nav__title" for="nav-5-11-4">Features/Predictors</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../ml/feature_engineering/intro/" title="Feature engineering" class="md-nav__link">Feature engineering</a></li><li class="md-nav__item"><a href="../../ml/feature_engineering/workshop/" title="Workshop on feature engineering" class="md-nav__link">Workshop on feature engineering</a></li><li class="md-nav__item"><a href="../../ml/feature_engineering/case_studies/" title="Case studies" class="md-nav__link">Case studies</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-11-5" type="checkbox" id="nav-5-11-5"><label class="md-nav__link" for="nav-5-11-5">Validation Methodology</label><nav class="md-nav" data-md-component="collapsible" data-md-level="3"><label class="md-nav__title" for="nav-5-11-5">Validation Methodology</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../ml/validation/process_and_goal/" title="Process and goal" class="md-nav__link">Process and goal</a></li><li class="md-nav__item"><a href="../../ml/validation/kfold/" title="K-fold cross-validation" class="md-nav__link">K-fold cross-validation</a></li><li class="md-nav__item"><a href="../../ml/validation/tcc/" title="Temporal cross-validation" class="md-nav__link">Temporal cross-validation</a></li><li class="md-nav__item"><a href="../../ml/validation/field_trials/" title="Field trials" class="md-nav__link">Field trials</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-11-6" type="checkbox" id="nav-5-11-6"><label class="md-nav__link" for="nav-5-11-6">Evalution Metrics</label><nav class="md-nav" data-md-component="collapsible" data-md-level="3"><label class="md-nav__title" for="nav-5-11-6">Evalution Metrics</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../ml/metrics/overview/" title="Overview" class="md-nav__link">Overview</a></li><li class="md-nav__item"><a href="../../ml/metrics/examples/" title="Examples" class="md-nav__link">Examples</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-11-7" type="checkbox" id="nav-5-11-7"><label class="md-nav__link" for="nav-5-11-7">Models/Methods</label><nav class="md-nav" data-md-component="collapsible" data-md-level="3"><label class="md-nav__title" for="nav-5-11-7">Models/Methods</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../ml/methods/" title="Machine learning methods" class="md-nav__link">Machine learning methods</a></li><li class="md-nav__item"><a href="../../ml/tips/" title="Practical tips on how to use them, parameters, etc." class="md-nav__link">Practical tips on how to use them, parameters, etc.</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-11-8" type="checkbox" id="nav-5-11-8"><label class="md-nav__link" for="nav-5-11-8">Model selection</label><nav class="md-nav" data-md-component="collapsible" data-md-level="3"><label class="md-nav__title" for="nav-5-11-8">Model selection</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../ml/selection/audition/" title="Audition" class="md-nav__link">Audition</a></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-11-8-2" type="checkbox" id="nav-5-11-8-2"><label class="md-nav__link" for="nav-5-11-8-2">What metrics do we care about?</label><nav class="md-nav" data-md-component="collapsible" data-md-level="4"><label class="md-nav__title" for="nav-5-11-8-2">What metrics do we care about?</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../ml/selection/performance/" title="Performance" class="md-nav__link">Performance</a></li><li class="md-nav__item"><a href="../../ml/selection/stability/" title="Stability" class="md-nav__link">Stability</a></li><li class="md-nav__item"><a href="../../ml/selection/interpretability/" title="Interpretability" class="md-nav__link">Interpretability</a></li><li class="md-nav__item"><a href="../../ml/selection/bias/" title="Bias" class="md-nav__link">Bias</a></li></ul></nav></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-11-9" type="checkbox" id="nav-5-11-9"><label class="md-nav__link" for="nav-5-11-9">Postmodeling</label><nav class="md-nav" data-md-component="collapsible" data-md-level="3"><label class="md-nav__title" for="nav-5-11-9">Postmodeling</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../ml/postmodeling/understanding/" title="Model understanding" class="md-nav__link">Model understanding</a></li><li class="md-nav__item"><a href="../../ml/postmodeling/feature_importance/" title="Feature importance" class="md-nav__link">Feature importance</a></li><li class="md-nav__item"><a href="../../ml/postmodeling/model_comparison/" title="Comparing different models" class="md-nav__link">Comparing different models</a></li><li class="md-nav__item"><a href="../../ml/postmodeling/list_comparison/" title="Comparing lists" class="md-nav__link">Comparing lists</a></li><li class="md-nav__item"><a href="../../ml/postmodeling/error_analysis/" title="Error analysis" class="md-nav__link">Error analysis</a></li><li class="md-nav__item"><a href="../../ml/postmodeling/bias_analysis/" title="Bias analysis" class="md-nav__link">Bias analysis</a></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-11-10" type="checkbox" id="nav-5-11-10"><label class="md-nav__link" for="nav-5-11-10">Experimental design</label><nav class="md-nav" data-md-component="collapsible" data-md-level="3"><label class="md-nav__title" for="nav-5-11-10">Experimental design</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../experimental_design/intro/" title="Experiment design" class="md-nav__link">Experiment design</a></li><li class="md-nav__item"><a href="../../experimental_design/case_studies/" title="Case studies" class="md-nav__link">Case studies</a></li></ul></nav></li></ul></nav></li><li class="md-nav__item md-nav__item--nested"><input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-12" type="checkbox" id="nav-5-12"><label class="md-nav__link" for="nav-5-12">Deployment and Maintenance</label><nav class="md-nav" data-md-component="collapsible" data-md-level="2"><label class="md-nav__title" for="nav-5-12">Deployment and Maintenance</label><ul class="md-nav__list" data-md-scrollfix><li class="md-nav__item"><a href="../../deployment/how_to/" title="How to deploy" class="md-nav__link">How to deploy</a></li><li class="md-nav__item"><a href="../../deployment/monitor/" title="Monitor" class="md-nav__link">Monitor</a></li><li class="md-nav__item"><a href="../../deployment/update/" title="Update" class="md-nav__link">Update</a></li><li class="md-nav__item"><a href="../../deployment/advanced_pipelines/" title="Advanced pipelines" class="md-nav__link">Advanced pipelines</a></li></ul></nav></li></ul></nav></li></ul></nav></div></div></div><div class="md-sidebar md-sidebar--secondary" data-md-component="toc"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--secondary"></nav></div></div></div><div class="md-content"><article class="md-content__inner md-typeset"><h1 id="making-projects-reproducible">Making Projects Reproducible<a class="headerlink" href="#making-projects-reproducible" title="Permanent link">#</a></h1>
+<p>Scientific software is often developed and used by a single person. It is all too common in academia
+to be handed a postdoc or graduate student's old code and be unable to replicate the original study, run
+the software outside of the original development machine, or even get the software to work at all. The
+goal of this tutorial is to provide some guidelines to make your summer projects reproducible -- this means your
+project can be installed on another computer and give the same results you got over the summer. At the end of
+the summer, your project should be understandable and transferable to your future-self and anyone else who
+may want to pick up where you left off without having to constantly email you about how to get your project
+running.</p>
+<p><em>(Note: Your future-self doesn't have the luxury of being able to email your past-self).</em></p>
+<hr />
+<h1 id="what-is-a-reproducible-project">What is a reproducible project?<a class="headerlink" href="#what-is-a-reproducible-project" title="Permanent link">#</a></h1>
+<p>One that...</p>
+<ul>
+<li>works for someone other than the original team</li>
+<li>can be <strong>easily</strong> installed on another computer</li>
+<li>has documentation that describes any dependencies and how to install them</li>
+<li>comes with enough tests to indicate the software is running properly</li>
+</ul>
+<hr />
+<h1 id="readmemdrst">README.md(rst)<a class="headerlink" href="#readmemdrst" title="Permanent link">#</a></h1>
+<p>All projects should have a README that communicates the following:</p>
+<ol>
+<li>What the project is about</li>
+<li>
+<p>A short description of the project (i.e. the problem you are trying to solve).</p>
+</li>
+<li>
+<p>The required dependencies to run the software</p>
+</li>
+<li>The can be in the form of a <em>requirements.txt</em> file for Python that lists
+   the dependencies and version numbers.</li>
+<li>
+<p>The system-level dependencies.</p>
+</li>
+<li>
+<p>Installation instructions</p>
+</li>
+<li>
+<p>How to install your software and associated binaries. This can be in the form of
+     instructions on how to use <em>pip</em>, <em>apt</em>, <em>yum</em>, or some other binary package
+     manager.</p>
+</li>
+<li>
+<p>Example usage</p>
+</li>
+<li>
+<p>The inputs and outputs of your software (i.e. how to use it) with code examples.</p>
+</li>
+<li>
+<p>Attribution/Licensing</p>
+</li>
+<li>Who did what and how others can use your software.</li>
+</ol>
+<p>Examples:
+   - <a href="https://github.com/Chicago/food-inspections-evaluation">Chicago Food Inspections</a>
+   - <a href="https://github.com/dssg/police-eis">DSSG Police EIS</a>
+   - <a href="https://github.com/torvalds/linux">Linux Kernel</a></p>
+<hr />
+<h1 id="what-to-do">What to Do<a class="headerlink" href="#what-to-do" title="Permanent link">#</a></h1>
+<ul>
+<li>Use <a href="#virtual-environments">virtual environments</a>.</li>
+<li><a href="https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/reproducible_ETL">Use automation tools like Make or Drake</a></li>
+<li>Keep your directory structure <a href="#good-directory-organization">intuitive, interpretable and easy to understand</a>.</li>
+<li>Keep your database free of "junk tables." Keep only what you need and what's current.</li>
+<li>Junk tables will only confuse your future-self or others that come fresh to the project.</li>
+<li>Merge all branches into master.</li>
+<li>Branches are for adding features or patches. When you have added said feature or patch
+    and you know you won't break the master branch, merge into master and delete the branch.</li>
+<li>Write commit messages in such a way that your log is helpful (see <a href="https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/git-and-github">Git and Github tutorial</a>.)</li>
+<li><a href="#backup-your-database">Periodically make database backups</a>.</li>
+<li>Write unit tests and use continuous integration so you can catch bugs quickly, particularly when you are merging
+  new features into master. (See <a href="https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/test-test-test">testing tutorial</a>.)</li>
+<li>Document all of your functions with docstrings. (See <a href="https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code">legible, good code tutorial</a>.)</li>
+<li>Write your python code following the PEP8 standard. (See <a href="https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code">legible, good code tutorial</a>.)</li>
+<li>Use (4) spaces instead of tabs in your Python code for indentation.</li>
+</ul>
+<hr />
+<h1 id="what-not-to-do">What NOT to Do<a class="headerlink" href="#what-not-to-do" title="Permanent link">#</a></h1>
+<ul>
+<li>
+<p>Use <a href="#hard-coded-paths">hard-coded paths</a>.</p>
+</li>
+<li>
+<p>Require Sudo/root privileges to install your project.</p>
+</li>
+<li>You can't anticipate whether or not someone will have root access to the machine
+    they are installing your project on, so don't count on it. Additionally, you shouldn't
+    require users to create separate user names for your project.</li>
+<li>Use non-standard formats for inputs (stick to <em>YAML</em>, <em>XML</em>, <em>JSON</em>, <em>CLA</em>, etc).</li>
+<li>My one exception to this rule is log files - which you should provide an example of in a README.
+    Otherwise it is easier to just stick with what is already in use.</li>
+<li>Have a <a href="#bad-directory-organization">messy repo with random files everywhere</a>.</li>
+<li>This is confusing, irritating and cancerous to productive enterprise.</li>
+<li>Commit data or sensitive information like database passcodes to the GitHub repo.</li>
+<li>Your repository is for your codebase, not the data. Furthermore, your data may be sensitive
+    and need to be protected.</li>
+<li>Always assume that your repo will be public someday if you are hosting on GitHub (for your DSSG project it will be).
+    Sensitive information also includes architecture decisions about your database. After sensitive
+    information is pushed to GitHub, you cannot remove it completely from the repository.</li>
+<li>Have code that needs to be operationalized in Jupyter Notebooks.</li>
+<li>Jupyter notebooks are wonderful for containing your analysis, code and figures in a single document,
+    particularly for doing exploratory analysis. They are not good for keeping the code you will need for
+    your pipeline or code that you will eventually want to turn into a library.</li>
+</ul>
+<hr />
+<h1 id="virtual-environments">Virtual Environments<a class="headerlink" href="#virtual-environments" title="Permanent link">#</a></h1>
+<p>A virtual environment solves the problem that projectX uses version 1.x of a package
+while projectY uses version 2.x of a package by keeping dependencies in different
+environments.</p>
+<h3 id="install-a-virtualenv">Install a virtualenv<a class="headerlink" href="#install-a-virtualenv" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span>pip install --user virtualenv
+virtualenv dssg-venv --no-site-packages #does not use any global packages
+</pre></div>
+
+<blockquote>
+<p>You can also install a virtual environment and specify the type of python interpreter you
+would like to use using the -p option. This is good for keeping Python2 and Python3
+dependencies separate.</p>
+<p>Python2</p>
+<p><code>virtualenv dssg-py2-venv -p $(which python) --no-site-packages</code></p>
+<p>Python3</p>
+<p><code>virtualenv dssg-py3-venv -p $(which python3) --no-site-packages</code></p>
+</blockquote>
+<h3 id="activate-a-virtualenv">Activate a virtualenv<a class="headerlink" href="#activate-a-virtualenv" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span>source ./dssg-venv/bin/activate
+</pre></div>
+
+<h3 id="install-dependencies">Install Dependencies<a class="headerlink" href="#install-dependencies" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span>pip install -r requirements.txt
+</pre></div>
+
+<h3 id="freeze-dependencies">Freeze Dependencies<a class="headerlink" href="#freeze-dependencies" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span>pip freeze &gt; requirements.txt #outputs a list of dependencies and version numbers
+</pre></div>
+
+<blockquote>
+<p><strong>Warning</strong>: <code>pip freeze</code> will output every package that was installed using pip or setup.py (setuptools).
+External dependencies that are from github or some other source not found on PyPi will appear but will
+not be found when trying to reinstall the dependencies. You can include github repositories from github
+in your requirements.txt file, you just have to do manual housekeeping. Other external dependencies and how
+to install them should be recorded in your README.md file.</p>
+<p>Note: There is also the conda environment created by Continuum Analytics. The
+conda environment handles creating a environment and package dependencies -- what the virtual
+environment + pip combination does. Conda, unlike pip, includes many non-python dependencies
+(e.g, MKL) as precompiled binaries that are necessary for scientific python packages.
+The author is currently of the opinion that if you are a beginner or using a dated OS then using a
+conda environment is not the worst of ideas. If you are a developer working on a development
+machine then compile things yourself -- an important and useful skill. Whatever path you choose
+be consistent about how you set up your environment and document it thoroughly.</p>
+</blockquote>
+<hr />
+<h1 id="systems-level-dependencies">Systems Level Dependencies<a class="headerlink" href="#systems-level-dependencies" title="Permanent link">#</a></h1>
+<p>Systems level dependencies are the libraries installed on your OS. For Ubuntu/Debian Linux
+you can get a list of them and then install them using the following:
+<div class="highlight"><pre><span></span>#grab systems level dependencies
+dpkg --get-selections &gt; dependencies.txt
+#reinstall on a new machine
+dpkg --clear-selections
+sudo dpkg --set-selections &lt; dependencies.txt
+</pre></div></p>
+<p>Also courtesy of Tristan Crockett: installing a list of dependencies using apt
+<div class="highlight"><pre><span></span>xargs -a &lt;(awk &#39;/^\s*[^#]/&#39; dependencies.txt) -r -- sudo apt-get install
+</pre></div></p>
+<p>This will give every package installed on your OS. An easier alternative is to just keep track when you
+install a new library and manually keep the list in a <code>dependencies.txt</code> file.</p>
+<blockquote>
+<p>There are also lightweight vitalization containers like Docker containers, Hyper-V images (Windows),
+or Ansible playbooks that can be used to "freeze" the systems level configuration of an OS.</p>
+</blockquote>
+<hr />
+<h1 id="backup-your-database">Backup Your Database<a class="headerlink" href="#backup-your-database" title="Permanent link">#</a></h1>
+<p>In PostGreSQL when a table is dropped, it is gone forever. You don't want to drop your results
+table on the last day of the fellowship, so it is a good idea to backup periodically.</p>
+<p>To dump your database in PostGreSQL:</p>
+<p><div class="highlight"><pre><span></span>pg_dump -Fc --schema=&#39;raw|clean|models&#39; -N &#39;*public*&#39; --no-acl -v -h &lt;hostname&gt; -U &lt;dbuser&gt; &lt;dbname&gt; &gt; dssg-$(date +%F).dump
+</pre></div>
+<em>Note: This can be automated with a crontab script.</em></p>
+<p>To restore your database from a dump:
+<div class="highlight"><pre><span></span>&lt; dump_file psql -U dbuser -h dbhost dbname
+</pre></div></p>
+<hr />
+<h1 id="hard-coded-paths">Hard-coded Paths<a class="headerlink" href="#hard-coded-paths" title="Permanent link">#</a></h1>
+<h2 id="example-of-adding-shapefile-with-hard-coded-paths">Example of Adding Shapefile with hard-coded paths<a class="headerlink" href="#example-of-adding-shapefile-with-hard-coded-paths" title="Permanent link">#</a></h2>
+<p>Hard-coded paths are absolute paths that are native to the machine you are using for
+development. It is unlikely someone else will keep their data in the exact same directory
+as you when trying to use your project in a separate environment. Users should be able to set
+location of files as command line parameters. Below are examples.</p>
+<h3 id="load_shapefile_hardpath_v1sh">load_shapefile_hardpath_v1.sh<a class="headerlink" href="#load_shapefile_hardpath_v1sh" title="Permanent link">#</a></h3>
+<p><div class="highlight"><pre><span></span># Data downloaded from this website: http://mrdata.usgs.gov/geology/state/state.php?state=NY
+shp2pgsql -d -s 4267:2261 -d /mnt/data/syracuse/NY_geol_dd soil.geology | psql
+</pre></div>
+Although this script documents the command that runs, it has a hard path and the purpose of the arguments
+are not clear. This script has the shelf-life of a banana.</p>
+<h3 id="load_shapefile_hardpath_v2sh">load_shapefile_hardpath_v2.sh<a class="headerlink" href="#load_shapefile_hardpath_v2sh" title="Permanent link">#</a></h3>
+<p><div class="highlight"><pre><span></span>#!/bin/bash
+# Data downloaded from this website: http://mrdata.usgs.gov/geology/state/state.php?state=NY
+original_projection=4267
+new_projection=2261 #projection of Upstate NY
+schema=&#39;soil&#39;
+table=&#39;geology&#39;
+shapefile=&#39;/mnt/data/syracuse/NY_geol_dd/nygeol_poly_dd.shp&#39;
+
+#create table and schema
+psql -c &quot;drop table if exists ${schema}.${table}&quot;
+psql -c &quot;create schema if not exists ${schema}&quot;
+#import the data
+shp2pgsql -d -s ${original_projection}:${new_projection} -d ${shapefile} ${schema}.${table} | psql
+</pre></div>
+With this version someone can better surmise what is being done. Every time you want to load
+your data you have to change the filename in the script. It also checks if the table already exists
+in the database so the command can be used to reload data.</p>
+<h3 id="load_shapefile_hardpath_v3sh">load_shapefile_hardpath_v3.sh<a class="headerlink" href="#load_shapefile_hardpath_v3sh" title="Permanent link">#</a></h3>
+<p><div class="highlight"><pre><span></span>#!/bin/bash
+#ETL script for importing shape files.
+
+PROGRAM=$(basename $0)
+usage=&quot;${PROGRAM} -s schema -t table -p original_projection [-n new_projection] [-v] shapefilename&quot;
+
+function die() {
+local errmsg=&quot;$1&quot; errcode=&quot;${2:-1}&quot;
+echo &quot;ERROR: ${errmsg}&quot;
+exit ${errcode}
+}
+
+#if called with no command line arguments then output usage
+if [ ${#} -eq 0 ]
+then
+    echo ${usage}
+    exit 1;
+fi
+
+#--------------------------------------------------
+# process input arguments
+#--------------------------------------------------
+verbose=&quot;false&quot;
+new_projection=&quot;&quot;
+while getopts hp:n:s:t:v OPT; do
+case &quot;${OPT}&quot; in
+h)  echo &quot;${usage}&quot;;
+exit 0
+;;
+p)  original_projection=&quot;${OPTARG}&quot;
+;;
+n)  new_projection=&quot;${OPTARG}&quot;
+;;
+s)  schema=&quot;${OPTARG}&quot;
+;;
+t)  table=&quot;${OPTARG}&quot;
+;;
+v)  verbose=&quot;true&quot;
+;;
+?)  die &quot;unknown option or missing argument; see -h for usage&quot; 2
+;;
+esac
+done
+shift $((OPTIND - 1))
+shapefile=&quot;$*&quot;
+
+if [ ${verbose} == &quot;true&quot; ]
+then
+    echo &#39;original_projection:&#39; $original_projection
+    echo &#39;new_projection:&#39; $new_projection
+    echo &#39;schema:&#39; $schema
+    echo &#39;table:&#39;$table
+    echo &#39;shapefile:&#39;$shapefile
+fi
+
+
+#create table and schema
+psql -c &quot;drop table if exists ${schema}.${table}&quot;
+psql -c &quot;create schema if not exists ${schema}&quot;
+
+#import the data
+if [ -z &quot;${new_projection}&quot; ]
+then
+    shp2pgsql -s ${original_projection} -d ${shapefile} ${schema}.${table} | psql
+else
+    shp2pgsql -s ${original_projection}:${new_projection} -d ${shapefile} ${schema}.${table} | psql
+fi
+</pre></div>
+In this version, you can call the script from the command line and use it for any shapefile. When
+called with no arguments it prints out a usage so the user does not have to look into the actual
+script. It also has a verbose mode for debugging. Here, there are no hard paths.</p>
+<h1 id="bad-directory-organization">Bad Directory Organization<a class="headerlink" href="#bad-directory-organization" title="Permanent link">#</a></h1>
+<div class="highlight"><pre><span></span>nfp2/
+├── 10_month_to_12_month_ISOMAP_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_final_asq_psolve_2r.png
+├── 10_month_to_12_month_ISOMAP_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_time4_cumulative_DURATION_time_MATERNAL_sum.png
+├── 10_month_to_12_month_ISOMAP_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_whptile1.png
+├── 10_month_to_12_month_LLE_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_final_asq_psolve_2r.png
+├── 10_month_to_12_month_LLE_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_time4_cumulative_DURATION_time_MATERNAL_sum.png
+├── 10_month_to_12_month_LLE_final_asq_psocial_2r_and_time4_DURATION_time_MATERNAL_sum_and_time4_DURATION_sum_and_final_asq_comm_2r_and_whptile1.png
+├── 12_month_to_14_month_ISOMAP_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_PREPGBMI_and_time4_DURATION_time_MATERNAL_sum.png
+├── 12_month_to_14_month_ISOMAP_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_PREPGBMI_and_whptile2.png
+├── 12_month_to_14_month_ISOMAP_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_time5_cumulative_DURATION_sum_and_whptile2.png
+├── 12_month_to_14_month_ISOMAP_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_time5_DURATION_sum_and_time4_DURATION_time_MATERNAL_sum.png
+├── 12_month_to_14_month_LLE_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_PREPGBMI_and_time4_DURATION_time_MATERNAL_sum.png
+├── 12_month_to_14_month_LLE_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_PREPGBMI_and_whptile2.png
+├── 12_month_to_14_month_LLE_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_time5_cumulative_DURATION_sum_and_whptile2.png
+├── 12_month_to_14_month_LLE_momwtgain_and_birthgms2_and_time4_DURATION_sum_and_time5_DURATION_sum_and_time4_DURATION_time_MATERNAL_sum.png
+├── 4_month_to_6_month_ISOMAP_final_asq_fmotor_1r_and_final_asq_psocial_1r_and_final_asq_gmotor_1r_and_final_asq_comm_1r_and_final_asq_psolve_1r.png
+├── 4_month_to_6_month_ISOMAP_final_asq_fmotor_1r_and_final_asq_psocial_1r_and_final_asq_gmotor_1r_and_final_asq_comm_1r_and_time2_DURATION_sum.png
+├── 4_month_to_6_month_LLE_final_asq_fmotor_1r_and_final_asq_psocial_1r_and_final_asq_gmotor_1r_and_final_asq_comm_1r_and_final_asq_psolve_1r.png
+├── 4_month_to_6_month_LLE_final_asq_fmotor_1r_and_final_asq_psocial_1r_and_final_asq_gmotor_1r_and_final_asq_comm_1r_and_time2_DURATION_sum.png
+├── 6_month_to_10_month_ISOMAP_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_birthgms2_and_momwtgain_and_time3_cumulative_DURATION_sum.png
+├── 6_month_to_10_month_ISOMAP_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_time2_DURATION_sum_and_time3_cumulative_DURATION_sum_and_MomsAgeBirth_and_time3_cumulative_DURATION_time_MATERNAL_sum.png
+├── 6_month_to_10_month_ISOMAP_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_time2_DURATION_sum_and_time3_cumulative_DURATION_sum_and_momwtgain.png
+├── 6_month_to_10_month_ISOMAP_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_time2_DURATION_sum_and_time3_DURATION_sum_and_time3_cumulative_DURATION_time_MATERNAL_sum.png
+├── 6_month_to_10_month_LLE_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_birthgms2_and_momwtgain_and_time3_cumulative_DURATION_sum.png
+├── 6_month_to_10_month_LLE_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_time2_DURATION_sum_and_time3_cumulative_DURATION_sum_and_MomsAgeBirth_and_time3_cumulative_DURATION_time_MATERNAL_sum.png
+├── 6_month_to_10_month_LLE_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_time2_DURATION_sum_and_time3_cumulative_DURATION_sum_and_momwtgain.png
+├── 6_month_to_10_month_LLE_whptile1_and_time3_DURATION_time_MATERNAL_sum_and_time2_DURATION_sum_and_time3_DURATION_sum_and_time3_cumulative_DURATION_time_MATERNAL_sum.png
+├── ada_all.yaml
+├── ada_simple_SAMMER.yaml
+├── Add_null_data.ipynb
+├── Add_null_data.py
+├── all.yaml
+├── assemble_long_data.ipynb
+├── binary_classifer.py
+├── birth_to_4_month_ISOMAP_MomsAgeBirth_and_time1_DURATION_time_PERSHLTH_std_and_time1_DURATION_sum_and_momwtgain_and_birthgms2.png
+├── birth_to_4_month_ISOMAP_MomsAgeBirth_and_time1_DURATION_time_PERSHLTH_std_and_time1_DURATION_sum_and_time1_DURATION_time_MATERNAL_sum_and_time1_DURATION_time_PERSHLTH_sum.png
+├── birth_to_4_month_LLE_MomsAgeBirth_and_time1_DURATION_time_PERSHLTH_std_and_time1_DURATION_sum_and_momwtgain_and_birthgms2.png
+├── birth_to_4_month_LLE_MomsAgeBirth_and_time1_DURATION_time_PERSHLTH_std_and_time1_DURATION_sum_and_time1_DURATION_time_MATERNAL_sum_and_time1_DURATION_time_PERSHLTH_sum.png
+├── BRL_file_generation.ipynb
+├── #BRL.py#
+├── BRL.py
+├── classification.ipynb
+├── classifier_t1-Copy0.ipynb
+├── classifier_t1-Copy0.py
+├── classifier_t1.ipynb
+├── classifier_t3.py
+├── clique_feature_coprus.p
+├── Clique_Features.ipynb
+├── #Clique_Features.py#
+├── Clique_Features.py
+├── Clustering_Scoring.ipynb
+├── cohort_creation.py
+├── convert_nfp_sas_to_csv.R
+├── corpus.ipynb
+├── create_dropout_files.py
+├── cross_val_copy.py
+├── cross_val.ipynb
+├── cross_val.py
+├── dal_test.ipynb
+├── data_cleaning.ipynb
+├── data_cleaning.py
+├── data_creation_1.yaml
+├── data_creation_2.yaml
+├── data_creation_3.yaml
+├── data_creation_4.yaml
+├── data_creation_and_model_applicaition.py
+├── data_creation_and_model_application_1.yaml
+├── data_creation_and_model_application_2.yaml
+├── data_creation_and_model_application_3.yaml
+├── data_creation_and_model_application_4.yaml
+├── data_creation_and_model_application.yaml
+├── data_creation_for_dropout.py
+├── data_creation.yaml
+├── dataframe.py
+├── datasets.flowingdata.com
+├── data_visualization
+├── data_wrangling
+├── decision_tree.yaml
+├── dropout
+├── dropout_explore.ipynb
+├── experiment.log
+├── Feature_graph_for_interval_with_top_2_features_for_interval_10_month_to_12_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_12_month_to_14_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_14_month_to_18_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_18_month_20_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_18_month_to_20_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_4_month_to_6_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_6_month_to_10_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_birth_to_4_month.dot
+├── Feature_graph_for_interval_with_top_2_features_for_interval_intake_to_birth.dot
+├── Feature Importance.ipynb
+├── find_model.ipynb
+├── find_model.py
+├── #.gitignore#
+├── graph
+├── graph_code.py
+├── Histrogram_Feature_Creation.ipynb
+├── how_to_merge.txt
+├── Imputation.ipynb
+├── Imputation.py
+├── impute
+├── impute_and_filter-Copy0.ipynb
+├── impute_and_filter-Copy1.ipynb
+├── impute_and_filter.ipynb
+├── impute_and_filter.py
+├── intake_to_birth_ISOMAP_CLIENT_HEALTH_PREGNANCY_0_WKS_PR_and_CLIENT_HEALTH_GENERAL_HEIGHT_1_I_and_PREPGBMI_and_PREPGKG_and_CLIENT_HEALTH_GENERAL_WEIGHT_0_P.png
+├── intake_to_birth_ISOMAP_CLIENT_HEALTH_PREGNANCY_0_WKS_PR_and_CLIENT_HEALTH_GENERAL_HEIGHT_1_I_and_PREPGBMI_and_PREPGKG_and_NURSE_0_YEAR_NURSING_EXPERIENCE.png
+├── intake_to_birth_LLE_CLIENT_HEALTH_PREGNANCY_0_WKS_PR_and_CLIENT_HEALTH_GENERAL_HEIGHT_1_I_and_PREPGBMI_and_PREPGKG_and_CLIENT_HEALTH_GENERAL_WEIGHT_0_P.png
+├── intake_to_birth_LLE_CLIENT_HEALTH_PREGNANCY_0_WKS_PR_and_CLIENT_HEALTH_GENERAL_HEIGHT_1_I_and_PREPGBMI_and_PREPGKG_and_NURSE_0_YEAR_NURSING_EXPERIENCE.png
+├── I_S_O_M_A_P_ _m_o_m_w_t_g_a_i_n___a_n_d___b_i_r_t_h_g_m_s_2___a_n_d___t_i_m_e_4___D_U_R_A_T_I_O_N___s_u_m___a_n_d___P_R_E_P_G_B_M_I___a_n_d___t_i_m_e_4___D_U_R_A_T_I_O_N___t_i_m_e___M_A_T_E_R_N_A_L___s_u_m.png
+├── Jeff_Models-Copy0.ipynb
+├── Jeff_recipe.txt
+├── #KMS.txt#
+├── KMS.txt
+├── legend.html
+├── load_data.py
+├── media
+├── merge.py
+├── meta_data
+├── metr
+├── metrics_r_f_d.p
+├── metrics_will_drop.p
+├── model_pipeline_2-Copy0.ipynb
+├── model_pipeline_2.ipynb
+├── model_pipeline_2.py
+├── model_pipeline_3.py
+├── #model_pipeline_5.py#
+├── model_pipeline_5.py
+├── model_run_rf.txt
+├── models
+├── model_without_pca.yaml
+├── model_with_pca.yaml
+├── model.yaml
+├── name_change.pl
+├── nbstripout
+├── N_Features.ipynb
+├── nfp2-public
+├── nfpt2.tree
+├── notes
+├── out
+├── out.txt
+├── paralllel_coordinates.ipynb
+├── pickle_files
+├── pipeline
+├── pipeline_demo1.py
+├── PipeLine_Phase1.ipynb
+├── PipeLine_Phase1.py
+├── pipeline_utilities.py
+├── plot_binary.py
+├── plot.yaml
+├── Precision-Recall_curve_across_all_intervals.png
+├── prediction_set_maker-Copy0.ipynb
+├── prediction_set_maker-Copy1.ipynb
+├── prediction_set_maker_for_dropout.ipynb
+├── prediction_set_maker.ipynb
+├── prediction_set_maker.py
+├── Prep for R.ipynb
+├── project-pipeline.dia
+├── pyensemble
+├── #pyliny_report.txt#
+├── pyliny_report.txt
+├── python_to_nb.py
+├── Rafael_weeks.ipynb
+├── RandomForestClassifier_on_interval_1.png
+├── RandomForestClassifier_on_interval_2.png
+├── RandomForestClassifier_on_interval_3.png
+├── RandomForestClassifier_on_interval_4.png
+├── RandomForestClassifier_on_interval_5.png
+├── RandomForestClassifier_on_interval_6.png
+├── R_code
+├── README.md
+├── Receiver_operating_characteristic_curve_across_all_intervals.png
+├── results_pipeline2-Copy0.ipynb
+├── results_pipeline2.html
+├── results_pipeline2.ipynb
+├── results_pipeline2.py
+├── roc_auc_score_across_all_intervals.png
+├── rollin_visit.ipynb
+├── run.sh
+├── run_sklearn_model.py
+├── run_some_pipelines.sh
+├── run_weka.pl
+├── sanity_check_pipeline.ipynb
+├── sanity_check_Rafael_pipeline.ipynb
+├── sarah_a.ipynb
+├── Secondary_feature_gen.ipynb
+├── Secondary_feature_gen-Rafael-Copy0.ipynb
+├── Secondary_feature_gen-Rafael.ipynb
+├── Secondary_feature_gen-Rafael.py
+├── secondary_features.ipynb
+├── secondary_features_on_visit_data.ipynb
+├── see_test_model_results.ipynb
+├── sklearn_DT.yaml
+├── sklearn.yaml
+├── sklearn.yaml_bk
+├── Slicer-Copy0.ipynb
+├── Slicer.ipynb
+├── summary_statistics.ipynb
+├── temporal_data_creation_bk.ipynb
+├── temporal_data_creation.ipynb
+├── temporal_data_creation.py
+├── test.d
+├── testing_fiber_2_split.p
+├── test_model.ipynb
+├── test.py
+├── time_based_cross_validation-Rafael.ipynb
+├── time_cv_impute.ipynb
+├── timeline_creation_driver.py
+├── Timeline_Help.ipynb
+├── tree.dot
+├── tr_te_to_head.py
+├── Untitled0.ipynb
+├── Untitled1.ipynb
+├── Untitled2.ipynb
+├── Untitled3.ipynb
+├── Untitled4.ipynb
+├── Untitled5.ipynb
+├── Untitled6.ipynb
+├── Untitled7.ipynb
+├── utils
+├── Weka.ipynb
+├── weka_to_pr_jeff.py
+├── weka_to_pr_raf.py
+├── weka_to_roc.py
+└── weka_to_roc_time.py
+</pre></div>
+
+<hr />
+<h1 id="good-directory-organization">Good Directory Organization<a class="headerlink" href="#good-directory-organization" title="Permanent link">#</a></h1>
+<div class="highlight"><pre><span></span>.
+├── config
+├── descriptive_stats
+│   ├── mains_streets_stats
+│   └── water_work_orders
+├── etl
+│   ├── bin
+│   ├── geology
+│   ├── road_ratings
+│   ├── soil
+│   ├── street_line_data
+│   ├── tax_data
+│   ├── updated_main_data
+│   ├── waterorders
+│   └── water_system
+├── model
+│   ├── config
+│   ├── features
+│   └── log
+├── models_evaluation
+└── results
+    └── figures
+</pre></div>
+
+<h1 id="additional-resourcesinspiration-for-this-tutorial">Additional Resources/Inspiration for this Tutorial<a class="headerlink" href="#additional-resourcesinspiration-for-this-tutorial" title="Permanent link">#</a></h1>
+<ul>
+<li><a href="http://oicr-gsi.github.io/robust-paper/#fn:2">10 Rules for Robust Software</a></li>
+<li><a href="https://arxiv.org/pdf/1609.00037.pdf">Good Enough Practices in Scientific Computing</a></li>
+<li><a href="http://journals.plos.org/plosbiology/article?id=10.1371%2Fjournal.pbio.1001745">Best Practices for Scientific Computing</a></li>
+<li><a href="https://www.software.ac.uk/attach/ChangingResearchSoftwareAttitudes.pdf">Reproducible Research SSI</a></li>
+</ul></article></div></div></main><footer class="md-footer"><div class="md-footer-nav"><nav class="md-footer-nav__inner md-grid"><a href="../test-test-test/" title="Writing tests" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev"><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-back md-footer-nav__button"></i></div><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Previous</span>Writing tests</span></div></a><a href="../pimp-my-dotfiles/" title="Pimp my dotfiles!" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next"><div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span class="md-flex__ellipsis"><span class="md-footer-nav__direction">Next</span>Pimp my dotfiles!</span></div><div class="md-flex__cell md-flex__cell--shrink"><i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i></div></a></nav></div><div class="md-footer-meta md-typeset"><div class="md-footer-meta__inner md-grid"><div class="md-footer-copyright">powered by <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a></div><div class="md-footer-social"><link rel="stylesheet" href="../../../assets/fonts/font-awesome.css"> <a href="https://github.com/dssg/hitchhikers-guide" class="md-footer-social__link fa fa-github"></a>  <a href="https://twitter.com/datascifellows" class="md-footer-social__link fa fa-twitter"></a>  <a href="https://linkedin.com/company/center-for-data-science-and-public-policy-university-of-chicago" class="md-footer-social__link fa fa-linkedin"></a> </div></div></div></footer></div><script src="../../../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script><script src="../../../js/mermaid.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
