@@ -94,7 +94,7 @@ nav:
       - Tech setup:
           - Software you need: curriculum/setup/you_need.md
           - Setting up machines: curriculum/setup/machines.md
-          - Command line intro: curriculum/setup/cli.md
+          - Command line intro: curriculum/setup/command-line-tools/README.md
           - Git and github basic: curriculum/setup/git.md
           - Good software practices: curriculum/software/good_practices.md
           - Python: curriculum/software/basic_python.md
