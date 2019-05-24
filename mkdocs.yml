@@ -73,7 +73,7 @@ nav:
             - Ethics, Bias, Fairness: curriculum/skills/ethics_bias_fairness.md
             - Communication:
                   - Intro: curriculum/communication/README.md
-                  - Presentations and communications: curriculum/communication/presentation-on-presentations.pdf
+                  - Presentations: curriculum/communication/presentations.md
                   - Writing reports: curriculum/communication/writing.md
                   - Visualization: curriculum/eda/visualization.md
                   - User interface: curriculum/communication/user_interface.md
