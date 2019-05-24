@@ -4,12 +4,12 @@ Our long-term, overarching, unifying goal is to see more of this type
 of work happen in the world, and for our fellows to leave the program
 better equipped and more likely to use their skills for social good.
 
-To achieve this vision, our program focuses on three guiding
+To achieve this, our program focuses on three guiding
 goals. Our goals are (in order of priority):
 
 1. [Training Our Fellows](#training-our-fellows)
-2. [Introducing Data Science to the Social Sector](#introducing-data-science-to-the-social-sector)
-3. [Building a Community of Data Scientists for Social Good](#building-a-community-of-data-scientists-for-social-good)
+2. [Increasing the use of Data Science in Social Good Organizations](#introducing-data-science-to-the-social-sector)
+3. [Building and Supporting a Community of Data Scientists for Social Good](#building-a-community-of-data-scientists-for-social-good)
 
 We know that these goals are lofty. We do not presume or pretend to
 know the optimal way to achieve them, but we believe it's worth
@@ -45,7 +45,7 @@ cohort**. Every fellow contributes their own wealth of experience and
 expertise, and we aim to foster a learning environment where everyone
 can share this knowledge and learn from one another.
 
-### Introducing Data Science to the Social Sector
+### Increasing the use of Data Science in Social Good Organizations
 We believe that data-driven decisionmaking isn’t reserved for
 companies selling online advertisements or banks trying to detect
 fraud. We know that data science can help governments, non-profits,
@@ -72,7 +72,7 @@ is our primary priority, it is important to note that part of what
 fellows are learning is how to work with partners to produce work that
 is useful for the partners and delivered on time.
 
-### Building a Community of Data Scientists for Social Good
+### Building and Supporting a Community of Data Scientists for Social Good
 **We hope -- and expect -- that your impact as a DSSG alum continues
 beyond your summer tenure.** Throughout the summer, we will introduce
 you to other practitioners within the data science and social good
