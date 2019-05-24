@@ -69,10 +69,10 @@ Authentication
 
 ------------------------------------------------------------------------
 
-Database: Don\'t
+Database: Don't
 ================
 
-Don\'t commit the following:
+Don't commit the following:
 
 ``` {.python}
 from sqlalchemy import create_engine
@@ -93,8 +93,8 @@ database='mydatabase'
 password='ayylmao'
 ```
 
-Add this file to your [.gitignore]{.title-ref} to ensure that you don\'t
-commit it (<https://help.github.com/articles/ignoring-files/>)
+Add this file to your [`.gitignore`](https://help.github.com/articles/ignoring-files/) to ensure that you don't
+commit it
 
 ------------------------------------------------------------------------
 

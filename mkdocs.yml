@@ -103,7 +103,7 @@ nav:
           - Good repos: curriculum/setup/good_repos.md
       - Getting, storing, and linking data:
           - Intro: curriculum/1_getting_and_keeping_data/README.md
-          - Data security: curriculum/get_data/security.md
+          - Data security: curriculum/get_data/data-security-primer/README.md
           - Get data:
               - APIs and scrapping: curriculum/get_data/scrapping.md
               - Working with images: curriculum/get_data/images.md
