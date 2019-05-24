@@ -34,12 +34,6 @@ In order to be ready for the summer, you need to install some packages on your c
 *   Tableau (students can request a free education license)
 *   GNU/Emacs, VIM, Sublime Text (text editor for coding)
 
-## Optional
-
-*   R
-*   RStudio
-
-
 ## How to install pre-requisites?
 
 *   **OS X** users - Follow these [instructions](osx.md)
