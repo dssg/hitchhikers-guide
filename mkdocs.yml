@@ -30,7 +30,7 @@ markdown_extensions:
   - admonition
   - toc:
       permalink: "#"
-      baselevel: 2
+      baselevel: 1
       toc_depth: 3
       separator: "-"
   - codehilite:

@@ -148,6 +148,8 @@ Then, we will install a python version:
 
 This will take several minutes.
 
+### Virtual environment
+
 As a last step, we will create a *virtual environment*.
 
     $ pyenv virtualenv 3.7.3 dssg
@@ -191,10 +193,12 @@ Use your username and server's address to ssh into the server:
 
 Once you enter your password, you should be dropped into a shell on the server:
 
-    jsmith@servername: ~$
+    yourusername@servername: ~$
 
 
-Your life will be easier if you set up a [`.ssh/config` file](ssh_config.example)
+!!! important "PRO tip"
+
+    Your life will be easier if you set up a [`.ssh/config` file](ssh_config.example)
 
 
 ## PSQL
