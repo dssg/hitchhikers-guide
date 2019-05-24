@@ -137,8 +137,6 @@ nav:
       - Computational and Data Analysis Methods:
             - Intro: curriculum/3_modeling_and_machine_learning/README.md
             - Machine Learning: curriculum/3_modeling_and_machine_learning/README.md
-            - Social Sciences: curriculum/3_modeling_and_machine_learning/README.md
-            - Operations Research: curriculum/3_modeling_and_machine_learning/README.md
             - Machine learning methods: curriculum/ml/methods.md
             - Causal inference methods: curriculum/methods/causal_inference.md
             - Social science methods: curriculum/methods/social_science.md
