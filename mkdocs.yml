@@ -67,16 +67,17 @@ nav:
       - Summer overview: dssg-manual/summer-overview/README.md
       - Code of conduct: dssg-manual/conduct-culture-and-communications/README.md
   - Curriculum:
-      - Intro: curriculum/README.md
+      - What is in this curriculum: curriculum/README.md
+      - Sample curriculum for Summer 2019: curriculum/sample.md
       - Skills you need throughout a project:
-            - Ethics, Bias, Fairness: ethics_bias_fairness.md
+            - Ethics, Bias, Fairness: skills/ethics_bias_fairness.md
             - Communication:
-                  - Intro: communication.md
+                  - Intro: skills/communication.md
                   - Presentations and communications: curriculum/5_presentations_and_communications/README.md
             - Software Practices:
-                  - Intro: software/good_practices.md
+                  - Intro: skills/software_good_practices.md
                   - Programming best practices: curriculum/4_programming_best_practices/README.md
-            - Domain Understanding: domain_understanding.md
+            - Domain Understanding: skills/domain_understanding.md
       - Project Scoping:
           - Scoping overview: scoping/overview.md
           - Project workflow: scoping/project_workflow.md
@@ -92,7 +93,6 @@ nav:
           - Good software practices: software/good_practices.md
           - Python: software/basic_python.md
           - SQL: software/basic_sql.md
-          - ML pipeline: ml_pipeline.md
           - Software testing: software/testing.md
           - Good repos: setup/good_repos.md
       - Getting, storing, and linking data:
@@ -123,7 +123,7 @@ nav:
             - GIS: eda/gis.md
             - Text: eda/text.md
             - Network: eda/network.md
-            - Tableau (?): eda/trableau.md
+            - Tableau (?): eda/tableau.md
             - Data stories concept and code: eda/data_stories.md
             - ML as a data exploration tool (Clustering): eda/clustering.md
       - Computational and Data Analysis Methods:
@@ -132,18 +132,18 @@ nav:
             - Social Sciences: curriculum/3_modeling_and_machine_learning/README.md
             - Operations Research: curriculum/3_modeling_and_machine_learning/README.md
             - Machine learning methods: ml/methods.md
-            - Causal inference methods: causal_inference.md
-            - Other statistical analysis methods: statistical_analysis.md
-            - OR/optimization methods: or.md
+            - Causal inference methods: methods/causal_inference.md
+            - Social science methods: methods/social_science.md
+            - Other statistical analysis methods: methods/statistical_analysis.md
+            - OR/optimization methods: methods/or.md
       - Problem Templates in Social Good and Public Policy: ml/templates.md
       - Practical Steps in Using Machine Learning to Solve Social Problems:
             - Building an ML Pipeline:
-                - ML pipeline I: ml_pipeline.md
+                - ML pipeline I: ml/pipeline.md
                 - ML pipeline II: ml/pipeline_ii.md
             - Set up problem:
                 - ML problem formulation: ml/problem_formulation.md
                 - ML Checklist: ml/checklist.md
-                - Social science methods: social_science.md
                 - Templates of policy problems: ml/templates.md
             - Labels/Outcomes:
                 - One or many: ml/labels/one_or_many.md
@@ -158,28 +158,28 @@ nav:
                 - Temporal cross-validation: ml/validation/tcc.md
                 - Field trials: ml/validation/field_trials.md
             - Evalution Metrics:
-                - Overview: metrics/overview.md
-                - Examples: metrics/examples.md
+                - Overview: ml/metrics/overview.md
+                - Examples: ml/metrics/examples.md
             - Models/Methods:
                 - Machine learning methods: ml/methods.md
                 - Practical tips on how to use them, parameters, etc.: ml/tips.md
             - Model selection:
-                - Audition: selection/audition.md
+                - Audition: ml/selection/audition.md
                 - What metrics do we care about?:
-                    - Performance: selection/performance.md
-                    - Stability: selection/stability.md
-                    - Interpretability: selection/interpretability.md
-                    - Bias: selection/bias.md
+                    - Performance: ml/selection/performance.md
+                    - Stability: ml/selection/stability.md
+                    - Interpretability: ml/selection/interpretability.md
+                    - Bias: ml/selection/bias.md
             - Postmodeling:
-                - Model understanding: postmodeling/understanding.md
-                - Feature importance: postmodeling/feature_importance.md
-                - Comparing different models: postmodeling/model_comparison.md
-                - Comparing lists: postmodeling/list_comparison.md
-                - Error analysis: postmodeling/error_analysis.md
-                - Bias analysis: postmodeling/bias_analysis.md
+                - Model understanding: ml/postmodeling/understanding.md
+                - Feature importance: ml/postmodeling/feature_importance.md
+                - Comparing different models: ml/postmodeling/model_comparison.md
+                - Comparing lists: ml/postmodeling/list_comparison.md
+                - Error analysis: ml/postmodeling/error_analysis.md
+                - Bias analysis: ml/postmodeling/bias_analysis.md
             - Experimental design:
-                - Experiment design: experiment_design/intro.md
-                - Case studies: experiment_design/case_studies.md
+                - Experiment design: experimental_design/intro.md
+                - Case studies: experimental_design/case_studies.md
       - Communication:
           - Writing reports/presentations: communication/writing.md
           - Visualization: eda/visualization.md
@@ -188,4 +188,4 @@ nav:
           - How to deploy: deployment/how_to.md
           - Monitor: deployment/monitor.md
           - Update: deployment/update.md
-          - Advance pipelines: deployment/advance_pipelines.md
+          - Advanced pipelines: deployment/advanced_pipelines.md
