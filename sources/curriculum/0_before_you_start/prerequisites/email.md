@@ -1,7 +1,8 @@
 Hey DSSG 2019 Fellows!
 
-We’re SUPER stoked that DSSG 2019 is less than a couple of weeks
-away. A lot of you have expressed both excitement about the fellowship
+We’re excited that DSSG 2019 is comning up soon!
+
+A lot of you have expressed both excitement about the fellowship
 and trepidation about being prepared. We are here to help! Here is a
 guide of everything you need to install before showing up in Chicago,
 on your machine as well as in your brain.
@@ -90,20 +91,6 @@ expressive, and easy to read (even by non-programmers).
 [^15]: https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-and-IPython-Notebooks
 [^32]: https://medium.com/@brianray_7981/jupyterlab-first-impressions-e6d70d8a175d
 
-**R**
-
-R is an open-source programming language for statistical analysis,
-with lots of great packages for modeling and visualization. Jupyter
-Lab has an R kernel, so you don't have to switch environments to test
-and run both python and R scripts. However, if you want an R-centeric
-IDE, you can use the excellent RStudio linked to below.
-
-- [RStudio (IDE made for R)](http://www.rstudio.com/products/rstudio/)
-- [Shiny](http://www.shinyapps.io/) - Shiny is a web framework for R, so that you can build
-  interactive visualizations and web widgets. You can use this to
-  prototype tools for project partners to visualize and understand
-  your analyses.
-
 
 **Databases**
 
@@ -147,6 +134,8 @@ Background Reading
 - General Concepts in Machine Learning
     - [A few useful things to know about machine learning](http://homes.cs.washington.edu/~pedrod/papers/cacm12.pdf)
     - [Survey of machine learning tools for social scientists](http://people.ischool.berkeley.edu/~hal/Papers/2013/ml.pdf)
+    - [Machine Learning book chapter from Big Data and Social Science](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/3_modeling_and_machine_learning/machine-learning/mlchapter.pdf)
+    
 - Quantitative Social Science Methods
     - [Intro to Causal Inference](http://dholakia.web.rice.edu/CausalInference.pdf)
     - [Causal Inference in Social Science](http://people.ischool.berkeley.edu/~hal/Papers/2015/cause03.pdf)
