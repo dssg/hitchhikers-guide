@@ -14,7 +14,7 @@ theme:
 docs_dir: sources
 repo_name: 'dssg/hitchhikers-guide'
 repo_url: https://github.com/dssg/hitchhikers-guide
-edit_uri: ''
+edit_uri: edit/master/sources
 site_description: 'DSSG Hitchhikers guide'
 
 extra:
