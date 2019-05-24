@@ -72,8 +72,11 @@ nav:
       - Skills you need throughout a project:
             - Ethics, Bias, Fairness: curriculum/skills/ethics_bias_fairness.md
             - Communication:
-                  - Intro: curriculum/skills/communication.md
-                  - Presentations and communications: curriculum/5_presentations_and_communications/README.md
+                  - Intro: curriculum/communication/README.md
+                  - Presentations and communications: curriculum/communication/presentation-on-presentations.pdf
+                  - Writing reports: curriculum/communication/writing.md
+                  - Visualization: curriculum/eda/visualization.md
+                  - User interface: curriculum/communication/user_interface.md
             - Software Practices:
                   - Intro: curriculum/skills/software_good_practices.md
                   - Programming best practices: curriculum/4_programming_best_practices/README.md
@@ -180,10 +183,6 @@ nav:
             - Experimental design:
                 - Experiment design: curriculum/experimental_design/intro.md
                 - Case studies: curriculum/experimental_design/case_studies.md
-      - Communication:
-          - Writing reports/presentations: curriculum/communication/writing.md
-          - Visualization: curriculum/eda/visualization.md
-          - User interface: curriculum/communication/user_interface.md
       - Deployment and Maintenance:
           - How to deploy: curriculum/deployment/how_to.md
           - Monitor: curriculum/deployment/monitor.md
