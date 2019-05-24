@@ -60,31 +60,28 @@ nav:
   - Home: index.md
   - What is in this curriculum?: what-is-dssg.md
   - DSSG Locations: host-cities.md
-  - DSSG Manual:
-      - Code of conduct: dssg-manual/conduct-culture-and-communications/README.md
+  - DSSG Manual (for summer fellows):
+      - What is in this manual: dssg-manual/README.md
       - Goals of the Fellowship: dssg-manual/conduct-culture-and-communications/goals.md
       - The DSSG Environment: dssg-manual/conduct-culture-and-communications/environment.md
       - Summer overview: dssg-manual/summer-overview/README.md
+      - Code of conduct: dssg-manual/conduct-culture-and-communications/README.md
   - Curriculum:
       - Intro: curriculum/README.md
-      - Before you start: curriculum/0_before_you_start/README.md
-      - Getting and keeping data: curriculum/1_getting_and_keeping_data/README.md
-      - Data exploration and analysis: curriculum/2_data_exploration_and_analysis/README.md
-      - Modeling and ML: curriculum/3_modeling_and_machine_learning/README.md
-      - Programming best practices: curriculum/4_programming_best_practices/README.md
-      - Presentations and communications: curriculum/5_presentations_and_communications/README.md
-  - New curriculum:
-      - Ethics, Bias, Fairness: ethics_bias_fairness.md
-      - Communication: communication.md
-      - Software Practices: software/good_practices.md
-      - Domain Understanding: domain_understanding.md
-      - Pipeline: ml_pipeline.md
-      - Project Scoping:
+      - Skills you need throughout a project
+            - Ethics, Bias, Fairness: ethics_bias_fairness.md
+            - Communication: communication.md
+                  - Presentations and communications: curriculum/5_presentations_and_communications/README.md
+            - Software Practices: software/good_practices.md
+                  - Programming best practices: curriculum/4_programming_best_practices/README.md
+            - Domain Understanding: domain_understanding.md
+      - Step 1: Project Scoping:
           - Scoping overview: scoping/overview.md
           - Project workflow: scoping/project_workflow.md
           - Data Maturity evaluation: scoping/dme.md
           - Intro to data analysis methods: scoping/analysis_methods.md
           - Project deliverables: scoping/deliverables.md
+      - Before you start: curriculum/0_before_you_start/README.md
       - Tech setup:
           - Software you need: setup/you_need.md
           - Setting up machines: setup/machines.md
@@ -96,79 +93,87 @@ nav:
           - ML pipeline: ml_pipeline.md
           - Software testing: software/testing.md
           - Good repos: setup/good_repos.md
-      - Get data:
-          - APIs and scrapping: get_data/scrapping.md
-          - Working with images: get_data/images.md
-          - Working with text: get_data/text.md
-          - Flat files: get_data/flat_files.md
-          - DBs:
-              - Why a DB?: dbs/why.md
-              - Designing a DB: dbs/relational_design.md
-              - Getting data in: dbs/getting_data_in.md
-              - Getting data out: dbs/getting_data_out.md
-              - Analyzing data (SQL): software/sql_data_analysis.md
+      - Getting, storing, and linking data: curriculum/1_getting_and_keeping_data/README.md
           - Data security: get_data/security.md
-      - Store data:
-          - ETL - cleaning, loading: store_data/etl.md
-          - Other types of DBs: dbs/other_types.md
-      - Link data:
-          - Record linkage: link_data/record_linkage.md
-      - Data exploration:
-          - Introduction to EDA: eda/intro.md
-          - Visualization: eda/visualization.md
-          - SQL: software/sql_data_analysis.md
-          - pandas: software/python_pandas.md
-          - GIS: eda/gis.md
-          - Text: eda/text.md
-          - Network: eda/network.md
-          - Tableau (?): eda/trableau.md
-          - Data stories concept and code: eda/data_stories.md
-          - ML as a data mining tool (Clustering): eda/clustering.md
-      - Set up problem:
-          - ML problem formulation: ml/problem_formulation.md
-          - ML pipeline II: ml/pipeline_ii.md
-          - Machine learning methods: ml/methods.md
-          - Causal inference methods: causal_inference.md
-          - Other statistical analysis methods: statistical_analysis.md
-          - OR/optimization methods: or.md
-          - ML Checklist: ml/checklist.md
-          - Social science methods: social_science.md
-          - Templates of policy problems: ml/templates.md
-      - Labels:
-          - One or many: ml/labels/one_or_many.md
-          - Implications of a label: ml/labels/implications.md
-      - Features:
-          - Feature engineering: ml/feature_engineering/intro.md
-          - Workshop on feature engineering: ml/feature_engineering/workshop.md
-          - Case studies: ml/feature_engineering/case_studies.md
-      - Validation:
-          - Process and goal: ml/validation/process_and_goal.md
-          - K-fold cross-validation: ml/validation/kfold.md
-          - Temporal cross-validation: ml/validation/tcc.md
-          - Field trials: ml/validation/field_trials.md
-      - Metrics:
-          - Overview: metrics/overview.md
-          - Examples: metrics/examples.md
-      - Models/Methods:
-          - Machine learning methods: ml/methods.md
-          - Practical tips on how to use them, parameters, etc.: ml/tips.md
-      - Model selection:
-          - Audition: selection/audition.md
-          - What metrics do we care about?:
-              - Performance: selection/performance.md
-              - Stability: selection/stability.md
-              - Interpretability: selection/interpretability.md
-              - Bias: selection/bias.md
-      - Postmodeling:
-          - Model understanding: postmodeling/understanding.md
-          - Feature importance: postmodeling/feature_importance.md
-          - Comparing different models: postmodeling/model_comparison.md
-          - Comparing lists: postmodeling/list_comparison.md
-          - Error analysis: postmodeling/error_analysis.md
-          - Bias analysis: postmodeling/bias_analysis.md
-      - Experiment design:
-          - Experiment design: experiment_design/intro.md
-          - Case studies: experiment_design/case_studies.md
+          - Get data:
+              - APIs and scrapping: get_data/scrapping.md
+              - Working with images: get_data/images.md
+              - Working with text: get_data/text.md
+              - Flat files: get_data/flat_files.md              
+          - Store data:
+              - ETL - cleaning, loading: store_data/etl.md
+              - DBs:
+                  - Why a DB?: dbs/why.md
+                  - Designing a DB: dbs/relational_design.md
+                  - Getting data in: dbs/getting_data_in.md
+                  - Getting data out: dbs/getting_data_out.md
+                  - Analyzing data (SQL): software/sql_data_analysis.md
+              - Other types of DBs: dbs/other_types.md
+          - Link data:
+              - Record linkage: link_data/record_linkage.md
+        - Data exploration: curriculum/2_data_exploration_and_analysis/README.md
+            - Introduction to EDA: eda/intro.md
+            - Visualization: eda/visualization.md
+            - SQL: software/sql_data_analysis.md
+            - pandas: software/python_pandas.md
+            - GIS: eda/gis.md
+            - Text: eda/text.md
+            - Network: eda/network.md
+            - Tableau (?): eda/trableau.md
+            - Data stories concept and code: eda/data_stories.md
+            - ML as a data exploration tool (Clustering): eda/clustering.md
+      - Computational and Data Analysis Methods: curriculum/3_modeling_and_machine_learning/README.md
+            - Machine Learning: curriculum/3_modeling_and_machine_learning/README.md
+            - Social Sciences: curriculum/3_modeling_and_machine_learning/README.md
+            - Operations Research: curriculum/3_modeling_and_machine_learning/README.md
+            - Machine learning methods: ml/methods.md
+            - Causal inference methods: causal_inference.md
+            - Other statistical analysis methods: statistical_analysis.md
+            - OR/optimization methods: or.md
+      - Problem Templates in Social Good and Public Policy
+      - Practical Steps in Using Machine Learning to Solve Social Problems
+            - Building an ML Pipeline: ml_pipeline.md
+                - ML pipeline II: ml/pipeline_ii.md
+            - Set up problem:
+                - ML problem formulation: ml/problem_formulation.md
+                - ML Checklist: ml/checklist.md
+                - Social science methods: social_science.md
+                - Templates of policy problems: ml/templates.md
+            - Labels/Outcomes:
+                - One or many: ml/labels/one_or_many.md
+                - Implications of a label: ml/labels/implications.md
+            - Features/Predictors:
+                - Feature engineering: ml/feature_engineering/intro.md
+                - Workshop on feature engineering: ml/feature_engineering/workshop.md
+                - Case studies: ml/feature_engineering/case_studies.md
+            - Validation Methodology:
+                - Process and goal: ml/validation/process_and_goal.md
+                - K-fold cross-validation: ml/validation/kfold.md
+                - Temporal cross-validation: ml/validation/tcc.md
+                - Field trials: ml/validation/field_trials.md
+            - Evalution Metrics:
+                - Overview: metrics/overview.md
+                - Examples: metrics/examples.md
+            - Models/Methods:
+                - Machine learning methods: ml/methods.md
+                - Practical tips on how to use them, parameters, etc.: ml/tips.md
+            - Model selection:
+                - Audition: selection/audition.md
+                - What metrics do we care about?:
+                    - Performance: selection/performance.md
+                    - Stability: selection/stability.md
+                    - Interpretability: selection/interpretability.md
+                    - Bias: selection/bias.md
+            - Postmodeling:
+                - Model understanding: postmodeling/understanding.md
+                - Feature importance: postmodeling/feature_importance.md
+                - Comparing different models: postmodeling/model_comparison.md
+                - Comparing lists: postmodeling/list_comparison.md
+                - Error analysis: postmodeling/error_analysis.md
+                - Bias analysis: postmodeling/bias_analysis.md
+            - Experimental design:
+                - Experiment design: experiment_design/intro.md
+                - Case studies: experiment_design/case_studies.md
       - Communication:
           - Writing reports/presentations: communication/writing.md
           - Visualization: eda/visualization.md
