@@ -9,7 +9,7 @@ but with an emphasis on social science, ethics, privacy, and social issues.
 
 *Another one of our goals is to encourage collaborations. Anyone  interested in doing this type of work, or starting a DSSG program, to build on what we've  learned by **using and contributing to** these resources.
 
-## What is Data Science for Social Good?
+## What is in this guide?
 We have spent many (sort of) early mornings waxing existential over Dunkin' Donuts while trying to define what makes a "data scientist for social good," that enigmatic breed combining one part data scientist, one part consultant, one part educator, and one part bleeding heart idealist. We've come to a rough working definition in the form of the skills and knowledge one would need, which we categorize as follows:
 - **Programming,** because you'll need to tell your computer what to do, usually by writing code.
 - **Computer science,** because you'll need to understand how your data is - and should be - structured, as well as the algorithms you use to analyze it.
