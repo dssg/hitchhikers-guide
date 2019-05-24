@@ -126,12 +126,12 @@ nav:
             - Intro: curriculum/2_data_exploration_and_analysis/README.md
             - Introduction to EDA: curriculum/eda/intro.md
             - Visualization: curriculum/eda/visualization.md
-            - SQL: curriculum/software/sql_data_analysis.md
-            - pandas: curriculum/software/python_pandas.md
-            - GIS: curriculum/eda/gis.md
-            - Text: curriculum/eda/text.md
-            - Network: curriculum/eda/network.md
-            - Tableau (?): curriculum/eda/tableau.md
+            - SQL: curriculum/2_data_exploration_and_analysis/advanced_sql/README.md
+            - Python/Pandas: curriculum/2_data_exploration_and_analysis/data-exploration-in-python/README.md
+            - GIS: curriculum/2_data_exploration_and_analysis/gis_analysis/postgis-workshop/README.md
+            - Text: curriculum/2_data_exploration_and_analysis/text-analysis/README.md
+            - Network: curriculum/2_data_exploration_and_analysis/network-analysis/README.md
+            - Tableau: curriculum/eda/tableau.md
             - Data stories concept and code: curriculum/eda/data_stories.md
             - ML as a data exploration tool (Clustering): curriculum/eda/clustering.md
       - Computational and Data Analysis Methods:
