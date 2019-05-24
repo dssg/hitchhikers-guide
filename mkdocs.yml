@@ -68,14 +68,16 @@ nav:
       - Code of conduct: dssg-manual/conduct-culture-and-communications/README.md
   - Curriculum:
       - Intro: curriculum/README.md
-      - Skills you need throughout a project
+      - Skills you need throughout a project:
             - Ethics, Bias, Fairness: ethics_bias_fairness.md
-            - Communication: communication.md
+            - Communication:
+                  - Intro: communication.md
                   - Presentations and communications: curriculum/5_presentations_and_communications/README.md
-            - Software Practices: software/good_practices.md
+            - Software Practices:
+                  - Intro: software/good_practices.md
                   - Programming best practices: curriculum/4_programming_best_practices/README.md
             - Domain Understanding: domain_understanding.md
-      - Step 1: Project Scoping:
+      - Project Scoping:
           - Scoping overview: scoping/overview.md
           - Project workflow: scoping/project_workflow.md
           - Data Maturity evaluation: scoping/dme.md
@@ -93,13 +95,14 @@ nav:
           - ML pipeline: ml_pipeline.md
           - Software testing: software/testing.md
           - Good repos: setup/good_repos.md
-      - Getting, storing, and linking data: curriculum/1_getting_and_keeping_data/README.md
+      - Getting, storing, and linking data:
+          - Intro: curriculum/1_getting_and_keeping_data/README.md
           - Data security: get_data/security.md
           - Get data:
               - APIs and scrapping: get_data/scrapping.md
               - Working with images: get_data/images.md
               - Working with text: get_data/text.md
-              - Flat files: get_data/flat_files.md              
+              - Flat files: get_data/flat_files.md
           - Store data:
               - ETL - cleaning, loading: store_data/etl.md
               - DBs:
@@ -111,7 +114,8 @@ nav:
               - Other types of DBs: dbs/other_types.md
           - Link data:
               - Record linkage: link_data/record_linkage.md
-        - Data exploration: curriculum/2_data_exploration_and_analysis/README.md
+      - Data exploration:
+            - Intro: curriculum/2_data_exploration_and_analysis/README.md
             - Introduction to EDA: eda/intro.md
             - Visualization: eda/visualization.md
             - SQL: software/sql_data_analysis.md
@@ -122,7 +126,8 @@ nav:
             - Tableau (?): eda/trableau.md
             - Data stories concept and code: eda/data_stories.md
             - ML as a data exploration tool (Clustering): eda/clustering.md
-      - Computational and Data Analysis Methods: curriculum/3_modeling_and_machine_learning/README.md
+      - Computational and Data Analysis Methods:
+            - Intro: curriculum/3_modeling_and_machine_learning/README.md
             - Machine Learning: curriculum/3_modeling_and_machine_learning/README.md
             - Social Sciences: curriculum/3_modeling_and_machine_learning/README.md
             - Operations Research: curriculum/3_modeling_and_machine_learning/README.md
@@ -130,9 +135,10 @@ nav:
             - Causal inference methods: causal_inference.md
             - Other statistical analysis methods: statistical_analysis.md
             - OR/optimization methods: or.md
-      - Problem Templates in Social Good and Public Policy
-      - Practical Steps in Using Machine Learning to Solve Social Problems
-            - Building an ML Pipeline: ml_pipeline.md
+      - Problem Templates in Social Good and Public Policy: ml/templates.md
+      - Practical Steps in Using Machine Learning to Solve Social Problems:
+            - Building an ML Pipeline:
+                - ML pipeline I: ml_pipeline.md
                 - ML pipeline II: ml/pipeline_ii.md
             - Set up problem:
                 - ML problem formulation: ml/problem_formulation.md
