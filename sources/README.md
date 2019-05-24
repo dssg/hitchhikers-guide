@@ -1,10 +1,11 @@
+
 # Welcome to the Hitchhiker's Guide to Data Science for Social Good.
 
 ## What is the Data Science for Social Good Fellowship?
 
-The Data Science for Social Good Fellowship (DSSG) is a hands-on and project-based summer program that launched in 2013 at the University of Chicago and has now expanded to multiple locations globally. It brings data science fellows from across the world to work on machine learning, artificial intelligence, and data science projects that have a social impact. From a pool of typically over 800 applicants, 20-40 fellows are selected from diverse computational and quantitative disciplines including computer science, statistics, math, engineering, sociology, economics, and public policy backgrounds. 
+The Data Science for Social Good Fellowship (DSSG) is a hands-on and project-based summer program that launched in 2013 at the University of Chicago and has now expanded to multiple locations globally. It brings data science fellows from across the world to work on machine learning, artificial intelligence, and data science projects that have a social impact. From a pool of typically over 800 applicants, 20-40 fellows are selected from diverse computational and quantitative disciplines including computer science, statistics, math, engineering, sociology, economics, and public policy backgrounds.
 
-The fellows work in small, cross-disciplinary teams on social good projects spanning education, health, energy, transportation, criminal justice, social services, economic development and international development in collaboration with global government agencies and non-profits. This work is done under close and hands-on mentorship from full-time, dedicated data science mentors as well as dedicated project managers, with industry experience. The result is highly trained fellows, improved data science capacity of the social good organization, and a high quality data science project that is ready for field trial and implementation, delivered at the end of the program. 
+The fellows work in small, cross-disciplinary teams on social good projects spanning education, health, energy, transportation, criminal justice, social services, economic development and international development in collaboration with global government agencies and non-profits. This work is done under close and hands-on mentorship from full-time, dedicated data science mentors as well as dedicated project managers, with industry experience. The result is highly trained fellows, improved data science capacity of the social good organization, and a high quality data science project that is ready for field trial and implementation, delivered at the end of the program.
 
 In addition to hands-on project-based training, the summer program also consists of workshops, tutorials, and discussion groups based on our data science for social good curriculum designed to train the fellows in doing practical data science and artificial intelligence for social impact.
 
@@ -19,8 +20,15 @@ Our number one priority at  [DSSG](http://dssg.uchicago.edu) is to **train fello
 *Another one of our goals is to encourage collaborations. Anyone  interested in doing this type of work, or starting a DSSG program, to build on what we've  learned by **using and contributing to** these resources.
 
 ## What is in this guide?
-We have spent many (sort of) early mornings waxing existential over Dunkin' Donuts while trying to define what makes a "data scientist for social good," that enigmatic breed combining one part data scientist, one part consultant, one part educator, and one part bleeding heart idealist. We've come to a rough working definition in the form of the skills and knowledge one would need, which we categorize as follows:
-- **Programming,** because you'll need to tell your computer what to do, usually by writing code.
+We have spent many (sort of) early mornings waxing existential over
+Dunkin' Donuts while trying to define what makes a "data scientist for
+social good," that enigmatic breed combining one part data scientist,
+one part consultant, one part educator, and one part bleeding heart
+idealist. We've come to a rough working definition in the form of the
+skills and knowledge one would need, which we categorize as follows:
+
+- **Programming,** because you'll need to tell your computer what to
+  do, usually by writing code.
 - **Computer science,** because you'll need to understand how your data is - and should be - structured, as well as the algorithms you use to analyze it.
 - **Math and stats,** because [everything else in life is just applied math](https://xkcd.com/435/), and numerical results are meaningless without some measure of uncertainty.
 - **Machine learning,** because you'll want to build predictive or descriptive models that can learn, evolve, and improve over time.
@@ -34,4 +42,3 @@ We have spent many (sort of) early mornings waxing existential over Dunkin' Donu
 
 All material is licensed under CC-BY 4.0
 ![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
-
