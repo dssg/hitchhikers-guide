@@ -1,4 +1,5 @@
-## Before You Start
+# Before You Start
+
 So you want to start a DSSG project! First, please make sure you have
 gone through the [Prerequisites](prerequisites/)
 and [Software Setup](software-setup/) and are equipped with the basic knowledge and tools you'll need.
