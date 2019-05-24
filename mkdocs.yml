@@ -107,12 +107,12 @@ nav:
           - Intro: curriculum/1_getting_and_keeping_data/README.md
           - Data security: curriculum/get_data/data-security-primer/README.md
           - Get data:
-              - APIs and scrapping: curriculum/get_data/scrapping.md
+              - APIs and scrapping: curriculum/1_getting_and_keeping_data/basic-web-scraping/README.md
               - Working with images: curriculum/get_data/images.md
               - Working with text: curriculum/get_data/text.md
-              - Flat files: curriculum/get_data/flat_files.md
+              - Flat files: curriculum/1_getting_and_keeping_data/csv-to-db/README.md
           - Store data:
-              - ETL - cleaning, loading: curriculum/store_data/etl.md
+              - ETL - cleaning, loading: curriculum/1_getting_and_keeping_data/reproducible_ETL/README.md
               - DBs:
                   - Why a DB?: curriculum/dbs/why.md
                   - Designing a DB: curriculum/dbs/relational_design.md
@@ -121,7 +121,7 @@ nav:
                   - Analyzing data (SQL): curriculum/software/sql_data_analysis.md
               - Other types of DBs: curriculum/dbs/other_types.md
           - Link data:
-              - Record linkage: curriculum/link_data/record_linkage.md
+              - Record linkage: curriculum/2_data_exploration_and_analysis/record-linkage/README.md
       - Data exploration:
             - Intro: curriculum/2_data_exploration_and_analysis/README.md
             - Introduction to EDA: curriculum/eda/intro.md
