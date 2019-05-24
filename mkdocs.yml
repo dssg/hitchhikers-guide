@@ -57,7 +57,7 @@ extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
 
 nav:
-  - Home: index.md
+  - Home: README.md
   - What is in this curriculum?: what-is-dssg.md
   - DSSG Locations: host-cities.md
   - DSSG Manual (for summer fellows):

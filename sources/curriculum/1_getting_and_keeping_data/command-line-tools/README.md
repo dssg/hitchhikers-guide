@@ -6,22 +6,14 @@ As data scientists, we often receive data in text-based files. We need to explor
 
 Command line tools are the data scientist's swiss army knife. They are versitile, portable, and have plenty of functions that your not quite sure how to use, but you're sure they'll be useful at some point. From helping you obtain, clean, and explore your data, to helping you build models and manager your workflow, command line tools are essential to every well-built data science pipeline, will be used throughout DSSG, and should be your starting point as you build your data science toolkit.
 
-## Potential Teachouts
-
-TMUX: Getting your command line organized
-	- TMUX is a great way to manage many environments at once. Give it a shot!
-
-drake: Data DAGs and pipeline management in the command line
-	- Setting up a
-	- Challenge: create a basic data DAG using drake that includes three successive transformations. Modify the middle transformation and rerun only the dependencies to update the final output.
-	- This will require some Java setup. Follow the Drake docs
 
 ## Content
 
 Here's the [presentation](https://docs.google.com/presentation/d/1twh7vH3EnB5fypn0tl1Fi0PhjlrMKExZoPhpu7-lWtk/edit?usp=sharing) from the start of the workshop.
 
 ### Let's talk about the weather
-Since there's been so much controversy over weather predictions from paid vs free apps this year, we're going to just do it ourselves and create out own predictions using weather data from NOAA. 
+
+Since there's been so much controversy over weather predictions from paid vs free apps this year, we're going to just do it ourselves and create out own predictions using weather data from NOAA.
 
 You can find daily data for the US here:
 
@@ -41,7 +33,7 @@ We obviously didn't use curl right. Let's look up the manual for the command usi
 
 `man curl`
 
-Looks like if we want to write this to a file, we've got to pass the `-O` argument. 
+Looks like if we want to write this to a file, we've got to pass the `-O` argument.
 
 `curl -O ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/2016.csv.gz`
 
@@ -85,7 +77,7 @@ These commands all print things out raw and bunched together. I want to take adv
 
 `csvlook 2016.csv`
 
-But that's everything again. We just want to see the top. If only we could take the output from `head` and send it to `csvlook`. 
+But that's everything again. We just want to see the top. If only we could take the output from `head` and send it to `csvlook`.
 
 We can! It's called *piping*, and you do it like this:
 
@@ -127,7 +119,7 @@ Another powerful tool that can do filtering (and much more) is `awk`. `awk` trea
 `awk` requires familiarity with regular expressions for contitions and has its own language for actions, so `man` and stack overflow will be your friends if you want to go deep with `awk`.
 
 ### Editing and Transforming Data
-Let's say we want to replace values in the files. PRCP is confusing. Let's change PRCP to RAIN. 
+Let's say we want to replace values in the files. PRCP is confusing. Let's change PRCP to RAIN.
 
 To do this, we use `sed`. `sed` stands for streaming editor, and is very useful for editing large text files because it doesn't have to load all the data into memory to make changes. Here's how we can use `sed` to replace a string.
 
@@ -139,13 +131,13 @@ But when we look at the source file
 
 `head 2016.csv`
 
-Noting has changed. That's because we didn't write it to a file. In fact, none of the changes we've made have. 
+Noting has changed. That's because we didn't write it to a file. In fact, none of the changes we've made have.
 
 `sed s/PRCP/RAIN/ 2016.csv > 2016_clean.csv`
 
 `head 2016_clean.csv`
 
-We can also use awk for subsitution, but this time, let's replace "WSFM" with "WINDSPEED" in all the weather files in the directory. Once again, stackoverflow is your friend here. 
+We can also use awk for subsitution, but this time, let's replace "WSFM" with "WINDSPEED" in all the weather files in the directory. Once again, stackoverflow is your friend here.
 
 `ls -la > files.txt`
 
@@ -153,13 +145,13 @@ We can also use awk for subsitution, but this time, let's replace "WSFM" with "W
 
 ## Group Challenges
 
-For group challenges, log onto the `training` ec2 instance and change directories to /mnt/data/training/yourusername. This should be your working directory for all the excercises. 
+For group challenges, log onto the `training` ec2 instance and change directories to /mnt/data/training/yourusername. This should be your working directory for all the excercises.
 
-1) Create a final weather file that just has weather data from OHARE airport for days when it rained, and change PRCP to RAIN. Save the sequence of commands to a shell script so it's replicable by your teammate and push to a training repository you've created on github. 
+1) Create a final weather file that just has weather data from OHARE airport for days when it rained, and change PRCP to RAIN. Save the sequence of commands to a shell script so it's replicable by your teammate and push to a training repository you've created on github.
 
 2) Create a separate file with just the weather from OHARE for days when the tempurature was above 70 degrees F. (hint: try using csvgrep to filter a specific column on a range of values)
 
-3) Get ready to explore the relationship between weather and crime in Chicago. Using crime data from 2016 (below), parse the json and convert it to a csv. Explore the fields and cut the dataset down to just day, location, and crime type. Then subset the dataset to just homicides and save as a new file. 
+3) Get ready to explore the relationship between weather and crime in Chicago. Using crime data from 2016 (below), parse the json and convert it to a csv. Explore the fields and cut the dataset down to just day, location, and crime type. Then subset the dataset to just homicides and save as a new file.
 
 `https://data.cityofchicago.org/resource/6zsd-86xi.json`
 
@@ -210,12 +202,13 @@ We're going to cover a variety of command line tools that help us obtain, parse,
 
 - Writing shell scripts
 
-
-
 ## Further Resources
 
 Jeroen Janssens wrote the book [literally](http://datascienceatthecommandline.com/) on data science in the command line. Also, check out his [post](http://jeroenjanssens.com/2013/09/19/seven-command-line-tools-for-data-science.html) on 7 essential command line tools for data scientists.
 
 For command line basics, [Learning CLI the Hard Way](http://cli.learncodethehardway.org/book/) is, as always, a great resource.
 
-## Discussion Notes
+## Potential Teachouts
+
+- `tmux`: Getting your command line organized
+	- `tmux` is a great way to manage many environments at once. Give it a shot!
