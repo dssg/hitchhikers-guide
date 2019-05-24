@@ -90,7 +90,6 @@ nav:
           - Data Maturity evaluation: curriculum/scoping/dme.md
           - Intro to data analysis methods: curriculum/scoping/analysis_methods.md
           - Project deliverables: curriculum/scoping/deliverables.md
-      - Before you start: curriculum/0_before_you_start/README.md
       - Tech setup:
           - Software you need: curriculum/setup/you_need.md
           - Setting up machines: curriculum/setup/software-setup/README.md
@@ -103,6 +102,7 @@ nav:
           - Python: curriculum/software/basic_python.md
           - SQL: curriculum/software/basic_sql/README.md
           - Good repos: curriculum/setup/good_repos.md
+          - Technical workflow: curriculum/0_before_you_start/TechnicalWorkflowAndBestPractices.md
       - Getting, storing, and linking data:
           - Intro: curriculum/1_getting_and_keeping_data/README.md
           - Data security: curriculum/get_data/data-security-primer/README.md
