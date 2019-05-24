@@ -93,9 +93,13 @@ nav:
       - Before you start: curriculum/0_before_you_start/README.md
       - Tech setup:
           - Software you need: curriculum/setup/you_need.md
-          - Setting up machines: curriculum/setup/machines.md
+          - Setting up machines: curriculum/setup/software-setup/README.md
           - Command line intro: curriculum/setup/command-line-tools/README.md
-          - Git and github basic: curriculum/setup/git-and-github/README.md
+          - Git and github:
+              - What is it?: curriculum/setup/git-and-github/README.md
+              - Basic tutorial: curriculum/setup/git-and-github/basic_git_tutorial/README.md
+              - Group tutorial: curriculum/setup/git-and-github/group_tutorial/README.md
+              - Workflow: curriculum/setup/git-and-github/githubflow/github-flow.html
           - Good software practices: curriculum/software/good_practices.md
           - Python: curriculum/software/basic_python.md
           - SQL: curriculum/software/basic_sql.md
