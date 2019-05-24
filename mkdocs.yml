@@ -78,8 +78,11 @@ nav:
                   - Visualization: curriculum/eda/visualization.md
                   - User interface: curriculum/communication/user_interface.md
             - Software Practices:
-                  - Intro: curriculum/skills/software_good_practices.md
-                  - Programming best practices: curriculum/4_programming_best_practices/README.md
+                  - Intro: curriculum/programming_best_practices/README.md
+                  - Legible, good code: curriculum/programming_best_practices/legible-good-code/README.md
+                  - Writing tests: curriculum/programming_best_practices/test-test-test/README.md
+                  - Reproducible software: curriculum/programming_best_practices/reproducible-software/README.md
+                  - Pimp my dotfiles!: curriculum/programming_best_practices/pimp-my-dotfiles/README.md
             - Domain Understanding: curriculum/skills/domain_understanding.md
       - Project Scoping:
           - Scoping overview: curriculum/scoping/overview.md
