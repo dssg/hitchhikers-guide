@@ -2,6 +2,37 @@
 
 ## Motivation and Background
 
+This provides an overview of how we can make use
+of text data using computational data analysis methods. We cover the types of analysis that can be done with text data (search, topic detection, classification, etc.) and give an overview of how to do these analysis, tasks that they’re useful for, and how to evaluate the results. We provide a set of tools that are commonly used for doing text analysis and provide.
+
+We often deal with text data that comes from a variety of sources - open ended survey responses, phone call transcriptions, social media data, notes from electronic health records, and news. A challenge we face when dealing with these types of data is how to efficiently analyze it just like we do structured (tabular) data. For example, when analyzing survey responses or electronic health records data, both of which contain narrative text (from the respondents and medical practitioners respectively), the text data often gets ignored or read by the analysts (manually) and used anecdotally. Text analysis techniques described here allow you to use all of the data available (structured and unstructured), and efficiently incorporate large amounts of text data in your analysis. 
+
+Things you should learn after this:
+- How is text data different than “structured” data?
+- What types of analysis can be done with text data?
+    - Use it by itself
+    - Combine it with structured data
+- List the types of analysis and examples
+- How do we do the analysis
+ - Processing Pipeline
+    - Tokenization
+    - Stemming
+    - Stopwords
+    - Linguistic analysis
+    - Turning text into a matrix
+    - Term weights
+    - TFIDF
+- Analysis (what it is, how to do it, how to evaluate it, and applications/examples in social science)
+    - Finding similar documents
+    - Finding themes and topics (describe the methods, examples, and evaluation process)
+    - Clustering
+    - Topic models
+    - Classification  (describe the methods, examples, and evaluation process)
+    - Deep Learning and Word Embeddings
+- Tools
+- Summary
+
+
 Text Analysis is used for summarizing or getting useful information out of a large amount of unstructured text stored in documents. 
 This opens up the opportunity of using text data alongside more conventional data sources (e.g., surveys and administrative data). The
 goal of text analysis is to take a large corpus of complex and unstructured text data and extract important and meaningful messages
