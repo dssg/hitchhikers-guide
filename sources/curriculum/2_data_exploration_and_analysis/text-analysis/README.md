@@ -1,4 +1,4 @@
-# Text Analysis Example 
+# Text Analysis 
 
 ## Motivation and Background
 
