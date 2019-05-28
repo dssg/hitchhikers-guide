@@ -98,7 +98,8 @@ nav:
               - What is it?: curriculum/setup/git-and-github/README.md
               - Basic tutorial: curriculum/setup/git-and-github/basic_git_tutorial/README.md
               - Group tutorial: curriculum/setup/git-and-github/group_tutorial/README.md
-              - Workflow: curriculum/setup/git-and-github/githubflow/github-flow.html
+              - Advanced notes: curriculum/setup/git-and-github/github_continued.md
+              - Git Workflow: curriculum/setup/git-and-github/githubflow/github-flow.html
           - Python: curriculum/software/basic_python.md
           - SQL: curriculum/software/basic_sql/README.md
           - Good repos: curriculum/setup/good_repos.md

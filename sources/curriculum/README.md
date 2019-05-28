@@ -19,11 +19,11 @@ original, raw form to being model-ready, so check out [Reproducible ETL](1_getti
 [Command line tools](1_getting_and_keeping_data/command-line-tools/) will start to come in handy here.
 Finally, data science for social good projects often involve sensitive data about real humans, which is what makes this
 work both interesting and important, but also makes it extra important to keep security in mind, so make sure to check
-out the [Data Security Primer](1_getting_and_keeping_data/data-security-primer/).
+out the [Data Security Primer](get_data/data-security-primer/).
 
 ## Data Exploration and Analysis
 Once you've got some data, you're going to be eager to dig into it! Our tool of choice for data analysis is Python. Start off
-with [Intro to Git and Python](2_data_exploration_and_analysis/intro-to-git-and-python/), then move onto
+with [Intro to Git](setup/git-and-github) and [Python](software/basic_python/), then move onto
 [Data Exploration in Python](2_data_exploration_and_analysis/data-exploration-in-python/).
 If you're combining data from multiple sources, you'll have to do
 [record linkage](2_data_exploration_and_analysis/record-linkage/) to match entities across datasets. Depending on your

@@ -63,10 +63,15 @@ jupyter notebook --no-browser --port 44444
 
 You should now be able to go to your browser and go to the address `localhost:44444`.
 
-> **Note**:The port *44444* is an arbitrary port. If another user is running a server with
-> the same port forwarding then you will not be able to run a Jupyter Server using that port.
-> You will then need to switch to another port number. Anything between 30000-70000 should work
+!!! important
+    The port *44444* is an arbitrary port. If another user is running a server with
+    the same port forwarding then you will not be able to run a Jupyter Server using that port.
+    You will then need to switch to another port number. Anything between 30000-70000 should work
 
 ## The notebooks
 
-[The problem notebook](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/2_data_exploration_and_analysis/data-exploration-in-python/Getting_Started_Working_with_Data_In_Python.ipynb), [the complete solution notebook](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/2_data_exploration_and_analysis/data-exploration-in-python/Getting_Started_Working_with_Data_In_Python_Complete.ipynb)
+- [The problem
+  notebook](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/2_data_exploration_and_analysis/data-exploration-in-python/Getting_Started_Working_with_Data_In_Python.ipynb)
+
+- [The complete solution
+  notebook](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/2_data_exploration_and_analysis/data-exploration-in-python/Getting_Started_Working_with_Data_In_Python_Complete.ipynb)
