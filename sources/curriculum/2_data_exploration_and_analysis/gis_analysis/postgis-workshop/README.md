@@ -1,9 +1,13 @@
 
+# Spatial analytics: PostGIS Workshop
 
-# A little of theory
+## Slides
 
+- [Tutorial slides (2016)](./tutorial.html)
 
-## Spatial database
+## A little bit of theory
+
+### Spatial database
 
 -   Storage of spatial data
 -   Analysis of geographic data
@@ -14,16 +18,13 @@
 -   Database backend for apps
 
 
-## Spatial data
+### Spatial data
 
 -   Data which describes or represents either a location or a shape
 
 -   Points, lines, polygons
 
 -   Besides the geometrical properties, the spatial data has attributes.
-
-
-## Spatial data
 
 -   Examples:
     -   Geocodable address
@@ -34,14 +35,14 @@
     -   Hazard detection
 
 
-## Relationships
+### Relationships
 
 -   Proximity
 -   Adjacency (touching, connectivity)
 -   Containment
 
 
-## Operations
+### Operations
 
 -   Area
 -   Length
@@ -50,12 +51,12 @@
 -   Buffer
 
 
-## Why a db instead of a file?
+### Why a db instead of a file?
 
 Spatial data is usually related to other types of data.
 
 
-## How load data to the db?
+### How load data to the db?
 
 -   `shp2pgsql`
     -   imports standard **esri** shapefiles and `dbf`
@@ -64,7 +65,7 @@ Spatial data is usually related to other types of data.
     -   imports 20 different vector and flat files
 
 
-## The spatial data that is not spatial data
+### The spatial data that is not spatial data
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -156,7 +157,7 @@ Spatial data is usually related to other types of data.
 (the `disease`  and `date` columns are the **attributes** of this data)
 
 
-## *shape files*
+### *shape files*
 
 -   Stored in files on the computer
 -   The most common one is probably the 'shape file'
@@ -198,7 +199,7 @@ Spatial data is usually related to other types of data.
 </table>
 
 
-## Vector data
+### Vector data
 
 -   Is stored as a series of x,y coordinate pairs inside the computer's memory.
 -   Vector data is used to represent **points** (1 vertex) , **lines** (polyline) (2 or more vertices, but the first and the last one are different) and **areas** (polygons).
@@ -208,32 +209,35 @@ Spatial data is usually related to other types of data.
 -   The x and y values will depend on the *coordinate reference system* (`CRS`) being used.
 
 
-## Problems with vector data
+#### Problems with vector data
 
-![img](./images/sliver.png "Image from *A gentle introduction to gis* **Sutton T., Dassau O., Sutton M.** `2009`")
+![img](./images/sliver.png)
+*Image from *A gentle introduction to gis* **Sutton T., Dassau O., Sutton M.** `2009`*
 
-![img](images/overshoot_undershoot.png "Image from *A gentle introduction to gis* **Sutton T., Dassau O., Sutton M.** `2009`")
+![img](images/overshoot_undershoot.png)
+*"Image from *A gentle introduction to gis* **Sutton T., Dassau O., Sutton M.** `2009`*
 
 
-## Raster data
+### Raster data
 
 -   Stored as a grid of values
 -   Each *cell* or *pixel* represents a geographical region, and the value of the pixel represents some attribute of the region
 -   Use it when you want to represent a continuous information across an area
 -   *Multi-band* images, each *band* contains different information
 
-![img](images/raster.png "Image from *A gentle introduction to gis* **Sutton T., Dassau O., Sutton M.** `2009`")
+![img](images/raster.png)
+*Image from *A gentle introduction to gis* **Sutton T., Dassau O., Sutton M.** `2009`*
 
 
-## Problems with raster data
+#### Problems with raster data
 
 High resolution raster data requires a huge amount of computer storage.
 
 
-# Demo / exercise
+## Exercise: Cleaning and exploring spatial data
 
 
-## Connect to the db
+Connect to the db
 
     host:  gis-tutorial.c5faqozfo86k.us-west-2.rds.amazonaws.com
     port: 5432
@@ -252,15 +256,16 @@ Command line client
     psql -h localhost -p 8889 -U dssg_gis  gis_tutorial
 
 
-## Setup
+### Setup
 
 -   create an `schema` using your `github` account
     -   (mine is `nanounanue`)
 
+```sql
     create schema your-github-username;
+```
 
-
-## Upload the first shapefiles
+#### Upload the first shapefiles
 
 -   There are several *shapefiles* in the `data` directory
 
@@ -291,24 +296,26 @@ This projection measures the **area** in meters. but
 
 -   Using `shp2psql` tool upload the following files: `roads`, `land`, `hydrology`
 
-    shp2psql --host=localhost --port=8889 --username=dssg_gis \
+        shp2psql --host=localhost --port=8889 --username=dssg_gis \
          -f roads.shp gis your-github-username.roads \
          | psql -h localhost -p 8889 -u dssg_gis  gis_tutorial
-    ## if you want to change the projection to wgs 1984 (the one used in google maps)
-    ## you need to add the flag -s 26986:4326 before the name of the database (gis)
+        ## if you want to change the projection to wgs 1984 (the one used in google maps)
+        ## you need to add the flag -s 26986:4326 before the name of the database (gis)
 
 If you open **QGIS** you should see something like the following:
 
-![img](images/before.png "`land` (purple), `hydrology` (red) and `roads` (blue) after their insertion in the database")
+![img](images/before.png)
+*Figure: `land` (purple), `hydrology` (red) and `roads` (blue) after their insertion in the database*
 
 and after some customization:
 
-![img](images/after.png "After adjusting the style in **QGIS**: `land` (one color per type), `hydrology` (blue) and `roads` (yellow)")
+![img](images/after.png)
+*Figure: After adjusting the style in **QGIS**: `land` (one color per type), `hydrology` (blue) and `roads` (yellow)*
 
 note that we have *lands* over the *roads* and over the *water*.
 
 
-## Spatial predicates for cleaning
+### Spatial predicates for cleaning
 
 -   We will use `st_intersects()`  and `st_dwithin()` for removing the land which
     is touch with roads and water, and if it is too far of roads and water, respectively
@@ -317,7 +324,8 @@ note that we have *lands* over the *roads* and over the *water*.
 
 -   **NOTE:** For use of the `EXISTS(subquery)` look [here](http://www.techonthenet.com/postgresql/exists.php) and [here](https://www.postgresql.org/docs/9.5/static/functions-subquery.html)
 
-![img](images/after_2.png "After removing the land objects which intersects roads or water or where too far from those.")
+![img](images/after_2.png)
+*Figure: After removing the land objects which intersects roads or water or where too far from those*
 
 -   `St_intersects(a,b)`  returns `true`  if exists at least one point in common between the geometrical objects `a` and `b`.
 
@@ -326,7 +334,7 @@ note that we have *lands* over the *roads* and over the *water*.
 -   Other functions: `st_equals`, `st_disjoint`, `st_touches`, `st_crosses`, `st_overlaps`, `st_contains`.
 
 
-## Add more data: `buildings` and `residents`
+### Add more data: `buildings` and `residents`
 
 Upload to the database the shapefiles `buildings` and `residents`.
 
@@ -337,7 +345,7 @@ Upload to the database the shapefiles `buildings` and `residents`.
       buildings.shp -nln your-github-username.buildings
 
 
-## Spatial joins: creating new views
+### Spatial joins: creating new views
 
 -   As you can see, <data/my_town/residents.psv> is not a spatial data.
     It is a regular `psv`  file. But it contains the `pid`  of the land in
@@ -347,6 +355,7 @@ Upload to the database the shapefiles `buildings` and `residents`.
 
 How can I convert this data in spatial data?
 
+```sql
     select
     r.*  -- All the attributes of resident
     , st_centroid(l.the_geom) -- The centroid of the land in which this resident lives
@@ -356,9 +365,11 @@ How can I convert this data in spatial data?
     land as l
     on
     r.pid = l.pid;
+```
 
 Ok, very well. But, How can I see this new "data" in **QGIS**? You need to create a `view`
 
+```sql
     create or replace view residents_loc
     as
     select
@@ -371,34 +382,40 @@ Ok, very well. But, How can I see this new "data" in **QGIS**? You need to creat
     land as l
     on
     r.pid = l.pid;
+```
 
-![img](images/residents_loc.png "After the creation of the view `residents_loc` (red star)")
+![img](images/residents_loc.png)
+*Figure: After the creation of the view `residents_loc` (red star)*
 
 
-## Spatial operations: Legal issues in our town
+### Spatial operations: Legal issues in our town
 
 How much real state area do we have?
 
+```sql
     select
     sum(st_area(the_geom))/1000000 as total_sq_km
     , st_area(st_union(the_geom))/1000000 as no_overlap_total_sq_km
     -- st_union dissolves the overlaps!
     from land;
+```
 
 Oh, oh. And  buildings?
 
+```sql
     select
     sum(st_area(the_geom))/1000000 as total_sq_km
     , st_area(st_union(the_geom))/1000000 as no_overlap_total_sq_km
     from buildings;
-
+```
 -   We have buildings inside buildings, and some lands overlaps with other lands `:(`
 
 -   Other operations: `st_intersection(a,b)`, `st_difference(a,b)`, `st_symdifference(a,b)`, `st_buffer(c)`, `st_convexhull(c)`
 
 
-## Spatial joins: Which lands intersects?
+### Spatial joins: Which lands intersects?
 
+```sql
     select
     p.pid -- the land
     , count(o.pid) as total_intersections -- qty of intersections
@@ -412,9 +429,11 @@ Oh, oh. And  buildings?
     group by p.pid
     order by p.pid;
     -- First row returned: pid IN ('000000225', '000027745','000092727','000057051')
+```
 
-Which kind of overlap?
+Which type of overlap?
 
+```sql
     select
     count(o.pid) as total_intersections
     -- Overlaps?
@@ -424,12 +443,14 @@ Which kind of overlap?
     from land as p
     inner join land as o
     on (p.pid <> o.pid and st_intersects(p.the_geom, o.the_geom));
+```
 
 -   `st_overlaps(a,b)` returns `true` if the geometries share some but not all the points, and the intersection has the same dimension as `a`, `b`
 
 
-## Cleaning the mess: Reassigning residents
+### Cleaning the mess: Reassigning residents
 
+```sql
     update residents
     set pid = a.newpid
     from (
@@ -444,10 +465,11 @@ Which kind of overlap?
     returning * -- Return all the updated residents
     -- so you can see what you just do
     -- (or you can store it in a another table using CTAS)
+```
 
+### Cleaning the mess: Deleting the dupe land
 
-## Cleaning the mess: Deleting the dupe land
-
+```sql
     -- Add a new column for storing the house types
     alter table land add column land_type_other varchar[];
 
@@ -476,12 +498,13 @@ Which kind of overlap?
     (st_equals(p.the_geom, o.the_geom))
     group by p.pid
     having count(p.pid) > 1 and p.pid <> min(o.pid)) ;
+```
 
-
-## Spatial analytics: Questions
+### Spatial analytics: Questions
 
 How many kinds under 12 are further than a km of an elementary school?
 
+```sql
     select
     sum(num_children_b12)*100.00/(select sum(num_children_b12) from residents)
     from residents as r
@@ -495,16 +518,20 @@ How many kinds under 12 are further than a km of an elementary school?
     ) as eschools
     on st_dwithin(l.the_geom, eschools.the_geom, 1000)
     where eschools.pid is null;
+```
 
 How much area are in empty lands?
 
+```sql
     select st_area(st_union(the_geom))/1000000
     from land
     where
     land_type = 'vacant land';
+```
 
 Which are the 10 nearest houses to the lakes?
 
+```sql
     select h.hyd_name,
     array(
     select bldg_name
@@ -515,54 +542,62 @@ Which are the 10 nearest houses to the lakes?
     )
     from hydrology h
     where h.hyd_name in  ('lake 1', 'elephantine youth');
+```
 
 -   **Note** the `<#>` (bounding box), `<->` (centroids) are distance operators,
     see [here](http://boundlessgeo.com/2011/09/indexed-nearest-neighbour-search-in-postgis/) and [here](https://geeohspatial.blogspot.com/2013/05/k-nearest-neighbor-search-in-postgis.html).
 
 
-# Another example: mapping civilizations
+## Exercise: Mapping civilizations
 
 
-## Intro
+### Intro
 
 -   Recently this article was published: [*Spatializing 6,000 years of global urbanization from 3700 BC to AD 2000* **Reba, M., Reitsma, F. and Seto, C.**, 2016](http://www.nature.com/articles/sdata201634#data-records)
 -   The article describes all the cities since 3700 BC, including name, population and the position (latitude, longitude).
 -   We will use a subset (`chandlerV2`) of the data for transforming it to a table, and then generating a `geojson`.
 
 
-## Uploading the data
+### Uploading the data
 
--   In the directory ./data/Historical Urban Population Growth Data
+-   Run the following inside `./data/Historical Urban Population Growth Data`
 
     cvslook chandlerV2.csv
 
--   It will fail, because some encoding issues
+-   It will fail due some encoding issues
 
-    iconv -f iso-8859-1 -t utf-8 chandlerV2.csv > chandler_utf8.csv
-    csvsql --db postgresql://dssg_gis:dssg-gis@localhost:8889/gis_tutorial \
-      --insert chandlerV2_utf8.csv --table chandler --db-schema nanounanue
+        iconv -f iso-8859-1 -t utf-8 chandlerV2.csv > chandler_utf8.csv
+        csvsql --db postgresql://dssg_gis:dssg-gis@localhost:8889/gis_tutorial \
+        --insert chandlerV2_utf8.csv --table chandler --db-schema nanounanue
 
-`SQL` stuff
+### `SQL` stuff
 
+```sql
     select count(*) from chandler;  -- How many cities do we have?
+```
 
-New table for easier manipulation
+Let’s create a new table for easier manipulation
 
+```sql
     create table cities as -- CTAS
     select
     "City" as city,
     "Country" as country,
     "Latitude" as y_lat,
     "Longitude" as x_lon from chandler;
+```
 
 Adding a geometry column and transform to `Point`
 
+```sql
     alter table cities add column geom geometry(Point, 4326);
     -- Transforming Lon/Lat to Points
     update cities set geom = ST_SetSRID(ST_MakePoint(x_lon, y_lat), 4326);
+```
 
 Converting to `GeoJSON`
 
+```sql
     \copy (
      select row_to_json(fc)
      from (
@@ -577,10 +612,14 @@ Converting to `GeoJSON`
         ) as f
       )  as fc)
     to '~/cities.geojson';
+```
 
 -   This type of file could be used with `d3.js` for making interactive plots.
 
 -   For better performance you could use `topojson`
 
 
-## Thank you
+### More resources!
+
+- [PostGIS: More about spatial queries](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/2_data_exploration_and_analysis/gis_analysis/Spatial-Queries-in-PostGIS.ipynb)
+- [Exploratory spatial data analysis with Python and PostGIS](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/2_data_exploration_and_analysis/gis_analysis/exploratory_spatial_data_analysis.ipynb)
