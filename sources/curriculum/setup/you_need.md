@@ -21,7 +21,7 @@ In order to be ready for the summer, you need to install some packages on your c
 ## Highly Recommended
 *   DBeaver (GUI to access various databases)
 *   Tableau (students can request a free education license)
-*   GNU/Emacs, VIM, Sublime Text (text editor for coding)
+o*   GNU/Emacs, VIM, Sublime Text (text editor for coding)
 
 ## How to install pre-requisites?
 

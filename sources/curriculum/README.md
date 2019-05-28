@@ -1,7 +1,10 @@
 ## Before You Start
-So you want to start a DSSG project! First, please make sure you have gone through the [Prerequisites](0_before_you_start/prerequisites/) and [Software Setup](0_before_you_start/software-setup/) and are equipped
+So you want to start a DSSG project! First, please make sure you have
+gone through the [Prerequisites](setup/you_need)
+and [Software Setup](setup/software-setup/README.md) and are
+equipped
 with the basic knowledge and tools you'll need. Then use our
-[Project Scoping Intro](https://dssg.uchicago.edu/2016/10/27/scoping-data-science-for-social-good-projects/)
+[Project Scoping Intro](https://dsapp.uchicago.edu/home/resources/data-science-project-scoping-guide/)
 to help you decide on a project, or refine a project you already have in mind.
 Next, check out [Pipelines and Project Workflow](0_before_you_start/pipelines-and-project-workflow/) for an
 overview of how the steps of your project (and, therefore, your code) will be organized.
