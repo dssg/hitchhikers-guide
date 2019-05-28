@@ -110,7 +110,7 @@ nav:
           - Get data:
               - APIs and scrapping: curriculum/1_getting_and_keeping_data/basic-web-scraping/README.md
               - Working with images: curriculum/get_data/images.md
-              - Working with text: curriculum/get_data/text.md
+              - Working with text: 2_data_exploration_and_analysis/text-analysis
               - Flat files: curriculum/1_getting_and_keeping_data/csv-to-db/README.md
           - Store data:
               - ETL - cleaning, loading: curriculum/1_getting_and_keeping_data/reproducible_ETL/README.md
@@ -124,8 +124,7 @@ nav:
           - Link data:
               - Record linkage: curriculum/2_data_exploration_and_analysis/record-linkage/README.md
       - Data exploration:
-            - Intro: curriculum/2_data_exploration_and_analysis/README.md
-            - Introduction to EDA: curriculum/eda/intro.md
+            - Introduction to EDA: curriculum/2_data_exploration_and_analysis/README.md
             - Visualization: curriculum/eda/visualization.md
             - SQL: curriculum/2_data_exploration_and_analysis/advanced_sql/README.md
             - Python/Pandas: curriculum/2_data_exploration_and_analysis/data-exploration-in-python/README.md
