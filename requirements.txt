@@ -15,3 +15,6 @@ seaborn
 psycopg2-binary
 csvkit
 httpie
+nltk
+ujson
+spacy
