@@ -28,7 +28,10 @@ with [Intro to Git and Python](2_data_exploration_and_analysis/intro-to-git-and-
 If you're combining data from multiple sources, you'll have to do
 [record linkage](2_data_exploration_and_analysis/record-linkage/) to match entities across datasets. Depending on your
 particular project, you may need special methods and tools; at this time, we have resources
-for working with [text data](2_data_exploration_and_analysis/text-analysis/), [spatial data](2_data_exploration_and_analysis/gis_analysis/) and [network data](2_data_exploration_and_analysis/network-analysis/).
+for working with [text
+data](2_data_exploration_and_analysis/text-analysis/), [spatial
+data](2_data_exploration_and_analysis/gis_analysis/) and [network
+data](2_data_exploration_and_analysis/network-analysis/).
 
 ## Modeling and Machine Learning
 Now you're ready to make some models! Most of the modeling techniques you'll use, whether supervised or unsupervised,

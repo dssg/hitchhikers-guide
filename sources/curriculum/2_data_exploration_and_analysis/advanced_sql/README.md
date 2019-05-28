@@ -1,12 +1,6 @@
 
 
-# Before we start
-
-
-## The notes
-
-This code is located at:  [http://bit.ly/2xBBQ5b](http://bit.ly/2xBBQ5b)
-
+# Advanced SQL for data analysis
 
 ## Test your connection
 
@@ -26,14 +20,14 @@ If you are using a graphical client:
 adjust the previous connection parameters.
 
 
-# The punchline
+## The punchline
 
 Databases are not only for **storage** they are for manipulating in an
 efficient way your data: Try to do the data manipulation near to where
 the data is located.
 
 
-# The food inspections data set
+## The food inspections data set
 
 The data represents the inspections made in different facilities in
 the area of Chicago.
@@ -48,7 +42,7 @@ Obviously, we have spatio-temporal data (i.e. the inspections happen
 in a given time at some place).
 
 
-# Some basic tasks in a data analysis project
+## Some basic tasks in a data analysis project
 
 -   Cleaning the data
 -   Manipulating the data
@@ -57,13 +51,13 @@ in a given time at some place).
 -   Answering analytical questions
 
 
-# Cleaning and manipulating the data
+## Cleaning and manipulating the data
 
 We already prepared a partial "cleaning" of the data. That data is
 located in the `schema` `cleaned`.
 
 
-## Hands-on
+#### Hands-on
 
 Expected time: 2 minutes
 
@@ -85,24 +79,30 @@ rows per inspection. And that will complicate our future analysis. So
 we need a way of collapse those rows, without losing data.
 
 
-# Manipulating the data: JSON
+## Manipulating the data: JSON
 
-`PostgreSQL` supports collapsing several rows using [arrays](https://www.postgresql.org/docs/9.3/static/functions-array.html) or [JSON](https://www.postgresql.org/docs/current/static/functions-json.html).
-We will transform the rows of the `cleaned.violations` table into `json`
+`PostgreSQL` supports collapsing several rows using
+[arrays](https://www.postgresql.org/docs/9.3/static/functions-array.html)
+or
+[JSON](https://www.postgresql.org/docs/current/static/functions-json.html).
+We will transform the rows of the `cleaned.violations` table into
+`json`
 and we will aggregate those into a `json array`.
 
 We will do this together using the functions  `row_to_json` and `json_agg.`
-
+```sql
     select
            json_agg(
             row_to_json(v.*)
            ) as violations
     from cleaned.violations as v
     where inspection  = '2078651'
+```
 
 We could improve the output (make it more pretty) using the function `json_build_object`, and
 a simple `group by`
 
+```sql
     select
             v.inspection,
             v.license_num,
@@ -115,9 +115,9 @@ a simple `group by`
     from cleaned.violations as v
     where inspection  = '2078651'
     group by v.inspection, v.license_num, v.date;  -- We need a group by since we are using an aggregator function
+```
 
-
-## Hands-on
+#### Hands-on
 
 Estimated time: 1 minute
 Manipulate the previous query statement
@@ -125,7 +125,7 @@ and try to join it with the inspections (You should get
 only one row)
 
 
-# Cleaning your code and (maybe) gaining a little speed: CTEs
+## Cleaning your code and (maybe) gaining a little speed: CTEs
 
 It is very probable that you use a sub-query in you previous hands-on.
 
@@ -135,6 +135,7 @@ also know as *WITH queries*.
 This will improve your readability (be nice wih the future you!) and in some cases speed
 improvements
 
+```sql
     -- You first define your subquery and assign a name to it
     -- This will work as a "common table"
     with violations as (
@@ -157,12 +158,13 @@ improvements
     from cleaned.inspections as i
     left join violations as v -- Here we are using the "common table"
     using (inspection);   -- we can use this, since both tables have the same column name
+```
 
 You can use several CTEs, just remove all except the first `with` and
 separate them by colons. We will show you more examples later in this workshop.
 
 
-# Querying unstructured data
+## Querying unstructured data
 
 We created for you the table `semantic.events`, and is very similar
 to the results of your last hands-on.
@@ -175,7 +177,7 @@ rows (using `jsonb_array_elements`, and
 then use the operator `->>` for retrieving the value of the specified
 key.
 
-
+```sql
     with violations as (
          select
             event_id,
@@ -189,35 +191,36 @@ key.
            count(*)
     from violations
     group by event_id, violation_code;
+```
 
-
-## Hands-on
+#### Hands-on
 
 Estimated time: 2 minutes
 Modify this query to get the facility (using `license_num`) in which the
 inspectors found the biggest number of violation code 40.
 
 
-# "Datawarehousing"
+## "Datawarehousing"
 
 Generate data for a BI dashboard, that shows all total number of
 inspections, and their results,
 per city, facility type, month, year including totals and subtotals
 
 
-## Hands-on
+#### Hands-on
 
 Estimated time: 2 minutes
 How to solve this using basic sql?
 
 
-## Datawarehousing functions
+### Datawarehousing functions
 
 `PostgreSQL` overloaded the operator `GROUP BY`, so besides their normal
 use, now you can produce reports of aggregation metrics by sets
 (`GROUPING SETS`),
 hierarchy (`ROLLUP`) and combinations (`CUBE`) in a simple query.
 
+```sql
     -- This doesn't give you the subtotals and totals
     select
             extract(month from date) as month,
@@ -232,11 +235,12 @@ hierarchy (`ROLLUP`) and combinations (`CUBE`) in a simple query.
     --group by GROUPING SETS (month, year, facility_type, result, ())
     --group by ROLLUP (month, year, facility_type, result)
     --group by CUBE (month, year, facility_type, result)
+```
 
 **NOTE** Instead of the function `extract(...)` you could use `date_trunc(...)`
 
 
-## Hands-on
+#### Hands-on
 
 Estimated time: 5 minutes
 Play with the different commented lines in the example query, if
@@ -244,7 +248,7 @@ you only one the subtotal per `facility_type` and `city`, Which one
 you should use?
 
 
-# Analytical Questions: Looking through the window
+## Analytical Questions: Looking through the window
 
 How do each facility' number of inspections compares to others in
 their facility type? Total of inspections? Average of inspections?
@@ -252,16 +256,16 @@ Distance to the top? Distance from the average? How percentage of
 inspections where used in a particular facility?
 
 
-## Hands-on:
+#### Hands-on:
 
 Estimated time: 5 minutes
 Try to solve this by yourself using only `SELECT`, `GROUP BY`, `HAVING`, `WHERE`
 
 
-# Analytical Questions: Looking through the window
+## Analytical Questions: Looking through the window
 
 
-## Window functions
+### Window functions
 
 -   They are similar to aggregate functions, but instead of operating on
     groups of rows to produce a single row, they act on rows related to
@@ -273,7 +277,7 @@ Try to solve this by yourself using only `SELECT`, `GROUP BY`, `HAVING`, `WHERE`
     `json_agg`, `array_agg`, etc
 -   Those functions are used in [window function calls](https://www.postgresql.org/docs/current/static/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS).
 
-
+```sql
     with failures_per_facility as (
     select
             entity_id,
@@ -305,9 +309,9 @@ Try to solve this by yourself using only `SELECT`, `GROUP BY`, `HAVING`, `WHERE`
            w2 as (partition by facility_type, year order by inspections desc),
            w3 as (partition by facility_type, year order by inspections desc rows between unbounded preceding and unbounded following)
     limit 10;
+```
 
-
-## Hands-on
+#### Hands-on
 
 Estimated time: 5 minutes
 Change the previous query to show the number of 'Fail' `results`
@@ -325,10 +329,11 @@ instead the number of inspections.
 you can use `count(*) filter (where results = 'Fail')`
 
 
-# Analytical Questions: Using the previous row
+### Analytical Questions: Using the previous row
 
 At a given date, number of days since the last inspection?
 
+```sql
     select
     entity_id,
     date as inspection_date,
@@ -338,13 +343,13 @@ At a given date, number of days since the last inspection?
     where facility_type = 'wholesale'
     window w1 as (partition by entity_id order by date asc)
     order by entity_id, date asc ;
+```
 
-
-# Analytical Questions: Using some other rows
+### Analytical Questions: Using some other rows
 
 Number of violations in the last 3 inspections
 
-
+```sql
     with violations as (
     select
             event_id,
@@ -373,9 +378,9 @@ Number of violations in the last 3 inspections
     from number_of_violations
     where  entity_id = 11326
     window w as (partition by entity_id order by date asc rows between 3 preceding and 1 preceding)
+```
 
-
-## Hands on
+#### Hands-on
 
 Estimated time: 5 minutes
 
@@ -383,7 +388,7 @@ Estimated time: 5 minutes
     (i.e. lower -> medium, medium -> high, high -> medium)? Could you
     count how to many changes where "up" and how many where "down"?
 
-
+```sql
     with risks as (
     select
             date,
@@ -409,9 +414,9 @@ Estimated time: 5 minutes
     group by entity_id, extract(year from date)
     order by year, up desc, down desc
     limit 10
+```
 
-
-# SQL "for loops"
+## SQL "for loops"
 
 Let's try to solve the following: For each facility still active, with
 less than 1 year, In which failed inspection they got the most
@@ -419,6 +424,7 @@ violations inspected?
 
 One way to solve this is using `LATERAL` joins
 
+```sql
     select
     entity_id as facility,
     start_time,
@@ -450,16 +456,17 @@ One way to solve this is using `LATERAL` joins
            desc limit 1
            ) inspections
     order by number_of_violations desc;
-
+```
 The equivalent *pseudo-code* is
 
+```
     results = []
     for entity_row in semantic.entities:
         for inspection_row in subquery:
             results.append( (entity_row, inspection_row) )  # We are doing more complicated things, but is just an example
+```
 
-
-# Meaning in text
+## Meaning in text
 
 Which are the most common words descriptions of the violations?
 
@@ -476,16 +483,18 @@ frequencies and then *vectorization*.
 
 See the following example:
 
-
+```sql
     select
            comment,
            replace(plainto_tsquery(comment)::text, ' & ', ' ') as cleaned_comment,
            to_tsvector(comment) as vectorized_comment
     from cleaned.violations limit 1;
+```
 
 Let's create a **word count** (from here you can create a word cloud, if
 you like it). We will use the table `text_analysis.comments`
 
+```sql
     select
             regexp_split_to_table(cleaned_comment, '\s+') as word,
             count(1) as word_count
@@ -493,27 +502,28 @@ you like it). We will use the table `text_analysis.comments`
     group by word
     order by word_count
     desc limit 50;
+```
 
-
-# Spatial awareness
+## Spatial awareness
 
 Which restaurants with high risk which had an inspection are located near to public schools?
 
+```sql
     select
             distinct on (entity_id, s.school_nm)
             entity_id, s.school_nm as "school"
     from gis.public_schools as s join semantic.events as i
          on ST_DWithin(geography(s.wkb_geometry), geography(i.location), 200) -- This is the distance in meters
     where facility_type = 'restaurant' and risk = 'high';
+```
 
-
-## Spatial queries
+### Spatial queries
 
 PostgresSQL has an extension called [PosGIS](http://postgis.net/), that allows you to do **Spatial Joins**, i.e. use geographical data
 to answer questions as *What is near?* *What is inside this area?* *What intersects or connect with this?*
 
 
-# Hands-on
+#### Hands-on
 
 Estimated time: 5 min
 
@@ -524,7 +534,7 @@ Estimated time: 5 min
     **Hint**: Use a CTE&#x2026;
 
 
-# Hands-on
+#### Hands-on
 
 Estimated time: 10min
 
@@ -532,13 +542,14 @@ Estimated time: 10min
     violations which are near to public schools
 
 
-# Appendix
+## Appendix
 
 
 ## Creating the database
 
 First the `raw.inspections` table
 
+```sql
     create schema if not exists raw;
 
     create table raw.inspections (
@@ -560,13 +571,17 @@ First the `raw.inspections` table
     longitude decimal,
     location varchar
     );
+```
 
 Then we fill that table with data
 
+```
     \copy raw.inspections from program 'curl "https://data.cityofchicago.org/api/views/4ijn-s7e5/rows.csv?accessType=DOWNLOAD"' HEADER CSV
+```
 
 After that, we created a more "clean" version of the data
 
+```sql
     create schema if not exists cleaned ;
     drop table if exists cleaned.inspections cascade;
 
@@ -632,9 +647,11 @@ After that, we created a more "clean" version of the data
     where results in ('Fail', 'Pass', 'Pass w/ Conditions') and license_num is not null
     ) as t
     );
+```
 
 The `semantic.entities` table
 
+```sql
     create schema if not exists semantic;
 
     drop table if exists semantic.entities cascade;
@@ -691,8 +708,11 @@ The `semantic.entities` table
     create index entities_location_gix on semantic.entities using gist (location);
 
     create index entities_full_key_ix on semantic.entities (license_num, facility, facility_aka, facility_type, address);
+```
 
 The `semantics.events`:
+
+```sql
 
     drop table if exists semantic.events cascade;
 
@@ -752,10 +772,11 @@ The `semantics.events`:
     create index events_violations_json_path on semantic.events using gin(violations jsonb_path_ops);
 
     create index events_event_entity_zip_code_date on semantic.events (event_id desc nulls last, entity_id, zip_code, date desc nulls last);
+```
 
 Next we will create the table for text analytics:
 
-
+```sql
     create schema text_analysis;
 
     drop table if exists text_analysis.comments ;
@@ -781,6 +802,7 @@ Next we will create the table for text analytics:
 
     select * from cleaned
     );
+```
 
 And finally the tables for the spatial analysis. The data was
 downloaded from the [Chicago Data Portal](https://data.cityofchicago.org/browse?tags=gis). In particular we are using
