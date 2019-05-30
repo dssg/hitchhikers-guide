@@ -135,7 +135,7 @@ nav:
             - ML as a data exploration tool (Clustering): curriculum/eda/clustering.md
       - Computational and Data Analysis Methods:
             - Intro: curriculum/3_modeling_and_machine_learning/README.md
-            - Machine Learning: curriculum/3_modeling_and_machine_learning/README.md
+            - Machine Learning: curriculum/3_modeling_and_machine_learning/machine-learning/README.md
             - Causal inference methods: curriculum/methods/causal_inference.md
             - Social science methods: curriculum/methods/social_science.md
             - Other statistical analysis methods: curriculum/methods/statistical_analysis.md
