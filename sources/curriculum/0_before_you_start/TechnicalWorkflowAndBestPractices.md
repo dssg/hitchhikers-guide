@@ -39,7 +39,7 @@ You should have the following tools installed on your local machine (whether it'
 
      There are several options and depends in your taste, but [Emacs prelude](https://prelude.emacsredux.com/en/latest/) is a good start
 
-* Create a file with your database credentials ([sample file](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/1_getting_and_keeping_data/csv-to-db/default_profile.example)) or (**recommended**) setup a [.pg_service.conf](./software-setup/pgservice_conf.example)
+* Create a file with your database credentials ([sample file](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/1_getting_and_keeping_data/csv-to-db/default_profile.example)) or (**recommended**) setup a [.pg_service.conf](../setup/software-setup/pgservice_conf.example)
 
  * Learn about [virtual environments](../setup/software-setup/README.md#virtual-environment) and set one up (if it hasn't been set up for you).
 
