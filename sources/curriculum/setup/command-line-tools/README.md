@@ -21,9 +21,62 @@ toolkit.
 ## Slides
 
 Here's the
-[presentation](./intro-to-command-line-tools.pdf) from the start of the workshop.
+[presentation](./intro-to-command-line-tools.pdf) we will go over to start  the workshop.
 
-## Let's talk about the weather
+## The basics
+
+### Where am I?
+`pwd` print working directory - this prints the name of the current working directory  
+`cd ..` changes directory to one level/folder up  
+`cd ~/` goes to the home directory  
+`cd -` return to the previous directory
+
+### What's in my folder?
+`ls` lists the contents in your current dictory.  
+`ls -l` "long listing" format (`-l`) shows the filesize, date of last change, and file permissions  
+`ls -l` "long listing" format (`-l`), shows all files (`-a`) including hidden dotfiles
+`tree` lists the contents of the current directory and all sub-directories as a tree structure (great for peeking into folder structures!)  
+`tree -L 2` limits the tree expansion to 2 levels  
+`tree -hs` shows file sizes (`-s`) in human-readable format (`-h`)  
+
+### What's in my file?  
+`head -n10 $f` shows the "head" of the file, in this case the top 10 lines  
+`tail -n10 $f` shows the "tail" of the file  
+`tail -n10 $f | watch -n1` watches the tail of the file for any changes every second (`-n1`)  
+`tail -f -n10 $f` follows (`-f`) the tail of the file every time it changes, useful if you are checking the log of a running program  
+`wc $f` counts words, lines and characters in a file  (separate counts using `-w` or `-l` or `-c`)
+
+### Where is my file?
+`find -name "<lost_file_name>" -type f` finds files by name  
+`find -name "<lost_dir_name>" -type d` finds directories by name  
+
+### Renaming files
+Rename files with `rename`. For example, to replace all space bars with underscores:  
+`rename 's/ /_/g' space\ bars\ .txt`  
+
+This command substitutes (`s`) space bars (`/ /`) for underscores (`/_/`) in the entire file name (globally, `g`). (The 3 slashes can be replaced by any sequence of 3 characters, so `'s# #_#g'` would also work and can sometimes be more legible, for example when you need to escape a special character with a backslash.)  
+
+You can replace multiple characters at a time by using a simple logical OR "regular expression" (`|`) such as [ |?] which will replace every space bar or question mark.    
+`rename 's/[ |?]/_/g' space\ bars?.txt`
+
+(The file will be renamed to `space_bars_.txt`)
+
+Bonus points:  
+`rename 'y/A-Z/a-z/'` renames files to all-lowercase  
+`rename 'y/a-z/A-Z/'` renames files to all-uppercase  
+
+## Some useful things to know
+* Be careful what you wish for, the command line is very powerful, it will do exactly what you ask. This can be dangerous when you're running commands like `rm` (remove), or `mv` (move). You can "echo" your commands to just print the command text without actually running the command.  
+* Use tab completion to type commands faster and find filenames, press the tab key whilst typing to see suggestions  `tab`
+* Prepend `man` to a command to read the manual for example `man rm`
+* You can use `ctrl + r` to search the command line history, and search for previously searched commands. Or type `history` to see the history`.
+* Beware of spaces when creating filenames, this is not generally good practice, if you must you can use the `\` escape character to add blank spaces in a file name. For example `touch space\ bars\ .txt`, if you run `touch space bars .txt` this will create three files `space`, `bars`, and `.txt`.
+* Have a look into using `tmux` or a similar terminal multiplexer for working with multiple terminals (see further reading living-in-the-terminal).
+* Use `htop` or `top` for monitoring the usage of your instance.
+* Have a go at learning the basics of `vim`, since it is ubiquitous on unix servers (see further reading living-in-the-terminal).
+* If you are not familiar with regular expressions, have a look at further readings (learning regular expressions the practical way).
+
+## Command Line for Data Science - Let's talk about the weather
 
 Since there's been so much controversy over weather predictions from
 paid vs free apps this year, we're going to just do it ourselves and
