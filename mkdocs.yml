@@ -88,7 +88,6 @@ nav:
           - Scoping overview: curriculum/scoping/overview.md
           - Project workflow: curriculum/scoping/project_workflow.md
           - Data Maturity evaluation: curriculum/scoping/dme.md
-          - Intro to data analysis methods: curriculum/scoping/analysis_methods.md
           - Project deliverables: curriculum/scoping/deliverables.md
       - Tech setup:
           - Software you need: curriculum/setup/you_need.md

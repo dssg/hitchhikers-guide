@@ -27,7 +27,7 @@ You should have the following tools installed on your local machine (whether it'
 
     You should **never** blindly copy lines to your dotfiles that you don't understand. Check the files in dotfiles repository and adapt/adopt what suits your needs and tastes
 
-* [Configure git](../2_data_exploration_and_analysis/git-and-github/basic_git_tutorial/01_BasicGit.md)
+* [Configure git](../setup/git-and-github/basic_git_tutorial/01_BasicGit.md)
 
 * Decide on your editor (vim or GNU/Emacs).
 
@@ -41,7 +41,7 @@ You should have the following tools installed on your local machine (whether it'
 
 * Create a file with your database credentials ([sample file](https://github.com/dssg/hitchhikers-guide/blob/master/curriculum/1_getting_and_keeping_data/csv-to-db/default_profile.example)) or (**recommended**) setup a [.pg_service.conf](./software-setup/pgservice_conf.example)
 
- * Learn about [virtual environments](software-setup/#virtual-environment) and set one up (if it hasn't been set up for you).
+ * Learn about [virtual environments](../setup/software-setup/README.md#virtual-environment) and set one up (if it hasn't been set up for you).
 
  * Learn how to install new python packages through `pip install`
 
@@ -49,7 +49,7 @@ You should have the following tools installed on your local machine (whether it'
 
 * `screen`/`tmux`: When you log in to your remote machine, run [screen](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-screen-on-an-ubuntu-cloud-server) or [tmux](https://hackernoon.com/a-gentle-introduction-to-tmux-8d784c404340) and work from a screen/tmux session
 
-* (Optional) When using the database for any reason from your laptop (to connect with tableau or dbeaver or for any other application), open an [ssh tunnel from your local machine to the remote server](../software-setup/#psql).
+* (Optional) When using the database for any reason from your laptop (to connect with tableau or dbeaver or for any other application), open an [ssh tunnel from your local machine to the remote server](../setup/software-setup/README.md#psql).
 
 ??? info "Windows"
 
