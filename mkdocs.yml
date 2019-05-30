@@ -77,7 +77,7 @@ nav:
                   - Writing reports: curriculum/communication/writing.md
                   - Visualization: curriculum/eda/visualization.md
                   - User interface: curriculum/communication/user_interface.md
-            - Software Practices:
+            - Good Software Practices:
                   - Intro: curriculum/programming_best_practices/README.md
                   - Legible, good code: curriculum/programming_best_practices/legible-good-code/README.md
                   - Writing tests: curriculum/programming_best_practices/test-test-test/README.md
@@ -87,9 +87,8 @@ nav:
       - Project Scoping:
           - Scoping overview: curriculum/scoping/overview.md
           - Project workflow: curriculum/scoping/project_workflow.md
-          - Data Maturity evaluation: curriculum/scoping/dme.md
-          - Intro to data analysis methods: curriculum/scoping/analysis_methods.md
-          - Project deliverables: curriculum/scoping/deliverables.md
+          - Data Maturity evaluation: curriculum/scoping/dme.md     
+      - Project deliverables: curriculum/scoping/deliverables.md
       - Tech setup:
           - Software you need: curriculum/setup/you_need.md
           - Setting up machines: curriculum/setup/software-setup/README.md
@@ -123,7 +122,7 @@ nav:
               - Other types of DBs: curriculum/dbs/other_types.md
           - Link data:
               - Record linkage: curriculum/2_data_exploration_and_analysis/record-linkage/README.md
-      - Data exploration:
+      - Data Exploration:
             - Introduction to EDA: curriculum/2_data_exploration_and_analysis/README.md
             - Visualization: curriculum/eda/visualization.md
             - SQL: curriculum/2_data_exploration_and_analysis/advanced_sql/README.md
@@ -137,7 +136,6 @@ nav:
       - Computational and Data Analysis Methods:
             - Intro: curriculum/3_modeling_and_machine_learning/README.md
             - Machine Learning: curriculum/3_modeling_and_machine_learning/README.md
-            - Machine learning methods: curriculum/ml/methods.md
             - Causal inference methods: curriculum/methods/causal_inference.md
             - Social science methods: curriculum/methods/social_science.md
             - Other statistical analysis methods: curriculum/methods/statistical_analysis.md
