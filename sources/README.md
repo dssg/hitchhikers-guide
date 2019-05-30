@@ -3,7 +3,7 @@
 
 ## What is the Data Science for Social Good Fellowship?
 
-The Data Science for Social Good Fellowship (DSSG) is a hands-on and
+The [Data Science for Social Good Fellowship (DSSG)](http://dssg.uchicago.edu) is a hands-on and
 project-based summer program that launched in 2013 at the University
 of Chicago and has now expanded to multiple locations globally. It
 brings data science fellows from across the world to work on machine
@@ -33,30 +33,19 @@ for social impact.
 
 ## Who is this guide for?
 
-Our number one priority at  [DSSG](http://dssg.uchicago.edu) is to
-**train fellows to do data science for social good work**. This
-curriculum includes many things you'd find in a data science course or
-bootcamp, but with an emphasis on solving problems with social impact,
-integrating data science with the social sciences, discussing ethical
-implications of the work, as well as privacy, and confidentiality
-issues.
+The primary audience for this guide is the set of fellows coming to DSSG but we want everything we create to be open and accessible to larger world. We hope this is useful to people beyond the summer fellows coming to DSSG.
 
-**If you are applying to the program or have been accepted as a
-fellow,** [check out the manual](dssg-manual/) to see how you can
-prepare before arriving, what orientation and training will cover, and
-what to expect from the summer.
+**If you are applying to the program or have been accepted as a fellow,** [check out the manual](dssg-manual/) to see how you can prepare before arriving, what orientation and training will cover, and what to expect from the summer.
 
-**If you are interested in learning at home,** check out the
-[tutorials and teach-outs](curriculum/) developed by our staff and
-fellows throughout the summer, and to suggest or contribute additional
-resources.
+**If you are interested in learning at home,** check out the [tutorials and teach-outs](curriculum/) developed by our staff and fellows throughout the summer, and to suggest or contribute additional resources.
 
-*Another one of our goals is to encourage collaborations. Anyone
-interested in doing this type of work, or starting a DSSG program, to
-build on what we've  learned by **using and contributing to** these
-resources.
+*Another one of our goals is to encourage collaborations. Anyone interested in doing this type of work, or starting a DSSG program, to build on what we've learned by **using and contributing to** these resources.
+
 
 ## What is in this guide?
+
+Our number one priority at  [DSSG](http://dssg.uchicago.edu) is to **train fellows to do data science for social good work**. This curriculum includes many things you'd find in a data science course or bootcamp, but with an emphasis on solving problems with social impact, integrating data science with the social sciences, discussing ethical implications of the work, as well as privacy, and confidentiality issues.
+
 We have spent many (sort of) early mornings waxing existential over
 Dunkin' Donuts while trying to define what makes a "data scientist for
 social good," that enigmatic breed combining one part data scientist,
