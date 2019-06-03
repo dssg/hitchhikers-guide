@@ -1,5 +1,10 @@
 # Record Linkage
 
+It is often necessary to combine data from multiple sources to get a complete picture of entities we're anslyzing. As data scientists, in addition to just linking data, we are also concerned
+about issues of missing links, duplicative links, and erroneous links.
+Record linkage methods range from traditional rule-based and
+probabilistic approaches, to more modern approaches using machine learning.
+
 ## Background and Motivation
 
 The goal of record linkage is to determine if pairs of records describe
