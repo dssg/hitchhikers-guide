@@ -1,0 +1,1 @@
+- [Getting data from CSVs in to a Database](../1_getting_and_keeping_data/csv-to-db/README.md) (Whatever you do , do not use pandas for this!!!)
