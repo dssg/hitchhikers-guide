@@ -12,9 +12,6 @@
 - Cleaned up public github Repo
 
 
-## How to
-
-
 ## Resources
 
 - [Deliverables checklist]()
