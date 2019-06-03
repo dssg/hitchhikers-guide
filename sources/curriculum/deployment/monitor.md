@@ -1,0 +1,2 @@
+- [Model Monitoring presentation](../3_modeling_and_machine_learning/model-monitoring/model_monitor_dssg.pdf)
+- [Model Monitoring Repo](https://github.com/dssg/model_monitor/tree/dev)
