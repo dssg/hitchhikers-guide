@@ -4,14 +4,14 @@
 This summer, you will use a database to store and analyze data. Databases have several advantages over using text files such as CSVs:
 
 * Databases can store information about relationships between tables.
-* We're collecting more and more data -- often too much to fit in memory. Most databases can handle this. 
+* We're collecting more and more data -- often too much to fit in memory. Most databases can handle this.
 * Databases can provide integrity checks and guarantees. If you have a column of numbers in a spreadsheet, Excel will let you change a random cell to text. In contrast, you can tell your database to only accept input that meets your conditions (e.g. type, uniqueness). This is especially important for ongoing projects, where you have new data coming in.
-* Databases allow you to store data in one place. That makes updates easy and reliable. 
+* Databases allow you to store data in one place. That makes updates easy and reliable.
 * Databases are more secure. You can more carefully control who has which types of access to what data better in a database than with a CSV.
 * Databases can handle multiple users. Concurrent edits to a CSV can get messy. Some file systems won't even let multiple users access a CSV at the same time.
 * Databases are designed to help you do analysis. SQL will probably become your best friend.
 
-You'll likely have to load CSVs into your database (e.g. from the open data portal), even if your partner gave a database dump ([which is ideal](https://dsapp.uchicago.edu/home/resources/give-us-direct-access-system-database-dump/)). This session builds on what you learned last week in the [pipeline](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/pipelines-and-project-workflow) and [command line](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools) sessions. We will focus on ETL. 
+You'll likely have to load CSVs into your database (e.g. from the open data portal), even if your partner gave a database dump ([which is ideal](https://dsapp.uchicago.edu/home/resources/give-us-direct-access-system-database-dump/)). This session builds on what you learned last week in the [pipeline](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/pipelines-and-project-workflow) and [command line](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools) sessions. We will focus on ETL.
 
 
 ## Tools
@@ -34,7 +34,7 @@ Notice that we're not using pandas. DO NOT COPY DATA INTO THE DATABASE USING PAN
 ## Let's Rock Some Data!
 
 ### Connecting to the database
-Some unique aspects of the setup at DSSG: You cannot access the database server directly; you have to connect to the University's secure network and tunnel go through one of the EC2 instances. The data are far safer that way: you have to access the University's secure network, then one of our EC2s, and then the database. 
+Some unique aspects of the setup at DSSG: You cannot access the database server directly; you have to connect to the University's secure network and tunnel go through one of the EC2 instances. The data are far safer that way: you have to access the University's secure network, then one of our EC2s, and then the database.
 
 There are two ways to connect to the database (once you're on the University network):
 
@@ -43,12 +43,12 @@ There are two ways to connect to the database (once you're on the University net
 2. *Connect from the EC2*: SSH into the EC2 and run everything from there. Your laptop only sends your commands to the EC2; the EC2 does the work. You don't use an SSH tunnel because everything stays on the EC2.
 ![Connect from the EC2](https://www.lucidchart.com/publicSegments/view/9ca0e0f9-da92-468a-935c-b1fc1d3d467a/image.png)
 
-You can use option 1 (especially dBeaver) to explore the data, but you should use option 2 to load the data. First, downloading the datasets to your laptop may violate our contracts. Second, the internet connections will be better. The connections within Amazon are pretty fast; the connections from our office to Amazon might not be. Option 2 keeps the heavy transfers on Amazon's infrastructure. 
+You can use option 1 (especially dBeaver) to explore the data, but you should use option 2 to load the data. First, downloading the datasets to your laptop may violate our contracts. Second, the internet connections will be better. The connections within Amazon are pretty fast; the connections from our office to Amazon might not be. Option 2 keeps the heavy transfers on Amazon's infrastructure.
 
 ### Getting data into a Database
 There are three steps to get a CSV into an existing database:
 1. **Create table**: This involves figuring out the structure of the table (how many fields, what should they be called, and what data types they are). Once you figure out the structure, you can create a sql "CREATE TABLE" statement and run that to generate an *empty* table*
-2. **Copy CSV to the table**: Every database has a "bulk" copy command that is **much** more efficient than using pandas. Please do not use pandas to copy large csvs to a database. Postgres has a COPY command that can now copy your csv to the table you just created. 
+2. **Copy CSV to the table**: Every database has a "bulk" copy command that is **much** more efficient than using pandas. Please do not use pandas to copy large csvs to a database. Postgres has a COPY command that can now copy your csv to the table you just created.
 3. **Check if it copied successfully**: You want to check if your table now has the same number of rows and columns as the CSV (as well as other consistency checks). If it did not copy successfully, you may need to modify the table structure, clean the csv to remove characters, replace nulls, and try steps 1 and 2 again.
 
 ### Step 1: Let's get the structure of the data
@@ -80,40 +80,40 @@ Here's the output:
 
 ```
 CREATE TABLE stdin (
-	"Inspection ID" DECIMAL NOT NULL, 
-	"DBA Name" VARCHAR NOT NULL, 
-	"AKA Name" VARCHAR, 
-	"License #" DECIMAL NOT NULL, 
-	"Facility Type" VARCHAR, 
-	"Risk" VARCHAR, 
-	"Address" VARCHAR NOT NULL, 
-	"City" VARCHAR NOT NULL, 
-	"State" VARCHAR, 
-	"Zip" DECIMAL NOT NULL, 
-	"Inspection Date" DATE NOT NULL, 
-	"Inspection Type" VARCHAR NOT NULL, 
-	"Results" VARCHAR NOT NULL, 
-	"Violations" VARCHAR, 
-	"Latitude" DECIMAL, 
-	"Longitude" DECIMAL, 
+	"Inspection ID" DECIMAL NOT NULL,
+	"DBA Name" VARCHAR NOT NULL,
+	"AKA Name" VARCHAR,
+	"License #" DECIMAL NOT NULL,
+	"Facility Type" VARCHAR,
+	"Risk" VARCHAR,
+	"Address" VARCHAR NOT NULL,
+	"City" VARCHAR NOT NULL,
+	"State" VARCHAR,
+	"Zip" DECIMAL NOT NULL,
+	"Inspection Date" DATE NOT NULL,
+	"Inspection Type" VARCHAR NOT NULL,
+	"Results" VARCHAR NOT NULL,
+	"Violations" VARCHAR,
+	"Latitude" DECIMAL,
+	"Longitude" DECIMAL,
 	"Location" VARCHAR
 );
 ```
 
 A few things to note:
 * Inspection ID, DBA Name, AKA Name, etc. are column names.
-* VARCHAR and INTEGER are column types. VARCHAR(11) means variable character length column up to 11 characters. If you try to give a character column a number, an integer column a decimal, and so on, Postgres will prevent the entire transfer. 
+* VARCHAR and INTEGER are column types. VARCHAR(11) means variable character length column up to 11 characters. If you try to give a character column a number, an integer column a decimal, and so on, Postgres will prevent the entire transfer.
 * NOT NULL means you have to provide a value for that column.
 * Postgres hates uppercase and spaces in column names. If you have either, you need to wrap the column name in quotation marks. Yuck.
-* We need to replace `stdin` with the table name (`jwalsh.jwalsh`). 
+* We need to replace `stdin` with the table name (`jwalsh.jwalsh`).
 
 Let's give it another shot:
 
 `
-head -n 1000 inspections.csv | tr [:upper:] [:lower:] | tr ' ' '_' | sed 's/#/num/' | csvsql -i postgresql --db-schema jwalsh --tables jwalsh
+head -n 1000 inspections.csv | tr [:upper:] [:lower:] | tr ' ' '_' | tr '-' '_'| sed 's/#/num/' | csvsql -i postgresql --db-schema jwalsh --tables jwalsh
 `
 
-* `tr [:upper:] [:lower:]` converts all uppercase to all lowercase. 
+* `tr [:upper:] [:lower:]` converts all uppercase to all lowercase.
 * `tr ' ' '_'` converts all spaces to underscores.
 * `sed 's/#/num/'` replaces the pound sign with "num".
 * `csvsql -i postgresql --db-schema jwalsh --tables jwalsh` generates the postgres `create table` statement.
@@ -122,27 +122,27 @@ Here's the output:
 
 ```
 CREATE TABLE jwalsh.jwalsh (
-	inspection_id DECIMAL NOT NULL, 
-	dba_name VARCHAR NOT NULL, 
-	aka_name VARCHAR, 
-	license_num DECIMAL NOT NULL, 
-	facility_type VARCHAR, 
-	risk VARCHAR, 
-	address VARCHAR NOT NULL, 
-	city VARCHAR NOT NULL, 
-	state VARCHAR, 
-	zip DECIMAL NOT NULL, 
-	inspection_date DATE NOT NULL, 
-	inspection_type VARCHAR NOT NULL, 
-	results VARCHAR NOT NULL, 
-	violations VARCHAR, 
-	latitude DECIMAL, 
-	longitude DECIMAL, 
+	inspection_id DECIMAL NOT NULL,
+	dba_name VARCHAR NOT NULL,
+	aka_name VARCHAR,
+	license_num DECIMAL NOT NULL,
+	facility_type VARCHAR,
+	risk VARCHAR,
+	address VARCHAR NOT NULL,
+	city VARCHAR NOT NULL,
+	state VARCHAR,
+	zip DECIMAL NOT NULL,
+	inspection_date DATE NOT NULL,
+	inspection_type VARCHAR NOT NULL,
+	results VARCHAR NOT NULL,
+	violations VARCHAR,
+	latitude DECIMAL,
+	longitude DECIMAL,
 	location VARCHAR
 );
 ```
 
-`csvsql` ain't perfect. We could still make changes if we wanted, e.g. changing the `license_num` column type. But DECIMAL is good enough for this exercise. 
+`csvsql` ain't perfect. We could still make changes if we wanted, e.g. changing the `license_num` column type. But DECIMAL is good enough for this exercise.
 
 ### Let's create the schema and table
 Remember, the schema is like a folder. You can use schema to categorize your tables. Let's use a script, which I'll call `inspections.sql`, to create the schema and table. Here's what it looks like:
@@ -153,22 +153,22 @@ SET ROLE training_write;
 CREATE SCHEMA IF NOT EXISTS jwalsh;
 
 CREATE TABLE IF NOT EXISTS jwalsh.jwalsh (
-	inspection_id DECIMAL NOT NULL, 
-	dba_name VARCHAR NOT NULL, 
-	aka_name VARCHAR, 
-	license_num DECIMAL NOT NULL, 
-	facility_type VARCHAR, 
-	risk VARCHAR, 
-	address VARCHAR NOT NULL, 
-	city VARCHAR NOT NULL, 
-	state VARCHAR, 
-	zip DECIMAL NOT NULL, 
-	inspection_date DATE NOT NULL, 
-	inspection_type VARCHAR NOT NULL, 
-	results VARCHAR NOT NULL, 
-	violations VARCHAR, 
-	latitude DECIMAL, 
-	longitude DECIMAL, 
+	inspection_id DECIMAL NOT NULL,
+	dba_name VARCHAR NOT NULL,
+	aka_name VARCHAR,
+	license_num DECIMAL NOT NULL,
+	facility_type VARCHAR,
+	risk VARCHAR,
+	address VARCHAR NOT NULL,
+	city VARCHAR NOT NULL,
+	state VARCHAR,
+	zip DECIMAL NOT NULL,
+	inspection_date DATE NOT NULL,
+	inspection_type VARCHAR NOT NULL,
+	results VARCHAR NOT NULL,
+	violations VARCHAR,
+	latitude DECIMAL,
+	longitude DECIMAL,
 	location VARCHAR
 );
 ```
@@ -193,7 +193,7 @@ CREATE TABLE jwalsh_schema.jwalsh_table (
         aka_name VARCHAR,
         license_num DECIMAL NOT NULL,
         facility_type VARCHAR,
-        risk VARCHAR, 
+        risk VARCHAR,
         address VARCHAR NOT NULL,
         city VARCHAR NOT NULL,
         state VARCHAR,  
@@ -223,7 +223,7 @@ psql -f inspections.sql
 
 Uh oh, we got an error:
 ```
-Password for user jwalsh: 
+Password for user jwalsh:
 SET
 psql:copy_example.sql:2: ERROR:  null value in column "city" violates not-null constraint
 DETAIL:  Failing row contains (2145008, INTERURBAN, INTERURBAN, 2492070, Restaurant, Risk 1 (High), 1438 W CORTLAND ST , null, null, 60642, 2018-02-15, License, Pass, null, 41.916996072966775, -87.6645967198223, (41.916996072966775, -87.6645967198223)).
@@ -279,5 +279,3 @@ Check if the data are there. Here's what it looks like in dBeaver:
 
 
 ## Discussion Notes
-
-
