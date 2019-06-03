@@ -141,22 +141,32 @@ We will install [`pyenv`](https://github.com/pyenv/pyenv)
 
 And follow the instructions at the end (Mostly about adding some lines to your `.bash_profile` or `.zsh_profile` or similar.) Restart your terminal.
 
-Then, we will install a python version:
-
-        $ pyenv install 3.7.3
-
-
-This will take several minutes.
 
 ### Virtual environment
 
-As a last step, we will create a *virtual environment*.
+As a last step, we will create a *virtual environment*. 
+A virtual environment is a tool that helps to keep dependencies required by different projects separate.
+By default, every project on your system will use the same directory to store and retrieve third party libraries (called site packages).
+A virtual environment helps avoid conflicts between requirements for different projects and it isolates dependencies.
+For example, different projects may use different versions of Python.
+
+There are multiple tools to manage virtual environments.
+The most commonly used ones are 
+
++ `anaconda`:  Environment manager and package manager. Anaconda makes makes managing different environments, and installing packages very easy. In fact, many of the standard Data Science packages are automatically installed when setting up anaconda. However, it requires a large amount of storage space. 
++ `pyenv`: Python version manager. The focus of `pyenv` is to switch between different python versions.
++ `virtualenv`: Python environment manager. `virtualenv` is an intermediate solution between `anaconda` and `pyenv`. 
+
+
+##### pyenv
+
+To create an environment called `dssg` with Python 3.7.3 in `pyenv`, install the python version:
+
+        $ pyenv install 3.7.3
+
+This will take several minutes. Once complete, create the environment
 
     $ pyenv virtualenv 3.7.3 dssg
-
-!!! info
-
-    A virtual environment isolates the python libraries that you install in an specific project.
 
 And then assign it as the virtual environment to use in your directory of choice with
 
@@ -166,17 +176,53 @@ Depending on your command shell (`bash`, `zsh`, `csh`, etc) configuration you sh
 
     $ pyenv version
     dssg (set by /home/user/projects/.python-version)
+    
+##### anaconda
+
+To perform the same task in anaconda, type
+
+    $ conda create -n dssg python = 3.7
+ 
+Press `y` to proceed. This wil install the Python version and all the default anaconda packages in `path_to_your_anaconda_location/anaconda/envs/dssg`
+
+We activate the environment with 
+
+    $ source activate dssg
+
+Note that the active environment is visible in your command prompt.
+Virtual environments are only active in the current terminal. If you ever need to deactivate it, type
+
+    $ source deactivate
 
 
-Then we will install a lot of libraries. Copy the file [`requirements.txt`](/requirements.txt) to your directory and execute:
+### Package installations
+
+Packages are installed using pip. To install a single package:
+
+    $ pip install pandas
+
+To install many packages at once, list all the packages needed in a file (usually called `requirements.txt`), 
+navigate to the folder of the file and execute
 
     $ pip install -r requirements.txt
 
-4. It's time to test! In order to test that both jupyter and the python packages installed appropriately, you should do the following:
+To try it out, use this file: [`requirements.txt`](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/0_before_you_start/prerequisites/requirements.txt).
 
-- Download [the file `SoftwareSetup.ipynb`](https://github.com/dssg/hitchhickers-guide/sources/curriculum/0_before_you_start/software-setup/SoftwareSetup.ipynb) into your directory. And type in the terminal:
 
-        $ jupyter notebook
+#### Jupyter
+
+Jupyter notebooks are a convenient environment for experimentation, prototyping, and sharing exploratory work.
+Jupyter notebooks require a kernel that executes the code. It should link to the virtual environment:
+
+
+    $ ipython kernel install --user --name=dssg
+
+It's time to test! In order to test that both jupyter and the python packages installed appropriately, you should do the following:
+
+- Download [the file `SoftwareSetup.ipynb`](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/setup/software-setup/SoftwareSetup.ipynb) into your directory.
+- Type in the terminal
+
+    $ jupyter notebook
 
 Your browser will open a new tab and you will see something like the following:
 
