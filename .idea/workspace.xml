@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a392a01-5896-463b-82a6-9fb6e4306557" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/sources/curriculum/setup/software-setup/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/sources/curriculum/setup/software-setup/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sources/curriculum/2_data_exploration_and_analysis/data-exploration-in-python/Getting_Started_Working_with_Data_In_Python.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/sources/curriculum/2_data_exploration_and_analysis/data-exploration-in-python/Getting_Started_Working_with_Data_In_Python.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,8 +60,8 @@
         <entry file="file://$PROJECT_DIR$/sources/curriculum/setup/software-setup/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="1876">
-                <caret line="230" column="22" lean-forward="true" selection-start-line="230" selection-start-column="22" selection-end-line="230" selection-end-column="22" />
+              <first_editor relative-caret-position="196">
+                <caret line="183" column="39" lean-forward="true" selection-start-line="183" selection-start-column="6" selection-end-line="183" selection-end-column="39" />
               </first_editor>
               <second_editor />
             </state>
@@ -87,9 +87,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="268" />
-    <option name="y" value="65" />
-    <option name="width" value="1933" />
+    <option name="x" value="319" />
+    <option name="y" value="30" />
+    <option name="width" value="1680" />
     <option name="height" value="1027" />
   </component>
   <component name="ProjectView">
@@ -178,11 +178,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="268" y="65" width="1933" height="1027" extended-state="0" />
+    <frame x="319" y="30" width="1680" height="1027" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.041776836" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.04822955" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
@@ -215,8 +215,8 @@
     <entry file="file://$PROJECT_DIR$/sources/curriculum/setup/software-setup/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1876">
-            <caret line="230" column="22" lean-forward="true" selection-start-line="230" selection-start-column="22" selection-end-line="230" selection-end-column="22" />
+          <first_editor relative-caret-position="196">
+            <caret line="183" column="39" lean-forward="true" selection-start-line="183" selection-start-column="6" selection-end-line="183" selection-end-column="39" />
           </first_editor>
           <second_editor />
         </state>
