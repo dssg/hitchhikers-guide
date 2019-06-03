@@ -109,7 +109,7 @@ nav:
           - Get data:
               - APIs and scrapping: curriculum/1_getting_and_keeping_data/basic-web-scraping/README.md
               - Working with images: curriculum/get_data/images.md
-              - Working with text: 2_data_exploration_and_analysis/text-analysis
+              - Working with text: curriculum/2_data_exploration_and_analysis/text-analysis/README.md
               - Flat files: curriculum/1_getting_and_keeping_data/csv-to-db/README.md
           - Store data:
               - ETL - cleaning, loading: curriculum/1_getting_and_keeping_data/reproducible_ETL/README.md
