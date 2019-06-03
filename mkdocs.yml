@@ -144,7 +144,6 @@ nav:
       - Practical Steps in Using Machine Learning to Solve Social Problems:
             - Building an ML Pipeline:
                 - ML pipeline I: curriculum/ml/pipeline.md
-                - ML pipeline II: curriculum/ml/pipeline_ii.md
             - Set up problem:
                 - ML problem formulation: curriculum/ml/problem_formulation.md
                 - ML Checklist: curriculum/ml/checklist.md
