@@ -219,7 +219,7 @@ Jupyter notebooks require a kernel that executes the code. It should link to the
 
 It's time to test! In order to test that both jupyter and the python packages installed appropriately, you should do the following:
 
-- Download [the file `SoftwareSetup.ipynb`](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/setup/software-setup/SoftwareSetup.ipynb) into your directory.
+- Download the file [`SoftwareSetup.ipynb`](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/setup/software-setup/SoftwareSetup.ipynb) into your directory.
 - Type in the terminal
 
     $ jupyter notebook
