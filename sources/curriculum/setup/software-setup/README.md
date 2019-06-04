@@ -215,7 +215,7 @@ Jupyter notebooks are a convenient environment for experimentation, prototyping,
 Jupyter notebooks require a kernel that executes the code. It should link to the virtual environment:
 
 
-    $ ipython kernel install --user --name=dssg
+    $ python -m ipykernel install --user --name=myenv --display-name "myenv"
 
 It's time to test! In order to test that both jupyter and the python packages installed appropriately, you should do the following:
 
