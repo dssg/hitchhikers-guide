@@ -181,7 +181,7 @@ Depending on your command shell (`bash`, `zsh`, `csh`, etc) configuration you sh
 
 To perform the same task in anaconda, type
 
-    $ conda create -n dssg python = 3.7
+    $ conda create -n dssg python=3.7
  
 Press `y` to proceed. This wil install the Python version and all the default anaconda packages in `path_to_your_anaconda_location/anaconda/envs/dssg`
 
