@@ -5,7 +5,8 @@ default_profile
 drake.log
 .drake
 .drake/
-.idea/
+.idea/*
+.idea
 
 #####=== Python ===#####
 
