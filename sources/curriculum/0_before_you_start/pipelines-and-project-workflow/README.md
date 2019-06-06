@@ -72,7 +72,8 @@ In contrast to the previous layers, models are usually stored in `pickle` becaus
 Model performance metrics, predictions, recommendations etc. are stored in the reporting layer.
 If a front-end is constructed, it will access the reporting layer to display information to the user.
 For example, a Tableau dashboard, power BI, a jupyter notebook or an excel output will read from the reporting layer.
-Accordingly, the format of the data in the reporting layer will be adjusted to the front end of choice.  
+Accordingly, the format of the data in the reporting layer will be adjusted to the front end of choice. 
+Some teams choose to split the reporting layer into model output and reporting. 
 
 
 ![Data pipeline](data_pipeline.png "Data pipeline")
