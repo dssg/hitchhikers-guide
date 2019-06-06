@@ -53,7 +53,7 @@ The transformations from raw to intermediate should be limited to fix the issues
 We should not combine different data sets or create calculated fields.
 This is reserved for the next layer.
 
-Typical file formats for the intermediate layer are a data base (e.g. `postgres`) or `parquet` files.
+Typical storage formats for the intermediate layer are a data base (e.g. `postgres`) or `parquet` files.
 
 ##### Processed
 To perform the modelling work, the input data needs to be combined and enriched, for example by creating features. 
