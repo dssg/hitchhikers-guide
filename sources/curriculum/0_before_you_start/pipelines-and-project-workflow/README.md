@@ -180,8 +180,8 @@ pipeline is a set of functions strung together.
 For example,
 
     int_data = create_int_data(raw_data)
-    pro_drug_features = create_pro_drug_features
-    pro_patient_features = create_pro_patient_features
+    pro_drug_features = create_pro_drug_features(int_data)
+    pro_patient_features = create_pro_patient_features(int_data)
     pro_master_table = create_pro_master_table(pro_drug_features, pro_patient_features)
     model = train_model(pro_master_table)
     rpt_report = produce_report(model)
