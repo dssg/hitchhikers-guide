@@ -30,6 +30,7 @@ In this session, we will introduce a workflow that can avoid (or at least reduce
 
 It is helpful to structure the data into multiple layers.
 In data bases, a layer is expressed as schema.
+In most other formats, they are expressed through a directory structure.
 
 ##### Raw
 The data we receive from the partners and external sources is the raw data. 
