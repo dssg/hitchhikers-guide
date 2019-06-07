@@ -130,23 +130,46 @@ Once the PR is approved, the person who raised the PR will
 
 Celebrate on slack!
 
+## Stash
+
+Sometimes you might produce a chunk of work on the wrong branch.
+For example
+- when thinking the change would just be one line but then turns into a larger piece
+- when forgetting which branch is currently checked out
+
+One usually remembers when trying to commit.
+But it's not possible to change branch when there is uncommitted work.
+The solution is
+
+    git stash
+    
+Stashing takes the dirty state of your working directory — that is, your modified tracked files and staged changes — and saves it on a stack of unfinished changes that you can reapply at any time.
+Once you ran `git stash`, your working directory is clean and you can conveniently switch branches.
+
+You can then re-apply the changes (the last ones stashed) using 
+
+    git stash apply
+
+All stashed changes can be seen with `git stash list` and older stashes can be applied using `git stash apply stash@{ID}`,
+where ID is the number of the stash to be applied (found by inspecting the stash list). 
 
 ## Tags
 
-This summer, we'd like you to use weekly tags so that future mentors/managers can look back at projects to see where people were during certain weeks for reference. 
+At DSSG, we you to use weekly tags to reference weekly milestones. 
 
 To create a tag run `git tag <tagname>`. 
 
-This will create a local tag with the current state of the branch you are on. When pushing to your remote repo, tags are NOT included by default. You will need to explicitly say that you want to push your tags to your remote repo.
+This will create a local tag with the current state of the branch you are on. 
+When pushing to your remote repo, tags are NOT included by default. 
+You will need to explicitly say that you want to push your tags to your remote repo.
 
 To push your tag run `git push origin <tag>`. 
 Or to push all tags (in the case there are multiple), you'd run `git push origin --tags`. 
-
 In our case, we'll just be working with one at a time.
 
 **Create and push an end-of-week tag each Friday.**
 
-We will also aim to merge into master at that time if feasible.
+If feasible, we will also merge `dev` into `master` at that time.
 
 ## `.gitignore`
 
