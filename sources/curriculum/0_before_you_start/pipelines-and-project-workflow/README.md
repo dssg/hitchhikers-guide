@@ -68,12 +68,18 @@ The processed data is used to train predictive models, explanatory models, recom
 The trained models are stored in the model layer. 
 In contrast to the previous layers, models are usually stored in `pickle` because they are not in tabular format.
 
+
+##### Model output
+Model performance metrics, model selection information and predictions are kept in the model output layer.
+
+
 ##### Reporting
-Model performance metrics, predictions, recommendations etc. are stored in the reporting layer.
-If a front-end is constructed, it will access the reporting layer to display information to the user.
+Reporting can be performed across the pipeline.
+For example, there might be data quality reports on the inputs, distribution analysis on the processed data,
+predictions, explanations, recommendations that are provided to the user, and performance evaluation and tracking.
+If a front-end is constructed, it will access the reporting layer to display information to the users and developers.
 For example, a Tableau dashboard, power BI, a jupyter notebook or an excel output will read from the reporting layer.
 Accordingly, the format of the data in the reporting layer will be adjusted to the front end of choice. 
-Some teams choose to split the reporting layer into model output and reporting. 
 
 
 ![Data pipeline](data_pipeline.png "Data pipeline")
@@ -99,7 +105,8 @@ Directory structure:
 │   ├── 02_intermediate<- Cleaned version of raw
 │   ├── 03_processed   <- The data used for modelling
 │   ├── 04_models      <- trained models
-│   └── 05_reporting   <- Reports and input to frontend
+│   ├── 05_model_output<- model output
+│   └── 06_reporting   <- Reports and input to frontend
 │
 ├── docs               <- Space for Sphinx documentation
 │
@@ -133,10 +140,12 @@ Directory structure:
     │
     ├── d04_modelling  <- Scripts to train models and then use trained models to make
     │   │                 predictions
-    │   ├── predict_model.py
     │   └── train_model.py
     │
-    ├── d05_reporting  <- Scripts to turn produce reporting tables
+    ├── d05_model_evaluation<- Scripts that analyse model performance and model selection
+    │   └── calculate_performance_metrics.py
+    │    
+    ├── d06_reporting  <- Scripts to produce reporting tables
     │   └── create_rpt_payment_summary.py
     │
     └── d06_visualisation<- Scripts to create frequently used plots
