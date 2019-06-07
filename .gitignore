@@ -6,6 +6,7 @@ drake.log
 .drake
 .drake/
 .idea/*
+.idea
 
 #####=== Python ===#####
 
