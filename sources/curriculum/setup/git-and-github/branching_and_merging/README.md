@@ -131,6 +131,45 @@ Once the PR is approved, the person who raised the PR will
 Celebrate on slack!
 
 
+## Tags
+
+This summer, we'd like you to use weekly tags so that future mentors/managers can look back at projects to see where people were during certain weeks for reference. 
+
+To create a tag run `git tag <tagname>`. 
+
+This will create a local tag with the current state of the branch you are on. When pushing to your remote repo, tags are NOT included by default. You will need to explicitly say that you want to push your tags to your remote repo.
+
+To push your tag run `git push origin <tag>`. 
+Or to push all tags (in the case there are multiple), you'd run `git push origin --tags`. 
+
+In our case, we'll just be working with one at a time.
+
+**Create and push an end-of-week tag each Friday.**
+
+We will also aim to merge into master at that time if feasible.
+
+## `.gitignore`
+
+`.gitignore` files specify which files are ignored in a git repository. 
+
+Example:
+
+```
+#ignore a single file
+`mycode.class`
+
+#ignore an entire directory
+`/mydebugdir/`
+
+#ignore a file type
+`*.json`
+
+#add an exception (using !) to the preceding rule to track a specific file
+`!package.json`
+```
+
+Let's create an empty `.gitignore` file (touch `.gitignore`) and add some stuff!
+
 
 ## Some useful commands
 
@@ -180,3 +219,13 @@ Push:
 13. Make another commit on the feature branch
 14. TMs to demo raising a PR, requesting changes, addressing, approving, merging.
 15. Everyone to raise a PR for their work in progress feature branches
+
+
+## References:
+
+There is a countless number of git tutorials out there
+and you should be able to find answers to most questions on stackoverflow. 
+
+Some resources that we like:
+- [Cheat sheet](https://gist.github.com/davfre/8313299)
+- [Git hello world tutorial](https://guides.github.com/activities/hello-world/)
