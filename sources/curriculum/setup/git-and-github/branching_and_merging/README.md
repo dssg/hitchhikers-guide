@@ -198,14 +198,14 @@ Let's create an empty `.gitignore` file (touch `.gitignore`) and add some stuff!
 
 This section contains some useful commands:
 
-##### Discard changes
+#### Discard changes
 - `git checkout file_name.py`: discard changes made to file `file_name.py`
 - `git checkout .`: discard all changes made to files currently tracked by git
 - `git reset --hard`: discard changes in the working directory and changes that have been staged but not committed
 - `git stash`: discard all local changes but store them for potential re-use later
 - `git clean`: remove untracked files that are unknown to git (i.e. gitignored files are not removed)
 
-##### Sharing with others
+#### Sharing with others
 
 Pull:
 - `git pull origin branch_name`: fetch the latest version of `branch_name` from github and merge into the current branch
@@ -216,7 +216,7 @@ Push:
 - `git push -u origin branch_name`: create a remote branch called `branch_name` with the content of the current branch.
 - `git push`: Abbreviation for `git push origin branch_name` where `branch_name` is the remote branch tracked by the current branch.
 
-##### Check changes
+#### Check changes
 
 - `git diff`: Show all changes made since the last commit
 - `git diff file_name`: Show changes made to the file named `file_name`. If the file is not in your directory, write the whole path.
