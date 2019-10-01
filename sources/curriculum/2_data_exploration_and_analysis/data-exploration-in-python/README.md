@@ -60,6 +60,11 @@ Now go to the location in the file system you would like to launch a Jupyter ser
 ```
 jupyter notebook --no-browser --port 44444
 ```
+You may have to also specifiy the ip address as well
+
+```
+jupyter notebook --no-browser --port 44444 --ip=127.0.0.1
+```
 
 You should now be able to go to your browser and go to the address `localhost:44444`.
 
