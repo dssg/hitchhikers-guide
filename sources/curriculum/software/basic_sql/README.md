@@ -1,7 +1,6 @@
 # Intro to SQL
 
 You've already used databases. Excel spreadsheets are a simple example. But those databases have many problems, such as 
-
 * size of data you can use is limited by RAM
 * cannot handle complex data (there are databases to handle more complex data types, e.g. documents)
 * difficult to use data from multiple tables/sheets
@@ -24,20 +23,19 @@ First, we'll need to either:
 1. use psql
 * ssh into the server
 * Run  `psql`
-* Run `SET ROLE training_write` so that we have the appropriate permissions
 2. use dbeaver
-* Run `SET ROLE training_write` so that we have the appropriate permissions
 
 ### Getting a sense of the tables and data:
 
 A few things we can do to explore:
 
-* Look at the schemas currently present; make sure yours is there: `\dn`
+Using PSQL:
+* Look at the schemas currently present; make sure yours is there: type `\dn`
 * List databases: `\l`
 * ([This doc](https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546) has a list of some other quick exploratory commands.)
 * Find the count of the list of rows:
   
-  `SELECT COUNT(*) FROM mpettit_schema.mpettit_table;`
+  `SELECT COUNT(*) FROM tablename;`
   
 * Output the list of columns for this table:
   
@@ -45,15 +43,15 @@ A few things we can do to explore:
   
    `FROM information_schema.columns`
    
-   `WHERE table_name = 'mpettit_table';`
+   `WHERE table_name = 'mytablename';`
    
-* If you also want to look at datatype:
+* If you also want to look at data types:
    
    `SELECT column_name, data_type`
    
    `FROM information_schema.columns`
    
-   `WHERE table_name = 'mpettit_table';`
+   `WHERE table_name = 'mytablename';`
    
 Ok, now that we've gotten a sense of the data, let's dial it back and get to the basics. :)
 
@@ -66,13 +64,13 @@ First off, let's select everything from the table to see what we get:
 
 `SELECT *`
 
-`FROM mpettit_schema.mpettit_table;`
+`FROM mytablename;`
 
 There's a lot to view at once here. Let's say we're not interested in all those comments and just want to look at the columns `inspection_id`, `dba_name`, `aka_name`, `results`, and `inspection_date`. We can edit the above command to only select those columns:
 
 `SELECT inspection_id, dba_name, aka_name, results, inspection_date` 
 
-`FROM mpettit_schema.mpettit_table;`
+`FROM inspections;`
 
 ### LIMIT
 
@@ -80,7 +78,7 @@ Often, tables contain millions of rows, and it can take a while to grab everythi
 
 `SELECT inspection_id, dba_name, aka_name, results, inspection_date` 
 
-`FROM mpettit_schema.mpettit_table` 
+`FROM inspections` 
 
 `LIMIT 20;`
 
@@ -94,7 +92,7 @@ Here's how you might order by dba_name in ascending order:
 
 `SELECT inspection_id, dba_name, aka_name, results, inspection_date` 
 
-`FROM mpettit_schema.mpettit_table` 
+`FROM inspections` 
 
 `ORDER BY dba_name;`
 
@@ -106,7 +104,7 @@ If you use ORDER BY and then LIMIT, you would get the first rows for that order.
 
 `SELECT inspection_id, dba_name, aka_name, results, inspection_date` 
 
-`FROM mpettit_schema.mpettit_table` 
+`FROM inspections` 
 
 `ORDER BY dba_name`
 
@@ -120,7 +118,7 @@ Let's say we only want to look at records where the restaurant name is SUN WAH, 
 
 `SELECT inspection_id, dba_name, aka_name, results, inspection_date` 
 
-`FROM mpettit_schema.mpettit_table` 
+`FROM inspections` 
 
 `WHERE dba_name='SUN WAH';`
 
@@ -130,7 +128,7 @@ Let's try using the [LIKE operator](https://www.w3schools.com/sql/sql_like.asp)!
 
 `SELECT inspection_id, dba_name, aka_name, results, inspection_date` 
 
-`FROM mpettit_schema.mpettit_table` 
+`FROM inspections` 
 
 `WHERE dba_name LIKE '%SUN WAH%';`
 
@@ -142,7 +140,7 @@ For example, if we want to find the amount of times that each restaurant has bee
 
 `SELECT dba_name, COUNT(*)` 
 
-`FROM mpettit_schema.mpettit_table` 
+`FROM inspections` 
 
 `GROUP BY dba_name;`
 
@@ -150,7 +148,7 @@ Let's say you are only concerned with the amount of times that the restaurant fa
 
 `SELECT dba_name, COUNT(*)` 
 
-`FROM mpettit_schema.mpettit_table` 
+`FROM inspections` 
 
 `WHERE results LIKE 'Fail%'` 
 
@@ -166,11 +164,11 @@ So, in order to select the `dba_name` from the inspections table (`mpettit_schem
 
 `SELECT mpettit_schema.mpettit_table.dba_name, gis.boundaries.objectid` 
 
-`FROM mpettit_schema.mpettit_table` 
+`FROM inspections` 
 
 `LEFT JOIN gis.boundaries` 
 
-`ON gis.boundaries.zip=mpettit_schema.mpettit_table.zip:;`
+`ON gis.boundaries.zip=inspections.zip:;`
 
 So, something went wrong. Any idea what it was?
 
@@ -180,7 +178,7 @@ Let's investigate...
 
 `FROM information_schema.columns` 
 
-`WHERE table_name = 'mpettit_table';`
+`WHERE table_name = inspections';`
 
   &
 
@@ -194,7 +192,7 @@ We see the problem is that the data types for zip code don't match up between th
 
 `SELECT mpettit_schema.mpettit_table.dba_name, gis.boundaries.objectid` 
 
-`FROM mpettit_schema.mpettit_table` 
+`FROM inspections` 
 
 `LEFT JOIN gis.boundaries` 
 
@@ -206,7 +204,7 @@ If you want to use an alias for a table, you add `AS *alias_name*` after the tab
 
 `SELECT inspect.dba_name, bound.objectid` 
 
-`FROM mpettit_schema.mpettit_table AS inspect` 
+`FROM inspections AS inspect` 
 
 `LEFT JOIN gis.boundaries AS bound`
 
