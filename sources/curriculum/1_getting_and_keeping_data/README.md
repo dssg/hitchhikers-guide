@@ -8,4 +8,4 @@ of the steps you took to go from raw data to model-ready data ([Reproducible ETL
 
 Often data science for social good
 projects will involve sensitive data, so it's important to be aware of some basic principles of data security:
-[Data Security Primer](data-security-primer/README.md).
+[Data Security Primer](../get_data/data-security-primer/README.md).
