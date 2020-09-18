@@ -5,8 +5,7 @@ gone through the [Prerequisites](prerequisites/)
 and [Software Setup](software-setup/) and are equipped with the basic knowledge and tools you'll need.
 Then use our [Project Scoping
 Intro](https://dssg.uchicago.edu/2016/10/27/scoping-data-science-for-social-good-projects/)
-to help you decide on a project or refine a project you already have in mind.
-Then, check out [Pipelines and Project Workflow](pipelines-and-project-workflow/) for an
-overview of how the steps of your project (and, therefore, your code) will be organized.
+to help you scope or refine your project.
+Then, check out [Pipelines and Project Workflow](pipelines-and-project-workflow/)
 
-Don’t forget to keep close to your hearth the [best practices for your day to day workflow](./TechnicalWorkflowAndBestPractices.md).
+Don’t forget to keep [best practices for your day to day workflow] in mind.(./TechnicalWorkflowAndBestPractices.md).
