@@ -63,7 +63,7 @@ This section details the various topics we will be covering throughout the summe
 - [Getting and Keeping Data](sources/curriculum/1_getting_and_keeping_data/)
   - [Web Scraping](sources/curriculum/1_getting_and_keeping_data/basic-web-scraping/)
   - [Command Line Tools](sources/curriculum/1_getting_and_keeping_data/command-line-tools/)
-  - [cvs-to-db](sources/curriculum/1_getting_and_keeping_data/csv-to-db/)
+  - [csv-to-db](sources/curriculum/1_getting_and_keeping_data/csv-to-db/)
   - [Data Security](sources/curriculum/1_getting_and_keeping_data/data-security-primer/)
   - [Databases](sources/curriculum/1_getting_and_keeping_data/databases/)
   - [Reproducible ETL](sources/curriculum/1_getting_and_keeping_data/reproducible_ETL/)
