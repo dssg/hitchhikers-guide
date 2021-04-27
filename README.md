@@ -12,9 +12,9 @@ In addition to hands-on project-based training, the summer program also consists
 
 The primary audience for this guide is the set of fellows coming to DSSG but we want everything we create to be open and accessible to larger world. We hope this is useful to people beyond the summer fellows coming to DSSG.
 
-**If you are applying to the program or have been accepted as a fellow,** [check out the manual](dssg-manual/) to see how you can prepare before arriving, what orientation and training will cover, and what to expect from the summer.
+**If you are applying to the program or have been accepted as a fellow,** [check out the manual](sources/dssg-manual/README.md) to see how you can prepare before arriving, what orientation and training will cover, and what to expect from the summer.
 
-**If you are interested in learning at home,** check out the [tutorials and teach-outs](curriculum/) developed by our staff and fellows throughout the summer, and to suggest or contribute additional resources.
+**If you are interested in learning at home,** check out the [tutorials and teach-outs](sources/curriculum/README.md) developed by our staff and fellows throughout the summer, and to suggest or contribute additional resources.
 
 *Another one of our goals is to encourage collaborations. Anyone interested in doing this type of work, or starting a DSSG program, to build on what we've learned by **using and contributing to** these resources.
 

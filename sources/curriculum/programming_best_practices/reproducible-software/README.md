@@ -58,18 +58,18 @@ Examples:
 # What to Do
 
 - Use [virtual environments](#virtual-environments).
-- [Use automation tools like Make or Drake](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/reproducible_ETL)
+- [Use automation tools like Make or Drake](https://github.com/dssg/hitchhikers-guide/tree/master/sources/curriculum/1_getting_and_keeping_data/reproducible_ETL)
 - Keep your directory structure [intuitive, interpretable and easy to understand](#good-directory-organization).
 - Keep your database free of "junk tables." Keep only what you need and what's current.
   - Junk tables will only confuse your future-self or others that come fresh to the project.
 - Merge all branches into master.
   - Branches are for adding features or patches. When you have added said feature or patch
     and you know you won't break the master branch, merge into master and delete the branch.
-- Write commit messages in such a way that your log is helpful (see [Git and Github tutorial](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/git-and-github).)
+- Write commit messages in such a way that your log is helpful (see [Git and Github tutorial](https://github.com/dssg/hitchhikers-guide/tree/master/sources/curriculum/setup/git-and-github).)
 - [Periodically make database backups](#backup-your-database).
 - Write unit tests and use continuous integration so you can catch bugs quickly, particularly when you are merging
-  new features into master. (See [testing tutorial](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/test-test-test).)
-- Document all of your functions with docstrings. (See [legible, good code tutorial](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code).)
+  new features into master. (See [testing tutorial](https://github.com/dssg/hitchhikers-guide/tree/master/sources/curriculum/programming_best_practices/test-test-test).)
+- Document all of your functions with docstrings. (See [legible, good code tutorial](https://github.com/dssg/hitchhikers-guide/tree/master/sources/curriculum/programming_best_practices/legible-good-code).)
 - Write your python code following the PEP8 standard. (See [legible, good code tutorial](https://github.com/dssg/hitchhikers-guide/tree/master/tech-tutorials/legible-good-code).)
 - Use (4) spaces instead of tabs in your Python code for indentation.
 

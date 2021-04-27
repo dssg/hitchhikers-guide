@@ -190,7 +190,7 @@ few weeks off with an [intensive orientation](DSSG2016OrientationSchedule.pdf), 
     - [CSV to DB](/curriculum/1_getting_and_keeping_data/csv-to-db/)
     - Legal Agreements
     - [Data Security Primer](/curriculum/1_getting_and_keeping_data/data-security-primer/)
-    - [Legible, Good Code](/curriculum/4_programming_best_practices/legible-good-code/)
+    - [Legible, Good Code](/curriculum/programming_best_practices/legible-good-code/)
     - [Conduct, Culture, and Communications](../conduct-culture-and-communications/README.md)
 - **Week Three**
     - [Reproducible ETL](/curriculum/1_getting_and_keeping_data/reproducible-ETL/)
