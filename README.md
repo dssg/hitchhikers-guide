@@ -12,9 +12,9 @@ In addition to hands-on project-based training, the summer program also consists
 
 The primary audience for this guide is the set of fellows coming to DSSG but we want everything we create to be open and accessible to larger world. We hope this is useful to people beyond the summer fellows coming to DSSG.
 
-**If you are applying to the program or have been accepted as a fellow,** [check out the manual](dssg-manual/) to see how you can prepare before arriving, what orientation and training will cover, and what to expect from the summer.
+**If you are applying to the program or have been accepted as a fellow,** [check out the manual](sources/dssg-manual/) to see how you can prepare before arriving, what orientation and training will cover, and what to expect from the summer.
 
-**If you are interested in learning at home,** check out the [tutorials and teach-outs](curriculum/) developed by our staff and fellows throughout the summer, and to suggest or contribute additional resources.
+**If you are interested in learning at home,** check out the [tutorials and teach-outs](sources/curriculum/) developed by our staff and fellows throughout the summer, and to suggest or contribute additional resources.
 
 *Another one of our goals is to encourage collaborations. Anyone interested in doing this type of work, or starting a DSSG program, to build on what we've learned by **using and contributing to** these resources.
 
@@ -59,12 +59,12 @@ This section details the various topics we will be covering throughout the summe
 - [Getting Started](sources/curriculum/0_before_you_start/)
   - [Prerequisites](sources/curriculum/0_before_you_start/prerequisites/)
   - [Pipelines and Project Workflow](sources/curriculum/0_before_you_start/pipelines-and-project-workflow/)
-  - [Software Setup](sources/curriculum/0_before_you_start/software-setup/)
+  - [Software Setup](sources/curriculum/setup/software-setup)
 - [Getting and Keeping Data](sources/curriculum/1_getting_and_keeping_data/)
   - [Web Scraping](sources/curriculum/1_getting_and_keeping_data/basic-web-scraping/)
-  - [Command Line Tools](sources/curriculum/1_getting_and_keeping_data/command-line-tools/)
-  - [cvs-to-db](sources/curriculum/1_getting_and_keeping_data/csv-to-db/)
-  - [Data Security](sources/curriculum/1_getting_and_keeping_data/data-security-primer/)
+  - [Command Line Tools](sources/curriculum/setup/command-line-tools/)
+  - [csv-to-db](sources/curriculum/1_getting_and_keeping_data/csv-to-db/)
+  - [Data Security](sources/curriculum/get_data/data-security-primer/)
   - [Databases](sources/curriculum/1_getting_and_keeping_data/databases/)
   - [Reproducible ETL](sources/curriculum/1_getting_and_keeping_data/reproducible_ETL/)
 - [Data Exploration and Analysis](sources/curriculum/2_data_exploration_and_analysis/)
@@ -72,7 +72,7 @@ This section details the various topics we will be covering throughout the summe
   - [Intro to Data Analysis in Python](sources/curriculum/2_data_exploration_and_analysis/data-exploration-in-python/)
   - [GIS analysis](sources/curriculum/2_data_exploration_and_analysis/gis_analysis/)
   - Git and GitHub
-    - [Git and Github](sources/curriculum/2_data_exploration_and_analysis/git-and-github/)
+    - [Git and Github](sources/curriculum/setup/git-and-github/)
     - [Intro to Git and Python](sources/curriculum/2_data_exploration_and_analysis/intro-to-git-and-python/)
   - [Network Analysis](sources/curriculum/2_data_exploration_and_analysis/network-analysis/)
   - [Record Linkage](sources/curriculum/2_data_exploration_and_analysis/record-linkage/)
@@ -84,15 +84,15 @@ This section details the various topics we will be covering throughout the summe
     - [Ethics in Machine Learning for Public Policy](sources/curriculum/3_modeling_and_machine_learning/machine-learning/ethics-ML.pdf)
   - [Operations Research](sources/curriculum/3_modeling_and_machine_learning/operations-research/)
   - [Quantitative Social Science](sources/curriculum/3_modeling_and_machine_learning/quantitative-social-science/)
-- [Programming Best Practices](sources/curriculum/4_programming_best_practices/)
-  - [Writing Legible, Good Code](sources/curriculum/4_programming_best_practices/legible-good-code/)
-  - [Living in Command Land](sources/curriculum/4_programming_best_practices/living-in-the-terminal/)
-  - [Dotfiles](sources/curriculum/4_programming_best_practices/pimp-my-dotfiles/)
-  - [Making Project Reproducible](sources/curriculum/4_programming_best_practices/reproducible-software/)
-  - [Testing](sources/curriculum/4_programming_best_practices/test-test-test/)
+- [Programming Best Practices](sources/curriculum/programming_best_practices/)
+  - [Writing Legible, Good Code](sources/curriculum/programming_best_practices/legible-good-code/)
+  - [Living in Command Land](sources/curriculum/programming_best_practices/living-in-the-terminal/)
+  - [Dotfiles](sources/curriculum/programming_best_practices/pimp-my-dotfiles/)
+  - [Making Project Reproducible](sources/curriculum/programming_best_practices/reproducible-software/)
+  - [Testing](sources/curriculum/programming_best_practices/test-test-test/)
 - [Presentations and Communications](sources/curriculum/communication/)
   - [Good Presentations](sources/curriculum/communication/presentation-on-presentations.pdf)
-  - [Usability and User Interface Design](sources/curriculum/communications/user-interface.md)
+  - [Usability and User Interface Design](sources/curriculum/communication/user_interface.md)
 - [Tutorial Templates](sources/curriculum/tutorial-template/) (for making your own tutorials!)
 
 ## [Wiki](https://github.com/dssg/wiki/wiki)
