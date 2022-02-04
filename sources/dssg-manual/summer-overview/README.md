@@ -212,7 +212,7 @@ think will be relevant to one or more of the summer projects. We have
 lunch and learns scheduled twice a week through the
 summer, and some fellows choose to offer optional teachouts at the end of the workday.
 
-Although we don't expect all teams to be working in unison, there is a [general structure](summer-overview/high-level-summer-plan.pdf)
+Although we don't expect all teams to be working in unison, there is a [general structure](sources/dssg-manual/summer-overview/High%20Level%20Plan%20for%20the%20Summer.pdf)
 to the summer that guides how we pace the remaining curriculum - we
 try to schedule topics so that fellows know about
 them with enough time to incorporate them into their projects, but not
