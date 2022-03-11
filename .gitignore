@@ -1,12 +1,16 @@
-#### joe made this: https://goel.io/joe
-
-
 default_profile
 drake.log
 .drake
 .drake/
 .idea/*
 .idea
+
+#####=== LargeFiles ===#####
+sources/curriculum/1_getting_and_keeping_data/csv-to-db/inspections.csv
+sources/curriculum/setup/command-line-tools/2021.csv.gz
+sources/curriculum/setup/command-line-tools/ghcnd-stations.txt
+
+
 
 #####=== Python ===#####
 
