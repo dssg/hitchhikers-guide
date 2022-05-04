@@ -4,51 +4,31 @@ In order to be ready for the summer, you need to install some packages on your c
 
 ## Required
 
-*   SSH (PuTTY for Windows)
 *   Git (for version control)
-*   psql (PostgreSQL command line interface)
+*   DBeaver (GUI to access various databases)
 *   Python tools
-    *   Python 3.6 or higher
-    *   Anaconda/Miniconda or `pyenv + virtualenv`
+    *   `pyenv + virtualenv` for python version management
+    *   Python 3.9 or higher
     *   Python Packages
         *   pandas
         *   matplotlib
+        *   seaborn
         *   scikit-learn
         *   psycopg2
         *   ipython
-        *   jupyter
+        *   jupyterlab
+  *   Text Editor for Coding (your favorite, or VSCode)
+  *   SSH Keypair
 
 ## Highly Recommended
-*   DBeaver (GUI to access various databases)
+*   psql (PostgreSQL command line interface)
 *   Tableau (students can request a free education license)
-o*   GNU/Emacs, VIM, Sublime Text (text editor for coding)
 
 ## How to install pre-requisites?
 
-*   **OS X** users - Follow these [instructions](osx.md)
-*   **Linux** users - You probably know how to do it, but still [check this](osx.md#step-3-install-python-tools) for information on Python tools
-*   **Windows** users - We don't have a guide yet (any volunteers?)
-* We will also hold a [software setup
-  session](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/software-setup)
-  during the first week with technical mentors there to help anyone
-  still having difficulty.
-
-## Try it out!
-
-You should give all installed software a quick spin to check that it
-did install. For your python packages, try to import them. Type
-`python` in your shell, and then once you are in your python session,
-try for example `import pandas`, `import matplotlib`, and so on. (You
-can quit with `exit()`.) Also try `ipython` and `jupyter notebook` in
-your terminal, and see if you get any errors.
-
-Similarly, try `psql` in your terminal; it should reply
-```
-psql: could not connect to server: No such file or directory
-```
-
-`ssh` should print a 'helpful' message, and `R` should drop you into
-an R session that you can quit with `q()`.
+*   **OS X** users - Follow [these instructions](osx.md)
+*   **Linux** users - You probably know how to do it, but you can follow the [OS X instructions](osx.md) substituting your appropriate package manage for homebrew
+*   **Windows** users - Follow [these instructions](windows.md)
 
 ## SSH Key Setup
 
@@ -78,16 +58,7 @@ otherwise. You can set the right permissions with this command: `chmod
 the path and name of your private key that you chose during key
 generation).
 
-## Asking for help
+## Running into setup issues?
 
-We just started this repo but we want the [issues
-section](https://github.com/dssg/hitchhikers-guide/issues) to be a
-knowledge base for common problems.
+Feel free to post your questions in the #tech_help channel on the slack workspace for the summer. We'll also have some tech setup help sessions to resolve any lingering setup issues (and help you get familiar with the remote servers we'll be using for the projects) during the first week of the fellowship.
 
-If you have any trouble installing anything check closed issues. If
-you don't find the answer, feel free to [open an
-issue](https://github.com/dssg/hitchhikers-guide/issues/new) and
-someone will help you.
-
-*To open issues, you need to create a Github account (you'll need it
-for the summer anyway).*
