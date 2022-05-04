@@ -5,7 +5,7 @@ jinja2==2.10.1
 markupsafe==1.1.1
 markdown==3.1.1
 pygments==2.4.2
-httpie==1.0.2
+httpie==3.1.0
 #
 # the packages below probably aren't needed for maintaining the 
 # hitchhikers guide itself and should probably be moved elsewhere
