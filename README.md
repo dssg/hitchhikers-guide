@@ -110,3 +110,17 @@ In [the wiki](https://github.com/dssg/wiki/wiki), you will find a bunch of helpf
 - SQL Server to Postgres
 - Using rpy2
 - VNC Viewer
+
+# Contributing
+
+This guide is compiled through `mkdocs` and served with github pages. When updating them, you can serve them locally to test your changes via (from the top level of this repo):
+```
+mkdocs serve -f "$(pwd)/mkdocs.yml"
+```
+
+Once you're ready to publish them, you can do so with:
+```
+mkdocs gh-deploy -f "$(pwd)/mkdocs.yml"
+```
+
+(Note that a bug in the version of `mkdocs` we currently use requires specifying the full path to the configuration file, hence the `$(pwd)` in the command -- we should be able to remove this in the future if we update the dependency)
