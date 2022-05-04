@@ -7,7 +7,7 @@ ________________
 Welcome to the [Data Science for Social Good](https://www.dssgfellowship.org/) (DSSG) Fellowship program! We hope your experience this summer will help you grow your skills as a data scientist and learn how to apply those skills to solve real-world problems with social impact. This manual outlines our goals in running this fellowship program, our hopes for your experience, and our expectations of the participants. We’ve also outlined how the summer is typically structured and what you can expect from us.
 
 ## Credits
-This manual was created collaboratively by the [Data Science and Public Policy](http://www.datasciencepublicpolicy.org/) at Carnegie Mellon University and the University of Chicago, with lots of help from various sources including those listed below. Contributors include Bridgit Donnelly, Matt Gee, Rayid Ghani, Maya Grever, Lauren Haynes, Jen Helsby, Lindsay Knight, Benedict Kuester, Joe Walsh, and Jane Zanzig.
+This manual was created collaboratively by the [Data Science and Public Policy] team (http://www.datasciencepublicpolicy.org/), with lots of help from various sources including those listed below. Contributors include Bridgit Donnelly, Matt Gee, Rayid Ghani, Maya Grever, Lauren Haynes, Jen Helsby, Lindsay Knight, Benedict Kuester, Joe Walsh, and Jane Zanzig.
 
 ________________________
 This manual is licensed under the Creative Commons Zero license.
