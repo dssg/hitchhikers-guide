@@ -8,7 +8,7 @@ In order to be ready for the summer, you need to install some packages on your c
 *   DBeaver (GUI to access various databases)
 *   Python tools
     *   `pyenv + virtualenv` for python version management
-    *   Python 3.9 or higher
+    *   Python 3.8 or higher
     *   Python Packages
         *   pandas
         *   matplotlib

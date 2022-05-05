@@ -1,93 +1,40 @@
 # Setting your machine
 
-## Motivation
-
-Every team will settle on a specific setup with their tech mentors. This setup will determine, for example:
-
-- which Python version to use
-- versioning via virtual environments
-- maintaining package dependencies
-- continuous testing tools
-- your version control workflow.
-
-Today, we're **not** doing that. We're making sure that everybody has some basic tools they will need for the tutorials and the beginning of the fellowship, and that you can log into the server and database.
-
-!!! info "Getting help"
-
-    Work through the prerequisites below, making sure that all the software you installed works.
-
-    Affix three kinds of post-it notes to your laptop:
-
-    - one with your operating system, e.g. **Ubuntu 18.04**
-    - if you get an app working (e.g. `ssh`), write its name on a **green** post-it and stick it to your screen
-    - if you tried - but the app failed - write its name on a **red** post-it
-
-    If you're stuck with a step, ask a person with a corresponding green post-it (and preferrably your operating system) for help.
-
-    The tech mentors will hover around and help with red stickers.
-
-    You will need a few credentials for training accounts. We'll post them up front.
-
-!!! important
-
-    The notes below aren't self-explanatory and will not cover all (or even the majority) of errors you might encounter. Make good use of the people in the room!
-
-
-!!! warning "Getting a terminal environment on a Windows Computer"
-
-    You're going to want to access the terminal. Unfortunately, windows computers don't have this by default (yet). Fortunately, there are a couple options for obtaining a terminal-like environment, such as the following:
-
-    - [git-bash](http://www.techoism.com/how-to-install-git-bash-on-windows/)
-    - [Cygwin](https://cygwin.com/install.html)
-      - If you go with cygwin, make sure to choose all git packages when you're in the package menu portion of the setup
-
-    If you're a windows user, make sure to download one of these.
-
-Let's get this over with!
-
+This guide helps you walk through how to set up the various technical tools you'll need for the summer and is focused on MacOS X users (if you're on Windows, see the related [guide here](setup_windows.md); if you're on Linux, most of the instructions here should work with the appropriate package manager depending on your distribution)
 
 ## Package Manager
 
-A package manager will make your life easier.
+We'll use a package manager called Homebrew to manage the installation of many of the other tools we'll need below. To get started, install [Homebrew]](http://brew.sh/) from the terminal:
 
-- on Mac, install [Brew](http://brew.sh/)
-    - **Testing**: To check that it installed, run the command `which brew` in the terminal. If it returns: `/usr/local/bin/brew`, it means that homebrew is installed; if it returns `brew not found`, it means homebrew is not installed.
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
-- on GNU/Linux, you probably already have `yum` (RedHat based distros)  or `apt` (Debian based distros)
-    - **Testing**: run `yum help` or `apt help`
+To check that it installed, run the command `which brew` in the terminal. If it returns: `/usr/local/bin/brew`, it means that homebrew is installed; if it returns `brew not found`, it means homebrew is not installed.
 
-- ask Windows users around you for their preferred way to manage packages. And tell us, so we can add them here!
+### Learning more about working at the command line
+
+If you haven't used the terminal/command line much, [here are a few resources](further_resources#terminal-and-the-command-line) that might be helpful to explore.
+
 
 ## Git and GitHub Account
 
+Working on code together is almost impossible without using a version control system. This summer, we’ll be using Git. Our code will be stored on Github. These are fantastic tools for any software project.
+
 1. If you don't have a GitHub account, [make one](https://github.com/join?source=header-home)!
 
-2. Go to [this site](https://dssg-github-invite.herokuapp.com/), input your username, and click "Add me to organization". Your username will be automatically added to the DSSG organization on GitHub.
+<!-- 2. Go to [this site](https://dssg-github-invite.herokuapp.com/), input your username, and click "Add me to organization". Your username will be automatically added to the DSSG organization on GitHub. -->
 
-3. Install `git` using the appropriate OS’s package manager
+2. Install `git` using homebrew:
 
-??? info "MacOS"
+In the terminal, type:
 
-    In the terminal, type:
+```
+brew update
+brew install git
+```
 
-    ```
-    brew update
-    brew install git
-    ```
-
-??? info "GNU/Linux"
-
-    ```
-    sudo apt update
-    sudo apt install git
-    ```
-
-
-??? info "Windows"
-
-    On Windows, you should already have git. (Either you installed **git-bash**, which is part of git, or you should have downloaded git in the **cygwin** package menu.)
-
-4. Test your installation. For example, create a directory, and make it a git repo:
+3. Test your installation. For example, create a directory, and make it a git repo:
 
  ```
  mkdir mytestdir
@@ -99,47 +46,54 @@ A package manager will make your life easier.
  ```
 You can un-git the directory by deleting the `.git` folder: `rm -r .git` (or simply delete `mytestdir` entirely with command `rmdir mytestdir`).
 
+### Learning more about git
+
+If you haven't used git/github before, [here are a couple of useful resources](further_resources#git-and-github) where you can learn a bit more.
+
+
 ## Python
 
-As said, your team will decide on which Python version (and versioning) to install. Thus, if you have any working setup already, don't break it (for now)! Just make sure you have the packages listed below installed.
+We'll primarily use the python programming language for scripting, doing analyses, and building models throughout the summer, so let's make sure we have the right version and packages installed.
 
 !!! warning "pyenv vs anaconda"
 
-    This is a contentious topic! For some people the way to go, because apparently is easier is **Anaconda** (`conda` or `mini-conda`), for other, for consistency and flexibility is `pyenv`. In reality, python library’s system is a mess and in constant evolution.
+    This is a contentious topic! Some people argue that they find **Anaconda** (`conda` or `mini-conda`) easier to get up and running while others argue for the consistency and flexibility of `pyenv`. In general, python's library system is a bit of a mess and in constant evolution.
 
-    We will favor `pyenv` here, since we think is the one that allows you more flexibility and *teaches* you about how `python` works.
-
-
-If you are in GNU/Linux or in MacOS you have `python` installed. But that `python` is the one use by your operative system for doing stuff, probably you don’t want to mess with it. So we will install a different `python`, for you exclusive use. First we will install some libraries[^1]:
+    We favor `pyenv` here, since we think it provides you with more flexibility and *teaches* you about how `python` works.
 
 
-??? info "MacOS"
+Note that in MacOS you will already have `python` installed, but that `python` is the one use by your operative system for doing stuff, so probably you don’t want to mess with it. Instead, we will install a different `python`, for you exclusive use. First we will install some libraries[^1]:
 
-    ```
-    # optional, but recommended:
-    brew install openssl readline sqlite3 xz zlib
-    ```
-
-??? info "GNU/Linux"
-
-    For Debian based distros:
-
-     ```
-    sudo apt-get update; sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-     ```
-
-     For Red hat based distros:
-
-    ```
-    dnf install make gcc zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel tk-devel libffi-devel
-    ```
-
-We will install [`pyenv`](https://github.com/pyenv/pyenv)
-
-        $ curl https://pyenv.run | bash
+```
+xcode-select --install
+brew install openssl readline sqlite3 xz zlib
+```
 
 
-And follow the instructions at the end (Mostly about adding some lines to your `.bash_profile` or `.zsh_profile` or similar.) Restart your terminal.
+To manage different python versions and virtual environments, we will install a tool called [`pyenv`](https://github.com/pyenv/pyenv)
+
+```
+$ curl https://pyenv.run | bash
+```
+
+This command will generate some instructions at the end (mostly about adding some lines to your `.bash_profile` or `.zsh_profile` or similar.) Follow these then restart your terminal. Generally, this will look something like:
+
+Add the following lines to your `.bash_profile` (before `.bashrc` is sourced):
+```
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+```
+
+And add the following lines to the end of your `.bashrc`:
+```
+# pyenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+```
+
+To test things out, **restart your terminal** then type `which pyenv` to make sure the system can find `pyenv` and `pyenv versions` to see the currently-installed python versions.
 
 
 ### Virtual environment
@@ -150,23 +104,13 @@ By default, every project on your system will use the same directory to store an
 A virtual environment helps avoid conflicts between requirements for different projects and it isolates dependencies.
 For example, different projects may use different versions of Python.
 
-There are multiple tools to manage virtual environments.
-The most commonly used ones are 
+To create an environment called `dssg` with Python 3.8.2 in `pyenv`, install the python version:
 
-+ `anaconda`:  Environment manager and package manager. Anaconda makes makes managing different environments, and installing packages very easy. In fact, many of the standard Data Science packages are automatically installed when setting up anaconda. However, it requires a large amount of storage space. 
-+ `pyenv`: Python version manager. The focus of `pyenv` is to switch between different python versions.
-+ `virtualenv`: Python environment manager. `virtualenv` is an intermediate solution between `anaconda` and `pyenv`. 
-
-
-##### pyenv
-
-To create an environment called `dssg` with Python 3.7.3 in `pyenv`, install the python version:
-
-        $ pyenv install 3.7.3
+    $ pyenv install 3.8.2
 
 This will take several minutes. Once complete, create the environment
 
-    $ pyenv virtualenv 3.7.3 dssg
+    $ pyenv virtualenv 3.8.2 dssg-3.8.2
 
 And then assign it as the virtual environment to use in your directory of choice with
 
@@ -176,23 +120,6 @@ Depending on your command shell (`bash`, `zsh`, `csh`, etc) configuration you sh
 
     $ pyenv version
     dssg (set by /home/user/projects/.python-version)
-    
-##### anaconda
-
-To perform the same task in anaconda, type
-
-    $ conda create -n dssg python=3.7
- 
-Press `y` to proceed. This wil install the Python version and all the default anaconda packages in `path_to_your_anaconda_location/anaconda/envs/dssg`
-
-We activate the environment with 
-
-    $ source activate dssg
-
-Note that the active environment is visible in your command prompt.
-Virtual environments are only active in the current terminal. If you ever need to deactivate it, type
-
-    $ source deactivate
 
 
 ### Package installations
@@ -206,7 +133,7 @@ navigate to the folder of the file and execute
 
     $ pip install -r requirements.txt
 
-To try it out, use this file: [`requirements.txt`](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/0_before_you_start/prerequisites/requirements.txt).
+To try it out, use this file: [`requirements.txt`](requirements.txt).
 
 
 #### Jupyter
@@ -214,15 +141,15 @@ To try it out, use this file: [`requirements.txt`](https://github.com/dssg/hitch
 Jupyter notebooks are a convenient environment for experimentation, prototyping, and sharing exploratory work.
 Jupyter notebooks require a kernel that executes the code. It should link to the virtual environment:
 
-
-    $ python -m ipykernel install --user --name=myenv --display-name "myenv"
+    $ pyenv activate dssg-3.8.2
+    $ python -m ipykernel install --user --name=dssg-3.8.2 --display-name "dssg-3.8.2-env"
 
 It's time to test! In order to test that both jupyter and the python packages installed appropriately, you should do the following:
 
 - Download the file [`SoftwareSetup.ipynb`](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/setup/software-setup/SoftwareSetup.ipynb) into your directory.
 - Type in the terminal
 
-    $ jupyter notebook
+    $ jupyter lab
 
 Your browser will open a new tab and you will see something like the following:
 
@@ -231,7 +158,11 @@ Your browser will open a new tab and you will see something like the following:
 - Click on `SoftwareSetup.ipynb` to open the notebook
 - Follow the instructions in the notebook to run each cell.
 
-## SSH / Putty
+### Learning more about python
+
+Python is a powerful, expressive, and easy to read (even by non-programmers) programming language. If you're still relatively new to it, you might find some of [the resources here](further_resources#python) helpful.
+
+## SSH
 
 ### SSH keys
 
@@ -374,4 +305,4 @@ This should drop you into a SQL shell on the database server.
 
 
 
-[^1]: for an updated version of this instructions see [here](https://github.com/pyenv/pyenv/wiki)
+[^1]: for an updated version of this instructions and troubleshooting FAQs see [this page](https://github.com/pyenv/pyenv/wiki)
