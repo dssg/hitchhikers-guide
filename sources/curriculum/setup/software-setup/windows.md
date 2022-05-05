@@ -236,7 +236,7 @@ $ jupyter lab
 Your browser should open a new tab with the jupyter lab interface.  
 
 
-### SSH Keys
+## SSH Keys
 
 SSH helps you access the remote servers using your laptop. For this to work, we generate a key-pair that consists of a Public Key (something that you would share with the server admin), and a private key (something that you would NEVER share with anyone!).
 
