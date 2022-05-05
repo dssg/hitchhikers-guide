@@ -2,7 +2,7 @@
 
 While specific schedules will vary from project to project, the summer
 will follow roughly the structure below. See also
-[high level summer plan](./High Level Plan for the Summer.pdf "Summer plan")
+[high level summer plan](https://github.com/dssg/hitchhikers-guide/blob/peter-dssg-manual-update-20220505/sources/dssg-manual/summer-overview/High%20Level%20Plan%20for%20the%20Summer.pdf)
 for an
 outline of the flow of the summer, and general concepts that will
 inform the topics addressed by tutorials and speakers as well as what
