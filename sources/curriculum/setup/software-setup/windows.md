@@ -101,6 +101,215 @@ Once you have OpenSSH, you can use the same command as WSL to generate the Keys 
 
 By default, the keys will be stored in `C:\<windows_username>/.ssh/` and the file names would be as same as the WSL one. 
 
+### Git and GitHub Account
+
+1. If you don't have a GitHub account, [make one](https://github.com/join?source=header-home)!
+
+2. Install Git on your machine
+
+Git comes preinstalled with WSL. Therefore, nothing to do here. When you type in the command `git` to the terminal, it should show you a long output that starts with the following
+
+```
+$ git
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           <command> [<args>]
+```
+
+If you don't see this output by any chance, you can install git by using the following commands:
+
+```
+$ sudo apt-get update
+$ sudo apt-get install git
+```
+
+
+
+
+In windows, you can [download and install Git by going to this link](https://git-scm.com/download/win) 
+
+
+
+
+## Setting up Python and Related Tools
+
+Your WSL system should come with `python` preinstalled. With some distros it does not, you can install system level python. But this is NOT necessary as we won't be using this version of Python anyway. 
+
+```
+$ sudo apt-get install python
+```
+
+Allow it to restart services when prompted. Once installed, you should be able to try it out.
+
+```
+$ python
+Python 2.7.17 (default, Mar 18 2022, 13:21:42)
+[GCC 7.5.0] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+```
+
+Now you have system level Python installed. But, we don’t want to mess with it. So we will install a different python, for your exclusive use. 
+
+First, we will install some libraries
+
+```
+$ sudo apt-get update
+$ sudo apt-get install --no-install-recommends make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+```
+
+Some of these might be already installed, but good to make sure. 
+
+It's good to be able to manage different versions of Python on your dev environment (different projects you work on might require different versions of Python). We recommend using `pyenv` as the python version manager. 
+
+```
+$ curl https://pyenv.run | bash
+```
+
+Once this finishes, you will see some instructions at the end for adding `pyenv` to the load path. To do this, we update a dot file on your home drive named `.bashrc`[^1].
+
+[^1]: [More info about the .bashrc file](https://www.linuxfordevices.com/tutorials/linux/bashrc-and-bash-profile)
+
+You can open and edit your bashrc file using either `vi` or `nano`. If you are not familiar with either, use `nano`.
+
+```
+$ nano ~/.bashrc
+```
+
+navigate to the end of the file, and add the following snippet to the file. This will add to `pyenv` to the load path. 
+
+```
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+```
+
+Don't close the file yet! 
+We need to install `pyenv-virtualenv` to enable us to use virtual enviroments. This is the manager that helps us maintain different dev environments with differen python versions and different python package versions. To enable `pyenv-virtualenv`, add the following line to the `.bashrc` below the above snippet. 
+
+```
+eval "$(pyenv virtualenv-init -)"
+```
+
+Now we can save and close the file. In order for the changes to take effect, either you have restart the terminal, or type:
+
+```
+$ source ~/.bashrc
+```
+
+Now we should have `pyenv` and `pyenv-virtualenv` installed. Let's make sure:
+
+```
+$ pyenv --version
+pyenv 2.3.0
+
+$ pyenv virtualenv
+pyenv-virtualenv: no virtualenv name given.
+
+```
+
+If you see those outputs (pyenv version might be different depending on when you run this), you have installed both. Let's create a virtualenv with a specific python version and install the base packages we would need.
+
+Let's create an environment named `dssg-3.8.2` (this could be any name you like) with `Python 3.8.2`. First, install the Python version we need on `pyenv`. 
+
+_Note: You can check all available Python versions on pyenv by using `$ pyenv install --list`_
+
+```
+$ pyenv install 3.8.2
+```
+
+This will take several minutes. Once complete, create the environment
+
+```
+$ pyenv virtualenv 3.8.2 dssg-3.8.2
+```
+
+Now you have created the virtual environment. To use it with a specific project, you can navigate to the project folder and assign it to the directory:
+
+```
+$ echo dssg-3.8.2 > .python-version
+```
+This will ensure that whenever you are inside that directory, the `dssg-3.8.2` environment will be activated.
+
+If not, you can use the command 
+
+```
+$ activate dssg
+```
+to manually activate the environment. 
+
+Once you have activated the environment you can start installing Python packages. 
+
+### Package Installations
+
+Packages are installed using pip. To install a single package:
+
+```
+$ pip install pandas
+```
+
+To install many packages at once, list all the packages needed in a file (usually called requirements.txt), navigate to the folder of the file and execute
+
+```
+$ pip install -r requirements.txt 
+```
+
+to try it out use this file: [requirements.txt](requirements.txt)
+
+
+### Jupyter 
+
+Jupyter notebooks are a convenient environment for experimentation, prototyping, and sharing exploratory work. We install Jupyter in the above requirements.txt file. 
+
+Jupyter notebooks require a kernel that executes the code. It should link to the virtual environment:
+
+```
+$ python -m ipykernel install --user --name=dssg-3.8.2 --display-name "dssg-3.8.2"
+```
+
+Note that you should have the virtual environment activated when you issue this command. 
+
+To test, let's launch a Jupyter notebook
+
+```
+$ jupyter lab
+```
+
+Your browser will open a new tab. 
+
+
+
+
+
+
+
+
+
+
+
+## Other Software
+
+**PSQL**
+
+On WSL terminal, you can enter the following commands to install psql
+
+```
+$ sudo apt-get update
+$ sudo apt-get install postgresql-client
+```
+
+Try typing `psql` into the terminal, you should see the following output. 
+
+```
+$ psql
+psql: could not connect to server: No such file or directory
+        Is the server running locally and accepting
+        connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+```
+
+
 
 
 
