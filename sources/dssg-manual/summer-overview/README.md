@@ -18,13 +18,7 @@ and equip yourself with the knowledge to be able to
 follow along with the curriculum. You'll receive a list of software to
 install before the first day of orientation, programming languages you
 should brush up on, and tools we suggest you use to manage your data
-workflow. We will also send
-you a tentative list of projects and ask for you to respond with your
-preferences. Based on your preferences, the
-requirements of each project, and the balance of disciplines within
-each team, we will assign teams of 3-4 fellows
-per project. You will learn which project you've been assigned during
-the second week of the fellowship.
+workflow. 
 
 ## Learning about Projects and Partners
 
@@ -34,16 +28,17 @@ recruit partners and scope projects. This is a lengthy, complicated
 process with plenty of logistical hurdles (think
 legal data sharing agreements and data transfer challenges), which
 means the list of project partners is usually not
-finalized until the fellowship begins. You will find out your project
-and team assignments in the second week of the
-fellowship.
+finalized until the fellowship begins. Based on your preferences, the
+requirements of each project, and the balance of disciplines within
+each team, we will assign teams of about 4 fellows
+per project. You will learn which project you've been assigned during
+the second week of the fellowship.
 
-We ask all our project partners to come meet their team in the first
-two weeks of the summer. During partner visits, you’ll
-spend a lot of time talking through the problem and the data with
-them, and they give a presentation to the fellowship.
-We want you to meet the people you’re working with face to face. This
-also gives all of the fellows a chance to hear about
+We want you to meet the people you’re working with face to face. 
+We ask all our project partners to come meet their team in the second of the summer. 
+During partner visits, you’ll spend a lot of time talking with them about the problem and the data, 
+and they will give a presentation to the fellowship.
+This also gives all of the fellows a chance to hear about
 all of the projects and for the partners to meet other project partners and the other fellows.
 
 After orientation, you will spend the first part of the summer getting
@@ -60,9 +55,9 @@ We believe it is important for you to thoroughly understand the
 problem and the process that gives rise to the data before
 getting too entrenched in the data itself. A deep understanding of
 your partner and the problems they face is crucial to
-knowing what your variables really mean, and defining your outcome and
+knowing what your variables really mean. Defining your outcome and
 evaluation metrics will depend heavily upon this
-understanding as well. While we know you are eager to dig into the
+understanding. While we know you are eager to dig into the
 data, you will find that at least as much of your time is
 devoted to talking about the data as manipulating it. This is a good thing.
 
@@ -84,7 +79,7 @@ As you explore, you'll find holes in the provided information, or
 identify potential new useful sources of data, and will
 need to work with your partner to decide whether it’s possible to
 acquire the data you need in the time that you have;
-that’s the reality of working with real world partners and sensitive data.
+that’s the reality of working with real world partners and sensitive data!
 
 Fellows drive the work of every project, learning their subject matter
 in depth, writing code, and collaborating with
