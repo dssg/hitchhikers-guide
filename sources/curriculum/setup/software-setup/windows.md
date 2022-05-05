@@ -56,50 +56,6 @@ For the next few pieces of software, we'll provide you instructions on how to ru
 
 
 
-### SSH Keys
-
-SSH helps you access the remote servers using your laptop. For this to work, we generate a key-pair that consists of a Public Key (something that you would share with the server admin), and a private key (something that you would NEVER share with anyone!).
-
-**Option A - WSL**
-
-Inside WSL, we can use the same process as a UNIX system to generate keys. 
-
-```
-ssh-keygen
-```
-
-This will prompt you to select a location for storing the key, and give you the option to add a passphrase to the key. If you want to use the default locaion (Recommended!) and not use a passphrase, you just have to hit return. 
-
-Then, your keys will be stored in the place your specified. By default, 
-- there'll be a `.ssh` folder in your home directory
-- private key would be named `id_rsa`
-- public key would be named `id_rsa.pub`
-
-You've successfully generated the Keys!
-
-
-**Option B - Windows**
-
-Luckily, Windows 10/11 have OpenSSH already installed, and we don't need to use Putty anymore 🥳.
-
-Just to make sure that it's installed, open up a Powershell window and enter `ssh`. When you hit return you should see an output like this. 
-
-```
-usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]
-           [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]
-           [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]
-           [-i identity_file] [-J [user@]host[:port]] [-L address]
-           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]
-           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]
-           [-w local_tun[:remote_tun]] destination [command]
-```
-
-If you do not see this output, you can [use this guide to install OpenSSH](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse). 
-
-
-Once you have OpenSSH, you can use the same command as WSL to generate the Keys on a Powershell Window. As with WSL, you would be prompted to select the location to store the keys, and then the option to add a passphrase. You can just hit return to use the default location (recommended!) and not have a passphrase. 
-
-By default, the keys will be stored in `C:\<windows_username>/.ssh/` and the file names would be as same as the WSL one. 
 
 ### Git and GitHub Account
 
@@ -277,19 +233,87 @@ To test, let's launch a Jupyter notebook
 $ jupyter lab
 ```
 
-Your browser will open a new tab. 
+Your browser should open a new tab with the jupyter lab interface.  
 
 
+### SSH Keys
+
+SSH helps you access the remote servers using your laptop. For this to work, we generate a key-pair that consists of a Public Key (something that you would share with the server admin), and a private key (something that you would NEVER share with anyone!).
+
+**Option A - WSL**
+
+Inside WSL, we can use the same process as a UNIX system to generate keys. 
+
+```
+ssh-keygen
+```
+
+This will prompt you to select a location for storing the key, and give you the option to add a passphrase to the key. If you want to use the default locaion (Recommended!) and not use a passphrase, you just have to hit return. 
+
+Then, your keys will be stored in the place your specified. By default, 
+- there'll be a `.ssh` folder in your home directory
+- private key would be named `id_rsa`
+- public key would be named `id_rsa.pub`
+
+You've successfully generated the Keys!
 
 
+**Option B - Windows**
+
+Luckily, Windows 10/11 have OpenSSH already installed, and we don't need to use Putty anymore 🥳.
+
+Just to make sure that it's installed, open up a Powershell window and enter `ssh`. When you hit return you should see an output like this. 
+
+```
+usage: ssh [-46AaCfGgKkMNnqsTtVvXxYy] [-B bind_interface]
+           [-b bind_address] [-c cipher_spec] [-D [bind_address:]port]
+           [-E log_file] [-e escape_char] [-F configfile] [-I pkcs11]
+           [-i identity_file] [-J [user@]host[:port]] [-L address]
+           [-l login_name] [-m mac_spec] [-O ctl_cmd] [-o option] [-p port]
+           [-Q query_option] [-R address] [-S ctl_path] [-W host:port]
+           [-w local_tun[:remote_tun]] destination [command]
+```
+
+If you do not see this output, you can [use this guide to install OpenSSH](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse). 
 
 
+Once you have OpenSSH, you can use the same command as WSL to generate the Keys on a Powershell Window. As with WSL, you would be prompted to select the location to store the keys, and then the option to add a passphrase. You can just hit return to use the default location (recommended!) and not have a passphrase. 
+
+By default, the keys will be stored in `C:\Users\<windows_username>/.ssh/` and the file names would be as same as the WSL one. 
 
 
+## VSCode 
+
+Visual Studio Code is a free text editor that enables you to code directly on a remote server. You can [download VSCode for windows here](https://code.visualstudio.com/). 
+
+If you development environment is on WSL, you can [install the Remote-WSL extension for VSCode](https://code.visualstudio.com/learn/develop-cloud/wsl) and navigate to your project folder on the WSL terminal and type:
+
+```
+$ code .
+```
+
+This will launch a VScode window that will let you develop on your WSL machine. 
+
+As we said above, one of the most useful features of VSCode is that it let's you edit code directly on a remote server ussing SSH. To use this feature, you should [install the Remote-SSH extention for VSCode](https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines). 
+
+We need to tell VSCode where your private key is to authenticate the SSH connection. VSCode would automatically check for the default private key named `id_rsa` at the default Windows location `C:\Users\<windows_username>/.ssh/`. As we created the SSH keys in WSL, they keys would be inside the WSL file system. We can copy the keys to the windows location. 
+
+```
+$ mkdir /mnt/c/<windows username>/.ssh
+$ cp -r ~/.ssh/ /mnt/c/<windows username>/.ssh/
+```
+
+Note that this will overwrite an existing ssh key in the Windows folder. 
 
 
+## Database
 
-## Other Software
+
+**DBeaver**
+
+We woud install DBeaver on directly on Windows. You can [download the installer here](https://dbeaver.io/download/).
+
+
 
 **PSQL**
 
