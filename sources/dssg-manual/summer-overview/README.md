@@ -172,7 +172,7 @@ few weeks off with an [intensive orientation](DSSG2016OrientationSchedule.pdf), 
     - [Prerequisites](../../curriculum/0_before_you_start/prerequisites/)
     - [Software Setup](../../curriculum/0_before_you_start/software-setup/)
     - [Pipelines and Project Workflow](../../curriculum/0_before_you_start/pipelines-and-project-workflow/)
-    - [Git and Github](../../curriculum/2_data_exploration_and_analysis/git-and-github/)
+    - [Git and Github](../../curriculum/2_data_exploration_and_analysis/intro-to-git-and-python/introduction-to-git-and-python.ipynb)
     - Making the Fellowship
     - Skills You Need to do DSSG
     - [Command Line Tools](../../curriculum/1_getting_and_keeping_data/command-line-tools/)
@@ -180,7 +180,7 @@ few weeks off with an [intensive orientation](DSSG2016OrientationSchedule.pdf), 
     - [Data Exploration in Python](../../curriculum/2_data_exploration_and_analysis/data-exploration-in-python/)
     - [Project Scoping Intro](http://www.datasciencepublicpolicy.org/our-work/tools-guides/data-science-project-scoping-guide/)
 - **Week Two**
-    - [Usability and User Interfaces](../../curriculum/5_presentations_and_communications/usability-and-user-interfaces/)
+    - [Usability and User Interfaces](../../curriculum/communication/Usability_and_user_experience.pdf)
     - [CSV to DB](../../curriculum/1_getting_and_keeping_data/csv-to-db/)
     - Legal Agreements
     - [Data Security Primer](../../curriculum/1_getting_and_keeping_data/data-security-primer/)
