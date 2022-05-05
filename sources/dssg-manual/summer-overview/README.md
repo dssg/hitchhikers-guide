@@ -101,7 +101,7 @@ We believe that our work is only useful if we are able to communicate
 what we do and why it’s important to our partners,
 peers, and the general public. As such, an important piece of this training program is
 [learning to present the work you
-do](/curriculum/5_presentations_and_communications).
+do](/curriculum/communication).
 
 Each week, a member of your team will give a 2-3 minute update to the
 entire fellowship, outlining your recent progress
