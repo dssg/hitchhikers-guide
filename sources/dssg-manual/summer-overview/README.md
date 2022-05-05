@@ -22,8 +22,8 @@ workflow.
 
 ## Learning about Projects and Partners
 
-Staff at the [Center for Data Science and Public
-Policy](http://dsapp.uchicago.edu/) (DSaPP) work hard year-round to
+Staff at the [Data Science and Public
+Policy team](http://www.datasciencepublicpolicy.org/) (DSaPP) work hard year-round to
 recruit partners and scope projects. This is a lengthy, complicated
 process with plenty of logistical hurdles (think
 legal data sharing agreements and data transfer challenges), which
@@ -133,9 +133,8 @@ your work and providing feedback on your delivery.
 To make sure the work you do this summer has real impact, a lot more
 work needs to be done after the official end of the
 fellowship; some of this will be done by your project partner, and
-some will be done by the host University (or by the Center for Data Science and
-Public Policy at the University of Chicago). You will need to
-transition the work over to your project partners so they can
+some will be done by the [Data Science and Public Policy team](http://www.datasciencepublicpolicy.org/) at Carnegie Mellon University. 
+You will need to transition the work over to your project partners so they can
 validate, implement, and extend your work. To do this, you will have
 to document your work throughout the summer and wrap
 it up neatly at the end of the summer.
@@ -143,8 +142,8 @@ it up neatly at the end of the summer.
 We ask that you prepare a poster to be displayed at DSSG events and
 for potential conference poster sessions, a technical
 report, and an outline of a paper. This makes it easier to collaborate
-once you and your team mates are no longer working
-at the same desk every day. We also ask that all your code can be run
+once you and your teammates are no longer working
+at the same desk every day. We also ask that all your code is tested to run
 on a new machine, and that there is sufficient
 documentation for someone else to replicate and understand your work.
 
@@ -155,12 +154,12 @@ we accomplish this throughout the summer.
 
 To look through all of our curriculum materials, please see the
 [curriculum
-section](/curriculum).
+section](https://github.com/dssg/hitchhikers-guide/tree/peter-dssg-manual-update-20220505/sources/curriculum).
 
 ## Orientation
 We expect that every incoming fellow has experience programming in
 Python, a basic working knowledge of statistics and social
-science, and an interest in doing social good. However, we understand
+science, and an interest in doing social good work. However, we understand
 that everyone comes from a different background,
 so to ensure that everyone is able to contribute as a productive
 member of the team and the fellowship, we start the first
