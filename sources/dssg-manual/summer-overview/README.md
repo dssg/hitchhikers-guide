@@ -183,15 +183,15 @@ few weeks off with an [intensive orientation](DSSG2016OrientationSchedule.pdf), 
     - [Usability and User Interfaces](../../curriculum/communication/Usability_and_user_experience.pdf)
     - [CSV to DB](../../curriculum/1_getting_and_keeping_data/csv-to-db/)
     - Legal Agreements
-    - [Data Security Primer](../../curriculum/1_getting_and_keeping_data/data-security-primer/)
-    - [Legible, Good Code](../../curriculum/4_programming_best_practices/legible-good-code/)
+    - [Data Security Primer](../../curriculum/get_data/data-security-primer/)
+    - [Legible, Good Code](../../curriculum/programming_best_practices/legible-good-code/)
     - [Conduct, Culture, and Communications](../conduct-culture-and-communications/README.md)
 - **Week Three**
-    - [Reproducible ETL](../..//curriculum/1_getting_and_keeping_data/reproducible-ETL/)
+    - [Reproducible ETL](../../curriculum/1_getting_and_keeping_data/reproducible-ETL/)
     - The Work We Do
-    - [Record Linkage](../..//curriculum/2_data_exploration_and_analysis/record-linkage/)
-    - [Databases](../..//curriculum/1_getting_and_keeping_data/databases/)
-    - [Quantitative Social Science](../..//curriculum/3_modeling_and_machine_learning/quantitative-social-science/)
+    - [Record Linkage](../../curriculum/2_data_exploration_and_analysis/record-linkage/)
+    - [Databases](../../curriculum/1_getting_and_keeping_data/databases/)
+    - [Quantitative Social Science](../../curriculum/3_modeling_and_machine_learning/quantitative-social-science/)
 
 ##  Ongoing Curriculum
 Training continues on throughout the summer in the form of "lunch and
