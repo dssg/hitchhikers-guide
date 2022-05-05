@@ -2,7 +2,7 @@
 
 While specific schedules will vary from project to project, the summer
 will follow roughly the structure below. See also
-[high level summer plan](https://github.com/dssg/hitchhikers-guide/blob/peter-dssg-manual-update-20220505/sources/dssg-manual/summer-overview/High%20Level%20Plan%20for%20the%20Summer.pdf)
+[high level summer plan](High%20Level%20Plan%20for%20the%20Summer.pdf)
 for an
 outline of the flow of the summer, and general concepts that will
 inform the topics addressed by tutorials and speakers as well as what
@@ -101,7 +101,7 @@ We believe that our work is only useful if we are able to communicate
 what we do and why it’s important to our partners,
 peers, and the general public. As such, an important piece of this training program is
 [learning to present the work you
-do](https://github.com/dssg/hitchhikers-guide/tree/peter-dssg-manual-update-20220505/sources/curriculum/communication).
+do](../../curriculum/communication/).
 
 Each week, a member of your team will give a 2-3 minute update to the
 entire fellowship, outlining your recent progress
@@ -154,7 +154,7 @@ we accomplish this throughout the summer.
 
 To look through all of our curriculum materials, please see the
 [curriculum
-section](https://github.com/dssg/hitchhikers-guide/tree/peter-dssg-manual-update-20220505/sources/curriculum).
+section](../../curriculum/).
 
 ## Orientation
 We expect that every incoming fellow has experience programming in
@@ -169,29 +169,29 @@ few weeks off with an [intensive orientation](DSSG2016OrientationSchedule.pdf), 
 ### Possible schedule
 
 - **Week One**
-    - [Prerequisites](/curriculum/0_before_you_start/prerequisites/)
-    - [Software Setup](/curriculum/0_before_you_start/software-setup/)
-    - [Pipelines and Project Workflow](/curriculum/0_before_you_start/pipelines-and-project-workflow/)
-    - [Git and Github](/curriculum/2_data_exploration_and_analysis/git-and-github/)
+    - [Prerequisites](../../curriculum/0_before_you_start/prerequisites/)
+    - [Software Setup](../../curriculum/0_before_you_start/software-setup/)
+    - [Pipelines and Project Workflow](../../curriculum/0_before_you_start/pipelines-and-project-workflow/)
+    - [Git and Github](../../curriculum/2_data_exploration_and_analysis/git-and-github/)
     - Making the Fellowship
     - Skills You Need to do DSSG
-    - [Command Line Tools](/curriculum/1_getting_and_keeping_data/command-line-tools/)
+    - [Command Line Tools](../../curriculum/1_getting_and_keeping_data/command-line-tools/)
     - Project Management, Partners, and Communications
-    - [Data Exploration in Python](/curriculum/2_data_exploration_and_analysis/data-exploration-in-python/)
-    - [Project Scoping Intro](https://dssg.uchicago.edu/2016/10/27/scoping-data-science-for-social-good-projects/)
+    - [Data Exploration in Python](../../curriculum/2_data_exploration_and_analysis/data-exploration-in-python/)
+    - [Project Scoping Intro](http://www.datasciencepublicpolicy.org/our-work/tools-guides/data-science-project-scoping-guide/)
 - **Week Two**
-    - [Usability and User Interfaces](/curriculum/5_presentations_and_communications/usability-and-user-interfaces/)
-    - [CSV to DB](/curriculum/1_getting_and_keeping_data/csv-to-db/)
+    - [Usability and User Interfaces](../../curriculum/5_presentations_and_communications/usability-and-user-interfaces/)
+    - [CSV to DB](../../curriculum/1_getting_and_keeping_data/csv-to-db/)
     - Legal Agreements
-    - [Data Security Primer](/curriculum/1_getting_and_keeping_data/data-security-primer/)
-    - [Legible, Good Code](/curriculum/4_programming_best_practices/legible-good-code/)
+    - [Data Security Primer](../../curriculum/1_getting_and_keeping_data/data-security-primer/)
+    - [Legible, Good Code](../../curriculum/4_programming_best_practices/legible-good-code/)
     - [Conduct, Culture, and Communications](../conduct-culture-and-communications/README.md)
 - **Week Three**
-    - [Reproducible ETL](/curriculum/1_getting_and_keeping_data/reproducible-ETL/)
+    - [Reproducible ETL](../..//curriculum/1_getting_and_keeping_data/reproducible-ETL/)
     - The Work We Do
-    - [Record Linkage](/curriculum/2_data_exploration_and_analysis/record-linkage/)
-    - [Databases](/curriculum/1_getting_and_keeping_data/databases/)
-    - [Quantitative Social Science](/curriculum/3_modeling_and_machine_learning/quantitative-social-science/)
+    - [Record Linkage](../..//curriculum/2_data_exploration_and_analysis/record-linkage/)
+    - [Databases](../..//curriculum/1_getting_and_keeping_data/databases/)
+    - [Quantitative Social Science](../..//curriculum/3_modeling_and_machine_learning/quantitative-social-science/)
 
 ##  Ongoing Curriculum
 Training continues on throughout the summer in the form of "lunch and
@@ -206,7 +206,7 @@ think will be relevant to one or more of the summer projects. We have
 lunch and learns scheduled twice a week through the
 summer, and some fellows choose to offer optional teachouts at the end of the workday.
 
-Although we don't expect all teams to be working in unison, there is a [general structure](sources/dssg-manual/summer-overview/High%20Level%20Plan%20for%20the%20Summer.pdf)
+Although we don't expect all teams to be working in unison, there is a [general structure](High%20Level%20Plan%20for%20the%20Summer.pdf)
 to the summer that guides how we pace the remaining curriculum - we
 try to schedule topics so that fellows know about
 them with enough time to incorporate them into their projects, but not
