@@ -5,7 +5,7 @@ Welcome to the [Data Science for Social Good](https://www.dssgfellowship.org/) (
 
 *Things To Do Before You Arrive:*
 
-- [Installing Software You'll Need for the Summer](/curriculum/setup/software-setup/) 
+- [Installing Software You'll Need for the Summer](../curriculum/setup/software-setup/) 
 - [Read the Code of Conduct, Culture and Communications](conduct-culture-and-communications/)
 - [Learn What to Expect by Reading the Summer Overview](summer-overview/)
 
