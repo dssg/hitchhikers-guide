@@ -12,7 +12,7 @@ and deep dives.
 ## Before the Summer
 
 Prior to your arrival, we provide you with [the
-prerequisites](../../curriculum/0_before_you_start/prerequisites/README.md)
+prerequisites](../../curriculum/setup/software-setup/)
 so you can familiarize yourself with the tools you’ll use all summer
 and equip yourself with the knowledge to be able to
 follow along with the curriculum. You'll receive a list of software to
@@ -169,13 +169,12 @@ few weeks off with an [intensive orientation](DSSG2016OrientationSchedule.pdf), 
 ### Possible schedule
 
 - **Week One**
-    - [Prerequisites](../../curriculum/0_before_you_start/prerequisites/)
-    - [Software Setup](../../curriculum/0_before_you_start/software-setup/)
+    - [Software Setup](../../curriculum/setup/software-setup/)
     - [Pipelines and Project Workflow](../../curriculum/0_before_you_start/pipelines-and-project-workflow/)
-    - [Git and Github](../../curriculum/2_data_exploration_and_analysis/intro-to-git-and-python/introduction-to-git-and-python.ipynb)
+    - [Git and Github](../../curriculum/setup/git-and-github/)
     - Making the Fellowship
     - Skills You Need to do DSSG
-    - [Command Line Tools](../../curriculum/1_getting_and_keeping_data/command-line-tools/)
+    - [Command Line Tools](../../curriculum/setup/command-line-tools/)
     - Project Management, Partners, and Communications
     - [Data Exploration in Python](../../curriculum/2_data_exploration_and_analysis/data-exploration-in-python/)
     - [Project Scoping Intro](http://www.datasciencepublicpolicy.org/our-work/tools-guides/data-science-project-scoping-guide/)
