@@ -1,41 +1,27 @@
 
-## Installing DSSG Prerequisites on Windows 10/11
+# Sertting up your Windows Machine
 
-We would do the following in this guide
-
-1. Generate an SSH keypair
-2. Install Git and setup a Github profile if you don't already have one
-3. Install Python
-4. Install pyenv + virtualenv to help manage different versions of Python and python packages on your machine
-5. Install several necessary python packages
-6. Install VSCode, a text editor that can help you edit code on your machine and on the server directly
-7. Install DBeaver, a GUI based DB explorer
-8. How to use command line tools on windows
+This guide helps you walk through how to set up the various technical tools you'll need for the summer and is focused on Windows users (if you're on MacOS or Linux, see the [related guide here](setup_osx.md))
 
 
-In addition, we'll recommend a few other pieces of software that we recommend that you install, but not absolutely critical. 
+## Windows Subsystem for Linux (WSL)
 
-
-### Windows Subsystem for Linux (WSL)
-
-Before we get to the specific software installations, let's explore a feature from newer versions of windows have the option of running a linux environment directly on windows. You can [learn more about WSL here](https://docs.microsoft.com/en-us/windows/wsl/about).
-
-Today we'll show you how to use command line tools on both Windows Power Shell, and on WSL.
+Newer versions of windows have the option of running a linux environment directly on windows, and we recommend using that as your development environment. You can [learn more about WSL here](https://docs.microsoft.com/en-us/windows/wsl/about).
 
 First we have to install WSL on Windows. We'll give you the quick installation guide, if you want to customize things, please refer the [detailed installation guide](https://docs.microsoft.com/en-us/windows/wsl/install).
 
 First, open a PowerShell or a Command Prompt Window as an Administrator. Next, we can see the available Linux distributions for install by using:
 
 ```
-wsl --list --online
+$ wsl --list --online
 ```
 
-Then, you can install the version of Linux you would like to install. We recommend picking one of the Ubuntu distributions (because it's the most popular) and our guide will assume Ubuntu installation for WSL. 
+Then, you can install the version of Linux you would like to install. We recommend picking one of the Ubuntu distributions and this guide assumes an Ubuntu installation for WSL. 
 
 We can install Ubuntu 20.04 by:
 
 ```
-wsl --install -d Ubuntu-20.04
+$ wsl --install -d Ubuntu-20.04
 ```
 
 This will take a few minutes, and will prompt you to provide a UNIX username and a password. Please note that you might have to restart your computer at some point during the installation for things to take full effect. 
@@ -50,11 +36,9 @@ Now, you can use Linux from within your Windows machine. You should have a short
 
 This will take you to the root folder of the linux file system. 
 
-_Note - Appending `\home\<username>` to the above command will take you to your home directory._
+_Note - Appending `\home\<username>` to the above address will take you to your home directory._
 
 For the next few pieces of software, we'll provide you instructions on how to run things on both WSL and on 'pure' Windows. 
-
-
 
 
 ### Git and GitHub Account
@@ -294,7 +278,8 @@ $ code .
 
 This will launch a VScode window that will let you develop on your WSL machine. 
 
-As we said above, one of the most useful features of VSCode is that it let's you edit code directly on a remote server ussing SSH. To use this feature, you should [install the Remote-SSH extention for VSCode](https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines). 
+As we said above, one of the most useful features of VSCode is that it let's you edit code directly on a remote server using SSH. To use this feature, you should [install the Remote-SSH extention for VSCode](https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines). 
+
 
 We need to tell VSCode where your private key is to authenticate the SSH connection. VSCode would automatically check for the default private key named `id_rsa` at the default Windows location `C:\Users\<windows_username>/.ssh/`. As we created the SSH keys in WSL, they keys would be inside the WSL file system. We can copy the keys to the windows location. 
 
@@ -311,7 +296,9 @@ Note that this will overwrite an existing ssh key in the Windows folder.
 
 **DBeaver**
 
-We woud install DBeaver on directly on Windows. You can [download the installer here](https://dbeaver.io/download/).
+We woud install DBeaver on directly on Windows. You can [download the installer here](https://dbeaver.io/download/). 
+
+You might need to provide the path to an SSH key when you 
 
 
 
