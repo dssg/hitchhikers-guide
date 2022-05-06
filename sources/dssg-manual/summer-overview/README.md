@@ -2,7 +2,7 @@
 
 While specific schedules will vary from project to project, the summer
 will follow roughly the structure below. See also
-[high level summer plan](./High Level Plan for the Summer.pdf "Summer plan")
+[high level summer plan](High%20Level%20Plan%20for%20the%20Summer.pdf)
 for an
 outline of the flow of the summer, and general concepts that will
 inform the topics addressed by tutorials and speakers as well as what
@@ -18,32 +18,27 @@ and equip yourself with the knowledge to be able to
 follow along with the curriculum. You'll receive a list of software to
 install before the first day of orientation, programming languages you
 should brush up on, and tools we suggest you use to manage your data
-workflow. We will also send
-you a tentative list of projects and ask for you to respond with your
-preferences. Based on your preferences, the
-requirements of each project, and the balance of disciplines within
-each team, we will assign teams of 3-4 fellows
-per project. You will learn which project you've been assigned during
-the second week of the fellowship.
+workflow. 
 
 ## Learning about Projects and Partners
 
-Staff at the [Center for Data Science and Public
-Policy](http://dsapp.uchicago.edu/) (DSaPP) work hard year-round to
+Staff at the [Data Science and Public
+Policy team](http://www.datasciencepublicpolicy.org/) (DSaPP) work hard year-round to
 recruit partners and scope projects. This is a lengthy, complicated
 process with plenty of logistical hurdles (think
 legal data sharing agreements and data transfer challenges), which
 means the list of project partners is usually not
-finalized until the fellowship begins. You will find out your project
-and team assignments in the second week of the
-fellowship.
+finalized until the fellowship begins. Based on your preferences, the
+requirements of each project, and the balance of disciplines within
+each team, we will assign teams of about 4 fellows
+per project. You will learn which project you've been assigned during
+the second week of the fellowship.
 
-We ask all our project partners to come meet their team in the first
-two weeks of the summer. During partner visits, you’ll
-spend a lot of time talking through the problem and the data with
-them, and they give a presentation to the fellowship.
-We want you to meet the people you’re working with face to face. This
-also gives all of the fellows a chance to hear about
+We want you to meet the people you’re working with face to face. 
+We ask all our project partners to come meet their team in the second of the summer. 
+During partner visits, you’ll spend a lot of time talking with them about the problem and the data, 
+and they will give a presentation to the fellowship.
+This also gives all of the fellows a chance to hear about
 all of the projects and for the partners to meet other project partners and the other fellows.
 
 After orientation, you will spend the first part of the summer getting
@@ -60,9 +55,9 @@ We believe it is important for you to thoroughly understand the
 problem and the process that gives rise to the data before
 getting too entrenched in the data itself. A deep understanding of
 your partner and the problems they face is crucial to
-knowing what your variables really mean, and defining your outcome and
+knowing what your variables really mean. Defining your outcome and
 evaluation metrics will depend heavily upon this
-understanding as well. While we know you are eager to dig into the
+understanding. While we know you are eager to dig into the
 data, you will find that at least as much of your time is
 devoted to talking about the data as manipulating it. This is a good thing.
 
@@ -84,7 +79,7 @@ As you explore, you'll find holes in the provided information, or
 identify potential new useful sources of data, and will
 need to work with your partner to decide whether it’s possible to
 acquire the data you need in the time that you have;
-that’s the reality of working with real world partners and sensitive data.
+that’s the reality of working with real world partners and sensitive data!
 
 Fellows drive the work of every project, learning their subject matter
 in depth, writing code, and collaborating with
@@ -106,7 +101,7 @@ We believe that our work is only useful if we are able to communicate
 what we do and why it’s important to our partners,
 peers, and the general public. As such, an important piece of this training program is
 [learning to present the work you
-do](/curriculum/5_presentations_and_communications).
+do](../../curriculum/communication/).
 
 Each week, a member of your team will give a 2-3 minute update to the
 entire fellowship, outlining your recent progress
@@ -138,9 +133,8 @@ your work and providing feedback on your delivery.
 To make sure the work you do this summer has real impact, a lot more
 work needs to be done after the official end of the
 fellowship; some of this will be done by your project partner, and
-some will be done by the host University (or by the Center for Data Science and
-Public Policy at the University of Chicago). You will need to
-transition the work over to your project partners so they can
+some will be done by the [Data Science and Public Policy team](http://www.datasciencepublicpolicy.org/) at Carnegie Mellon University. 
+You will need to transition the work over to your project partners so they can
 validate, implement, and extend your work. To do this, you will have
 to document your work throughout the summer and wrap
 it up neatly at the end of the summer.
@@ -148,8 +142,8 @@ it up neatly at the end of the summer.
 We ask that you prepare a poster to be displayed at DSSG events and
 for potential conference poster sessions, a technical
 report, and an outline of a paper. This makes it easier to collaborate
-once you and your team mates are no longer working
-at the same desk every day. We also ask that all your code can be run
+once you and your teammates are no longer working
+at the same desk every day. We also ask that all your code is tested to run
 on a new machine, and that there is sufficient
 documentation for someone else to replicate and understand your work.
 
@@ -160,12 +154,12 @@ we accomplish this throughout the summer.
 
 To look through all of our curriculum materials, please see the
 [curriculum
-section](/curriculum).
+section](../../curriculum/).
 
 ## Orientation
 We expect that every incoming fellow has experience programming in
 Python, a basic working knowledge of statistics and social
-science, and an interest in doing social good. However, we understand
+science, and an interest in doing social good work. However, we understand
 that everyone comes from a different background,
 so to ensure that everyone is able to contribute as a productive
 member of the team and the fellowship, we start the first
@@ -175,29 +169,29 @@ few weeks off with an [intensive orientation](DSSG2016OrientationSchedule.pdf), 
 ### Possible schedule
 
 - **Week One**
-    - [Prerequisites](/curriculum/0_before_you_start/prerequisites/)
-    - [Software Setup](/curriculum/0_before_you_start/software-setup/)
-    - [Pipelines and Project Workflow](/curriculum/0_before_you_start/pipelines-and-project-workflow/)
-    - [Git and Github](/curriculum/2_data_exploration_and_analysis/git-and-github/)
+    - [Prerequisites](../../curriculum/0_before_you_start/prerequisites/)
+    - [Software Setup](../../curriculum/0_before_you_start/software-setup/)
+    - [Pipelines and Project Workflow](../../curriculum/0_before_you_start/pipelines-and-project-workflow/)
+    - [Git and Github](../../curriculum/2_data_exploration_and_analysis/intro-to-git-and-python/introduction-to-git-and-python.ipynb)
     - Making the Fellowship
     - Skills You Need to do DSSG
-    - [Command Line Tools](/curriculum/1_getting_and_keeping_data/command-line-tools/)
+    - [Command Line Tools](../../curriculum/1_getting_and_keeping_data/command-line-tools/)
     - Project Management, Partners, and Communications
-    - [Data Exploration in Python](/curriculum/2_data_exploration_and_analysis/data-exploration-in-python/)
-    - [Project Scoping Intro](https://dssg.uchicago.edu/2016/10/27/scoping-data-science-for-social-good-projects/)
+    - [Data Exploration in Python](../../curriculum/2_data_exploration_and_analysis/data-exploration-in-python/)
+    - [Project Scoping Intro](http://www.datasciencepublicpolicy.org/our-work/tools-guides/data-science-project-scoping-guide/)
 - **Week Two**
-    - [Usability and User Interfaces](/curriculum/5_presentations_and_communications/usability-and-user-interfaces/)
-    - [CSV to DB](/curriculum/1_getting_and_keeping_data/csv-to-db/)
+    - [Usability and User Interfaces](../../curriculum/communication/Usability_and_user_experience.pdf)
+    - [CSV to DB](../../curriculum/1_getting_and_keeping_data/csv-to-db/)
     - Legal Agreements
-    - [Data Security Primer](/curriculum/1_getting_and_keeping_data/data-security-primer/)
-    - [Legible, Good Code](/curriculum/4_programming_best_practices/legible-good-code/)
+    - [Data Security Primer](../../curriculum/get_data/data-security-primer/)
+    - [Legible, Good Code](../../curriculum/programming_best_practices/legible-good-code/)
     - [Conduct, Culture, and Communications](../conduct-culture-and-communications/README.md)
 - **Week Three**
-    - [Reproducible ETL](/curriculum/1_getting_and_keeping_data/reproducible-ETL/)
+    - [Reproducible ETL](../../curriculum/1_getting_and_keeping_data/reproducible_ETL)
     - The Work We Do
-    - [Record Linkage](/curriculum/2_data_exploration_and_analysis/record-linkage/)
-    - [Databases](/curriculum/1_getting_and_keeping_data/databases/)
-    - [Quantitative Social Science](/curriculum/3_modeling_and_machine_learning/quantitative-social-science/)
+    - [Record Linkage](../../curriculum/2_data_exploration_and_analysis/record-linkage)
+    - [Databases](../../curriculum/1_getting_and_keeping_data/databases)
+    - [Quantitative Social Science](../../curriculum/3_modeling_and_machine_learning/quantitative-social-science)
 
 ##  Ongoing Curriculum
 Training continues on throughout the summer in the form of "lunch and
@@ -212,7 +206,7 @@ think will be relevant to one or more of the summer projects. We have
 lunch and learns scheduled twice a week through the
 summer, and some fellows choose to offer optional teachouts at the end of the workday.
 
-Although we don't expect all teams to be working in unison, there is a [general structure](sources/dssg-manual/summer-overview/High%20Level%20Plan%20for%20the%20Summer.pdf)
+Although we don't expect all teams to be working in unison, there is a [general structure](High%20Level%20Plan%20for%20the%20Summer.pdf)
 to the summer that guides how we pace the remaining curriculum - we
 try to schedule topics so that fellows know about
 them with enough time to incorporate them into their projects, but not

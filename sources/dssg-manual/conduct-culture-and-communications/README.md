@@ -1,7 +1,7 @@
 Our Code of Conduct applies to all participants in all of our events
 open to external partners and the public, as well as to the fellowship
 itself.
-We want to ensure that everyone who comes into the DSSG space to feel
+We want to ensure that everyone who comes into the DSSG space feels
 welcome, and we want to foster a safe, productive environment for
 fellows, staff, and visitors.
 
