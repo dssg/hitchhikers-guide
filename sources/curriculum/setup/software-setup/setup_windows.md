@@ -341,8 +341,7 @@ Note that this will overwrite an existing ssh key in the Windows folder.
 
 We woud install DBeaver on directly on Windows. You can [download the installer here](https://dbeaver.io/download/). 
 
-You might need to provide the path to an SSH key when you 
-
+It's important to not that when you create a DB connection, You might need to provide the path to your SSH key to get access to a remote DB server. As we did with VSCode, you have the option of either keeping a copy of your private key in the Windows home directory (`C:/Users/<windows username>/.ssh`), or any other directory, and pointing DBeaver to that copy, or using the path to the key stored inside your WSL machine. 
 
 
 **PSQL**
