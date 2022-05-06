@@ -83,7 +83,7 @@ _Note: In windows, you can [download and install Git here](https://git-scm.com/d
 
 
 ### Learning more about git
-If you haven't used git/github before, [here are a couple of useful resources](further_resources#git-and-github) where you can learn a bit more.
+If you haven't used git/github before, [here are a couple of useful resources](../further_resources#git-and-github) where you can learn a bit more.
 
 ## Setting up Python and Related Tools
 
@@ -250,7 +250,7 @@ Your browser should open a new tab with the jupyter lab interface.
 
 ### Learning more about python
 
-Python is a powerful, expressive, and easy to read (even by non-programmers) programming language. If you're still relatively new to it, you might find some of [the resources here](further_resources#python) helpful.
+Python is a powerful, expressive, and easy to read (even by non-programmers) programming language. If you're still relatively new to it, you might find some of [the resources here](../further_resources#python) helpful.
 
 ## SSH Keys
 
@@ -367,7 +367,7 @@ psql: could not connect to server: No such file or directory
 
 Good news -- that's it in terms of software setup (for now)! 
 
-Take some time to familiarize yourself with them before the summer, and check out the [resources here](further_resources) for some helpful guides. On that page, you'll also find some good background information on [machine learning concepts](further_resources#machine-learning-concepts) and [causal inference](further_resources#causal-inference) which may be helpful as well.
+Take some time to familiarize yourself with them before the summer, and check out the [resources here](../further_resources) for some helpful guides. On that page, you'll also find some good background information on [machine learning concepts](../further_resources#machine-learning-concepts) and [causal inference](../further_resources#causal-inference) which may be helpful as well.
 
 
 

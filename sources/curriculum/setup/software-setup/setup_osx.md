@@ -5,7 +5,7 @@ This guide helps you walk through how to set up the various technical tools you'
 
 ## Package Manager
 
-We'll use a package manager called Homebrew to manage the installation of many of the other tools we'll need below. To get started, install [Homebrew]](http://brew.sh/) from the terminal:
+We'll use a package manager called Homebrew to manage the installation of many of the other tools we'll need below. To get started, install [Homebrew](http://brew.sh/) from the terminal:
 
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -27,7 +27,7 @@ echo 'export PATH=/usr/local/bin:/usr/local/sbin:$PATH' >> ~/.profile
 
 ### Learning more about working at the command line
 
-If you haven't used the terminal/command line much, [here are a few resources](further_resources#terminal-and-the-command-line) that might be helpful to explore.
+If you haven't used the terminal/command line much, [here are a few resources](../further_resources#terminal-and-the-command-line) that might be helpful to explore.
 
 
 ## Git and GitHub Account
@@ -61,7 +61,7 @@ You can un-git the directory by deleting the `.git` folder: `rm -r .git` (or sim
 
 ### Learning more about git
 
-If you haven't used git/github before, [here are a couple of useful resources](further_resources#git-and-github) where you can learn a bit more.
+If you haven't used git/github before, [here are a couple of useful resources](../further_resources#git-and-github) where you can learn a bit more.
 
 
 ## Python
@@ -169,7 +169,7 @@ Your browser will open a new tab with the jupyterlab interface.
 
 ### Learning more about python
 
-Python is a powerful, expressive, and easy to read (even by non-programmers) programming language. If you're still relatively new to it, you might find some of [the resources here](further_resources#python) helpful.
+Python is a powerful, expressive, and easy to read (even by non-programmers) programming language. If you're still relatively new to it, you might find some of [the resources here](../further_resources#python) helpful.
 
 
 ## SSH
@@ -268,14 +268,14 @@ psql: could not connect to server: No such file or directory
 
 ### Learning more about databases and sql
 
-SQL can provide a very efficient way to process large amounts of data quickly, for instance, for ingesting/cleaning raw inputs, performing data exploration, building features for modeling, and keeping track of model artifacts and results. If you're still relatively new to using relational databases, you might find some of [the resources here](further_resources#databases-and-sql) helpful.
+SQL can provide a very efficient way to process large amounts of data quickly, for instance, for ingesting/cleaning raw inputs, performing data exploration, building features for modeling, and keeping track of model artifacts and results. If you're still relatively new to using relational databases, you might find some of [the resources here](../further_resources#databases-and-sql) helpful.
 
 
 ## Congratulations -- You Made It!
 
 Good news -- that's it in terms of software setup (for now)! 
 
-Take some time to familiarize yourself with them before the summer, and check out the [resources here](further_resources) for some helpful guides. On that page, you'll also find some good background information on [machine learning concepts](further_resources#machine-learning-concepts) and [causal inference](further_resources#causal-inference) which may be helpful as well.
+Take some time to familiarize yourself with them before the summer, and check out the [resources here](../further_resources) for some helpful guides. On that page, you'll also find some good background information on [machine learning concepts](../further_resources#machine-learning-concepts) and [causal inference](../further_resources#causal-inference) which may be helpful as well.
 
 
 [^1]: for an updated version of this instructions and troubleshooting FAQs see [this page](https://github.com/pyenv/pyenv/wiki)

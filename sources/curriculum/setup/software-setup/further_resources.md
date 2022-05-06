@@ -5,7 +5,7 @@ Some of the tools we'll be using at DSSG might be new to you, but don't worry if
 
 ## Terminal and the Command Line
 
-- [Hitchhiker's Guide intro to the command line](../command-line-tools/)
+- [Hitchhiker's Guide intro to the command line](../../command-line-tools/)
 - [General command line navigation](http://linuxcommand.org/)
 - [Secure Shell (ssh)](http://code.tutsplus.com/tutorials/ssh-what-and-how--net-25138): You’ll need this to connect to AWS/cloud computers.
 - [grep/awk/sed](http://www-users.york.ac.uk/~mijp1/teaching/2nd_year_Comp_Lab/guides/grep_awk_sed.pdf): Quickly find and manipulate files, without ever leaving the command line.
@@ -13,7 +13,7 @@ Some of the tools we'll be using at DSSG might be new to you, but don't worry if
 
 ## Git and GitHub
 
-- [Hitchhiker's Guide intro to git](../git-and-github/)
+- [Hitchhiker's Guide intro to git](../../git-and-github/)
 - [Installing Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 - [Complete Beginner’s Guide to Git and Github](http://readwrite.com/2013/09/30/understanding-github-a-journey-for-beginners-part-1)
 - [10-minute Hello World Tutorial to using Git and Github](https://guides.github.com/activities/hello-world/)
@@ -23,7 +23,7 @@ Some of the tools we'll be using at DSSG might be new to you, but don't worry if
 ## Python
 
 - **Python Programming Resources:**
-    - [Hitchhiker's Guide intro to python](../../software/basic_python)
+    - [Hitchhiker's Guide intro to python](../../../software/basic_python)
     - [Writing efficient Python](https://www.memonic.com/user/pneff/folder/python/id/1bufp)
     - [Tips for Idiomatic Python](https://web.archive.org/web/20180411011411/http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html)
     - [Introduction to Python debugging tools](https://web.archive.org/web/20141209082719/https://blog.safaribooksonline.com/2014/11/18/intro-python-debugger/)
@@ -36,7 +36,7 @@ Some of the tools we'll be using at DSSG might be new to you, but don't worry if
 
 ## Databases and SQL
 
-- [Hitchhiker's Guide intro to SQL](../../software/basic_sql)
+- [Hitchhiker's Guide intro to SQL](../../../software/basic_sql)
 - [Another useful SQL introduction]( http://joshualande.com/)
 - [SQL Cheatsheet](https://gist.github.com/hofmannsven/9164408)
 
