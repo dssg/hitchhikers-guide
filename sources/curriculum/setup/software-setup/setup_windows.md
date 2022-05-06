@@ -41,7 +41,7 @@ _Note - Appending `\home\<username>` to the above address will take you to your 
 For the next few pieces of software, we'll provide you instructions on how to run things on both WSL and on 'pure' Windows. 
 
 
-### Git and GitHub Account
+## Git and GitHub Account
 
 1. If you don't have a GitHub account, [make one](https://github.com/join?source=header-home)!
 
