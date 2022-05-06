@@ -25,7 +25,7 @@ In order to be ready for the summer, you need to install some packages on your c
 *   psql (PostgreSQL command line interface)
 *   Tableau (students can request a free education license)
 
-## How to install pre-requisites?
+## Installing these pre-requisites
 
 *   **OS X** users - Follow [these instructions](setup_osx.md)
 *   **Linux** users - You probably know how to do it, but you can follow the [OS X instructions](setup_osx.md) substituting your appropriate package manage for homebrew

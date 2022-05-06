@@ -1,4 +1,4 @@
-# Setting your machine
+# Setting up your MacOS X machine
 
 This guide helps you walk through how to set up the various technical tools you'll need for the summer and is focused on MacOS X users (if you're on Windows, see the related [guide here](setup_windows.md); if you're on Linux, most of the instructions here should work with the appropriate package manager depending on your distribution)
 

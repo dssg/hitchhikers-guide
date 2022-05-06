@@ -364,6 +364,13 @@ psql: could not connect to server: No such file or directory
 ```
 
 
+## Congratulations -- You Made It!
+
+Good news -- that's it in terms of software setup (for now)! 
+
+Take some time to familiarize yourself with them before the summer, and check out the [resources here](further_resources) for some helpful guides. On that page, you'll also find some good background information on [machine learning concepts](further_resources#machine-learning-concepts) and [causal inference](further_resources#causal-inference) which may be helpful as well.
+
+
 
 
 

@@ -90,8 +90,7 @@ nav:
           - Data Maturity evaluation: curriculum/scoping/dme.md
       - Project deliverables: curriculum/scoping/deliverables.md
       - Tech setup:
-          - Software you need: curriculum/setup/you_need.md
-          - Setting up machines: curriculum/setup/software-setup/README.md
+          - Software you need: curriculum/setup/software-setup/README.md
           - Command line intro: curriculum/setup/command-line-tools/README.md
           - Git and github:
               - What is it?: curriculum/setup/git-and-github/README.md
