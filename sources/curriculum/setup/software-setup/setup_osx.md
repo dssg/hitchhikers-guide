@@ -2,6 +2,7 @@
 
 This guide helps you walk through how to set up the various technical tools you'll need for the summer and is focused on MacOS X users (if you're on Windows, see the related [guide here](setup_windows.md); if you're on Linux, most of the instructions here should work with the appropriate package manager depending on your distribution)
 
+
 ## Package Manager
 
 We'll use a package manager called Homebrew to manage the installation of many of the other tools we'll need below. To get started, install [Homebrew]](http://brew.sh/) from the terminal:
@@ -11,6 +12,18 @@ We'll use a package manager called Homebrew to manage the installation of many o
 ```
 
 To check that it installed, run the command `which brew` in the terminal. If it returns: `/usr/local/bin/brew`, it means that homebrew is installed; if it returns `brew not found`, it means homebrew is not installed.
+
+If that doesn't work, you need to add the following to your PATH:
+
+```bash
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+```
+
+If you don't know how to do that, run this:
+
+```bash
+echo 'export PATH=/usr/local/bin:/usr/local/sbin:$PATH' >> ~/.profile
+```
 
 ### Learning more about working at the command line
 
@@ -76,24 +89,18 @@ To manage different python versions and virtual environments, we will install a 
 $ curl https://pyenv.run | bash
 ```
 
-This command will generate some instructions at the end (mostly about adding some lines to your `.bash_profile` or `.zsh_profile` or similar.) Follow these then restart your terminal. Generally, this will look something like:
-
-Add the following lines to your `.bash_profile` (before `.bashrc` is sourced):
-```
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-```
+This command will generate some instructions at the end (mostly about adding some lines to your `.bashrc`, `.bash_profile` or `.zsh_profile` or similar.) Follow these then restart your terminal. Generally, this will look something like:
 
 And add the following lines to the end of your `.bashrc`:
 ```
 # pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 ```
 
-To test things out, **restart your terminal** then type `which pyenv` to make sure the system can find `pyenv` and `pyenv versions` to see the currently-installed python versions.
+To test things out, **restart your terminal** then type `which pyenv` to make sure the system can find `pyenv` and `pyenv versions` to see the currently-installed python versions. Note that if you're using a shell other than `bash`, you might need to check out the [instructions here](https://github.com/pyenv/pyenv/#set-up-your-shell-environment-for-pyenv) (if you're just using the default that came with terminal, it's most likely bash).
 
 
 ### Virtual environment
@@ -151,9 +158,11 @@ It's time to test! In order to test that both jupyter and the python packages in
 
     $ jupyter lab
 
-Your browser will open a new tab and you will see something like the following:
+Your browser will open a new tab with the jupyterlab interface.
 
-<img src="imgs/jupyter.png" width="900px;"/>
+<!-- Your browser will open a new tab and you will see something like the following:
+
+<img src="imgs/jupyter.png" width="900px;"/> -->
 
 - Click on `SoftwareSetup.ipynb` to open the notebook
 - Follow the instructions in the notebook to run each cell.
@@ -162,23 +171,26 @@ Your browser will open a new tab and you will see something like the following:
 
 Python is a powerful, expressive, and easy to read (even by non-programmers) programming language. If you're still relatively new to it, you might find some of [the resources here](further_resources#python) helpful.
 
+
 ## SSH
 
-### SSH keys
+SSH helps you access the remote servers using your laptop. For this to work, we generate a key-pair that consists of a Public Key (something that you would share with the server), and a private key (something that you would NEVER share with anyone!).
 
-You need to generate a SSH key pair. To do this, follow the
-instructions on GitHub, namely 'Generating a new SSH key' and 'Adding
-your SSH key to ssh-agent'. Windows users probably want to use git
-bash or PuTTYgen (if you're on Linux or OS X, your standard terminal
-should be the bash shell you need).
+Inside your terminal, we can use a built-in utility to generate a new keypair: 
 
-The steps in 'Generating a new SSH key' create two new files (by
-default in ~/.ssh/: One without a file extension (by default, it's
-called id_rsa), and one with the extension .pub. The latter one is
-your _pub_lic key, which you will share with your project server, so
-that it can recognize you; the former is your private key, which you
-must not share with anybody, as it will let you access your project
-server.
+```
+$ ssh-keygen
+```
+
+This will prompt you to select a location for storing the key (the default is generally fine, but you may want to give it a different name if you already have an existing keypair), and give you the option to add a passphrase to the key. If you want to use the default locaion and not use a passphrase, you just have to hit return. 
+
+Then, your keys will be stored in the place your specified. By default, 
+- there'll be a `.ssh` folder in your home directory
+` ~/.ssh/`
+- private key would be named `id_rsa`
+- public key would be named `id_rsa.pub`
+
+You've successfully generated the Keys!
 
 After having generated the key pair, you should set the correct file
 permissions for your private key: SSH requires that only you, the
@@ -192,117 +204,78 @@ the path and name of your private key that you chose during key
 generation).
 
 
-### Testing it
+## Text Editor
 
-Use your username and server's address to ssh into the server:
+You'll need a good text editor for all the amazing code you're going to write this summer. If you've already got one you like (vim, emacs, sublime, etc), that's great! If not, we reccomend using [VSCode](https://code.visualstudio.com/), which has some great functionality for complex projects, including github integrations and allowing you to work on files directly on a remote server. 
 
-    ssh yourusername@serverurl
+You can download and install VSCode [here](https://code.visualstudio.com/download).
 
-Once you enter your password, you should be dropped into a shell on the server:
-
-    yourusername@servername: ~$
+As we said above, one of the most useful features of VSCode is that it let's you edit code directly on a remote server using SSH. To use this feature, you should [install the Remote-SSH extention for VSCode](https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines).
 
 
-!!! important "PRO tip"
+## Database Tools
 
-    Your life will be easier if you set up a [`.ssh/config` file](ssh_config.example)
+The data for most of the projects will be stored in a PostgreSQL database, and you'll need software on your computer to be able to access it. You won't be able to access the database itself until you get to DSSG, so for now we'll just set up the tools you'll need, and then walk through setting up your connection at the beginning of the summer.
 
+### DBeaver
 
-## PSQL
+There are several GUI tools for connecting to databases, including DBeaver, DataGrip, DBVizualizer, etc. For the summer, we'll prefer DBeaver, which you can install directly from the [DBeaver Website](https://dbeaver.io/download/), since it offers a free version and works with every operating system. NOTE: you'll want to install the free "community edition" version.
 
-The database server runs Postgres 9.5.10.
+### psql
 
-??? info "For Windows users"
+There is also a command-line tool for accessing postgres databases called `psql`, which can be useful for quickly or programmatically working with the database as well.
 
-    Windows users should skip the steps below, and instead use [DBeaver](http://dbeaver.jkiss.org/). When setting up the connection in DBeaver, you will need to specify the SSH tunnel; the database credentials are the ones we shared with you, and the SSH tunnel credentials are the ones you used in the previous step to SSH into the training server. Alternatively, everybody can access `psql` from the training server: SSH into the training server as in the step before, then, on the server's shell, call `psql -h POSTGRESURL -U USERNAME -d DBNAME`, where you need to substitute `POSTGRESURL` with the postgres server's address, `USERNAME` with your database username, and `DBNAME` with the name of the database.
-
-
-
-For all non-Windows users, also do these steps to access the PostgreSQL server from your local machine. First we need to install the *database client*, `psql`
-
-
-??? info "MacOS"
-
-    Make sure you have the `psql` client installed; on Mac, this would be
-
-    ```
-    $ brew tap-pin dbcli/tap
-    $ brew install pgcli
-    ```
-
-    Note, we are installing `pgcli` instead of `psql`, but apparently there is no way of install *just* the client without installing the whole database server.
-
-    If you still want to give it a shot:
-
-    ```
-    $ brew postgres
-    ```
-
-
-??? info "GNU/Linux"
-
-    On Debian based distros:
-
-    ```
-    sudo apt install postgresql-client libpq-dev
-    ```
-
-
-Once you have the postgres client installed, you can access the training database with it. However, the database server only allows access from the training server. Thus, you need to set up an *SSH tunnel* through the training server to the Postgres server:
-
- ```
- $ ssh -NL localhost:8888:POSTGRESURL:5432 ec2username@EC2URL
- ```
-
-where you need to substitute `POSTGRESURL`, `ec2username`, and `EC2URL` with the postgres server's URL, your username on the training server, and the training server's URL respectively. Also, you should substitute `8888` with a random number in the 8000-65000 range of your choice (port `8888` might be in use already).
-
- This command forwards your laptop's port 8888 through your account on the EC2 (EC2URL) to the Postgres server port 5432. So if you access your local port 8888 in the next step, you get forwarded to the Postgres server's port 5432 - but from the Postgres server's view, the traffic is now coming from the training server (instead of your laptop), and the training server is the only IP address that is allowed to access the postgres server.
-
-
- ![](https://cdn-images-1.medium.com/max/1000/1*0JaPjL3O5Se96b7IGt5P_A.png)
- *Figure. A graphical representation of a ssh tunnel. Not quite our situation -they are using a MySQL db who knows why-, but it is close enough. Courtesy from this [Medium post](https://myopswork.com/ssh-tunnel-for-rds-via-bastion-host-6659a48edc).*
-
-
-Connect to the Postgres database on the forwarded port
+To get it, you'll need to install the `libpq` library:
 
 ```
-$ psql -h localhost -p 8888 -U USERNAME -d DBNAME
+$ brew update
+$ brew install libpq
 ```
 
-where you need to replace `USERNAME` with the postgres [!] username, `DBNAME` with the name of your database, and the `8888` with the number you chose in the previous step. You then get prompted for a password. This is now the postgres server asking, so you need to reply with the corresponding password!
+!!! info "Note for Linux Users"
 
-This should drop you into a SQL shell on the database server.
-
-!!! note
-
-    In some configurations, you'll need to explicitly assume a role to do anything beyond connecting to the database. To make changes to the training database, use the `training_write` role. Let's test it by creating and dropping a schema:
+    Most of the instructions for OS X are similar for linux. However, for installing the postgresql client on linux, they're actually a bit different:
 
     ```
-    set role training_write;
-    create schema jsmith;
-    drop schema jsmith;
+    $ sudo apt-get update
+    $ sudo apt-get install postgresql-client
     ```
 
-!!! important "PRO tip"
+Unfortunately, this won't add the location of the `psql` client to your path, so you'll need to do so manually.
 
-    You could save a lot of keystrokes if you setup a [`.pgservice.conf`](./pgservice_conf.example)file  and a [`.pgpass`](./pgpass.example) file in your `$HOME` folder.
+If you're on an intel-based mac, this should be:
 
-    Then you could simply type
+```
+echo 'export PATH="/usr/local/opt/libpq/bin:$PATH"' >> ~/.bash_profile
+source ~/.bash_profile
+```
 
-    ```
-    $ psql service=mydb  # mydb is the name of the dbservice
-    ```
+If you're on a mac with apple silicon (e.g. M1), this should be:
+
+```
+echo 'export PATH="/opt/homebrew/opt/libpq/bin:$PATH"' >> ~/.bash_profile
+source ~/.bash_profile
+```
+
+To tesst it out, try typing `psql` into the terminal, you should see the following output. 
+
+```
+$ psql
+psql: could not connect to server: No such file or directory
+        Is the server running locally and accepting
+        connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?
+```
+
+### Learning more about databases and sql
+
+SQL can provide a very efficient way to process large amounts of data quickly, for instance, for ingesting/cleaning raw inputs, performing data exploration, building features for modeling, and keeping track of model artifacts and results. If you're still relatively new to using relational databases, you might find some of [the resources here](further_resources#databases-and-sql) helpful.
 
 
+## Congratulations -- You Made It!
 
+Good news -- that's it in terms of software setup (for now)! 
 
-
-
-??? info "I really prefer a GUI"
-
-    if you want a graphical interface to databases - you might  want to use [DBeaver](http://dbeaver.jkiss.org/).
-
-
+Take some time to familiarize yourself with them before the summer, and check out the [resources here](further_resources) for some helpful guides. On that page, you'll also find some good background information on [machine learning concepts](further_resources#machine-learning-concepts) and [causal inference](further_resources#causal-inference) which may be helpful as well.
 
 
 [^1]: for an updated version of this instructions and troubleshooting FAQs see [this page](https://github.com/pyenv/pyenv/wiki)
