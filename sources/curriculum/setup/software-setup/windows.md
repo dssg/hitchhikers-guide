@@ -65,17 +65,38 @@ $ sudo apt-get update
 $ sudo apt-get install git
 ```
 
+3. Test your installation. For example, create a directory, and make it a git repo:
+
+```
+$ mkdir mytestdir
+$ cd mytestdir
+$ git init
+```
+
+Then, you should see this output:
+
+```
+> Initialized empty Git repository in [...]/mytestdir/.git/
+```
+
+_Note: In windows, you can [download and install Git here](https://git-scm.com/download/win)_
 
 
-
-In windows, you can [download and install Git by going to this link](https://git-scm.com/download/win) 
-
-
-
+### Learning more about git
+If you haven't used git/github before, [here are a couple of useful resources](further_resources#git-and-github) where you can learn a bit more.
 
 ## Setting up Python and Related Tools
 
-Your WSL system should come with `python` preinstalled. With some distros it does not, you can install system level python. But this is NOT necessary as we won't be using this version of Python anyway. 
+We'll primarily use the python programming language for scripting, doing analyses, and building models throughout the summer, so let's make sure we have the right version and packages installed.
+
+**!!! warning "pyenv vs anaconda"**
+
+This is a contentious topic! Some people argue that they find **Anaconda** (`conda` or `mini-conda`) easier to get up and running while others argue for the consistency and flexibility of `pyenv`. In general, python's library system is a bit of a mess and in constant evolution.
+
+We favor `pyenv` here, since we think it provides you with more flexibility and *teaches* you about how `python` works.
+
+
+Your WSL system should come with `python` preinstalled. With some distros it does not, you can install system level python. However, this is <u>not necessary</u> as we won't be using the system level Python anyway. So, feel free to skip to version management. 
 
 ```
 $ sudo apt-get install python
@@ -91,6 +112,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
+### version managemet and virtual environments
 Now you have system level Python installed. But, we don’t want to mess with it. So we will install a different python, for your exclusive use. 
 
 First, we will install some libraries
@@ -112,7 +134,7 @@ Once this finishes, you will see some instructions at the end for adding `pyenv`
 
 [^1]: [More info about the .bashrc file](https://www.linuxfordevices.com/tutorials/linux/bashrc-and-bash-profile)
 
-You can open and edit your bashrc file using either `vi` or `nano`. If you are not familiar with either, use `nano`.
+You can open and edit your bashrc file on the terminal using either `vi` or `nano`. If you are not familiar with either, we recommend using `nano`.
 
 ```
 $ nano ~/.bashrc
@@ -127,7 +149,7 @@ eval "$(pyenv init -)"
 ```
 
 Don't close the file yet! 
-We need to install `pyenv-virtualenv` to enable us to use virtual enviroments. This is the manager that helps us maintain different dev environments with differen python versions and different python package versions. To enable `pyenv-virtualenv`, add the following line to the `.bashrc` below the above snippet. 
+We need to install `pyenv-virtualenv` to enable us to use virtual enviroments. This is the manager that helps us maintain different dev environments with different python versions and different python package versions. To enable `pyenv-virtualenv`, add the following line to the `.bashrc` below the above snippet. 
 
 ```
 eval "$(pyenv virtualenv-init -)"
@@ -173,12 +195,12 @@ $ echo dssg-3.8.2 > .python-version
 ```
 This will ensure that whenever you are inside that directory, the `dssg-3.8.2` environment will be activated.
 
-If not, you can use the command 
+If not, you can manually activate the environment: 
 
 ```
-$ activate dssg
+$ activate dssg-3.8.2
 ```
-to manually activate the environment. 
+
 
 Once you have activated the environment you can start installing Python packages. 
 
@@ -199,26 +221,36 @@ $ pip install -r requirements.txt
 to try it out use this file: [requirements.txt](requirements.txt)
 
 
-### Jupyter 
+#### Jupyter 
 
 Jupyter notebooks are a convenient environment for experimentation, prototyping, and sharing exploratory work. We install Jupyter in the above requirements.txt file. 
 
 Jupyter notebooks require a kernel that executes the code. It should link to the virtual environment:
 
 ```
+$ pyenv activate dssg-3.8.2
 $ python -m ipykernel install --user --name=dssg-3.8.2 --display-name "dssg-3.8.2"
 ```
 
-Note that you should have the virtual environment activated when you issue this command. 
+_Note that you should have the virtual environment activated when you issue this command._
 
-To test, let's launch a Jupyter notebook
+It's time to test! In order to test that both jupyter and the python packages installed appropriately, you should do the following:
+
+- Download the file [`SoftwareSetup.ipynb`](SoftwareSetup.ipynb) into your directory.
+- Type in the terminal
 
 ```
 $ jupyter lab
 ```
 
-Your browser should open a new tab with the jupyter lab interface.  
+Your browser should open a new tab with the jupyter lab interface. 
 
+- Click on `SoftwareSetup.ipynb` to open the notebook
+- Follow the instructions in the notebook to run each cell.
+
+### Learning more about python
+
+Python is a powerful, expressive, and easy to read (even by non-programmers) programming language. If you're still relatively new to it, you might find some of [the resources here](further_resources#python) helpful.
 
 ## SSH Keys
 
