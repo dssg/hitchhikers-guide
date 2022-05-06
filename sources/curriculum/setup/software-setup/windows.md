@@ -254,25 +254,36 @@ Python is a powerful, expressive, and easy to read (even by non-programmers) pro
 
 ## SSH Keys
 
-SSH helps you access the remote servers using your laptop. For this to work, we generate a key-pair that consists of a Public Key (something that you would share with the server admin), and a private key (something that you would NEVER share with anyone!).
+SSH helps you access the remote servers using your laptop. For this to work, we generate a key-pair that consists of a Public Key (something that you would share with the server), and a private key (something that you would NEVER share with anyone!).
 
 **Option A - WSL**
 
 Inside WSL, we can use the same process as a UNIX system to generate keys. 
 
 ```
-ssh-keygen
+$ ssh-keygen
 ```
 
 This will prompt you to select a location for storing the key, and give you the option to add a passphrase to the key. If you want to use the default locaion (Recommended!) and not use a passphrase, you just have to hit return. 
 
 Then, your keys will be stored in the place your specified. By default, 
 - there'll be a `.ssh` folder in your home directory
+` ~/.ssh/`
 - private key would be named `id_rsa`
 - public key would be named `id_rsa.pub`
 
 You've successfully generated the Keys!
 
+After having generated the key pair, you should set the correct file
+permissions for your private key: SSH requires that only you, the
+owner, are able to read/write it, and will give you an error
+otherwise. You can set the right permissions with this command:
+
+    $ chmod 600 ~/.ssh/nameofyourprivatekey
+
+(where you'll have to substitute in
+the path and name of your private key that you chose during key
+generation).
 
 **Option B - Windows**
 
