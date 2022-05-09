@@ -8,7 +8,7 @@ you've done. We need to be able to communicate effectively abouthe
 work and spend a lot of time at DSSG training fellows on how to do
 that. Here are some resources that you'll find useful:
 
-[Data Visualization](vizualization/) and [Presentation Skills](presentation-on-presentation.pdf)
+[Data Visualization](vizualization/) and [Presentation Skills](presentation-on-presentations.pdf)
 will help with that, whether you're communicating your work to a public audience or to stakeholders. When you're
 working directly with a project partner and are creating tools for them to use, keep
 [Usability and User Interfaces](user_interface/) in mind to make sure that

@@ -34,7 +34,7 @@ dangerous, so you can also host a remote copy on a server like GitHub, Bitbucket
 `repository` on GitHub also allows for the distribution of your work and collaboration. This prevents 
 endless emailing of source code and the following situation: 
 
-![final](www.phdcomics.com/comics/archive/phd101212s.gif)
+![final](https://www.phdcomics.com/comics/archive/phd101212s.gif)
 
 
 ## git sounds awesome! How do I get it?

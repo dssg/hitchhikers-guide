@@ -42,9 +42,9 @@ Things to Install
 - DBeaver *(to query databases)*
 - Tableau *(get the free license for students)*
 - GNU/Emacs, VIM or … Sublime Text *(if you need a decent editor)*
-- **If you are an OS X user,** we recommend to install [Homebrew](osx.md#step-1-install-homebrew)
+- **If you are an OS X user,** we recommend to install [Homebrew](../../../setup/software-setup/setup_osx.md#package-manager)
   to make software installation easier. A guide to install
-  pre-requirements on OS X is available [here](osx.md).
+  pre-requirements on OS X is available [here](../../../setup/software-setup/setup_osx.md).
 
 Explanations & Tutorials
 -------------
