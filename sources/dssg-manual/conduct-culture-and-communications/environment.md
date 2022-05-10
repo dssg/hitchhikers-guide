@@ -1,8 +1,7 @@
 # The Space
 
-Each year we rent a space in the [host city](../../host-cities.md). While
-the space changes from
-year to year, in general the layout is open, and teams sit at desks
+Each year we reserve a space in the [host city](../../host-cities.md). While
+the space changes from year to year, in general, the layout is open and teams sit at desks
 together. There is private conference space for team meetings and
 calls with partners. Upon arrival, you will receive the conference
 room request and reservation policy. We also provide access to a
@@ -20,19 +19,19 @@ The foundation of any good project is a good team. We’ve worked to
 recruit and hand pick a passionate and skilled team of
 interdisciplinary folks that all bring unique skills to your
 cohort. The fellowship is comprised of teams of three or four
-**fellows** each. Your teammates will be fellow graduate students and
+**fellows** each. Your teammates will be fellow students and
 recent graduates. We aim to ensure that each team has a mix of
 backgrounds, from computer science, statistics, math, physical science
 and engineering, social sciences and public policy.
 
-Your team will be assigned a **Senior Data Science Mentor**. Each
+Your team will be assigned a **Data Science Mentor**. Each
 Mentor will be working with several teams of fellows, supporting their
 growth and project. All mentors are experienced data scientists who
 serve as a resource for you through the project development process,
 both with hands-on technical problems and implementation questions, as
 well as through higher-level design decisions.
 
-In addition to Technical Mentors, you will have a **Project
+In addition to Data Science Mentors, you will have a **Project
 Manager**. Each Project Manager oversees several teams and is
 responsible for managing your relationship with your project
 partner. They work with you and your partner to set goals and
@@ -44,7 +43,7 @@ with the public.
 
 If fellows have any kind of questions or concerns that they would like
 to discuss confidentially, they can address the **Fellow
-Advocate**. This is a member of staff who is not involved directly in
+Advocate**. This is a member of the staff who is not involved directly in
 managing the fellowship, and who is available to help with any
 conflict between fellows and members of staff. The advocate can also
 raise concerns or ask for help on behalf of fellows, should they feel
@@ -68,8 +67,8 @@ continuous feedback on the presentations.
 
 The **Fellowship Organizers** have spent months planning and preparing
 the summer program. They select fellows, mentors, project managers,
-interns, and project partners, find a space, secure funding, prepare
-the summer’s curriculum, and plan all fellowship events. Over the
+interns, and project partners; find a space; secure funding; prepare
+the summer’s curriculum; and plan all fellowship events. Over the
 summer, they will lead some of the fellowship-wide activities (such as
 the weekly deep dives and stand-ups), and teach some of the
 workshops. They also supervise the mentors, project managers, interns,
@@ -100,7 +99,7 @@ to learn the skills you want to learn.** For example, in the past,
 groups of fellows have started reading groups to learn about similar
 topics, like deep learning, together. That being said, *if you are
 lost, speak up.* You shouldn't feel that you are unable to make a
-meaningful contribution to your project. Your technical mentor is
+meaningful contribution to your project. Your data science mentor is
 available to help you tackle skill gaps.
 
 In all of this, we recognize that there is no definitive “Data Science
@@ -118,8 +117,8 @@ codebase, a cloud service provider like [Amazon Web Services](https://aws.com)
 for our data storage and analysis, [Slack](https://slack.com) for fellowship-wide
 communication, and [Trello](https://trello.com) for project management. We also store
 team-wide and fellowship-wide documents on **Google Drive**, and we
-schedule meetings on **Google Calendar**. You will receive a email
-address from the host to use for the duration of the fellowship. You
+schedule meetings on **Google Calendar**. You will receive an email
+address from the host institution to use for the duration of the fellowship. You
 are expected to use this for all fellowship-related communication.
 
 !!! warning "Call to action!"
