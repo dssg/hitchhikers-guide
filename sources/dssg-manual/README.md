@@ -1,7 +1,7 @@
-_We put together this manual for fellows in the Data Science for Social Good program. We are making it public to provide insight into the program to anyone interested in doing data science for social good, including potential fellows, mentors, and project partners, as well as those interested in funding or replicating such a program._
+_We put together this manual for fellows in the Data Science for Social Good program. Like everything else we create, we are also making it available publicly to anyone interested in doing data science for social good, including potential fellows, mentors, and project partners, as well as those interested in funding or replicating such a program._
 ________________
 # The DSSG Manual
-Welcome to the [Data Science for Social Good](https://www.dssgfellowship.org/) (DSSG) Fellowship program! We hope your experience this summer will help you grow your skills as a data scientist and learn how to apply those skills to solve real-world problems with social impact. This manual outlines our goals in running this fellowship program, our hopes for your experience, and our expectations of the participants. We’ve also outlined how the summer is typically structured and what you can expect from us.
+Welcome to the [Data Science for Social Good](https://www.dssgfellowship.org/) (DSSG) Fellowship program! We hope your experience this summer will help you grow your skills as a data scientist and learn how to apply those skills to solve real-world problems with social impact. This manual outlines our goals in running this fellowship program, our hopes for your experience, and our expectations of the participants. We’ve also outlined how the summer is typically structured and what you can expect.
 
 *Things To Do Before You Arrive:*
 
