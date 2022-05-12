@@ -12,8 +12,8 @@ fellows, staff, and visitors.
     which we have a **zero tolerance policy**.
     If you feel that you or anyone else is being harassed or treated
     unfairly, or have any other concerns related to this policy,
-    **please contact one of your fellow advocates.** All contact with
-    the fellow advocates will be confidential.
+    **please contact a staff member.** All contact with
+    the staff about harassment will be confidential.
 
 Data Science for Social Good is dedicated to providing a
 harassment-free experience in all event venues, including talks,
