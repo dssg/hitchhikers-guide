@@ -13,10 +13,10 @@ jobs:
       - uses: actions/checkout@master
         with:
           fetch-depth: 0
-      - name: Set up Python 3.7
+      - name: Set up Python 3.8
         uses: actions/setup-python@v1
         with:
-          python-version: 3.7
+          python-version: 3.8
       - run: pip install --upgrade pip && pip install -r requirements.txt
       - run: git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
       - name: Publish docs
