@@ -1,0 +1,23 @@
+name: Build and Serve to Github Pages
+
+on:
+  push:
+    branches:
+      - master
+  
+jobs:
+  docs:
+    name: Build and Serve to Github Pages
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.7
+      - run: pip install --upgrade pip && pip install -r requirements.txt
+      - run: git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
+      - name: Publish docs
+        run: mkdocs gh-deploy -f "$(pwd)/mkdocs.yml"
