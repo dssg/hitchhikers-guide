@@ -5,23 +5,20 @@ This tutorial is designed to help you understand how to get started with setting
 
 We assume a GNU/linux (Ubuntu) server that's been set up for you, and access to a database (PostgreSQL).
 
+??? note "Looking at this before the summer?"
+
+     Many of the specific instructions here rely on the server and database we'll have set up for you to use during the summer, so you may not be able to follow along yet, but please do read through the workflow here so you'll have an idea what to expect.
+
+
 ## 1. What should you have on your laptop?
 
-You should have the following tools installed on your local machine (whether it's a MacOS, windows, or GNU/Linux) that you will use primarily locally:
-
- * [`ssh`](../software-setup/#ssh-putty) (to connect to the server)
- * [`psql`](../software-setup/#psql) (to connect to the database through command line)
- * `dbeaver` (or `dbvisualizer`) to connect to the database through a GUI
- * [`git`](../software-setup/#git-and-github-account) client (to work with github repositories)
- * [Tableau](https://www.tableau.com/academic/students)
- * GNU/Emacs, Vi, sublime or atom (text editor to edit code locally)
- * [`python`](../software-setup/#python), `jupyter` and other coding tools are helpful but you will be primarily using them on the server and not on your laptop
+You'll need a few tools (such as SSH, a good text editor, a database utility, etc) installed on your local machine (whether it's a MacOS, windows, or GNU/Linux). If you haven't already done so, be sure to follow [the setup instructions here](../../setup/software-setup/) to get these installed on your laptop.
 
 ## 2. What should you set up on the server?
 
- * Decide which shell you're using. You have `bash` by default, but many of us like `zsh`.
+ * Decide which shell you're using. You have `bash` by default, but some people may prefer `zsh` (if you're new to working at the linux command line, stikcing with `bash` is a reasonable thing to do).
 
- * Set up dotfiles. you can clone this [repo](http://www.github.com/dssg/dotfiles) with Adolfo's dotfiles
+ * Optionally, set up dotfiles (these are configuration files that start with a `.` and allow you to specify shortcuts and change the behavior of your environment and various tools). you can clone this [repo](http://www.github.com/dssg/dotfiles) with Adolfo's dotfiles as a starting point to work from.
 
 !!! danger
 
@@ -29,7 +26,7 @@ You should have the following tools installed on your local machine (whether it'
 
 * [Configure git](../setup/git-and-github/basic_git_tutorial/01_BasicGit.md)
 
-* Decide on your editor (vim or GNU/Emacs).
+* Decide on your editor (vim or GNU/Emacs). Note that this is the editor you can use to edit files directly on the server. Some local text editors, such as VSCode, will allow you to edit files remotely on the server but through a GUI interface on your laptop.
 
 ??? note "For vim users"
 
@@ -39,9 +36,9 @@ You should have the following tools installed on your local machine (whether it'
 
      There are several options and depends in your taste, but [Emacs prelude](https://prelude.emacsredux.com/en/latest/) is a good start
 
-* Create a file with your database credentials ([sample file](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/1_getting_and_keeping_data/csv-to-db/default_profile.example)) or (**recommended**) setup a [.pg_service.conf](../setup/software-setup/pgservice_conf.example)
+* Create configuration files with your database credentials: [.pg_service.conf](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/setup/software-setup/pgservice_conf.example) and [.pgpass](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/setup/software-setup/pgpass.example) files, which should live in your home directory and have `600` permissions (e.g., `chmod 600 .pgpass && chmod 600 .pg_service.conf`) so only you can read/write it.
 
- * Learn about [virtual environments](../setup/software-setup/README.md#virtual-environment) and set one up (if it hasn't been set up for you).
+ * Learn about pyenv and virtual environments and set one up (if it hasn't been set up for you).
 
  * Learn how to install new python packages through `pip install`
 
@@ -49,27 +46,27 @@ You should have the following tools installed on your local machine (whether it'
 
 * `screen`/`tmux`: When you log in to your remote machine, run [screen](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-screen-on-an-ubuntu-cloud-server) or [tmux](https://hackernoon.com/a-gentle-introduction-to-tmux-8d784c404340) and work from a screen/tmux session
 
-* (Optional) When using the database for any reason from your laptop (to connect with tableau or dbeaver or for any other application), open an [ssh tunnel from your local machine to the remote server](../setup/software-setup/README.md#psql).
+* (Optional) When using the database for any reason from your laptop (to connect with tableau or dbeaver or for any other application), open an [ssh tunnel from your local machine to the remote server](../setup/software-setup/setup_session_guide.md#reaching-the-database-server):
 
-??? info "Windows"
+```
+ssh -N -L localhost:8888:localhost:8888 username@[projectname].dssg.io
+```
 
-       See [here for instructions](https://www.skyverge.com/blog/how-to-set-up-an-ssh-tunnel-with-putty/)
-
-??? info "MacOS, GNU/Linux"
-
-       As a reminder of [another section](../software-setup/#psql):
-
-       `ssh -N -L localhost:8888:localhost:8888 username@[projectname].dssg.io`
+Note that many GUI tools like `dbeaver` or `dbvisualizer` have a built-in interface for establishing an SSH tunnel that you can use as well.
 
 * Writing and Running Code
 
-    - If you're using your laptop (sublime, atom, or some other editor) to edit code, use git to commit nad push to the repo and then do a git pull on the server to get your code there.
+    - Because your data needs to stay in the secure environment we've set up for it, you'll only be able to run your code on the server. As such, you have three options for how/where you want to write code:
 
-    - If you're writing code on the server directly, you should use vim or GNU/Emacs.
+        - *[Reccomended (especially if you're new to remote workflows)]* Using an GUI editor on your laptop (such as VSCode) that allows you to remotely edit files stored on the server over SSH.
 
-    - git commit often. Every time you finish a chunk of work, do a git commit. git push when you've tested it and it is doing what you intended for it to do. Do not push code to master if it breaks. You will annoy your teammates :) Later in the summer, we'll talk more about how to create git branches.
+        - Using another editor on your laptop (sublime, atom, etc) to edit code stored locally, then use git to commit and push to the repo and then do a git pull on the server to get your code there.
 
-    - Every time you resume working, do a git pull to get the latest version of the code.
+        - Editing code on the server directly, using a text-based editor such as vim or GNU/Emacs in a terminal window.
+
+    - `git commit` often. Every time you finish a chunk of work, do a `git commit`. `git push` when you've tested it and it is doing what you intended for it to do. Do not push code to master if it breaks. You will annoy your teammates :) Later in the summer, we'll talk more about how to create git branches.
+
+    - **Every time you resume working**, do a `git pull` to get be sure you're starting from the latest version of the code.
 
     - If you need to copy files from your laptop to server, use `scp`.
 
@@ -78,9 +75,9 @@ You should have the following tools installed on your local machine (whether it'
         Other way around, i.e. *from the server to your laptop*, **DON'T!** All the data needs to stay on the remote server.
 
     - If you're writing (or running) your code in jupyter notebooks, then you should:
-        1. create a no-browser jupyter session on the *server* `jupyter notebook --no-browser --port=8889` You may need to chage the port number to avoid conflicts with other teammates using the same port.
+        1. create a no-browser jupyter session on the *server* `jupyter lab --no-browser --port=8889` You may need to chage the port number to avoid conflicts with other teammates using the same port.
 
-        2. On your local machine, create an SSH tunnel that forwards the port for Jupyter Notebook (`8889` in the above command) on the remote machine to a port on the local machine (also `8888` above) so that we can access it using our local browser. `ssh -N -L localhost:8888:localhost:8889 username@projectname.dssg.io`
+        2. On your local machine, create an SSH tunnel that forwards the port for Jupyter Lab (`8889` in the above command) on the remote machine to a port on the local machine (also `8888` above) so that we can access it using our local browser. `ssh -N -L localhost:8888:localhost:8889 username@projectname.dssg.io`
 
         3. Access the remote jupyter server via your local browser. Open your browser and go to [http://0.0.0.0:8888](http://0.0.0.0:8888)
 
@@ -91,7 +88,7 @@ You should have the following tools installed on your local machine (whether it'
 
 ## 4. Other Workflow Considerations
 
-1. When should you use Jupyter notebooks, versus when you should use .py files to write code
+1. When should you use Jupyter lab, versus when you should use .py files to write code
 2. When to use `psql` versus DBeaver
 3. When to use SQL versus when to use Python and/or Pandas
 
