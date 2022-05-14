@@ -2487,7 +2487,7 @@ manipulate and clean them and we need to handle them on our file
 system. The most robust way to do this, even with large files, is the
 command line.</p>
 <p>Command line tools are the data scientist's swiss army knife. They are
-versitile, portable, and have plenty of functions that your not quite
+versitile, portable, and have plenty of functions that you may not quite
 sure how to use, but you're sure they'll be useful at some point. From
 helping you obtain, clean, and explore your data, to helping you build
 models and manager your workflow, command line tools are essential to
@@ -2496,7 +2496,7 @@ and should be your starting point as you build your data science
 toolkit.</p>
 <h2 id="slides">Slides<a class="headerlink" href="#slides" title="Permanent link">#</a></h2>
 <p>Here's the
-<a href="intro-to-command-line-tools.pdf">presentation</a> we will go over to start  the workshop.</p>
+<a href="intro-to-command-line-tools.pdf">presentation</a> from a previous workshop.</p>
 <h2 id="the-basics">The basics<a class="headerlink" href="#the-basics" title="Permanent link">#</a></h2>
 <h3 id="where-am-i">Where am I?<a class="headerlink" href="#where-am-i" title="Permanent link">#</a></h3>
 <p><code>pwd</code> print working directory - this prints the name of the current working directory<br />
@@ -2506,7 +2506,7 @@ toolkit.</p>
 <h3 id="whats-in-my-folder">What's in my folder?<a class="headerlink" href="#whats-in-my-folder" title="Permanent link">#</a></h3>
 <p><code>ls</code> lists the contents in your current dictory.<br />
 <code>ls -l</code> "long listing" format (<code>-l</code>) shows the filesize, date of last change, and file permissions<br />
-<code>ls -l</code> "long listing" format (<code>-l</code>), shows all files (<code>-a</code>) including hidden dotfiles
+<code>ls -la</code> "long listing" format (<code>-l</code>), shows all files (<code>-a</code>) including hidden dotfiles
 <code>tree</code> lists the contents of the current directory and all sub-directories as a tree structure (great for peeking into folder structures!)<br />
 <code>tree -L 2</code> limits the tree expansion to 2 levels<br />
 <code>tree -hs</code> shows file sizes (<code>-s</code>) in human-readable format (<code>-h</code>)  </p>
@@ -2514,7 +2514,8 @@ toolkit.</p>
 <p><code>head -n10 $f</code> shows the "head" of the file, in this case the top 10 lines<br />
 <code>tail -n10 $f</code> shows the "tail" of the file<br />
 <code>tail -n10 $f | watch -n1</code> watches the tail of the file for any changes every second (<code>-n1</code>)<br />
-<code>tail -f -n10 $f</code> follows (<code>-f</code>) the tail of the file every time it changes, useful if you are checking the log of a running program<br />
+<code>tail -f -n10 $f</code> follows (<code>-f</code>) the tail of the file every time it changes, useful if you are checking the log of a running program 
+<code>less $f</code> paginated viewer for the contents of a text file 
 <code>wc $f</code> counts words, lines and characters in a file  (separate counts using <code>-w</code> or <code>-l</code> or <code>-c</code>)</p>
 <h3 id="where-is-my-file">Where is my file?<a class="headerlink" href="#where-is-my-file" title="Permanent link">#</a></h3>
 <p><code>find -name "&lt;lost_file_name&gt;" -type f</code> finds files by name<br />
@@ -2534,18 +2535,16 @@ toolkit.</p>
 <li>Be careful what you wish for, the command line is very powerful, it will do exactly what you ask. This can be dangerous when you're running commands like <code>rm</code> (remove), or <code>mv</code> (move). You can "echo" your commands to just print the command text without actually running the command.  </li>
 <li>Use tab completion to type commands faster and find filenames, press the tab key whilst typing to see suggestions  <code>tab</code></li>
 <li>Prepend <code>man</code> to a command to read the manual for example <code>man rm</code></li>
-<li>You can use <code>ctrl + r</code> to search the command line history, and search for previously searched commands. Or type <code>history</code> to see the history`.</li>
+<li>You can use <code>ctrl + r</code> to search the command line history, and search for previously searched commands. Or type <code>history</code> to see the history.</li>
 <li>Beware of spaces when creating filenames, this is not generally good practice, if you must you can use the <code>\</code> escape character to add blank spaces in a file name. For example <code>touch space\ bars\ .txt</code>, if you run <code>touch space bars .txt</code> this will create three files <code>space</code>, <code>bars</code>, and <code>.txt</code>.</li>
-<li>Have a look into using <code>tmux</code> or a similar terminal multiplexer for working with multiple terminals (see further reading living-in-the-terminal).</li>
-<li>Use <code>htop</code> or <code>top</code> for monitoring the usage of your instance.</li>
-<li>Have a go at learning the basics of <code>vim</code>, since it is ubiquitous on unix servers (see further reading living-in-the-terminal).</li>
-<li>If you are not familiar with regular expressions, have a look at further readings (learning regular expressions the practical way).</li>
+<li>Have a look into using <code>screen</code> or <code>tmux</code> for keeping processes alive and working with multiple terminals (see further reading <a href="../../programming_best_practices/living-in-the-terminal/">living-in-the-terminal</a>).</li>
+<li>Use <code>htop</code> for monitoring the usage of your instance (<a href="https://www.deonsworld.co.za/2012/12/20/understanding-and-using-htop-monitor-system-resources/">usage guide</a>).</li>
+<li>Have a go at learning the basics of <code>vim</code>, since it is ubiquitous on unix servers (see further reading <a href="../../programming_best_practices/living-in-the-terminal/">living-in-the-terminal</a>).</li>
+<li>Check out some tutorials on regular expressions if you are not already familiar with them.</li>
 </ul>
 <h2 id="command-line-for-data-science-lets-talk-about-the-weather">Command Line for Data Science - Let's talk about the weather<a class="headerlink" href="#command-line-for-data-science-lets-talk-about-the-weather" title="Permanent link">#</a></h2>
-<p>Since there's been so much controversy over weather predictions from
-paid vs free apps this year, we're going to just do it ourselves and
-create out own predictions using weather data from NOAA.</p>
-<p>You can find daily data for the US here:</p>
+<p>As an exercise, let's take a shot at creating our own weather predictions using data from NOAA.</p>
+<p>You can find daily data from 2016 for the US here:</p>
 <div class="codehilite"><pre><span></span>ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/2016.csv.gz
 </pre></div>
 
@@ -2642,7 +2641,7 @@ $ head ghcnd-stations.txt
 </pre></div>
 
 
-<p>Looks like the sation description might come in handy. We want to look at just the stations in Chicago.</p>
+<p>Looks like the station description might come in handy. We want to look at just the stations in Chicago.</p>
 <div class="codehilite"><pre><span></span>$ grep CHICAGO ghcnd-stations.txt | csvlook -H
 </pre></div>
 
@@ -2747,7 +2746,7 @@ data scientist). Here's a list of commands and concepts we'll cover:</p>
 <li>
 <p>Getting to know you: navigating files and directories in the command line</p>
 <ul>
-<li><code>`cd</code></li>
+<li><code>cd</code></li>
 <li><code>mkdir</code></li>
 <li><code>ls</code></li>
 <li><code>file</code></li>
