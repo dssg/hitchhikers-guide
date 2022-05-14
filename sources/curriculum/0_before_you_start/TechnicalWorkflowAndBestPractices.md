@@ -44,7 +44,7 @@ You'll need a few tools (such as SSH, a good text editor, a database utility, et
 
 ## 3. Workflow: How should you work day to day with your laptop and the remote server?
 
-* `screen`/`tmux`: When you log in to your remote machine, run [screen](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-screen-on-an-ubuntu-cloud-server) or [tmux](https://medium.com/hackernoon/a-gentle-introduction-to-tmux-8d784c404340) and work from a screen/tmux session
+* `screen`/`tmux`: When you log in to your remote machine, run [screen](https://linuxize.com/post/how-to-use-linux-screen/) (note: it will already be installed, so you can ignore those details; also [here's a quick video intro](https://www.youtube.com/watch?v=3txYaF_IVZQ)) or [tmux](https://medium.com/hackernoon/a-gentle-introduction-to-tmux-8d784c404340) and work from a screen/tmux session
 
 * (Optional) When using the database for any reason from your laptop (to connect with tableau or dbeaver or for any other application), open an [ssh tunnel from your local machine to the remote server](../setup/software-setup/setup_session_guide.md#reaching-the-database-server):
 
