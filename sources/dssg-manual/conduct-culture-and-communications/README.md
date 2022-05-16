@@ -39,8 +39,7 @@ offender to leave the specific event or the fellowship program as a
 whole.
 
 If you feel anyone has violated this policy, please bring it up
-directly with the individual or with a DSSG staff member or fellow
-advocate.
+directly with the individual or with a DSSG staff member.
 
 If you feel you have been unfairly accused of violating this code of
 conduct, please contact the fellowship staff team with a concise
