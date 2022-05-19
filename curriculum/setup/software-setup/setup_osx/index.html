@@ -2373,13 +2373,13 @@ A virtual environment is a tool that helps to keep dependencies required by diff
 By default, every project on your system will use the same directory to store and retrieve third party libraries (called site packages).
 A virtual environment helps avoid conflicts between requirements for different projects and it isolates dependencies.
 For example, different projects may use different versions of Python.</p>
-<p>To create an environment called <code>dssg</code> with Python 3.8.2 in <code>pyenv</code>, install the python version:</p>
-<div class="codehilite"><pre><span></span>$ pyenv install 3.8.2
+<p>To create an environment called <code>dssg</code> with Python 3.8.10 in <code>pyenv</code>, install the python version:</p>
+<div class="codehilite"><pre><span></span>$ pyenv install 3.8.10
 </pre></div>
 
 
 <p>This will take several minutes. Once complete, create the environment</p>
-<div class="codehilite"><pre><span></span>$ pyenv virtualenv 3.8.2 dssg-3.8.2
+<div class="codehilite"><pre><span></span>$ pyenv virtualenv 3.8.10 dssg-3.8.10
 </pre></div>
 
 
@@ -2410,8 +2410,8 @@ navigate to the folder of the file and execute</p>
 <h4>Jupyter</h4>
 <p>Jupyter notebooks are a convenient environment for experimentation, prototyping, and sharing exploratory work.
 Jupyter notebooks require a kernel that executes the code. It should link to the virtual environment:</p>
-<div class="codehilite"><pre><span></span>$ pyenv activate dssg-3.8.2
-$ python -m ipykernel install --user --name=dssg-3.8.2 --display-name &quot;dssg-3.8.2-env&quot;
+<div class="codehilite"><pre><span></span>$ pyenv activate dssg-3.8.10
+$ python -m ipykernel install --user --name=dssg-3.8.10 --display-name &quot;dssg-3.8.10-env&quot;
 </pre></div>
 
 
