@@ -174,31 +174,31 @@ pyenv-virtualenv: no virtualenv name given.
 
 If you see those outputs (pyenv version might be different depending on when you run this), you have installed both. Let's create a virtualenv with a specific python version and install the base packages we would need.
 
-Let's create an environment named `dssg-3.8.2` (this could be any name you like) with `Python 3.8.2`. First, install the Python version we need on `pyenv`. 
+Let's create an environment named `dssg-3.8.10` (this could be any name you like) with `Python 3.8.10`. First, install the Python version we need on `pyenv`. 
 
 _Note: You can check all available Python versions on pyenv by using `$ pyenv install --list`_
 
 ```
-$ pyenv install 3.8.2
+$ pyenv install 3.8.10
 ```
 
 This will take several minutes. Once complete, create the environment
 
 ```
-$ pyenv virtualenv 3.8.2 dssg-3.8.2
+$ pyenv virtualenv 3.8.10 dssg-3.8.10
 ```
 
 Now you have created the virtual environment. To use it with a specific project, you can navigate to the project folder and assign it to the directory:
 
 ```
-$ echo dssg-3.8.2 > .python-version
+$ echo dssg-3.8.10 > .python-version
 ```
-This will ensure that whenever you are inside that directory, the `dssg-3.8.2` environment will be activated.
+This will ensure that whenever you are inside that directory, the `dssg-3.8.10` environment will be activated.
 
 If not, you can manually activate the environment: 
 
 ```
-$ activate dssg-3.8.2
+$ activate dssg-3.8.10
 ```
 
 
@@ -228,8 +228,8 @@ Jupyter notebooks are a convenient environment for experimentation, prototyping,
 Jupyter notebooks require a kernel that executes the code. It should link to the virtual environment:
 
 ```
-$ pyenv activate dssg-3.8.2
-$ python -m ipykernel install --user --name=dssg-3.8.2 --display-name "dssg-3.8.2"
+$ pyenv activate dssg-3.8.10
+$ python -m ipykernel install --user --name=dssg-3.8.10 --display-name "dssg-3.8.10"
 ```
 
 _Note that you should have the virtual environment activated when you issue this command._
