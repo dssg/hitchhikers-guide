@@ -2376,21 +2376,21 @@ pyenv-virtualenv: no virtualenv name given.
 </pre></div>
 
 <p>If you see those outputs (pyenv version might be different depending on when you run this), you have installed both. Let's create a virtualenv with a specific python version and install the base packages we would need.</p>
-<p>Let's create an environment named <code>dssg-3.8.2</code> (this could be any name you like) with <code>Python 3.8.2</code>. First, install the Python version we need on <code>pyenv</code>. </p>
+<p>Let's create an environment named <code>dssg-3.8.10</code> (this could be any name you like) with <code>Python 3.8.10</code>. First, install the Python version we need on <code>pyenv</code>. </p>
 <p><em>Note: You can check all available Python versions on pyenv by using <code>$ pyenv install --list</code></em></p>
-<div class="highlight"><pre><span></span>$ pyenv install 3.8.2
+<div class="highlight"><pre><span></span>$ pyenv install 3.8.10
 </pre></div>
 
 <p>This will take several minutes. Once complete, create the environment</p>
-<div class="highlight"><pre><span></span>$ pyenv virtualenv 3.8.2 dssg-3.8.2
+<div class="highlight"><pre><span></span>$ pyenv virtualenv 3.8.10 dssg-3.8.10
 </pre></div>
 
 <p>Now you have created the virtual environment. To use it with a specific project, you can navigate to the project folder and assign it to the directory:</p>
-<p><div class="highlight"><pre><span></span>$ echo dssg-3.8.2 &gt; .python-version
+<p><div class="highlight"><pre><span></span>$ echo dssg-3.8.10 &gt; .python-version
 </pre></div>
-This will ensure that whenever you are inside that directory, the <code>dssg-3.8.2</code> environment will be activated.</p>
+This will ensure that whenever you are inside that directory, the <code>dssg-3.8.10</code> environment will be activated.</p>
 <p>If not, you can manually activate the environment: </p>
-<div class="highlight"><pre><span></span>$ activate dssg-3.8.2
+<div class="highlight"><pre><span></span>$ activate dssg-3.8.10
 </pre></div>
 
 <p>Once you have activated the environment you can start installing Python packages. </p>
@@ -2407,8 +2407,8 @@ This will ensure that whenever you are inside that directory, the <code>dssg-3.8
 <h4>Jupyter</h4>
 <p>Jupyter notebooks are a convenient environment for experimentation, prototyping, and sharing exploratory work. We install Jupyter in the above requirements.txt file. </p>
 <p>Jupyter notebooks require a kernel that executes the code. It should link to the virtual environment:</p>
-<div class="highlight"><pre><span></span>$ pyenv activate dssg-3.8.2
-$ python -m ipykernel install --user --name=dssg-3.8.2 --display-name &quot;dssg-3.8.2&quot;
+<div class="highlight"><pre><span></span>$ pyenv activate dssg-3.8.10
+$ python -m ipykernel install --user --name=dssg-3.8.10 --display-name &quot;dssg-3.8.10&quot;
 </pre></div>
 
 <p><em>Note that you should have the virtual environment activated when you issue this command.</em></p>
