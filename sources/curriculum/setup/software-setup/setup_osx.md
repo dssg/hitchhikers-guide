@@ -111,7 +111,7 @@ By default, every project on your system will use the same directory to store an
 A virtual environment helps avoid conflicts between requirements for different projects and it isolates dependencies.
 For example, different projects may use different versions of Python.
 
-To create an environment called `dssg` with Python 3.8.10 in `pyenv`, install the python version:
+To create an environment called `dssg-3.8.10` with Python 3.8.10 in `pyenv`, install the python version:
 
     $ pyenv install 3.8.10
 
@@ -121,12 +121,20 @@ This will take several minutes. Once complete, create the environment
 
 And then assign it as the virtual environment to use in your directory of choice with
 
-    $ echo dssg > .python-version
+    $ echo dssg-3.8.10 > .python-version
+
+This will ensure that whenever you are inside that directory, the `dssg-3.8.10` environment will be activated.
+
+If not, you can manually activate the environment: 
+
+```
+$ activate dssg-3.8.10
+```
 
 Depending on your command shell (`bash`, `zsh`, `csh`, etc) configuration you should get some info that the environment is in use,  if not you can check it with
 
     $ pyenv version
-    dssg (set by /home/user/projects/.python-version)
+    dssg-3.8.10 (set by /home/user/projects/.python-version)
 
 
 ### Package installations
