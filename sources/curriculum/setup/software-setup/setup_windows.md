@@ -89,7 +89,7 @@ If you haven't used git/github before, [here are a couple of useful resources](.
 
 We'll primarily use the python programming language for scripting, doing analyses, and building models throughout the summer, so let's make sure we have the right version and packages installed.
 
-**!!! warning "pyenv vs anaconda"**
+!!! warning "pyenv vs anaconda"
 
 This is a contentious topic! Some people argue that they find **Anaconda** (`conda` or `mini-conda`) easier to get up and running while others argue for the consistency and flexibility of `pyenv`. In general, python's library system is a bit of a mess and in constant evolution.
 
