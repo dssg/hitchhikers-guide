@@ -2373,7 +2373,7 @@ A virtual environment is a tool that helps to keep dependencies required by diff
 By default, every project on your system will use the same directory to store and retrieve third party libraries (called site packages).
 A virtual environment helps avoid conflicts between requirements for different projects and it isolates dependencies.
 For example, different projects may use different versions of Python.</p>
-<p>To create an environment called <code>dssg</code> with Python 3.8.10 in <code>pyenv</code>, install the python version:</p>
+<p>To create an environment called <code>dssg-3.8.10</code> with Python 3.8.10 in <code>pyenv</code>, install the python version:</p>
 <div class="codehilite"><pre><span></span>$ pyenv install 3.8.10
 </pre></div>
 
@@ -2384,13 +2384,18 @@ For example, different projects may use different versions of Python.</p>
 
 
 <p>And then assign it as the virtual environment to use in your directory of choice with</p>
-<div class="codehilite"><pre><span></span>$ echo dssg &gt; .python-version
+<div class="codehilite"><pre><span></span>$ echo dssg-3.8.10 &gt; .python-version
 </pre></div>
 
 
+<p>This will ensure that whenever you are inside that directory, the <code>dssg-3.8.10</code> environment will be activated.</p>
+<p>If not, you can manually activate the environment: </p>
+<div class="highlight"><pre><span></span>$ activate dssg-3.8.10
+</pre></div>
+
 <p>Depending on your command shell (<code>bash</code>, <code>zsh</code>, <code>csh</code>, etc) configuration you should get some info that the environment is in use,  if not you can check it with</p>
 <div class="codehilite"><pre><span></span>$ pyenv version
-dssg (set by /home/user/projects/.python-version)
+dssg-3.8.10 (set by /home/user/projects/.python-version)
 </pre></div>
 
 
