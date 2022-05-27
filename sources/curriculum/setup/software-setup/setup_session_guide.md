@@ -1,4 +1,4 @@
-# Setting your machine
+# Software Setup Session
 
 ## Motivation
 
@@ -11,6 +11,8 @@ Every team will settle on a specific setup with their tech mentors. This setup w
 - your version control workflow.
 
 Today, we're **not** doing that. We're making sure that everybody has some basic tools they will need for the tutorials and the beginning of the fellowship, and that you can log into the server and database. Hopefully you already got many of these tools set up on your computer before arriving, but we'll quickly check that your local enviroment is working (and resolving any lingering issues), and then talk a bit about some of the remote servers and tools we'll be using throughout the summer.
+
+You might not understand every detail of the commands we go through today, but don't worry if not -- we'll go into a lot more detail in the following sessions throughout the week. For today, we just want to be sure everyone has the tools they'll need for working on their projects.
 
 !!! info "Getting help"
 
@@ -32,35 +34,142 @@ Today, we're **not** doing that. We're making sure that everybody has some basic
 
     The notes below aren't self-explanatory and will not cover all (or even the majority) of errors you might encounter. Make good use of the people in the room!
 
-Let's get this over with!
+Let's get started!
 
-## Setting Up Your Local Environment
+## Windows Users: Setting up WSL
 
-First, let's work through the guide for setting up the software for your local machine that we sent earlier in the summer:
+We'll be using a lot of unix-based tools, but fortunately windows now provides a tool called "windows subsystem for linux" (WSL) that provides support for them. If you're using windows and didn't already set up WSL, let's do that now:
 
-*   **OS X** users - Follow [these instructions](setup_osx.md)
-*   **Linux** users - You probably know how to do it, but you can follow the [OS X instructions](setup_osx.md) substituting your appropriate package manage for homebrew
-*   **Windows** users - Follow [these instructions](setup_windows.md)
+[WSL Instructions for Windows](setup_windows.md#windows-subsystem-for-linux-wsl)
 
 
-## Remote Environment for the Summer
+## SSH
 
 The data you'll be using for the summer is generally of a sensitive nature and needs to be protected by remaining in a secure compute environment. As such, all of your work directly with the data will be on one of the remote servers we've set up. Let's see how connecting to those resources works:
 
+### Creating an SSH Keypair
+
+The setup information we sent over the summer had some details on creating an SSH keypair, but if you need to revisit it, you can find that here:
+
+* [Instructions for Windows](setup_windows.md#ssh-keys)
+* [Instructions for MacOS/Linux](setup_osx.md#ssh-keys)
+
 ### Reaching the Compute Server
 
-Now that you've created an SSH key, you should be able to use your username and server's address to ssh into the server:
+Now let's make sure you can connect to the server. In your terminal, type:
 
-    ssh yourusername@serverurl
+```
+ssh {your_andrew_id}@training.dssg.io
+```
 
-Once you enter your password, you should be dropped into a shell on the server:
+If you got an error about your ssh key, you might need to tell `ssh` where to find the private key, which you can do with the `-i` option:
 
-    yourusername@servername: ~$
+```
+ssh -i {/path/to/your/private_key} {your_andrew_id}@training.dssg.io
+```
 
+If you connected successfully, you should see a welcome message and see a prompt like:
+
+```
+yourandrewid@dssg-primary: ~$
+```
+
+To confirm that you're connected, let's look at the output of the `hostname` command:
+
+* Type `hostname` at the shell prompt and then hit return
+* Did you get `dssg-primary`?
+    - If so, you're all set! Put a green post-it on the back of your monitor!
+    - If not, put a red post-it on the back of your monitor and we'll help you out.
 
 !!! important "PRO tip"
 
     Your life will be easier if you set up a [`.ssh/config` file](ssh_config.example)
+
+
+## Accessing the Database
+
+### Reaching the Database from the Compute Server
+
+We'll be using a database running PostgreSQL for much of our project data.
+
+One way to connect to the database is via the command line from the server using `psql`. Since we're already logged onto the server, let's give that a try:
+
+```
+$ psql -h db.dssg.io -U {your_andrew_id} ac-food
+```
+
+If all goes well, you should see something like:
+
+```
+psql (11.6 (Ubuntu 11.6-1.pgdg18.04+1), server 11.5)
+SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+Type "help" for help.
+
+ac-food=>
+```
+
+Let's make sure you can run interact with the server:
+
+* Type `SELECT CURRENT_USER;` and then hit return
+* Did you get back your andrew id?
+    - If so, you're all set! Put a green post-it on the back of your monitor!
+    - If not, put a red post-it on the back of your monitor and we'll help you out.
+
+Finally, exit out of `psql` with `\q`:
+
+```
+ac-food=> \q
+```
+
+!!! important "Your postgres password"
+
+    You might have noticed that `psql` didn't ask you for a password when you
+    connected to the server. This is because we've stored your password in a
+    configuration file called `.pgpass`. You can view it at the bash prompt with:
+
+    ```
+    $ cat ~/.pgpass
+    ```
+
+    Your password is everything after the last colon:
+
+    ```
+    db.dssg.io:5432:*:{andrew_id}:{YOUR_PASSWORD}
+    ```
+
+### Reaching the Database from Your Computer
+
+Often it can be a little easier to access the database via GUI system from your computer. To do so, we recommend setting up dbeaver, since it offers a free version and works with every operating system (but if you already have a SQL client like dbvisualizer or data grip that you know how to use and prefer, feel free to use that instead).
+
+!!! important "Protecting your data"
+
+    Although it's fine to run queries and look at the data from a SQL client like dbeaver running on your computer, you should **never** use that client to download an extract of the data (in whole or part) to your local computer, excel, google sheets, etc.
+
+To get DBeaver, you can install it directly from the [DBeaver Website](https://dbeaver.io/download/). NOTE: you'll want to install the free "community edition" version.
+
+
+
+
+## Text Editor
+
+### Editing Files Remotely Over SSH
+
+
+## Access from Off-Campus: CMU VPN
+
+
+## Understanding The "Big Picture"
+
+
+## Other (Optional) Local Tools
+
+Most of your work this summer will be on the remote server for your project, but there are a few of other tools that might be handy to have installed locally if you feel inclined:
+
+- Python (using pyenv) and jupyterlab [[windows](setup_windows.md#setting-up-python-and-related-tools)] [[macos/linux](setup_osx.md#python)]
+- Github client [[windows](setup_windows.md#git-and-github-account)] [[macos/linux](setup_osx.md#git-and-github-account)]
+- psql CLI [[windows](setup_windows.md#database)] [[macos/linux](setup_osx.md#psql)]
+- [Tableau](https://www.tableau.com/academic/students) is a good tool to explore and visualize data without using any programming. If you’re a student, you can request a free license.
+
 
 
 ## Reaching the Database Server

@@ -91,6 +91,7 @@ nav:
       - Project deliverables: curriculum/scoping/deliverables.md
       - Tech setup:
           - Software you need: curriculum/setup/software-setup/README.md
+          - Software setup session: curriculum/setup/software-setup/setup_session_guide.md
           - Command line intro: curriculum/setup/command-line-tools/README.md
           - Git and github:
               - What is it?: curriculum/setup/git-and-github/README.md
