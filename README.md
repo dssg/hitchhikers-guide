@@ -20,7 +20,7 @@ The primary audience for this guide is the set of fellows coming to DSSG but we 
 
 ## What is in this guide?
 
-Our number one priority at  [DSSG](http://dssgfellowship.org) is to **train fellows to do responsible data science/ML/AI for social good work**. This curriculum includes many things you'd find in a data science course or bootcamp, but with an emphasis on solving problems with social impact, integrating data science with the social sciences, understanding and discussing ethical implications of the work, as well as privacy, and confidentiality issues.
+Our number one priority at [DSSG](http://dssgfellowship.org) is to **train fellows to do responsible data science/ML/AI for social good work**. This curriculum includes many things you'd find in a data science course or bootcamp, but with an emphasis on solving problems with social impact, integrating data science with the social sciences, understanding and discussing ethical implications of the work, as well as privacy, and confidentiality issues.
 
 We have spent many (sort of) early mornings waxing existential over Dunkin' Donuts while trying to define what makes a "data scientist for social good," that enigmatic breed combining one part data scientist, one part consultant, one part educator, and one part bleeding heart idealist. We've come to a rough working definition in the form of the skills and knowledge one would need, which we categorize as follows:
 - **Programming,** because you'll need to tell your computer what to do, usually by writing code.
@@ -47,7 +47,7 @@ The links below will help you find things quickly.
 This sections covers general information on projects, working with partners, presentations, orientation information, and the following schedules:
 
 - [High level summer plan](sources/dssg-manual/summer-overview/High%20Level%20Plan%20for%20the%20Summer.pdf): details what the goals are for each week of the program
-- [Sample Orientation schedules[2016](sources/dssg-manual/summer-overview/DSSG2016OrientationSchedule.pdf) and [2022](sources/dssg-manual/summer-overview/Week%201%20Orientation%20Schedule%202022.pdf): sample detailed schedules for the first two weeks of the program
+- Sample Orientation schedules [2016](sources/dssg-manual/summer-overview/DSSG2016OrientationSchedule.pdf) and [2022](sources/dssg-manual/summer-overview/Week%201%20Orientation%20Schedule%202022.pdf): sample detailed schedules for the first two weeks of the program
 
 ### [Conduct, Culture, and Communications](sources/dssg-manual/conduct-culture-and-communications/README.md)
 This section details the DSSG anti-harassment policy, goals of the fellowship, what we hope fellows get out of the experience, the expectations of the fellows, and the DSSG environment. A slideshow version of this can also be found [here](dssg-manual/conduct-culture-and-communications/conduct-culture-and-communications.pdf).
