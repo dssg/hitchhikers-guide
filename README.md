@@ -47,7 +47,7 @@ The links below will help you find things quickly.
 This sections covers general information on projects, working with partners, presentations, orientation information, and the following schedules:
 
 - [High level summer plan](sources/dssg-manual/summer-overview/High%20Level%20Plan%20for%20the%20Summer.pdf): details what the goals are for each week of the program
-- [Sample Orientation schedule](sources/dssg-manual/summer-overview/DSSG2016OrientationSchedule.pdf): sample detailed schedule for the first two weeks of the program
+- [Sample Orientation schedules[2016](sources/dssg-manual/summer-overview/DSSG2016OrientationSchedule.pdf) and [2022](sources/dssg-manual/summer-overview/Week%201%20Orientation%20Schedule%202022.pdf): sample detailed schedules for the first two weeks of the program
 
 ### [Conduct, Culture, and Communications](sources/dssg-manual/conduct-culture-and-communications/README.md)
 This section details the DSSG anti-harassment policy, goals of the fellowship, what we hope fellows get out of the experience, the expectations of the fellows, and the DSSG environment. A slideshow version of this can also be found [here](dssg-manual/conduct-culture-and-communications/conduct-culture-and-communications.pdf).
