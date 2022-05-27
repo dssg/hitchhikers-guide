@@ -95,7 +95,7 @@ We'll be using a database running PostgreSQL for much of our project data.
 One way to connect to the database is via the command line from the server using `psql`. Since we're already logged onto the server, let's give that a try:
 
 ```
-$ psql -h db.dssg.io -U {your_andrew_id} ac-food
+$ psql -h db.dssg.io -U {your_andrew_id} food_inspections
 ```
 
 If all goes well, you should see something like:
@@ -105,7 +105,7 @@ psql (11.6 (Ubuntu 11.6-1.pgdg18.04+1), server 11.5)
 SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
 Type "help" for help.
 
-ac-food=>
+food_inspections=>
 ```
 
 Let's make sure you can run interact with the server:
@@ -118,7 +118,7 @@ Let's make sure you can run interact with the server:
 Finally, exit out of `psql` with `\q`:
 
 ```
-ac-food=> \q
+food_inspections=> \q
 ```
 
 !!! important "Your postgres password"
@@ -147,7 +147,9 @@ Often it can be a little easier to access the database via GUI system from your 
 
 To get DBeaver, you can install it directly from the [DBeaver Website](https://dbeaver.io/download/). NOTE: you'll want to install the free "community edition" version.
 
+Because the database is only accessible from our compute servers, we'll have to use an **SSH Tunnel** to connect to it via dbeaver. Here's how to set that up:
 
+First, 
 
 
 ## Text Editor
