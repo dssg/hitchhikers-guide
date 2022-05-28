@@ -49,7 +49,7 @@ The data you'll be using for the summer is generally of a sensitive nature and n
 
 ### Creating an SSH Keypair
 
-The setup information we sent over the summer had some details on creating an SSH keypair, but if you need to revisit it, you can find that here:
+The setup information we sent out before the summer had some details on creating an SSH keypair, but if you need to revisit it, you can find that here:
 
 * [Instructions for Windows](setup_windows.md#ssh-keys)
 * [Instructions for MacOS/Linux](setup_osx.md#ssh-keys)
@@ -81,7 +81,7 @@ To confirm that you're connected, let's look at the output of the `hostname` com
     - If so, you're all set! Put a green post-it on the back of your monitor!
     - If not, put a red post-it on the back of your monitor and we'll help you out.
 
-!!! important "PRO tip"
+!!! info "PRO tip"
 
     Your life will be easier if you set up a [`.ssh/config` file](ssh_config.example)
 
@@ -149,12 +149,103 @@ To get DBeaver, you can install it directly from the [DBeaver Website](https://d
 
 Because the database is only accessible from our compute servers, we'll have to use an **SSH Tunnel** to connect to it via dbeaver. Here's how to set that up:
 
-First, 
+First, create a new connection to a postgres database:
+
+![creating a connection in dbeaver](imgs/dbeaver_new_connection.png)
+
+Next, fill in the details for the database server on the window that pops up, following the example below:
+
+![postgres connection details](imgs/dbeaver_connection_info.png)
+
+Note that your password here can be found in the `.pgpass` file that we looked at on the server.
+
+Finally, to actually reach the database server, we need to set up the SSH tunnel. Under the SSH tab, fill in these details:
+
+![ssh tunnel details](imgs/dbeaver_tunnel.png)
+
+You might want to try clicking `Test tunnel configuration` to make sure that's working, then `Test Configuration ...` to ensure you can reach the database.
+
+!!! important "Got an error like `invalid privatekey: [B@7696c31f`?"
+
+    You may need to install a different SSH package called "SSHJ" -- under the Help menu, choose "Install new Software" then search for SSHJ and install the package (you'll need to restart dbeaver). After restarting, choose “SSHJ” in the drop-down under advanced (should be labeled either ”Implementation” or “Method”) when setting up the tunnel
+
+Let's make sure you can connect to the database:
+
+* Try connecting to the database and opening a new sql script
+* Type `SELECT CURRENT_USER;` and then press `Ctrl-Enter` to run it
+* Did you get back your andrew id?
+    - If so, you're all set! Put a green post-it on the back of your monitor!
+    - If not, put a red post-it on the back of your monitor and we'll help you out.
 
 
 ## Text Editor
 
+You'll want a good text editor to write code installed on your local machine. We recommend using VSCode because it's both free and allows you to directly edit code stored on a remote machine over SSH (this comes in very handy since all of your code will need to run on the server in order to keep the data in our secure environment). If you already have a different editor that you prefer (e.g., Sublime, PyCharm, emacs, etc.), you're welcome to use that (though note that you may need do some extra work to make sure you keep your local code in sync with the server). 
+
+We sent out some instructions on installing VSCode before the summer, but if you need to revisit them, you can find them below (be sure to install the Remote-SSH extension as well):
+
+* [Instructions for Windows](setup_windows.md#vscode)
+* [Instructions for MacOS/Linux](setup_osx.md#text-editor)
+
+!!! info "PRO tip"
+
+    You might also want to install the microsoft python extension, which provides some additional features such as improved auto-completion when coding in python.
+
+
 ### Editing Files Remotely Over SSH
+
+In the same way we set up DBeaver to use SSH to talk to our remote infrastructure, we can set up VSCode to remotely edit files stored on the server using the `Remote-SSH` extension you should have installed in the step above. Let's set that up and make sure we can talk to the server:
+
+1. Configure our training server as an SSH host:
+
+    With the SSH plugin installed, we can tell VSCode how to log into the server. In this step we'll be entering our connection string and saving it in a file, making it easy to connect in the future.
+
+   1. Press `ctrl+shift+p` (Linux/Windows) or `⌘+shift+p` (MacOS) to open the command pallette, and select `Remote-SSH: Connect to Host`
+   
+   ![](img/vscode-open-connect-to-host.png)
+
+   2. Select `Add New SSH Host...`
+   
+   ![](img/vscode-connect-to-host.png)
+
+   3. Enter `ssh -i {path to your private key} {andrewid}@training.dssg.io` 
+   
+   ![](img/vscode-enter-login.png)
+
+   4. Select the first option to store your login config: 
+   
+   ![](img/vscode-update-config.png)
+
+2. Connect VSCode to the course server:
+   1. Connect to the CMU Full VPN
+   2. Press `ctrl+shift+p` (Linux/Windows) or `⌘+shift+p` (MacOS) to open the command pallette, and select `Remote-SSH: Connect to Host`
+   
+   ![](img/vscode-open-connect-to-host.png)
+
+   3. Select the ssh config we just created: `training.dssg.io`
+   
+   ![](img/vscode-select-host.png)
+
+   4. Enter your private key passcode if VSCode prompts you to (it will open a box at the top of the screen). 
+
+   5. You should be connected to the training server. This should be indicated in the bottom of your VSCode window: 
+   ![](img/vscode-ssh-connected.png)
+
+3. Open a workspace folder:
+
+    Now that VSCode is connected via SSH, you can browse all of the files and folders on the server. In this step, we select a folder containing some code to edit and test.
+
+   1. Select the folder menu button
+   
+   ![](img/vscode-file-menu.png)
+
+   2. Select `Open Folder`
+   
+         ![](img/vscode-open-folder.png)
+
+   3. Select a folder to work in
+   
+   ![](img/vscode-select-folder.png)
 
 
 ## Access from Off-Campus: CMU VPN
