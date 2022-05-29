@@ -202,34 +202,34 @@ In the same way we set up DBeaver to use SSH to talk to our remote infrastructur
 
    1. Press `ctrl+shift+p` (Linux/Windows) or `⌘+shift+p` (MacOS) to open the command pallette, and select `Remote-SSH: Connect to Host`
    
-   ![](img/vscode-open-connect-to-host.png)
+   ![](imgs/vscode-open-connect-to-host.png)
 
    2. Select `Add New SSH Host...`
    
-   ![](img/vscode-connect-to-host.png)
+   ![](imgs/vscode-connect-to-host.png)
 
    3. Enter `ssh {andrewid}@training.dssg.io` (remember from above that you may also need to use the `-i` parameter to tell `ssh` where to find your private key: `ssh -i {path to your private key} {andrewid}@training.dssg.io`)
    
-   ![](img/vscode-enter-login.png)
+   ![](imgs/vscode-enter-login.png)
 
    4. Select the first option to store your login config: 
    
-   ![](img/vscode-update-config.png)
+   ![](imgs/vscode-update-config.png)
 
 2. Connect VSCode to the course server:
    1. Connect to the CMU Full VPN
    2. Press `ctrl+shift+p` (Linux/Windows) or `⌘+shift+p` (MacOS) to open the command pallette, and select `Remote-SSH: Connect to Host`
    
-   ![](img/vscode-open-connect-to-host.png)
+   ![](imgs/vscode-open-connect-to-host.png)
 
    3. Select the ssh config we just created: `training.dssg.io`
    
-   ![](img/vscode-select-host.png)
+   ![](imgs/vscode-select-host.png)
 
    4. Enter your private key passcode if VSCode prompts you to (it will open a box at the top of the screen). 
 
    5. You should be connected to the training server. This should be indicated in the bottom of your VSCode window: 
-   ![](img/vscode-ssh-connected.png)
+   ![](imgs/vscode-ssh-connected.png)
 
 3. Open a workspace folder:
 
@@ -237,18 +237,34 @@ In the same way we set up DBeaver to use SSH to talk to our remote infrastructur
 
    1. Select the folder menu button
    
-   ![](img/vscode-file-menu.png)
+   ![](imgs/vscode-file-menu.png)
 
    2. Select `Open Folder`
    
-         ![](img/vscode-open-folder.png)
+         ![](imgs/vscode-open-folder.png)
 
    3. Select a folder to work in
    
-   ![](img/vscode-select-folder.png)
+   ![](imgs/vscode-select-folder.png)
 
 
 ## Access from Off-Campus: CMU VPN
+
+For an additional layer of security, our infrastructure can only be reached from from the CMU campus network. As such, if you're not on campus, you'll need to use the CMU VPN to reach the server:
+
+1. Download Cisco Anyconnect VPN client from [here](https://www.cmu.edu/computing/software/all/cisco-anyconnect/index.html) and install it
+
+2. Open the Anyconnect client
+
+3. Enter login credentials (be sure to select the "Full VPN" Group):
+    - Connect to: vpn.cmu.edu
+    - Group: “Full VPN”
+    - Username: your andrewid
+    - Password: your CMU password
+
+4. Click connect
+
+![](imgs/cmu_vpn.png)
 
 
 ## Understanding The "Big Picture"
