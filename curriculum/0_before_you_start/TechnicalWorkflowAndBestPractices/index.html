@@ -725,6 +725,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../setup/software-setup/setup_session_guide/" title="Software setup session" class="md-nav__link">
+      Software setup session
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../setup/command-line-tools/" title="Command line intro" class="md-nav__link">
       Command line intro
     </a>
@@ -738,13 +750,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-6-3" type="checkbox" id="nav-5-6-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-6-4" type="checkbox" id="nav-5-6-4">
     
-    <label class="md-nav__link" for="nav-5-6-3">
+    <label class="md-nav__link" for="nav-5-6-4">
       Git and github
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-5-6-3">
+      <label class="md-nav__title" for="nav-5-6-4">
         Git and github
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -2393,6 +2405,58 @@
 <ul>
 <li>Tunneling to the DB for Tableau (or another app like QGIS): <code>ssh  -L 5433:databaseservername:5432 username@projectservername</code></li>
 </ul>
+<h1 id="below-copied-from-old-setup_session_guidemd">BELOW COPIED FROM OLD setup_session_guide.md<a class="headerlink" href="#below-copied-from-old-setup_session_guidemd" title="Permanent link">#</a></h1>
+<h2 id="reaching-the-database-server">Reaching the Database Server<a class="headerlink" href="#reaching-the-database-server" title="Permanent link">#</a></h2>
+<p>The database server runs PostgreSQL.</p>
+<details class="info"><summary>MacOS</summary><p>Make sure you have the <code>psql</code> client installed; on Mac, this would be</p>
+<div class="highlight"><pre><span></span>$ brew tap-pin dbcli/tap
+$ brew install pgcli
+</pre></div>
+
+<p>Note, we are installing <code>pgcli</code> instead of <code>psql</code>, but apparently there is no way of install <em>just</em> the client without installing the whole database server.</p>
+<p>If you still want to give it a shot:</p>
+<div class="highlight"><pre><span></span>$ brew postgres
+</pre></div>
+
+</details>
+<details class="info"><summary>GNU/Linux</summary><p>On Debian based distros:</p>
+<div class="highlight"><pre><span></span>sudo apt install postgresql-client libpq-dev
+</pre></div>
+
+</details>
+<p>Once you have the postgres client installed, you can access the training database with it. However, the database server only allows access from the training server. Thus, you need to set up an <em>SSH tunnel</em> through the training server to the Postgres server:</p>
+<div class="highlight"><pre><span></span>$ ssh -NL localhost:8888:POSTGRESURL:5432 ec2username@EC2URL
+</pre></div>
+
+<p>where you need to substitute <code>POSTGRESURL</code>, <code>ec2username</code>, and <code>EC2URL</code> with the postgres server's URL, your username on the training server, and the training server's URL respectively. Also, you should substitute <code>8888</code> with a random number in the 8000-65000 range of your choice (port <code>8888</code> might be in use already).</p>
+<p>This command forwards your laptop's port 8888 through your account on the EC2 (EC2URL) to the Postgres server port 5432. So if you access your local port 8888 in the next step, you get forwarded to the Postgres server's port 5432 - but from the Postgres server's view, the traffic is now coming from the training server (instead of your laptop), and the training server is the only IP address that is allowed to access the postgres server.</p>
+<p><img alt="" src="https://cdn-images-1.medium.com/max/1000/1*0JaPjL3O5Se96b7IGt5P_A.png" />
+ <em>Figure. A graphical representation of a ssh tunnel. Not quite our situation -they are using a MySQL db who knows why-, but it is close enough. Courtesy from this <a href="https://myopswork.com/ssh-tunnel-for-rds-via-bastion-host-6659a48edc">Medium post</a>.</em></p>
+<p>Connect to the Postgres database on the forwarded port</p>
+<div class="highlight"><pre><span></span>$ psql -h localhost -p 8888 -U USERNAME -d DBNAME
+</pre></div>
+
+<p>where you need to replace <code>USERNAME</code> with the postgres [!] username, <code>DBNAME</code> with the name of your database, and the <code>8888</code> with the number you chose in the previous step. You then get prompted for a password. This is now the postgres server asking, so you need to reply with the corresponding password!</p>
+<p>This should drop you into a SQL shell on the database server.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In some configurations, you'll need to explicitly assume a role to do anything beyond connecting to the database. To make changes to the training database, use the <code>training_write</code> role. Let's test it by creating and dropping a schema:</p>
+<div class="highlight"><pre><span></span>set role training_write;
+create schema jsmith;
+drop schema jsmith;
+</pre></div>
+
+</div>
+<div class="admonition important">
+<p class="admonition-title">PRO tip</p>
+<p>You could save a lot of keystrokes if you setup a <a href="./pgservice_conf.example"><code>.pgservice.conf</code></a>file  and a <a href="./pgpass.example"><code>.pgpass</code></a> file in your <code>$HOME</code> folder.</p>
+<p>Then you could simply type</p>
+<div class="highlight"><pre><span></span>$ psql service=mydb  # mydb is the name of the dbservice
+</pre></div>
+
+</div>
+<details class="info"><summary>I really prefer a GUI</summary><p>if you want a graphical interface to databases - you might  want to use <a href="http://dbeaver.jkiss.org/">DBeaver</a>.</p>
+</details>
                 
                   
                 
