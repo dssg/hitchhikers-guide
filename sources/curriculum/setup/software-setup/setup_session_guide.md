@@ -269,6 +269,10 @@ For an additional layer of security, our infrastructure can only be reached from
 
 ## Understanding The "Big Picture"
 
+Finally, before we go, let's take a minute to zoom out to the "big picture" of the infrastructure we'll be using and see how all these pieces fit together:
+
+![](imgs/infrastructure_components.png)
+
 
 ## Other (Optional) Local Tools
 
@@ -279,91 +283,5 @@ Most of your work this summer will be on the remote server for your project, but
 - psql CLI [[windows](setup_windows.md#database)] [[macos/linux](setup_osx.md#psql)]
 - [Tableau](https://www.tableau.com/academic/students) is a good tool to explore and visualize data without using any programming. If you’re a student, you can request a free license.
 
-
-
-## Reaching the Database Server
-
-The database server runs PostgreSQL.
-
-??? info "MacOS"
-
-    Make sure you have the `psql` client installed; on Mac, this would be
-
-    ```
-    $ brew tap-pin dbcli/tap
-    $ brew install pgcli
-    ```
-
-    Note, we are installing `pgcli` instead of `psql`, but apparently there is no way of install *just* the client without installing the whole database server.
-
-    If you still want to give it a shot:
-
-    ```
-    $ brew postgres
-    ```
-
-
-??? info "GNU/Linux"
-
-    On Debian based distros:
-
-    ```
-    sudo apt install postgresql-client libpq-dev
-    ```
-
-
-Once you have the postgres client installed, you can access the training database with it. However, the database server only allows access from the training server. Thus, you need to set up an *SSH tunnel* through the training server to the Postgres server:
-
- ```
- $ ssh -NL localhost:8888:POSTGRESURL:5432 ec2username@EC2URL
- ```
-
-where you need to substitute `POSTGRESURL`, `ec2username`, and `EC2URL` with the postgres server's URL, your username on the training server, and the training server's URL respectively. Also, you should substitute `8888` with a random number in the 8000-65000 range of your choice (port `8888` might be in use already).
-
- This command forwards your laptop's port 8888 through your account on the EC2 (EC2URL) to the Postgres server port 5432. So if you access your local port 8888 in the next step, you get forwarded to the Postgres server's port 5432 - but from the Postgres server's view, the traffic is now coming from the training server (instead of your laptop), and the training server is the only IP address that is allowed to access the postgres server.
-
-
- ![](https://cdn-images-1.medium.com/max/1000/1*0JaPjL3O5Se96b7IGt5P_A.png)
- *Figure. A graphical representation of a ssh tunnel. Not quite our situation -they are using a MySQL db who knows why-, but it is close enough. Courtesy from this [Medium post](https://myopswork.com/ssh-tunnel-for-rds-via-bastion-host-6659a48edc).*
-
-
-Connect to the Postgres database on the forwarded port
-
-```
-$ psql -h localhost -p 8888 -U USERNAME -d DBNAME
-```
-
-where you need to replace `USERNAME` with the postgres [!] username, `DBNAME` with the name of your database, and the `8888` with the number you chose in the previous step. You then get prompted for a password. This is now the postgres server asking, so you need to reply with the corresponding password!
-
-This should drop you into a SQL shell on the database server.
-
-!!! note
-
-    In some configurations, you'll need to explicitly assume a role to do anything beyond connecting to the database. To make changes to the training database, use the `training_write` role. Let's test it by creating and dropping a schema:
-
-    ```
-    set role training_write;
-    create schema jsmith;
-    drop schema jsmith;
-    ```
-
-!!! important "PRO tip"
-
-    You could save a lot of keystrokes if you setup a [`.pgservice.conf`](./pgservice_conf.example)file  and a [`.pgpass`](./pgpass.example) file in your `$HOME` folder.
-
-    Then you could simply type
-
-    ```
-    $ psql service=mydb  # mydb is the name of the dbservice
-    ```
-
-
-
-
-
-
-??? info "I really prefer a GUI"
-
-    if you want a graphical interface to databases - you might  want to use [DBeaver](http://dbeaver.jkiss.org/).
 
 
