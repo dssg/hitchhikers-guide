@@ -241,11 +241,17 @@ In the same way we set up DBeaver to use SSH to talk to our remote infrastructur
 
    2. Select `Open Folder`
    
-         ![](imgs/vscode-open-folder.png)
+    ![](imgs/vscode-open-folder.png)
 
    3. Select a folder to work in
    
    ![](imgs/vscode-select-folder.png)
+
+Let's make sure you can connect to the server through VSCode:
+
+* Were you able to SSH and open the remote `food_inspections` folder?
+    - If so, you're all set! Put a green post-it on the back of your monitor!
+    - If not, put a red post-it on the back of your monitor and we'll help you out.
 
 
 ## Access from Off-Campus: CMU VPN
