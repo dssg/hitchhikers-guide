@@ -208,7 +208,7 @@ In the same way we set up DBeaver to use SSH to talk to our remote infrastructur
    
    ![](img/vscode-connect-to-host.png)
 
-   3. Enter `ssh -i {path to your private key} {andrewid}@training.dssg.io` 
+   3. Enter `ssh {andrewid}@training.dssg.io` (remember from above that you may also need to use the `-i` parameter to tell `ssh` where to find your private key: `ssh -i {path to your private key} {andrewid}@training.dssg.io`)
    
    ![](img/vscode-enter-login.png)
 
