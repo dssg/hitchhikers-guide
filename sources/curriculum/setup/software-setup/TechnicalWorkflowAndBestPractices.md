@@ -33,17 +33,80 @@ As you'll find there's a bit of overhead (and a learning curve!) to using a remo
 
     Inform DSSG staff immediately if you accidentally download data or your computer or key is compromised!
 
+## Connecting to the Server: SSH
+
+Here's what happens when you connect to the DSSG server via SSH:
+
+![](imgs/infra_when_you_ssh.png)
+
+The public and private SSH keys are based around two large prime numbers and created in such a way that someone with the public key can encrypt a message that only you can decrypt with your private key (well, or someone with a quantum computer).
+
+!!! danger
+
+    I know it's in big red letters in the image but, really, it's worth repeating: don't share your private key!!
+
+Note that the CMU VPN is also adding an extra layer of encryption and routing all your traffic through the CMU network.
+
+TODO: Let's give it a try and explore using the unix command line a bit...
+
+## Talking to the Database with psql
+
+One way to talk to our postgres database is via the `psql` command line tool running directly on the server. To do so, you connect to the server via SSH (as above) then use the `psql` client to reach the database:
+
+![](imgs/infra_when_you_psql.png)
+
+## Talking to the Database with DBeaver
+
+Here's where things get a little more complicated: you want to use a nice GUI client for running SQL queries, but to keep the data more secure, we only allow it to be reached from our compute server. To do so, you'll need to encrypt the otherwise less-secure database connection though an **SSH Tunnel**:
+
+![](imgs/infra_when_you_dbeaver.png)
+
+Notice that the tunnel (blue) is encrypting your connection to the database (purple) as far as the compute server, where it gets decrypted and forwarded on to the database. Between your laptop and the CMU servers, the CMU VPN (red) does effectively the same thing.
+
+Fortunately, DBeaver has a built-in interface for establishing an SSH tunnel for you, which we set up during the initial [setup session](setup_session_guide.md).
+
+## Using jupyter lab
+
+Another useful tool for some code prototyping and data visualization can be `jupyter lab`. To use it, you'll need to run a `jupyter` server on the compute server and then route your traffic to it from your browser through an SSH tunnel (just as with your dbeaver connection):
+
+![](imgs/infra_when_you_jupyter.png)
+
+Unfortunately, unlike DBeaver, `jupyter lab` doesn't provide a built-in interface for creating the SSH tunnel, so we'll have to do it manually.
+
+TODO: Let's give it a try...
+
+## Editing Remotely with VSCode
+
+The easiest way to edit your code (and the one we recommend for the summer) is using a tool, such as VSCode, that provides a GUI text editor on your laptop but allows you to remotely edit the files on the server via SSH:
+
+![](imgs/infra_when_you_vscode.png)
+
+Note that you'll still need to commit and push your code up to github using the `git` CLI from the server to make sure your teammates have access to your latest changes.
+
+## Editing Files Locally
+
+Another option is to have a copy of the code you're working on locally on your computer and edit it using a local text editor (e.g., sublime, atom, etc.). However, you won't be able to run the code locally (have we mentioned that the data needs to stay in the secure environment we've set up for it?), so you'll need to use github to sync your local edits to the server for testing:
+
+![](imgs/infra_when_you_local_edit.png)
+
+Of course, a third option is to connect to the server via SSH in a terminal and then edit files directly at the command line using a text-based editor such as `vim` or `emacs`, which you're definitely free to do if you're confortable in those environments.
 
 
+## The Typical Workflow
 
+Now that we've taken a quick tour of some of the common tasks on the DSSG infrastructure, let's see how these pieces fit together into a typical technical workflow:
 
+![](imgs/tech_workflow.png)
 
+We'll talk about github in another session, but a good practice to keep in mind is:
 
+- **Every time you resume working** after any break, do a `git pull` to get be sure you're starting from the latest version of the code.
 
+- `git commit` often. Every time you finish a chunk of work, do a `git commit`. `git push` when you've tested it and it is doing what you intended for it to do. Do not push code to the main branch if it breaks. You will annoy your teammates :) Later in the summer, we'll talk more about how to create git branches to make this process a little more resiliant as well.
 
+!!! important "Pro Tip"
 
-
-
+    Every time you connect to the server in your terminal use a `screen` session (or `tmux` if you prefer) to ensure your processes remain alive on the server even if your SSH connection drops. This is particularly useful for long-running processes (like modeling jobs or your jupyter server), but a good habit to get in generally.
 
 
 
