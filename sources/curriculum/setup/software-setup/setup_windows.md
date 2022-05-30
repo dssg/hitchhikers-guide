@@ -1,5 +1,5 @@
 
-# Sertting up your Windows Machine
+# Setting up your Windows Machine
 
 This guide helps you walk through how to set up the various technical tools you'll need for the summer and is focused on Windows users (if you're on MacOS or Linux, see the [related guide here](setup_osx.md))
 

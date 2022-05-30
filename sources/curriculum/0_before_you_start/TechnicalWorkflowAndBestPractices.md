@@ -1,13 +1,50 @@
 # Technical Workflow and Best Practices
 
 
-This tutorial is designed to help you understand how to get started with setting up your computing environment, how to decide what to use your local laptop/desktop for, what to do on the server (and how), and how to go back and forth between different environments and tools  on your laptop, the server, and your remote database (an other data resources).
+This tutorial is designed to help you understand how to get started with the DSSG computing environment, how to decide what to use your local laptop/desktop for, what to do on the server (and how), and how to go back and forth between different environments and tools on your laptop, the server, and your remote database (an other data resources).
 
 We assume a GNU/linux (Ubuntu) server that's been set up for you, and access to a database (PostgreSQL).
 
 ??? note "Looking at this before the summer?"
 
      Many of the specific instructions here rely on the server and database we'll have set up for you to use during the summer, so you may not be able to follow along yet, but please do read through the workflow here so you'll have an idea what to expect.
+
+## Know Your Infrastructure
+
+![](imgs/infrastructure_components.png)
+
+In our initial [setup session](setup_session_guide.md), we very briefly talked about the different components of the infrastructure we'll be using this summer. In this tutorial we'll take a bit of a deeper dive into how these different pieces fit together and help you perform different types of tasks.
+
+### Why Remote Infrastructure?
+
+As you'll find there's a bit of overhead (and a learning curve!) to using a remote computing environment. So, why are we making you do it? A few reasons:
+
+1. **Confidentiality:** Most importantly, the data we're using is generally of a sensitive nature and needs to be protected, which means only working with it in a secure computing environment. 
+
+1. **Computing Power and Scalability:** We can use computing resources with much more power than your laptop, and scale them up and down as needed.
+
+1. **Collaboration:** Working in a shared environment with code under version control makes for a much better experience working on a collaborative project.
+
+1. **Learning New Tools:** You're also at DSSG to learn new things, of course, and are likely to encounter many of these (or similar) tools again in the future.
+
+!!! danger "Data Confidentiality"
+
+    Remember that the data we're using is confidential and must stay in our secure computing environment at all times. **Do not download the data to your laptop!**
+
+    Inform DSSG staff immediately if you accidentally download data or your computer or key is compromised!
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## 1. What should you have on your laptop?
