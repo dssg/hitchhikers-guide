@@ -5,19 +5,21 @@
 Most data-science projects have the same set of tasks:
 
 1. **ETL**: extracting data from its source, transforming it, then loading it into a database. Remember, **ETL** stands for *Extract* , *Transform* and *Load*.
-2. **Pre-process data**: This might include imputing missing values and choosing the training and testing sets.
-4. **Create features**: Recombine and enrich the data to create features aiding the modelling work.
-4. **Train the model(s)**: You can try different algorithms, features, and
+2. **Linkage**: combining data coming from different sources (aka record linkage or matching)
+3. **Pre-process data**: This might include data cleaning and munging
+4. **Creating a series of training and validation sets**
+6. **Create features**: Recombine and enrich the data to create features aiding the modeling work as well as explore imputation options
+7. **Train the model(s)**: You can try different algorithms, features, and
 so on.
-5. Assess performance on the test set: Using an appropriate
+5. **Model Selection**: Assess performance on the validation sets: Using an appropriate
 metric (e.g. $Precision@k$, $Recall$, $AUC$), examine the performance of your model "out of
-sample."
+sample." based on the task and deployment context on appropriate metrics (including bias, accuracy, etc.)
 6. Think of new things to try. Repeat steps 1 through 4 as appropriate.
-
-If the code base is not structured and named well, you might be struggling
+dats 
+If the code base is not structured  well, you might be struggling
 to remember the details of each step once you have built a few models. 
 What features did you use for each?
-What training and testing split?  What hyperparameters?
+What training and validation splits?  What hyperparameters?
 
 Your code might be getting messy too. Did you overwrite the code for
 the previous model? Maybe you copied, pasted, and edited code from an
@@ -242,8 +244,9 @@ lets us specify the pipeline options we want in a yaml file, from
 preprocessing on. (The code in this repository does not include ETL.)
 It gives us many modeling options, and it makes comparisons easy.
 
+#### Example 3
 
-
+Take a look at [Triage](http://github.com/dssg/triage), a toolkit we've created to support DSSG-like projects.
 
 ## Resources
 
