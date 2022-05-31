@@ -163,7 +163,7 @@ science, and an interest in doing social good work. However, we understand
 that everyone comes from a different background,
 so to ensure that everyone is able to contribute as a productive
 member of the team and the fellowship, we start the first
-few weeks off with an intensive orientation [See sample from 2022](Week%201%20Orientation%20Schedule%202022.pdf), getting everyone
+few weeks off with an intensive orientation ([see sample from 2022](Week%201%20Orientation%20Schedule%202022.pdf)), getting everyone
 "up to speed" with the basic skills and tools they'll need.
 
 ### Typical schedule
