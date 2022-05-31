@@ -47,7 +47,7 @@ The public and private SSH keys are based around two large prime numbers and cre
 
 Note that the CMU VPN is also adding an extra layer of encryption and routing all your traffic through the CMU network.
 
-TODO: Let's give it a try and explore using the unix command line a bit...
+Let's give it a try and explore using the unix command line a bit by working through the [Introduction to Command Line Tools](../command-line-tools/)
 
 ## Talking to the Database with psql
 
