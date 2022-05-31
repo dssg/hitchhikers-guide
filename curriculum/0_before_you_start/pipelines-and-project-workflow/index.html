@@ -2192,19 +2192,22 @@
 <p>Most data-science projects have the same set of tasks:</p>
 <ol>
 <li><strong>ETL</strong>: extracting data from its source, transforming it, then loading it into a database. Remember, <strong>ETL</strong> stands for <em>Extract</em> , <em>Transform</em> and <em>Load</em>.</li>
-<li><strong>Pre-process data</strong>: This might include imputing missing values and choosing the training and testing sets.</li>
-<li><strong>Create features</strong>: Recombine and enrich the data to create features aiding the modelling work.</li>
+<li><strong>Linkage</strong>: combining data coming from different sources (aka record linkage or matching)</li>
+<li><strong>Pre-process data</strong>: This might include data cleaning and munging</li>
+<li><strong>Creating a series of training and validation sets</strong></li>
+<li><strong>Create features</strong>: Recombine and enrich the data to create features aiding the modeling work as well as explore imputation options</li>
 <li><strong>Train the model(s)</strong>: You can try different algorithms, features, and
 so on.</li>
-<li>Assess performance on the test set: Using an appropriate
+<li><strong>Model Selection</strong>: Assess performance on the validation sets: Using an appropriate
 metric (e.g. <span><span class="MathJax_Preview">Precision@k</span><script type="math/tex">Precision@k</script></span>, <span><span class="MathJax_Preview">Recall</span><script type="math/tex">Recall</script></span>, <span><span class="MathJax_Preview">AUC</span><script type="math/tex">AUC</script></span>), examine the performance of your model "out of
-sample."</li>
-<li>Think of new things to try. Repeat steps 1 through 4 as appropriate.</li>
-</ol>
-<p>If the code base is not structured and named well, you might be struggling
+sample." based on the task and deployment context on appropriate metrics (including bias, accuracy, etc.)</li>
+<li>Think of new things to try. Repeat steps 1 through 4 as appropriate.
+dats 
+If the code base is not structured  well, you might be struggling
 to remember the details of each step once you have built a few models. 
 What features did you use for each?
-What training and testing split?  What hyperparameters?</p>
+What training and validation splits?  What hyperparameters?</li>
+</ol>
 <p>Your code might be getting messy too. Did you overwrite the code for
 the previous model? Maybe you copied, pasted, and edited code from an
 earlier model. Can you still read what's there? It can quickly become
@@ -2392,6 +2395,8 @@ generation.</p>
 lets us specify the pipeline options we want in a yaml file, from
 preprocessing on. (The code in this repository does not include ETL.)
 It gives us many modeling options, and it makes comparisons easy.</p>
+<h4>Example 3</h4>
+<p>Take a look at <a href="http://github.com/dssg/triage">Triage</a>, a toolkit we've created to support DSSG-like projects.</p>
 <h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="https://github.com/dssg/lead-public">Our lead pipeline</a>, started at DSSG 2014</li>
