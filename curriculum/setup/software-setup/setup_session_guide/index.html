@@ -2551,6 +2551,10 @@ food-inspections=&gt;
 <p>Although it's fine to run queries and look at the data from a SQL client like dbeaver running on your computer, you should <strong>never</strong> use that client to download an extract of the data (in whole or part) to your local computer, excel, google sheets, etc.</p>
 </div>
 <p>To get DBeaver, you can install it directly from the <a href="https://dbeaver.io/download/">DBeaver Website</a>. NOTE: you'll want to install the free "community edition" version.</p>
+<div class="admonition important">
+<p class="admonition-title">DBeaver Version</p>
+<p>If you've installed DBeaver previously, be sure you're using at least version 22 (if you're on an earlier version, please upgrade before proceeding with the setup)</p>
+</div>
 <p>Because the database is only accessible from our compute servers, we'll have to use an <strong>SSH Tunnel</strong> to connect to it via dbeaver. Here's how to set that up:</p>
 <p>First, create a new connection to a postgres database:</p>
 <p><img alt="creating a connection in dbeaver" src="../imgs/dbeaver_new_connection.png" /></p>
@@ -2563,6 +2567,7 @@ food-inspections=&gt;
 <div class="admonition important">
 <p class="admonition-title">Got an error like <code>invalid privatekey: [B@7696c31f</code>?</p>
 <p>You may need to install a different SSH package called "SSHJ" -- under the Help menu, choose "Install new Software" then search for SSHJ and install the package (you'll need to restart dbeaver). After restarting, choose “SSHJ” in the drop-down under advanced (should be labeled either ”Implementation” or “Method”) when setting up the tunnel</p>
+<p>Note: some versions of DBeaver have SSHJ pre-installed, so you might not find it in the "install new software" dialog. If so, check for it under the advanced settings when setting up the SSH tunnel.</p>
 </div>
 <p>Let's make sure you can connect to the database:</p>
 <ul>
