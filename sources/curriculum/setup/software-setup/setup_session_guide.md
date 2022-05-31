@@ -95,20 +95,20 @@ We'll be using a database running PostgreSQL for much of our project data.
 One way to connect to the database is via the command line from the server using `psql`. Since we're already logged onto the server, let's give that a try:
 
 ```
-$ psql -h db.dssg.io -U {your_andrew_id} food_inspections
+$ psql -h db.dssg.io -U {your_andrew_id} -W food-inspections
 ```
 
-If all goes well, you should see something like:
+This should prompt you to type your password (we'll tell you what it is separately) and then if all goes well, you should see something like:
 
 ```
 psql (11.6 (Ubuntu 11.6-1.pgdg18.04+1), server 11.5)
 SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
 Type "help" for help.
 
-food_inspections=>
+food-inspections=>
 ```
 
-Let's make sure you can run interact with the server:
+Let's make sure you can interact with the server:
 
 * Type `SELECT CURRENT_USER;` and then hit return
 * Did you get back your andrew id?
@@ -118,9 +118,10 @@ Let's make sure you can run interact with the server:
 Finally, exit out of `psql` with `\q`:
 
 ```
-food_inspections=> \q
+food-inspections=> \q
 ```
 
+<!---
 !!! important "Your postgres password"
 
     You might have noticed that `psql` didn't ask you for a password when you
@@ -136,6 +137,7 @@ food_inspections=> \q
     ```
     db.dssg.io:5432:*:{andrew_id}:{YOUR_PASSWORD}
     ```
+--->
 
 ### Reaching the Database from Your Computer
 
