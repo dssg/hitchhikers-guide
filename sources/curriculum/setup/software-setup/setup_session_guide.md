@@ -149,6 +149,10 @@ Often it can be a little easier to access the database via GUI system from your 
 
 To get DBeaver, you can install it directly from the [DBeaver Website](https://dbeaver.io/download/). NOTE: you'll want to install the free "community edition" version.
 
+!!! important "DBeaver Version"
+
+    If you've installed DBeaver previously, be sure you're using at least version 22 (if you're on an earlier version, please upgrade before proceeding with the setup)
+
 Because the database is only accessible from our compute servers, we'll have to use an **SSH Tunnel** to connect to it via dbeaver. Here's how to set that up:
 
 First, create a new connection to a postgres database:
@@ -170,6 +174,8 @@ You might want to try clicking `Test tunnel configuration` to make sure that's w
 !!! important "Got an error like `invalid privatekey: [B@7696c31f`?"
 
     You may need to install a different SSH package called "SSHJ" -- under the Help menu, choose "Install new Software" then search for SSHJ and install the package (you'll need to restart dbeaver). After restarting, choose “SSHJ” in the drop-down under advanced (should be labeled either ”Implementation” or “Method”) when setting up the tunnel
+
+    Note: some versions of DBeaver have SSHJ pre-installed, so you might not find it in the "install new software" dialog. If so, check for it under the advanced settings when setting up the SSH tunnel.
 
 Let's make sure you can connect to the database:
 
