@@ -2504,18 +2504,18 @@
 <h3 id="reaching-the-database-from-the-compute-server">Reaching the Database from the Compute Server<a class="headerlink" href="#reaching-the-database-from-the-compute-server" title="Permanent link">#</a></h3>
 <p>We'll be using a database running PostgreSQL for much of our project data.</p>
 <p>One way to connect to the database is via the command line from the server using <code>psql</code>. Since we're already logged onto the server, let's give that a try:</p>
-<div class="highlight"><pre><span></span>$ psql -h db.dssg.io -U {your_andrew_id} food_inspections
+<div class="highlight"><pre><span></span>$ psql -h db.dssg.io -U {your_andrew_id} -W food-inspections
 </pre></div>
 
-<p>If all goes well, you should see something like:</p>
+<p>This should prompt you to type your password (we'll tell you what it is separately) and then if all goes well, you should see something like:</p>
 <div class="highlight"><pre><span></span>psql (11.6 (Ubuntu 11.6-1.pgdg18.04+1), server 11.5)
 SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
 Type &quot;help&quot; for help.
 
-food_inspections=&gt;
+food-inspections=&gt;
 </pre></div>
 
-<p>Let's make sure you can run interact with the server:</p>
+<p>Let's make sure you can interact with the server:</p>
 <ul>
 <li>Type <code>SELECT CURRENT_USER;</code> and then hit return</li>
 <li>Did you get back your andrew id?<ul>
@@ -2525,22 +2525,25 @@ food_inspections=&gt;
 </li>
 </ul>
 <p>Finally, exit out of <code>psql</code> with <code>\q</code>:</p>
-<div class="highlight"><pre><span></span>food_inspections=&gt; \q
+<div class="highlight"><pre><span></span>food-inspections=&gt; \q
 </pre></div>
 
-<div class="admonition important">
-<p class="admonition-title">Your postgres password</p>
-<p>You might have noticed that <code>psql</code> didn't ask you for a password when you
-connected to the server. This is because we've stored your password in a
-configuration file called <code>.pgpass</code>. You can view it at the bash prompt with:</p>
-<div class="highlight"><pre><span></span>$ cat ~/.pgpass
+<!---
+!!! important "Your postgres password"
+
+    You might have noticed that `psql` didn't ask you for a password when you
+    connected to the server. This is because we've stored your password in a
+    configuration file called `.pgpass`. You can view it at the bash prompt with:
+
+    <div class="highlight"><pre><span></span>$ cat ~/.pgpass
 </pre></div>
 
-<p>Your password is everything after the last colon:</p>
-<div class="highlight"><pre><span></span>db.dssg.io:5432:*:{andrew_id}:{YOUR_PASSWORD}
-</pre></div>
+    Your password is everything after the last colon:
 
-</div>
+    <div class="highlight"><pre><span></span>db.dssg.io:5432:*:{andrew_id}:{YOUR_PASSWORD}
+</pre></div>
+--->
+
 <h3 id="reaching-the-database-from-your-computer">Reaching the Database from Your Computer<a class="headerlink" href="#reaching-the-database-from-your-computer" title="Permanent link">#</a></h3>
 <p>Often it can be a little easier to access the database via GUI system from your computer. To do so, we recommend setting up dbeaver, since it offers a free version and works with every operating system (but if you already have a SQL client like dbvisualizer or data grip that you know how to use and prefer, feel free to use that instead).</p>
 <div class="admonition important">
