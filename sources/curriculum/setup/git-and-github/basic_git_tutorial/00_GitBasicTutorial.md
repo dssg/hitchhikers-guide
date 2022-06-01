@@ -1,15 +1,35 @@
+## Our goal for this session:
+
+This session will give a quick overview of what git is, and its basic usage. 
+
+For this tutorial you will need to have access to git, a Terminal and a Text Editor. 
+
+
 ## What is Git?
-Git is a free version control system which helps you keep track of file changes in your computer. Think of it as a time machine that lets you go back to any point in your project development.
 
+![git](https://imgs.xkcd.com/comics/git.png)
 
-## Why we use it 
+[Image source](https://xkcd.com/1597/)
+
+Git is a free version control system which helps you keep track of file changes you make during development. Think of it as a time machine that lets you go back to any point in your project development with an undo button, and a tool to safely and efficiently collaborate with others on a shared project. 
+
+While git is mostly used in software development, it can be used for anything you like
+([writing books](https://www.gitbook.com/), for example), as long as your files are plain text
+(e.g., source code, latex files). 
+
 
 ### Commits
-Git can save snapshots of your work called `commits`. Once you register a set of changes as a `commit`, you can go back and forth to check the state of your project. 
+Git can save snapshots of your work called `commits`. Once you register a set of changes as a `commit`, you can go back and forth through different commits in your project. 
 Let's say you were experimenting with some new function and realized the old one was better, no problem, you can bring back anything!
 
 
-The evolution of your project can be stored as a series of commits. Typically, we would have a local copy and a remote copy of the repo (just like you do with Google Drive).
+The evolution of your project can be stored as a series of commits. The collections of commits and associated metadata form the `repository` of your project. 
+
+
+Typically, we would have a local copy and a remote copy of the repository (just like you do with Google Drive).  This prevents 
+endless emailing of source code and the following situation: 
+
+![final](https://www.phdcomics.com/comics/archive/phd101212s.gif)
 
 ### Github
 
@@ -20,7 +40,24 @@ Apart from storing a copy of your projects, github comes with a lot of useful fe
 ## How do we use git? 
 let's take a look at how we can use git. 
 
-### How to initialize your git repository? 
+### Configuring your Git Profile
+
+First things first. You need to configure you git client so your commits are attributed to you. Do the following: 
+
+```
+# How my git configuration currently look like
+git config --list
+```
+
+ My workspace
+
+```
+# Adding some, if you don't have a user.name or user.email set
+git config --global user.name "Clark Kent"
+git config --global user.email "{the email you used for Github}"
+```
+
+### Initializing a git repository
 
 Note -- We are following [this guide](http://rogerdudler.github.io/git-guide/)
 
