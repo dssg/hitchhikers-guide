@@ -80,7 +80,7 @@ There are three components:
 
 let's set it up:
 
-1. Connect to the server `ssh username@training.dssg.io`
+1. Connect to the server `ssh {andrewid}@training.dssg.io`
 
 2. Find an open port on the course server to send your Jupyter traffic through:
     - In the terminal (on the course server) type ss -lntu. This will list all ports
@@ -116,8 +116,9 @@ $ ssh -i {path to your private key} -N -L localhost:8888:localhost:{ your port f
 
     - On the next screen (which should be a view of the folders and files in your working directory)
 
+![](imgs/jupyterlab-launcher.png)
 
-
+8. To shut down the server, you can return to the screen/terminal window where the server is running and type (1) `ctrl+c` and (2) `y` when prompted.  
 
 
 ## Editing Remotely with VSCode
