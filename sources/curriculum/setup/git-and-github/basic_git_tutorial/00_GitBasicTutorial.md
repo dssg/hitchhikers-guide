@@ -57,6 +57,14 @@ git config --global user.name "Clark Kent"
 git config --global user.email "{the email you used for Github}"
 ```
 
+Also do the following (important). Ask about this during the branching section of the 
+tutorial if you want to know more. 
+```
+git config --global push.default current
+```
+You now have your `git` client configured. Next we will create 
+our first repository. 
+
 ### Initializing a git repository
 
 Note -- We are following [this guide](http://rogerdudler.github.io/git-guide/)
