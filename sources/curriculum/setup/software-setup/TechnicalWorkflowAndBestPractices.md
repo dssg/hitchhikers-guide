@@ -71,9 +71,54 @@ Another useful tool for some code prototyping and data visualization can be `jup
 
 ![](imgs/infra_when_you_jupyter.png)
 
-Unfortunately, unlike DBeaver, `jupyter lab` doesn't provide a built-in interface for creating the SSH tunnel, so we'll have to do it manually.
+Unlike DBeaver, `jupyter lab` doesn't provide a built-in interface for creating the SSH tunnel, so we'll have to do it manually.
 
-TODO: Let's give it a try...
+There are three components:
+- The remote machine (our course server) hosts a jupyter notebook server that does things like loads files, runs python, activates virtual environments
+- Your web browser connects to that server and presents a frontend interface for opening, editing, and running notebooks
+- These connect using SSH
+
+let's set it up:
+
+1. Connect to the server `ssh username@training.dssg.io`
+
+2. Find an open port on the course server to send your Jupyter traffic through:
+    - In the terminal (on the course server) type ss -lntu. This will list all ports
+    - Pick a port number between 1024 and 65535 that is **NOT on that list**.
+
+3. Navigate to `/mnt/data/projects/food-inspections` to activate your virtual environment (you might need to run `direnv allow` if this is your first time doing so) 
+    - If you want to confirm your virtualenv has properly activated, run `which python` -- this should return {Fill Here}. If you get anything different (or nothing at all), your virtualenv hasn't activated correctly!
+
+4. Now, start the jupyter server
+
+```
+$ jupyter lab --no-browser --port {Your port from step 2} 
+```
+(note: to ensure this persists, you may want to start your server in a screen session as discussed above!)
+
+5. When the server starts, take note of the token printed in the server terminal output:
+
+![](imgs/jupyter-token.png)
+
+6. On your local machine, set up an SSH tunnel. This will allow your web browser (on your local computer) to reach your Jupyter notebook server (on the course server)
+
+
+```
+$ ssh -i {path to your private key} -N -L localhost:8888:localhost:{ your port from step 2} {andrewid}@training.dssg.io
+```
+
+7. Now, we can open the notebook on your local machine:
+    - Navigate to http://localhost:8888
+
+    - If this is the first time opening Jupyter, this should take you to a login page asking you to enter the token that was generated (step 5). Copy and paste the token to proceed. 
+
+![](imgs/jupyter-login.png)
+
+    - On the next screen (which should be a view of the folders and files in your working directory)
+
+
+
+
 
 ## Editing Remotely with VSCode
 
