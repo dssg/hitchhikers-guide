@@ -13,7 +13,7 @@ fellowship.
 
 # The People
 
-The foundation of any good project is a good team. We’ve worked to
+The foundation of any good project is a good team. We’ve worked hard to
 recruit and hand pick a passionate and skilled team of
 interdisciplinary folks that all bring unique skills to your
 cohort. The fellowship is comprised of teams of three or four
@@ -117,12 +117,12 @@ are expected to use this for all fellowship-related communication.
 # The Communication
 
 Teams will work together to develop specific team norms, but each team
-will have a **daily morning stand up** meeting with their project manager
-and technical mentors. In these meetings, each fellow will have the
+will typically have a **daily morning stand up** meeting with their project manager
+and data science/technical mentors. In these meetings, each fellow will have the
 opportunity to discuss what they did the day before, what they’re
 planning to do today, and what they’re stuck on.
 
-In addition to that daily meeting, teams will have **weekly conference
+In addition to that daily meeting, teams will have **regular (typically at least weekly) conference
 calls** with their project partner to provide updates, ask questions,
 and receive feedback on their progress.
 

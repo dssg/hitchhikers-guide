@@ -8,8 +8,9 @@ To achieve this, our program focuses on three guiding
 goals. Our goals are (in order of priority):
 
 1. [Training Our Fellows](#training-our-fellows)
-2. [Increasing the use of Data Science in Social Good Organizations](#introducing-data-science-to-the-social-sector)
+2. [Increasing the responsible use of Data Science/ML/AI in Social Good Organizations](#introducing-data-science-to-the-social-sector)
 3. [Building and Supporting a Community of Data Scientists for Social Good](#building-a-community-of-data-scientists-for-social-good)
+4. [Tackling and Making an Impact on the Problems We Work on]
 
 We know that these goals are lofty. We do not presume or pretend to
 know the optimal way to achieve them, but we believe it's worth
@@ -19,7 +20,7 @@ to improve our program and achieve these goals more effectively.
 ### Training Our Fellows
 **First and foremost, DSSG is a training program for fellows.** We
 believe that the best way to learn is by working on real projects and
-not toy examples, which is why fellows work on *real projects* for
+not toy examples, which is why fellows work on *real projects* with
 *real partners*, in teams with other *real people*. The program
 provides training in the form of hands-on technical data science
 experience, but that’s not enough to do real data science for social
@@ -45,11 +46,11 @@ cohort**. Every fellow contributes their own wealth of experience and
 expertise, and we aim to foster a learning environment where everyone
 can share this knowledge and learn from one another.
 
-### Increasing the use of Data Science in Social Good Organizations
+### Increasing the use of Responsible Data Science in Social Good Organizations
 We believe that data-driven decisionmaking isn’t reserved for
 companies selling online advertisements or banks trying to detect
 fraud. We know that data science can help governments, non-profits,
-and social good organizations do their work more effectively.
+and social good organizations do their work more effectively and serve their constituents more equitably.
 
 All of our project partners collect data, and many are already using
 data in some way, whether to evaluate their programs and write reports
@@ -63,7 +64,7 @@ general.
 **Our project partners are partners, not clients.** This means that
 the fellows work *with* the partners, not *for* them. We believe that
 participating in this program helps both the partners and the fellows
-develop a common language. Sometimes fellows and partners won't see
+develop a common language and learn how to work together more effectively. Sometimes fellows and partners won't see
 eye to eye on every decision, or the need to complete work within a
 deadline will mean you have to adjust your expectations, put
 [GNU/Emacs](https://www.gnu.org/software/emacs/)[^1] on the back burner, or sacrifice

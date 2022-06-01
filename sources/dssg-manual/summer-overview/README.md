@@ -23,14 +23,14 @@ workflow.
 ## Learning about Projects and Partners
 
 Staff at the [Data Science and Public
-Policy team](http://www.datasciencepublicpolicy.org/) (DSaPP) work hard year-round to
+Policy team](http://www.datasciencepublicpolicy.org/) at CMU and DSSG alum volunteers have worked hard to
 recruit partners and scope projects. This is a lengthy, complicated
 process with plenty of logistical hurdles (think
 legal data sharing agreements and data transfer challenges), which
 means the list of project partners is usually not
 finalized until the fellowship begins. Based on your preferences, the
 requirements of each project, and the balance of disciplines within
-each team, we will assign teams of about 4 fellows
+each team, we will assign teams of typically 4 fellows
 per project. You will learn which project you've been assigned during
 the second week of the fellowship.
 
@@ -103,12 +103,12 @@ peers, and the general public. As such, an important piece of this training prog
 [learning to present the work you
 do](../../curriculum/communication/).
 
-Each week, a member of your team will give a 2-3 minute update to the
+Each week, a member of your team will give a 3-5 minute update to the
 entire fellowship, outlining your recent progress
 and findings, giving shoutouts to other fellows or staff members who
 have helped you along the way, and things you're stuck
 on and are seeking help with. Two teams per week (so each team
-presents twice throughout the summer) will give a longer
+presents 2-3 times throughout the summer) will give a longer
 20-minute "deep dive" presentation, outlining more technical
 components of your project and seeking feedback from other
 fellows and mentors.
@@ -163,10 +163,10 @@ science, and an interest in doing social good work. However, we understand
 that everyone comes from a different background,
 so to ensure that everyone is able to contribute as a productive
 member of the team and the fellowship, we start the first
-few weeks off with an [intensive orientation](DSSG2016OrientationSchedule.pdf), (e.g. DSSG 2016) getting everyone
+few weeks off with an intensive orientation ([see sample from 2022](Week%201%20Orientation%20Schedule%202022.pdf)), getting everyone
 "up to speed" with the basic skills and tools they'll need.
 
-### Possible schedule
+### Typical schedule
 
 - **Week One**
     - [Software Setup](../../curriculum/setup/software-setup/)

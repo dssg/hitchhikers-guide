@@ -91,6 +91,7 @@ nav:
       - Project deliverables: curriculum/scoping/deliverables.md
       - Tech setup:
           - Software you need: curriculum/setup/software-setup/README.md
+          - Software setup session: curriculum/setup/software-setup/setup_session_guide.md
           - Command line intro: curriculum/setup/command-line-tools/README.md
           - Git and github:
               - What is it?: curriculum/setup/git-and-github/README.md
@@ -101,7 +102,7 @@ nav:
           - Python: curriculum/software/basic_python.md
           - SQL: curriculum/software/basic_sql/README.md
           - Good repos: curriculum/setup/good_repos.md
-          - Technical workflow: curriculum/0_before_you_start/TechnicalWorkflowAndBestPractices.md
+          - Technical workflow: curriculum/setup/software-setup/TechnicalWorkflowAndBestPractices.md
       - Getting, storing, and linking data:
           - Intro: curriculum/1_getting_and_keeping_data/README.md
           - Data security: curriculum/get_data/data-security-primer/README.md
