@@ -288,7 +288,7 @@ Once you've assigned a name, you can use it to reattach your screen sessions, wh
 
 Finally, keep in mind that you'll be working in a shared environment with limited resources with the rest of your group and it can be a good idea to keep an eye on memory and processor usage (both to know if you're hogging resources with your processes and understand how the load looks before starting a job). A good way to do so is with the utility [htop](https://www.deonsworld.co.za/2012/12/20/understanding-and-using-htop-monitor-system-resources/), which provides a visual representation of this information (to open htop just type `htop` at the command prompt and to exit, you can simply hit the `q` key), which will give you a representation of current usage like this:
 
-![](imgs/htop.png)
+![](htop.png)
 
 Keeping an eye on disk space can also be helpful at times, which you can do with the `df` command (the `-h` flag translates the output to more human-readable units):
 
