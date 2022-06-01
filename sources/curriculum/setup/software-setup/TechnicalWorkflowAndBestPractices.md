@@ -87,7 +87,7 @@ let's set it up:
     - Pick a port number between 1024 and 65535 that is **NOT on that list**.
 
 3. Navigate to `/mnt/data/projects/food-inspections` to activate your virtual environment (you might need to run `direnv allow` if this is your first time doing so) 
-    - If you want to confirm your virtualenv has properly activated, run `which python` -- this should return {Fill Here}. If you get anything different (or nothing at all), your virtualenv hasn't activated correctly!
+    - If you want to confirm your virtualenv has properly activated, run `which python` 
 
 4. Now, start the jupyter server
 
