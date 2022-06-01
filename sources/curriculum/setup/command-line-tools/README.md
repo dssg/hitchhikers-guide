@@ -156,9 +156,157 @@ $ rm i_am_a_file.txt
 
 ## Basics of Unix Commands
 
+So far we've introduced just a couple of the most fundamental unix commands to help you navigate the system, but this is only a tiny portion of what you can do in the shell. The number of commands to remember can seem a little overwhelming at first, but will get familiar over time. 
+
+It's helpful to realize that all unix commands share a basic syntax. Let's take a look at one to see how it works:
+
+```
+$ ls -l --human-readable /mnt/data/projects/food_inspections/
+```
+
+This command contains four parts:
+
+`ls`: This is the name of the command we're running. `ls` is a utility that lists the files and folders present in a directory. The command name is always the part that comes first.
+
+`-l` & `--human-readable`: Both of these are options. Options are used to change the behavior of a command. Options usually start with one or two dashes (one dash for single-character options, two for longer options). 
+
+`-l` tells ls to give detailed descriptions of all the files it lists (including size and permissions). `--human-readable` is self-explanatory: it tells `ls` to make its output easy to read.
+
+`/mnt/data/projects/food_inspections/`: This is the argument. Here, it's a relative path to the folder that we're telling `ls` to list the contents of. Most unix commands take an argument - often text, or a file or folder to operate on.
+
+And here's what happens when we run it:
+
+```
+$ ls -l --human-readable /mnt/data/projects/food_inspections/
+total 4.0K
+-rw-r--r-- 1 root training 13 Jun  1 02:09 i_am_a_file.txt
+```
+
+With the new options, the output from `ls` now gives us a lot more information: the permissions associated with the file, the owner and group, the file size and creation time, and the file name.
+
+### Getting Help
+
+Unix makes it easy to get help with a command:
+
+```
+man {command}
+```
+
+Opens the manual page for the command in question. 
+
+Many commands also offer a help menu accessible with `{comand} --help`, which can be a good place to start.
+
+And, of course, search engines and stack overflow can be very helpful friends as finding your way around the shell!
+
+
 ## Backgrounding Tasks with `screen`
 
+During the summer, you'll often want to run long-running jobs in the terminal. However, by default, any tasks left running when you log out of ssh will be closed.
+
+We can get around this with a utility called `screen`. Screen is a "terminal multiplexer". That is, it allows you to keep run multiple terminal sessions, and keep them active even after you've logged off.
+
+!!! info "It's WAY more cool than it sounds..."
+
+    `screen` is one of the most useful utilities you'll encounter when working in the shell, and will make your life dramatically better if you use it consitently by doing away with the need to babysit long-running tasks or losing hours (or days) of work when your internet connection goes down.
+
+    Note that `tmux` provides similar functionality, so if you're already familiar/prefer it, feel free to use it instead.
+
+Screen allows us to start a process (like a long-running python script), put it in the background, and log off without cancelling the script
+
+**Running `screen`**
+
+1. Log into the dssg server with ssh (if you're not already there)
+2. Open a new screen session:
+
+```
+$ screen
+```
+
+You should see a screen with information about `screen` (licensing, a plea for free beer, etc). Press enter to bypass this. This will open a fresh terminal session, with your terminal history should be cleared out.
+
+3. Verify that you're in a screen session by listing the open sessions owned by your account:
+
+```
+$ screen -ls
+>There is a screen on:
+>        18855.pts-44.ip-10-0-1-213      (09/30/20 18:32:05)     (Attached)
+>1 Socket in /run/screen/S-dssgfellow.
+```
+
+One session is listed. It's labeled as `(Attached)`, which means you're logged into it.
+
+4. Let's give our system some work to do. Run the following command, which will start a useless but friendly infinite loop:
+
+```
+$ while :; do echo "howdy do!"; sleep 1; done
+```
+
+Note that at this point, you could safely log off of `ssh`. Your loop would still be here when you logged back on.
+
+5. Now that your screen session is busy, let's go back to our default session to get some work done.
+
+pres `ctrl+a`, release those keys, and press `d`.
+
+You should return to your original terminal prompt.
+
+6. Check that your screen session is still there: run `screen -ls` to list open sessions again. This time, the single open session should be labeled as `(Detached)`, which means that you're not viewing it.
+
+Note the 5-digit number printed at the beginning of the line referring to your screen session. We'll use that number to log back into that session.
+
+7. Let's return to our session and kill that loop - we don't need it anymore.
+
+We'll use `screen -r`. This reattaches the named screen. Use the 5-digit number from step 6 to refer to that session: 
+
+```
+screen -r {screen session number}
+```
+
+You should now be back in your old terminal session, where that loop has been "howdy"-ing away.
+
+Press `ctrl-c` to close that loop.
+
+8. Now we can close this screen session. Simply type `exit` in the command line.
+
+This should kill our session and return us to the command prompt. If you'd like, confirm that your session is closed with `screen -ls`.
+
+**Some notes:**
+
+- You can name your session, with the `-S` flag:
+
+```
+$ screen -S some_name
+```
+
+Once you've assigned a name, you can use it to reattach your screen sessions, which is easier than remembering/looking up a number.
+
+- When you only have a single detached screen session running, you can actually just run `screen -r` (without specifying the session number) to quickly reattach
+
+- Here's a quick [video intro](https://www.youtube.com/watch?v=3txYaF_IVZQ) with the basics and a more [in-depth tutorial](https://linuxize.com/post/how-to-use-linux-screen/) (note that screen is already installed, so you can ignore those details).
+
+
 ## Checking on Available Resources
+
+Finally, keep in mind that you'll be working in a shared environment with limited resources with the rest of your group and it can be a good idea to keep an eye on memory and processor usage (both to know if you're hogging resources with your processes and understand how the load looks before starting a job). A good way to do so is with the utility [htop](https://www.deonsworld.co.za/2012/12/20/understanding-and-using-htop-monitor-system-resources/), which provides a visual representation of this information (to open htop just type `htop` at the command prompt and to exit, you can simply hit the `q` key), which will give you a representation of current usage like this:
+
+![](imgs/htop.png)
+
+Keeping an eye on disk space can also be helpful at times, which you can do with the `df` command (the `-h` flag translates the output to more human-readable units):
+
+```
+$ df -h
+Filesystem       Size  Used Avail Use% Mounted on
+/dev/root         49G  7.7G   41G  16% /
+tmpfs             16G     0   16G   0% /dev/shm
+tmpfs            6.2G  956K  6.2G   1% /run
+tmpfs            5.0M     0  5.0M   0% /run/lock
+/dev/nvme0n1p15  105M  5.3M  100M   5% /boot/efi
+/dev/nvme1n1     5.0T   36G  5.0T   1% /mnt/data
+tmpfs            3.1G  4.0K  3.1G   1% /run/user/1055
+tmpfs            3.1G  4.0K  3.1G   1% /run/user/1038
+tmpfs            3.1G  4.0K  3.1G   1% /run/user/1000
+```
+
+Most of your work will happen in `/mnt/data`, so you'll particularly want to keep an eye on that partition.
 
 ## Further Resources
 
