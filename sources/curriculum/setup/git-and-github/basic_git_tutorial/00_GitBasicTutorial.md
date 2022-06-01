@@ -97,20 +97,53 @@ A local git repository consists of three elements:
 
 When you make changes to your files and want to register those changes as a snapshot (commit) into the history, we take the following steps:
 
-1. Stage / Propose your changes to the Index using
+0. Update your local repo\*
+
+```
+git pull
+```  
+
+1.  Check what has changed since the last snapshot
+
+```
+git status
+```
+
+2. Stage / Propose your changes to the Index using
 
 ```
 git add <file_name>
 ```
 
-2. Register the staged changes to the HEAD and register the commit
+3. Register the staged changes to the HEAD and register the commit
 
 ```
 git commit -m "a meaningful but short message describing the changes you made"
 ```
 
-3. Now, you have registered your commits and pointed your HEAD to the latest comment. However, the remote copy of your repository doesn't know about the changes you commited. We use the push command for this.
+4. Now, you have registered your commits and pointed your HEAD to the latest comment. However, the remote copy of your repository doesn't know about the changes you commited. We use the push command for this.
 
 ```
 git push
 ```
+
+
+### Other useful commands
+
++ Look up for the difference between versions
+
+```
+git diff
+```
+
++ Delete a file from the repo
+
+```
+git rm
+```
+
+### Useful git files
+
++ `.gitignore`
+
++ `.gitkeep`
