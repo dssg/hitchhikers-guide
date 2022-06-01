@@ -1,328 +1,317 @@
-# Command Line Tools
+# Introduction to the Unix Command Line
 
-## Motivation
+## Why Use the Command Line?
 
-As data scientists, we often receive data in text-based files. We need
-to explore these files to understand what they contain, we need to
-manipulate and clean them and we need to handle them on our file
-system. The most robust way to do this, even with large files, is the
-command line.
+These days, most of us interact with our computers primarily through point-and-click GUIs, which provide a convenient and intuitive means of navigating your operating system and software. So, why use the command line instead of a GUI? There are several reasons:
 
-Command line tools are the data scientist's swiss army knife. They are
-versitile, portable, and have plenty of functions that you may not quite
-sure how to use, but you're sure they'll be useful at some point. From
-helping you obtain, clean, and explore your data, to helping you build
-models and manager your workflow, command line tools are essential to
-every well-built data science pipeline, will be used throughout DSSG,
-and should be your starting point as you build your data science
-toolkit.
+1. In the shell you can easily handle data by chaining programs into a cohesive pipeline
+to handle large amounts of data.
 
+2. You can automate your workflow through scripting to save time and be more productive. A good
+rule of thumb is if you do something twice -- script it!
 
-## Slides
+3. Your work will be much more reproducible because there will be a
+digital record of the steps you took to produce your results compared to
+point and clicking in a program like Excel.
 
-Here's the
-[presentation](./intro-to-command-line-tools.pdf) from a previous workshop.
+4. If you're working with remote machines, like supercomputers or
+machines in the cloud, the CLI is often the only interface available.
 
-## The basics
+5. The CLI is usually much faster -- once you get the hang out of it.
 
-### Where am I?
-`pwd` print working directory - this prints the name of the current working directory  
-`cd ..` changes directory to one level/folder up  
-`cd ~/` goes to the home directory  
-`cd -` return to the previous directory
+### What We'll Cover Here
 
-### What's in my folder?
-`ls` lists the contents in your current dictory.  
-`ls -l` "long listing" format (`-l`) shows the filesize, date of last change, and file permissions  
-`ls -la` "long listing" format (`-l`), shows all files (`-a`) including hidden dotfiles
-`tree` lists the contents of the current directory and all sub-directories as a tree structure (great for peeking into folder structures!)  
-`tree -L 2` limits the tree expansion to 2 levels  
-`tree -hs` shows file sizes (`-s`) in human-readable format (`-h`)  
+In this brief tutorial, we'll try to provide a very quick high-level introduction to working at the unix command line, focusing on:
+- Navigating the unix file system
+- Understanding the structure of unix commands and knowing where to look for help
+- Using `screen` to run tasks in the background
+- Checking on available resources
 
-### What's in my file?  
-`head -n10 $f` shows the "head" of the file, in this case the top 10 lines  
-`tail -n10 $f` shows the "tail" of the file  
-`tail -n10 $f | watch -n1` watches the tail of the file for any changes every second (`-n1`)  
-`tail -f -n10 $f` follows (`-f`) the tail of the file every time it changes, useful if you are checking the log of a running program 
-`less $f` paginated viewer for the contents of a text file 
-`wc $f` counts words, lines and characters in a file  (separate counts using `-w` or `-l` or `-c`)
+## Getting Started: Connect to the Server
 
-### Where is my file?
-`find -name "<lost_file_name>" -type f` finds files by name  
-`find -name "<lost_dir_name>" -type d` finds directories by name  
+Let's start by connecting to the compute server the same way we did yesterday:
 
-### Renaming files
-Rename files with `rename`. For example, to replace all space bars with underscores:  
-`rename 's/ /_/g' space\ bars\ .txt`  
+```
+ssh {your_andrew_id}@training.dssg.io
+```
 
-This command substitutes (`s`) space bars (`/ /`) for underscores (`/_/`) in the entire file name (globally, `g`). (The 3 slashes can be replaced by any sequence of 3 characters, so `'s# #_#g'` would also work and can sometimes be more legible, for example when you need to escape a special character with a backslash.)  
+or, if you need to tell ssh where to find your private key:
 
-You can replace multiple characters at a time by using a simple logical OR "regular expression" (`|`) such as [ |?] which will replace every space bar or question mark.    
-`rename 's/[ |?]/_/g' space\ bars?.txt`
+```
+ssh -i {/path/to/your/private_key} {your_andrew_id}@training.dssg.io
+```
 
-(The file will be renamed to `space_bars_.txt`)
+When you first connect to the server, you'll land in your home directory, `\home\{your_andrew_id}\`. Let's take a look around...
 
-Bonus points:  
-`rename 'y/A-Z/a-z/'` renames files to all-lowercase  
-`rename 'y/a-z/A-Z/'` renames files to all-uppercase  
+## Navigating the Unix File System
 
-## Some useful things to know
-* Be careful what you wish for, the command line is very powerful, it will do exactly what you ask. This can be dangerous when you're running commands like `rm` (remove), or `mv` (move). You can "echo" your commands to just print the command text without actually running the command.  
-* Use tab completion to type commands faster and find filenames, press the tab key whilst typing to see suggestions  `tab`
-* Prepend `man` to a command to read the manual for example `man rm`
-* You can use `ctrl + r` to search the command line history, and search for previously searched commands. Or type `history` to see the history.
-* Beware of spaces when creating filenames, this is not generally good practice, if you must you can use the `\` escape character to add blank spaces in a file name. For example `touch space\ bars\ .txt`, if you run `touch space bars .txt` this will create three files `space`, `bars`, and `.txt`.
-* Have a look into using `screen` or `tmux` for keeping processes alive and working with multiple terminals (see further reading [living-in-the-terminal](../../programming_best_practices/living-in-the-terminal/)).
-* Use `htop` for monitoring the usage of your instance ([usage guide](https://www.deonsworld.co.za/2012/12/20/understanding-and-using-htop-monitor-system-resources/)).
-* Have a go at learning the basics of `vim`, since it is ubiquitous on unix servers (see further reading [living-in-the-terminal](../../programming_best_practices/living-in-the-terminal/)).
-* Check out some tutorials on regular expressions if you are not already familiar with them.
+Whenever you're working at the unix command prompt, you always have a **working directory** that specifies the location in the file system that you're executing commands from. To see your current working directory, you can use the command `pwd` (that is, "print working directory" -- you'll find that most unix commands are short abbreviations to save on repeated keystrokes!):
 
-## Command Line for Data Science - Let's talk about the weather
+```
+dssgfellow@dssg-primary:~$ pwd
+/home/dssgfellow
+```
 
-As an exercise, let's take a shot at creating our own weather predictions using data from NOAA.
+This prints out an **absolute path** to your current location in the system, which starts with a `/` character (which specifies the root directory of the system). The figure below gives an example of how a typical unix filesystem is organized:
 
-You can find daily data from 2016 for the US here:
+![A typical unix filesystem](FS-layout.png)
 
-    ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/2016.csv.gz
+From this figure, we can see all directories are under the root directory (`/`).
+The folders under the root directory contain information for the configuration and operation of the operating system, so you shouldn't change these (unless you really know what you are doing). The special folder `home` contains the files for all users. In this example, we have the directories `rick`, `anna`, `emmy`, `bob`, which contain files created by users rick, anna, emmy, and bob, respectively.
 
-(The documentation is [here](http://www1.ncdc.noaa.gov/pub/data/cdo/documentation/GHCND_documentation.pdf))
+As you get deep into the file system, specifying the full absolute path to a file you want to edit or run can become very tedious. Fortunately, unix also allows you to specify a **relative path** to a file, starting from your current working directory and **not** beginning with the leading `/`.
 
-### Getting Data from the Command Line
+There are a few special paths that can be very helpful as you move around:
+- `.` always refers to the current working directory
+- `..` always refers to the *parent* of the current working directory
+- `~` always refers to the home directory of the current user
 
-First we have to get the data. For that we're going to use curl.
+With those basics in mind, we can start to explore.
 
-    $ curl ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/2016.csv.gz
+For the fellowship, we've created a special directory on the server that's attached to a large disk to store data and modeling results. You can find it at `/mnt/data`. To move there, we'll use the `cd` ("change directory") command:
 
-Whoa! Terminal is going crazy! This may impress your less savvy
-friends, but it's not going to help you answer your question. We need
-to stop this process. Try control-c. This is the universal escape
-command in terminal.
+```
+dssgfellow@dssg-primary:~$ cd /mnt/data
+dssgfellow@dssg-primary:/mnt/data$ pwd
+/mnt/data
+```
+Notice that two things happened: the last bit of our prompt changed from `~` to `/mnt/data` (helping us keep track of where we are) and the output of the `pwd` command has also changed to `/mnt/data`.
 
-We obviously didn't use curl right. Let's look up the manual for the command using `man`.
+NOTE: to save space, from this point we won't show the full prompt, just the `$` -- lines starting with a `$` are commands to type and those without are outputs.
 
-    $ man curl
+!!! info "TAB is your friend"
 
-Looks like if we want to write this to a file, we've got to pass the `-O` argument.
+    One useful tip as you're working at the command line: many unix commands support tab-completion. For instance, you can usually type just the first few characters of the directory you're navigating to then hit "TAB" on your keyboard to have the system fill in the rest of the path!
 
-    $ curl -O ftp://ftp.ncdc.noaa.gov/pub/data/ghcn/daily/by_year/2016.csv.gz
+Let's list the contents of this directory with `ls`:
 
-Let's check to see if it worked.
+```
+$ ls
+projects
+```
 
-    $ ls -lah
+Looks like there's another directory in here called `projects`. And to see what's in there, we can give `ls` a relative path:
 
-Great. Now we need to know the file format so we know what tool to use to unpack it.
+```
+$ ls projects/
+acdhs-housing    dojo-mh           kcmo-mc        vibrant-routing
+baltimore-roofs  food_inspections  pakistan-ihhn
+```
 
-    $ file 2016.csv.gz
+Now we can see all the directories we've created for the projects this summer. Let's go into the one for the "food inspections" training project:
 
-Looks like it's a gzip so we'll have to use `gunzip`.
+```
+$ cd projects/food_inspections/
+```
 
-    $ gunzip 2016.csv.gz
+Now let's see what's in here with `ls` again:
 
-    $ ls -lah
+```
+$ ls
+i_am_a_file.txt
+```
 
-Now we've got a .csv file we can start playing with. Let's see how big it is using `wc`
+You can copy that file to your home directory using the `cp` command (remembering the special path `~` means your home directory):
 
-## Viewing Data from the Command Line
+```
+$ cp i_am_a_file.txt ~/
+```
 
-The simpilest streaming command is `cat`. This dumps the whole file, line by line, into standard out and prints.
+Let's do a little reorganization:
+```
+$ cd ~
+$ mkdir a_new_directory
+$ cd a_new_directory
+```
 
-    $ cat 2016.csv
+What did we just do?
+- We changed back to our home directory using `cd`
+- Then we created a new directory with `mkdir`
+- Next we changed into the new directory, again with `cd` and a relative path
 
-That's a bit much. Let's see if we can slow it down by viewing the file page by page using `more` or `less`.
+Now suppose I want to move my copy of the test file into the new directory that I just created (and that I'm now working from). One way to do so would be specify the full path to the file, but a much easier option is to use the special relative paths of `..`, which means go up one directory, and `.`, which means the current directory:
 
-    $ less 2016.csv
+```
+$ mv ../i_am_a_file.txt ./
+```
 
-Great. But let's say I just want to see the top of the file to get a sense of it's structure. We can use `head` for that.
+Now try `ls` and `pwd` from here -- what should you get?
 
-    $ head 2016.csv
+Of course, we've done all this work moving this file around but haven't even looked at it's contents. To do so, we can use the very unintuitively-named command `cat` (actually meaning "concatenate"):
 
-    $ head -n 3 2016.csv
+```
+$ cat i_am_a_file.txt
+Hello world!
+```
 
-Similarly, if I'm only interested in viewing the end of the file, I can use `tail`.
+Well, that's not very interesting -- doesn't seem like much of a reason to keep it around, so let's remove our copy of the file with `rm`:
 
-    $ tail 2016.csv
+```
+$ rm i_am_a_file.txt
+```
 
-These commands all print things out raw and bunched together. I want
-to take advantage of the fact that I know this is a csv to get a
-prettier view of the data. This is where `csvkit` starts to shine. The
-first command we'll use from csvkit is `csvlook`.
+!!! danger
 
-    $ csvlook 2016.csv
+    Unix commands can be unforgiving in doing exactly what you ask for, even if that's not really what you want! For instance, `rm` will permanently delete your file immediately and without asking for confirmation, so exercise caution when using it. Many other unix commands can likewise delete or overwrite existing files without a warning or an error.
 
-But that's everything again. We just want to see the top. If only we could take the output from `head` and send it to `csvlook`.
+## Basics of Unix Commands
 
-We can! It's called *piping*, and you do it like this:
+So far we've introduced just a couple of the most fundamental unix commands to help you navigate the system, but this is only a tiny portion of what you can do in the shell. The number of commands to remember can seem a little overwhelming at first, but will get familiar over time. 
 
-    head 2016.csv | csvlook
+It's helpful to realize that all unix commands share a basic syntax. Let's take a look at one to see how it works:
 
-The output from `head` was sent to `csvlook` for processing. Piping
-and redirection (more on that later) are two of the most important
-concepts to keep in mind when using command line tools. Because most
-commands use text as the interface, you can chain commands together to
-create simple and powerful data processing pipelines!
+```
+$ ls -l --human-readable /mnt/data/projects/food_inspections/
+```
 
+This command contains four parts:
 
-## Filtering Data from the Command Line
+`ls`: This is the name of the command we're running. `ls` is a utility that lists the files and folders present in a directory. The command name is always the part that comes first.
 
-It looks like in order for us to make sense of the weather dataset,
-we're going to need to figure out what these station numbers
-mean. Let's grab the station dictionary from NOAA and take a look at
-it.
+`-l` & `--human-readable`: Both of these are options. Options are used to change the behavior of a command. Options usually start with one or two dashes (one dash for single-character options, two for longer options). 
 
-    $ curl -O https://www1.ncdc.noaa.gov/pub/data/ghcn/daily/ghcnd-stations.txt
+`-l` tells ls to give detailed descriptions of all the files it lists (including size and permissions). `--human-readable` is self-explanatory: it tells `ls` to make its output easy to read.
 
-    $ head ghcnd-stations.txt
+`/mnt/data/projects/food_inspections/`: This is the argument. Here, it's a relative path to the folder that we're telling `ls` to list the contents of. Most unix commands take an argument - often text, or a file or folder to operate on.
 
-Looks like the station description might come in handy. We want to look at just the stations in Chicago.
+And here's what happens when we run it:
 
-    $ grep CHICAGO ghcnd-stations.txt | csvlook -H
+```
+$ ls -l --human-readable /mnt/data/projects/food_inspections/
+total 4.0K
+-rw-r--r-- 1 root training 13 Jun  1 02:09 i_am_a_file.txt
+```
 
-Let's pick OHARE as the station we'll use for now. Its ID is 'USW00094846'
+With the new options, the output from `ls` now gives us a lot more information: the permissions associated with the file, the owner and group, the file size and creation time, and the file name.
 
-Let's take a look at just the ID column from the weather file. We can do this using `cut`.
+### Getting Help
 
-    $ cut -f 1 2016.csv
+Unix makes it easy to get help with a command:
 
-Looks like `cut` isn't smart enough to know that we're using a csv. We can either use csvcut, or pass a delimiter argument that specifies comma.
+```
+man {command}
+```
 
-    $ cut -d , -f 1 2016.csv | head
+Opens the manual page for the command in question. 
 
-Now let's filter out just the oberservations from OHARE.
+Many commands also offer a help menu accessible with `{comand} --help`, which can be a good place to start.
 
-    $ cut -d , -f 1 2016.csv | grep USW00094846 | head
+And, of course, search engines and stack overflow can be very helpful friends as finding your way around the shell!
 
-Another powerful tool that can do filtering (and much more) is
-`awk`. `awk` treats every file as a set of row-based records and
-allows you to create contition/{action} pairs for the records in the
-file. The default {action} in `awk` is to print the records that meet
-the condition. Let's try reproducing the above statement using `awk`.
 
-    $ cut -d , -f 1 2016.csv | awk '/USW00094846/' | head
+## Backgrounding Tasks with `screen`
 
-`awk` requires familiarity with regular expressions for contitions and
-has its own language for actions, so `man` and stack overflow will be
-your friends if you want to go deep with `awk`.
+During the summer, you'll often want to run long-running jobs in the terminal. However, by default, any tasks left running when you log out of ssh will be closed.
 
-## Editing and Transforming Data
+We can get around this with a utility called `screen`. Screen is a "terminal multiplexer". That is, it allows you to keep run multiple terminal sessions, and keep them active even after you've logged off.
 
-Let's say we want to replace values in the files. PRCP is confusing. Let's change PRCP to RAIN.
+!!! info "It's WAY more cool than it sounds..."
 
-To do this, we use `sed`. `sed` stands for streaming editor, and is
-very useful for editing large text files because it doesn't have to
-load all the data into memory to make changes. Here's how we can use
-`sed` to replace a string.
+    `screen` is one of the most useful utilities you'll encounter when working in the shell, and will make your life dramatically better if you use it consitently by doing away with the need to babysit long-running tasks or losing hours (or days) of work when your internet connection goes down.
 
-    $ sed s/PRCP/RAIN/ 2016.csv | head
+    Note that `tmux` provides similar functionality, so if you're already familiar/prefer it, feel free to use it instead.
 
-Notice the strings have changed!
+Screen allows us to start a process (like a long-running python script), put it in the background, and log off without cancelling the script
 
-But when we look at the source file
+**Running `screen`**
 
-    $ head 2016.csv
+1. Log into the dssg server with ssh (if you're not already there)
+2. Open a new screen session:
 
-Noting has changed. That's because we didn't write it to a file. In fact, none of the changes we've made have.
+```
+$ screen
+```
 
-    $ sed s/PRCP/RAIN/ 2016.csv > 2016_clean.csv
+You should see a screen with information about `screen` (licensing, a plea for free beer, etc). Press enter to bypass this. This will open a fresh terminal session, with your terminal history should be cleared out.
 
-    $ head 2016_clean.csv
+3. Verify that you're in a screen session by listing the open sessions owned by your account:
 
-We can also use awk for subsitution, but this time, let's replace
-"WSFM" with "WINDSPEED" in all the weather files in the
-directory. Once again, stackoverflow is your friend here.
+```
+$ screen -ls
+>There is a screen on:
+>        18855.pts-44.ip-10-0-1-213      (09/30/20 18:32:05)     (Attached)
+>1 Socket in /run/screen/S-dssgfellow.
+```
 
-    $ ls -la > files.txt
+One session is listed. It's labeled as `(Attached)`, which means you're logged into it.
 
-    $ awk '$9 ~/2016*/ {gsub(/WSFM/, "WINDSPEED"); print;}' files.txt
+4. Let's give our system some work to do. Run the following command, which will start a useless but friendly infinite loop:
 
-## Group Challenges
+```
+$ while :; do echo "howdy do!"; sleep 1; done
+```
 
-For group challenges, log onto the `training` ec2 instance and change
-directories to /mnt/data/training/yourusername. This should be your
-working directory for all the excercises.
+Note that at this point, you could safely log off of `ssh`. Your loop would still be here when you logged back on.
 
-1. Create a final weather file that just has weather data from OHARE
-airport for days when it rained, and change PRCP to RAIN. Save the
-sequence of commands to a shell script so it's replicable by your
-teammate and push to a training repository you've created on github.
+5. Now that your screen session is busy, let's go back to our default session to get some work done.
 
-2. Create a separate file with just the weather from OHARE for days
-when the tempurature was above 70 degrees F. (hint: try using csvgrep
-to filter a specific column on a range of values)
+pres `ctrl+a`, release those keys, and press `d`.
 
-3. Get ready to explore the relationship between weather and crime in
-Chicago. Using crime data from 2016 (below), parse the json and
-convert it to a csv. Explore the fields and cut the dataset down to
-just day, location, and crime type. Then subset the dataset to just
-homicides and save as a new file.
+You should return to your original terminal prompt.
 
-    https://data.cityofchicago.org/resource/6zsd-86xi.json
+6. Check that your screen session is still there: run `screen -ls` to list open sessions again. This time, the single open session should be labeled as `(Detached)`, which means that you're not viewing it.
 
-4. Using just command line tools, can you use the lat and long
-   coordinates of the weather stations to rapidly identify which
-   weather station is closest to the DSSG building?
+Note the 5-digit number printed at the beginning of the line referring to your screen session. We'll use that number to log back into that session.
 
-## Cheat Sheet
+7. Let's return to our session and kill that loop - we don't need it anymore.
 
-We're going to cover a variety of command line tools that help us
-obtain, parse, scrub, and explore your data. (The first few steps
-toward being an
-[OSEMN](http://www.dataists.com/2010/09/a-taxonomy-of-data-science/)
-data scientist). Here's a list of commands and concepts we'll cover:
+We'll use `screen -r`. This reattaches the named screen. Use the 5-digit number from step 6 to refer to that session: 
 
-- Getting to know you: navigating files and directories in the command line
-	- `cd`
-	- `mkdir`
-	- `ls`
-	- `file`
-	- `mv`
-	- `cp`
-	- `rm`
-	- `findit` (bonus)
+```
+screen -r {screen session number}
+```
 
-- Getting, unpacking, and parsing Data
-	- `curl`
-	- `wget` (bonus)
-	- `gunzip`
-	- `tar` (bonus)
-	- `in2csv`
-	- `json2csv` (bonus)
+You should now be back in your old terminal session, where that loop has been "howdy"-ing away.
 
-- Exploring Data
-	- `wc`
-	- `cat`
-	- `less`
-	- `head`
-	- `tail`
-	- `csvlook`
+Press `ctrl-c` to close that loop.
 
-- Filtering, Slicing, and Transforming
-	- `grep`
-	- `cut`
-	- `sed`
-	- `awk`
-	- `csvgrep`
-	- `csvcut`
-	- `csvjoin` (bonus)
-	- `jq` (bonus; sed for JSON)
+8. Now we can close this screen session. Simply type `exit` in the command line.
 
-- Exploring & Summarizing
-	- `csvstat`
+This should kill our session and return us to the command prompt. If you'd like, confirm that your session is closed with `screen -ls`.
 
-- Writing shell scripts
+**Some notes:**
+
+- You can name your session, with the `-S` flag:
+
+```
+$ screen -S some_name
+```
+
+Once you've assigned a name, you can use it to reattach your screen sessions, which is easier than remembering/looking up a number.
+
+- When you only have a single detached screen session running, you can actually just run `screen -r` (without specifying the session number) to quickly reattach
+
+- Here's a quick [video intro](https://www.youtube.com/watch?v=3txYaF_IVZQ) with the basics and a more [in-depth tutorial](https://linuxize.com/post/how-to-use-linux-screen/) (note that screen is already installed, so you can ignore those details).
+
+
+## Checking on Available Resources
+
+Finally, keep in mind that you'll be working in a shared environment with limited resources with the rest of your group and it can be a good idea to keep an eye on memory and processor usage (both to know if you're hogging resources with your processes and understand how the load looks before starting a job). A good way to do so is with the utility [htop](https://www.deonsworld.co.za/2012/12/20/understanding-and-using-htop-monitor-system-resources/), which provides a visual representation of this information (to open htop just type `htop` at the command prompt and to exit, you can simply hit the `q` key), which will give you a representation of current usage like this:
+
+![](htop.png)
+
+Keeping an eye on disk space can also be helpful at times, which you can do with the `df` command (the `-h` flag translates the output to more human-readable units):
+
+```
+$ df -h
+Filesystem       Size  Used Avail Use% Mounted on
+/dev/root         49G  7.7G   41G  16% /
+tmpfs             16G     0   16G   0% /dev/shm
+tmpfs            6.2G  956K  6.2G   1% /run
+tmpfs            5.0M     0  5.0M   0% /run/lock
+/dev/nvme0n1p15  105M  5.3M  100M   5% /boot/efi
+/dev/nvme1n1     5.0T   36G  5.0T   1% /mnt/data
+tmpfs            3.1G  4.0K  3.1G   1% /run/user/1055
+tmpfs            3.1G  4.0K  3.1G   1% /run/user/1038
+tmpfs            3.1G  4.0K  3.1G   1% /run/user/1000
+```
+
+Most of your work will happen in `/mnt/data`, so you'll particularly want to keep an eye on that partition.
 
 ## Further Resources
 
-Jeroen Janssens wrote the book
-[literally](http://datascienceatthecommandline.com/) on data science
-in the command line. Also, check out his
-[post](http://jeroenjanssens.com/2013/09/19/seven-command-line-tools-for-data-science.html)
-on 7 essential command line tools for data scientists.
+If you want to dive a bit deeper into working at the command line (and learn a little about just how powerful it can be for munging data!), check out these additional guides:
 
-For command line basics, [Learning CLI the Hard
-Way](http://cli.learncodethehardway.org/book/) is, as always, a great
-resource.
+- [This 2016 Tutorial](cmdline-2016.md) introduces several of the tools for getting and manipulating data at the command line, such as `curl`, `grep`, `cut`, `awk`, and `sed`
 
-## Potential Teachouts
-
-- `tmux`: Getting your command line organized
-	- `tmux` is a great way to manage many environments at once. Give it a shot!
+- [Living in the Terminal](../../programming_best_practices/living-in-the-terminal/) has some good details on best practices, shell scripting basics, and editing code directly in the terminal with `vim`
