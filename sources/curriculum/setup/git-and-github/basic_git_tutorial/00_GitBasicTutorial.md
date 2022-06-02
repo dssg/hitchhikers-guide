@@ -164,7 +164,7 @@ $ cd github_practice
 + Create a file with your name in it (change `{andrewid}` for your actual andrewid - withouth the `{` and `}`):
 
 ```
-nano {andrewid}.txt
+$ nano {andrew_id}.txt
 ```
 
 That will open an editor window, put your name in it and then use `Ctrl+X` then type `Y` to save the changes.
@@ -174,38 +174,52 @@ Verify the changes we made in the file: `cat {andrewid}.txt`
 + Tell git which files to take into account for the next snapshot
 
 ```
-git add {andrewid}.txt
+$ git add {andrewid}.txt
 ```
 
 + Make the snapshot
 
 ```
-git commit -m "file with my name"
+$ git commit -m "file with my name"
 ```
 
 + Make available your snapshot on the remote repository
 
 ```
-git push
+$ git push
 ```
 
 
 ### Other useful commands
 
-+ Look up for the difference between versions
++ Look up for the difference between versions. Let's make some changes into
+ your file. Let's add your month of birth date. 
 
 ```
-git diff {nameoffile}
+$ git status
+$ git diff {andrew_id}.txt
 ```
 
-+ Delete a file from the repo
+Now lets `push` this change: 
 
 ```
-git rm <nameoffile>
+$ git pull 
+$ git add {andrew_id}.txt 
+$ git commit -m "adding my month birht date"
+$ git push
+```
+
++ Delete a file from the repo. If you want to get rid of a file you need to
+ tell git to remove it.\* 
+
+```
+git rm {andrew_id}.txt
 ```
 
 ### Useful git files
 
-+ `.gitignore`
++  `.gitignore` This file will allow us to tell git which files/directories
+ we don't to be part of the repo ever. Very useful to keep credentials files out
+  of a github repo.  
 
-+ `.gitkeep`
+
