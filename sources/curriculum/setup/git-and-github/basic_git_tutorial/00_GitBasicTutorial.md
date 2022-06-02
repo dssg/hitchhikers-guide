@@ -17,6 +17,7 @@ While git is mostly used in software development, it can be used for anything yo
 ([writing books](https://www.gitbook.com/), for example), as long as your files are plain text
 (e.g., source code, latex files).
 
+## How does it works?
 
 ### Commits
 Git can save snapshots of your work called `commits`. Once you register a set of changes as a `commit`, you can go back and forth through different commits in your project.
@@ -58,11 +59,6 @@ git config --global user.name "Clark Kent"
 git config --global user.email "{the email you used for Github}"
 ```
 
-Also do the following (important). Ask about this during the branching section of the
-tutorial if you want to know more.
-```
-git config --global push.default current
-```
 You now have your `git` client configured. Next we will create
 our first repository.
 
