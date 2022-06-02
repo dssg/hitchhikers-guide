@@ -2230,6 +2230,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#lets-practice-the-commands" title="Let's practice the commands" class="md-nav__link">
+    Let's practice the commands
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#other-useful-commands" title="Other useful commands" class="md-nav__link">
     Other useful commands
   </a>
@@ -2291,26 +2298,31 @@ endless emailing of source code and the following situation:</p>
 <p>There are many providers that let you store your git repositories -gitlab, bitbucket, mercurial, etc.-, but the most popular one is Github (we'll use github for DSSG).</p>
 <p>Apart from storing a copy of your projects, github comes with a lot of useful features. For example, you can use it to share your projects with your colleagues, so they can see (or modify if you want) your project.</p>
 <h2 id="how-do-we-use-git">How do we use git?<a class="headerlink" href="#how-do-we-use-git" title="Permanent link">#</a></h2>
-<p>Let's take a look at how we can use git.</p>
+<p>First, let's login to the server.</p>
+<div class="highlight"><pre><span></span>$ ssh {andrewid}@training.dssg.io
+</pre></div>
+
 <h3 id="configuring-your-git-profile">Configuring your Git Profile<a class="headerlink" href="#configuring-your-git-profile" title="Permanent link">#</a></h3>
 <p>First things first. You need to configure you git client so your commits are attributed to you. Do the following:</p>
-<div class="highlight"><pre><span></span># How my git configuration currently look like
+<div class="highlight"><pre><span></span># How the current git configuration look like
 git config --list
 </pre></div>
 
-<p>My workspace</p>
-<div class="highlight"><pre><span></span># Adding some, if you don&#39;t have a user.name or user.email set
-git config --global user.name &quot;Clark Kent&quot;
+<p>The workspace</p>
+<div class="highlight"><pre><span></span>git config --global user.name &quot;Clark Kent&quot;
 git config --global user.email &quot;{the email you used for Github}&quot;
 </pre></div>
 
 <p>You now have your <code>git</code> client configured. Next we will create
 our first repository.</p>
 <h3 id="initializing-a-git-repository">Initializing a git repository<a class="headerlink" href="#initializing-a-git-repository" title="Permanent link">#</a></h3>
-<p>Note -- We are following <a href="http://rogerdudler.github.io/git-guide/">this guide</a></p>
 <p>You can create a new directory, and to make it a git repository, we can use the <code>git init</code> command.</p>
-<div class="highlight"><pre><span></span>$ mkdir my-git-repo
-$ cd my-git-repo
+<p>First, let's navigate to the project folder and create a folder with your andrewid so that everyone can have their own directory. </p>
+<div class="highlight"><pre><span></span>$ cd /mnt/data/projects/food_inspections
+$ mkdir {andrew_id}
+$ cd {andrew_id}
+$ mkdir my_git_repo
+$ cd my_git_repo
 $ git init
 </pre></div>
 
@@ -2319,22 +2331,24 @@ $ git init
 </pre></div>
 
 <p>You most likely will be prompted to autheticate your credentials when cloning a remote repo (e.g., from GitHub).</p>
-<p>Let's try to clone a practice repository for this session</p>
-<div class="highlight"><pre><span></span>git clone https://github.com/dssg/github_practice.git
+<p>Let's try to clone a practice repository for this session.</p>
+<div class="highlight"><pre><span></span>$ cd /mnt/data/
+$ git clone https://github.com/dssg/github_practice.git
 </pre></div>
 
 <h3 id="what-is-the-typical-workflow">What is the typical workflow?<a class="headerlink" href="#what-is-the-typical-workflow" title="Permanent link">#</a></h3>
 <p>When you make changes to your files and want to register those changes as a snapshot (commit) into the history, we take the following <strong>minimum</strong> steps:</p>
 <ul>
-<li>We let git know which files we want to put on the next snapshot -add-  </li>
-<li>We "take" the snapshot -commit-</li>
-<li>We update the remote repository to add our snapshot into its history of snapshots -push-</li>
+<li>We let git know which files we want to put on the next snapshot -- <code>add</code>  </li>
+<li>We "take" the snapshot -- <code>commit</code></li>
+<li>We update the remote repository to add our snapshot into its history of snapshots -- <code>push</code></li>
 </ul>
-<p>A more "complete" and suggest workflow consist on the following steps:</p>
-<p><strong>Do not put this commands yet!</strong></p>
+<p>A more "complete" and recommended workflow consists of the following steps:</p>
+<p><strong>Do not type these commands yet!</strong></p>
 <ol>
-<li>Update your local repo*</li>
+<li>Update your local repo. </li>
 </ol>
+<p>Before you make any changes to the files in the repo, you should make sure that your copy of the repo reflects the latest versions of files. </p>
 <div class="highlight"><pre><span></span>git pull
 </pre></div>
 
@@ -2345,9 +2359,10 @@ $ git init
 </pre></div>
 
 <ol>
-<li>Tell git which files have changed and you are interested to be in the next snapshot</li>
+<li>Tell git which files have changed and you are interested to be in the next snapshot.</li>
 </ol>
-<div class="highlight"><pre><span></span>git add &lt;filename&gt;
+<p>Note -- It's good practie to add a single file at a time.</p>
+<div class="highlight"><pre><span></span>git add {filename}
 </pre></div>
 
 <ol>
@@ -2362,20 +2377,20 @@ $ git init
 <div class="highlight"><pre><span></span>git push
 </pre></div>
 
-<p>For our practice session:</p>
+<h3 id="lets-practice-the-commands">Let's practice the commands<a class="headerlink" href="#lets-practice-the-commands" title="Permanent link">#</a></h3>
 <ul>
 <li>Update any changes made in the remote repo: <code>git pull</code></li>
-<li>Create file with your name in it (change <code>&lt;yourandrewid&gt;</code> for your actual andrewid -withouth the <code>&lt;</code> and <code>&gt;</code>):</li>
+<li>Create a file with your name in it (change <code>{andrewid}</code> for your actual andrewid - withouth the <code>{</code> and <code>}</code>):</li>
 </ul>
-<div class="highlight"><pre><span></span>nano &lt;yourandrewid.txt&gt;
+<div class="highlight"><pre><span></span>nano {andrewid}.txt
 </pre></div>
 
 <p>That will open an editor window, put your name in it and then use <code>Ctrl+X</code> then type <code>Y</code> to save the changes.</p>
-<p>Verify the changes we made in the file: <code>cat &lt;yourandrewid.txt&gt;</code></p>
+<p>Verify the changes we made in the file: <code>cat {andrewid}.txt</code></p>
 <ul>
 <li>Tell git which files to take into account for the next snapshot</li>
 </ul>
-<div class="highlight"><pre><span></span>git add &lt;yourandrewid.txt&gt;
+<div class="highlight"><pre><span></span>git add {andrewid}.txt
 </pre></div>
 
 <ul>
@@ -2394,7 +2409,7 @@ $ git init
 <ul>
 <li>Look up for the difference between versions</li>
 </ul>
-<div class="highlight"><pre><span></span>git diff &lt;nameoffile&gt;
+<div class="highlight"><pre><span></span>git diff {nameoffile}
 </pre></div>
 
 <ul>
