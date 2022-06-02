@@ -168,13 +168,13 @@ git push
 + Look up for the difference between versions
 
 ```
-git diff
+git diff <nameoffile>
 ```
 
 + Delete a file from the repo
 
 ```
-git rm
+git rm <nameoffile>
 ```
 
 ### Useful git files
