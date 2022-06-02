@@ -2331,12 +2331,6 @@ $ git init
 <div class="highlight"><pre><span></span>git clone /path/to/repo
 </pre></div>
 
-<p>You most likely will be prompted to autheticate your credentials when cloning a remote repo (e.g., from GitHub).</p>
-<p>Let's try to clone a practice repository for this session.</p>
-<div class="highlight"><pre><span></span>$ cd /mnt/data/
-$ git clone https://github.com/dssg/github_practice.git
-</pre></div>
-
 <h3 id="what-is-the-typical-workflow">What is the typical workflow?<a class="headerlink" href="#what-is-the-typical-workflow" title="Permanent link">#</a></h3>
 <p>When you make changes to your files and want to register those changes as a snapshot (commit) into the history, we take the following <strong>minimum</strong> steps:</p>
 <ul>
@@ -2379,11 +2373,29 @@ $ git clone https://github.com/dssg/github_practice.git
 </pre></div>
 
 <h3 id="lets-practice-the-commands">Let's practice the commands<a class="headerlink" href="#lets-practice-the-commands" title="Permanent link">#</a></h3>
+<p>To clone a github repo we will need to authenticate, in DSSG we prefer to use
+ ssh. We will need to create another pair of keys <strong>within</strong> the server and
+  add the <strong>public key</strong> to Github. </p>
+<div class="highlight"><pre><span></span>$ ssh-keygen
+$ cd ~/.ssh
+$ cat id_rsa.pub
+</pre></div>
+
+<p>To copy your public key into Github go to your profile on Github `Settings</p>
+<blockquote>
+<p>SSH and GPS keys &gt; New Key`</p>
+</blockquote>
+<p>Let's try to clone a practice repository for this session.</p>
+<div class="highlight"><pre><span></span>$ cd /mnt/data/projects/food_inspections/{andrew_id}
+$ git clone https://github.com/dssg/github_practice.git
+$ cd github_practice
+</pre></div>
+
 <ul>
 <li>Update any changes made in the remote repo: <code>git pull</code></li>
 <li>Create a file with your name in it (change <code>{andrewid}</code> for your actual andrewid - withouth the <code>{</code> and <code>}</code>):</li>
 </ul>
-<div class="highlight"><pre><span></span>nano {andrewid}.txt
+<div class="highlight"><pre><span></span>$ nano {andrew_id}.txt
 </pre></div>
 
 <p>That will open an editor window, put your name in it and then use <code>Ctrl+X</code> then type <code>Y</code> to save the changes.</p>
@@ -2391,42 +2403,49 @@ $ git clone https://github.com/dssg/github_practice.git
 <ul>
 <li>Tell git which files to take into account for the next snapshot</li>
 </ul>
-<div class="highlight"><pre><span></span>git add {andrewid}.txt
+<div class="highlight"><pre><span></span>$ git add {andrewid}.txt
 </pre></div>
 
 <ul>
 <li>Make the snapshot</li>
 </ul>
-<div class="highlight"><pre><span></span>git commit -m &quot;file with my name&quot;
+<div class="highlight"><pre><span></span>$ git commit -m &quot;file with my name&quot;
 </pre></div>
 
 <ul>
 <li>Make available your snapshot on the remote repository</li>
 </ul>
-<div class="highlight"><pre><span></span>git push
+<div class="highlight"><pre><span></span>$ git push
 </pre></div>
 
 <h3 id="other-useful-commands">Other useful commands<a class="headerlink" href="#other-useful-commands" title="Permanent link">#</a></h3>
 <ul>
-<li>Look up for the difference between versions</li>
+<li>Look up for the difference between versions. Let's make some changes into
+ your file. Let's add your month of birth date. </li>
 </ul>
-<div class="highlight"><pre><span></span>git diff {nameoffile}
+<div class="highlight"><pre><span></span>$ git status
+$ git diff {andrew_id}.txt
+</pre></div>
+
+<p>Now lets <code>push</code> this change: </p>
+<div class="highlight"><pre><span></span>$ git pull 
+$ git add {andrew_id}.txt 
+$ git commit -m &quot;adding my month birht date&quot;
+$ git push
 </pre></div>
 
 <ul>
-<li>Delete a file from the repo</li>
+<li>Delete a file from the repo. If you want to get rid of a file you need to
+ tell git to remove it.* </li>
 </ul>
-<div class="highlight"><pre><span></span>git rm &lt;nameoffile&gt;
+<div class="highlight"><pre><span></span>git rm {andrew_id}.txt
 </pre></div>
 
 <h3 id="useful-git-files">Useful git files<a class="headerlink" href="#useful-git-files" title="Permanent link">#</a></h3>
 <ul>
-<li>
-<p><code>.gitignore</code></p>
-</li>
-<li>
-<p><code>.gitkeep</code></p>
-</li>
+<li><code>.gitignore</code> This file will allow us to tell git which files/directories
+ we don't to be part of the repo ever. Very useful to keep credentials files out
+  of a github repo.  </li>
 </ul>
                 
                   
