@@ -38,23 +38,26 @@ There are many providers that let you store your git repositories -gitlab, bitbu
 
 Apart from storing a copy of your projects, github comes with a lot of useful features. For example, you can use it to share your projects with your colleagues, so they can see (or modify if you want) your project.
 
-## How do we use git?
+## How do we use git? 
 
-Let's take a look at how we can use git.
+First, let's login to the server.
+
+```
+$ ssh {andrewid}@training.dssg.io
+```
 
 ### Configuring your Git Profile
 
 First things first. You need to configure you git client so your commits are attributed to you. Do the following:
 
 ```
-# How my git configuration currently look like
+# How the current git configuration look like
 git config --list
 ```
 
- My workspace
+The workspace
 
 ```
-# Adding some, if you don't have a user.name or user.email set
 git config --global user.name "Clark Kent"
 git config --global user.email "{the email you used for Github}"
 ```
@@ -64,13 +67,16 @@ our first repository.
 
 ### Initializing a git repository
 
-Note -- We are following [this guide](http://rogerdudler.github.io/git-guide/)
-
 You can create a new directory, and to make it a git repository, we can use the `git init` command.
 
+First, let's navigate to the project folder and create a folder with your andrewid so that everyone can have their own directory. 
+
 ```
-$ mkdir my-git-repo
-$ cd my-git-repo
+$ cd /mnt/data/projects/food_inspections
+$ mkdir {andrew_id}
+$ cd {andrew_id}
+$ mkdir my_git_repo
+$ cd my_git_repo
 $ git init
 ```
 
@@ -82,25 +88,28 @@ git clone /path/to/repo
 
 You most likely will be prompted to autheticate your credentials when cloning a remote repo (e.g., from GitHub).
 
-Let's try to clone a practice repository for this session
+Let's try to clone a practice repository for this session.
 
 ```
-git clone https://github.com/dssg/github_practice.git
+$ cd /mnt/data/
+$ git clone https://github.com/dssg/github_practice.git
 ```
 
 ### What is the typical workflow?
 
 When you make changes to your files and want to register those changes as a snapshot (commit) into the history, we take the following **minimum** steps:
 
-+ We let git know which files we want to put on the next snapshot -add-  
-+ We "take" the snapshot -commit-
-+ We update the remote repository to add our snapshot into its history of snapshots -push-
++ We let git know which files we want to put on the next snapshot -- `add`  
++ We "take" the snapshot -- `commit`
++ We update the remote repository to add our snapshot into its history of snapshots -- `push`
 
-A more "complete" and suggest workflow consist on the following steps:
+A more "complete" and recommended workflow consists of the following steps:
 
-**Do not put this commands yet!**
+**Do not type these commands yet!**
 
-0. Update your local repo\*
+0. Update your local repo. 
+
+Before you make any changes to the files in the repo, you should make sure that your copy of the repo reflects the latest versions of files. 
 
 ```
 git pull
@@ -112,10 +121,12 @@ git pull
 git status
 ```
 
-2. Tell git which files have changed and you are interested to be in the next snapshot
+2. Tell git which files have changed and you are interested to be in the next snapshot.
+
+Note -- It's good practie to add a single file at a time.
 
 ```
-git add <filename>
+git add {filename}
 ```
 
 
@@ -131,23 +142,23 @@ git commit -m "a meaningful but short message describing the changes you made"
 git push
 ```
 
-For our practice session:
+### Let's practice the commands
 
 + Update any changes made in the remote repo: `git pull`
-+ Create file with your name in it (change `<yourandrewid>` for your actual andrewid -withouth the `<` and `>`):
++ Create a file with your name in it (change `{andrewid}` for your actual andrewid - withouth the `{` and `}`):
 
 ```
-nano <yourandrewid.txt>
+nano {andrewid}.txt
 ```
 
 That will open an editor window, put your name in it and then use `Ctrl+X` then type `Y` to save the changes.
 
-Verify the changes we made in the file: `cat <yourandrewid.txt>`
+Verify the changes we made in the file: `cat {andrewid}.txt`
 
 + Tell git which files to take into account for the next snapshot
 
 ```
-git add <yourandrewid.txt>
+git add {andrewid}.txt
 ```
 
 + Make the snapshot
@@ -168,7 +179,7 @@ git push
 + Look up for the difference between versions
 
 ```
-git diff <nameoffile>
+git diff {nameoffile}
 ```
 
 + Delete a file from the repo
