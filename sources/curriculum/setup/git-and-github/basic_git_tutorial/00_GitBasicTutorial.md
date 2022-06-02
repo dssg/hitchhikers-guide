@@ -156,7 +156,7 @@ Let's try to clone a practice repository for this session.
 
 ```
 $ cd /mnt/data/projects/food_inspections/{andrew_id}
-$ git clone https://github.com/dssg/github_practice.git
+$ git clone git@github.com:dssg/github_practice.git
 $ cd github_practice
 ```
 
