@@ -86,14 +86,6 @@ Alternatively, if we want to contribute to an already existing repository, we ca
 git clone /path/to/repo
 ```
 
-You most likely will be prompted to autheticate your credentials when cloning a remote repo (e.g., from GitHub).
-
-Let's try to clone a practice repository for this session.
-
-```
-$ cd /mnt/data/
-$ git clone https://github.com/dssg/github_practice.git
-```
 
 ### What is the typical workflow?
 
@@ -143,6 +135,28 @@ git push
 ```
 
 ### Let's practice the commands
+
+To clone a github repo we will need to authenticate, in DSSG we prefer to use
+ ssh. We will need to create another pair of keys **within** the server and
+  add the **public key** to Github. 
+ 
+```
+$ ssh-keygen
+$ cd ~/.ssh
+$ cat id_rsa.pub
+```
+
+To copy your public key into Github go to your profile on Github `Settings
+ >  SSH and GPS keys > New Key`
+
+
+Let's try to clone a practice repository for this session.
+
+```
+$ cd /mnt/data/projects/food_inspections/{andrew_id}
+$ git clone https://github.com/dssg/github_practice.git
+$ cd github_practice
+```
 
 + Update any changes made in the remote repo: `git pull`
 + Create a file with your name in it (change `{andrewid}` for your actual andrewid - withouth the `{` and `}`):
