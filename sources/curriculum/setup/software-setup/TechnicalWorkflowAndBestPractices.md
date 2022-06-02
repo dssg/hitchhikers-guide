@@ -86,7 +86,7 @@ let's set it up:
     - In the terminal (on the course server) type ss -lntu. This will list all ports
     - Pick a port number between 1024 and 65535 that is **NOT on that list**.
 
-3. Navigate to `/mnt/data/projects/food-inspections` to activate your virtual environment (you might need to run `direnv allow` if this is your first time doing so) 
+3. Navigate to `/mnt/data/projects/food_inspections` to activate your virtual environment (you might need to run `direnv allow` if this is your first time doing so) 
     - If you want to confirm your virtualenv has properly activated, run `which python` 
 
 4. Now, start the jupyter server
