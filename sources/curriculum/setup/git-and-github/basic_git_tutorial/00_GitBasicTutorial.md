@@ -1,3 +1,5 @@
+# GitHub Basics
+
 ## Our goal for this session:
 
 This session will give a quick overview of what git is, and its basic usage.
