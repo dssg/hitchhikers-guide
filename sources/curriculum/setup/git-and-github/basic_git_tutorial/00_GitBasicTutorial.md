@@ -38,23 +38,26 @@ There are many providers that let you store your git repositories -gitlab, bitbu
 
 Apart from storing a copy of your projects, github comes with a lot of useful features. For example, you can use it to share your projects with your colleagues, so they can see (or modify if you want) your project.
 
-## How do we use git?
+## How do we use git? 
 
-Let's take a look at how we can use git.
+First, let's login to the server.
+
+```
+$ ssh {andrewid}@training.dssg.io
+```
 
 ### Configuring your Git Profile
 
 First things first. You need to configure you git client so your commits are attributed to you. Do the following:
 
 ```
-# How my git configuration currently look like
+# How the current git configuration look like
 git config --list
 ```
 
- My workspace
+The workspace
 
 ```
-# Adding some, if you don't have a user.name or user.email set
 git config --global user.name "Clark Kent"
 git config --global user.email "{the email you used for Github}"
 ```
@@ -64,13 +67,14 @@ our first repository.
 
 ### Initializing a git repository
 
-Note -- We are following [this guide](http://rogerdudler.github.io/git-guide/)
-
 You can create a new directory, and to make it a git repository, we can use the `git init` command.
 
+First, let's navigate to the project folder and create a folder with your andrewid so that everyone can have their own directory. 
+
 ```
-$ mkdir my-git-repo
-$ cd my-git-repo
+$ cd /mnt/data/projects/food_inspections
+$ mkdir {andrew_id}
+$ cd {andrew_id}
 $ git init
 ```
 
@@ -98,9 +102,9 @@ When you make changes to your files and want to register those changes as a snap
 
 A more "complete" and suggest workflow consist on the following steps:
 
-**Do not put this commands yet!**
+**Do not type these commands yet!**
 
-0. Update your local repo\*
+0. Update your local repo
 
 ```
 git pull
