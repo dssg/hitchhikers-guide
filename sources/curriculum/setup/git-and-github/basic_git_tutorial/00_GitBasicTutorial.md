@@ -82,16 +82,23 @@ git clone /path/to/repo
 
 You most likely will be prompted to autheticate your credentials when cloning a remote repo (e.g., from GitHub).
 
+Let's try to clone a practice repository for this session
+
+```
+git clone https://github.com/dssg/github_practice.git
+```
 
 ### What is the typical workflow?
 
-A local git repository consists of three elements:
-- Working directory, that contains the actual files
-- the Index, which acts as a staging area for the changes you make for the files
-- the HEAD which points to the last commit you made
+When you make changes to your files and want to register those changes as a snapshot (commit) into the history, we take the following **minimum** steps:
 
++ We let git know which files we want to put on the next snapshot -add-  
++ We "take" the snapshot -commit-
++ We update the remote repository to add our snapshot into its history of snapshots -push-
 
-When you make changes to your files and want to register those changes as a snapshot (commit) into the history, we take the following steps:
+A more "complete" and suggest workflow consist on the following steps:
+
+**Do not put this commands yet!**
 
 0. Update your local repo\*
 
@@ -105,19 +112,51 @@ git pull
 git status
 ```
 
-2. Stage / Propose your changes to the Index using
+2. Tell git which files have changed and you are interested to be in the next snapshot
 
 ```
-git add <file_name>
+git add <filename>
 ```
 
-3. Register the staged changes to the HEAD and register the commit
+
+3. Take the snapshot of your changes
 
 ```
 git commit -m "a meaningful but short message describing the changes you made"
 ```
 
-4. Now, you have registered your commits and pointed your HEAD to the latest comment. However, the remote copy of your repository doesn't know about the changes you commited. We use the push command for this.
+4. Make the snapshot available on the remote repository so that everyone on your team could access your changes.
+
+```
+git push
+```
+
+For our practice session:
+
++ Update any changes made in the remote repo: `git pull`
++ Create file with your name in it (change `<yourandrewid>` for your actual andrewid -withouth the `<` and `>`):
+
+```
+nano <yourandrewid.txt>
+```
+
+That will open an editor window, put your name in it and then use `Ctrl+X` then type `Y` to save the changes.
+
+Verify the changes we made in the file: `cat <yourandrewid.txt>`
+
++ Tell git which files to take into account for the next snapshot
+
+```
+git add <yourandrewid.txt>
+```
+
++ Make the snapshot
+
+```
+git commit -m "file with my name"
+```
+
++ Make available your snapshot on the remote repository
 
 ```
 git push
