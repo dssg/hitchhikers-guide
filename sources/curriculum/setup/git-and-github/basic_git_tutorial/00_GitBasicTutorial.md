@@ -88,14 +88,6 @@ Alternatively, if we want to contribute to an already existing repository, we ca
 git clone /path/to/repo
 ```
 
-You most likely will be prompted to autheticate your credentials when cloning a remote repo (e.g., from GitHub).
-
-Let's try to clone a practice repository for this session.
-
-```
-$ cd /mnt/data/
-$ git clone https://github.com/dssg/github_practice.git
-```
 
 ### What is the typical workflow?
 
@@ -146,11 +138,33 @@ git push
 
 ### Let's practice the commands
 
+To clone a github repo we will need to authenticate, in DSSG we prefer to use
+ ssh. We will need to create another pair of keys **within** the server and
+  add the **public key** to Github. 
+ 
+```
+$ ssh-keygen
+$ cd ~/.ssh
+$ cat id_rsa.pub
+```
+
+To copy your public key into Github go to your profile on Github `Settings
+ >  SSH and GPS keys > New Key`
+
+
+Let's try to clone a practice repository for this session.
+
+```
+$ cd /mnt/data/projects/food_inspections/{andrew_id}
+$ git clone https://github.com/dssg/github_practice.git
+$ cd github_practice
+```
+
 + Update any changes made in the remote repo: `git pull`
 + Create a file with your name in it (change `{andrewid}` for your actual andrewid - withouth the `{` and `}`):
 
 ```
-nano {andrewid}.txt
+$ nano {andrew_id}.txt
 ```
 
 That will open an editor window, put your name in it and then use `Ctrl+X` then type `Y` to save the changes.
@@ -160,38 +174,52 @@ Verify the changes we made in the file: `cat {andrewid}.txt`
 + Tell git which files to take into account for the next snapshot
 
 ```
-git add {andrewid}.txt
+$ git add {andrewid}.txt
 ```
 
 + Make the snapshot
 
 ```
-git commit -m "file with my name"
+$ git commit -m "file with my name"
 ```
 
 + Make available your snapshot on the remote repository
 
 ```
-git push
+$ git push
 ```
 
 
 ### Other useful commands
 
-+ Look up for the difference between versions
++ Look up for the difference between versions. Let's make some changes into
+ your file. Let's add your month of birth date. 
 
 ```
-git diff {nameoffile}
+$ git status
+$ git diff {andrew_id}.txt
 ```
 
-+ Delete a file from the repo
+Now lets `push` this change: 
 
 ```
-git rm <nameoffile>
+$ git pull 
+$ git add {andrew_id}.txt 
+$ git commit -m "adding my month birht date"
+$ git push
+```
+
++ Delete a file from the repo. If you want to get rid of a file you need to
+ tell git to remove it.\* 
+
+```
+git rm {andrew_id}.txt
 ```
 
 ### Useful git files
 
-+ `.gitignore`
++  `.gitignore` This file will allow us to tell git which files/directories
+ we don't to be part of the repo ever. Very useful to keep credentials files out
+  of a github repo.  
 
-+ `.gitkeep`
+
