@@ -1,6 +1,6 @@
 # Python with SQL and Pandas
 
-We will need to import the virtual environment in which we are working to jupyter, so that we work with the same packages -and versions of those- within jupyter. To do that, go to `/mnt/data/projects/food_inspections/` and type the following command:
+We will need to import the virtual environment `food_inspections`, into jupyter. To do that, go to `/mnt/data/projects/food_inspections/` and type the following command:
 
 ```
 $ python -m ipykernel install --user --name=food_inspections --display-name food_inspections
