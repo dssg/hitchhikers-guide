@@ -104,7 +104,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#basic-python" tabindex="1" class="md-skip">
+      <a href="#python-with-sql-and-pandas" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -2257,7 +2257,38 @@
                   <a href="https://github.com/dssg/hitchhikers-guide/edit/master/sources/curriculum/software/basic_python.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="basic-python">Basic Python<a class="headerlink" href="#basic-python" title="Permanent link">#</a></h1>
+                <h1 id="python-with-sql-and-pandas">Python with SQL and Pandas<a class="headerlink" href="#python-with-sql-and-pandas" title="Permanent link">#</a></h1>
+<p>We will need to import the virtual environment in which we are working to jupyter, so that we work with the same packages -and versions of those- within jupyter. To do that, go to <code>/mnt/data/projects/food_inspections/</code> and type the following command:</p>
+<div class="highlight"><pre><span></span>$ python -m ipykernel install --user --name=food_inspections --display-name food_inspections
+</pre></div>
+
+<p>Also, since we are going to connect to the database through Python we will need to chage some environment variables.</p>
+<div class="highlight"><pre><span></span>$ nano ~/.bashrc
+</pre></div>
+
+<p>Add your credentials for the variables: <code>PGUSER</code>, <code>PGPASSWORD</code>, <code>PGHOST</code>, <code>PGPORT</code>, and <code>PGDATABASE</code>. For example:</p>
+<div class="highlight"><pre><span></span>export PGUSER=&#39;yourandrewid&#39;
+export PGPASSWORD=&#39;yourandrewid&#39;
+export PGHOST=&#39;db.dssg.io&#39;
+export PGPORT=5432
+export PGDATABASE=&#39;food-inspections&#39;
+</pre></div>
+
+<p>Then make these variables available to the session:</p>
+<div class="highlight"><pre><span></span>$ source ~/.bashrc
+</pre></div>
+
+<p>Start a Jupyter notebook, remember to use a port available from the list <code>ss -tulnp</code>:</p>
+<div class="highlight"><pre><span></span>$ jupyter notebook --port {XXXX}
+</pre></div>
+
+<p>Make a port forwarding between your local machine and the server so that we can use the browser in your machine as GUI.</p>
+<div class="highlight"><pre><span></span>$ ssh localhost:{YYYY}:localhost:{XXXX} andrewid@training.dssg.io
+</pre></div>
+
+<p>Open your browser and open the URL <code>localhost:{YYYY}</code> it will ask for a token.</p>
+<p><a href="../python_sql_pandas_viz.ipynb">Let's code!</a></p>
+<hr />
 <p>Python is the language of choice here at DSSG. If you’re only going to
 learn one programming language, learn Python! It’s powerful,
 expressive, and easy to read (even by non-programmers).</p>
