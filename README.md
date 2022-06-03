@@ -59,7 +59,7 @@ This section details the various topics we will be covering throughout the summe
 - [Getting Started](sources/curriculum/0_before_you_start/)
   - [Prerequisites](sources/curriculum/0_before_you_start/prerequisites/)
   - [Pipelines and Project Workflow](sources/curriculum/0_before_you_start/pipelines-and-project-workflow/)
-  - [Software Setup](sources/curriculum/0_before_you_start/software-setup/)
+  - [Software Setup](sources/curriculum/setup/software-setup)
 - [Getting and Keeping Data](sources/curriculum/1_getting_and_keeping_data/)
   - [Web Scraping](sources/curriculum/1_getting_and_keeping_data/basic-web-scraping/)
   - [Command Line Tools](sources/curriculum/1_getting_and_keeping_data/command-line-tools/)
