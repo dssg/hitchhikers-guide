@@ -6,11 +6,13 @@
 
 ### Get a CSV file
 
-## Load it in a database
+### Load it in a database
 
-### Get database credentials
+#### Get database credentials
 
-`def get_db_conn():
+```
+
+def get_db_conn():
     """ Get an authenticated psycopg db connection"""
     
     user=os.getenv('PGUSER'),  # returns tuple
@@ -24,13 +26,10 @@
                                                                 host[0], 
                                                                 port[0], 
                                                                 database))
-    connection = engine.connect()`
+    connection = engine.connect()
     
-    
-    
+```
 
-### Load the csv in python
+#### Load the csv in python
 
-### Copy it to the database
-
-## Check if it worked
+#### Copy it to the database
