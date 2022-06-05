@@ -104,7 +104,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#csvs-to-the-database" tabindex="1" class="md-skip">
+      <a href="#getting-data-into-a-database" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -1049,7 +1049,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#getting-data-into-a-database" title="Getting data into a Database" class="md-nav__link">
+  <a href="#getting-data-into-a-database_1" title="Getting data into a Database" class="md-nav__link">
     Getting data into a Database
   </a>
   
@@ -2325,7 +2325,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#getting-data-into-a-database" title="Getting data into a Database" class="md-nav__link">
+  <a href="#getting-data-into-a-database_1" title="Getting data into a Database" class="md-nav__link">
     Getting data into a Database
   </a>
   
@@ -2397,24 +2397,25 @@
                   <a href="https://github.com/dssg/hitchhikers-guide/edit/master/sources/curriculum/1_getting_and_keeping_data/csv-to-db/README.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="csvs-to-the-database">CSVs to the Database<a class="headerlink" href="#csvs-to-the-database" title="Permanent link">#</a></h1>
+                <h1 id="getting-data-into-a-database">Getting Data into a Database<a class="headerlink" href="#getting-data-into-a-database" title="Permanent link">#</a></h1>
 <h2 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">#</a></h2>
-<p>This summer, you will use a database to store and analyze data. Databases have several advantages over using text files such as CSVs:</p>
+<p>This summer, you will use a database to store and analyze data. Databases have several advantages over using text files such as CSVs or Excel files:</p>
 <ul>
 <li>Databases can store information about relationships between tables.</li>
-<li>We're collecting more and more data -- often too much to fit in memory. Most databases can handle this. </li>
+<li>We're collecting more and more data -- often too much to fit in memory. Most databases can handle this in a more efficient manner. </li>
 <li>Databases can provide integrity checks and guarantees. If you have a column of numbers in a spreadsheet, Excel will let you change a random cell to text. In contrast, you can tell your database to only accept input that meets your conditions (e.g. type, uniqueness). This is especially important for ongoing projects, where you have new data coming in.</li>
 <li>Databases allow you to store data in one place. That makes updates easy and reliable. </li>
 <li>Databases are more secure. You can more carefully control who has which types of access to what data better in a database than with a CSV.</li>
 <li>Databases can handle multiple users. Concurrent edits to a CSV can get messy. Some file systems won't even let multiple users access a CSV at the same time.</li>
-<li>Databases are designed to help you do analysis. SQL will probably become your best friend.</li>
+<li>Databases are designed to help you do analysis. SQL will probably become your best (non-human) friend this summer.</li>
 </ul>
-<p>You'll likely have to load CSVs into your database (e.g. from the open data portal), even if your partner gave a database dump (<a href="https://dsapp.uchicago.edu/home/resources/give-us-direct-access-system-database-dump/">which is ideal</a>). This session builds on what you learned last week in the <a href="https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/pipelines-and-project-workflow">pipeline</a> and <a href="https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools">command line</a> sessions. We will focus on ETL. </p>
+<p>You'll likely have to load CSVs (or excel files) into your database (e.g. from the open data portal), even if your partner gave a database dump (<a href="https://dsapp.uchicago.edu/home/resources/give-us-direct-access-system-database-dump/">which is ideal</a>). This session builds on what you learned last week in the <a href="https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/pipelines-and-project-workflow">pipeline</a> and <a href="https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools">command line</a> sessions. We will focus on ETL. </p>
 <h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">#</a></h2>
 <ul>
 <li>psql (command line)</li>
-<li>dBeaver</li>
-<li>csvkit</li>
+<li><a href="https://dbeaver.io/">dBeaver</a></li>
+<li><a href="https://github.com/wireservice/csvkit">csvkit</a></li>
+<li><a href="https://github.com/dssg/ohio">ohio</a></li>
 </ul>
 <p>Notice that we're not using pandas. DO NOT COPY DATA INTO THE DATABASE USING PANDAS. We strongly recommend using <code>psql</code>, which is orders of magnitude faster.</p>
 <h2 id="basic-database-lingo">Basic Database Lingo<a class="headerlink" href="#basic-database-lingo" title="Permanent link">#</a></h2>
@@ -2437,7 +2438,7 @@
 <img alt="Connect from the EC2" src="https://www.lucidchart.com/publicSegments/view/9ca0e0f9-da92-468a-935c-b1fc1d3d467a/image.png" /></li>
 </ol>
 <p>You can use option 1 (especially dBeaver) to explore the data, but you should use option 2 to load the data. First, downloading the datasets to your laptop may violate our contracts. Second, the internet connections will be better. The connections within Amazon are pretty fast; the connections from our office to Amazon might not be. Option 2 keeps the heavy transfers on Amazon's infrastructure. </p>
-<h3 id="getting-data-into-a-database">Getting data into a Database<a class="headerlink" href="#getting-data-into-a-database" title="Permanent link">#</a></h3>
+<h3 id="getting-data-into-a-database_1">Getting data into a Database<a class="headerlink" href="#getting-data-into-a-database_1" title="Permanent link">#</a></h3>
 <p>There are three steps to get a CSV into an existing database:
 1. <strong>Create table</strong>: This involves figuring out the structure of the table (how many fields, what should they be called, and what data types they are). Once you figure out the structure, you can create a sql "CREATE TABLE" statement and run that to generate an <em>empty</em> table*
 2. <strong>Copy CSV to the table</strong>: Every database has a "bulk" copy command that is <strong>much</strong> more efficient than using pandas. Please do not use pandas to copy large csvs to a database. Postgres has a COPY command that can now copy your csv to the table you just created. 
