@@ -14,16 +14,16 @@ Donorschoose project list is in /mnt/data/projects/food-inspections/data/project
 df=pd_read_csv('projects.csv')
 ```
 
-### Load it in a database
+## Load it in a database
 
-#### Get database credentials
+### Get database credentials
 
 ```
 engine = create_engine("postgresql://")  
 
 ```
 
-#### Copy it to the database
+### Copy it to the database
  
 Let's explore a few different ways of getting this CSV in our database
 
@@ -34,4 +34,7 @@ Let's explore a few different ways of getting this CSV in our database
 3. 
 
 
-### Check to see if worked
+## Check to see if worked
+
+## Workflow tips for loading project data
+ 
