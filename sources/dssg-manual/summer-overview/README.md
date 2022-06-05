@@ -6,11 +6,11 @@ will follow roughly the structure in our
 
 ## Before the Summer
 
-Prior to your arrival, we provide you with [the
+Prior to your arrival, we'll provide you with [the
 prerequisites](../../curriculum/setup/software-setup/)
 so you can familiarize yourself with the tools you’ll use over the summer, install them on your local machine, 
 and equip yourself with the knowledge to be able to
-follow along with the curriculum. You'll receive a list of software to
+follow along with the curriculum. You'll receive a longer list of software to
 install before the first day of orientation, programming languages you
 should brush up on, and tools we suggest you use to manage your ML/Data
 workflow. 
@@ -34,7 +34,7 @@ all of the projects and for the partners to meet other project partners and the 
 
 After orientation, you will spend the first part of the summer getting
 to know your project partner and their unique
-challenges. While the projects have already been scoped, you will
+challenges. While the projects have already been (initially) scoped, you will
 almost certainly need to refine that scope throughout the
 summer. For example, we may know your partner’s goal is to find
 violations of a particular law. Your team would then work
@@ -43,10 +43,10 @@ violations in general; (2) locations at risk of multiple
 violations; or (3) locations with the most impactful violations.
 
 We believe it is important for you to thoroughly understand the
-problem and the process that gives rise to the data before
-getting too entrenched in the data itself. A deep understanding of
+problem, how the project partner is currently takcling it, the challenges associated with it, as well as the people and the processes
+that generate the data we are getting before we get deeper. A better understanding of
 your partner and the problems they face is crucial to
-knowing what your variables really mean. Defining your outcome and
+knowing what the rows and columns in your data  really mean. Defining your outcome and
 evaluation metrics will depend heavily upon this
 understanding. While we know you are eager to dig into the
 data, you will find that at least as much of your time is
@@ -54,15 +54,14 @@ devoted to talking about the data as manipulating it. This is a good thing.
 
 You will also be working with real data, which is messy! You will
 encounter missing values and things that don’t seem to make
-sense. Talking to your partners and telling them what you see from
-looking at the data they’ve given you will help you
-evaluate your own understanding, reconcile inconsistencies (or carry
+sense. Talking to your partners about their existing process, and sharing with them what you see from
+analyzing their data will help you judge your own understanding of their problem, data, and processes, reconcile inconsistencies (or carry
 on being aware of them), and identify whether the errors
-lie in the data itself or in whatever preconceived notions you had.
+lie in the data itself or in the information you weere provided.
 
 ## Working on Your Project
 
-Although we aim to have all the data from project partners ready well
+Although we aim to have all the data from project partners ready
 in advance of the fellowship, there are inevitably
 data transfer delays and partial data that will continue to be
 augmented throughout - and sometimes after - the fellowship.
@@ -72,12 +71,12 @@ need to work with your partner to decide whether it’s possible to
 acquire the data you need in the time that you have;
 that’s the reality of working with real world partners and sensitive data!
 
-Fellows drive the work of every project, learning their subject matter
-in depth, writing code, and collaborating with
-their project partners to develop something useful and usable. Over
+Fellows drive the work of every project, learning about the domain and problem they're tackling
+in depth, writing code, analyzing data, and collaborating with
+their project anbd comunity partners to develop a useful and usable system. Over
 the course of the summer, your team will:
 
-* Explore the (real) data your partners collect
+* Explore the (real) data your partners have provided
 * Design your project workflow based on what tools you'll use and how your team works together
 * Identify user stories to make sure what you're creating has a real purpose
 * Develop a machine learning pipeline to turn raw data into analysis that can inform decisions
@@ -209,7 +208,7 @@ topics, so there are more open time slots for fellows to do teachouts.
   - Educational Data and Testing
   - Social Good Business Models
   - Basic Web Scraping
-  - Pipelines and Evaluation
+  - ML Pipelines and Evaluation
   - Feature Generation Workshop
   - Test, Test, Test
   - Beyond the Deep Learning Hype
@@ -218,8 +217,15 @@ topics, so there are more open time slots for fellows to do teachouts.
   - Spatial Analysis Tools
   - Operations Research
   - Theory and Theorizing in the Social Sciences
-  - Web Classification
+  - NLP
+  - Image Analysis
   - Presentation Skills
   - Data Visualization
   - Natural Language Processing
   - Opening Closed Data
+  - Dealing with Fairness and Bias in ML systems
+  - Explainability and it's use in ML and Social Good problems
+  - Responsible AI/ML
+  - Deeper dive into social issues including poverty, homelessness, food insecurity, education, public health.
+  - Working with commubnity members to develop ML systems that affect them
+  
