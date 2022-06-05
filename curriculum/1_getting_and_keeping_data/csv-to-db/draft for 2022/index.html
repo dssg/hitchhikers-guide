@@ -2184,6 +2184,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#load-the-csv-in-python" title="Load the csv in python" class="md-nav__link">
+    Load the csv in python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#load-it-in-a-database" title="Load it in a database" class="md-nav__link">
     Load it in a database
   </a>
@@ -2225,32 +2232,23 @@
 <h2 id="why-use-a-database-compared-to-cvss-or-excel-files">Why use a database compared to CVSs or Excel files<a class="headerlink" href="#why-use-a-database-compared-to-cvss-or-excel-files" title="Permanent link">#</a></h2>
 <h2 id="lets-start-with-the-raw-data">Let's start with the raw data<a class="headerlink" href="#lets-start-with-the-raw-data" title="Permanent link">#</a></h2>
 <h3 id="get-a-csv-file">Get a CSV file<a class="headerlink" href="#get-a-csv-file" title="Permanent link">#</a></h3>
-<h3 id="load-it-in-a-database">Load it in a database<a class="headerlink" href="#load-it-in-a-database" title="Permanent link">#</a></h3>
-<h4>Get database credentials</h4>
-<div class="highlight"><pre><span></span>def get_db_conn():
-    &quot;&quot;&quot; Get an authenticated psycopg db connection&quot;&quot;&quot;
-
-    user=os.getenv(&#39;PGUSER&#39;),  # returns tuple
-    password=os.getenv(&#39;PGPASSWORD&#39;), #returns tuple
-    host=os.getenv(&#39;PGHOST&#39;), #returns tuple
-    port=int(os.getenv(&#39;PGPORT&#39;)), #returns tuple
-    database=os.getenv(&#39;PGDATABASE&#39;)
-
-    engine = create_engine(&#39;postgresql://{}:{}@{}:{}/{}&#39;.format(user[0], 
-                                                                password[0], 
-                                                                host[0], 
-                                                                port[0], 
-                                                                database))
-    connection = engine.connect()
+<p>Donorschoose project list is in /mnt/data/projects/food-inspections/data/projects.csv</p>
+<h3 id="load-the-csv-in-python">Load the csv in python<a class="headerlink" href="#load-the-csv-in-python" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span>df=pd_read_csv(&#39;projects.csv&#39;)
 </pre></div>
 
-<h4>Load the csv in python</h4>
+<h3 id="load-it-in-a-database">Load it in a database<a class="headerlink" href="#load-it-in-a-database" title="Permanent link">#</a></h3>
+<h4>Get database credentials</h4>
+<div class="highlight"><pre><span></span>engine = create_engine(&quot;postgresql://&quot;)  
+</pre></div>
+
 <h4>Copy it to the database</h4>
 <p>Let's explore a few different ways of getting this CSV in our database</p>
 <p>1.</p>
-<p>2.</p>
-<p>3.</p>
-<p>...</p>
+<ol>
+<li></li>
+<li></li>
+</ol>
 <h3 id="check-to-see-if-worked">Check to see if worked<a class="headerlink" href="#check-to-see-if-worked" title="Permanent link">#</a></h3>
                 
                   
