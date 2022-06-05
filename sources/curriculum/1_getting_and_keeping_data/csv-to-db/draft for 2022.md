@@ -33,3 +33,16 @@ def get_db_conn():
 #### Load the csv in python
 
 #### Copy it to the database
+ 
+Let's explore a few different ways of getting this CSV in our database
+
+1.
+
+2.
+
+3.
+
+...
+
+
+### Check to see if worked
