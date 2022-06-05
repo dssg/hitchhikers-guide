@@ -2183,15 +2183,49 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#load-it-in-a-database" title="Load it in a database" class="md-nav__link">
     Load it in a database
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-database-credentials" title="Get database credentials" class="md-nav__link">
+    Get database credentials
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-the-csv-in-python" title="Load the csv in python" class="md-nav__link">
+    Load the csv in python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-it-to-the-database" title="Copy it to the database" class="md-nav__link">
+    Copy it to the database
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-if-it-worked" title="Check if it worked" class="md-nav__link">
+    Check if it worked
+  </a>
   
 </li>
       
@@ -2218,10 +2252,28 @@
 <h2 id="why-use-a-database-compared-to-cvss-or-excel-files">Why use a database compared to CVSs or Excel files<a class="headerlink" href="#why-use-a-database-compared-to-cvss-or-excel-files" title="Permanent link">#</a></h2>
 <h2 id="lets-start-with-the-raw-data">Let's start with the raw data<a class="headerlink" href="#lets-start-with-the-raw-data" title="Permanent link">#</a></h2>
 <h3 id="get-a-csv-file">Get a CSV file<a class="headerlink" href="#get-a-csv-file" title="Permanent link">#</a></h3>
-<h3 id="load-it-in-a-database">Load it in a database<a class="headerlink" href="#load-it-in-a-database" title="Permanent link">#</a></h3>
-<h4>Get database credentials</h4>
-<h4>Load the csv in python</h4>
-<h4>Copy it to the database</h4>
+<h2 id="load-it-in-a-database">Load it in a database<a class="headerlink" href="#load-it-in-a-database" title="Permanent link">#</a></h2>
+<h3 id="get-database-credentials">Get database credentials<a class="headerlink" href="#get-database-credentials" title="Permanent link">#</a></h3>
+<p>`def get_db_conn():
+    """ Get an authenticated psycopg db connection"""</p>
+<div class="codehilite"><pre><span></span>user=os.getenv(&#39;PGUSER&#39;),  # returns tuple
+password=os.getenv(&#39;PGPASSWORD&#39;), #returns tuple
+host=os.getenv(&#39;PGHOST&#39;), #returns tuple
+port=int(os.getenv(&#39;PGPORT&#39;)), #returns tuple
+database=os.getenv(&#39;PGDATABASE&#39;)
+
+engine = create_engine(&#39;postgresql://{}:{}@{}:{}/{}&#39;.format(user[0], 
+                                                            password[0], 
+                                                            host[0], 
+                                                            port[0], 
+                                                            database))
+connection = engine.connect()`
+</pre></div>
+
+
+<h3 id="load-the-csv-in-python">Load the csv in python<a class="headerlink" href="#load-the-csv-in-python" title="Permanent link">#</a></h3>
+<h3 id="copy-it-to-the-database">Copy it to the database<a class="headerlink" href="#copy-it-to-the-database" title="Permanent link">#</a></h3>
+<h2 id="check-if-it-worked">Check if it worked<a class="headerlink" href="#check-if-it-worked" title="Permanent link">#</a></h2>
                 
                   
                 
