@@ -6,31 +6,22 @@
 
 ### Get a CSV file
 
+Donorschoose project list is in /mnt/data/projects/food-inspections/data/projects.csv
+
+### Load the csv in python
+
+```
+df=pd_read_csv('projects.csv')
+```
+
 ### Load it in a database
 
 #### Get database credentials
 
 ```
+engine = create_engine("postgresql://")  
 
-def get_db_conn():
-    """ Get an authenticated psycopg db connection"""
-    
-    user=os.getenv('PGUSER'),  # returns tuple
-    password=os.getenv('PGPASSWORD'), #returns tuple
-    host=os.getenv('PGHOST'), #returns tuple
-    port=int(os.getenv('PGPORT')), #returns tuple
-    database=os.getenv('PGDATABASE')
-    
-    engine = create_engine('postgresql://{}:{}@{}:{}/{}'.format(user[0], 
-                                                                password[0], 
-                                                                host[0], 
-                                                                port[0], 
-                                                                database))
-    connection = engine.connect()
-    
 ```
-
-#### Load the csv in python
 
 #### Copy it to the database
  
@@ -38,11 +29,9 @@ Let's explore a few different ways of getting this CSV in our database
 
 1.
 
-2.
+2. 
 
-3.
-
-...
+3. 
 
 
 ### Check to see if worked
