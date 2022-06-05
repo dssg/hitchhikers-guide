@@ -1,23 +1,18 @@
 # What to Expect
 
-While specific schedules will vary from project to project, the summer
-will follow roughly the structure below. See also
-[high level summer plan](High%20Level%20Plan%20for%20the%20Summer.pdf)
-for an
-outline of the flow of the summer, and general concepts that will
-inform the topics addressed by tutorials and speakers as well as what
-we'll ask fellows to present about in weekly updates
-and deep dives.
+While the specifics will vary from project to project, the summer
+will follow roughly the structure in our
+[high level summer plan](High%20Level%20Plan%20for%20the%20Summer.pdf). 
 
 ## Before the Summer
 
 Prior to your arrival, we provide you with [the
 prerequisites](../../curriculum/setup/software-setup/)
-so you can familiarize yourself with the tools you’ll use all summer
+so you can familiarize yourself with the tools you’ll use over the summer, install them on your local machine, 
 and equip yourself with the knowledge to be able to
 follow along with the curriculum. You'll receive a list of software to
 install before the first day of orientation, programming languages you
-should brush up on, and tools we suggest you use to manage your data
+should brush up on, and tools we suggest you use to manage your ML/Data
 workflow. 
 
 ## Learning about Projects and Partners
@@ -28,14 +23,10 @@ recruit partners and scope projects. This is a lengthy, complicated
 process with plenty of logistical hurdles (think
 legal data sharing agreements and data transfer challenges), which
 means the list of project partners is usually not
-finalized until the fellowship begins. Based on your preferences, the
-requirements of each project, and the balance of disciplines within
-each team, we will assign teams of typically 4 fellows
-per project. You will learn which project you've been assigned during
-the second week of the fellowship.
+finalized until we get close to the beginning of the fellowship. We'll usually give you a list of potential projects a couple of weeks 
+before the start and ask you to give us a list of your project preferences. We'll use that, the needs of each project, and other things we want to balance across the team members (skills, backgrounds, experience, disciplines) to create project teams (typically of four fellows each) during the first week of the program. Fellows typically gwet the project assignments at the beginning of week 2.
 
-We want you to meet the people you’re working with face to face. 
-We ask all our project partners to come meet their team in the second of the summer. 
+We want you to meet the people you’re working with face to face and get to know them in the beginning of the summer so you can work with them effectively for the rest of the program. We ask all our project partners to come meet their team in the second week of the summer. 
 During partner visits, you’ll spend a lot of time talking with them about the problem and the data, 
 and they will give a presentation to the fellowship.
 This also gives all of the fellows a chance to hear about
