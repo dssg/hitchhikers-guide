@@ -1,6 +1,6 @@
 # Getting data into a database
 
-## Why use a database compared to CVSs or Excel files
+## Why use a database compared to CSVs or Excel files
 
 ## Let's start with the raw data
 
