@@ -6,12 +6,12 @@
 
 ### Get a CSV file
 
-Donorschoose project list is in /mnt/data/projects/food-inspections/data/projects.csv
+Donorschoose project data is in /mnt/data/projects/food-inspections/data/projects.csv
 
 ### Load the csv in python
 
 ```
-df=pd_read_csv('projects.csv')
+df=pd_read_csv('path to file')
 ```
 
 ## Load it in a database
