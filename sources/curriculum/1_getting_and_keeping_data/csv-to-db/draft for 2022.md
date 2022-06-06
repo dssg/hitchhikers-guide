@@ -6,7 +6,7 @@
 
 ### Get a CSV file
 
-Donorschoose project data is in /mnt/data/projects/food-inspections/data/projects.csv
+Donorschoose project data is in /mnt/data/projects/food_inspections/data/projects.csv
 
 ### Load the csv in python
 
