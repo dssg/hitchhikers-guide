@@ -87,7 +87,7 @@ the course of the summer, your team will:
 
 ## Presentations
 
-We believe that our work is only useful if we are able to communicate
+We believe that our work has impact if we are able to communicate
 what we do and why it’s important to our partners,
 peers, and the general public. As such, an important piece of this training program is
 [learning to present the work you
