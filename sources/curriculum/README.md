@@ -33,7 +33,7 @@ data](2_data_exploration_and_analysis/gis_analysis/) and [network
 data](2_data_exploration_and_analysis/network-analysis/).
 
 ## Analytical Formulation and Baselines
-
+Distinct from the initial scoping, a true analytical formulation of your problem can only come after you have developed an understanding of the data at hand, which in turn will often result in a greater understanding of the problem itself. Here, you’ll ask how specifically your target variable (if relevant) is defined in the data, what types of information are available as predictors, and what baseline you’ll be measure performance against. Very rarely is the appropriate baseline as simple as "random choice" or the population prevalence. Rather, it should reflect what would be expected to happen otherwise: perhaps a simple decision rule that an expert would come up with or even a pre-existing statistical model that the current effort is seeking to replace.
 
 ## Modeling and Machine Learning
 Now you're ready to make some models! Most of the modeling techniques you'll use, whether supervised or unsupervised,
