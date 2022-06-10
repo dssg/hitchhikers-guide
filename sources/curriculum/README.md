@@ -8,7 +8,7 @@ to help you decide on a project, or refine a project you already have in mind.
 Next, check out [Pipelines and Project Workflow](0_before_you_start/pipelines-and-project-workflow/) for an
 overview of how the steps of your project (and, therefore, your code) will be organized.
 
-## Getting and Keeping Data
+## Getting, Keeping, and Linking Data
 Data comes in many forms, from many sources - you may get a database dump or
 [CSV files directly from a project partner](1_getting_and_keeping_data/csv-to-db/), or you may need to
 [scrape data from the web](1_getting_and_keeping_data/basic-web-scraping/). Either way,
@@ -31,6 +31,9 @@ for working with [text
 data](2_data_exploration_and_analysis/text-analysis/), [spatial
 data](2_data_exploration_and_analysis/gis_analysis/) and [network
 data](2_data_exploration_and_analysis/network-analysis/).
+
+## Analytical Formulation and Baselines
+
 
 ## Modeling and Machine Learning
 Now you're ready to make some models! Most of the modeling techniques you'll use, whether supervised or unsupervised,
