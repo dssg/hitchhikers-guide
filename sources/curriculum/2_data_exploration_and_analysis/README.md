@@ -1,5 +1,7 @@
 # Data Exploration and Analysis
-Once you've got some data, you're going to be eager to dig into it! Our tool of choice for data analysis is a comnbination of Python and SQL. Start off
+Once you've got some data, you're going to be eager to dig into it! Data exploration is fundamental to developing an understanding of the nuances of the data and how the policy problem you initially scoped can be specifically formulated as a machine learning problem. This process involves generating and plotting summary statistics, exploring trend sover time and understanding rapid changes in distributions, as well as identifying missing data and outliers. Typically, data exploration should involve considerable input from domain experts as you develop an understanding of how the data relates to the underlying generative process, as well as its idiosyncrasies and limitations.
+
+Our tool of choice for data analysis is a comnbination of Python and SQL. Start off
 with [Intro to Git and Python](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/2_data_exploration_and_analysis/intro-to-git-and-python/introduction-to-git-and-python.ipynb), then move onto [Data Exploration in Python](data-exploration-in-python/).
 If you're combining data from multiple sources, you'll have to do [record linkage](record-linkage/) to match entities across datasets. Depending on your particular project, you may need special methods and tools; at this time, we have resources
 for working with [text data](text-analysis/), [spatial data](gis_analysis/postgis-workshop/tutorial.html) and [network data](network-analysis/).
