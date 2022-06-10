@@ -1198,6 +1198,8 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
+      
+    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Introduction to EDA
@@ -1211,27 +1213,44 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#data-exploration-and-analysis" title="Data Exploration and Analysis" class="md-nav__link">
-    Data Exploration and Analysis
+  <a href="#why-is-data-exploration-important" title="Why is data exploration important" class="md-nav__link">
+    Why is data exploration important
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-start-doing-data-exploration" title="How to start doing data exploration" class="md-nav__link">
+    How to start doing data exploration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#data-exploration-tips" title="Data Exploration Tips" class="md-nav__link">
     Data Exploration Tips
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#tools-to-consider" title="Tools to consider" class="md-nav__link">
+    Tools to consider
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-simple-goal-to-work-towards" title="A simple goal to work towards" class="md-nav__link">
+    A simple goal to work towards
+  </a>
   
 </li>
       
@@ -2206,27 +2225,44 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#data-exploration-and-analysis" title="Data Exploration and Analysis" class="md-nav__link">
-    Data Exploration and Analysis
+  <a href="#why-is-data-exploration-important" title="Why is data exploration important" class="md-nav__link">
+    Why is data exploration important
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-start-doing-data-exploration" title="How to start doing data exploration" class="md-nav__link">
+    How to start doing data exploration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#data-exploration-tips" title="Data Exploration Tips" class="md-nav__link">
     Data Exploration Tips
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#tools-to-consider" title="Tools to consider" class="md-nav__link">
+    Tools to consider
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-simple-goal-to-work-towards" title="A simple goal to work towards" class="md-nav__link">
+    A simple goal to work towards
+  </a>
   
 </li>
       
@@ -2249,14 +2285,27 @@
                   <a href="https://github.com/dssg/hitchhikers-guide/edit/master/sources/curriculum/2_data_exploration_and_analysis/README.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>Introduction to EDA</h1>
-                
-                <h2 id="data-exploration-and-analysis">Data Exploration and Analysis<a class="headerlink" href="#data-exploration-and-analysis" title="Permanent link">#</a></h2>
-<p>Once you've got some data, you're going to be eager to dig into it! Our tool of choice for data analysis is Python. Start off
+                <h1 id="data-exploration-and-analysis">Data Exploration and Analysis<a class="headerlink" href="#data-exploration-and-analysis" title="Permanent link">#</a></h1>
+<p>Once you've got some data, you're going to be eager to dig into it! Our tool of choice for data analysis is a comnbination of Python and SQL. Start off
 with <a href="https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/2_data_exploration_and_analysis/intro-to-git-and-python/introduction-to-git-and-python.ipynb">Intro to Git and Python</a>, then move onto <a href="data-exploration-in-python/">Data Exploration in Python</a>.
 If you're combining data from multiple sources, you'll have to do <a href="record-linkage/">record linkage</a> to match entities across datasets. Depending on your particular project, you may need special methods and tools; at this time, we have resources
 for working with <a href="text-analysis/">text data</a>, <a href="gis_analysis/postgis-workshop/tutorial.html">spatial data</a> and <a href="network-analysis/">network data</a>.</p>
-<h3 id="data-exploration-tips">Data Exploration Tips<a class="headerlink" href="#data-exploration-tips" title="Permanent link">#</a></h3>
+<h2 id="why-is-data-exploration-important">Why is data exploration important<a class="headerlink" href="#why-is-data-exploration-important" title="Permanent link">#</a></h2>
+<ul>
+<li>Sanity Check the data you were given</li>
+<li>Understanding the problem and domain </li>
+<li>Problem Formulation </li>
+<li>Debugging </li>
+<li>Feature Generation/Selection </li>
+<li>Interpretation of results </li>
+</ul>
+<h2 id="how-to-start-doing-data-exploration">How to start doing data exploration<a class="headerlink" href="#how-to-start-doing-data-exploration" title="Permanent link">#</a></h2>
+<p><strong>Tables</strong>: identify the database tables that are most relevant to your problem
+<strong>Entities</strong>: How can you identify the primary entities from your project? What are some basic/relevant characteristics about them? How have those changed over time?
+<strong>Fields</strong>: Most projects have a lot of different data fields, but don’t feel like your initial exploration needs to understand everything
+<strong>Label</strong>: Think ahead about how you might define your label? It's bit early to know what your label/outcome of interest may be exactly but it's worth having some hypothesis about it so you can do more targeted data exploration. What can you say about its distribution and how it’s changed over time?
+Based on what you know of the context, what information would you expect to be important in modeling? Is this available? How well does it correlate with your label?</p>
+<h2 id="data-exploration-tips">Data Exploration Tips<a class="headerlink" href="#data-exploration-tips" title="Permanent link">#</a></h2>
 <p>Here are some things you want to do during data exploration:</p>
 <ul>
 <li>distributions of different variables - historgrams, boxplots</li>
@@ -2267,6 +2316,19 @@ for working with <a href="text-analysis/">text data</a>, <a href="gis_analysis/p
 <li>looking at outliers - this can be done using clustering but also using other methods by plotting distributions.</li>
 <li>cross-tabs (if you're looking at multiple classes/labels), describing how the positive and negative classes are different without doing any machine learning.</li>
 </ul>
+<h2 id="tools-to-consider">Tools to consider<a class="headerlink" href="#tools-to-consider" title="Permanent link">#</a></h2>
+<ul>
+<li>SQL (directly and through python – psycopg2)</li>
+<li>Python (matplotlib, seaborn, altair,...)</li>
+<li>Pandas(if you have to)</li>
+<li>Tableau (use an ssh tunnel)</li>
+</ul>
+<h2 id="a-simple-goal-to-work-towards">A simple goal to work towards<a class="headerlink" href="#a-simple-goal-to-work-towards" title="Permanent link">#</a></h2>
+<ol>
+<li>Write a SQL query that takes a “person id” (e.g., student, voter, facility, entity, etc) and gives you everything you know about that person across all the tables you have. </li>
+<li>Add a date parameter to it to give you everything about that entity up to that date 
+<img alt="image" src="https://user-images.githubusercontent.com/940149/172975498-4e889908-98ac-4e9e-a04d-7803552ba309.png" /></li>
+</ol>
                 
                   
                 
