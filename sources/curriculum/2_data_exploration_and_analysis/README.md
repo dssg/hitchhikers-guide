@@ -42,4 +42,3 @@ Here are some things you want to do during data exploration:
 
 1. Write a SQL query that takes a “person id” (e.g., student, voter, facility, entity, etc) and gives you everything you know about that person across all the tables you have. 
 2. Add a date parameter to it to give you everything about that entity up to that date 
-![image](https://user-images.githubusercontent.com/940149/172975498-4e889908-98ac-4e9e-a04d-7803552ba309.png)
