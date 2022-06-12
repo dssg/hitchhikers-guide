@@ -38,7 +38,7 @@
     
     
       
-        <title>Making databases work for you - DSSG Hitchhickers guide</title>
+        <title>Postgres Tips and Pitfalls - DSSG Hitchhickers guide</title>
       
     
     
@@ -129,7 +129,7 @@
               DSSG Hitchhickers guide
             </span>
             <span class="md-header-nav__topic">
-              Making databases work for you
+              Postgres Tips and Pitfalls
             </span>
           
         </div>
@@ -357,10 +357,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       Curriculum
@@ -688,10 +690,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-6" type="checkbox" id="nav-5-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-6" type="checkbox" id="nav-5-6" checked>
     
     <label class="md-nav__link" for="nav-5-6">
       Tech setup
@@ -839,11 +843,129 @@
           
           
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-6-6" type="checkbox" id="nav-5-6-6" checked>
+    
+    <label class="md-nav__link" for="nav-5-6-6">
+      SQL
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-6-6">
+        SQL
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
 
   <li class="md-nav__item">
-    <a href="../../../software/basic_sql/" title="SQL" class="md-nav__link">
-      SQL
+    <a href="../../../software/basic_sql/" title="SQL Basics" class="md-nav__link">
+      SQL Basics
     </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Postgres Tips and Pitfalls
+      </label>
+    
+    <a href="./" title="Postgres Tips and Pitfalls" class="md-nav__link md-nav__link--active">
+      Postgres Tips and Pitfalls
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" title="Motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-pitfalls-to-avoid-when-constructing-tables" title="Common Pitfalls to Avoid When Constructing Tables" class="md-nav__link">
+    Common Pitfalls to Avoid When Constructing Tables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-information-about-tables-columns-and-grants" title="Getting information about tables, columns, and grants" class="md-nav__link">
+    Getting information about tables, columns, and grants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dealing-with-permissions-and-roles" title="Dealing with permissions and roles" class="md-nav__link">
+    Dealing with permissions and roles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#improving-the-performance-of-your-queries" title="Improving the performance of your queries" class="md-nav__link">
+    Improving the performance of your queries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-kill-hung-or-run-away-queries" title="How to kill hung or run-away queries" class="md-nav__link">
+    How to kill hung or run-away queries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonus-tips" title="Bonus Tips" class="md-nav__link">
+    Bonus Tips
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -2410,6 +2532,41 @@ After running that, it's a good idea to check <code>pg_stat_activity</code> agai
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../../software/basic_sql/" title="SQL Basics" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                SQL Basics
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../setup/good_repos/" title="Good repos" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Good repos
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
