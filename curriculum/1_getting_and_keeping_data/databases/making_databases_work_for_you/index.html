@@ -2274,6 +2274,28 @@
 
 <p>But also notice that the second column is now <code>this_is_a_really_long_column_name_that_is_also_going_to_cause_u</code>. If we'd been doing this from python and expecting to get the full names back, we would have run into some real trouble!</p>
 <h2 id="getting-information-about-tables-columns-and-grants">Getting information about tables, columns, and grants<a class="headerlink" href="#getting-information-about-tables-columns-and-grants" title="Permanent link">#</a></h2>
+<p><strong>TIP #4 -- Get to know the postgres system tables</strong></p>
+<p>Postgres provides several system tables that you can query to learn about different objects in the database. These can be handy when you're querying the database directly, but become particularly powerful when you're doing work programatically through python scripts. For instance, you can query <code>pg_tables</code> to find some basic information about tables in the system:</p>
+<div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">pg_tables</span> <span class="k">where</span> <span class="n">schemaname</span> <span class="o">=</span> <span class="s1">&#39;sql_tips&#39;</span><span class="p">;</span>
+</pre></div>
+
+<p>What if I want to know about the columns in my tables? Check out <code>information_schema.columns</code>:</p>
+<div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">columns</span> <span class="k">where</span> <span class="n">table_schema</span> <span class="o">=</span> <span class="s1">&#39;sql_tips&#39;</span><span class="p">;</span>
+</pre></div>
+
+<p>That's pretty handy, but note that the schema here is referred to as <code>table_schema</code> rather than <code>schemaname</code> like it is in <code>pg_tables</code> (thanks, postgres!). Speaking of, if you want to get a list of schemas check out <code>pg_namespace</code> (why is this "pg_namespace" rather than "pg_schemas"? thanks, postgres!)</p>
+<p>Sometimes it can be helpful to know about the permissions that have been granted on different tables as well, which you can do so using <code>information_schema.role_table_grants</code>:</p>
+<div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">role_table_grants</span> <span class="n">rtg</span>  <span class="k">where</span> <span class="n">table_schema</span> <span class="o">=</span> <span class="s1">&#39;sql_tips&#39;</span><span class="p">;</span>
+</pre></div>
+
+<details class="info"><summary>Shortcuts when using psql</summary><p><code>psql</code> has several shortcuts that you can use to help you quickly explore the database and learn about objects. Here are a couple quick pointers:
+- <code>\dn</code> will list the schemas in the database you're connected to
+- <code>\dt {schema_name}.*</code> will list the tables in schema <code>{schema_name}</code>
+- <code>\d {schema_name}.{table_name}</code> will list the columns of table <code>{schema_name}.{table_name}</code>
+- <code>\x</code> can be used to enter "extended display mode" to view results in a tall, key-value format
+- <code>\?</code> will show help about psql meta-commands
+- <code>\q</code> will exit</p>
+</details>
 <h2 id="dealing-with-permissions-and-roles">Dealing with permissions and roles<a class="headerlink" href="#dealing-with-permissions-and-roles" title="Permanent link">#</a></h2>
 <h2 id="improving-the-performance-of-your-queries">Improving the performance of your queries<a class="headerlink" href="#improving-the-performance-of-your-queries" title="Permanent link">#</a></h2>
 <h2 id="how-to-kill-hung-or-run-away-queries">How to kill hung or run-away queries<a class="headerlink" href="#how-to-kill-hung-or-run-away-queries" title="Permanent link">#</a></h2>
@@ -2299,6 +2321,11 @@
 </li>
 <li>
 <p>Postgres has pretty extensive built-in functionality for handling JSON data, arrays, regular expressions, doing range joins, etc, as well as extensions for dealing with data that's geographic in nature. We don't have time to delve into all of this functionality here, but you can find good tutorials and documentation online for all of them.</p>
+</li>
+<li>
+<p>Using psql and annoyed by wrapping lines creating difficult-to-read outputs? Try setting the <code>PAGER</code> environment variable, when starting <code>psql</code> (then you'll be able to use your left and right arrow keys to navigate wide outputs):
+<div class="highlight"><pre><span></span>$ PAGER=&#39;less -S&#39; psql -h db.dssg.io -U {andrew_id} {database_name}
+</pre></div></p>
 </li>
 </ol>
                 
