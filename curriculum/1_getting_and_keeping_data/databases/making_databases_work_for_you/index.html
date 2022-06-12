@@ -2288,18 +2288,55 @@
 <div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">role_table_grants</span> <span class="n">rtg</span>  <span class="k">where</span> <span class="n">table_schema</span> <span class="o">=</span> <span class="s1">&#39;sql_tips&#39;</span><span class="p">;</span>
 </pre></div>
 
-<details class="info"><summary>Shortcuts when using psql</summary><p><code>psql</code> has several shortcuts that you can use to help you quickly explore the database and learn about objects. Here are a couple quick pointers:
-- <code>\dn</code> will list the schemas in the database you're connected to
-- <code>\dt {schema_name}.*</code> will list the tables in schema <code>{schema_name}</code>
-- <code>\d {schema_name}.{table_name}</code> will list the columns of table <code>{schema_name}.{table_name}</code>
-- <code>\x</code> can be used to enter "extended display mode" to view results in a tall, key-value format
-- <code>\?</code> will show help about psql meta-commands
-- <code>\q</code> will exit</p>
+<details class="info"><summary>Shortcuts when using psql</summary><p><code>psql</code> has several shortcuts that you can use to help you quickly explore the database and learn about objects. Here are a couple quick pointers:</p>
+<ul>
+<li><code>\dn</code> will list the schemas in the database you're connected to</li>
+<li><code>\dt {schema_name}.*</code> will list the tables in schema <code>{schema_name}</code></li>
+<li><code>\d {schema_name}.{table_name}</code> will list the columns of table <code>{schema_name}.{table_name}</code></li>
+<li><code>\x</code> can be used to enter "extended display mode" to view results in a tall, key-value format</li>
+<li><code>\?</code> will show help about psql meta-commands</li>
+<li><code>\q</code> will exit</li>
+</ul>
 </details>
 <h2 id="dealing-with-permissions-and-roles">Dealing with permissions and roles<a class="headerlink" href="#dealing-with-permissions-and-roles" title="Permanent link">#</a></h2>
+<p><strong>TIP #5 -- Don't forget to grant permissions to your teammates...</strong></p>
+<p>A very common source of friction between teams collaborating in a database is forgetting to ensure that your teammates can see and use the table that you create. By default, new tables are both owned and only accessible by the user who created them. Try selecting from this table I created before the session:</p>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">sql_tips</span><span class="p">.</span><span class="n">can_you_see_me</span><span class="p">;</span>
+</pre></div>
+
+<p>Oops! I forgot to grant permissions for the rest of you to access the table...</p>
+<p>Fortunately, postgres allows for different users to share roles, and there's a common <code>food-inspections-role</code> that we all have access to, so I can grant permissions to everyone at once:</p>
+<div class="highlight"><pre><span></span><span class="k">GRANT</span> <span class="k">ALL</span> <span class="k">ON</span> <span class="n">sql_tips</span><span class="p">.</span><span class="n">can_you_see_me</span> <span class="k">TO</span> <span class="ss">&quot;food-inspections-role&quot;</span><span class="p">;</span>
+</pre></div>
+
+<p>Note the double-quotes around the role since we used a hyphen in the role name (sorry!). Your groups all have similar shared roles (e.g., the database name with <code>-role</code> at the end).</p>
+<p>Try to select from the table again. Does that work now? What happens if you try dropping the table?</p>
+<p>Even though I gave you "ALL" permissions on the table, dropping it didn't work because only the role that owns the table can drop it. If you're not sure who owns a table, note that you can find out via <code>pg_tables</code>:</p>
+<div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">pg_tables</span> <span class="k">where</span> <span class="n">schemaname</span> <span class="o">=</span> <span class="s1">&#39;sql_tips&#39;</span> <span class="k">and</span> <span class="n">tablename</span> <span class="o">=</span> <span class="s1">&#39;can_you_see_me&#39;</span><span class="p">;</span>
+</pre></div>
+
+<p>If I wanted to make sure you were able to drop the table as well, I might have been better off transferring ownership of the table to the shared role:</p>
+<div class="highlight"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">sql_tips</span><span class="p">.</span><span class="n">can_you_see_me</span> <span class="k">OWNER</span> <span class="k">TO</span> <span class="ss">&quot;food-inspections-role&quot;</span><span class="p">;</span>
+</pre></div>
+
+<p>Now we can check <code>pg_tables</code> again to confirm that the shared role owns the table. What happens if you try dropping it now?</p>
+<p><strong>TIP #6 -- ...Or, use your group's role directly</strong></p>
+<p>Another option for solving this problem is to run your queries as the shared role directly using the <code>SET ROLE</code> statement. Let's see what happens when I try this:</p>
+<div class="highlight"><pre><span></span><span class="k">SET</span> <span class="k">ROLE</span> <span class="ss">&quot;food-inspections-role&quot;</span><span class="p">;</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">sql_tips</span><span class="p">.</span><span class="n">can_you_see_me</span> <span class="k">as</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">raw</span><span class="p">.</span><span class="n">inspections</span> <span class="k">limit</span> <span class="mi">10</span><span class="p">;</span>
+</pre></div>
+
+<p>Now check the ownership via <code>pg_tables</code> -- what do you see? What happens if you try querying from the table now?</p>
+<p>Want to check what role you're currently using? Try <code>SELECT CURRENT_ROLE;</code></p>
+<p>Want to revert to your default role after setting a different one? Use <code>RESET ROLE;</code></p>
+<details class="info"><summary>Setting default permissions</summary><p>Postgres also provides an option setting default permissions that will be applied to various objects you create in the database (or a given schema) so you don't have to remember to either run grants or switch into the group role whenever you create new tables. Check out the syntax for the <a href="https://www.postgresql.org/docs/13/sql-alterdefaultprivileges.html">ALTER DEFAULT PRIVILEGES statement</a> if you'd like to learn more. Sadly, postgres doesn't provide a means for transferring ownership of new objects created by default to another role (of course, it's an open source project, so feel free to open a pull request...)</p>
+</details>
 <h2 id="improving-the-performance-of-your-queries">Improving the performance of your queries<a class="headerlink" href="#improving-the-performance-of-your-queries" title="Permanent link">#</a></h2>
+<p><strong>TIP #7 -- Avoid UPDATE statements, especially on large tables</strong></p>
+<p><strong>TIP #8 -- Use EXPLAIN to understand query plans</strong></p>
+<p><strong>TIP #9 -- Optimize your queries with indices</strong></p>
 <h2 id="how-to-kill-hung-or-run-away-queries">How to kill hung or run-away queries<a class="headerlink" href="#how-to-kill-hung-or-run-away-queries" title="Permanent link">#</a></h2>
-<p><strong>TIP #XX - Kill your run-away queries to free up resources</strong></p>
+<p><strong>TIP #10 -- Kill your run-away queries to free up resources</strong></p>
 <p>Even if your tables are well-indexed, you may still end up with queries that run longer than you'd like or bugs that unintentionally create massive joins. If you think one of your queries has hung (or is taking far longer or many more resources than it should), you can run the following query to confirm that it is still running:
 <div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">pg_stat_activity</span><span class="p">;</span>
 </pre></div></p>
@@ -2323,9 +2360,6 @@ After running that, it's a good idea to check <code>pg_stat_activity</code> agai
 </li>
 <li>
 <p>Don't do <em>UPDATE</em> queries (on large table). UPDATEs are horribly inefficient and it's often faster to create a new table and select the data from the old table into it with the transformations you're trying to do with the update statement.</p>
-</li>
-<li>
-<p>Set up permissions for your team (using GRANT) so you don't get them annoyed and frustrated when they can't access a table or schema you've created.</p>
 </li>
 </ol>
 <h2 id="bonus-tips">Bonus Tips<a class="headerlink" href="#bonus-tips" title="Permanent link">#</a></h2>
