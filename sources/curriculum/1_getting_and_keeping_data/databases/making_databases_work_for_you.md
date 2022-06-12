@@ -86,6 +86,7 @@ select * from information_schema.role_table_grants rtg  where table_schema = 'sq
 ??? info "Shortcuts when using psql"
 
 	`psql` has several shortcuts that you can use to help you quickly explore the database and learn about objects. Here are a couple quick pointers:
+	
 	- `\dn` will list the schemas in the database you're connected to
 	- `\dt {schema_name}.*` will list the tables in schema `{schema_name}`
 	- `\d {schema_name}.{table_name}` will list the columns of table `{schema_name}.{table_name}`
@@ -96,13 +97,73 @@ select * from information_schema.role_table_grants rtg  where table_schema = 'sq
 
 ## Dealing with permissions and roles
 
+**TIP #5 -- Don't forget to grant permissions to your teammates...**
+
+A very common source of friction between teams collaborating in a database is forgetting to ensure that your teammates can see and use the table that you create. By default, new tables are both owned and only accessible by the user who created them. Try selecting from this table I created before the session:
+
+```sql
+SELECT * FROM sql_tips.can_you_see_me;
+```
+
+Oops! I forgot to grant permissions for the rest of you to access the table...
+
+Fortunately, postgres allows for different users to share roles, and there's a common `food-inspections-role` that we all have access to, so I can grant permissions to everyone at once:
+
+```sql
+GRANT ALL ON sql_tips.can_you_see_me TO "food-inspections-role";
+```
+
+Note the double-quotes around the role since we used a hyphen in the role name (sorry!). Your groups all have similar shared roles (e.g., the database name with `-role` at the end).
+
+Try to select from the table again. Does that work now? What happens if you try dropping the table?
+
+Even though I gave you "ALL" permissions on the table, dropping it didn't work because only the role that owns the table can drop it. If you're not sure who owns a table, note that you can find out via `pg_tables`:
+
+```sql
+select * from pg_tables where schemaname = 'sql_tips' and tablename = 'can_you_see_me';
+```
+
+If I wanted to make sure you were able to drop the table as well, I might have been better off transferring ownership of the table to the shared role:
+
+```sql
+ALTER TABLE sql_tips.can_you_see_me OWNER TO "food-inspections-role";
+```
+
+Now we can check `pg_tables` again to confirm that the shared role owns the table. What happens if you try dropping it now?
+
+
+**TIP #6 -- ...Or, use your group's role directly**
+
+Another option for solving this problem is to run your queries as the shared role directly using the `SET ROLE` statement. Let's see what happens when I try this:
+
+```sql
+SET ROLE "food-inspections-role";
+CREATE TABLE sql_tips.can_you_see_me as select * from raw.inspections limit 10;
+```
+
+Now check the ownership via `pg_tables` -- what do you see? What happens if you try querying from the table now?
+
+Want to check what role you're currently using? Try `SELECT CURRENT_ROLE;`
+
+Want to revert to your default role after setting a different one? Use `RESET ROLE;`
+
+
+??? info "Setting default permissions"
+
+	Postgres also provides an option setting default permissions that will be applied to various objects you create in the database (or a given schema) so you don't have to remember to either run grants or switch into the group role whenever you create new tables. Check out the syntax for the [ALTER DEFAULT PRIVILEGES statement](https://www.postgresql.org/docs/13/sql-alterdefaultprivileges.html) if you'd like to learn more. Sadly, postgres doesn't provide a means for transferring ownership of new objects created by default to another role (of course, it's an open source project, so feel free to open a pull request...)
+
 
 ## Improving the performance of your queries
 
+**TIP #7 -- Avoid UPDATE statements, especially on large tables**
+
+**TIP #8 -- Use EXPLAIN to understand query plans**
+
+**TIP #9 -- Optimize your queries with indices**
 
 ## How to kill hung or run-away queries
 
-**TIP #XX - Kill your run-away queries to free up resources**
+**TIP #10 -- Kill your run-away queries to free up resources**
 
 Even if your tables are well-indexed, you may still end up with queries that run longer than you'd like or bugs that unintentionally create massive joins. If you think one of your queries has hung (or is taking far longer or many more resources than it should), you can run the following query to confirm that it is still running:
 ```sql
@@ -130,8 +191,6 @@ SELECT pg_terminate_backend({PID});
 4. (Advanced Tip) Use EXPLAIN to get a query execution plan to get an idea of 1) how long the query might take to run and 2) which indices would make things faster.
 
 5. Don't do *UPDATE* queries (on large table). UPDATEs are horribly inefficient and it's often faster to create a new table and select the data from the old table into it with the transformations you're trying to do with the update statement.
-
-6. Set up permissions for your team (using GRANT) so you don't get them annoyed and frustrated when they can't access a table or schema you've created.
 
 
 ## Bonus Tips
