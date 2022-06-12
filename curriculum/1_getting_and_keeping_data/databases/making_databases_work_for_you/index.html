@@ -2299,6 +2299,20 @@
 <h2 id="dealing-with-permissions-and-roles">Dealing with permissions and roles<a class="headerlink" href="#dealing-with-permissions-and-roles" title="Permanent link">#</a></h2>
 <h2 id="improving-the-performance-of-your-queries">Improving the performance of your queries<a class="headerlink" href="#improving-the-performance-of-your-queries" title="Permanent link">#</a></h2>
 <h2 id="how-to-kill-hung-or-run-away-queries">How to kill hung or run-away queries<a class="headerlink" href="#how-to-kill-hung-or-run-away-queries" title="Permanent link">#</a></h2>
+<p><strong>TIP #XX - Kill your run-away queries to free up resources</strong></p>
+<p>Even if your tables are well-indexed, you may still end up with queries that run longer than you'd like or bugs that unintentionally create massive joins. If you think one of your queries has hung (or is taking far longer or many more resources than it should), you can run the following query to confirm that it is still running:
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">pg_stat_activity</span><span class="p">;</span>
+</pre></div></p>
+<p>If you need to kill your query, you can note down the PID from that result and then use the following query to kill it:
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">pg_cancel_backend</span><span class="p">(</span><span class="err">{</span><span class="n">PID</span><span class="err">}</span><span class="p">);</span>
+</pre></div>
+After running that, it's a good idea to check <code>pg_stat_activity</code> again to ensure it's been killed. Sometimes that may not work, and you need to use the more aggressive command:
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">pg_terminate_backend</span><span class="p">(</span><span class="err">{</span><span class="n">PID</span><span class="err">}</span><span class="p">);</span>
+</pre></div></p>
+<div class="admonition important">
+<p class="admonition-title">Canceling execution in your SQL GUI doesn't do this for you!</p>
+<p>Note that hitting the "Stop" or "Cancel" button in your GUI SQL interpreter (e.g., dbeaver, datagrip, or dbvisualizer) generally won't actually cancel the query execution on the database server itself. If you try to cancel a long-running query on your front-end, be sure to check <code>pg_stat_activity</code> to confirm it's actually been killed and use one of the commands above to stop the execution on the server if neccessary.</p>
+</div>
 <h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">#</a></h2>
 <ol>
 <li>
