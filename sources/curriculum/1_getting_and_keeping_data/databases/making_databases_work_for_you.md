@@ -102,6 +102,26 @@ select * from information_schema.role_table_grants rtg  where table_schema = 'sq
 
 ## How to kill hung or run-away queries
 
+**TIP #XX - Kill your run-away queries to free up resources**
+
+Even if your tables are well-indexed, you may still end up with queries that run longer than you'd like or bugs that unintentionally create massive joins. If you think one of your queries has hung (or is taking far longer or many more resources than it should), you can run the following query to confirm that it is still running:
+```sql
+SELECT * FROM pg_stat_activity;
+```
+
+If you need to kill your query, you can note down the PID from that result and then use the following query to kill it:
+```sql
+SELECT pg_cancel_backend({PID});
+```
+After running that, it's a good idea to check `pg_stat_activity` again to ensure it's been killed. Sometimes that may not work, and you need to use the more aggressive command:
+```sql
+SELECT pg_terminate_backend({PID});
+```
+
+!!! important "Canceling execution in your SQL GUI doesn't do this for you!"
+
+	Note that hitting the "Stop" or "Cancel" button in your GUI SQL interpreter (e.g., dbeaver, datagrip, or dbvisualizer) generally won't actually cancel the query execution on the database server itself. If you try to cancel a long-running query on your front-end, be sure to check `pg_stat_activity` to confirm it's actually been killed and use one of the commands above to stop the execution on the server if neccessary.
+
 
 ## Tips
 
