@@ -100,7 +100,9 @@ nav:
               - Advanced notes: curriculum/setup/git-and-github/branching_and_merging/README.md
               - Git Workflow: curriculum/setup/git-and-github/githubflow/github-flow.html
           - Python: curriculum/software/basic_python.md
-          - SQL: curriculum/software/basic_sql/README.md
+          - SQL:
+              - SQL Basics: curriculum/software/basic_sql/README.md
+              - Postgres Tips and Pitfalls: curriculum/1_getting_and_keeping_data/databases/making_databases_work_for_you.md
           - Good repos: curriculum/setup/good_repos.md
           - Technical workflow: curriculum/setup/software-setup/TechnicalWorkflowAndBestPractices.md
       - Getting, storing, and linking data:
