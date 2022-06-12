@@ -61,6 +61,38 @@ But also notice that the second column is now `this_is_a_really_long_column_name
 
 ## Getting information about tables, columns, and grants
 
+**TIP #4 -- Get to know the postgres system tables**
+
+Postgres provides several system tables that you can query to learn about different objects in the database. These can be handy when you're querying the database directly, but become particularly powerful when you're doing work programatically through python scripts. For instance, you can query `pg_tables` to find some basic information about tables in the system:
+
+```sql
+select * from pg_tables where schemaname = 'sql_tips';
+```
+
+What if I want to know about the columns in my tables? Check out `information_schema.columns`:
+
+```sql
+select * from information_schema.columns where table_schema = 'sql_tips';
+```
+
+That's pretty handy, but note that the schema here is referred to as `table_schema` rather than `schemaname` like it is in `pg_tables` (thanks, postgres!). Speaking of, if you want to get a list of schemas check out `pg_namespace` (why is this "pg_namespace" rather than "pg_schemas"? thanks, postgres!)
+
+Sometimes it can be helpful to know about the permissions that have been granted on different tables as well, which you can do so using `information_schema.role_table_grants`:
+
+```sql
+select * from information_schema.role_table_grants rtg  where table_schema = 'sql_tips';
+```
+
+??? info "Shortcuts when using psql"
+
+	`psql` has several shortcuts that you can use to help you quickly explore the database and learn about objects. Here are a couple quick pointers:
+	- `\dn` will list the schemas in the database you're connected to
+	- `\dt {schema_name}.*` will list the tables in schema `{schema_name}`
+	- `\d {schema_name}.{table_name}` will list the columns of table `{schema_name}.{table_name}`
+	- `\x` can be used to enter "extended display mode" to view results in a tall, key-value format
+	- `\?` will show help about psql meta-commands
+	- `\q` will exit
+
 
 ## Dealing with permissions and roles
 
@@ -87,3 +119,8 @@ But also notice that the second column is now `this_is_a_really_long_column_name
 1. The atomic swap is a good pattern for ingesting updated data: load the new data into `{table_name}_staging` and then (in a single transaction) drop (if one exists) `{table_name}_old`, rename the current table to `{table_name}_old`, and rename the staging table to `{table_name}`. This both avoids a gap in the table being available and always preserves the previous version of the table if something has gone wrong and the process needs to be rolled back.
 
 2. Postgres has pretty extensive built-in functionality for handling JSON data, arrays, regular expressions, doing range joins, etc, as well as extensions for dealing with data that's geographic in nature. We don't have time to delve into all of this functionality here, but you can find good tutorials and documentation online for all of them.
+
+3. Using psql and annoyed by wrapping lines creating difficult-to-read outputs? Try setting the `PAGER` environment variable, when starting `psql` (then you'll be able to use your left and right arrow keys to navigate wide outputs):
+```
+$ PAGER='less -S' psql -h db.dssg.io -U {andrew_id} {database_name}
+```
