@@ -2354,12 +2354,14 @@
                 <h1 id="making-databases-work-for-you">Making databases work for you<a class="headerlink" href="#making-databases-work-for-you" title="Permanent link">#</a></h1>
 <h2 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">#</a></h2>
 <p>Databases are great for dealing with large amounts of data in an efficient manner. We'll use databases (typically postgres) all summer for almost all of our projects. While you'll find them to be your new best friend, you're likely to get frustrated and annoyed  with them (just as you would with any best friend) if you don't set things up correctly up front. Here are some things to keep in mind that you should do early on to reduce your frustration and annoyance as you get to know each other better.</p>
-<p><strong>Goals for today's session:</strong>
-- Common pitfalls to avoid when constructing tables
-- Getting information about tables, columns, and grants
-- Dealing with permissions and roles
-- Improving the performance of your queries
-- How to kill hung or run-away queries</p>
+<p><strong>Goals for today's session:</strong></p>
+<ul>
+<li>Common pitfalls to avoid when constructing tables</li>
+<li>Getting information about tables, columns, and grants</li>
+<li>Dealing with permissions and roles</li>
+<li>Improving the performance of your queries</li>
+<li>How to kill hung or run-away queries</li>
+</ul>
 <h2 id="common-pitfalls-to-avoid-when-constructing-tables">Common Pitfalls to Avoid When Constructing Tables<a class="headerlink" href="#common-pitfalls-to-avoid-when-constructing-tables" title="Permanent link">#</a></h2>
 <p><strong>TIP #1 -- Avoid modifying your raw data in place</strong></p>
 <p>Even though you might have the source data backed up somewhere, using separate <code>raw</code> and <code>clean</code> schemas as you process the data you've loaded into the database is a best practice. Most projects will require considerable effort in data cleaning: fixing up data types, resolving different values with the same semantic meaning (e.g., abbreviations, typos), removing special characters, dealing with values out of the meaningful range (e.g., future or far past dates), etc. </p>
