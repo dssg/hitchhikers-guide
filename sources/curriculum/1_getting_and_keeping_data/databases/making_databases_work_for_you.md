@@ -5,6 +5,7 @@
 Databases are great for dealing with large amounts of data in an efficient manner. We'll use databases (typically postgres) all summer for almost all of our projects. While you'll find them to be your new best friend, you're likely to get frustrated and annoyed  with them (just as you would with any best friend) if you don't set things up correctly up front. Here are some things to keep in mind that you should do early on to reduce your frustration and annoyance as you get to know each other better.
 
 **Goals for today's session:**
+
 - Common pitfalls to avoid when constructing tables
 - Getting information about tables, columns, and grants
 - Dealing with permissions and roles
