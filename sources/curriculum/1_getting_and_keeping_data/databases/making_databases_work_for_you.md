@@ -6,17 +6,72 @@ Databases are great for dealing with large amounts of data in an efficient manne
 
 **Goals for today's session:**
 - Common pitfalls to avoid when constructing tables
+- Getting information about tables, columns, and grants
 - Dealing with permissions and roles
 - Improving the performance of your queries
 - How to kill hung or run-away queries
 
+## Common Pitfalls to Avoid When Constructing Tables
+
+**TIP #1 -- Avoid modifying your raw data in place**
+
+Even though you might have the source data backed up somewhere, using separate `raw` and `clean` schemas as you process the data you've loaded into the database is a best practice. Most projects will require considerable effort in data cleaning: fixing up data types, resolving different values with the same semantic meaning (e.g., abbreviations, typos), removing special characters, dealing with values out of the meaningful range (e.g., future or far past dates), etc. 
+
+However, your data cleaning code may have bugs or make bad assumptions that you may need to modify as you iterate on the project. Keeping the raw data separate will both facilitate this process as well as allow you to easily compare the data you're working with to the source data to understand the impact of your transformations.
+
+
+**TIP #2 -- Stick to lowercase characters for table and column names**
+
+Although postgres will let you use upper-case letters and special characters in your column names, doing so means you'll have to reference these names with double quotes any time you reference then, which is both easily forgotten when querying the data by hand and prone to result in bugs that are hard to track down when code that queries the database programatically is buried deep in your pipeline.
+
+To illustrate this point, let's take a look at the `FoodFacilities` table in the `sql_tips` schema of the training database. What happens when you try querying the name, city, state, and zipcode of some sample facilities?
+
+Next try looking at the square footage, number of seats, and status of a few facilities. How well did that work?
+
+
+**TIP #3 -- Table and column names are limited to 63 characters**
+
+You can specify a longer name in your code but it will be truncated by postgres to the 63-character limit. This can cause us some real trouble when programatically creating feature names, especially when multiple columns will get truncated to the same thing or moving back and forth from python to postgres. Let's take a look:
+
+```sql
+create table sql_tips.my_very_long_table_name_that_is_much_too_long_for_a_postgres_table_name (
+	id INT,
+	this_is_a_really_long_column_name_that_is_also_going_to_cause_us_trouble VARCHAR
+);
+
+insert into sql_tips.my_very_long_table_name_that_is_much_too_long_for_a_postgres_table_name values (1, 'foo bar');
+```
+
+Running that works just fine, but it gives us a warning about some identfiers getting truncated. We can use the `pg_tables` system table to get information about the table that was actually created:
+
+```sql
+select * from pg_tables where schemaname = 'sql_tips';
+```
+
+Notice that the actual table name here is `my_very_long_table_name_that_is_much_too_long_for_a_postgres_ta`
+
+Yet, we can still select rows from it using the full name (which will also get truncated):
+
+```sql
+select * from sql_tips.my_very_long_table_name_that_is_much_too_long_for_a_postgres_table_name;
+```
+
+But also notice that the second column is now `this_is_a_really_long_column_name_that_is_also_going_to_cause_u`. If we'd been doing this from python and expecting to get the full names back, we would have run into some real trouble!
+
+
+## Getting information about tables, columns, and grants
+
+
+## Dealing with permissions and roles
+
+
+## Improving the performance of your queries
+
+
+## How to kill hung or run-away queries
+
+
 ## Tips
-
-1. Avoid modifying your raw data in place. Instead, use separate `raw` and `clean` schemas as you process the data.
-
-1. Don't mix upper and lower case for table and column names. Postgres is case-sensitive and you don't want to spend time typing double quotes (or forgetting to do so) every time type out a table or column name. **Stick to all lowercase table and column names when you can**
-
-2. Don't use special characters in table names or start with a digit. Same reason as #1.
 
 3. If your query is running for a long time, the most likely culprit is lack of an index. Create indices often and early but be deliberate about selecting the columns that you think you'll be (or are) using frequently in *joins* or *where* clauses.
 
@@ -31,3 +86,4 @@ Databases are great for dealing with large amounts of data in an efficient manne
 
 1. The atomic swap is a good pattern for ingesting updated data: load the new data into `{table_name}_staging` and then (in a single transaction) drop (if one exists) `{table_name}_old`, rename the current table to `{table_name}_old`, and rename the staging table to `{table_name}`. This both avoids a gap in the table being available and always preserves the previous version of the table if something has gone wrong and the process needs to be rolled back.
 
+2. Postgres has pretty extensive built-in functionality for handling JSON data, arrays, regular expressions, doing range joins, etc, as well as extensions for dealing with data that's geographic in nature. We don't have time to delve into all of this functionality here, but you can find good tutorials and documentation online for all of them.
