@@ -2169,6 +2169,41 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#common-pitfalls-to-avoid-when-constructing-tables" title="Common Pitfalls to Avoid When Constructing Tables" class="md-nav__link">
+    Common Pitfalls to Avoid When Constructing Tables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-information-about-tables-columns-and-grants" title="Getting information about tables, columns, and grants" class="md-nav__link">
+    Getting information about tables, columns, and grants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dealing-with-permissions-and-roles" title="Dealing with permissions and roles" class="md-nav__link">
+    Dealing with permissions and roles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#improving-the-performance-of-your-queries" title="Improving the performance of your queries" class="md-nav__link">
+    Improving the performance of your queries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-kill-hung-or-run-away-queries" title="How to kill hung or run-away queries" class="md-nav__link">
+    How to kill hung or run-away queries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tips" title="Tips" class="md-nav__link">
     Tips
   </a>
@@ -2206,20 +2241,44 @@
 <p>Databases are great for dealing with large amounts of data in an efficient manner. We'll use databases (typically postgres) all summer for almost all of our projects. While you'll find them to be your new best friend, you're likely to get frustrated and annoyed  with them (just as you would with any best friend) if you don't set things up correctly up front. Here are some things to keep in mind that you should do early on to reduce your frustration and annoyance as you get to know each other better.</p>
 <p><strong>Goals for today's session:</strong>
 - Common pitfalls to avoid when constructing tables
+- Getting information about tables, columns, and grants
 - Dealing with permissions and roles
 - Improving the performance of your queries
 - How to kill hung or run-away queries</p>
+<h2 id="common-pitfalls-to-avoid-when-constructing-tables">Common Pitfalls to Avoid When Constructing Tables<a class="headerlink" href="#common-pitfalls-to-avoid-when-constructing-tables" title="Permanent link">#</a></h2>
+<p><strong>TIP #1 -- Avoid modifying your raw data in place</strong></p>
+<p>Even though you might have the source data backed up somewhere, using separate <code>raw</code> and <code>clean</code> schemas as you process the data you've loaded into the database is a best practice. Most projects will require considerable effort in data cleaning: fixing up data types, resolving different values with the same semantic meaning (e.g., abbreviations, typos), removing special characters, dealing with values out of the meaningful range (e.g., future or far past dates), etc. </p>
+<p>However, your data cleaning code may have bugs or make bad assumptions that you may need to modify as you iterate on the project. Keeping the raw data separate will both facilitate this process as well as allow you to easily compare the data you're working with to the source data to understand the impact of your transformations.</p>
+<p><strong>TIP #2 -- Stick to lowercase characters for table and column names</strong></p>
+<p>Although postgres will let you use upper-case letters and special characters in your column names, doing so means you'll have to reference these names with double quotes any time you reference then, which is both easily forgotten when querying the data by hand and prone to result in bugs that are hard to track down when code that queries the database programatically is buried deep in your pipeline.</p>
+<p>To illustrate this point, let's take a look at the <code>FoodFacilities</code> table in the <code>sql_tips</code> schema of the training database. What happens when you try querying the name, city, state, and zipcode of some sample facilities?</p>
+<p>Next try looking at the square footage, number of seats, and status of a few facilities. How well did that work?</p>
+<p><strong>TIP #3 -- Table and column names are limited to 63 characters</strong></p>
+<p>You can specify a longer name in your code but it will be truncated by postgres to the 63-character limit. This can cause us some real trouble when programatically creating feature names, especially when multiple columns will get truncated to the same thing or moving back and forth from python to postgres. Let's take a look:</p>
+<div class="highlight"><pre><span></span><span class="k">create</span> <span class="k">table</span> <span class="n">sql_tips</span><span class="p">.</span><span class="n">my_very_long_table_name_that_is_much_too_long_for_a_postgres_table_name</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="nb">INT</span><span class="p">,</span>
+    <span class="n">this_is_a_really_long_column_name_that_is_also_going_to_cause_us_trouble</span> <span class="nb">VARCHAR</span>
+<span class="p">);</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="n">sql_tips</span><span class="p">.</span><span class="n">my_very_long_table_name_that_is_much_too_long_for_a_postgres_table_name</span> <span class="k">values</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;foo bar&#39;</span><span class="p">);</span>
+</pre></div>
+
+<p>Running that works just fine, but it gives us a warning about some identfiers getting truncated. We can use the <code>pg_tables</code> system table to get information about the table that was actually created:</p>
+<div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">pg_tables</span> <span class="k">where</span> <span class="n">schemaname</span> <span class="o">=</span> <span class="s1">&#39;sql_tips&#39;</span><span class="p">;</span>
+</pre></div>
+
+<p>Notice that the actual table name here is <code>my_very_long_table_name_that_is_much_too_long_for_a_postgres_ta</code></p>
+<p>Yet, we can still select rows from it using the full name (which will also get truncated):</p>
+<div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">sql_tips</span><span class="p">.</span><span class="n">my_very_long_table_name_that_is_much_too_long_for_a_postgres_table_name</span><span class="p">;</span>
+</pre></div>
+
+<p>But also notice that the second column is now <code>this_is_a_really_long_column_name_that_is_also_going_to_cause_u</code>. If we'd been doing this from python and expecting to get the full names back, we would have run into some real trouble!</p>
+<h2 id="getting-information-about-tables-columns-and-grants">Getting information about tables, columns, and grants<a class="headerlink" href="#getting-information-about-tables-columns-and-grants" title="Permanent link">#</a></h2>
+<h2 id="dealing-with-permissions-and-roles">Dealing with permissions and roles<a class="headerlink" href="#dealing-with-permissions-and-roles" title="Permanent link">#</a></h2>
+<h2 id="improving-the-performance-of-your-queries">Improving the performance of your queries<a class="headerlink" href="#improving-the-performance-of-your-queries" title="Permanent link">#</a></h2>
+<h2 id="how-to-kill-hung-or-run-away-queries">How to kill hung or run-away queries<a class="headerlink" href="#how-to-kill-hung-or-run-away-queries" title="Permanent link">#</a></h2>
 <h2 id="tips">Tips<a class="headerlink" href="#tips" title="Permanent link">#</a></h2>
 <ol>
-<li>
-<p>Avoid modifying your raw data in place. Instead, use separate <code>raw</code> and <code>clean</code> schemas as you process the data.</p>
-</li>
-<li>
-<p>Don't mix upper and lower case for table and column names. Postgres is case-sensitive and you don't want to spend time typing double quotes (or forgetting to do so) every time type out a table or column name. <strong>Stick to all lowercase table and column names when you can</strong></p>
-</li>
-<li>
-<p>Don't use special characters in table names or start with a digit. Same reason as #1.</p>
-</li>
 <li>
 <p>If your query is running for a long time, the most likely culprit is lack of an index. Create indices often and early but be deliberate about selecting the columns that you think you'll be (or are) using frequently in <em>joins</em> or <em>where</em> clauses.</p>
 </li>
@@ -2235,7 +2294,12 @@
 </ol>
 <h2 id="bonus-tips">Bonus Tips<a class="headerlink" href="#bonus-tips" title="Permanent link">#</a></h2>
 <ol>
-<li>The atomic swap is a good pattern for ingesting updated data: load the new data into <code>{table_name}_staging</code> and then (in a single transaction) drop (if one exists) <code>{table_name}_old</code>, rename the current table to <code>{table_name}_old</code>, and rename the staging table to <code>{table_name}</code>. This both avoids a gap in the table being available and always preserves the previous version of the table if something has gone wrong and the process needs to be rolled back.</li>
+<li>
+<p>The atomic swap is a good pattern for ingesting updated data: load the new data into <code>{table_name}_staging</code> and then (in a single transaction) drop (if one exists) <code>{table_name}_old</code>, rename the current table to <code>{table_name}_old</code>, and rename the staging table to <code>{table_name}</code>. This both avoids a gap in the table being available and always preserves the previous version of the table if something has gone wrong and the process needs to be rolled back.</p>
+</li>
+<li>
+<p>Postgres has pretty extensive built-in functionality for handling JSON data, arrays, regular expressions, doing range joins, etc, as well as extensions for dealing with data that's geographic in nature. We don't have time to delve into all of this functionality here, but you can find good tutorials and documentation online for all of them.</p>
+</li>
 </ol>
                 
                   
