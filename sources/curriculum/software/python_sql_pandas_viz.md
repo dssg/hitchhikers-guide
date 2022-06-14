@@ -44,3 +44,4 @@ $ ssh localhost:{YYYY}:localhost:{XXXX} andrewid@training.dssg.io
 Open your browser and open the URL `localhost:{YYYY}` it will ask for a token.
 
 [Let's code!](./python_sql_pandas_viz.ipynb)
+
