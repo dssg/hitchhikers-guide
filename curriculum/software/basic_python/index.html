@@ -38,7 +38,7 @@
     
     
       
-        <title>Python - DSSG Hitchhickers guide</title>
+        <title>Basic Python - DSSG Hitchhickers guide</title>
       
     
     
@@ -104,7 +104,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#python-with-sql-and-pandas" tabindex="1" class="md-skip">
+      <a href="#python" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -129,7 +129,7 @@
               DSSG Hitchhickers guide
             </span>
             <span class="md-header-nav__topic">
-              Python
+              Basic Python
             </span>
           
         </div>
@@ -834,6 +834,27 @@
   
 
 
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-6-5" type="checkbox" id="nav-5-6-5" checked>
+    
+    <label class="md-nav__link" for="nav-5-6-5">
+      Python
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-5-6-5">
+        Python
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
@@ -842,11 +863,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Python
+        Basic Python
       </label>
     
-    <a href="./" title="Python" class="md-nav__link md-nav__link--active">
-      Python
+    <a href="./" title="Basic Python" class="md-nav__link md-nav__link--active">
+      Basic Python
     </a>
     
       
@@ -888,6 +909,35 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../python_sql_pandas_viz/" title="Python, Pandas and Viz" class="md-nav__link">
+      Python, Pandas and Viz
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../python_sql/" title="Python and SQL" class="md-nav__link">
+      Python and SQL
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -2293,38 +2343,7 @@
                   <a href="https://github.com/dssg/hitchhikers-guide/edit/master/sources/curriculum/software/basic_python.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="python-with-sql-and-pandas">Python with SQL and Pandas<a class="headerlink" href="#python-with-sql-and-pandas" title="Permanent link">#</a></h1>
-<p>We will need to import the virtual environment <code>food_inspections</code>, into jupyter. To do that, go to <code>/mnt/data/projects/food_inspections/</code> and type the following command:</p>
-<div class="highlight"><pre><span></span>$ python -m ipykernel install --user --name=food_inspections --display-name food_inspections
-</pre></div>
-
-<p>Also, since we are going to connect to the database through Python we will need to chage some environment variables.</p>
-<div class="highlight"><pre><span></span>$ nano ~/.bashrc
-</pre></div>
-
-<p>Add your credentials for the variables: <code>PGUSER</code>, <code>PGPASSWORD</code>, <code>PGHOST</code>, <code>PGPORT</code>, and <code>PGDATABASE</code>. For example:</p>
-<div class="highlight"><pre><span></span>export PGUSER=&#39;yourandrewid&#39;
-export PGPASSWORD=&#39;yourandrewid&#39;
-export PGHOST=&#39;db.dssg.io&#39;
-export PGPORT=5432
-export PGDATABASE=&#39;food-inspections&#39;
-</pre></div>
-
-<p>Then make these variables available to the session:</p>
-<div class="highlight"><pre><span></span>$ source ~/.bashrc
-</pre></div>
-
-<p>Start a Jupyter notebook, remember to use a port available from the list <code>ss -tulnp</code>:</p>
-<div class="highlight"><pre><span></span>$ jupyter notebook --port {XXXX}
-</pre></div>
-
-<p>Make a port forwarding between your local machine and the server so that we can use the browser in your machine as GUI.</p>
-<div class="highlight"><pre><span></span>$ ssh localhost:{YYYY}:localhost:{XXXX} andrewid@training.dssg.io
-</pre></div>
-
-<p>Open your browser and open the URL <code>localhost:{YYYY}</code> it will ask for a token.</p>
-<p><a href="../python_sql_pandas_viz.ipynb">Let's code!</a></p>
-<hr />
+                <h1 id="python">Python<a class="headerlink" href="#python" title="Permanent link">#</a></h1>
 <p>Python is the language of choice here at DSSG. If you’re only going to
 learn one programming language, learn Python! It’s powerful,
 expressive, and easy to read (even by non-programmers).</p>
@@ -2389,13 +2408,13 @@ expressive, and easy to read (even by non-programmers).</p>
           </a>
         
         
-          <a href="../basic_sql/" title="SQL Basics" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../python_sql_pandas_viz/" title="Python, Pandas and Viz" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                SQL Basics
+                Python, Pandas and Viz
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
