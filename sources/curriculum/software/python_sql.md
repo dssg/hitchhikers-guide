@@ -3,9 +3,9 @@
 ## Objectives of the session
 
 1. Connect to the db through Python and SQLAlchemy 
-2. Execute queries directly through python with SQLAlchemy (no Pandas)
+2. Execute queries directly through Python with SQLAlchemy (no Pandas)
 3. Template SQL 
-4. Upload data with psql 
+
 
 Before we start you will need to: 
 
@@ -51,7 +51,7 @@ $ ssh -i /path/to/your/private/key -NL localhost:9999:localhost:9999 andrewid
 localhost:9999/?token=somenumbersanddigits
 ```
 
-### Connect 
+### 1. Connect to the DB  
 
 You can connect to a database from Python using SQLAlchemy by creating an
  engine: 
@@ -79,6 +79,8 @@ engine = create_engine("postgresql://{}:{}@{}:{}/{}").format(user,
 db_conn = engine.connect()
 ```
 
+### 2. Run queries with Python and SQLAlchemy
+ 
 Now that we have a connection, lets try to run some queries: 
 
 **Select** 
@@ -165,7 +167,7 @@ db_conn.execute(sql)
 db_conn.execute("COMMIT")
 ```
 
-### Template SQL
+### 3. Template SQL
 
 Sometimes is easier to just have a template SQL and iterate through some
  values of your interest.
