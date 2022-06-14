@@ -913,15 +913,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#connect" title="Connect" class="md-nav__link">
-    Connect
+  <a href="#1-connect-to-the-db" title="1. Connect to the DB" class="md-nav__link">
+    1. Connect to the DB
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#template-sql" title="Template SQL" class="md-nav__link">
-    Template SQL
+  <a href="#2-run-queries-with-python-and-sqlalchemy" title="2. Run queries with Python and SQLAlchemy" class="md-nav__link">
+    2. Run queries with Python and SQLAlchemy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-template-sql" title="3. Template SQL" class="md-nav__link">
+    3. Template SQL
   </a>
   
 </li>
@@ -2318,15 +2325,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#connect" title="Connect" class="md-nav__link">
-    Connect
+  <a href="#1-connect-to-the-db" title="1. Connect to the DB" class="md-nav__link">
+    1. Connect to the DB
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#template-sql" title="Template SQL" class="md-nav__link">
-    Template SQL
+  <a href="#2-run-queries-with-python-and-sqlalchemy" title="2. Run queries with Python and SQLAlchemy" class="md-nav__link">
+    2. Run queries with Python and SQLAlchemy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-template-sql" title="3. Template SQL" class="md-nav__link">
+    3. Template SQL
   </a>
   
 </li>
@@ -2359,9 +2373,8 @@
 <h2 id="objectives-of-the-session">Objectives of the session<a class="headerlink" href="#objectives-of-the-session" title="Permanent link">#</a></h2>
 <ol>
 <li>Connect to the db through Python and SQLAlchemy </li>
-<li>Execute queries directly through python with SQLAlchemy (no Pandas)</li>
+<li>Execute queries directly through Python with SQLAlchemy (no Pandas)</li>
 <li>Template SQL </li>
-<li>Upload data with psql </li>
 </ol>
 <p>Before we start you will need to: </p>
 <ul>
@@ -2406,7 +2419,7 @@
 <div class="highlight"><pre><span></span>localhost:9999/?token=somenumbersanddigits
 </pre></div>
 
-<h3 id="connect">Connect<a class="headerlink" href="#connect" title="Permanent link">#</a></h3>
+<h3 id="1-connect-to-the-db">1. Connect to the DB<a class="headerlink" href="#1-connect-to-the-db" title="Permanent link">#</a></h3>
 <p>You can connect to a database from Python using SQLAlchemy by creating an
  engine: </p>
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -2431,6 +2444,7 @@
 <span class="n">db_conn</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 </pre></div>
 
+<h3 id="2-run-queries-with-python-and-sqlalchemy">2. Run queries with Python and SQLAlchemy<a class="headerlink" href="#2-run-queries-with-python-and-sqlalchemy" title="Permanent link">#</a></h3>
 <p>Now that we have a connection, lets try to run some queries: </p>
 <p><strong>Select</strong> </p>
 <div class="highlight"><pre><span></span><span class="c1"># execute a query with sqlalchemy</span>
@@ -2501,7 +2515,7 @@
 <span class="n">db_conn</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;COMMIT&quot;</span><span class="p">)</span>
 </pre></div>
 
-<h3 id="template-sql">Template SQL<a class="headerlink" href="#template-sql" title="Permanent link">#</a></h3>
+<h3 id="3-template-sql">3. Template SQL<a class="headerlink" href="#3-template-sql" title="Permanent link">#</a></h3>
 <p>Sometimes is easier to just have a template SQL and iterate through some
  values of your interest.</p>
 <div class="highlight"><pre><span></span><span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2019-01-15&#39;</span><span class="p">,</span> <span class="s1">&#39;2020-01-15&#39;</span><span class="p">,</span> <span class="s1">&#39;2020-04-15&#39;</span><span class="p">,</span> <span class="s1">&#39;2020-06-15&#39;</span><span class="p">]</span>
