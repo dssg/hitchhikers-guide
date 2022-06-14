@@ -99,7 +99,10 @@ nav:
               - Group tutorial: curriculum/setup/git-and-github/group_tutorial/README.md
               - Advanced notes: curriculum/setup/git-and-github/branching_and_merging/README.md
               - Git Workflow: curriculum/setup/git-and-github/githubflow/github-flow.html
-          - Python: curriculum/software/basic_python.md
+          - Python:
+              - Basic Python: curriculum/software/basic_python.md
+              - Python, Pandas and Viz: curriculum/software/python_sql_pandas_viz.md
+              - Python and SQL: curriculum/software/python_sql.md
           - SQL:
               - SQL Basics: curriculum/software/basic_sql/README.md
               - Postgres Tips and Pitfalls: curriculum/1_getting_and_keeping_data/databases/making_databases_work_for_you.md
