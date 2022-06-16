@@ -39,11 +39,11 @@ You will need to create a branch for each issue, one issue per teammate
 
 - Clear (no ambiguity)
 - Defined output 
-- Actionable
 - Could be completed on a few days -ideally one day- 
 
 For example: 
-* Add column `x` to clean table `y`   :)
+
++ Add column `x` to clean table `y`   :)
 + Add method to get top 3 frequent ambulance users   :)
 + Cleaning the data :(
 
