@@ -10,7 +10,7 @@
 
 ### 1. Effective branching strategy
 
-Why we do branches?
+Why we branch?
 
 At least 2 different branches `main` and `dev` -or `develop`-.
 
