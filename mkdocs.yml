@@ -99,6 +99,7 @@ nav:
               - Group tutorial: curriculum/setup/git-and-github/group_tutorial/README.md
               - Advanced notes: curriculum/setup/git-and-github/branching_and_merging/README.md
               - Git Workflow: curriculum/setup/git-and-github/githubflow/github-flow.html
+              - Git branching: curriculum/setup/git-and-github/branching_and_merging.md
           - Python:
               - Basic Python: curriculum/software/basic_python.md
               - Python, Pandas and Viz: curriculum/software/python_sql_pandas_viz.md
