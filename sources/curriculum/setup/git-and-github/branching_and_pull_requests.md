@@ -32,7 +32,7 @@ You can create a branch using `checkout`
 $ git checkout -b your_branch_name
 ```
 
-You will need to create a branch for each issue, 1 issue per teammate
+You will need to create a branch for each issue, one issue per teammate
 , normally different files.
 
 **Characteristics of a good issue**
