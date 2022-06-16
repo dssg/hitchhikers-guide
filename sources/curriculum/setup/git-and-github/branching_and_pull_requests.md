@@ -43,6 +43,7 @@ You will need to create a branch for each issue, one issue per teammate
 + Must be assigned to one person 
 
 For example:
+
 + Add column `x` to clean table `y`   :)
 + Add method to get top 3 frequent ambulance users   :)
 + Cleaning the data :(
