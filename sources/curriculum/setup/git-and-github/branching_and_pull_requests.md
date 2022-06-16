@@ -40,6 +40,7 @@ You will need to create a branch for each issue, one issue per teammate
 + Clear (no ambiguity)
 + Defined output 
 + Could be completed on a few days -ideally one day- 
++ Must be assigned to one person 
 
 For example:
 + Add column `x` to clean table `y`   :)
