@@ -37,12 +37,11 @@ You will need to create a branch for each issue, one issue per teammate
 
 **Characteristics of a good issue**
 
-- Clear (no ambiguity)
-- Defined output 
-- Could be completed on a few days -ideally one day- 
++ Clear (no ambiguity)
++ Defined output 
++ Could be completed on a few days -ideally one day- 
 
-For example: 
-
+For example:
 + Add column `x` to clean table `y`   :)
 + Add method to get top 3 frequent ambulance users   :)
 + Cleaning the data :(
