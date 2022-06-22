@@ -211,6 +211,8 @@ logging.basicConfig(format= '%(asctime)s %(levelname)-8s %(message)s',
 ### Tests
 
 You should be writing unit tests for your code, that's how you "make sure" your code does what it is supposed to do. 
+You can use [usetest](https://docs.python.org/2/library/unittest.html).
+
 
 ## What to do 
 
