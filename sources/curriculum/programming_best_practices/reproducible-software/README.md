@@ -32,7 +32,7 @@ All projects should have a README that communicates the following:
    - A short description of the project (i.e. the problem you are trying to solve).
 
 2. The required dependencies to run the software
-   - The can be in the form of a *requirements.txt* file for Python that lists
+   - Can be in the form of a *requirements.txt* file for Python that lists
    the dependencies and version numbers.
    - The system-level dependencies.
 
