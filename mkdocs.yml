@@ -79,7 +79,7 @@ nav:
                   - User interface: curriculum/communication/user_interface.md
             - Good Software Practices:
                   - Intro: curriculum/programming_best_practices/README.md
-                  - Good repos, good code: curriculum/programing_best_practices/reproducible-software/good_repos_good_code.md
+                  - Good repos, good code: curriculum/programming_best_practices/reproducible-software/good_repos_good_code.md
                   - Legible, good code: curriculum/programming_best_practices/legible-good-code/README.md
                   - Writing tests: curriculum/programming_best_practices/test-test-test/README.md
                   - Reproducible software: curriculum/programming_best_practices/reproducible-software/README.md
