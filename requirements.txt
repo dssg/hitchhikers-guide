@@ -24,5 +24,5 @@ seaborn==0.11.2
 psycopg2-binary==2.9.3
 csvkit==1.0.7
 nltk==3.7
-ujson==5.2.0
+ujson==5.4.0
 spacy==3.3.0
