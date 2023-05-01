@@ -1,4 +1,4 @@
-Flask==0.10.1
+Flask==2.3.2
 gensim==0.13.4
 scikit-learn
 pandas
