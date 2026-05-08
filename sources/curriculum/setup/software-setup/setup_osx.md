@@ -79,7 +79,7 @@ Note that in MacOS you will already have `python` installed, but that `python` i
 
 ```
 xcode-select --install
-brew install openssl readline sqlite3 xz zlib
+brew install openssl readline sqlite3 xz tcl-tk@8 libb2 zstd zlib pkgconfig
 ```
 
 
@@ -111,35 +111,35 @@ By default, every project on your system will use the same directory to store an
 A virtual environment helps avoid conflicts between requirements for different projects and it isolates dependencies.
 For example, different projects may use different versions of Python.
 
-To create an environment called `dssg-3.8.10` with Python 3.8.10 in `pyenv`, install the python version:
+To create an environment called `dssg-3.9.18` with Python 3.9.18 in `pyenv`, install the python version:
 
-    $ pyenv install 3.8.10
+    $ pyenv install 3.9.18
 
 This will take several minutes. Once complete, create the environment
 
-    $ pyenv virtualenv 3.8.10 dssg-3.8.10
+    $ pyenv virtualenv 3.9.18 dssg-3.9.18
 
 And then assign it as the virtual environment to use in your directory of choice with
 
-    $ echo dssg-3.8.10 > .python-version
+    $ echo dssg-3.9.18 > .python-version
 
-This will ensure that whenever you are inside that directory, the `dssg-3.8.10` environment will be activated.
+This will ensure that whenever you are inside that directory, the `dssg-3.9.18` environment will be activated.
 
 If not, you can manually activate the environment: 
 
 ```
-$ activate dssg-3.8.10
+$ activate dssg-3.9.18
 ```
 
 Depending on your command shell (`bash`, `zsh`, `csh`, etc) configuration you should get some info that the environment is in use,  if not you can check it with
 
     $ pyenv version
-    dssg-3.8.10 (set by /home/user/projects/.python-version)
+    dssg-3.9.18 (set by /home/user/projects/.python-version)
 
 
 ### Package installations
 
-Packages are installed using pip. To install a single package:
+Packages are installed using pip. To install a single package (**within your `virtual environment`**):
 
     $ pip install pandas
 
@@ -156,15 +156,17 @@ To try it out, use this file: [`requirements.txt`](requirements.txt).
 Jupyter notebooks are a convenient environment for experimentation, prototyping, and sharing exploratory work.
 Jupyter notebooks require a kernel that executes the code. It should link to the virtual environment:
 
-    $ pyenv activate dssg-3.8.10
-    $ python -m ipykernel install --user --name=dssg-3.8.10 --display-name "dssg-3.8.10-env"
+    $ pyenv activate dssg-3.9.18
+    $ python -m ipykernel install --user --name=dssg-3.9.18 --display-name "dssg-3.9.18-env"
 
 It's time to test! In order to test that both jupyter and the python packages installed appropriately, you should do the following:
 
-- Download the file [`SoftwareSetup.ipynb`](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/setup/software-setup/SoftwareSetup.ipynb) into your directory.
+- Download the file [`software_setup.ipynb`](https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/setup/software-setup/software_setup.ipynb) into your directory.
 - Type in the terminal
 
+```
     $ jupyter lab
+```
 
 Your browser will open a new tab with the jupyterlab interface.
 
@@ -172,7 +174,7 @@ Your browser will open a new tab with the jupyterlab interface.
 
 <img src="imgs/jupyter.png" width="900px;"/> -->
 
-- Click on `SoftwareSetup.ipynb` to open the notebook
+- Click on `software_setup.ipynb` to open the notebook
 - Follow the instructions in the notebook to run each cell.
 
 ### Learning more about python
