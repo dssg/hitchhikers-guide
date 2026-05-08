@@ -10,11 +10,11 @@ jobs:
     name: Build and Serve to Github Pages
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Set up Python 3.9
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v5
         with:
           python-version: 3.9
       - run: pip install --upgrade pip && pip install -r requirements.txt
