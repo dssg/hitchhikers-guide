@@ -17,7 +17,7 @@ In order to be ready for the summer, you need to install some packages on your c
         *   scikit-learn
         *   psycopg2
         *   ipython
-        *   jupyterlab
+        *   jupyter
   *   SSH Keypair
   *   Text Editor for Coding (your favorite, or VSCode)
 
