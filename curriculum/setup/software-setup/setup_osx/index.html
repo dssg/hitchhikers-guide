@@ -2471,7 +2471,7 @@ You can un-git the directory by deleting the <code>.git</code> folder: <code>rm 
 </div>
 <p>Note that in MacOS you will already have <code>python</code> installed, but that <code>python</code> is the one use by your operative system for doing stuff, so probably you don’t want to mess with it. Instead, we will install a different <code>python</code>, for you exclusive use. First we will install some libraries<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>:</p>
 <div class="highlight"><pre><span></span>xcode-select --install
-brew install openssl readline sqlite3 xz zlib
+brew install openssl readline sqlite3 xz tcl-tk@8 libb2 zstd zlib pkgconfig
 </pre></div>
 
 <p>To manage different python versions and virtual environments, we will install a tool called <a href="https://github.com/pyenv/pyenv"><code>pyenv</code></a></p>
@@ -2493,34 +2493,34 @@ A virtual environment is a tool that helps to keep dependencies required by diff
 By default, every project on your system will use the same directory to store and retrieve third party libraries (called site packages).
 A virtual environment helps avoid conflicts between requirements for different projects and it isolates dependencies.
 For example, different projects may use different versions of Python.</p>
-<p>To create an environment called <code>dssg-3.8.10</code> with Python 3.8.10 in <code>pyenv</code>, install the python version:</p>
-<div class="codehilite"><pre><span></span>$ pyenv install 3.8.10
+<p>To create an environment called <code>dssg-3.9.18</code> with Python 3.9.18 in <code>pyenv</code>, install the python version:</p>
+<div class="codehilite"><pre><span></span>$ pyenv install 3.9.18
 </pre></div>
 
 
 <p>This will take several minutes. Once complete, create the environment</p>
-<div class="codehilite"><pre><span></span>$ pyenv virtualenv 3.8.10 dssg-3.8.10
+<div class="codehilite"><pre><span></span>$ pyenv virtualenv 3.9.18 dssg-3.9.18
 </pre></div>
 
 
 <p>And then assign it as the virtual environment to use in your directory of choice with</p>
-<div class="codehilite"><pre><span></span>$ echo dssg-3.8.10 &gt; .python-version
+<div class="codehilite"><pre><span></span>$ echo dssg-3.9.18 &gt; .python-version
 </pre></div>
 
 
-<p>This will ensure that whenever you are inside that directory, the <code>dssg-3.8.10</code> environment will be activated.</p>
+<p>This will ensure that whenever you are inside that directory, the <code>dssg-3.9.18</code> environment will be activated.</p>
 <p>If not, you can manually activate the environment: </p>
-<div class="highlight"><pre><span></span>$ activate dssg-3.8.10
+<div class="highlight"><pre><span></span>$ activate dssg-3.9.18
 </pre></div>
 
 <p>Depending on your command shell (<code>bash</code>, <code>zsh</code>, <code>csh</code>, etc) configuration you should get some info that the environment is in use,  if not you can check it with</p>
 <div class="codehilite"><pre><span></span>$ pyenv version
-dssg-3.8.10 (set by /home/user/projects/.python-version)
+dssg-3.9.18 (set by /home/user/projects/.python-version)
 </pre></div>
 
 
 <h3 id="package-installations">Package installations<a class="headerlink" href="#package-installations" title="Permanent link">#</a></h3>
-<p>Packages are installed using pip. To install a single package:</p>
+<p>Packages are installed using pip. To install a single package (<strong>within your <code>virtual environment</code></strong>):</p>
 <div class="codehilite"><pre><span></span>$ pip install pandas
 </pre></div>
 
@@ -2535,26 +2535,26 @@ navigate to the folder of the file and execute</p>
 <h4>Jupyter</h4>
 <p>Jupyter notebooks are a convenient environment for experimentation, prototyping, and sharing exploratory work.
 Jupyter notebooks require a kernel that executes the code. It should link to the virtual environment:</p>
-<div class="codehilite"><pre><span></span>$ pyenv activate dssg-3.8.10
-$ python -m ipykernel install --user --name=dssg-3.8.10 --display-name &quot;dssg-3.8.10-env&quot;
+<div class="codehilite"><pre><span></span>$ pyenv activate dssg-3.9.18
+$ python -m ipykernel install --user --name=dssg-3.9.18 --display-name &quot;dssg-3.9.18-env&quot;
 </pre></div>
 
 
 <p>It's time to test! In order to test that both jupyter and the python packages installed appropriately, you should do the following:</p>
 <ul>
-<li>Download the file <a href="https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/setup/software-setup/SoftwareSetup.ipynb"><code>SoftwareSetup.ipynb</code></a> into your directory.</li>
-<li>
-<p>Type in the terminal</p>
-<p>$ jupyter lab</p>
-</li>
+<li>Download the file <a href="https://github.com/dssg/hitchhikers-guide/blob/master/sources/curriculum/setup/software-setup/software_setup.ipynb"><code>software_setup.ipynb</code></a> into your directory.</li>
+<li>Type in the terminal</li>
 </ul>
+<div class="highlight"><pre><span></span>    $ jupyter lab
+</pre></div>
+
 <p>Your browser will open a new tab with the jupyterlab interface.</p>
 <!-- Your browser will open a new tab and you will see something like the following:
 
 <img src="imgs/jupyter.png" width="900px;"/> -->
 
 <ul>
-<li>Click on <code>SoftwareSetup.ipynb</code> to open the notebook</li>
+<li>Click on <code>software_setup.ipynb</code> to open the notebook</li>
 <li>Follow the instructions in the notebook to run each cell.</li>
 </ul>
 <h3 id="learning-more-about-python">Learning more about python<a class="headerlink" href="#learning-more-about-python" title="Permanent link">#</a></h3>

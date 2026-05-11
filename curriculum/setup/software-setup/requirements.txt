@@ -1,6 +1,8 @@
-pandas
-matplotlib
-scikit-learn
-psycopg2
-ipython
-jupyterlab
+# valid version for Python 3.9
+scikit-learn==1.6.1
+pandas==2.3.0
+matplotlib==3.9.4
+seaborn==0.13.2
+jupyter==1.1.1
+psycopg2==2.9.12
+
