@@ -50,6 +50,6 @@ Some of the tools we'll be using at DSSG might be new to you, but don't worry if
 
 ## Causal Inference
 
-- [Intro to Causal Inference](http://dholakia.web.rice.edu/CausalInference.pdf)
+- [Intro to Causal Inference](../../3_modeling_and_machine_learning/causal-inference/causal_inference_alexander_w_butler.pdf)
 - [Causal Inference in Social Science](http://people.ischool.berkeley.edu/~hal/Papers/2015/cause03.pdf)
 
