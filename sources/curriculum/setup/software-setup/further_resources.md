@@ -24,20 +24,21 @@ Some of the tools we'll be using at DSSG might be new to you, but don't worry if
 
 - **Python Programming Resources:**
     - [Hitchhiker's Guide intro to python](../../../software/basic_python)
-    - [Writing efficient Python](https://www.memonic.com/user/pneff/folder/python/id/1bufp)
-    - [Tips for Idiomatic Python](https://web.archive.org/web/20180411011411/http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html)
-    - [Introduction to Python debugging tools](https://web.archive.org/web/20141209082719/https://blog.safaribooksonline.com/2014/11/18/intro-python-debugger/)
+    - [Writing efficient Python](https://docs.python-guide.org/) Look for Writing Great Python Code section
+    - [Tips for Idiomatic Python](https://docs.python-guide.org/writing/style/#idioms)
+    - [Introduction to Python debugging tools](https://docs.python.org/3/library/pdb.html)
 - Jupyter Notebooks and Jupyter Lab
     - [Beginner's Guide to Jupyter Lab](https://medium.com/@brianray_7981/jupyterlab-first-impressions-e6d70d8a175d)
     - [Example of how IPython notebooks are used in data science](http://nbviewer.ipython.org/github/jvns/talks/blob/master/pydatanyc2013/PyData%20NYC%202013%20tutorial.ipynb)
     - [Tutorial for setting up and opening IPython notebook](http://opentechschool.github.io/python-data-intro/core/notebook.html)
     - [Amazing examples of IPython notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-and-IPython-Notebooks)
+    - [Jupyter Notebook Documentation](https://jupyter-notebook.readthedocs.io/en/latest/notebook.html)
 
 
 ## Databases and SQL
 
 - [Hitchhiker's Guide intro to SQL](../../../software/basic_sql)
-- [Another useful SQL introduction]( http://joshualande.com/)
+- [Another useful SQL introduction]( https://www.sql-easy.com/)
 - [SQL Cheatsheet](https://gist.github.com/hofmannsven/9164408)
 
 
