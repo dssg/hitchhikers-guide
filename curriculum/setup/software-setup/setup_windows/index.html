@@ -2387,14 +2387,14 @@
 </pre></div>
 
 <p>Then, you can install the version of Linux you would like to install. We recommend picking one of the Ubuntu distributions and this guide assumes an Ubuntu installation for WSL. </p>
-<p>We can install Ubuntu 20.04 by:</p>
-<div class="highlight"><pre><span></span>$ wsl --install -d Ubuntu-20.04
+<p>We can install Ubuntu 22.04 by:</p>
+<div class="highlight"><pre><span></span>$ wsl --install -d Ubuntu-22.04
 </pre></div>
 
 <p>This will take a few minutes, and will prompt you to provide a UNIX username and a password. Please note that you might have to restart your computer at some point during the installation for things to take full effect. </p>
 <p>Now, you can use Linux from within your Windows machine. You should have a shortcut in your start menu to launch WSL, and when you launch it should open up a CLI. </p>
 <p>Note that this will have no GUI and you'll have to rely on the CLI. If you need to access the file system of WSL through the Windows File Explorer, you can type the following in the address bar of the File Explorer. </p>
-<div class="highlight"><pre><span></span>\\wsl.localhost\Ubuntu-20.04
+<div class="highlight"><pre><span></span>\\wsl.localhost\Ubuntu-22.04
 </pre></div>
 
 <p>This will take you to the root folder of the linux file system. </p>
@@ -2498,21 +2498,21 @@ pyenv-virtualenv: no virtualenv name given.
 </pre></div>
 
 <p>If you see those outputs (pyenv version might be different depending on when you run this), you have installed both. Let's create a virtualenv with a specific python version and install the base packages we would need.</p>
-<p>Let's create an environment named <code>dssg-3.8.10</code> (this could be any name you like) with <code>Python 3.8.10</code>. First, install the Python version we need on <code>pyenv</code>. </p>
+<p>Let's create an environment named <code>dssg-3.12.6</code> (this could be any name you like) with <code>Python 3.12.6</code>. First, install the Python version we need on <code>pyenv</code>. </p>
 <p><em>Note: You can check all available Python versions on pyenv by using <code>$ pyenv install --list</code></em></p>
-<div class="highlight"><pre><span></span>$ pyenv install 3.8.10
+<div class="highlight"><pre><span></span>$ pyenv install 3.12.6
 </pre></div>
 
 <p>This will take several minutes. Once complete, create the environment</p>
-<div class="highlight"><pre><span></span>$ pyenv virtualenv 3.8.10 dssg-3.8.10
+<div class="highlight"><pre><span></span>$ pyenv virtualenv 3.12.6 dssg-3.12.6
 </pre></div>
 
 <p>Now you have created the virtual environment. To use it with a specific project, you can navigate to the project folder and assign it to the directory:</p>
-<p><div class="highlight"><pre><span></span>$ echo dssg-3.8.10 &gt; .python-version
+<p><div class="highlight"><pre><span></span>$ echo dssg-3.12.6 &gt; .python-version
 </pre></div>
-This will ensure that whenever you are inside that directory, the <code>dssg-3.8.10</code> environment will be activated.</p>
+This will ensure that whenever you are inside that directory, the <code>dssg-3.12.6</code> environment will be activated.</p>
 <p>If not, you can manually activate the environment: </p>
-<div class="highlight"><pre><span></span>$ activate dssg-3.8.10
+<div class="highlight"><pre><span></span>$ activate dssg-3.12.6
 </pre></div>
 
 <p>Once you have activated the environment you can start installing Python packages. </p>
@@ -2529,14 +2529,14 @@ This will ensure that whenever you are inside that directory, the <code>dssg-3.8
 <h4>Jupyter</h4>
 <p>Jupyter notebooks are a convenient environment for experimentation, prototyping, and sharing exploratory work. We install Jupyter in the above requirements.txt file. </p>
 <p>Jupyter notebooks require a kernel that executes the code. It should link to the virtual environment:</p>
-<div class="highlight"><pre><span></span>$ pyenv activate dssg-3.8.10
-$ python -m ipykernel install --user --name=dssg-3.8.10 --display-name &quot;dssg-3.8.10&quot;
+<div class="highlight"><pre><span></span>$ pyenv activate dssg-3.12.6
+$ python -m ipykernel install --user --name=dssg-3.12.6 --display-name &quot;dssg-3.12.6&quot;
 </pre></div>
 
 <p><em>Note that you should have the virtual environment activated when you issue this command.</em></p>
 <p>It's time to test! In order to test that both jupyter and the python packages installed appropriately, you should do the following:</p>
 <ul>
-<li>Download the file <a href="SoftwareSetup.ipynb"><code>SoftwareSetup.ipynb</code></a> into your directory.</li>
+<li>Download the file <a href="../software_setup.ipynb"><code>software_setup.ipynb</code></a> into your directory.</li>
 <li>Type in the terminal</li>
 </ul>
 <div class="highlight"><pre><span></span>$ jupyter lab
@@ -2544,7 +2544,7 @@ $ python -m ipykernel install --user --name=dssg-3.8.10 --display-name &quot;dss
 
 <p>Your browser should open a new tab with the jupyter lab interface. </p>
 <ul>
-<li>Click on <code>SoftwareSetup.ipynb</code> to open the notebook</li>
+<li>Click on <code>software_setup.ipynb</code> to open the notebook</li>
 <li>Follow the instructions in the notebook to run each cell.</li>
 </ul>
 <h3 id="learning-more-about-python">Learning more about python<a class="headerlink" href="#learning-more-about-python" title="Permanent link">#</a></h3>
@@ -2557,7 +2557,7 @@ $ python -m ipykernel install --user --name=dssg-3.8.10 --display-name &quot;dss
 </pre></div>
 
 <p>This will prompt you to select a location for storing the key, and give you the option to add a passphrase to the key. If you want to use the default locaion (Recommended!) and not use a passphrase, you just have to hit return. </p>
-<p>Then, your keys will be stored in the place your specified. By default, 
+<p>Then, your keys will be stored in the place you specified. By default, 
 - there'll be a <code>.ssh</code> folder in your home directory
 <code>~/.ssh/</code>
 - private key would be named <code>id_rsa</code>
@@ -2591,12 +2591,12 @@ generation).</p>
 <p>By default, the keys will be stored in <code>C:\Users\&lt;windows_username&gt;/.ssh/</code> and the file names would be as same as the WSL one. </p>
 <h2 id="vscode">VSCode<a class="headerlink" href="#vscode" title="Permanent link">#</a></h2>
 <p>Visual Studio Code is a free text editor that enables you to code directly on a remote server. You can <a href="https://code.visualstudio.com/">download VSCode for windows here</a>. </p>
-<p>If you development environment is on WSL, you can <a href="https://code.visualstudio.com/learn/develop-cloud/wsl">install the Remote-WSL extension for VSCode</a> and navigate to your project folder on the WSL terminal and type:</p>
+<p>If you development environment is on WSL, you can <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl">install the Remote-WSL extension for VSCode</a> and navigate to your project folder on the WSL terminal and type:</p>
 <div class="highlight"><pre><span></span>$ code .
 </pre></div>
 
 <p>This will launch a VScode window that will let you develop on your WSL machine. </p>
-<p>As we said above, one of the most useful features of VSCode is that it let's you edit code directly on a remote server using SSH. To use this feature, you should <a href="https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines">install the Remote-SSH extention for VSCode</a>. </p>
+<p>As we said above, one of the most useful features of VSCode is that it let's you edit code directly on a remote server using SSH. To use this feature, you should <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">install the Remote-SSH extention for VSCode</a>. </p>
 <p>We need to tell VSCode where your private key is to authenticate the SSH connection. VSCode would automatically check for the default private key named <code>id_rsa</code> at the default Windows location <code>C:\Users\&lt;windows_username&gt;/.ssh/</code>. As we created the SSH keys in WSL, they keys would be inside the WSL file system. We can copy the keys to the windows location. </p>
 <div class="highlight"><pre><span></span>$ mkdir /mnt/c/&lt;windows username&gt;/.ssh
 $ cp -r ~/.ssh/ /mnt/c/&lt;windows username&gt;/.ssh/

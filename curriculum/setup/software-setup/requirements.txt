@@ -1,8 +1,8 @@
-# valid version for Python 3.9
-scikit-learn==1.6.1
+# valid version for Python 3.12
+scikit-learn==1.7.2
 pandas==2.3.0
 matplotlib==3.9.4
 seaborn==0.13.2
 jupyter==1.1.1
 psycopg2==2.9.12
-
+aequitas==1.1.0
