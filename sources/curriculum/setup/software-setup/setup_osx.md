@@ -79,7 +79,7 @@ Note that in MacOS you will already have `python` installed, but that `python` i
 
 ```
 xcode-select --install
-brew install openssl@3 readline sqlite3 xz tcl-tk@8 libb2 zstd zlib pkgconfig
+brew install openssl@3 readline sqlite3 xz tcl-tk@8 libb2 zstd zlib pkgconfig libpq postgresql
 ```
 
 !!! info "Note for Linux Users"
@@ -242,13 +242,6 @@ There are several GUI tools for connecting to databases, including DBeaver, Data
 ### psql
 
 There is also a command-line tool for accessing postgres databases called `psql`, which can be useful for quickly or programmatically working with the database as well.
-
-To get it, you'll need to install the `libpq` library:
-
-```
-$ brew update
-$ brew install libpq
-```
 
 !!! info "Note for Linux Users"
 
