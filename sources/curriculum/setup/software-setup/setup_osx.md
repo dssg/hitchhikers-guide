@@ -111,30 +111,30 @@ By default, every project on your system will use the same directory to store an
 A virtual environment helps avoid conflicts between requirements for different projects and it isolates dependencies.
 For example, different projects may use different versions of Python.
 
-To create an environment called `dssg-3.9.18` with Python 3.9.18 in `pyenv`, install the python version:
+To create an environment called `dssg-3.12.6` with Python 3.12.6 in `pyenv`, install the python version:
 
-    $ pyenv install 3.9.18
+    $ pyenv install 3.12.6
 
 This will take several minutes. Once complete, create the environment
 
-    $ pyenv virtualenv 3.9.18 dssg-3.9.18
+    $ pyenv virtualenv 3.12.6 dssg-3.12.6
 
 And then assign it as the virtual environment to use in your directory of choice with
 
-    $ echo dssg-3.9.18 > .python-version
+    $ echo dssg-3.12.6 > .python-version
 
-This will ensure that whenever you are inside that directory, the `dssg-3.9.18` environment will be activated.
+This will ensure that whenever you are inside that directory, the `dssg-3.16.6` environment will be activated.
 
 If not, you can manually activate the environment: 
 
 ```
-$ activate dssg-3.9.18
+$ activate dssg-3.12.6
 ```
 
 Depending on your command shell (`bash`, `zsh`, `csh`, etc) configuration you should get some info that the environment is in use,  if not you can check it with
 
     $ pyenv version
-    dssg-3.9.18 (set by /home/user/projects/.python-version)
+    dssg-3.12.6 (set by /home/user/projects/.python-version)
 
 
 ### Package installations
@@ -156,8 +156,8 @@ To try it out, use this file: [`requirements.txt`](requirements.txt).
 Jupyter notebooks are a convenient environment for experimentation, prototyping, and sharing exploratory work.
 Jupyter notebooks require a kernel that executes the code. It should link to the virtual environment:
 
-    $ pyenv activate dssg-3.9.18
-    $ python -m ipykernel install --user --name=dssg-3.9.18 --display-name "dssg-3.9.18-env"
+    $ pyenv activate dssg-3.12.6
+    $ python -m ipykernel install --user --name=dssg-3.12.6 --display-name "dssg-3.12.6-env"
 
 It's time to test! In order to test that both jupyter and the python packages installed appropriately, you should do the following:
 

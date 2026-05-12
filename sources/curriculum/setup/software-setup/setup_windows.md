@@ -18,10 +18,10 @@ $ wsl --list --online
 
 Then, you can install the version of Linux you would like to install. We recommend picking one of the Ubuntu distributions and this guide assumes an Ubuntu installation for WSL. 
 
-We can install Ubuntu 20.04 by:
+We can install Ubuntu 22.04 by:
 
 ```
-$ wsl --install -d Ubuntu-20.04
+$ wsl --install -d Ubuntu-22.04
 ```
 
 This will take a few minutes, and will prompt you to provide a UNIX username and a password. Please note that you might have to restart your computer at some point during the installation for things to take full effect. 
@@ -31,7 +31,7 @@ Now, you can use Linux from within your Windows machine. You should have a short
  Note that this will have no GUI and you'll have to rely on the CLI. If you need to access the file system of WSL through the Windows File Explorer, you can type the following in the address bar of the File Explorer. 
 
 ```
-\\wsl.localhost\Ubuntu-20.04
+\\wsl.localhost\Ubuntu-22.04
 ```
 
 This will take you to the root folder of the linux file system. 
@@ -174,31 +174,31 @@ pyenv-virtualenv: no virtualenv name given.
 
 If you see those outputs (pyenv version might be different depending on when you run this), you have installed both. Let's create a virtualenv with a specific python version and install the base packages we would need.
 
-Let's create an environment named `dssg-3.8.10` (this could be any name you like) with `Python 3.8.10`. First, install the Python version we need on `pyenv`. 
+Let's create an environment named `dssg-3.12.6` (this could be any name you like) with `Python 3.12.6`. First, install the Python version we need on `pyenv`. 
 
 _Note: You can check all available Python versions on pyenv by using `$ pyenv install --list`_
 
 ```
-$ pyenv install 3.8.10
+$ pyenv install 3.12.6
 ```
 
 This will take several minutes. Once complete, create the environment
 
 ```
-$ pyenv virtualenv 3.8.10 dssg-3.8.10
+$ pyenv virtualenv 3.12.6 dssg-3.12.6
 ```
 
 Now you have created the virtual environment. To use it with a specific project, you can navigate to the project folder and assign it to the directory:
 
 ```
-$ echo dssg-3.8.10 > .python-version
+$ echo dssg-3.12.6 > .python-version
 ```
-This will ensure that whenever you are inside that directory, the `dssg-3.8.10` environment will be activated.
+This will ensure that whenever you are inside that directory, the `dssg-3.12.6` environment will be activated.
 
 If not, you can manually activate the environment: 
 
 ```
-$ activate dssg-3.8.10
+$ activate dssg-3.12.6
 ```
 
 
@@ -228,8 +228,8 @@ Jupyter notebooks are a convenient environment for experimentation, prototyping,
 Jupyter notebooks require a kernel that executes the code. It should link to the virtual environment:
 
 ```
-$ pyenv activate dssg-3.8.10
-$ python -m ipykernel install --user --name=dssg-3.8.10 --display-name "dssg-3.8.10"
+$ pyenv activate dssg-3.12.6
+$ python -m ipykernel install --user --name=dssg-3.12.6 --display-name "dssg-3.12.6"
 ```
 
 _Note that you should have the virtual environment activated when you issue this command._
