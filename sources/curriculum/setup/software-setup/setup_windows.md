@@ -236,7 +236,7 @@ _Note that you should have the virtual environment activated when you issue this
 
 It's time to test! In order to test that both jupyter and the python packages installed appropriately, you should do the following:
 
-- Download the file [`SoftwareSetup.ipynb`](SoftwareSetup.ipynb) into your directory.
+- Download the file [`software_setup.ipynb`](software_setup.ipynb) into your directory.
 - Type in the terminal
 
 ```
@@ -245,7 +245,7 @@ $ jupyter lab
 
 Your browser should open a new tab with the jupyter lab interface. 
 
-- Click on `SoftwareSetup.ipynb` to open the notebook
+- Click on `software_setup.ipynb` to open the notebook
 - Follow the instructions in the notebook to run each cell.
 
 ### Learning more about python
@@ -266,7 +266,7 @@ $ ssh-keygen
 
 This will prompt you to select a location for storing the key, and give you the option to add a passphrase to the key. If you want to use the default locaion (Recommended!) and not use a passphrase, you just have to hit return. 
 
-Then, your keys will be stored in the place your specified. By default, 
+Then, your keys will be stored in the place you specified. By default, 
 - there'll be a `.ssh` folder in your home directory
 ` ~/.ssh/`
 - private key would be named `id_rsa`
@@ -313,7 +313,7 @@ By default, the keys will be stored in `C:\Users\<windows_username>/.ssh/` and t
 
 Visual Studio Code is a free text editor that enables you to code directly on a remote server. You can [download VSCode for windows here](https://code.visualstudio.com/). 
 
-If you development environment is on WSL, you can [install the Remote-WSL extension for VSCode](https://code.visualstudio.com/learn/develop-cloud/wsl) and navigate to your project folder on the WSL terminal and type:
+If you development environment is on WSL, you can [install the Remote-WSL extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) and navigate to your project folder on the WSL terminal and type:
 
 ```
 $ code .
@@ -321,7 +321,8 @@ $ code .
 
 This will launch a VScode window that will let you develop on your WSL machine. 
 
-As we said above, one of the most useful features of VSCode is that it let's you edit code directly on a remote server using SSH. To use this feature, you should [install the Remote-SSH extention for VSCode](https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines). 
+As we said above, one of the most useful features of VSCode is that it let's you edit code directly on a remote server using SSH. To use this feature, you should [install the Remote-SSH extention for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh). 
+
 
 
 We need to tell VSCode where your private key is to authenticate the SSH connection. VSCode would automatically check for the default private key named `id_rsa` at the default Windows location `C:\Users\<windows_username>/.ssh/`. As we created the SSH keys in WSL, they keys would be inside the WSL file system. We can copy the keys to the windows location. 
