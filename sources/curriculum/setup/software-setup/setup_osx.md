@@ -79,8 +79,16 @@ Note that in MacOS you will already have `python` installed, but that `python` i
 
 ```
 xcode-select --install
-brew install openssl readline sqlite3 xz tcl-tk@8 libb2 zstd zlib pkgconfig
+brew install openssl@3 readline sqlite3 xz tcl-tk@8 libb2 zstd zlib pkgconfig
 ```
+
+!!! info "Note for Linux Users"
+    You need to install `make`, `build-essential`, and `libpq-dev` (required by `psycopg2`, a package we are going to be using). 
+
+    ```
+    $ sudo apt-get update
+    $ sudo apt-get install make build-essential libpq-dev
+    ```
 
 
 To manage different python versions and virtual environments, we will install a tool called [`pyenv`](https://github.com/pyenv/pyenv)
@@ -220,7 +228,7 @@ You'll need a good text editor for all the amazing code you're going to write th
 
 You can download and install VSCode [here](https://code.visualstudio.com/download).
 
-As we said above, one of the most useful features of VSCode is that it let's you edit code directly on a remote server using SSH. To use this feature, you should [install the Remote-SSH extention for VSCode](https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines).
+As we said above, one of the most useful features of VSCode is that it let's you edit code directly on a remote server using SSH. To use this feature, you should [install the Remote-SSH extention for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh).
 
 
 ## Database Tools
