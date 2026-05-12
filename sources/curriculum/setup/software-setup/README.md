@@ -9,15 +9,15 @@ In order to be ready for the summer, you need to install some packages on your c
 *   DBeaver or DbVisualizer (students can request a free education license for the Pro version) GUI to access various databases
 *   Python tools
     *   `pyenv + virtualenv` for python version management
-    *   Python 3.9 or higher
+    *   Python 3.12
     *   Python Packages
         *   pandas
         *   matplotlib
         *   seaborn
         *   scikit-learn
         *   psycopg2
-        *   ipython
         *   jupyter
+        *   aequitas
   *   SSH Keypair
   *   Text Editor for Coding (your favorite, or VSCode)
 
