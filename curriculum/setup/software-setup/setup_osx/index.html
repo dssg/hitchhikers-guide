@@ -2471,9 +2471,17 @@ You can un-git the directory by deleting the <code>.git</code> folder: <code>rm 
 </div>
 <p>Note that in MacOS you will already have <code>python</code> installed, but that <code>python</code> is the one use by your operative system for doing stuff, so probably you don’t want to mess with it. Instead, we will install a different <code>python</code>, for you exclusive use. First we will install some libraries<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>:</p>
 <div class="highlight"><pre><span></span>xcode-select --install
-brew install openssl readline sqlite3 xz tcl-tk@8 libb2 zstd zlib pkgconfig
+brew install openssl@3 readline sqlite3 xz tcl-tk@8 libb2 zstd zlib pkgconfig
 </pre></div>
 
+<div class="admonition info">
+<p class="admonition-title">Note for Linux Users</p>
+<p>You need to install <code>make</code>, <code>build-essential</code>, and <code>libpq-dev</code> (required by <code>psycopg2</code>, a package we are going to be using). </p>
+<div class="highlight"><pre><span></span>$ sudo apt-get update
+$ sudo apt-get install make build-essential libpq-dev
+</pre></div>
+
+</div>
 <p>To manage different python versions and virtual environments, we will install a tool called <a href="https://github.com/pyenv/pyenv"><code>pyenv</code></a></p>
 <div class="highlight"><pre><span></span>$ curl https://pyenv.run | bash
 </pre></div>
@@ -2586,7 +2594,7 @@ generation).</p>
 <h2 id="text-editor">Text Editor<a class="headerlink" href="#text-editor" title="Permanent link">#</a></h2>
 <p>You'll need a good text editor for all the amazing code you're going to write this summer. If you've already got one you like (vim, emacs, sublime, etc), that's great! If not, we reccomend using <a href="https://code.visualstudio.com/">VSCode</a>, which has some great functionality for complex projects, including github integrations and allowing you to work on files directly on a remote server. </p>
 <p>You can download and install VSCode <a href="https://code.visualstudio.com/download">here</a>.</p>
-<p>As we said above, one of the most useful features of VSCode is that it let's you edit code directly on a remote server using SSH. To use this feature, you should <a href="https://code.visualstudio.com/learn/develop-cloud/ssh-lab-machines">install the Remote-SSH extention for VSCode</a>.</p>
+<p>As we said above, one of the most useful features of VSCode is that it let's you edit code directly on a remote server using SSH. To use this feature, you should <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">install the Remote-SSH extention for VSCode</a>.</p>
 <h2 id="database-tools">Database Tools<a class="headerlink" href="#database-tools" title="Permanent link">#</a></h2>
 <p>The data for most of the projects will be stored in a PostgreSQL database, and you'll need software on your computer to be able to access it. You won't be able to access the database itself until you get to DSSG, so for now we'll just set up the tools you'll need, and then walk through setting up your connection at the beginning of the summer.</p>
 <h3 id="dbeaver">DBeaver<a class="headerlink" href="#dbeaver" title="Permanent link">#</a></h3>

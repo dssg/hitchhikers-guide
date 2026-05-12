@@ -1,7 +1,7 @@
-# valid version for Python 3.12
+# valid version for Python 3.11
 scikit-learn==1.7.2
 pandas==2.3.0
-matplotlib==3.9.4
+matplotlib==3.10
 seaborn==0.13.2
 jupyter==1.1.1
 psycopg2==2.9.12
