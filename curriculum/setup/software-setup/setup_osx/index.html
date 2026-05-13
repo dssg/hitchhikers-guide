@@ -2471,7 +2471,7 @@ You can un-git the directory by deleting the <code>.git</code> folder: <code>rm 
 </div>
 <p>Note that in MacOS you will already have <code>python</code> installed, but that <code>python</code> is the one use by your operative system for doing stuff, so probably you don’t want to mess with it. Instead, we will install a different <code>python</code>, for you exclusive use. First we will install some libraries<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>:</p>
 <div class="highlight"><pre><span></span>xcode-select --install
-brew install openssl@3 readline sqlite3 xz tcl-tk@8 libb2 zstd zlib pkgconfig
+brew install openssl@3 readline sqlite3 xz tcl-tk@8 libb2 zstd zlib pkgconfig libpq postgresql
 </pre></div>
 
 <div class="admonition info">
@@ -2601,11 +2601,6 @@ generation).</p>
 <p>There are several GUI tools for connecting to databases, including DBeaver, DataGrip, DBVizualizer, etc. For the summer, we'll prefer DBeaver, which you can install directly from the <a href="https://dbeaver.io/download/">DBeaver Website</a>, since it offers a free version and works with every operating system. NOTE: you'll want to install the free "community edition" version.</p>
 <h3 id="psql">psql<a class="headerlink" href="#psql" title="Permanent link">#</a></h3>
 <p>There is also a command-line tool for accessing postgres databases called <code>psql</code>, which can be useful for quickly or programmatically working with the database as well.</p>
-<p>To get it, you'll need to install the <code>libpq</code> library:</p>
-<div class="highlight"><pre><span></span>$ brew update
-$ brew install libpq
-</pre></div>
-
 <div class="admonition info">
 <p class="admonition-title">Note for Linux Users</p>
 <p>Most of the instructions for OS X are similar for linux. However, for installing the postgresql client on linux, they're actually a bit different:</p>
