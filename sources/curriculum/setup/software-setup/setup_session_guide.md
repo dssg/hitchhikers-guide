@@ -298,8 +298,9 @@ For an additional layer of security, our infrastructure can only be reached from
 3. Request VPN access [here](https://johnshopkins.service-now.com/serviceportal?id=sc_cat_item&sys_id=8446c8800fe00600976b9bd692050e4c) 
 
 4. Open the Ivanti Secure Access Client
+    - Add a new connection
 
-![](imgs/jhu_vpn_1.png)
+![](imgs/jhu_vpn_1a.png)
 
 5. Enter login credentials (be sure to select the "Policy Secure (UAC) or Connect Secure (VPN)" option):
     - Type: Policy Secure (UAC) or Connect Secure (VPN)
@@ -307,17 +308,20 @@ For an additional layer of security, our infrastructure can only be reached from
     - Server URL: vpn.jh.edu
 
 !!! info "VPN URL"
+   
     Note that the URL has `jh` not `jhu`
 
-![](imgs/jhu_vpn_3.png)
+![](imgs/jhu_vpn_2a.png)
 
 6. Click connect
     - An MFA authentication window will show up to ask for yourJHU ID password
     - Enter your MFA code from your authenticator app
 
+![](imgs/jhu_vpn_3a.png)
+
 If you connect successfully, you will have on the connections window a connection with the "Disconnect" button and the status of the connection will be "Connected". 
 
-![](imgs/jhu_vpn_5.png)
+![](imgs/jhu_vpn_4a.png)
 
 When you don't need to be connected to the VPN anymore, disconnect from the VPN by clicking the "Disconnect" button.
 
