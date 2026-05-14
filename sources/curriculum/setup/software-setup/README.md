@@ -34,5 +34,5 @@ In order to be ready for the summer, you need to install some packages on your c
 
 ## Running into setup issues?
 
-Feel free to post your questions in the #tech_help channel on the slack workspace for the summer. We'll also have some tech setup help sessions to resolve any lingering setup issues (and help you get familiar with the remote servers we'll be using for the projects) during the first week of the fellowship.
+Feel free to post your questions in the #techhelp channel on the slack workspace for the summer. We'll also have some tech setup help sessions to resolve any lingering setup issues (and help you get familiar with the remote servers we'll be using for the projects) during the first week of the fellowship.
 
