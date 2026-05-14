@@ -852,15 +852,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#access-from-off-campus-cmu-vpn" title="Access from Off-Campus: CMU VPN" class="md-nav__link">
-    Access from Off-Campus: CMU VPN
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#understanding-the-big-picture" title="Understanding The "Big Picture"" class="md-nav__link">
-    Understanding The "Big Picture"
+  <a href="#access-from-off-campus-jhu-vpn" title="Access from Off-Campus: JHU VPN" class="md-nav__link">
+    Access from Off-Campus: JHU VPN
   </a>
   
 </li>
@@ -2502,15 +2495,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#access-from-off-campus-cmu-vpn" title="Access from Off-Campus: CMU VPN" class="md-nav__link">
-    Access from Off-Campus: CMU VPN
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#understanding-the-big-picture" title="Understanding The "Big Picture"" class="md-nav__link">
-    Understanding The "Big Picture"
+  <a href="#access-from-off-campus-jhu-vpn" title="Access from Off-Campus: JHU VPN" class="md-nav__link">
+    Access from Off-Campus: JHU VPN
   </a>
   
 </li>
@@ -2584,15 +2570,15 @@
 </ul>
 <h3 id="reaching-the-compute-server">Reaching the Compute Server<a class="headerlink" href="#reaching-the-compute-server" title="Permanent link">#</a></h3>
 <p>Now let's make sure you can connect to the server. In your terminal, type:</p>
-<div class="highlight"><pre><span></span>ssh {your_andrew_id}@training.dssg.io
+<div class="highlight"><pre><span></span>ssh {your_jhu_id}@training.dssg.io
 </pre></div>
 
 <p>If you got an error about your ssh key, you might need to tell <code>ssh</code> where to find the private key, which you can do with the <code>-i</code> option:</p>
-<div class="highlight"><pre><span></span>ssh -i {/path/to/your/private_key} {your_andrew_id}@training.dssg.io
+<div class="highlight"><pre><span></span>ssh -i {/path/to/your/private_key} {your_jhu_id}@training.dssg.io
 </pre></div>
 
 <p>If you connected successfully, you should see a welcome message and see a prompt like:</p>
-<div class="highlight"><pre><span></span>yourandrewid@dssg-primary: ~$
+<div class="highlight"><pre><span></span>yourjhuid@dssg-primary: ~$
 </pre></div>
 
 <p>To confirm that you're connected, let's look at the output of the <code>hostname</code> command:</p>
@@ -2612,7 +2598,7 @@
 <h3 id="reaching-the-database-from-the-compute-server">Reaching the Database from the Compute Server<a class="headerlink" href="#reaching-the-database-from-the-compute-server" title="Permanent link">#</a></h3>
 <p>We'll be using a database running PostgreSQL for much of our project data.</p>
 <p>One way to connect to the database is via the command line from the server using <code>psql</code>. Since we're already logged onto the server, let's give that a try:</p>
-<div class="highlight"><pre><span></span>$ psql -h db.dssg.io -U {your_andrew_id} -W food-inspections
+<div class="highlight"><pre><span></span>$ psql -h db.dssg.io -U {your_jhu_id} -W food-inspections
 </pre></div>
 
 <p>This should prompt you to type your password (we'll tell you what it is separately) and then if all goes well, you should see something like:</p>
@@ -2648,12 +2634,12 @@ food-inspections=&gt;
 
     Your password is everything after the last colon:
 
-    <div class="highlight"><pre><span></span>db.dssg.io:5432:*:{andrew_id}:{YOUR_PASSWORD}
+    <div class="highlight"><pre><span></span>db.dssg.io:5432:*:{jhu_id}:{YOUR_PASSWORD}
 </pre></div>
 --->
 
 <h3 id="reaching-the-database-from-your-computer">Reaching the Database from Your Computer<a class="headerlink" href="#reaching-the-database-from-your-computer" title="Permanent link">#</a></h3>
-<p>Often it can be a little easier to access the database via GUI system from your computer. To do so, we recommend setting up dbeaver, since it offers a free version and works with every operating system (but if you already have a SQL client like dbvisualizer or data grip that you know how to use and prefer, feel free to use that instead).</p>
+<p>Often it can be a little easier to access the database via GUI system from your computer. To do so, we recommend setting up DBeaver, since it offers a free version and works with every operating system (but if you already have a SQL client like dbvisualizer or data grip that you know how to use and prefer, feel free to use that instead).</p>
 <div class="admonition important">
 <p class="admonition-title">Protecting your data</p>
 <p>Although it's fine to run queries and look at the data from a SQL client like dbeaver running on your computer, you should <strong>never</strong> use that client to download an extract of the data (in whole or part) to your local computer, excel, google sheets, etc.</p>
@@ -2661,7 +2647,7 @@ food-inspections=&gt;
 <p>To get DBeaver, you can install it directly from the <a href="https://dbeaver.io/download/">DBeaver Website</a>. NOTE: you'll want to install the free "community edition" version.</p>
 <div class="admonition important">
 <p class="admonition-title">DBeaver Version</p>
-<p>If you've installed DBeaver previously, be sure you're using at least version 22 (if you're on an earlier version, please upgrade before proceeding with the setup)</p>
+<p>If you've installed DBeaver previously, be sure you're using at least version 25 (if you're on an earlier version, please upgrade before proceeding with the setup)</p>
 </div>
 <p>Because the database is only accessible from our compute servers, we'll have to use an <strong>SSH Tunnel</strong> to connect to it via dbeaver. Here's how to set that up:</p>
 <p>First, create a new connection to a postgres database:</p>
@@ -2696,7 +2682,7 @@ food-inspections=&gt;
 </ul>
 <div class="admonition info">
 <p class="admonition-title">PRO tip</p>
-<p>You might also want to install the microsoft python extension, which provides some additional features such as improved auto-completion when coding in python.</p>
+<p>You might also want to install the microsoft python extension, which provides some additional features such as improved auto-completion when coding in python and the jupyter extension, which allows to use jupyter notebooks without the need of a jupyter server.</p>
 </div>
 <h3 id="editing-files-remotely-over-ssh">Editing Files Remotely Over SSH<a class="headerlink" href="#editing-files-remotely-over-ssh" title="Permanent link">#</a></h3>
 <p>In the same way we set up DBeaver to use SSH to talk to our remote infrastructure, we can set up VSCode to remotely edit files stored on the server using the <code>Remote-SSH</code> extension you should have installed in the step above. Let's set that up and make sure we can talk to the server:</p>
@@ -2715,7 +2701,7 @@ food-inspections=&gt;
 </ol>
 <p><img alt="" src="../imgs/vscode-connect-to-host.png" /></p>
 <ol>
-<li>Enter <code>ssh {andrewid}@training.dssg.io</code> (remember from above that you may also need to use the <code>-i</code> parameter to tell <code>ssh</code> where to find your private key: <code>ssh -i {path to your private key} {andrewid}@training.dssg.io</code>)</li>
+<li>Enter <code>ssh {jhuid}@training.dssg.io</code> (remember from above that you may also need to use the <code>-i</code> parameter to tell <code>ssh</code> where to find your private key: <code>ssh -i {path to your private key} {jhuid}@training.dssg.io</code>)</li>
 </ol>
 <p><img alt="" src="../imgs/vscode-enter-login.png" /></p>
 <ol>
@@ -2767,32 +2753,73 @@ food-inspections=&gt;
 </ul>
 </li>
 </ul>
-<h2 id="access-from-off-campus-cmu-vpn">Access from Off-Campus: CMU VPN<a class="headerlink" href="#access-from-off-campus-cmu-vpn" title="Permanent link">#</a></h2>
-<p>For an additional layer of security, our infrastructure can only be reached from from the CMU campus network. As such, if you're not on campus, you'll need to use the CMU VPN to reach the server:</p>
+<!---
+## Access from Off-Campus: CMU VPN
+
+For an additional layer of security, our infrastructure can only be reached from from the CMU campus network. As such, if you're not on campus, you'll need to use the CMU VPN to reach the server:
+
+1. Download Cisco Anyconnect VPN client from [here](https://www.cmu.edu/computing/software/all/cisco-anyconnect/index.html) and install it
+
+2. Open the Anyconnect client
+
+3. Enter login credentials (be sure to select the "Full VPN" Group):
+    - Connect to: vpn.cmu.edu
+    - Group: “Full VPN”
+    - Username: your andrewid
+    - Password: your CMU password
+
+4. Click connect
+
+![](imgs/cmu_vpn.png)
+
+
+## Understanding The "Big Picture"
+
+Finally, before we go, let's take a minute to zoom out to the "big picture" of the infrastructure we'll be using and see how all these pieces fit together:
+
+![](imgs/infrastructure_components.png)
+--->
+
+<h2 id="access-from-off-campus-jhu-vpn">Access from Off-Campus: JHU VPN<a class="headerlink" href="#access-from-off-campus-jhu-vpn" title="Permanent link">#</a></h2>
+<p>For an additional layer of security, our infrastructure can only be reached from the JHU campus network. As such, if you're not on campus, you'll need to use the JHU VPN to reach the server:</p>
 <ol>
 <li>
-<p>Download Cisco Anyconnect VPN client from <a href="https://www.cmu.edu/computing/software/all/cisco-anyconnect/index.html">here</a> and install it</p>
+<p>Download the Ivanti Secure Access VPN client from <a href="https://livejohnshopkins.sharepoint.com/sites/Office365Hub/SitePages/VPN-Resource-Center.aspx">here</a> and install it</p>
 </li>
 <li>
-<p>Open the Anyconnect client</p>
+<p>Make sure you have enrolled in Azure MFA. Instructions <a href="https://livejohnshopkins.sharepoint.com/sites/Office365Hub/SitePages/Multi-Factor-Authentication.aspx">here</a></p>
 </li>
 <li>
-<p>Enter login credentials (be sure to select the "Full VPN" Group):</p>
-<ul>
-<li>Connect to: vpn.cmu.edu</li>
-<li>Group: “Full VPN”</li>
-<li>Username: your andrewid</li>
-<li>Password: your CMU password</li>
-</ul>
+<p>Request VPN access <a href="https://johnshopkins.service-now.com/serviceportal?id=sc_cat_item&amp;sys_id=8446c8800fe00600976b9bd692050e4c">here</a> </p>
 </li>
 <li>
-<p>Click connect</p>
+<p>Open the Ivanti Secure Access Client</p>
 </li>
 </ol>
-<p><img alt="" src="../imgs/cmu_vpn.png" /></p>
-<h2 id="understanding-the-big-picture">Understanding The "Big Picture"<a class="headerlink" href="#understanding-the-big-picture" title="Permanent link">#</a></h2>
-<p>Finally, before we go, let's take a minute to zoom out to the "big picture" of the infrastructure we'll be using and see how all these pieces fit together:</p>
-<p><img alt="" src="../imgs/infrastructure_components.png" /></p>
+<p><img alt="" src="../imgs/jhu_vpn_1.png" /></p>
+<ol>
+<li>Enter login credentials (be sure to select the "Policy Secure (UAC) or Connect Secure (VPN)" option):<ul>
+<li>Type: Policy Secure (UAC) or Connect Secure (VPN)</li>
+<li>Name: “JHU VPN”</li>
+<li>Server URL: vpn.jh.edu</li>
+</ul>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">VPN URL</p>
+<p>Note that the URL has <code>jh</code> not <code>jhu</code></p>
+</div>
+<p><img alt="" src="../imgs/jhu_vpn_3.png" /></p>
+<ol>
+<li>Click connect<ul>
+<li>An MFA authentication window will show up to ask for yourJHU ID password</li>
+<li>Enter your MFA code from your authenticator app</li>
+</ul>
+</li>
+</ol>
+<p>If you connect successfully, you will have on the connections window a connection with the "Disconnect" button and the status of the connection will be "Connected". </p>
+<p><img alt="" src="../imgs/jhu_vpn_5.png" /></p>
+<p>When you don't need to be connected to the VPN anymore, disconnect from the VPN by clicking the "Disconnect" button.</p>
 <h2 id="other-optional-local-tools">Other (Optional) Local Tools<a class="headerlink" href="#other-optional-local-tools" title="Permanent link">#</a></h2>
 <p>Most of your work this summer will be on the remote server for your project, but there are a few of other tools that might be handy to have installed locally if you feel inclined:</p>
 <ul>
