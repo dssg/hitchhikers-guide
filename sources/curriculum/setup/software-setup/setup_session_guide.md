@@ -59,19 +59,19 @@ The setup information we sent out before the summer had some details on creating
 Now let's make sure you can connect to the server. In your terminal, type:
 
 ```
-ssh {your_andrew_id}@training.dssg.io
+ssh {your_jhu_id}@training.dssg.io
 ```
 
 If you got an error about your ssh key, you might need to tell `ssh` where to find the private key, which you can do with the `-i` option:
 
 ```
-ssh -i {/path/to/your/private_key} {your_andrew_id}@training.dssg.io
+ssh -i {/path/to/your/private_key} {your_jhu_id}@training.dssg.io
 ```
 
 If you connected successfully, you should see a welcome message and see a prompt like:
 
 ```
-yourandrewid@dssg-primary: ~$
+yourjhuid@dssg-primary: ~$
 ```
 
 To confirm that you're connected, let's look at the output of the `hostname` command:
@@ -95,7 +95,7 @@ We'll be using a database running PostgreSQL for much of our project data.
 One way to connect to the database is via the command line from the server using `psql`. Since we're already logged onto the server, let's give that a try:
 
 ```
-$ psql -h db.dssg.io -U {your_andrew_id} -W food-inspections
+$ psql -h db.dssg.io -U {your_jhu_id} -W food-inspections
 ```
 
 This should prompt you to type your password (we'll tell you what it is separately) and then if all goes well, you should see something like:
@@ -135,13 +135,13 @@ food-inspections=> \q
     Your password is everything after the last colon:
 
     ```
-    db.dssg.io:5432:*:{andrew_id}:{YOUR_PASSWORD}
+    db.dssg.io:5432:*:{jhu_id}:{YOUR_PASSWORD}
     ```
 --->
 
 ### Reaching the Database from Your Computer
 
-Often it can be a little easier to access the database via GUI system from your computer. To do so, we recommend setting up dbeaver, since it offers a free version and works with every operating system (but if you already have a SQL client like dbvisualizer or data grip that you know how to use and prefer, feel free to use that instead).
+Often it can be a little easier to access the database via GUI system from your computer. To do so, we recommend setting up DBeaver, since it offers a free version and works with every operating system (but if you already have a SQL client like dbvisualizer or data grip that you know how to use and prefer, feel free to use that instead).
 
 !!! important "Protecting your data"
 
@@ -151,7 +151,7 @@ To get DBeaver, you can install it directly from the [DBeaver Website](https://d
 
 !!! important "DBeaver Version"
 
-    If you've installed DBeaver previously, be sure you're using at least version 22 (if you're on an earlier version, please upgrade before proceeding with the setup)
+    If you've installed DBeaver previously, be sure you're using at least version 25 (if you're on an earlier version, please upgrade before proceeding with the setup)
 
 Because the database is only accessible from our compute servers, we'll have to use an **SSH Tunnel** to connect to it via dbeaver. Here's how to set that up:
 
@@ -197,7 +197,7 @@ We sent out some instructions on installing VSCode before the summer, but if you
 
 !!! info "PRO tip"
 
-    You might also want to install the microsoft python extension, which provides some additional features such as improved auto-completion when coding in python.
+    You might also want to install the microsoft python extension, which provides some additional features such as improved auto-completion when coding in python and the jupyter extension, which allows to use jupyter notebooks without the need of a jupyter server.
 
 
 ### Editing Files Remotely Over SSH
@@ -216,7 +216,7 @@ In the same way we set up DBeaver to use SSH to talk to our remote infrastructur
    
    ![](imgs/vscode-connect-to-host.png)
 
-   3. Enter `ssh {andrewid}@training.dssg.io` (remember from above that you may also need to use the `-i` parameter to tell `ssh` where to find your private key: `ssh -i {path to your private key} {andrewid}@training.dssg.io`)
+   3. Enter `ssh {jhuid}@training.dssg.io` (remember from above that you may also need to use the `-i` parameter to tell `ssh` where to find your private key: `ssh -i {path to your private key} {jhuid}@training.dssg.io`)
    
    ![](imgs/vscode-enter-login.png)
 
@@ -261,7 +261,7 @@ Let's make sure you can connect to the server through VSCode:
     - If so, you're all set! Put a green post-it on the back of your monitor!
     - If not, put a red post-it on the back of your monitor and we'll help you out.
 
-
+<!---
 ## Access from Off-Campus: CMU VPN
 
 For an additional layer of security, our infrastructure can only be reached from from the CMU campus network. As such, if you're not on campus, you'll need to use the CMU VPN to reach the server:
@@ -286,6 +286,40 @@ For an additional layer of security, our infrastructure can only be reached from
 Finally, before we go, let's take a minute to zoom out to the "big picture" of the infrastructure we'll be using and see how all these pieces fit together:
 
 ![](imgs/infrastructure_components.png)
+--->
+## Access from Off-Campus: JHU VPN
+
+For an additional layer of security, our infrastructure can only be reached from the JHU campus network. As such, if you're not on campus, you'll need to use the JHU VPN to reach the server:
+
+1. Download the Ivanti Secure Access VPN client from [here](https://livejohnshopkins.sharepoint.com/sites/Office365Hub/SitePages/VPN-Resource-Center.aspx) and install it
+
+2. Make sure you have enrolled in Azure MFA. Instructions [here](https://livejohnshopkins.sharepoint.com/sites/Office365Hub/SitePages/Multi-Factor-Authentication.aspx)
+
+3. Request VPN access [here](https://johnshopkins.service-now.com/serviceportal?id=sc_cat_item&sys_id=8446c8800fe00600976b9bd692050e4c) 
+
+4. Open the Ivanti Secure Access Client
+
+![](imgs/jhu_vpn_1.png)
+
+5. Enter login credentials (be sure to select the "Policy Secure (UAC) or Connect Secure (VPN)" option):
+    - Type: Policy Secure (UAC) or Connect Secure (VPN)
+    - Name: “JHU VPN”
+    - Server URL: vpn.jh.edu
+
+!!! info "VPN URL"
+    Note that the URL has `jh` not `jhu`
+
+![](imgs/jhu_vpn_3.png)
+
+6. Click connect
+    - An MFA authentication window will show up to ask for yourJHU ID password
+    - Enter your MFA code from your authenticator app
+
+If you connect successfully, you will have on the connections window a connection with the "Disconnect" button and the status of the connection will be "Connected". 
+
+![](imgs/jhu_vpn_5.png)
+
+When you don't need to be connected to the VPN anymore, disconnect from the VPN by clicking the "Disconnect" button.
 
 
 ## Other (Optional) Local Tools
