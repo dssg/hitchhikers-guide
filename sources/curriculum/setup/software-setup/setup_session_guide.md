@@ -1,5 +1,12 @@
 # Software Setup Session
 
+## Overview
+1. Make sure you are connected to the university wifi with your correct credentials.
+2. Set up SSH keys for the server
+3. Connect to the server (through SSH) and test your connection
+4. Connect to the Postgres database (both command line through the server and through a GUI - DBeaver) and test your connection.
+5. Set up text editor (VSCode for example) to work over ssh.
+    
 ## Motivation
 
 Every team will settle on a specific setup with their tech mentors. This setup will determine, for example:
