@@ -78,13 +78,13 @@ ssh -i {/path/to/your/private_key} {your_jhu_id}@training.dssg.io
 If you connected successfully, you should see a welcome message and see a prompt like:
 
 ```
-yourjhuid@dssg-primary: ~$
+yourjhuid@mrpzdssgadmin01: ~$
 ```
 
 To confirm that you're connected, let's look at the output of the `hostname` command:
 
 * Type `hostname` at the shell prompt and then hit return
-* Did you get `dssg-primary`?
+* Did you get `mrpzdssgadmin01`?
     - If so, you're all set! Put a green post-it on the back of your monitor!
     - If not, put a red post-it on the back of your monitor and we'll help you out.
 
@@ -102,17 +102,19 @@ We'll be using a database running PostgreSQL for much of our project data.
 One way to connect to the database is via the command line from the server using `psql`. Since we're already logged onto the server, let's give that a try:
 
 ```
-$ psql -h db.dssg.io -U {your_jhu_id} -W food-inspections
+$ psql -h db.dssg.io -U {your_jhu_id} -d baltimore_311
 ```
 
 This should prompt you to type your password (we'll tell you what it is separately) and then if all goes well, you should see something like:
 
 ```
-psql (11.6 (Ubuntu 11.6-1.pgdg18.04+1), server 11.5)
-SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+psql (14.22 (Ubuntu 14.22-0ubuntu0.22.04.1), server 18.3)
+WARNING: psql major version 14, server major version 18.
+         Some psql features might not work.
+SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
 Type "help" for help.
 
-food-inspections=>
+baltimore_311=>
 ```
 
 Let's make sure you can interact with the server:
@@ -125,7 +127,7 @@ Let's make sure you can interact with the server:
 Finally, exit out of `psql` with `\q`:
 
 ```
-food-inspections=> \q
+baltimore_311=> \q
 ```
 
 <!---
