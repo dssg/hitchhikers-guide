@@ -2600,13 +2600,13 @@
 </pre></div>
 
 <p>If you connected successfully, you should see a welcome message and see a prompt like:</p>
-<div class="highlight"><pre><span></span>yourjhuid@dssg-primary: ~$
+<div class="highlight"><pre><span></span>yourjhuid@mrpzdssgadmin01: ~$
 </pre></div>
 
 <p>To confirm that you're connected, let's look at the output of the <code>hostname</code> command:</p>
 <ul>
 <li>Type <code>hostname</code> at the shell prompt and then hit return</li>
-<li>Did you get <code>dssg-primary</code>?<ul>
+<li>Did you get <code>mrpzdssgadmin01</code>?<ul>
 <li>If so, you're all set! Put a green post-it on the back of your monitor!</li>
 <li>If not, put a red post-it on the back of your monitor and we'll help you out.</li>
 </ul>
@@ -2620,15 +2620,17 @@
 <h3 id="reaching-the-database-from-the-compute-server">Reaching the Database from the Compute Server<a class="headerlink" href="#reaching-the-database-from-the-compute-server" title="Permanent link">#</a></h3>
 <p>We'll be using a database running PostgreSQL for much of our project data.</p>
 <p>One way to connect to the database is via the command line from the server using <code>psql</code>. Since we're already logged onto the server, let's give that a try:</p>
-<div class="highlight"><pre><span></span>$ psql -h db.dssg.io -U {your_jhu_id} -W food-inspections
+<div class="highlight"><pre><span></span>$ psql -h db.dssg.io -U {your_jhu_id} -d baltimore_311
 </pre></div>
 
 <p>This should prompt you to type your password (we'll tell you what it is separately) and then if all goes well, you should see something like:</p>
-<div class="highlight"><pre><span></span>psql (11.6 (Ubuntu 11.6-1.pgdg18.04+1), server 11.5)
-SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
+<div class="highlight"><pre><span></span>psql (14.22 (Ubuntu 14.22-0ubuntu0.22.04.1), server 18.3)
+WARNING: psql major version 14, server major version 18.
+         Some psql features might not work.
+SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
 Type &quot;help&quot; for help.
 
-food-inspections=&gt;
+baltimore_311=&gt;
 </pre></div>
 
 <p>Let's make sure you can interact with the server:</p>
@@ -2641,7 +2643,7 @@ food-inspections=&gt;
 </li>
 </ul>
 <p>Finally, exit out of <code>psql</code> with <code>\q</code>:</p>
-<div class="highlight"><pre><span></span>food-inspections=&gt; \q
+<div class="highlight"><pre><span></span>baltimore_311=&gt; \q
 </pre></div>
 
 <!---
