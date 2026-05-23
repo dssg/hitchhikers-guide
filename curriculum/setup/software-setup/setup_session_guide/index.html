@@ -2677,11 +2677,16 @@ baltimore_311=&gt;
 <p>First, create a new connection to a postgres database:</p>
 <p><img alt="creating a connection in dbeaver" src="../imgs/dbeaver_new_connection.png" /></p>
 <p>Next, fill in the details for the database server on the window that pops up, following the example below:</p>
-<p><img alt="postgres connection details" src="../imgs/dbeaver_connection_info.png" /></p>
+<p><img alt="postgres connection details" src="../imgs/dbeaver_connection_info_jhu.png" /></p>
 <p>Note that your password here can be found in the <code>.pgpass</code> file that we looked at on the server.</p>
-<p>Finally, to actually reach the database server, we need to set up the SSH tunnel. Under the SSH tab, fill in these details:</p>
-<p><img alt="ssh tunnel details" src="../imgs/dbeaver_tunnel.png" /></p>
-<p>You might want to try clicking <code>Test tunnel configuration</code> to make sure that's working, then <code>Test Configuration ...</code> to ensure you can reach the database.</p>
+<!---
+Finally, to actually reach the database server, we need to set up the SSH tunnel. Under the SSH tab, fill in these details:
+
+![ssh tunnel details](imgs/dbeaver_tunnel.png)
+
+You might want to try clicking `Test tunnel configuration` to make sure that's working, then `Test Configuration ...` to ensure you can reach the database.
+--->
+
 <div class="admonition important">
 <p class="admonition-title">Got an error like <code>invalid privatekey: [B@7696c31f</code>?</p>
 <p>You may need to install a different SSH package called "SSHJ" -- under the Help menu, choose "Install new Software" then search for SSHJ and install the package (you'll need to restart dbeaver). After restarting, choose “SSHJ” in the drop-down under advanced (should be labeled either ”Implementation” or “Method”) when setting up the tunnel</p>
@@ -2691,7 +2696,7 @@ baltimore_311=&gt;
 <ul>
 <li>Try connecting to the database and opening a new sql script</li>
 <li>Type <code>SELECT CURRENT_USER;</code> and then press <code>Ctrl-Enter</code> to run it</li>
-<li>Did you get back your andrew id?<ul>
+<li>Did you get back your jhu id?<ul>
 <li>If so, you're all set! Put a green post-it on the back of your monitor!</li>
 <li>If not, put a red post-it on the back of your monitor and we'll help you out.</li>
 </ul>
@@ -2727,7 +2732,7 @@ baltimore_311=&gt;
 <ol>
 <li>Enter <code>ssh {jhuid}@training.dssg.io</code> (remember from above that you may also need to use the <code>-i</code> parameter to tell <code>ssh</code> where to find your private key: <code>ssh -i {path to your private key} {jhuid}@training.dssg.io</code>)</li>
 </ol>
-<p><img alt="" src="../imgs/vscode-enter-login.png" /></p>
+<p><img alt="" src="../imgs/vscode-enter-login-jhu.png" /></p>
 <ol>
 <li>Select the first option to store your login config: </li>
 </ol>
