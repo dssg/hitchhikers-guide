@@ -170,15 +170,17 @@ First, create a new connection to a postgres database:
 
 Next, fill in the details for the database server on the window that pops up, following the example below:
 
-![postgres connection details](imgs/dbeaver_connection_info.png)
+![postgres connection details](imgs/dbeaver_connection_info_jhu.png)
 
 Note that your password here can be found in the `.pgpass` file that we looked at on the server.
 
+<!---
 Finally, to actually reach the database server, we need to set up the SSH tunnel. Under the SSH tab, fill in these details:
 
 ![ssh tunnel details](imgs/dbeaver_tunnel.png)
 
 You might want to try clicking `Test tunnel configuration` to make sure that's working, then `Test Configuration ...` to ensure you can reach the database.
+--->
 
 !!! important "Got an error like `invalid privatekey: [B@7696c31f`?"
 
@@ -190,7 +192,7 @@ Let's make sure you can connect to the database:
 
 * Try connecting to the database and opening a new sql script
 * Type `SELECT CURRENT_USER;` and then press `Ctrl-Enter` to run it
-* Did you get back your andrew id?
+* Did you get back your jhu id?
     - If so, you're all set! Put a green post-it on the back of your monitor!
     - If not, put a red post-it on the back of your monitor and we'll help you out.
 
@@ -227,7 +229,7 @@ In the same way we set up DBeaver to use SSH to talk to our remote infrastructur
 
    3. Enter `ssh {jhuid}@training.dssg.io` (remember from above that you may also need to use the `-i` parameter to tell `ssh` where to find your private key: `ssh -i {path to your private key} {jhuid}@training.dssg.io`)
    
-   ![](imgs/vscode-enter-login.png)
+   ![](imgs/vscode-enter-login-jhu.png)
 
    4. Select the first option to store your login config: 
    
