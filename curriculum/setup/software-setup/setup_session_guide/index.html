@@ -2730,7 +2730,7 @@ You might want to try clicking `Test tunnel configuration` to make sure that's w
 </ol>
 <p><img alt="" src="../imgs/vscode-connect-to-host.png" /></p>
 <ol>
-<li>Enter <code>ssh {jhuid}@training.dssg.io</code> (remember from above that you may also need to use the <code>-i</code> parameter to tell <code>ssh</code> where to find your private key: <code>ssh -i {path to your private key} {jhuid}@training.dssg.io</code>)</li>
+<li>Enter <code>ssh {jhuid}@training.dssg.io</code> </li>
 </ol>
 <p><img alt="" src="../imgs/vscode-enter-login-jhu.png" /></p>
 <ol>
@@ -2739,7 +2739,6 @@ You might want to try clicking `Test tunnel configuration` to make sure that's w
 <p><img alt="" src="../imgs/vscode-update-config.png" /></p>
 <ol>
 <li>Connect VSCode to the course server:</li>
-<li>Connect to the CMU Full VPN</li>
 <li>Press <code>ctrl+shift+p</code> (Linux/Windows) or <code>⌘+shift+p</code> (MacOS) to open the command pallette, and select <code>Remote-SSH: Connect to Host</code></li>
 </ol>
 <p><img alt="" src="../imgs/vscode-open-connect-to-host.png" /></p>
@@ -2749,7 +2748,7 @@ You might want to try clicking `Test tunnel configuration` to make sure that's w
 <p><img alt="" src="../imgs/vscode-select-host.png" /></p>
 <ol>
 <li>
-<p>Enter your private key passcode if VSCode prompts you to (it will open a box at the top of the screen). </p>
+<p>Enter your JHU ID password when VSCode prompts you to (it will open a box at the top of the screen). You'll need to authorize your connection via MFA on your Microsoft Authenticator App.</p>
 </li>
 <li>
 <p>You should be connected to the training server. This should be indicated in the bottom of your VSCode window: 
@@ -2773,10 +2772,10 @@ You might want to try clicking `Test tunnel configuration` to make sure that's w
 <p>Select a folder to work in</p>
 </li>
 </ol>
-<p><img alt="" src="../imgs/vscode-select-folder.png" /></p>
+<p><img alt="" src="../imgs/vscode-select-folder-jhu.png" /></p>
 <p>Let's make sure you can connect to the server through VSCode:</p>
 <ul>
-<li>Were you able to SSH and open the remote <code>food_inspections</code> folder?<ul>
+<li>Were you able to SSH and open the remote <code>baltimore_311</code> folder?<ul>
 <li>If so, you're all set! Put a green post-it on the back of your monitor!</li>
 <li>If not, put a red post-it on the back of your monitor and we'll help you out.</li>
 </ul>
