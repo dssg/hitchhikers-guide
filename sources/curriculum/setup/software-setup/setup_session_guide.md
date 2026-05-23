@@ -227,7 +227,7 @@ In the same way we set up DBeaver to use SSH to talk to our remote infrastructur
    
    ![](imgs/vscode-connect-to-host.png)
 
-   3. Enter `ssh {jhuid}@training.dssg.io` (remember from above that you may also need to use the `-i` parameter to tell `ssh` where to find your private key: `ssh -i {path to your private key} {jhuid}@training.dssg.io`)
+   3. Enter `ssh {jhuid}@training.dssg.io` 
    
    ![](imgs/vscode-enter-login-jhu.png)
 
@@ -236,18 +236,17 @@ In the same way we set up DBeaver to use SSH to talk to our remote infrastructur
    ![](imgs/vscode-update-config.png)
 
 2. Connect VSCode to the course server:
-   1. Connect to the CMU Full VPN
-   2. Press `ctrl+shift+p` (Linux/Windows) or `⌘+shift+p` (MacOS) to open the command pallette, and select `Remote-SSH: Connect to Host`
+   1. Press `ctrl+shift+p` (Linux/Windows) or `⌘+shift+p` (MacOS) to open the command pallette, and select `Remote-SSH: Connect to Host`
    
    ![](imgs/vscode-open-connect-to-host.png)
 
-   3. Select the ssh config we just created: `training.dssg.io`
+   2. Select the ssh config we just created: `training.dssg.io`
    
    ![](imgs/vscode-select-host.png)
 
-   4. Enter your private key passcode if VSCode prompts you to (it will open a box at the top of the screen). 
+   3. Enter your JHU ID password when VSCode prompts you to (it will open a box at the top of the screen). You'll need to authorize your connection via MFA on your Microsoft Authenticator App.
 
-   5. You should be connected to the training server. This should be indicated in the bottom of your VSCode window: 
+   4. You should be connected to the training server. This should be indicated in the bottom of your VSCode window: 
    ![](imgs/vscode-ssh-connected.png)
 
 3. Open a workspace folder:
@@ -264,11 +263,11 @@ In the same way we set up DBeaver to use SSH to talk to our remote infrastructur
 
    3. Select a folder to work in
    
-   ![](imgs/vscode-select-folder.png)
+   ![](imgs/vscode-select-folder-jhu.png)
 
 Let's make sure you can connect to the server through VSCode:
 
-* Were you able to SSH and open the remote `food_inspections` folder?
+* Were you able to SSH and open the remote `baltimore_311` folder?
     - If so, you're all set! Put a green post-it on the back of your monitor!
     - If not, put a red post-it on the back of your monitor and we'll help you out.
 
