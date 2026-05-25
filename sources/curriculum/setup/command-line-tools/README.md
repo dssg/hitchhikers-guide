@@ -32,24 +32,24 @@ In this brief tutorial, we'll try to provide a very quick high-level introductio
 Let's start by connecting to the compute server the same way we did yesterday:
 
 ```
-ssh {your_andrew_id}@training.dssg.io
+ssh {your_jhu_id}@training.dssg.io
 ```
 
 or, if you need to tell ssh where to find your private key:
 
 ```
-ssh -i {/path/to/your/private_key} {your_andrew_id}@training.dssg.io
+ssh {your_jhu_id}@training.dssg.io
 ```
 
-When you first connect to the server, you'll land in your home directory, `\home\{your_andrew_id}\`. Let's take a look around...
+When you first connect to the server, you'll land in your home directory, `/data/dssg/users/{your_jhu_id}/`. Let's take a look around...
 
 ## Navigating the Unix File System
 
 Whenever you're working at the unix command prompt, you always have a **working directory** that specifies the location in the file system that you're executing commands from. To see your current working directory, you can use the command `pwd` (that is, "print working directory" -- you'll find that most unix commands are short abbreviations to save on repeated keystrokes!):
 
 ```
-dssgfellow@dssg-primary:~$ pwd
-/home/dssgfellow
+{your_jhu_id}@mrpzdssgadmin01:~$ pwd
+/data/dssg/users/{your_jhu_id}
 ```
 
 This prints out an **absolute path** to your current location in the system, which starts with a `/` character (which specifies the root directory of the system). The figure below gives an example of how a typical unix filesystem is organized:
@@ -68,14 +68,14 @@ There are a few special paths that can be very helpful as you move around:
 
 With those basics in mind, we can start to explore.
 
-For the fellowship, we've created a special directory on the server that's attached to a large disk to store data and modeling results. You can find it at `/mnt/data`. To move there, we'll use the `cd` ("change directory") command:
+For the fellowship, we've created a special directory on the server that's attached to a large disk to store data and modeling results. You can find it at `/data/dssg/`. To move there, we'll use the `cd` ("change directory") command:
 
 ```
-dssgfellow@dssg-primary:~$ cd /mnt/data
-dssgfellow@dssg-primary:/mnt/data$ pwd
-/mnt/data
+yourjhuid@dssg-primary:~$ cd /data/dssg/
+yourjhuid@dssg-primary:/data/dssg$ pwd
+/data/dssg
 ```
-Notice that two things happened: the last bit of our prompt changed from `~` to `/mnt/data` (helping us keep track of where we are) and the output of the `pwd` command has also changed to `/mnt/data`.
+Notice that two things happened: the last bit of our prompt changed from `~` to `/data/dssg` (helping us keep track of where we are) and the output of the `pwd` command has also changed to `/data/dssg`.
 
 NOTE: to save space, from this point we won't show the full prompt, just the `$` -- lines starting with a `$` are commands to type and those without are outputs.
 
@@ -94,14 +94,14 @@ Looks like there's another directory in here called `projects`. And to see what'
 
 ```
 $ ls projects/
-acdhs-housing    dojo-mh           kcmo-mc        vibrant-routing
-baltimore-roofs  food_inspections  pakistan-ihhn
+baltimore_roofs  baton-rouge-blight boston-traffic 
+orientation paterson-fire
 ```
 
-Now we can see all the directories we've created for the projects this summer. Let's go into the one for the "food inspections" training project:
+Now we can see all the directories we've created for the projects this summer. Let's go into the one for the "orientation" training project:
 
 ```
-$ cd projects/food_inspections/
+$ cd projects/orientation/
 ```
 
 Now let's see what's in here with `ls` again:
@@ -161,7 +161,7 @@ So far we've introduced just a couple of the most fundamental unix commands to h
 It's helpful to realize that all unix commands share a basic syntax. Let's take a look at one to see how it works:
 
 ```
-$ ls -l --human-readable /mnt/data/projects/food_inspections/
+$ ls -l --human-readable /data/dssg/projects/orientation/
 ```
 
 This command contains four parts:
@@ -177,9 +177,9 @@ This command contains four parts:
 And here's what happens when we run it:
 
 ```
-$ ls -l --human-readable /mnt/data/projects/food_inspections/
-total 4.0K
--rw-r--r-- 1 root training 13 Jun  1 02:09 i_am_a_file.txt
+$ ls -l --human-readable /data/dssg/projects/orientation/
+total 722M
+-rw-r--r-- 1 lmillan1 fellows 0 May  25 10:55 i_am_a_file.txt
 ```
 
 With the new options, the output from `ls` now gives us a lot more information: the permissions associated with the file, the owner and group, the file size and creation time, and the file name.
@@ -294,19 +294,19 @@ Keeping an eye on disk space can also be helpful at times, which you can do with
 
 ```
 $ df -h
-Filesystem       Size  Used Avail Use% Mounted on
-/dev/root         49G  7.7G   41G  16% /
-tmpfs             16G     0   16G   0% /dev/shm
-tmpfs            6.2G  956K  6.2G   1% /run
-tmpfs            5.0M     0  5.0M   0% /run/lock
-/dev/nvme0n1p15  105M  5.3M  100M   5% /boot/efi
-/dev/nvme1n1     5.0T   36G  5.0T   1% /mnt/data
-tmpfs            3.1G  4.0K  3.1G   1% /run/user/1055
-tmpfs            3.1G  4.0K  3.1G   1% /run/user/1038
-tmpfs            3.1G  4.0K  3.1G   1% /run/user/1000
+Filesystem                 Size  Used Avail Use% Mounted on
+/dev/root                  124G  9.9G  114G   8% /
+tmpfs                       16G   28K   16G   1% /dev/shm
+tmpfs                      6.3G  1.1M  6.3G   1% /run
+tmpfs                      5.0M     0  5.0M   0% /run/lock
+efivarfs                   128M   34K  128M   1% /sys/firmware/efi/efivars
+/dev/sda15                 105M  6.1M   99M   6% /boot/efi
+/dev/mapper/vgdata-lvdata  5.0T   46G  5.0T   1% /data
+tmpfs                      3.2G  4.0K  3.2G   1% /run/user/1013
+tmpfs                      3.2G  4.0K  3.2G   1% /run/user/1015
 ```
 
-Most of your work will happen in `/mnt/data`, so you'll particularly want to keep an eye on that partition.
+Most of your work will happen in `/data`, so you'll particularly want to keep an eye on that partition.
 
 ## Further Resources
 
