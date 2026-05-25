@@ -2506,18 +2506,18 @@ machines in the cloud, the CLI is often the only interface available.</p>
 - Checking on available resources</p>
 <h2 id="getting-started-connect-to-the-server">Getting Started: Connect to the Server<a class="headerlink" href="#getting-started-connect-to-the-server" title="Permanent link">#</a></h2>
 <p>Let's start by connecting to the compute server the same way we did yesterday:</p>
-<div class="highlight"><pre><span></span>ssh {your_andrew_id}@training.dssg.io
+<div class="highlight"><pre><span></span>ssh {your_jhu_id}@training.dssg.io
 </pre></div>
 
 <p>or, if you need to tell ssh where to find your private key:</p>
-<div class="highlight"><pre><span></span>ssh -i {/path/to/your/private_key} {your_andrew_id}@training.dssg.io
+<div class="highlight"><pre><span></span>ssh {your_jhu_id}@training.dssg.io
 </pre></div>
 
-<p>When you first connect to the server, you'll land in your home directory, <code>\home\{your_andrew_id}\</code>. Let's take a look around...</p>
+<p>When you first connect to the server, you'll land in your home directory, <code>/data/dssg/users/{your_jhu_id}/</code>. Let's take a look around...</p>
 <h2 id="navigating-the-unix-file-system">Navigating the Unix File System<a class="headerlink" href="#navigating-the-unix-file-system" title="Permanent link">#</a></h2>
 <p>Whenever you're working at the unix command prompt, you always have a <strong>working directory</strong> that specifies the location in the file system that you're executing commands from. To see your current working directory, you can use the command <code>pwd</code> (that is, "print working directory" -- you'll find that most unix commands are short abbreviations to save on repeated keystrokes!):</p>
-<div class="highlight"><pre><span></span>dssgfellow@dssg-primary:~$ pwd
-/home/dssgfellow
+<div class="highlight"><pre><span></span>{your_jhu_id}@mrpzdssgadmin01:~$ pwd
+/data/dssg/users/{your_jhu_id}
 </pre></div>
 
 <p>This prints out an <strong>absolute path</strong> to your current location in the system, which starts with a <code>/</code> character (which specifies the root directory of the system). The figure below gives an example of how a typical unix filesystem is organized:</p>
@@ -2530,12 +2530,12 @@ The folders under the root directory contain information for the configuration a
 - <code>..</code> always refers to the <em>parent</em> of the current working directory
 - <code>~</code> always refers to the home directory of the current user</p>
 <p>With those basics in mind, we can start to explore.</p>
-<p>For the fellowship, we've created a special directory on the server that's attached to a large disk to store data and modeling results. You can find it at <code>/mnt/data</code>. To move there, we'll use the <code>cd</code> ("change directory") command:</p>
-<p><div class="highlight"><pre><span></span>dssgfellow@dssg-primary:~$ cd /mnt/data
-dssgfellow@dssg-primary:/mnt/data$ pwd
-/mnt/data
+<p>For the fellowship, we've created a special directory on the server that's attached to a large disk to store data and modeling results. You can find it at <code>/data/dssg/</code>. To move there, we'll use the <code>cd</code> ("change directory") command:</p>
+<p><div class="highlight"><pre><span></span>yourjhuid@dssg-primary:~$ cd /data/dssg/
+yourjhuid@dssg-primary:/data/dssg$ pwd
+/data/dssg
 </pre></div>
-Notice that two things happened: the last bit of our prompt changed from <code>~</code> to <code>/mnt/data</code> (helping us keep track of where we are) and the output of the <code>pwd</code> command has also changed to <code>/mnt/data</code>.</p>
+Notice that two things happened: the last bit of our prompt changed from <code>~</code> to <code>/data/dssg</code> (helping us keep track of where we are) and the output of the <code>pwd</code> command has also changed to <code>/data/dssg</code>.</p>
 <p>NOTE: to save space, from this point we won't show the full prompt, just the <code>$</code> -- lines starting with a <code>$</code> are commands to type and those without are outputs.</p>
 <div class="admonition info">
 <p class="admonition-title">TAB is your friend</p>
@@ -2548,12 +2548,12 @@ projects
 
 <p>Looks like there's another directory in here called <code>projects</code>. And to see what's in there, we can give <code>ls</code> a relative path:</p>
 <div class="highlight"><pre><span></span>$ ls projects/
-acdhs-housing    dojo-mh           kcmo-mc        vibrant-routing
-baltimore-roofs  food_inspections  pakistan-ihhn
+baltimore_roofs  baton-rouge-blight boston-traffic 
+orientation paterson-fire
 </pre></div>
 
-<p>Now we can see all the directories we've created for the projects this summer. Let's go into the one for the "food inspections" training project:</p>
-<div class="highlight"><pre><span></span>$ cd projects/food_inspections/
+<p>Now we can see all the directories we've created for the projects this summer. Let's go into the one for the "orientation" training project:</p>
+<div class="highlight"><pre><span></span>$ cd projects/orientation/
 </pre></div>
 
 <p>Now let's see what's in here with <code>ls</code> again:</p>
@@ -2595,7 +2595,7 @@ Hello world!
 <h2 id="basics-of-unix-commands">Basics of Unix Commands<a class="headerlink" href="#basics-of-unix-commands" title="Permanent link">#</a></h2>
 <p>So far we've introduced just a couple of the most fundamental unix commands to help you navigate the system, but this is only a tiny portion of what you can do in the shell. The number of commands to remember can seem a little overwhelming at first, but will get familiar over time. </p>
 <p>It's helpful to realize that all unix commands share a basic syntax. Let's take a look at one to see how it works:</p>
-<div class="highlight"><pre><span></span>$ ls -l --human-readable /mnt/data/projects/food_inspections/
+<div class="highlight"><pre><span></span>$ ls -l --human-readable /data/dssg/projects/orientation/
 </pre></div>
 
 <p>This command contains four parts:</p>
@@ -2604,9 +2604,9 @@ Hello world!
 <p><code>-l</code> tells ls to give detailed descriptions of all the files it lists (including size and permissions). <code>--human-readable</code> is self-explanatory: it tells <code>ls</code> to make its output easy to read.</p>
 <p><code>/mnt/data/projects/food_inspections/</code>: This is the argument. Here, it's a relative path to the folder that we're telling <code>ls</code> to list the contents of. Most unix commands take an argument - often text, or a file or folder to operate on.</p>
 <p>And here's what happens when we run it:</p>
-<div class="highlight"><pre><span></span>$ ls -l --human-readable /mnt/data/projects/food_inspections/
-total 4.0K
--rw-r--r-- 1 root training 13 Jun  1 02:09 i_am_a_file.txt
+<div class="highlight"><pre><span></span>$ ls -l --human-readable /data/dssg/projects/orientation/
+total 722M
+-rw-r--r-- 1 lmillan1 fellows 0 May  25 10:55 i_am_a_file.txt
 </pre></div>
 
 <p>With the new options, the output from <code>ls</code> now gives us a lot more information: the permissions associated with the file, the owner and group, the file size and creation time, and the file name.</p>
@@ -2696,19 +2696,19 @@ total 4.0K
 <p><img alt="" src="htop.png" /></p>
 <p>Keeping an eye on disk space can also be helpful at times, which you can do with the <code>df</code> command (the <code>-h</code> flag translates the output to more human-readable units):</p>
 <div class="highlight"><pre><span></span>$ df -h
-Filesystem       Size  Used Avail Use% Mounted on
-/dev/root         49G  7.7G   41G  16% /
-tmpfs             16G     0   16G   0% /dev/shm
-tmpfs            6.2G  956K  6.2G   1% /run
-tmpfs            5.0M     0  5.0M   0% /run/lock
-/dev/nvme0n1p15  105M  5.3M  100M   5% /boot/efi
-/dev/nvme1n1     5.0T   36G  5.0T   1% /mnt/data
-tmpfs            3.1G  4.0K  3.1G   1% /run/user/1055
-tmpfs            3.1G  4.0K  3.1G   1% /run/user/1038
-tmpfs            3.1G  4.0K  3.1G   1% /run/user/1000
+Filesystem                 Size  Used Avail Use% Mounted on
+/dev/root                  124G  9.9G  114G   8% /
+tmpfs                       16G   28K   16G   1% /dev/shm
+tmpfs                      6.3G  1.1M  6.3G   1% /run
+tmpfs                      5.0M     0  5.0M   0% /run/lock
+efivarfs                   128M   34K  128M   1% /sys/firmware/efi/efivars
+/dev/sda15                 105M  6.1M   99M   6% /boot/efi
+/dev/mapper/vgdata-lvdata  5.0T   46G  5.0T   1% /data
+tmpfs                      3.2G  4.0K  3.2G   1% /run/user/1013
+tmpfs                      3.2G  4.0K  3.2G   1% /run/user/1015
 </pre></div>
 
-<p>Most of your work will happen in <code>/mnt/data</code>, so you'll particularly want to keep an eye on that partition.</p>
+<p>Most of your work will happen in <code>/data</code>, so you'll particularly want to keep an eye on that partition.</p>
 <h2 id="further-resources">Further Resources<a class="headerlink" href="#further-resources" title="Permanent link">#</a></h2>
 <p>If you want to dive a bit deeper into working at the command line (and learn a little about just how powerful it can be for munging data!), check out these additional guides:</p>
 <ul>
