@@ -13,10 +13,10 @@ This summer, you will use a database to store and analyze data. Databases have s
 
 You'll likely have to load CSVs (or excel files) into your database (e.g. from the open data portal), even if your partner gave a database dump ([which is ideal](https://dsapp.uchicago.edu/home/resources/give-us-direct-access-system-database-dump/)). This session builds on what you learned last week in the [pipeline](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/0_before_you_start/pipelines-and-project-workflow) and [command line](https://github.com/dssg/hitchhikers-guide/tree/master/curriculum/1_getting_and_keeping_data/command-line-tools) sessions. We will focus on ETL. 
 
-## [Jupyter notebook for DSSG 2022 Training session](csvtopostgres.ipynb)
+## [Jupyter notebook for DSSG 2026 Training session](csvtopostgres.ipynb)
 
 ## DSSG 2018 Tutorial
-Everything from this tutorial is still valid (as of June 2022) except that we now recommend using our [ohio](https://github.com/dssg/ohio)) python package that gives the familiar pandas interfac but the speed of the COPY command in postgres. The [tutorial from 2022](csvtopostgres.ipynb) shows you how to use it and compares it to the other options.
+Everything from this tutorial is still valid (as of June 2026) except that we now recommend using our [ohio](https://github.com/dssg/ohio)) python package that gives the familiar pandas interface but the speed of the COPY command in postgres. The [tutorial from 2026](csvtopostgres.ipynb) shows you how to use it and compares it to the other options.
 
 ## Tools
 * psql (command line)
@@ -279,12 +279,9 @@ Check if the data are there. Here's what it looks like in dBeaver:
 
 ![alt text](https://raw.githubusercontent.com/dssg/hitchhikers-guide/master/curriculum/1_getting_and_keeping_data/csv-to-db/data_inserted_into_table.png "data inserted")
 
-
 ## Further Resources
 * Software Carpentry: [Databases and SQL](http://swcarpentry.github.io/sql-novice-survey/)
 
 
-
-## Discussion Notes
 
 
