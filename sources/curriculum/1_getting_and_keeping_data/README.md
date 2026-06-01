@@ -3,7 +3,7 @@
 Data comes in many forms, from many sources:
 - you may get a database dump or backup directly from a project partner
 - you may get a load of excel files
-- you may get a set of CSVs
+- you may get a set of CSVs (See tutorial on [Getting data from CSVs into a Database]() ).
 - you may need to scrape data from the web (see [Basic Web Scraping](basic-web-scraping/README.md)).
 
 Regardless of what you get, once you've got your hands on some data, you'll need to bring it into a consolidated [database](databases/README.md), and start formatting it in such a way that you can use it for analysis. [Command Line Tools](../setup/command-line-tools/README.md) will start to come in handy here. If your data is in a format that resembles `CSV` [these instructions will be helpful](csv-to-db/README.md).
