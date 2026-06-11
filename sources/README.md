@@ -15,13 +15,13 @@ sociology, economics, and public policy backgrounds.
 
 The fellows work in small, cross-disciplinary teams on social good
 projects spanning education, health, energy, transportation, criminal
-justice, social services, economic development and international
+justice, social services, economic development, and international
 development in collaboration with global government agencies and
 non-profits. This work is done under close and hands-on mentorship
-from full-time, dedicated data science mentors as well as dedicated
-project managers, with industry experience. The result is highly
+from full-time, dedicated data science mentors, as well as dedicated
+project managers with industry experience. The result is highly
 trained fellows, improved data science capacity of the social good
-organization, and a high quality data science project that is ready
+organization, and a high-quality data science project that is ready
 for field trial and implementation, delivered at the end of the
 program.
 
@@ -33,7 +33,7 @@ for social impact.
 
 ## Who is this guide for?
 
-The primary audience for this guide is the set of fellows coming to DSSG but we want everything we create to be open and accessible to larger world. We hope this is useful to people beyond the summer fellows coming to DSSG.
+The primary audience for this guide is the set of fellows coming to DSSG, but we want everything we create to be open and accessible to the larger world. We hope this is useful to people beyond the summer fellows coming to DSSG.
 
 **If you are applying to the program or have been accepted as a fellow,** [check out the manual](dssg-manual/) to see how you can prepare before arriving, what orientation and training will cover, and what to expect from the summer.
 
@@ -44,10 +44,10 @@ The primary audience for this guide is the set of fellows coming to DSSG but we 
 
 ## What is in this guide?
 
-Our number one priority at  [DSSG](http://dssg.uchicago.edu) is to **train fellows to do data science for social good work**. This curriculum includes many things you'd find in a data science course or bootcamp, but with an emphasis on solving problems with social impact, integrating data science with the social sciences, discussing ethical implications of the work, as well as privacy, and confidentiality issues.
+Our number one priority at  [DSSG](http://dssgfellowship.org) is to **train fellows to do data science for social good work**. This curriculum includes many things you'd find in a data science course or bootcamp, but with an emphasis on solving problems with social impact, integrating data science with the social sciences, discussing ethical implications of the work, as well as privacy and confidentiality issues.
 
 We have spent many (sort of) early mornings waxing existential over
-Dunkin' Donuts while trying to define what makes a "data scientist for
+Dunkin' Donuts, while trying to define what makes a "data scientist for
 social good," that enigmatic breed combining one part data scientist,
 one part consultant, one part educator, and one part bleeding heart
 idealist. We've come to a rough working definition in the form of the
