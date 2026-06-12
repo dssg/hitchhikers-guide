@@ -13,4 +13,6 @@
      | [2018](https://dssg.uchicago.edu/people/2018-fellows-mentors/) | Chicago | USA |
      | 2019 | Warwick | UK |
      | 2019 | London    | UK |
-     | 2022 | Pittsburgh | USA |
+     | [2022](https://dssgfellowship.org/people/2022-fellows-mentors/) | Pittsburgh | USA |
+     | [2026](https://dssgfellowship.org/people/2026-fellows-mentors/) | Baltimore | USA |
+
