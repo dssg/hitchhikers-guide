@@ -1,7 +1,7 @@
 mkdocs==1.0.4
 pymdown-extensions==6.0
 mkdocs-material==4.2.0
-jinja2==2.10.1
+jinja2==2.11.3
 markupsafe==1.1.1
 markdown==3.1.1
 pygments==2.4.2
