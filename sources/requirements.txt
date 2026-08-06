@@ -1,1 +1,28 @@
-../requirements.txt
+mkdocs==1.2.3
+pymdown-extensions==6.0
+mkdocs-material==4.2.0
+jinja2==2.10.1
+markupsafe==1.1.1
+markdown==3.1.1
+pygments==2.4.2
+httpie==1.0.2
+#
+# the packages below probably aren't needed for maintaining the 
+# hitchhikers guide itself and should probably be moved elsewhere
+#
+jupyter==1.0.0
+ipython==8.3.0
+pandas==1.4.2
+numpy==1.22.3
+sklearn==0.0
+beautifulsoup4==4.11.1
+requests==2.27.1
+tqdm==4.64.0
+matplotlib==3.5.2
+statsmodels==0.13.2
+seaborn==0.11.2
+psycopg2-binary==2.9.3
+csvkit==1.0.7
+nltk==3.7
+ujson==5.2.0
+spacy==3.3.0
